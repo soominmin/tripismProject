@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login화면</title>
+    <style>
+        #wrap{
+            width: 300px;
+            height: 700px;
+            margin: auto;
+            padding-top: 150px;
+        }
+
+        #kakao_api{
+            background-color: yellow;
+            width: 280px;
+            height: 35px;
+            text-align: center;
+            margin: auto;
+            cursor: pointer;
+            border-radius: 7px 7px 7px 7px;
+            margin-bottom: 10px;
+            padding-top: 10px;
+            margin-top: 35px;
+        }
+
+        #naver_api {
+            background-color: rgb(36, 167, 36);
+            width: 280px;
+            height: 35px;
+            text-align: center;
+            margin: auto;
+            cursor: pointer;
+            border-radius: 7px 7px 7px 7px;
+            padding-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        #enroll {
+            background-color: orange;
+            width: 280px;
+            height: 35px;
+            text-align: center;
+            margin: auto;
+            cursor: pointer;
+            border-radius: 7px 7px 7px 7px;
+            padding-top: 10px;
+
+        }
+
+        .find{
+            text-align: center;
+            padding: 10px;
+        }
+
+        .find>a{
+            text-decoration: none;
+            color: black;
+            font-size: 13px;
+        }
+
+        
+        
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="login" align="center">
+            <form action="#">
+                <label for="userId">ID : </label>
+                <input type="text" placeholder="아이디를 입력해주세요." id="userId" name="userId" required> <br>
+                <label for="userPwd">Password : </label>
+                <input type="password"placeholder="비밀번호를 입력해주세요." id="userPwd" name="userPwd" required> <br><br>
+                <button type="submit" >확인</button> 
+                <button type="reset">초기화</button>
+            </form>
+        </div>
+
+        <br><br>
+        <hr>
+
+        <div class="api_login">
+            <div id="kakao_api" onclick="location.href='#' ">카카오로 로그인하기</div>
+            <div id="naver_api" onclick="location.href='#' ">네이버로 로그인하기</div>
+            <div id="enroll" onclick="location.href='#' ">회원가입</div>
+        </div>
+
+        <div class="find">
+            <a href="#">아이디 찾기</a> &nbsp; &nbsp; &nbsp;
+            <a href="#">비밀번호 찾기</a>
+        </div>
+
+    </div>
+</body>
+</html>

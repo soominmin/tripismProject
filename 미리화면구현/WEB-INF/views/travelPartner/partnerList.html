@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        
+    <!-- jQuery 라이브러리 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- 부트스트랩에서 제공하고 있는 스타일 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- 부트스트랩에서 제공하고 있는 스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        div {box-sizing:border-box;}
+        #header {
+            width:80%;
+            height:100px;
+            padding-top:20px;
+            margin:auto;
+        }
+        #header>div {width:100%; margin-bottom:10px;}
+        #header_1 {height:40%;}
+        #header_2 {height:60%;}
+
+        #header_1>div{
+            height:100%;
+            float:left;
+        }
+        #header_1_left {width:15%; position:relative;}
+        #header_1_center {width:55%;}
+        #header_1_right {width:30%;}
+
+        #header_1_left>img {height:80%; position:absolute; margin:auto; top:0px; bottom:0px; right:0px; left:0px;}
+        #header_1_right {text-align:center; line-height:35px; font-size:12px; text-indent:35px;}
+        #header_1_right>a {margin:5px;}
+        #header_1_right>a:hover {cursor:pointer;}
+
+        #header_2>ul {width:100%; height:100%; list-style-type:none; margin:auto; padding:0;}
+        #header_2>ul>li {float:left; width:5%; height:100%; line-height:55px; text-align:center;}
+        #header_2>ul>li a {text-decoration:none; color:black; font-size:18px; font-weight:900;}
+
+        #header_2 {border-top:1px solid lightgray;}
+
+        #header a {text-decoration:none; color:black;}
+
+        /* 세부페이지마다 공통적으로 유지할 style */
+        .content {
+            background-color:rgb(247, 245, 245);
+            width:80%;
+            margin:auto;
+        }
+        .innerOuter {
+            border:1px solid lightgray;
+            width:80%;
+            margin:auto;
+            padding:5% 10%;
+            background-color:white;
+        }
+        .main_image {
+            position: relative;
+        }
+        #main_image_text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate( -50%, -50% );
+            color: white;
+        }
+        .row {
+            display: flex;
+            margin-right: 10px;
+            margin-left: 10px;
+            justify-content: center;
+            flex-direction: row;
+        }
+
+        .rowing {
+            display: flex;
+            justify-content: center;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- header start-->
+    <div id="header">
+        <div id="header_1">
+            <div id="header_1_left">
+                <img src="https://tripsoda.com/images/common/logo.svg" alt="">
+            </div>
+            <div id="header_1_center">
+                <a href="#" >커뮤니티</a>
+                <a href="#" style="margin-left: 10px;">여행추천</a> 
+            </div>
+            <div id="header_1_right">
+                <span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block;"></svg>
+                </span>
+                <input style="border-radius: 90px; width: 50%; margin-right: 20px;" placeholder="   동행을 찾아보세요!" value="" >
+                <a href="">회원가입</a> |
+                <a href="">로그인</a>
+            </div>
+        </div>
+        <div id="header_2"  style="padding-left: 100px;">
+            <ul>
+                <li><a href="">HOME</a></li>
+                <li><a href="">동행</a></li>
+            </ul>
+        </div>
+    </div>
+    <br clear="both">
+    <!-- header end-->
+
+    <div class="content">
+        <div class="main_image">
+            <img src="https://g-grafolio.pstatic.net/20201009_240/1602231879299sxI7K_JPEG/%B9%E3%C7%CF%B4%C3%C0%C7_%BA%B0_UHD.jpg" width="100%" height="200px">
+          <h3 id="main_image_text">나와 맞는 여행동행과 이야기를 나누어보아요!</h3>
+        </div>
+
+        <div class="tripList" style="text-align: center;">  
+            <div class="rowing">
+                <div class="colling">
+                    <div class="heroing" style="padding-bottom: 20px;  padding-top: 30px;">
+                        <h3 style="color: gray;">** 나중에 템플릿써서 제대로 style 넣기</h3>
+                        <h1>여행지 목록 조회및 날짜 선택</h1>
+                    </div>
+                    <form action="#" class="search-box" style="float:left;">
+                        <div class="input-form" style="width: 500px; float:left;">
+                            <input type="text" style="width: 500px;" placeholder="서울/강원도/제주도/부산/경기도/인천/충청도/경상도/전라도?">
+                        </div>
+                        <div class="select-form" style="float:left; padding-left: 10px; padding-right: 10px;">
+                            <div class="select-itms">
+                                <select name="select" id="select1" style="height: 30px;">
+                                    <option value="">When</option>
+                                    <option value="">Services-1</option>
+                                    <option value="">Services-2</option>
+                                    <option value="">Services-3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-success btn-sm">검색하기</button>
+                    </form>	
+
+                </div>
+            </div>
+        </div>
+        <div class="contentArray" style="text-align: right; padding-top: 30px;">
+            <select name="gender" id="gender" style="height: 30px;">
+                <option value="">모집제한</option>
+                <option value="">남자만</option>
+                <option value="">여자만</option>
+            </select>
+            <select name="array" id="array" style="height: 30px;">
+                <option value="">정렬</option>
+                <option value="">최신순</option>
+                <option value="">조회순</option>
+            </select>
+            <button class="btn btn-outline-success btn-sm" style="border-radius: 90px;">모집중인 글만 보기</button>
+        </div>
+        
+        <div class="row" style="padding-top: 100px;">
+            <div class="col" style="border: 1px solid black;">
+                <h2 style="text-align: center;">Img 1</h2>
+                <h5><span style="color: rgb(0,206,124); font-weight: 400;">모집중</span> title 1</h5>
+                <p>content 1</p>
+                <span>nickname</span>
+                <span style="padding-left: 100px;">조회: 150</span>
+                <span style="padding-left: 30px;">쪽지: 5</span>
+            </div>
+            <div class="col" style="border: 1px solid black;">
+                <h2 style="text-align: center;">Img 2</h2>
+                <h3><span style="color: rgb(0,206,124); font-weight: 400;">모집중</span>title 2</h3>
+                <p>content 2</p>
+                <span>nickname</span>
+                <span style="padding-left: 100px;">조회: 150</span>
+                <span style="padding-left: 30px;">쪽지: 5</span>
+            </div>
+            <div class="col" style="border: 1px solid black;">
+                <h2 style="text-align: center;">Img 3</h2>
+                <h3><span style="color: rgb(0,206,124); font-weight: 400;">모집중</span>title 3</h3>
+                <p>content 3</p>
+                <span>nickname</span>
+                <span style="padding-left: 100px;">조회: 150</span>
+                <span style="padding-left: 30px;">쪽지: 5</span>
+            </div>
+            <div class="col" style="border: 1px solid black;">
+                <h2 style="text-align: center;">Img 4</h2>
+                <h3><span style="color: rgb(0,206,124); font-weight: 400;">모집중</span>title 4</h3>
+                <p>content 4</p>
+                <span>nickname</span>
+                <span style="padding-left: 100px;">조회: 150</span>
+                <span style="padding-left: 30px;">쪽지: 5</span>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

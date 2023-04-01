@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+        
+    <!-- jQuery 라이브러리 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- 부트스트랩에서 제공하고 있는 스타일 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- 부트스트랩에서 제공하고 있는 스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        div {box-sizing:border-box;}
+        #header {
+            width:80%;
+            height:100px;
+            padding-top:20px;
+            margin:auto;
+        }
+        #header>div {width:100%; margin-bottom:10px;}
+        #header_1 {height:40%;}
+        #header_2 {height:60%;}
+
+        #header_1>div{
+            height:100%;
+            float:left;
+        }
+        #header_1_left {width:15%; position:relative;}
+        #header_1_center {width:55%;}
+        #header_1_right {width:30%;}
+
+        #header_1_left>img {height:80%; position:absolute; margin:auto; top:0px; bottom:0px; right:0px; left:0px;}
+        #header_1_right {text-align:center; line-height:35px; font-size:12px; text-indent:35px;}
+        #header_1_right>a {margin:5px;}
+        #header_1_right>a:hover {cursor:pointer;}
+
+        #header_2>ul {width:100%; height:100%; list-style-type:none; margin:auto; padding:0;}
+        #header_2>ul>li {float:left; width:5%; height:100%; line-height:55px; text-align:center;}
+        #header_2>ul>li a {text-decoration:none; color:black; font-size:18px; font-weight:900;}
+
+        #header_2 {border-top:1px solid lightgray;}
+
+        #header a {text-decoration:none; color:black;}
+
+        .content {
+            background-color:rgb(247, 245, 245);
+            width:80%;
+            margin:auto;
+        }
+        .innerOuter {
+            border:1px solid lightgray;
+            width:80%;
+            margin:auto;
+            padding:5% 10%;
+            background-color:white;
+        }
+        #main_image_text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate( -50%, -50% );
+            color: white;
+        }
+        .row {
+            display: flex;
+            margin-right: 0px;
+            margin-left: 0px;
+            justify-content: center;
+            flex-direction: row;
+        }
+
+        .rowing {
+            display: flex;
+            justify-content: center;
+        }
+
+        .content_image>img {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            display: flex;
+            border-radius: 10px;
+            object-fit: cover;
+            object-position: 50% 50%;
+        }
+
+        #userInfo {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-content: center;
+        }
+
+        .CommentInputBox {
+            display: flex;
+            position: relative;
+            width: 100%;
+            min-height: 48px;
+            line-height: 48px;
+            -webkit-box-align: center;
+            align-items: center;
+            box-sizing: border-box;
+            border: 1px solid rgb(220, 220, 220);
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+
+        }
+
+    </style>
+</head>
+<body>
+     <!-- header start-->
+     <div id="header">
+        <div id="header_1">
+            <div id="header_1_left">
+                <img src="https://tripsoda.com/images/common/logo.svg" alt="">
+            </div>
+            <div id="header_1_center">
+                <a href="#" >커뮤니티</a>
+                <a href="#" style="margin-left: 10px;">여행추천</a> 
+            </div>
+            <div id="header_1_right">
+                <span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block;"></svg>
+                </span>
+                <input style="border-radius: 90px; width: 50%; margin-right: 20px;" placeholder="   동행을 찾아보세요!" value="" >
+                <a href="">회원가입</a> |
+                <a href="">로그인</a>
+            </div>
+        </div>
+        <div id="header_2"  style="padding-left: 100px;">
+            <ul>
+                <li><a href="">HOME</a></li>
+                <li><a href="">동행</a></li>
+            </ul>
+        </div>
+    </div>
+    <br clear="both">
+    <!-- header end-->
+
+    <div class="content">
+        <div class="content_image">
+            <img class="ci" src="https://g-grafolio.pstatic.net/20200402_167/1585804551823AsM6N_JPEG/04._3%BD%C3_%B9%D9%B4%D9%BF%CD_%C7%AE%B9%E7_%BB%E7%C0%CC_%28dr_dayfly%29.jpg">
+        </div>
+
+        <div class="row">
+            <div class="col-sm-8" style="margin-top: 20px;">
+                <h2>Title</h2>
+                <div class="topInfoBpx" style="border: 1px solid #e9e9e9; border-radius: 8px; width: 80%;">
+                    <span>지역: 제주도</span>
+                    <span>모집인원: 1명</span>
+                    <p>2023.04.04 - 2023.04.07</p>
+                </div>
+                <div style="width: 80%; margin-top: 20px; margin-bottom: 150px; font-size: 12px;">
+                    <p>함께 <span style="color: rgb(0,206,124); font-weight: 400;">맛집/카페탐방, 관광, 드라이브</span>여행을 떠나려고 해요.</p>
+                    <p>저는 <span style="color: rgb(0,206,124); font-weight: 400;">계획적인, 여행고수, 드라이버</span>여행자 예요.</p>
+                    <p style="font-size: 16px; margin-top: 20px;"> 다음주가 꽃구경 막바지일것 같아서 구경 하러가자! 바다도 보며 쉬러 갈 동행을 찾습니다.</p>
+                </div>
+
+                <p>조회수: 53 쪽지:10 <u>신고하기</u></p>
+                <div class="btn btn-secondary btn-sm">#여성</div>
+                <div class="btn btn-secondary btn-sm">#20대</div>
+                <div class="btn btn-secondary btn-sm">#아무나다좋아</div>
+                <div class="CommentInputBox">
+                    <textarea placeholder="댓글을 입력해주세요." class="CommentInputBox" style="height: 39px;"></textarea>
+                    <button class="btn btn-success btn-sm">등록</button>
+                </div>
+            </div>
+
+            <div style="margin-top: 20px; border: 1px solid #e9e9e9;" class="col-sm-4" id="userInfo">
+                <div class="userImg">
+                    <img style="width: 100px; height: 100px; padding: 4px; border-radius: 100px;" src="https://g-grafolio.pstatic.net/20220627_5/1656308708723E0Y6H_PNG/%C6%AB%B8%B3_1.PNG">
+                </div>
+                <div>NickName</div>
+                <div style="float: left;">20대 . 여성 . 부산</div>
+                <div style="margin-top: 20px;">* 프로필 사진을 클릭해보세요!</div>
+                <button class="btn btn-success btn-lg">동행 신청하기</button>
+                <hr class="d-sm-none">
+            </div>
+
+
+          </div>
+    </div>
+</body>
+</html>

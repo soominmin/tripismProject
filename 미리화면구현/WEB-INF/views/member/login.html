@@ -1,97 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login화면</title>
-    <style>
-        #wrap{
-            width: 300px;
-            height: 700px;
-            margin: auto;
-            padding-top: 150px;
-        }
 
-        #kakao_api{
-            background-color: yellow;
-            width: 280px;
-            height: 35px;
-            text-align: center;
-            margin: auto;
-            cursor: pointer;
-            border-radius: 7px 7px 7px 7px;
-            margin-bottom: 10px;
-            padding-top: 10px;
-            margin-top: 35px;
-        }
+  <!-- SITE TITTLE -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Star Travel - Tour Booking Theme</title>
 
-        #naver_api {
-            background-color: rgb(36, 167, 36);
-            width: 280px;
-            height: 35px;
-            text-align: center;
-            margin: auto;
-            cursor: pointer;
-            border-radius: 7px 7px 7px 7px;
-            padding-top: 10px;
-            margin-bottom: 10px;
-        }
+  <!-- Plugins css Style -->
+  <!-- <link href='common/assets/plugins/fontawesome-5.15.2/css/all.min.css' rel='stylesheet'> -->
+  <link href='../common/Star travel/Static HTML/assets/plugins/fontawesome-5.15.2/css/all.min.css' rel='stylesheet'>
+  <!-- <link href='assets/plugins/fontawesome-5.15.2/css/fontawesome.min.css' rel='stylesheet'> -->
+  <link href='../common/Star travel/Static HTML/assets/plugins/fontawesome-5.15.2/css/fontawesome.min.css' rel='stylesheet'>
+  <!-- <link href="assets/plugins/animate/animate.css" rel="stylesheet"> -->
+  <link href="../common/Star travel/Static HTML/assets/plugins/animate/animate.css" rel="stylesheet">
+  <!-- <link href="assets/plugins/menuzord/css/menuzord.css" rel="stylesheet"> -->
+  <link href="../common/Star travel/Static HTML/assets/plugins/menuzord/css/menuzord.css" rel="stylesheet">
+  <!-- <link href="assets/plugins/menuzord/css/menuzord-animations.css" rel="stylesheet"> -->
+  <link href="../common/Star travel/Static HTML/assets/plugins/menuzord/css/menuzord-animations.css" rel="stylesheet">
 
-        #enroll {
-            background-color: orange;
-            width: 280px;
-            height: 35px;
-            text-align: center;
-            margin: auto;
-            cursor: pointer;
-            border-radius: 7px 7px 7px 7px;
-            padding-top: 10px;
+  
+  <!-- <link href='assets/plugins/fancybox/jquery.fancybox.min.css' rel='stylesheet'> -->
+  <link href='../common/Star travel/Static HTML/assets/plugins/fancybox/jquery.fancybox.min.css' rel='stylesheet'>
+  
+  <!-- <link href='assets/plugins/selectric/selectric.css' rel='stylesheet'> -->
+  <link href='../common/Star travel/Static HTML/assets/plugins/selectric/selectric.css' rel='stylesheet'>
+  <!-- <link href='assets/plugins/daterangepicker/css/daterangepicker.css' rel='stylesheet'> -->
+  <link href='../common/Star travel/Static HTML/assets/plugins/daterangepicker/css/daterangepicker.css' rel='stylesheet'>
+  
+  <!-- <link href='assets/plugins/dzsparallaxer/dzsparallaxer.css' rel='stylesheet'> -->
+  <link href='../common/Star travel/Static HTML/assets/plugins/dzsparallaxer/dzsparallaxer.css' rel='stylesheet'>
+  
+  <!-- <link href='assets/plugins/slick/slick.css' rel='stylesheet'> -->
+  <link href='../common/Star travel/Static HTML/assets/plugins/slick/slick.css' rel='stylesheet'>
+  <!-- <link href='assets/plugins/slick/slick-theme.css' rel='stylesheet'> -->
+  <link href='../common/Star travel/Static HTML/assets/plugins/slick/slick-theme.css' rel='stylesheet'>
+  
+  
+  <!-- <link href='assets/plugins/revolution/css/settings.css' rel='stylesheet'> -->
+  <link href='../common/Star travel/Static HTML/assets/plugins/revolution/css/settings.css' rel='stylesheet'>
 
-        }
+  <!-- GOOGLE FONT -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,600,700' rel='stylesheet'>
 
-        .find{
-            text-align: center;
-            padding: 10px;
-        }
+  <!-- CUSTOM CSS -->
+  <!-- <link href="assets/css/star.css" id="option_style" rel="stylesheet"> -->
+  <link href="../common/Star travel/Static HTML/assets/css/star.css" id="option_style" rel="stylesheet">
 
-        .find>a{
-            text-decoration: none;
-            color: black;
-            font-size: 13px;
-        }
 
-        
-        
-    </style>
+  <!-- FAVICON -->
+  <!-- <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png" /> -->
+  <link rel="shortcut icon" type="image/png" href="../common/Star travel/Static HTML/assets/img/favicon.png" />
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<style>
+#kakao{
+    background-color: rgb(230, 216, 62);
+    border:none;
+    margin-bottom: 10px;
+}
+#naver {
+    margin-bottom: 10px;
+    width: 347.778px;
+    height: 45.382px;
+    line-height: 10px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+#enroll{
+    background-color:  #ff891e;
+    border:none;
+}
+
+#modal-body{
+    padding: 25px 25px;
+
+}
+
+
+</style>
 </head>
-<body>
-    <div id="wrap">
-        <div class="login" align="center">
-            <form action="#">
-                <label for="userId">ID : </label>
-                <input type="text" placeholder="아이디를 입력해주세요." id="userId" name="userId" required> <br>
-                <label for="userPwd">Password : </label>
-                <input type="password"placeholder="비밀번호를 입력해주세요." id="userPwd" name="userPwd" required> <br><br>
-                <button type="submit" >확인</button> 
-                <button type="reset">초기화</button>
-            </form>
-        </div>
 
-        <br><br>
-        <hr>
+<body id="body" class="up-scroll">
 
-        <div class="api_login">
-            <div id="kakao_api" onclick="location.href='#' ">카카오로 로그인하기</div>
-            <div id="naver_api" onclick="location.href='#' ">네이버로 로그인하기</div>
-            <div id="enroll" onclick="location.href='#' ">회원가입</div>
-        </div>
-
-        <div class="find">
-            <a href="#">아이디 찾기</a> &nbsp; &nbsp; &nbsp;
-            <a href="#">비밀번호 찾기</a>
-        </div>
-
+  <!-- Preloader -->
+  <div id="preloader" class="smooth-loader-wrapper">
+    <div class="smooth-loader">
+      <div class="sk-circle">
+        <div class="sk-circle1 sk-child"></div>
+        <div class="sk-circle2 sk-child"></div>
+        <div class="sk-circle3 sk-child"></div>
+        <div class="sk-circle4 sk-child"></div>
+        <div class="sk-circle5 sk-child"></div>
+        <div class="sk-circle6 sk-child"></div>
+        <div class="sk-circle7 sk-child"></div>
+        <div class="sk-circle8 sk-child"></div>
+        <div class="sk-circle9 sk-child"></div>
+        <div class="sk-circle10 sk-child"></div>
+        <div class="sk-circle11 sk-child"></div>
+        <div class="sk-circle12 sk-child"></div>
+      </div>
     </div>
-</body>
+  </div>
+
+  <!-- ====================================
+  ——— HEADER
+  ===================================== -->
+  <header class="header" id="pageTop">
+
+    <!-- Top Bar -->
+<div class="top-bar d-none d-md-block">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-7">
+        <ul class="list-inline d-flex mb-0">
+          <li class="me-6">
+            <a href="tel:88 123 4561 5523" class="media d-inline-flex align-items-center">
+              <i class="fas fa-phone-alt me-2"></i>
+              <div class="media-body">
+                Call: 123 4561 5523
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a href="mailTo:info@startravel.com" class="media d-inline-flex align-items-center">
+              <i class="fa fa-envelope me-2"></i>
+              <div class="media-body">
+                Email: info@startravel.com
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-5">
+        <ul class="list-inline d-flex justify-content-end mb-0">
+
+          <li class="me-6 dropdown dropdown-sm">
+            <i class="fa fa-globe text-gray-color me-1" aria-hidden="true"></i>
+
+            <button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false"> English </button>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="javascript:void(0)">Spanish</a>
+              <a class="dropdown-item" href="javascript:void(0)">chinese</a>
+              <a class="dropdown-item" href="javascript:void(0)">italic</a>
+              <a class="dropdown-item" href="javascript:void(0)">Hindi</a>
+            </div>
+          </li>
+
+          <li class="me-6">
+            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#login" class="media d-inline-flex align-items-center">
+              <i class="fa fa-user me-2"></i>
+              <div class="media-body">
+                Login
+              </div>
+            </a>
+          </li>
+
+          <li class="">
+            <div class="search-item">
+              <a href="javascript:void(0)" class="btn-search">
+                <div class="search-icon">
+                  <i class="fa fa-search"></i>
+                </div>
+
+                <div class="close-icon d-none">
+                  <i class="fas fa-times"></i>
+                </div>
+              </a>
+
+              <div class="search-box">
+                <form class="mb-0" action="index.html" method="post">
+                  <div class="input-group input-group-sm">
+                    <input type="text" class="form-control form-control-sm rounded-0" required="" placeholder="Search...." aria-label="Search....">
+                    <button class="btn bg-primary border-0 rounded-0" type="submit">
+                      <span class="text-white text-uppercase font-weight-bold">Search</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+  
+      <!-- Login Modal -->
+      <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-label="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header rounded">
+              <h3 class="modal-title text-uppercase font-weight-bold">Tripism Login</h3>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+  
+            <div class="modal-body" id="modal-body">
+              <form class="" action="index.html" method="post">
+                <div class="mb-3">
+                  <input type="email" class="form-control bg-smoke" required="" placeholder="아이디를 입력해주세요.">
+                </div>
+  
+                <div class="mb-3">
+                  <input type="password" class="form-control bg-smoke" required="" placeholder="비밀번호를 입력해주세요.">
+                </div>
+  
+                <div class="mb-3 form-check mb-0">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck5">
+                  <label class="form-check-label text-gray-color mb-3" for="exampleCheck5">
+                    Remember me
+                  </label>
+                  <a class="pull-right" href="javascript:void(0)">Fogot Password?</a>
+               </div>
+  
+               <div class="d-grid">
+                <button type="submit" class="btn btn-primary text-uppercase">확인</button>
+               </div>
+  
+                <div class="text-uppercase text-center py-3">Or</div>
+  
+                <div class="d-grid" >
+                  <div id="naver" style="text-align: center; background-color: #03C75A;"><img src="../resources/naver_login.png" style="width: 60%; height: 60%; object-fit:cover; margin-top: 10px;"></div>
+                  <div id="kakao" style="text-align: center; background-color: #03C75A;"><img src="../resources/naver_login.png" style="width: 60%; height: 60%; object-fit:cover; margin-top: 10px;"></div>
+                  <button type="button" class="btn btn-facebook text-uppercase text-white" id="enroll" style="color: black;">회원가입하기</button>
+                 </div>
+              </form>
+            </div>
+  
+            
+          </div>
+        </div>
+      </div>
+
+    <!-- Javascript -->
+    <!-- <script src="assets/plugins/jquery/jquery-3.4.1.min.js"></script> -->
+    <script src="../common/Star travel/Static HTML/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <!-- <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+    <script src="../common/Star travel/Static HTML/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="assets/plugins/menuzord/js/menuzord.js"></script> -->
+    <script src="../common/Star travel/Static HTML/assets/plugins/menuzord/js/menuzord.js"></script>
+    
+    
+    
+    <!-- <script src='assets/plugins/fancybox/jquery.fancybox.min.js'></script> -->
+    <script src='../common/Star travel/Static HTML/assets/plugins/fancybox/jquery.fancybox.min.js'></script>
+    
+    <!-- <script src='assets/plugins/selectric/jquery.selectric.min.js'></script> -->
+    <script src='../common/Star travel/Static HTML/assets/plugins/selectric/jquery.selectric.min.js'></script>
+    <!-- <script src='assets/plugins/daterangepicker/js/moment.min.js'></script> -->
+    <script src='../common/Star travel/Static HTML/assets/plugins/daterangepicker/js/moment.min.js'></script>
+    <!-- <script src='assets/plugins/daterangepicker/js/daterangepicker.min.js'></script> -->
+    <script src='../common/Star travel/Static HTML/assets/plugins/daterangepicker/js/daterangepicker.min.js'></script>
+    
+    <!-- <script src="assets/plugins/lazyestload/lazyestload.js"></script> -->
+    <script src="../common/Star travel/Static HTML/assets/plugins/lazyestload/lazyestload.js"></script>
+    <!-- <script src='assets/plugins/dzsparallaxer/dzsparallaxer.js'></script> -->
+    <script src='../common/Star travel/Static HTML/assets/plugins/dzsparallaxer/dzsparallaxer.js'></script>
+    
+    
+    
+    <!-- <script src='assets/plugins/slick/slick.min.js'></script> -->
+    <script src='../common/Star travel/Static HTML/assets/plugins/slick/slick.min.js'></script>
+    
+    <!-- <script src='assets/plugins/revolution/js/jquery.themepunch.tools.min.js'></script> -->
+    <script src='../common/Star travel/Static HTML/assets/plugins/revolution/js/jquery.themepunch.tools.min.js'></script>
+    <!-- <script src='assets/plugins/revolution/js/jquery.themepunch.revolution.min.js'></script> -->
+    <script src='../common/Star travel/Static HTML/assets/plugins/revolution/js/jquery.themepunch.revolution.min.js'></script>
+    <!-- <script src="assets/plugins/smoothscroll/SmoothScroll.js"></script> -->
+    <script src="../common/Star travel/Static HTML/assets/plugins/smoothscroll/SmoothScroll.js"></script>
+    
+    <!-- <script src="assets/js/star.js"></script> -->
+    <script src="../common/Star travel/Static HTML/assets/js/star.js"></script>
+  </body>
 </html>
+

@@ -201,51 +201,78 @@
   </div>
 </div>
   
-      <!-- Login Modal -->
-      <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-label="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header rounded">
-              <h3 class="modal-title text-uppercase font-weight-bold">Tripism Login</h3>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+ <!-- Signup Modal -->
+ <div id="signup" tabindex="-1" role="dialog" aria-label="signupModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header rounded">
+          <h3 class="modal-title text-uppercase font-weight-bold">Tripism 회원가입</h3>
+        </div>
+
+        <div class="modal-body">
+          <form class="" action="index.html" method="post">
+            <div class="mb-3">
+              <input type="text" class="form-control bg-smoke" required placeholder="이름">
+            </div>
+
+            <div class="mb-3">
+              <input type="text" class="form-control bg-smoke" required placeholder="아이디">
             </div>
   
-            <div class="modal-body" id="modal-body">
-              <form class="" action="index.html" method="post">
-                <div class="mb-3">
-                  <input type="email" class="form-control bg-smoke" required="" placeholder="아이디를 입력해주세요.">
-                </div>
-  
-                <div class="mb-3">
-                  <input type="password" class="form-control bg-smoke" required="" placeholder="비밀번호를 입력해주세요.">
-                </div>
-  
-                <div class="mb-3 form-check mb-0">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck5">
-                  <label class="form-check-label text-gray-color mb-3" for="exampleCheck5">
-                    Remember me
-                  </label>
-                  <a class="pull-right" href="javascript:void(0)">Fogot Password?</a>
-               </div>
-  
-               <div class="d-grid">
-                <button type="submit" class="btn btn-primary text-uppercase" style="font-size: 16px;">확인</button>
-               </div>
-  
-                <div class="text-uppercase text-center py-3">Or</div>
-  
-                <div class="d-grid" >
-                  <div id="naver" style="text-align: center; background-color: #03C75A;"><img src="../resources/naver_login.png" style="width: 60%; height: 60%; object-fit:cover; margin-top: 10px;"></div>
-                  <div id="kakao" style="text-align: center; background-color: #FEE500;"><img src="../resources/kakao_login_medium_narrow.png" style="width: 60%; height: 60%; object-fit:cover; margin-top: 10px;"></div>
-                  <button type="button" class="btn btn-facebook text-uppercase text-white" id="enroll" style="color: black;">회원가입하기</button>
-                 </div>
-              </form>
+            <div class="mb-3">
+              <input type="password" class="form-control bg-smoke" required placeholder="비밀번호">
             </div>
+
+            <div class="mb-3">
+                <input type="password" class="form-control bg-smoke" required placeholder="비밀번호 확인">
+            </div>
+
+            <div class="mb-3">
+                <input type="text" class="form-control bg-smoke" required placeholder="닉네임">
+            </div>
+
+            <div class="mb-3">
+                <input type="radio" name="gender" value="M"> 남자 
+                <input type="radio" name="gender" value="F"> 여자 
+            </div>
+
+            <div class="mb-3">
+                <input type="radio" name="mbti" value=""> 남자 
+                <input type="radio" name="mbti" value=""> 여자 
+                <input type="radio" name="mbti" value=""> 여자 
+                <input type="radio" name="mbti" value=""> 여자 
+                <input type="radio" name="mbti" value=""> 여자 
+                <input type="radio" name="mbti" value=""> 여자 
+            </div>
+
+          
   
-            
-          </div>
+            <div class="mb-3 form-check mb-0">
+              <input type="checkbox" class="form-check-input" id="exampleCheck4">
+              <label class="form-check-label text-gray-color mb-3" for="exampleCheck4">
+                개인정보동의
+              </label>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary btn-block text-uppercase">Login</button>
+            </div>
+
+            <div class="text-uppercase text-center py-3">Or</div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-facebook btn-block text-uppercase text-white">Login with facebook</button>
+            </div>
+          </form>
+        </div>
+  
+        <div class="modal-footer justify-content-center">
+          <p class="mb-1">Don’t have an Account? <a href="javascript:void(0)">Sign up</a></p>
         </div>
       </div>
+    </div>
+  </div>
+
 
     <!-- Javascript -->
     <!-- <script src="assets/plugins/jquery/jquery-3.4.1.min.js"></script> -->

@@ -3,6 +3,8 @@
 
 <head>
 
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
   <!-- SITE TITTLE -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -94,112 +96,6 @@
 </head>
 
 <body id="body" class="up-scroll">
-
-  <!-- Preloader -->
-  <div id="preloader" class="smooth-loader-wrapper">
-    <div class="smooth-loader">
-      <div class="sk-circle">
-        <div class="sk-circle1 sk-child"></div>
-        <div class="sk-circle2 sk-child"></div>
-        <div class="sk-circle3 sk-child"></div>
-        <div class="sk-circle4 sk-child"></div>
-        <div class="sk-circle5 sk-child"></div>
-        <div class="sk-circle6 sk-child"></div>
-        <div class="sk-circle7 sk-child"></div>
-        <div class="sk-circle8 sk-child"></div>
-        <div class="sk-circle9 sk-child"></div>
-        <div class="sk-circle10 sk-child"></div>
-        <div class="sk-circle11 sk-child"></div>
-        <div class="sk-circle12 sk-child"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ====================================
-  ——— HEADER
-  ===================================== -->
-  <header class="header" id="pageTop">
-
-    <!-- Top Bar -->
-<div class="top-bar d-none d-md-block">
-  <div class="container">
-    <div class="row justify-content-between">
-      <div class="col-7">
-        <ul class="list-inline d-flex mb-0">
-          <li class="me-6">
-            <a href="tel:88 123 4561 5523" class="media d-inline-flex align-items-center">
-              <i class="fas fa-phone-alt me-2"></i>
-              <div class="media-body">
-                Call: 123 4561 5523
-              </div>
-            </a>
-          </li>
-
-          <li>
-            <a href="mailTo:info@startravel.com" class="media d-inline-flex align-items-center">
-              <i class="fa fa-envelope me-2"></i>
-              <div class="media-body">
-                Email: info@startravel.com
-              </div>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="col-5">
-        <ul class="list-inline d-flex justify-content-end mb-0">
-
-          <li class="me-6 dropdown dropdown-sm">
-            <i class="fa fa-globe text-gray-color me-1" aria-hidden="true"></i>
-
-            <button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false"> English </button>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="javascript:void(0)">Spanish</a>
-              <a class="dropdown-item" href="javascript:void(0)">chinese</a>
-              <a class="dropdown-item" href="javascript:void(0)">italic</a>
-              <a class="dropdown-item" href="javascript:void(0)">Hindi</a>
-            </div>
-          </li>
-
-          <li class="me-6">
-            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#login" class="media d-inline-flex align-items-center">
-              <i class="fa fa-user me-2"></i>
-              <div class="media-body">
-                Login
-              </div>
-            </a>
-          </li>
-
-          <li class="">
-            <div class="search-item">
-              <a href="javascript:void(0)" class="btn-search">
-                <div class="search-icon">
-                  <i class="fa fa-search"></i>
-                </div>
-
-                <div class="close-icon d-none">
-                  <i class="fas fa-times"></i>
-                </div>
-              </a>
-
-              <div class="search-box">
-                <form class="mb-0" action="index.html" method="post">
-                  <div class="input-group input-group-sm">
-                    <input type="text" class="form-control form-control-sm rounded-0" required="" placeholder="Search...." aria-label="Search....">
-                    <button class="btn bg-primary border-0 rounded-0" type="submit">
-                      <span class="text-white text-uppercase font-weight-bold">Search</span>
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
   
  <!-- Signup Modal -->
  <div id="signup" tabindex="-1" role="dialog" aria-label="signupModalLabel" aria-hidden="true">
@@ -212,62 +108,94 @@
         <div class="modal-body">
           <form class="" action="index.html" method="post">
             <div class="mb-3">
-              <input type="text" class="form-control bg-smoke" required placeholder="이름">
+              아이디⭐ <br>
+              <input type="text" class="form-control bg-smoke" required placeholder="아이디를 입력해주세요.">
             </div>
 
             <div class="mb-3">
-              <input type="text" class="form-control bg-smoke" required placeholder="아이디">
+              이름⭐<br>
+              <input type="text" class="form-control bg-smoke" required placeholder="이름">
             </div>
   
             <div class="mb-3">
+              비밀번호⭐<br>
               <input type="password" class="form-control bg-smoke" required placeholder="비밀번호">
             </div>
 
             <div class="mb-3">
+              비밀번호 확인⭐<br>
                 <input type="password" class="form-control bg-smoke" required placeholder="비밀번호 확인">
             </div>
 
             <div class="mb-3">
-                <input type="text" class="form-control bg-smoke" required placeholder="닉네임">
+               닉네임 <br>
+                <input type="text" class="form-control bg-smoke" required placeholder="닉네임을 입력해주세요.">
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3" style="padding-bottom: 15px;">
+                성별 <br>
                 <input type="radio" name="gender" value="M"> 남자 
                 <input type="radio" name="gender" value="F"> 여자 
             </div>
 
+            <div class="mb-3" style="padding-bottom: 15px;">
+                 <h5>MBTI</h5>
+                <select name="MBTI" id=""> 
+                  <option value="선택안함" selected>선택안함</option>
+                  <option value="ISTJ" >ISTJ 세상의 소금형</option>
+                  <option value="ISFJ" >ISFJ 임금뒤편의 권력형</option>
+                  <option value="INFJ" >INFJ 예언자형</option>
+                  <option value="INTJ" >INTJ 과학자형</option>
+                  <option value="ISTP" >ISTP 백과사전형</option>
+                  <option value="ISFP" >ISFP 성인군자형</option>
+                  <option value="INFP" >INFP 잔다르크형</option>
+                  <option value="INTP" >INTP 아이디어뱅크형</option>
+                  <option value="ESTP" >ESTP 수완좋은 활동가형</option>
+                  <option value="ESFP" >ESFP 사교적인 유형</option>
+                  <option value="ENFP" >ENFP 스파크형</option>
+                  <option value="ENTP" >ENTP 발명가형</option>
+                  <option value="ESTJ" >ESTJ 사업가형</option>
+                  <option value="ESFJ" >ESFJ 친선도모형</option>
+                  <option value="ENFJ" >ENFJ 언변능숙형</option>
+                  <option value="ENTJ" >ENTJ 지도자형</option>
+                </select>
+            </div>
+
             <div class="mb-3">
-                <input type="radio" name="mbti" value=""> 남자 
-                <input type="radio" name="mbti" value=""> 여자 
-                <input type="radio" name="mbti" value=""> 여자 
-                <input type="radio" name="mbti" value=""> 여자 
-                <input type="radio" name="mbti" value=""> 여자 
-                <input type="radio" name="mbti" value=""> 여자 
-            </div>
+              <h5>이용약관 동의</h5>
+                <input type="checkbox" name="agreeAll" id="agreeAll"" />
+                <label for="agreeAll">약관 전체 동의</label><br />
+                <input type="checkbox" name="agree" id="agreeAge" />
+                <label for="agreeAge">[필수] 만14세 이상</label><br />
+                <input type="checkbox" name="agree" id="agreeTerms" />
+                <label for="agreeTerms">[필수] 이용약관 동의</label><br />
+                <input type="checkbox" name="agree" id="agreePrivacy"  />
+                <label for="agreePrivacy">[필수] 개인정보 수집 및 이용 동의</label><br />
+                <input type="checkbox" name="agree" id="agreeMarketing" />
+                <label for="agreeMarketing">[선택] 광고성 정보 수신 및 마케팅 활용 동의</label><br />
+              </div>
 
-          
-  
-            <div class="mb-3 form-check mb-0">
-              <input type="checkbox" class="form-check-input" id="exampleCheck4">
-              <label class="form-check-label text-gray-color mb-3" for="exampleCheck4">
-                개인정보동의
-              </label>
-            </div>
+              <script>
+                $(document).ready(function() {
+                  $("#agreeAll").click(function() {
+                    if($("#agreeAll").is(":checked")) $("input[name=agree]").prop("checked", true);
+                      else $("input[name=agree]").prop("checked", false);
+                  });
 
-            <div class="d-grid">
-              <button type="submit" class="btn btn-primary btn-block text-uppercase">Login</button>
-            </div>
+                  $("input[name=agree]").click(function() {
+                    var total = $("input[name=agree]").length;
+                    var checked = $("input[name=agree]:checked").length;
 
-            <div class="text-uppercase text-center py-3">Or</div>
+                    if(total != checked) $("#agreeAll").prop("checked", false);
+                    else $("#agreeAll").prop("checked", true); 
+                  });
+                });
+              </script>
 
-            <div class="d-grid">
-              <button type="submit" class="btn btn-facebook btn-block text-uppercase text-white">Login with facebook</button>
+            <div class="d-grid" style="padding-bottom: 15px ;">
+              <button type="submit" class="btn btn-primary btn-block text-uppercase" disabled>가입하기</button>
             </div>
           </form>
-        </div>
-  
-        <div class="modal-footer justify-content-center">
-          <p class="mb-1">Don’t have an Account? <a href="javascript:void(0)">Sign up</a></p>
         </div>
       </div>
     </div>

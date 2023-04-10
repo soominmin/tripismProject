@@ -79,7 +79,7 @@
 }
 
 #enroll{
-    background-color:  #ff891e;
+    background-color:  RGB(112, 217, 223);
     border:none;
     font-size: 16px;
 }
@@ -87,6 +87,10 @@
 #modal-body{
     padding: 25px 25px;
 
+}
+
+#modalTop{
+  border-top: 6px solid RGB(112, 217, 223);
 }
 
 
@@ -203,9 +207,9 @@
   
       <!-- Login Modal -->
       <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-label="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-dialog modal-sm modal-dialog-centered" role="document" >
           <div class="modal-content">
-            <div class="modal-header rounded">
+            <div class="modal-header rounded" id="modalTop">
               <h3 class="modal-title text-uppercase font-weight-bold">Tripism Login</h3>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -229,7 +233,7 @@
                </div>
   
                <div class="d-grid">
-                <button type="submit" class="btn btn-primary text-uppercase" style="font-size: 16px;">확인</button>
+                <button type="submit" class="btn btn-primary text-uppercase" style="font-size: 16px; background-color: RGB(112, 217, 223); border: none;">확인</button>
                </div>
   
                 <div class="text-uppercase text-center py-3">Or</div>
@@ -242,8 +246,8 @@
               </form>
 
               <div align="center" style="padding-top: 15px;">
-                <a href="#" align="center">ID 찾기</a> | 
-                <a href="#" align="center">비밀번호 찾기</a>
+                <a href="#" align="center" style="color: black;">ID 찾기</a> | 
+                <a href="#" align="center" style="color: black;">비밀번호 찾기</a>
               </div>
               
             </div>

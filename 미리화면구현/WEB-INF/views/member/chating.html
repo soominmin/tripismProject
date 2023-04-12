@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- SITE TITTLE -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Star Travel - Tour Booking Theme</title>
+
+  <!-- Plugins css Style -->
+  <!-- <link href='common/assets/plugins/fontawesome-5.15.2/css/all.min.css' rel='stylesheet'> -->
+  <link href='../common/Star travel/Static HTML/assets/plugins/fontawesome-5.15.2/css/all.min.css' rel='stylesheet'>
+  <!-- <link href='assets/plugins/fontawesome-5.15.2/css/fontawesome.min.css' rel='stylesheet'> -->
+  <link href='../common/Star travel/Static HTML/assets/plugins/fontawesome-5.15.2/css/fontawesome.min.css' rel='stylesheet'>
+  <!-- <link href="assets/plugins/animate/animate.css" rel="stylesheet"> -->
+  <link href="../common/Star travel/Static HTML/assets/plugins/animate/animate.css" rel="stylesheet">
+  <!-- <link href="assets/plugins/menuzord/css/menuzord.css" rel="stylesheet"> -->
+  <link href="../common/Star travel/Static HTML/assets/plugins/menuzord/css/menuzord.css" rel="stylesheet">
+  <!-- <link href="assets/plugins/menuzord/css/menuzord-animations.css" rel="stylesheet"> -->
+  <link href="../common/Star travel/Static HTML/assets/plugins/menuzord/css/menuzord-animations.css" rel="stylesheet">
+
+  
+  <!-- <link href='assets/plugins/fancybox/jquery.fancybox.min.css' rel='stylesheet'> -->
+  <link href='../common/Star travel/Static HTML/assets/plugins/fancybox/jquery.fancybox.min.css' rel='stylesheet'>
+  
+  <!-- <link href='assets/plugins/selectric/selectric.css' rel='stylesheet'> -->
+  <link href='../common/Star travel/Static HTML/assets/plugins/selectric/selectric.css' rel='stylesheet'>
+  <!-- <link href='assets/plugins/daterangepicker/css/daterangepicker.css' rel='stylesheet'> -->
+  <link href='../common/Star travel/Static HTML/assets/plugins/daterangepicker/css/daterangepicker.css' rel='stylesheet'>
+  
+  <!-- <link href='assets/plugins/dzsparallaxer/dzsparallaxer.css' rel='stylesheet'> -->
+  <link href='../common/Star travel/Static HTML/assets/plugins/dzsparallaxer/dzsparallaxer.css' rel='stylesheet'>
+  
+  <!-- <link href='assets/plugins/slick/slick.css' rel='stylesheet'> -->
+  <link href='../common/Star travel/Static HTML/assets/plugins/slick/slick.css' rel='stylesheet'>
+  <!-- <link href='assets/plugins/slick/slick-theme.css' rel='stylesheet'> -->
+  <link href='../common/Star travel/Static HTML/assets/plugins/slick/slick-theme.css' rel='stylesheet'>
+  
+  
+  <!-- <link href='assets/plugins/revolution/css/settings.css' rel='stylesheet'> -->
+  <link href='../common/Star travel/Static HTML/assets/plugins/revolution/css/settings.css' rel='stylesheet'>
+
+  <!-- GOOGLE FONT -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,600,700' rel='stylesheet'>
+
+  <!-- CUSTOM CSS -->
+  <!-- <link href="assets/css/star.css" id="option_style" rel="stylesheet"> -->
+  <link href="../common/Star travel/Static HTML/assets/css/star.css" id="option_style" rel="stylesheet">
+
+
+  <!-- FAVICON -->
+  <!-- <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png" /> -->
+  <link rel="shortcut icon" type="image/png" href="../common/Star travel/Static HTML/assets/img/favicon.png" />
+
+    <style>
+        #img{
+            border-radius: 50%;
+            border: black;
+            position: fixed;
+            right: 24px;
+            bottom: 20px;
+            z-index: 100;
+            cursor: pointer;
+        }
+
+        #img>img{
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            box-sizing: border-box;
+            border: solid black 1px;
+        }
+
+        #modalTop{
+            border-top: 6px solid RGB(112, 217, 223);
+        }
+
+        #onechat{
+            width: 200px;
+            height: 50px;
+            border-radius: 15px 15px 15px;
+            border: none;
+        }
+
+        #groupchat{
+            width: 200px;
+            height: 50px;
+            border-radius: 15px 15px 15px;
+            border: none;
+        }
+
+       
+
+    </style>
+</head>
+<body>
+
+            <div onclick="location.href ='javascript:void(0)'" data-bs-toggle="modal" data-bs-target="#chat" class="media d-inline-flex align-items-center">
+                <div class="media-body" id="img">
+                    <img src="../common/LOGO.png" alt="">
+                </div>
+            </div>
+
+            <div class="modal fade" id="chat" tabindex="-1" role="dialog" aria-label="loginModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm modal-dialog-centered" role="document" >
+                  <div class="modal-content">
+                    <div class="modal-header rounded" id="modalTop">
+                      <h3 class="modal-title text-uppercase font-weight-bold">Tripism Chat</h3>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+          
+                    <div class="modal-body" id="modal-body">
+                        <div>
+                            <button id="onechat">1:1 채팅</button>
+                            <button id="groupchat">그룹채팅</button>
+                        </div>
+                   
+                  
+     
+          
+                      
+        
+                      
+                    </div>
+          
+                    
+                  </div>
+                </div>
+              </div>
+            
+ 
+
+            
+
+            <!-- Javascript -->
+    <!-- <script src="assets/plugins/jquery/jquery-3.4.1.min.js"></script> -->
+    <script src="../common/Star travel/Static HTML/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <!-- <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+    <script src="../common/Star travel/Static HTML/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="assets/plugins/menuzord/js/menuzord.js"></script> -->
+    <script src="../common/Star travel/Static HTML/assets/plugins/menuzord/js/menuzord.js"></script>
+    
+    
+    
+    <!-- <script src='assets/plugins/fancybox/jquery.fancybox.min.js'></script> -->
+    <script src='../common/Star travel/Static HTML/assets/plugins/fancybox/jquery.fancybox.min.js'></script>
+    
+    <!-- <script src='assets/plugins/selectric/jquery.selectric.min.js'></script> -->
+    <script src='../common/Star travel/Static HTML/assets/plugins/selectric/jquery.selectric.min.js'></script>
+    <!-- <script src='assets/plugins/daterangepicker/js/moment.min.js'></script> -->
+    <script src='../common/Star travel/Static HTML/assets/plugins/daterangepicker/js/moment.min.js'></script>
+    <!-- <script src='assets/plugins/daterangepicker/js/daterangepicker.min.js'></script> -->
+    <script src='../common/Star travel/Static HTML/assets/plugins/daterangepicker/js/daterangepicker.min.js'></script>
+    
+    <!-- <script src="assets/plugins/lazyestload/lazyestload.js"></script> -->
+    <script src="../common/Star travel/Static HTML/assets/plugins/lazyestload/lazyestload.js"></script>
+    <!-- <script src='assets/plugins/dzsparallaxer/dzsparallaxer.js'></script> -->
+    <script src='../common/Star travel/Static HTML/assets/plugins/dzsparallaxer/dzsparallaxer.js'></script>
+    
+    
+    
+    <!-- <script src='assets/plugins/slick/slick.min.js'></script> -->
+    <script src='../common/Star travel/Static HTML/assets/plugins/slick/slick.min.js'></script>
+    
+    <!-- <script src='assets/plugins/revolution/js/jquery.themepunch.tools.min.js'></script> -->
+    <script src='../common/Star travel/Static HTML/assets/plugins/revolution/js/jquery.themepunch.tools.min.js'></script>
+    <!-- <script src='assets/plugins/revolution/js/jquery.themepunch.revolution.min.js'></script> -->
+    <script src='../common/Star travel/Static HTML/assets/plugins/revolution/js/jquery.themepunch.revolution.min.js'></script>
+    <!-- <script src="assets/plugins/smoothscroll/SmoothScroll.js"></script> -->
+    <script src="../common/Star travel/Static HTML/assets/plugins/smoothscroll/SmoothScroll.js"></script>
+    
+    <!-- <script src="assets/js/star.js"></script> -->
+    <script src="../common/Star travel/Static HTML/assets/js/star.js"></script>
+    
+</body>
+</html>

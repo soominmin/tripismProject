@@ -30,7 +30,19 @@
     <!-- CUSTOM CSS -->
     <link href="../common/Star travel/Static HTML/assets/css/star.css" id="option_style" rel="stylesheet">
 
+    <!-- Javascript -->
+    
+    <script src="../common/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <script src="../common/assets/plugins/menuzord/js/menuzord.js"></script>
+    
+    <script src='../common/assets/plugins/fancybox/jquery.fancybox.min.js'></script>
+    
+    <script src="../common/assets/plugins/lazyestload/lazyestload.js"></script>
+    
+    <script src="../common/assets/plugins/smoothscroll/SmoothScroll.js"></script>
+    
+    <script src="../common/assets/js/star.js"></script>
 
     <style>
         /* div{ border: 1px solid gray; } */
@@ -67,6 +79,10 @@
             }
             .box::-webkit-scrollbar{
             display:none;
+            }
+
+            #addFile, #deleteFile{
+                border: none;
             }
     </style>
 </head>
@@ -134,9 +150,19 @@
                             <input type="text"  placeholder="제목을 입력하세요" style="width: 450px;"> <br>
                             <hr class="inner-bar">
                             <textarea name="" id="" cols="57" rows="20"></textarea>
-                            <p>사진첨부</p>
-                            <input type="file">
-                            <input type="file">
+                            <table>
+                                <thead>
+                                    <th>
+                                        사진첨부 &nbsp; <button id="addFile">더하기</button> &nbsp; <button id="deleteFile">빼기</button>
+                                    </th> 
+                                </thead>
+                                <tbody id="fileHere">
+                                    <tr>
+                                        <td><input type="file"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
                         </div>
                     
                         <!-- Modal footer -->
@@ -148,6 +174,25 @@
                     </div>
                 </div>
             </div>
+
+
+            <script>
+                $(function(){ // 첨부파일 추가버튼
+                    $("#addFile").click(function(){
+                        $("#fileHere").append("<tr><td><input type='file'></td></tr>");
+                    })
+                })
+
+                $(function(){ // 첨부파일 제거버튼, 한 개는 제거안됨
+                    $("#deleteFile").click(function(){
+                        if($("#fileHere>tr").length <2) {
+                            return;
+                        }else{
+                            $("#fileHere>tr:last").remove();
+                        }
+                    })
+                })
+            </script>
 
             <!-- 수정용 modal -->
             <div class="modal" id="modify">
@@ -164,9 +209,18 @@
                             <input type="text"  placeholder="수정될 제목" style="width: 450px;"> <br>
                             <hr class="inner-bar">
                             <textarea name="" id="" cols="57" rows="20"></textarea>
-                            <p>사진첨부</p>
-                            <input type="file">
-                            <input type="file">
+                            <table>
+                                <thead>
+                                    <th>
+                                        사진첨부 &nbsp; <button id="addFile">더하기</button> &nbsp; <button id="deleteFile">빼기</button>
+                                    </th> 
+                                </thead>
+                                <tbody id="fileHere">
+                                    <tr>
+                                        <td><input type="file"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     
                         <!-- Modal footer -->
@@ -226,8 +280,10 @@
                     </button>
                     
                     <button type="button" data-toggle="modal" data-target="#report" style="float: right; border: none;">
-                        <img src="img/three-dot.png" alt="" style="width: 1em; height: 1em;" >
+                        <img src="img/siren.png" alt="" style="width: 1.4em; height: 1.4em;" >
+                        <img src="img/siren2.png" alt="" style="width: 1.4em; height: 1.4em;">
                     </button>
+                   
                 </div>
 
                 <hr class="inner-bar">

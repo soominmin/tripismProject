@@ -62,9 +62,12 @@
     <![endif]-->
 <style>
 #kakao{
-    background-color: rgb(230, 216, 62);
-    border:none;
     margin-bottom: 10px;
+    width: 347.778px;
+    height: 45.382px;
+    line-height: 10px;
+    border-radius: 5px 5px 5px 5px;
+    cursor: pointer;
 }
 #naver {
     margin-bottom: 10px;
@@ -72,16 +75,22 @@
     height: 45.382px;
     line-height: 10px;
     border-radius: 5px 5px 5px 5px;
+    cursor: pointer;
 }
 
 #enroll{
-    background-color:  #ff891e;
+    background-color:  RGB(112, 217, 223);
     border:none;
+    font-size: 16px;
 }
 
 #modal-body{
     padding: 25px 25px;
 
+}
+
+#modalTop{
+  border-top: 6px solid RGB(112, 217, 223);
 }
 
 
@@ -198,9 +207,9 @@
   
       <!-- Login Modal -->
       <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-label="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-dialog modal-sm modal-dialog-centered" role="document" >
           <div class="modal-content">
-            <div class="modal-header rounded">
+            <div class="modal-header rounded" id="modalTop">
               <h3 class="modal-title text-uppercase font-weight-bold">Tripism Login</h3>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -208,7 +217,7 @@
             <div class="modal-body" id="modal-body">
               <form class="" action="index.html" method="post">
                 <div class="mb-3">
-                  <input type="email" class="form-control bg-smoke" required="" placeholder="아이디를 입력해주세요.">
+                  <input type="text" class="form-control bg-smoke" required="" placeholder="아이디를 입력해주세요.">
                 </div>
   
                 <div class="mb-3">
@@ -218,23 +227,29 @@
                 <div class="mb-3 form-check mb-0">
                   <input type="checkbox" class="form-check-input" id="exampleCheck5">
                   <label class="form-check-label text-gray-color mb-3" for="exampleCheck5">
-                    Remember me
-                  </label>
-                  <a class="pull-right" href="javascript:void(0)">Fogot Password?</a>
+                    아이디 기억하기
+                  </label> <br>
+                
                </div>
   
                <div class="d-grid">
-                <button type="submit" class="btn btn-primary text-uppercase">확인</button>
+                <button type="submit" class="btn btn-primary text-uppercase" style="font-size: 16px; background-color: RGB(112, 217, 223); border: none;">확인</button>
                </div>
   
                 <div class="text-uppercase text-center py-3">Or</div>
   
                 <div class="d-grid" >
                   <div id="naver" style="text-align: center; background-color: #03C75A;"><img src="../resources/naver_login.png" style="width: 60%; height: 60%; object-fit:cover; margin-top: 10px;"></div>
-                  <div id="kakao" style="text-align: center; background-color: #03C75A;"><img src="../resources/naver_login.png" style="width: 60%; height: 60%; object-fit:cover; margin-top: 10px;"></div>
+                  <div id="kakao" style="text-align: center; background-color: #FEE500;"><img src="../resources/kakao_login_medium_narrow.png" style="width: 60%; height: 60%; object-fit:cover; margin-top: 10px;"></div>
                   <button type="button" class="btn btn-facebook text-uppercase text-white" id="enroll" style="color: black;">회원가입하기</button>
                  </div>
               </form>
+
+              <div align="center" style="padding-top: 15px;">
+                <a href="#" align="center" style="color: black;">ID 찾기</a> | 
+                <a href="#" align="center" style="color: black;">비밀번호 찾기</a>
+              </div>
+              
             </div>
   
             

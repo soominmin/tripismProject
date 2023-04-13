@@ -3138,14 +3138,14 @@ fieldset:disabled .btn {
 
 .btn-primary {
   color: #000;
-  background-color: #ff891e;
-  border-color: #ff891e;
+  background-color: rgb(112, 217, 223);
+  border-color: rgb(112, 217, 223);
 }
 
 .btn-primary:hover {
   color: #000;
-  background-color: #ff9b40;
-  border-color: #ff9535;
+  background-color: rgb(8, 154, 161);
+  border-color: rgb(8, 154, 161);
 }
 
 .btn-check:focus + .btn-primary, .btn-primary:focus {
@@ -3378,14 +3378,14 @@ fieldset:disabled .btn {
 
 .btn-info:hover {
   color: #000;
-  background-color: #3cbeeb;
-  border-color: #31bbea;
+  background-color: #59a2bb;
+  border-color: #59a2bb;
 }
 
 .btn-check:focus + .btn-info, .btn-info:focus {
   color: #000;
-  background-color: #3cbeeb;
-  border-color: #31bbea;
+  background-color: #59a2bb;
+  border-color: #59a2bb;
   box-shadow: 0 0 0 0.25rem rgba(22, 152, 197, 0.5);
 }
 
@@ -3411,20 +3411,20 @@ fieldset:disabled .btn {
 
 .btn-danger {
   color: #000;
-  background-color: #e25a5a;
-  border-color: #e25a5a;
+  background-color: lightcoral;
+  border-color: #lightcoral;
 }
 
 .btn-danger:hover {
   color: #000;
-  background-color: #e67373;
-  border-color: #e56b6b;
+  background-color: #lightcoral;
+  border-color: #lightcoral;
 }
 
 .btn-check:focus + .btn-danger, .btn-danger:focus {
   color: #000;
-  background-color: #e67373;
-  border-color: #e56b6b;
+  background-color: #lightcoral;
+  border-color: #lightcoral;
   box-shadow: 0 0 0 0.25rem rgba(192, 77, 77, 0.5);
 }
 
@@ -3444,8 +3444,8 @@ fieldset:disabled .btn {
 
 .btn-danger:disabled, .btn-danger.disabled {
   color: #000;
-  background-color: #e25a5a;
-  border-color: #e25a5a;
+  background-color: #lightcoral;
+  border-color: #lightcoral;
 }
 
 .btn-black {
@@ -21790,3 +21790,32 @@ img.lazyestload {
 .searchBtn {
   Width: 20%;
 }
+
+#adminNavbar,
+#sub-menu{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#adminNavbar > li{
+  float: left;
+}
+
+#adminNavbar > li > a{
+  display: block;
+  padding: 8px 16px;
+  text-align: center;
+}
+
+#sub-menu{
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#adminNavbar > li:hover #sub-menu{
+  opacity: 1;
+  visibility: visible;
+}
+

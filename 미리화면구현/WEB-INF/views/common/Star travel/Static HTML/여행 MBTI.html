@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- SITE TITTLE -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Settings - Star Travel</title>
+
+  <!-- Plugins css Style -->
+  <link href='assets/plugins/fontawesome-5.15.2/css/all.min.css' rel='stylesheet'>
+  <link href='assets/plugins/fontawesome-5.15.2/css/fontawesome.min.css' rel='stylesheet'>
+  <link href="assets/plugins/animate/animate.css" rel="stylesheet">
+  <link href="assets/plugins/menuzord/css/menuzord.css" rel="stylesheet">
+  <link href="assets/plugins/menuzord/css/menuzord-animations.css" rel="stylesheet">
+
+  
+  <link href='assets/plugins/fancybox/jquery.fancybox.min.css' rel='stylesheet'>
+  
+
+  <!-- GOOGLE FONT -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700' rel='stylesheet'>
+
+  <!-- CUSTOM CSS -->
+  <link href="assets/css/star.css" id="option_style" rel="stylesheet">
+
+
+  <!-- FAVICON -->
+  <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png"/>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+    <style>
+      #btn_pwd, #infoUpdate{
+        background-color: RGB(112, 217, 223);
+        border: none;
+      }
+
+
+      .test_obj input[type="radio"] {
+          display: none;
+      }
+  
+      .test_obj input[type="radio"] + span {
+          display: inline-block;
+          padding: 15px 10px;
+          border: 1px solid #dfdfdf;
+          background-color: #ffffff;
+          text-align: center;
+          cursor: pointer;
+      }
+  
+      .test_obj input[type="radio"]:checked + span {
+          background-color: RGB(112, 217, 223);
+          color: #ffffff;
+      }
+
+
+    </style>
+  </head>     
+
+<body id="body" class="up-scroll">
+
+<section class="py-9">
+  <div class="container">
+    <div class="bg-smoke p-2 p-md-6 pb-6 pb-md-8 mb-9 rounded">
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-lg-6" style="margin: auto;">
+              <div class="mb-4">
+                <h2 class="text-uppercase mb-3">나의 여행 MBTI는?</h2>
+              </div>
+
+              <hr>
+              
+              <!--
+                <div class="modal-body">
+                  <form action="">
+                  <div class="mb-3">
+                    <h3>1. 여행할 때 나는 ~한 편이다.</h3> <br>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="mbtiScoreQ1" id="score1">
+                      <label class="form-check-label" for="score1">
+                        전혀 아니다
+                      </label>
+                    </div>
+  
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="mbtiScoreQ1" id="score2">
+                      <label class="form-check-label" for="score2">
+                        대체로 아니다
+                      </label>
+                    </div>
+  
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="mbtiScoreQ1" id="score3">
+                      <label class="form-check-label" for="score3">
+                        보통이다
+                      </label>
+                    </div>
+  
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="mbtiScoreQ1" id="score4">
+                      <label class="form-check-label" for="score4">
+                        대체로 그렇다
+                      </label>
+                    </div>
+  
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="mbtiScoreQ1" id="score5">
+                      <label class="form-check-label" for="score5">
+                        매우 그렇다
+                      </label>
+                    </div>
+
+                    <br>
+
+                    <h3>1. 여행할 때 나는 ~한 편이다.</h3> <br>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="mbtiScoreQ2" id="score1">
+                      <label class="form-check-label" for="score1">
+                        전혀 아니다
+                      </label>
+                    </div>
+  
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="mbtiScoreQ2" id="score2">
+                      <label class="form-check-label" for="score2">
+                        대체로 아니다
+                      </label>
+                    </div>
+  
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="mbtiScoreQ2" id="score3">
+                      <label class="form-check-label" for="score3">
+                        보통이다
+                      </label>
+                    </div>
+  
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="mbtiScoreQ2" id="score4">
+                      <label class="form-check-label" for="score4">
+                        대체로 그렇다
+                      </label>
+                    </div>
+  
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="mbtiScoreQ2" id="score5">
+                      <label class="form-check-label" for="score5">
+                        매우 그렇다
+                      </label>
+                    </div>
+
+                    <br>
+  
+                  </div>
+                  </form>
+                </div>
+              
+
+              <div id="root">
+                <ins class="adsbygoogle" data-ad-client="ca-pub-2382342018701919" data-ad-slot="5663135072" data-ad-format="auto" data-full-width-responsive="true" style="display: block;"></ins><div class="question">
+                  <h3 class="question-p">1. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                  <br>
+              </div>
+
+                <div class="option-btn-div">
+                  <input type="radio" value="P" class="btn btn-primary btn-sm option-btn-div" style="width: 100%; margin-bottom: 5px; background-color: RGB(112, 217, 223); border: 0;">어쩔수 없지, 그냥 혼자 간다.</input> <br>
+                  <button value="J" class="btn btn-primary btn-sm option-btn-div" style="width: 100%; margin-top: 5px; background-color: RGB(112, 217, 223); border: 0;">무조건 취소하고 다음에 계획하고 다시간다.</button>
+                  <br><br>
+              -->
+              
+              <div id="question1">
+
+                <h3 class="question-p">1. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                <br>
+
+                <label class="test_obj">
+                    <input type="radio" name="question1" value="P">
+                    <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                </label>
+                <br>
+                <label class="test_obj">
+                    <input type="radio" name="question1" value="J">
+                    <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                </label>
+                <br><br>
+              </div>
+              
+
+              <div id="question2" style="display: none;">
+
+                <h3 class="question-p">2. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                <br>
+
+                <label class="test_obj">
+                    <input type="radio" name="question2" value="P">
+                    <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                </label>
+                <br>
+                <label class="test_obj">
+                    <input type="radio" name="question2" value="J">
+                    <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                </label>
+                <br><br>
+              </div>
+              
+
+              <div id="question3" style="display: none;">
+
+                <h3 class="question-p">3. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                <br>
+
+                <label class="test_obj">
+                    <input type="radio" name="question3" value="P">
+                    <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                </label>
+                <br>
+                <label class="test_obj">
+                    <input type="radio" name="question3" value="J">
+                    <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                </label>
+                <br><br>
+              </div>
+              
+
+              <div id="question4" style="display: none;">
+
+                <h3 class="question-p">4. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                <br>
+
+                <label class="test_obj">
+                    <input type="radio" name="question4" value="P">
+                    <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                </label>
+                <br>
+                <label class="test_obj">
+                    <input type="radio" name="question4" value="J">
+                    <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                </label>
+                <br><br>
+              </div>
+              
+
+              <div id="question5" style="display: none;">
+
+                <h3 class="question-p">5. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                <br>
+
+                <label class="test_obj">
+                    <input type="radio" name="question5" value="P">
+                    <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                </label>
+                <br>
+                <label class="test_obj">
+                    <input type="radio" name="question5" value="J">
+                    <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                </label>
+                <br><br>
+              </div>
+              
+
+              <div id="question6" style="display: none;">
+
+                <h3 class="question-p">6. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                <br>
+
+                <label class="test_obj">
+                    <input type="radio" name="question6" value="P">
+                    <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                </label>
+                <br>
+                <label class="test_obj">
+                    <input type="radio" name="question6" value="J">
+                    <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                </label>
+                <br><br>
+              </div>
+              
+
+              <div id="question7" style="display: none;">
+
+                <h3 class="question-p">7. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                <br>
+
+                <label class="test_obj">
+                    <input type="radio" name="question7" value="P">
+                    <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                </label>
+                <br>
+                <label class="test_obj">
+                    <input type="radio" name="question7" value="J">
+                    <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                </label>
+                <br><br>
+              </div>
+
+              <div id="question8" style="display: none;">
+
+                <h3 class="question-p">8. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                <br>
+
+                <label class="test_obj">
+                    <input type="radio" name="question8" value="P">
+                    <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                </label>
+                <br>
+                <label class="test_obj">
+                    <input type="radio" name="question8" value="J">
+                    <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                </label>
+                <br><br>
+              </div>
+
+              <div id="question9" style="display: none;">
+
+                <h3 class="question-p">9. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                <br>
+
+                <label class="test_obj">
+                    <input type="radio" name="question9" value="P">
+                    <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                </label>
+                <br>
+                <label class="test_obj">
+                    <input type="radio" name="question9" value="J">
+                    <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                </label>
+                <br><br>
+              </div>
+
+              <div id="question10" style="display: none;">
+
+                <h3 class="question-p">10. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                <br>
+
+                <label class="test_obj">
+                    <input type="radio" name="question10" value="P">
+                    <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                </label>
+                <br>
+                <label class="test_obj">
+                    <input type="radio" name="question10" value="J">
+                    <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                </label>
+                <br><br>
+              </div>
+              
+              <script>
+                let count = 0;
+                
+                $('#question1').click(function() {
+                  $('#question2').attr('style', 'display');
+                  $(".question-count").text("2 / 20");
+                  $(".prog-bar").css("width", '10%');
+                });
+
+                $('#question2').click(function() {
+                  $('#question3').attr('style', 'display');
+                  $(".question-count").text("3 / 20");
+                  $(".prog-bar").css("width", '15%');
+                });
+
+                $('#question3').click(function() {
+                  $('#question4').attr('style', 'display');
+                  $(".question-count").text("4 / 20");
+                  $(".prog-bar").css("width", '20%');
+                });
+
+                $('#question4').click(function() {
+                  $('#question5').attr('style', 'display');
+                  $(".question-count").text("5 / 20");
+                  $(".prog-bar").css("width", '25%');
+                });
+
+                $('#question5').click(function() {
+                  $('#question6').attr('style', 'display');
+                  $(".question-count").text("6 / 20");
+                  $(".prog-bar").css("width", '30%');
+                });
+
+                $('#question6').click(function() {
+                  $('#question7').attr('style', 'display');
+                  $(".question-count").text("7 / 20");
+                  $(".prog-bar").css("width", '35%');
+                });
+
+                $('#question7').click(function() {
+                  $('#question8').attr('style', 'display');
+                  $(".question-count").text("8 / 20");
+                  $(".prog-bar").css("width", '40%');
+                });
+
+                $('#question8').click(function() {
+                  $('#question9').attr('style', 'display');
+                  $(".question-count").text("9 / 20");
+                  $(".prog-bar").css("width", '45%');
+                });
+
+                $('#question9').click(function() {
+                  $('#question10').attr('style', 'display');
+                  $(".question-count").text("10 / 20");
+                  $(".prog-bar").css("width", '50%');
+                });
+
+
+              </script>
+              
+
+              <br>
+                <div class="question-progress">
+                  <div class="progress-bar-mbti">
+                    <div style="display: initial; align-items: initial;">
+                      <div style="height: 10px; background-color: rgb(251, 247, 242); border-radius: 50px; width: 100%;">
+                        <div class="prog-bar" style="height: 10px; width: 5%; background-color: rgb(112, 217, 223); transition: width 0.3s ease-in-out 0s; border-radius: inherit; display: flex; align-items: center; justify-content: flex-end;">
+                          <span style="padding: 5px; color: rgb(255, 255, 255); font-weight: bold; font-size: 15px; display: none;">5%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="question-count">1 / 20</div>
+                </div>
+
+              
+            </div>
+    </div>
+  </div>
+  </div>
+</div>
+</section>
+
+
+
+   
+
+
+    <!-- Javascript -->
+    <script src="assets/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/plugins/menuzord/js/menuzord.js"></script>
+    <script src='assets/plugins/fancybox/jquery.fancybox.min.js'></script>
+    <script src="assets/plugins/lazyestload/lazyestload.js"></script>
+    <script src="assets/plugins/smoothscroll/SmoothScroll.js"></script>
+    
+    <script src="assets/js/star.js"></script>
+</body>
+</html>
+

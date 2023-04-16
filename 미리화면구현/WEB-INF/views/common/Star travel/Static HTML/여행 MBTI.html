@@ -47,22 +47,31 @@
 
 
       .test_obj input[type="radio"] {
-          display: none;
+        display: none;
       }
   
       .test_obj input[type="radio"] + span {
-          display: inline-block;
-          padding: 15px 10px;
-          border: 1px solid #dfdfdf;
-          background-color: #ffffff;
-          text-align: center;
-          cursor: pointer;
+        display: inline-block;
+        padding: 15px 10px;
+        border: 1px solid #dfdfdf;
+        background-color: #ffffff;
+        text-align: center;
+        cursor: pointer;
       }
   
       .test_obj input[type="radio"]:checked + span {
-          background-color: RGB(112, 217, 223);
-          color: #ffffff;
+        background-color: RGB(112, 217, 223);
+        color: #ffffff;
       }
+
+      .test_btn {
+        display: inline-block;
+        padding: 15px 10px;
+        background-color: RGB(112, 217, 223);
+        color: #ffffff;
+        border: 1px solid #dfdfdf;
+      }
+
 
 
     </style>
@@ -179,10 +188,11 @@
                   <button value="J" class="btn btn-primary btn-sm option-btn-div" style="width: 100%; margin-top: 5px; background-color: RGB(112, 217, 223); border: 0;">무조건 취소하고 다음에 계획하고 다시간다.</button>
                   <br><br>
               -->
-              
+            <form action="">
+
               <div id="question1">
 
-                <h3 class="question-p">1. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                <h3 class="question-p">1. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나는?</h3>
                 <br>
 
                 <label class="test_obj">
@@ -200,17 +210,17 @@
 
               <div id="question2" style="display: none;">
 
-                <h3 class="question-p">2. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                <h3 class="question-p">2. 게스트하우스에 가서 다같이 저녁을 먹는 자리가 생겼다. 그럴때 나는?</h3>
                 <br>
 
                 <label class="test_obj">
-                    <input type="radio" name="question2" value="P">
-                    <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                    <input type="radio" name="question2" value="E">
+                    <span>새로운 사람을 만나고 이야기할 생각에 설렌다.</span>
                 </label>
                 <br>
                 <label class="test_obj">
-                    <input type="radio" name="question2" value="J">
-                    <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                    <input type="radio" name="question2" value="I">
+                    <span>그냥 혼자있고 싶다. 거절한다.</span>
                 </label>
                 <br><br>
               </div>
@@ -355,6 +365,199 @@
                 </label>
                 <br><br>
               </div>
+
+              <div id="question11" style="display: none;">
+
+                <h3 class="question-p">11. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                <br>
+
+                <label class="test_obj">
+                    <input type="radio" name="question11" value="P">
+                    <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                </label>
+                <br>
+                <label class="test_obj">
+                    <input type="radio" name="question11" value="J">
+                    <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                </label>
+                <br><br>
+              </div>
+
+              <div id="question12" style="display: none;">
+
+                <h3 class="question-p">12. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                <br>
+
+                <label class="test_obj">
+                    <input type="radio" name="question12" value="P">
+                    <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                </label>
+                <br>
+                <label class="test_obj">
+                    <input type="radio" name="question12" value="J">
+                    <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                </label>
+                <br><br>
+              </div>
+
+              <div id="question13" style="display: none;">
+
+                <h3 class="question-p">13. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                <br>
+
+                <label class="test_obj">
+                    <input type="radio" name="question13" value="P">
+                    <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                </label>
+                <br>
+                <label class="test_obj">
+                    <input type="radio" name="question13" value="J">
+                    <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                </label>
+                <br><br>
+              </div>
+
+              <div id="question14" style="display: none;">
+
+                <h3 class="question-p">14. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                <br>
+
+                <label class="test_obj">
+                    <input type="radio" name="question14" value="P">
+                    <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                </label>
+                <br>
+                <label class="test_obj">
+                    <input type="radio" name="question14" value="J">
+                    <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                </label>
+                <br><br>
+              </div>
+
+              <div id="question15" style="display: none;">
+
+                <h3 class="question-p">15. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                <br>
+
+                <label class="test_obj">
+                    <input type="radio" name="question15" value="P">
+                    <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                </label>
+                <br>
+                <label class="test_obj">
+                    <input type="radio" name="question15" value="J">
+                    <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                </label>
+                <br><br>
+              </div>
+
+              <div id="question16" style="display: none;">
+
+                <h3 class="question-p">16. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                <br>
+
+                <label class="test_obj">
+                    <input type="radio" name="question16" value="P">
+                    <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                </label>
+                <br>
+                <label class="test_obj">
+                    <input type="radio" name="question16" value="J">
+                    <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                </label>
+                <br><br>
+              </div>
+
+              <div id="question17" style="display: none;">
+
+                <h3 class="question-p">10. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                <br>
+
+                <label class="test_obj">
+                    <input type="radio" name="question17" value="P">
+                    <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                </label>
+                <br>
+                <label class="test_obj">
+                    <input type="radio" name="question17" value="J">
+                    <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                </label>
+                <br><br>
+              </div>
+
+              <div id="question18" style="display: none;">
+
+                <h3 class="question-p">18. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                <br>
+
+                <label class="test_obj">
+                    <input type="radio" name="question18" value="P">
+                    <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                </label>
+                <br>
+                <label class="test_obj">
+                    <input type="radio" name="question18" value="J">
+                    <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                </label>
+                <br><br>
+              </div>
+
+              <div id="question19" style="display: none;">
+
+                <h3 class="question-p">19. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                <br>
+
+                <label class="test_obj">
+                    <input type="radio" name="question19" value="P">
+                    <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                </label>
+                <br>
+                <label class="test_obj">
+                    <input type="radio" name="question19" value="J">
+                    <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                </label>
+                <br><br>
+              </div>
+
+              <div id="question20" style="display: none;">
+
+                <h3 class="question-p">20. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
+                <br>
+
+                <label class="test_obj">
+                    <input type="radio" name="question20" value="P">
+                    <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                </label>
+                <br>
+                <label class="test_obj">
+                    <input type="radio" name="question20" value="J">
+                    <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                </label>
+                <br><br>
+              </div>
+              
+              <br>
+              <div class="question-progress">
+                <div class="progress-bar-mbti">
+                  <div style="display: initial; align-items: initial;">
+                    <div style="height: 10px; background-color: rgb(251, 247, 242); border-radius: 50px; width: 100%;">
+                      <div class="prog-bar" style="height: 10px; width: 5%; background-color: rgb(112, 217, 223); transition: width 0.3s ease-in-out 0s; border-radius: inherit; display: flex; align-items: center; justify-content: flex-end;">
+                        <span style="padding: 5px; color: rgb(255, 255, 255); font-weight: bold; font-size: 15px; display: none;">5%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="question-count">1 / 20</div>
+              </div>
+
+              <br>
+
+              <div>
+              <button type="submit" class="test_btn" style="width: 100%; display: none;">내 여행MBTI 확인하러 가기</button>
+              </div>
+
+
+            </form>
               
               <script>
                 let count = 0;
@@ -413,23 +616,75 @@
                   $(".prog-bar").css("width", '50%');
                 });
 
+                $('#question10').click(function() {
+                  $('#question11').attr('style', 'display');
+                  $(".question-count").text("11 / 20");
+                  $(".prog-bar").css("width", '55%');
+                });
+
+                $('#question11').click(function() {
+                  $('#question12').attr('style', 'display');
+                  $(".question-count").text("12 / 20");
+                  $(".prog-bar").css("width", '60%');
+                });
+
+                $('#question12').click(function() {
+                  $('#question13').attr('style', 'display');
+                  $(".question-count").text("13 / 20");
+                  $(".prog-bar").css("width", '65%');
+                });
+
+                $('#question13').click(function() {
+                  $('#question14').attr('style', 'display');
+                  $(".question-count").text("14 / 20");
+                  $(".prog-bar").css("width", '70%');
+                });
+
+                $('#question14').click(function() {
+                  $('#question15').attr('style', 'display');
+                  $(".question-count").text("15 / 20");
+                  $(".prog-bar").css("width", '75%');
+                });
+
+                $('#question15').click(function() {
+                  $('#question16').attr('style', 'display');
+                  $(".question-count").text("16 / 20");
+                  $(".prog-bar").css("width", '80%');
+                });
+
+                $('#question16').click(function() {
+                  $('#question17').attr('style', 'display');
+                  $(".question-count").text("17 / 20");
+                  $(".prog-bar").css("width", '85%');
+                });
+
+                $('#question17').click(function() {
+                  $('#question18').attr('style', 'display');
+                  $(".question-count").text("18 / 20");
+                  $(".prog-bar").css("width", '90%');
+                });
+
+                $('#question18').click(function() {
+                  $('#question19').attr('style', 'display');
+                  $(".question-count").text("19 / 20");
+                  $(".prog-bar").css("width", '95%');
+                });
+
+                $('#question19').click(function() {
+                  $('#question20').attr('style', 'display');
+                  $(".question-count").text("20 / 20");
+                  $(".prog-bar").css("width", '100%');
+                });
+
+                $('#question20').click(function() {
+                  $('.test_btn').attr('style', 'display');
+                });
+
 
               </script>
               
 
-              <br>
-                <div class="question-progress">
-                  <div class="progress-bar-mbti">
-                    <div style="display: initial; align-items: initial;">
-                      <div style="height: 10px; background-color: rgb(251, 247, 242); border-radius: 50px; width: 100%;">
-                        <div class="prog-bar" style="height: 10px; width: 5%; background-color: rgb(112, 217, 223); transition: width 0.3s ease-in-out 0s; border-radius: inherit; display: flex; align-items: center; justify-content: flex-end;">
-                          <span style="padding: 5px; color: rgb(255, 255, 255); font-weight: bold; font-size: 15px; display: none;">5%</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="question-count">1 / 20</div>
-                </div>
+
 
               
             </div>

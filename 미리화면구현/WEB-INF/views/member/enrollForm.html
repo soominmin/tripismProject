@@ -134,6 +134,12 @@
             <div class="mb-3">
               비밀번호 확인⭐<br>
                 <input type="password" class="form-control bg-smoke" required placeholder="비밀번호 확인">
+                <p>(영문 대소문자/숫자/특수문자중 2가지 이상 조합, 8자~16자)</p>
+              </div>
+
+            <div class="mb-3">
+              이메일⭐<br>
+                <input type="email" class="form-control bg-smoke" required placeholder="이메일을 입력해주세요.">
             </div>
 
             <div class="mb-3">
@@ -143,31 +149,10 @@
 
             <div class="mb-3" style="padding-bottom: 15px;">
                 성별 <br>
-                <input type="radio" name="gender" value="M"> 남자 
-                <input type="radio" name="gender" value="F"> 여자 
-            </div>
-
-            <div class="mb-3" style="padding-bottom: 15px;">
-                 <h5>MBTI</h5>
-                <select name="MBTI" id=""> 
-                  <option value="선택안함" selected>선택안함</option>
-                  <option value="ISTJ" >ISTJ 세상의 소금형</option>
-                  <option value="ISFJ" >ISFJ 임금뒤편의 권력형</option>
-                  <option value="INFJ" >INFJ 예언자형</option>
-                  <option value="INTJ" >INTJ 과학자형</option>
-                  <option value="ISTP" >ISTP 백과사전형</option>
-                  <option value="ISFP" >ISFP 성인군자형</option>
-                  <option value="INFP" >INFP 잔다르크형</option>
-                  <option value="INTP" >INTP 아이디어뱅크형</option>
-                  <option value="ESTP" >ESTP 수완좋은 활동가형</option>
-                  <option value="ESFP" >ESFP 사교적인 유형</option>
-                  <option value="ENFP" >ENFP 스파크형</option>
-                  <option value="ENTP" >ENTP 발명가형</option>
-                  <option value="ESTJ" >ESTJ 사업가형</option>
-                  <option value="ESFJ" >ESFJ 친선도모형</option>
-                  <option value="ENFJ" >ENFJ 언변능숙형</option>
-                  <option value="ENTJ" >ENTJ 지도자형</option>
-                </select>
+                <input type="radio" name="gender" id="m" value="M">
+                <label for="m">남자</label>
+                <input type="radio" name="gender" id="f" value="F">
+                <label for="f">여자</label>
             </div>
 
             <div class="mb-3">

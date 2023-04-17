@@ -3409,6 +3409,30 @@ fieldset:disabled .btn {
   border-color: #1ab3e8;
 }
 
+.btn-Y {
+  color: #000;
+  background-color: yellowgreen;
+  border-color: #lightcoral;
+}
+
+.btn-Y:hover {
+  color: white;
+  background-color: goldenrod;
+  border-color: #lightcoral;
+}
+
+.btn-N {
+  color: white;
+  background-color: gray;
+  border-color: #lightcoral;
+}
+
+.btn-N:hover {
+  color: #000;
+  background-color: grey;
+  border-color: #lightcoral;
+}
+
 .btn-danger {
   color: #000;
   background-color: lightcoral;

@@ -40,6 +40,7 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
 
     <style>
       #userName>img{
@@ -56,9 +57,17 @@
         margin-left: 65px;
       }
 
+      #tripPartner, #likePost, #userSetting, #bookMark {
+        cursor: pointer;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        display: inline-block;
+      }
 
-
-    
+      #ulli li{
+        margin: 0;
+        padding: 0;
+      }
 
 
     </style>
@@ -71,6 +80,8 @@
 <section class="py-9 py-md-10">
   <div class="container">
     <div class="row">
+
+    <!-- 계정설정시작 -->
       <div class="col-lg-8 col-xl-9 order-1 order-lg-0">
         <div class="card rounded-0 card-transparent border-bottom mb-7 pb-7">
           <div class="row align-items-xl-center">
@@ -83,7 +94,6 @@
                         <div class="mb-4">
                           <h3 class="text-uppercase mb-3">회원정보수정</h3>
                         </div>
-                        
                         <div class="modal-body">
                             <div class="mb-3">
                               아이디⭐ <br>
@@ -141,8 +151,6 @@
                           </div>
                         </form>
                       </div>
-          
-                   
                   </div>
                 </div>
               </div>
@@ -152,6 +160,8 @@
           </div>
         </div>
       </div>
+    
+      <!-- 계정설정 끝 -->
 
 
 
@@ -170,40 +180,29 @@
                     <div id="userNickName"><p>userNickName</p></div>
                 </div>
                 
-          
+            <div id="ulli">
                 <ul class="list-unstyled list-group list-group-flush">
                   <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                    <a href="memberUpdate.html"
-                      class="d-flex text-dark hover-text-primary py-3">
-                      <span id="tripPartner">🌐 계정설정 </span>
+                      <span id="userSetting" onclick="userSetting();">🌐 계정설정 </span>
                       <small class="ms-auto font-weight-bold">(9)</small>
-                    </a>
                   </li>
           
                   <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                    <a href="blog-single-right-sidebar.html"
-                      class="d-flex text-dark hover-text-primary py-3">
                       <span id="likePost">❤️ 내가 좋아요한 게시글</span>
                       <small class="ms-auto font-weight-bold">(7)</small>
-                    </a>
                   </li>
           
                   <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                    <a href="blog-single-right-sidebar.html"
-                      class="d-flex text-dark hover-text-primary py-3">
-                      <span id="userSetting">🔎 내 동행 게시글</span>
+                      <span id="tripPartner">🔎 내 동행 게시글</span>
                       <small class="ms-auto font-weight-bold">(5)</small>
-                    </a>
                   </li>
           
                   <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                    <a href="blog-single-right-sidebar.html"
-                      class="d-flex text-dark hover-text-primary py-3">
                       <span id="bookMark">⭐ 즐겨찾기</span>
                       <small class="ms-auto font-weight-bold">(8)</small>
-                    </a>
                   </li>
                 </ul>
+            </div>
               </div>
             </div>
           </div>

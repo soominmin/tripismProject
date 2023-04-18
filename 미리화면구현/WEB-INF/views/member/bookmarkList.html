@@ -32,20 +32,27 @@
   border-top: 6px solid RGB(112, 217, 223);
 }
 
-#bookMark{
-    padding-top: 10px;
-}
 
 #bookMarkImg>img{
-    width: 40px;
-    height: 40px;
+    width: 35x;
+    height: 35px;
     border-radius: 50%;
 }
 
-hr{
-    border: 0;
-    height: 0px;
+#folderInfo{
+  height: 30px;
 }
+
+#folderInfo>#folderName,#place{
+  height: 5px;
+}
+
+#bookMarkWrap{
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+
 
 
 </style>
@@ -63,28 +70,71 @@ hr{
 
         <div class="modal-body">
             <h4 style="font-weight: bold;">전체폴더 N</h4>
-            <hr>
-        <div id="bookMarkWrap">
-            <div class="mb-3" id="bookMarkImg" style="float: left;">
-              <img src="../resources/bookMark.png" alt="">
-            </div>
-            <div style="padding-top: 15px; padding-left: 10px;">
-                <p>📍n(개)</p>
-            </div>
-        </div>
-            <hr>
 
-            <div class="mb-3">
-              이름⭐<br>
-              <input type="text" class="form-control bg-smoke" required placeholder="이름">
-            </div>
-            <hr>
+            <button>새폴더 추가</button>
+            <!-- 반복 -->
+                <div style="height: 1px;">
+                  <hr>
+                </div>
+                <div class="mb-3" id="bookMarkImg" style="float: left; padding-top: 15px; height: 40px;">
+                  <img src="../resources/bookMark.png" alt="">
+                </div>
+
+                <div id="folderInfo">
+                  <div id="folderName">
+                    <h5 style="padding-left: 45px; margin-top: 15px;">폴더명</h5>
+                  </div>
+                  <div id="place">
+                    <p style="padding-left: 40px; margin-top: 15px;">📍n(개)</p>
+                  </div>
+                </div>
+              <!-- 반복 끝 -->
+            
+              <!-- 반복 -->
+              <div style="height: 1px;">
+                <hr>
+              </div>
+              <div class="mb-3" id="bookMarkImg" style="float: left; padding-top: 15px; height: 40px;">
+                <img src="../resources/bookMark.png" alt="">
+              </div>
   
-            <div class="mb-3">
-              비밀번호⭐<br>
-              <input type="password" class="form-control bg-smoke" required placeholder="비밀번호">
-            </div>
-            <hr>
+              <div id="folderInfo">
+                <div id="folderName">
+                  <h5 style="padding-left: 45px; margin-top: 15px;">폴더명</h5>
+                </div>
+                <div id="place">
+                  <p style="padding-left: 40px; margin-top: 15px;">📍n(개)</p>
+                </div>
+              </div>
+              <!-- 반복 끝 -->
+
+              <!-- 반복 -->
+              <div style="height: 1px;">
+                <hr>
+              </div>
+              <div class="mb-3" id="bookMarkImg" style="float: left; padding-top: 15px; height: 40px;">
+                <img src="../resources/bookMark.png" alt="">
+              </div>
+  
+              <div id="folderInfo">
+                <div id="folderName">
+                  <h5 style="padding-left: 45px; margin-top: 15px;">폴더명</h5>
+                </div>
+                <div id="place">
+                  <p style="padding-left: 40px; margin-top: 15px;">📍n(개)</p>
+                </div>
+              </div>
+              <div style="height: 1px;">
+                <hr>
+              </div>
+              <!-- 반복 끝 -->
+
+              
+
+
+            
+              
+
         </div>
       </div>
     </div>

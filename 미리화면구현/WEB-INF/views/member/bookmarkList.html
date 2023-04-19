@@ -39,11 +39,11 @@
     border-radius: 50%;
 }
 
-#folderInfo{
+.folderInfo{
   height: 30px;
 }
 
-#folderInfo>#folderName,#place{
+.folderInfo>.folderName,.place{
   height: 5px;
 }
 
@@ -51,6 +51,19 @@
   margin: auto;
   margin-bottom: 10px;
 }
+
+#folderAdd{
+  background-color: RGB(112, 217, 223);
+  border: none;
+  height: 35px;
+  text-align: center;
+
+}
+
+#folderWrap{
+  cursor: pointer;
+}
+
 
 
 
@@ -60,8 +73,7 @@
 
 <body id="body" class="up-scroll">
   
- <!-- Signup Modal -->
- <div id="signup" tabindex="-1" role="dialog" aria-label="signupModalLabel" aria-hidden="true">
+ <div id="bookMark" tabindex="-1" role="dialog" aria-label="signupModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header rounded" id="modalTop">
@@ -71,74 +83,105 @@
         <div class="modal-body">
             <h4 style="font-weight: bold;">전체폴더 N</h4>
 
-            <button>새폴더 추가</button>
-            <!-- 반복 -->
-                <div style="height: 1px;">
-                  <hr>
-                </div>
-                <div class="mb-3" id="bookMarkImg" style="float: left; padding-top: 15px; height: 40px;">
-                  <img src="../resources/bookMark.png" alt="">
-                </div>
-
-                <div id="folderInfo">
-                  <div id="folderName">
-                    <h5 style="padding-left: 45px; margin-top: 15px;">폴더명</h5>
-                  </div>
-                  <div id="place">
-                    <p style="padding-left: 40px; margin-top: 15px;">📍n(개)</p>
-                  </div>
-                </div>
-              <!-- 반복 끝 -->
+            <button class="btn btn-facebook text-uppercase text-white" id="folderAdd">새폴더추가</button>
+            <div id="folderContainer">
+            <div style="height: 1px;">
+              <hr>
+            </div>
+            <!-- 반복
+            <div class="mb-3" id="bookMarkImg" style="float: left; padding-top: 15px; height: 40px;">
+              <img src="../resources/bookMark.png" alt="">
+            </div>
+            <div class="folderInfo">
+              <div class="folderName">
+                <h5 style="padding-left: 45px; margin-top: 15px;">폴더명</h5>
+              </div>
+              <div class="place">
+                <p style="padding-left: 40px; margin-top: 15px;">📍n(개)</p>
+              </div>
+            </div>
+            <div style="height: 1px;">
+              <hr>
+            </div>
+              반복 끝 -->
             
-              <!-- 반복 -->
-              <div style="height: 1px;">
-                <hr>
-              </div>
+              <!-- 반복
               <div class="mb-3" id="bookMarkImg" style="float: left; padding-top: 15px; height: 40px;">
                 <img src="../resources/bookMark.png" alt="">
               </div>
   
-              <div id="folderInfo">
-                <div id="folderName">
+              <div class="folderInfo">
+                <div class="folderName">
                   <h5 style="padding-left: 45px; margin-top: 15px;">폴더명</h5>
                 </div>
-                <div id="place">
-                  <p style="padding-left: 40px; margin-top: 15px;">📍n(개)</p>
-                </div>
-              </div>
-              <!-- 반복 끝 -->
-
-              <!-- 반복 -->
-              <div style="height: 1px;">
-                <hr>
-              </div>
-              <div class="mb-3" id="bookMarkImg" style="float: left; padding-top: 15px; height: 40px;">
-                <img src="../resources/bookMark.png" alt="">
-              </div>
-  
-              <div id="folderInfo">
-                <div id="folderName">
-                  <h5 style="padding-left: 45px; margin-top: 15px;">폴더명</h5>
-                </div>
-                <div id="place">
+                <div class="place">
                   <p style="padding-left: 40px; margin-top: 15px;">📍n(개)</p>
                 </div>
               </div>
               <div style="height: 1px;">
                 <hr>
               </div>
-              <!-- 반복 끝 -->
+              반복 끝 -->
 
-              
-
-
-            
-              
-
+              <!-- 반복
+              <div class="mb-3" id="bookMarkImg" style="float: left; padding-top: 15px; height: 40px;">
+                <img src="../resources/bookMark.png" alt="">
+              </div>
+  
+              <div class="folderInfo">
+                <div class="folderName">
+                  <h5 style="padding-left: 45px; margin-top: 15px;">폴더명</h5>
+                </div>
+                <div class="place">
+                  <p style="padding-left: 40px; margin-top: 15px;">📍n(개)</p>
+                </div>
+              </div>
+              <div style="height: 1px;">
+                <hr>
+              </div>
+              반복 끝 -->
+              </div>
         </div>
       </div>
     </div>
   </div>
+
+<!-- 폴더 템플릿 -->
+<template id="folderTemplate">
+  <div id="folderWrap">
+  <div class="mb-3" id="bookMarkImg" style="float: left; height: 40px;">
+    <img src="../resources/bookMark.png" style="width: 35x; height: 35px; border-radius: 50%;">
+  </div>
+  <div class="folderInfo">
+    <div class="folderName">
+      <h5 style="padding-left: 45px; margin-top: 15px;">폴더명</h5>
+    </div>
+    <div class="place">
+      <p style="padding-left: 40px; margin-top: 15px;">📍n(개)</p>
+    </div>
+  </div>
+  <div style="height: 1px;">
+    <hr>
+  </div>
+</div>
+</template>
+
+<script>
+document.getElementById("folderAdd").addEventListener("click", function() {
+  // 새로운 폴더를 위한 템플릿 엘리먼트 복제
+  const folderTemplate = document.getElementById("folderTemplate");
+  const newFolder = folderTemplate.content.cloneNode(true);
+
+  // 폴더명을 입력받는 프롬프트 창 표시
+  const folderName = prompt("폴더명을 입력하세요.");
+  newFolder.querySelector(".folderName h5").textContent = folderName;
+
+  // 새로운 폴더를 폴더 컨테이너에 추가
+  const folderContainer = document.getElementById("folderContainer");
+  folderContainer.appendChild(newFolder);
+});
+</script>
+
 
 
     <script src="../common/Star travel/Static HTML/assets/plugins/jquery/jquery-3.4.1.min.js"></script>

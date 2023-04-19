@@ -48,42 +48,7 @@
     <![endif]-->
 
     <style>
-        .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
-        .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
-        .map_wrap {position:relative;width:100%;height:500px;}
-        #menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
-        .bg_white {background:#fff;}
-        #menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
-        #menu_wrap .option{text-align: center;}
-        #menu_wrap .option p {margin:10px 0;}  
-        #menu_wrap .option button {margin-left:5px;}
-        #placesList li {list-style: none;}
-        #placesList .item {position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
-        #placesList .item span {display: block;margin-top:4px;}
-        #placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
-        #placesList .item .info{padding:10px 0 10px 55px;}
-        #placesList .info .gray {color:#8a8a8a;}
-        #placesList .info .jibun {padding-left:26px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
-        #placesList .info .tel {color:#009900;}
-        #placesList .item .markerbg {float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
-        #placesList .item .marker_1 {background-position: 0 -10px;}
-        #placesList .item .marker_2 {background-position: 0 -56px;}
-        #placesList .item .marker_3 {background-position: 0 -102px}
-        #placesList .item .marker_4 {background-position: 0 -148px;}
-        #placesList .item .marker_5 {background-position: 0 -194px;}
-        #placesList .item .marker_6 {background-position: 0 -240px;}
-        #placesList .item .marker_7 {background-position: 0 -286px;}
-        #placesList .item .marker_8 {background-position: 0 -332px;}
-        #placesList .item .marker_9 {background-position: 0 -378px;}
-        #placesList .item .marker_10 {background-position: 0 -423px;}
-        #placesList .item .marker_11 {background-position: 0 -470px;}
-        #placesList .item .marker_12 {background-position: 0 -516px;}
-        #placesList .item .marker_13 {background-position: 0 -562px;}
-        #placesList .item .marker_14 {background-position: 0 -608px;}
-        #placesList .item .marker_15 {background-position: 0 -654px;}
-        #pagination {margin:10px auto;text-align: center;}
-        #pagination a {display:inline-block;margin-right:10px;}
-        #pagination .on {font-weight: bold; cursor: default;color:#777;}
+
     </style>
 
   </head>
@@ -91,29 +56,84 @@
   <body>
 
     <div class="travelMapHeader" id="" style="width:100%; height:70px">
-        <img src="../../LOGO2.png" alt="" style="width: 200px; height: 100%">
+        <img src="../../LOGO2.png" alt="" style="width: 250px; height: 100%">
         asdasda
     </div>
     <hr>
-    <div class="map_wrap">
-        <div id="travelMapBody" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+    <div id="contents">
+        <div class="map_area" id="mapaa" style="z-index: 0;">
+        </div>
     
-        <div id="menu_wrap" class="bg_white">
-            <div class="option">
-                <div>
-                    <form onsubmit="searchPlaces(); return false;">
-                        키워드 : <input type="text" value="이태원 맛집" id="keyword" size="15"> 
-                        <button type="submit">검색하기</button> 
-                    </form>
+        <div class="toast_message on">
+        </div>
+    
+        <div class="map_cont_wrap" style="display: none;">
+            <div class="pc_cont">
+                <!-- depth1 -->
+                <div class="pc_depth1">
+                    <div class="map_menu">
+                        <strong class="stit_area"></strong>
+                        <ul class="tab">
+                            <li label="tour"><a href="javascript:;" onclick="CategoryChange(this,1);" class="icon1">주변 여행지</a></li>
+                            <li label="food"><a href="javascript:;" onclick="CategoryChange(this,2);" class="icon2">음식점</a></li>
+                            <li label="cafe"><a href="javascript:;" onclick="CategoryChange(this,3);" class="icon3">카페</a></li>
+                            <li label="hotel"><a href="javascript:;" onclick="CategoryChange(this,4);" class="icon4">숙소</a></li>
+                            <li label="parking"><a href="javascript:;" onclick="CategoryChange(this,5);" class="icon5">주차장</a></li>
+                            <li><a href="javascript:;" onclick="CategoryChange(this,7);" class="icon7">추천테마</a></li>
+                            <li><a href="javascript:;" onclick="CategoryChange(this,8);" class="icon8">여행코스</a></li>
+                            <li><a href="javascript:;" onclick="CategoryChange(this,9);" class="icon9">나의여행</a></li>
+                            <li><a href="javascript:;" onclick="CategoryChange(this,10);" class="icon10">설정</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu_cont">
+                    </div>
+                </div>
+                <!-- //depth1 -->
+                <!-- depth2 -->
+                <div class="pc_depth2" tabindex="0">
                 </div>
             </div>
-            <hr>
-            <ul id="placesList"></ul>
-            <div id="pagination"></div>
+            <button class="btn_fold" type="button">접기</button>
         </div>
+        <div class="mo_cont">
+            <div class="cupertino-pane" id="molistdiv">
+                <div class="map_menu">
+                    <strong class="stit_area"></strong>
+                    <div class="tab_slide">
+                        <div class="swiper-container">
+                            <ul class="swiper-wrapper">
+                                <li class="swiper-slide" label="tour"><a href="javascript:;"  onclick="CategoryChange(this,1);" class="icon1"><div class="micon01"></div>주변 여행지</a></li>
+                                <li class="swiper-slide" label="food"><a href="javascript:;"  onclick="CategoryChange(this,2);" class="icon2"><div class="micon02"></div>음식점</a></li>
+                                <li class="swiper-slide" label="cafe"><a href="javascript:;"  onclick="CategoryChange(this,3);" class="icon3"><div class="micon03"></div>카페</a></li>
+                                <li class="swiper-slide" label="hotel"><a href="javascript:;" onclick="CategoryChange(this,4);" class="icon4"><div class="micon04"></div>숙소</a></li>
+                                <li class="swiper-slide" label="parking"><a href="javascript:;" onclick="CategoryChange(this,5);" class="icon5"><div class="micon05"></div>주차장</a></li>
+                                <li class="swiper-slide"><a href="javascript:;" onclick="CategoryChange(this,7);" class="icon7"><div class="micon07"></div>추천테마</a></li>
+                                <li class="swiper-slide"><a href="javascript:;" onclick="CategoryChange(this,8);" class="icon8"><div class="micon08"></div>여행코스</a></li>
+                                <li class="swiper-slide"><a href="javascript:;" onclick="CategoryChange(this,9);" class="icon9"><div class="micon09"></div>나의여행</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mo_list01">
+                        <div class="swiper-container">
+                            <ul class="swiper-wrapper">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cupertino-pane" id="modetaildiv">
+            </div>
+            <div class="map_view_btn" style="display : none;"><button type="button">지도로 보기</button></div>
+        </div>
+        <div class="btn_list01" style="display: none;"><a href="javascript:BackStep(true);">목록보기</a></div>
+        <div class="map_btn">
+            <button type="button" class="location" onclick="myLocation();">현재위치이동</button>
+            <button type="button" class="setup" style="display: none;" onclick="CategoryChange(this,10);">여행지도 설정을 바꿀 수 있어요.</button>
+            <button type="button" class="refresh" style="display: none;" onclick="changeCenter();">현재 지도에서 검색</button>
+        </div>
+        <button type="button" onclick="changeCenter();" style="display: none;" class="refresh mo_refresh">현재 지도에서 검색</button>
     </div>
 
-    </div>
 
 
 

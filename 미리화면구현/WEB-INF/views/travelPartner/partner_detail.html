@@ -407,6 +407,94 @@ textarea {
     display: inherit;
     font-weight: bold;
 }
+/*동행신청 모달*/
+.dompyb {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 10010;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background: rgba(25, 25, 25, 0.5);
+    padding: 0px;
+    opacity: 1;
+    transition: opacity 0.6s ease 0s;
+    
+}
+.dompyb > div {
+    transform: translateY(0px);
+}
+.bgZZfo {
+    width: 375px;
+    height: auto;
+    padding: 0px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    transition: transform 0.6s ease 0s;
+    background-color: rgb(255, 255, 255);
+}
+.bJjRJT {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 34px 18px;
+}
+/*모달 p태그*/
+.gpnsLj {
+    width: 100%;
+    box-sizing: border-box;
+    word-break: break-all;
+    white-space: pre-wrap;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    user-select: none;
+    -webkit-user-drag: none;
+    margin-bottom: 24px;
+}
+.bcDKTX {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+.cMnydo {
+    box-sizing: border-box;
+    width: 49%;
+    height: 100%;
+    background: rgb(0, 206, 124);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    transition: background-color 0.3s ease-out 0s;
+    border: none;
+    cursor: pointer;
+    margin: 0px;
+    font-size: 15px;
+    font-weight: 400;
+}
+.hOSFcy {
+    box-sizing: border-box;
+    width: 49%;
+    height: 100%;
+    background: rgb(248, 248, 248);
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    transition: background-color 0.3s ease-out 0s;
+    border: none;
+    cursor: pointer;
+    margin: 0px;
+    font-size: 15px;
+    font-weight: 400;
+}
 </style>
 </head>
 <body>
@@ -414,9 +502,7 @@ textarea {
         <section
             direction="vertical"
             class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq">
-            <img
-                alt="이미지"
-                src="../travelPartner/img5.jpg"></section>
+            <img alt="이미지" src="../travelPartner/img5.jpg"></section>
             <div class="accompanyId__BulletinWrapDiv-sc-1up08zu-1 jLghAG">
                 <div class="innerSection__AreaLeftDiv-sc-1ag5fhb-4 birXOP">
                     <div class="AccompanyContainer__Wrap-sc-zoqt5l-0 rgrEj">
@@ -472,7 +558,9 @@ textarea {
                                     <span>맛집/카페 탐방, 핫플레이스 탐방</span>
                                     여행을 떠나려고 해요.</p>
                             </div>
-                            <div class="AccompanyContainer__TempBox-sc-zoqt5l-8 klFqPP" style="align-items: center;">
+                            <div
+                                class="AccompanyContainer__TempBox-sc-zoqt5l-8 klFqPP"
+                                style="align-items: center;">
                                 <svg
                                     width="15"
                                     height="15"
@@ -486,7 +574,9 @@ textarea {
                                     여행자에요.</p>
                             </div>
                         </div>
-                        <p class="AccompanyContainer__ContentBox-sc-zoqt5l-9 jbdwEb">맛집과 감성장소가서 커피마시는 것을 좋아합니다! 저는 막주 한주 가있을 건데, 혼자보단 같이 놀면 재밌을 것 같아요! 커피 산책 사진 음주 등 전부 좋고 부분 동행도 좋아요 남녀노소 함께 합시다! (전 30초 남자에요!!)</p>
+                        <p class="AccompanyContainer__ContentBox-sc-zoqt5l-9 jbdwEb">맛집과 감성장소가서 커피마시는 것을
+                            좋아합니다! 저는 막주 한주 가있을 건데, 혼자보단 같이 놀면 재밌을 것 같아요! 커피 산책 사진 음주 등 전부 좋고 부분 동행도 좋아요
+                            남녀노소 함께 합시다! (전 30초 남자에요!!)</p>
                         <div class="badge__HashTagArrayWrapper-sc-1ju2uee-1 Ewzzt">
                             <div>
                                 <div class="badge__HashTagArrayWrapper-sc-1ju2uee-1 cdLLix">
@@ -535,50 +625,71 @@ textarea {
                 <div class="innerSection__AreaRightDiv-sc-1ag5fhb-5 bdoziM">
                     <div class="Layout__LayoutEqualDistanceDiv-sc-1w3ggn5-1 hAClzB profile_section">
                         <div class="area_top" style="margin: 0; margin-bottom: 15px;">
-                            <img
-                                src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/member/1681382896035-2"
-                                alt="이미지"
-                                style="width: 50px; height: 50px; padding: 4px;">
+                            <img src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/member/1681382896035-2" style="width: 50px; height: 50px; padding: 4px;">
                                 <div class="profile_info_wrap">
                                     <div class="area_flex" style="display: flex;">
                                         <p class="profile_nickname">Mucamba</p>
                                     </div>
                                     <div class="profile_taste gray_text">
-                                        <p class="ProfileCompanion__PreventDragP-sc-mx7rng-0 eOlhBT">30대 · 남성 · 대한민국</p>
+                                        <p class="ProfileCompanion eOlhBT">30대 · 남성 · 대한민국</p>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="area_middle">
                                 <div class="profile_click">
-                                    <svg
-                                        width="18"
-                                        height="18"
-                                        viewBox="0 0 18 18"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M9 18C13.9706 18 18 13.9706 18 9C18 4.02944 13.9706 0 9 0C4.02944 0 0 4.02944 0 9C0 13.9706 4.02944 18 9 18Z"
-                                            fill="#00CE7C"></path>
-                                        <path
-                                            d="M7.77467 12.9015C7.78623 12.6612 7.86817 12.4295 8.01029 12.2353C8.15241 12.0411 8.34846 11.893 8.57407 11.8093C8.79968 11.7256 9.04491 11.71 9.27931 11.7645C9.5137 11.8189 9.72691 11.9411 9.89247 12.1157C10.058 12.2904 10.1686 12.5098 10.2105 12.7468C10.2524 12.9838 10.2237 13.2278 10.1281 13.4486C10.0324 13.6695 9.87403 13.8573 9.67253 13.9888C9.47102 14.1204 9.23531 14.1898 8.99467 14.1885C8.82916 14.1871 8.66563 14.1523 8.51386 14.0863C8.36209 14.0202 8.22519 13.9243 8.11132 13.8042C7.99745 13.684 7.90896 13.5422 7.85111 13.3871C7.79327 13.232 7.76727 13.0669 7.77467 12.9015ZM8.06967 5.67455L8.00267 3.81055H9.98667L9.91967 5.67455L9.63767 10.6215H8.35167L8.06967 5.67455Z"
-                                            fill="white"></path>
-                                    </svg>
-                                    <p class="ProfileCompanion__PreventDragP-sc-mx7rng-0 eOlhBT desc">프로필 사진을 클릭해보세요!</p>
+                                    <p class="ProfileCompanion_desc">프로필 사진을 클릭해보세요!</p>
                                 </div>
-                                <div class="Button__ButtonWrapper-sc-1m85upr-0 cmgUBW">
-                                    <button
-                                        width="268px"
-                                        height="55px"
-                                        font-style=""
-                                        type="button"
-                                        class="Button__ButtonStyle-sc-1m85upr-1 iNZmaX">
+                                <div class="Button cmgUBW">
+                                    <button width="268px" height="55px" font-style="" type="button" class="Button iNZmaX" id="applyBtn">
                                         <a>동행 신청하기</a>
                                     </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- 동행신청 모달창 -->
+            <div id="ModalController" style="display: none;">
+                <div>
+                    <div class="ModalContainer dompyb">
+                        <div width="375px" class="ModalContainer bgZZfo">
+                            <div class="ModalConfirm bJjRJT">
+                                <p class="ModalConfirm gpnsLj">동행 신청을 하시겠습니까? 동행신청 누를시 신청하시는 분의 정보가 전달 됩니다.</p>
+                                <div class="ModalConfirm bcDKTX">
+                                    <button width="49%" height="100%" color="#fff" class="ButtonTemplate hOSFcy">취소</button>
+                                    <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo">동행신청</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </main>
+            </div>
+
+            <script>
+                // 동행신청하기 버튼 클릭 시 모달창 띄우기
+                var applyBtn = document.querySelector('#applyBtn');
+                applyBtn.addEventListener('click', function() {
+                var modal = document.querySelector('#ModalController');
+                modal.style.display = "block";
+                });
+
+                // 모달창 닫기 버튼 클릭 시 모달창 닫기
+                var closeBtn = document.querySelector('.ButtonTemplate.hOSFcy');
+                closeBtn.addEventListener('click', function() {
+                var modal = document.querySelector('#ModalController');
+                modal.style.display = "none";
+                });
+
+                // 동행신청 버튼 클릭 시 신청 정보 전송
+                var applyConfirmBtn = document.querySelector('.ButtonTemplate.cMnydo');
+                applyConfirmBtn.addEventListener('click', function() {
+                // 신청 정보 전송 코드 작성
+                });
+            </script>
+            
         </body>
-</html>
+    </html>

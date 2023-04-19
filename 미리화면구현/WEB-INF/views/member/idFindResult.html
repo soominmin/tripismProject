@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+
+    <!-- SITE TITTLE -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Settings - Star Travel</title>
+
+<!-- Plugins css Style -->
+  <!-- <link href='common/assets/plugins/fontawesome-5.15.2/css/all.min.css' rel='stylesheet'> -->
+  <link href='../common/Star travel/Static HTML/assets/plugins/fontawesome-5.15.2/css/all.min.css' rel='stylesheet'>
+  <!-- <link href='assets/plugins/fontawesome-5.15.2/css/fontawesome.min.css' rel='stylesheet'> -->
+  <link href='../common/Star travel/Static HTML/assets/plugins/fontawesome-5.15.2/css/fontawesome.min.css' rel='stylesheet'>
+  <!-- <link href="assets/plugins/animate/animate.css" rel="stylesheet"> -->
+  <link href="../common/Star travel/Static HTML/assets/plugins/animate/animate.css" rel="stylesheet">
+  <!-- <link href="assets/plugins/menuzord/css/menuzord.css" rel="stylesheet"> -->
+  <link href="../common/Star travel/Static HTML/assets/plugins/menuzord/css/menuzord.css" rel="stylesheet">
+  <!-- <link href="assets/plugins/menuzord/css/menuzord-animations.css" rel="stylesheet"> -->
+  <link href="../common/Star travel/Static HTML/assets/plugins/menuzord/css/menuzord-animations.css" rel="stylesheet">
+    
+  <link href='../common/Star travel/Static HTML/assets/plugins/fancybox/jquery.fancybox.min.css' rel='stylesheet'>
+
+    <!-- GOOGLE FONT -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700' rel='stylesheet'>
+
+  <!-- CUSTOM CSS -->
+  <!-- <link href="assets/css/star.css" id="option_style" rel="stylesheet"> -->
+  <link href="../common/Star travel/Static HTML/assets/css/star.css" id="option_style" rel="stylesheet">
+
+
+  <!-- FAVICON -->
+  <!-- <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png" /> -->
+  <link rel="shortcut icon" type="image/png" href="../common/Star travel/Static HTML/assets/img/favicon.png" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+      #pwdFind{
+        background-color: RGB(112, 217, 223);
+        border-color: RGB(112, 217, 223);
+      }
+
+      #login{
+        background-color: rgba(240, 248, 255, 0.116);
+        border-color: black;
+        color: black;
+
+      }
+
+      #userImg>img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+
+      #userImg{
+        float: left;
+        height: max-content;
+      }
+
+      #userId, #userName, #email{
+        margin-left: 65px;
+      }
+
+      #userInfo {
+        border: 1px solid gray;
+        border-radius: 15px 15px 15px 15px;
+        padding: 15px;
+        margin: 30px;
+     }
+
+     #userId>p, #email>p, #userName>p{
+        color: black;
+        font-weight: bold;
+     }
+    </style>
+  </head>     
+
+<body id="body" class="up-scroll">
+
+<section class="py-9">
+  <div class="container">
+    <div class="bg-smoke p-2 p-md-6 pb-6 pb-md-8 mb-9 rounded">
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-lg-6" style="margin: auto;">
+              <div class="mb-4" style="padding-left: 40px;">
+                <h3 class="text-uppercase mb-3">ID 찾기 결과</h3>
+                <p>다음정보로 가입된 아이디가 총 n개 있습니다.</p>
+              </div>
+              
+              <div class="modal-body">
+                    <div class="mb-3" id="userInfo">
+                        <h3 class="mb-4" id="userImg"><img src="../resources/user (2).jfif" alt=""></h3>
+                          <div id="userName"><p>이름 : 한수반</p></div>
+                          <div id="email"><p>이메일 : subani@gmail.com</p></div>
+                          <div id="userId"><p>찾아낸 아이디</p></div>
+                    </div>
+                  </div>
+
+                  
+                 
+
+                  <div class="row" style="text-align: center;">
+                    <div class="pt-3">
+                      <button type="submit" onclick="location.href='로그인'" class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6" id="login">로그인</button>
+                      <button type="submit" onclick="location.href='비밀번호찾기'" class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6" id="pwdFind">비밀번호찾기</button>
+                    </div>
+                </div>
+
+              
+
+              
+            </div>
+
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</section>
+
+   
+
+
+    <!-- Javascript -->
+    <!-- <script src="assets/plugins/jquery/jquery-3.4.1.min.js"></script> -->
+    <script src="../common/Star travel/Static HTML/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <!-- <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+    <script src="../common/Star travel/Static HTML/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="assets/plugins/menuzord/js/menuzord.js"></script> -->
+    <script src="../common/Star travel/Static HTML/assets/plugins/menuzord/js/menuzord.js"></script>
+    <!-- <script src='assets/plugins/fancybox/jquery.fancybox.min.js'></script> -->
+    <script src='../common/Star travel/Static HTML/assets/plugins/fancybox/jquery.fancybox.min.js'></script>
+    <!-- <script src="assets/plugins/lazyestload/lazyestload.js"></script> -->
+    <script src="../common/Star travel/Static HTML/assets/plugins/lazyestload/lazyestload.js"></script>
+    <!-- <script src="assets/plugins/smoothscroll/SmoothScroll.js"></script> -->
+    <script src="../common/Star travel/Static HTML/assets/plugins/smoothscroll/SmoothScroll.js"></script>
+    <!-- <script src="assets/js/star.js"></script> -->
+    <script src="../common/Star travel/Static HTML/assets/js/star.js"></script>
+  </body>
+</html>
+

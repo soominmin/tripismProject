@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Star Travel - Tour Booking Theme</title>
+
+  <link href='../common/Star travel/Static HTML/assets/plugins/fontawesome-5.15.2/css/all.min.css' rel='stylesheet'>
+  <link href='../common/Star travel/Static HTML/assets/plugins/fontawesome-5.15.2/css/fontawesome.min.css' rel='stylesheet'>
+  <link href="../common/Star travel/Static HTML/assets/plugins/animate/animate.css" rel="stylesheet">
+  <link href="../common/Star travel/Static HTML/assets/plugins/menuzord/css/menuzord.css" rel="stylesheet">
+  <link href="../common/Star travel/Static HTML/assets/plugins/menuzord/css/menuzord-animations.css" rel="stylesheet">
+
+  <link href='../common/Star travel/Static HTML/assets/plugins/fancybox/jquery.fancybox.min.css' rel='stylesheet'>
+  <link href='../common/Star travel/Static HTML/assets/plugins/selectric/selectric.css' rel='stylesheet'>
+  <link href='../common/Star travel/Static HTML/assets/plugins/daterangepicker/css/daterangepicker.css' rel='stylesheet'>
+  <link href='../common/Star travel/Static HTML/assets/plugins/dzsparallaxer/dzsparallaxer.css' rel='stylesheet'>
+  <link href='../common/Star travel/Static HTML/assets/plugins/slick/slick.css' rel='stylesheet'>
+  <link href='../common/Star travel/Static HTML/assets/plugins/slick/slick-theme.css' rel='stylesheet'>
+  <link href='../common/Star travel/Static HTML/assets/plugins/revolution/css/settings.css' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,600,700' rel='stylesheet'>
+  <link href="../common/Star travel/Static HTML/assets/css/star.css" id="option_style" rel="stylesheet">
+  <link rel="shortcut icon" type="image/png" href="../common/Star travel/Static HTML/assets/img/favicon.png" />
+
+<style>
+#modalTop{
+  border-top: 6px solid RGB(112, 217, 223);
+}
+
+
+#bookMarkImg>img{
+    width: 35x;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.folderInfo{
+  height: 30px;
+}
+
+.folderInfo>.folderName,.place{
+  height: 5px;
+}
+
+#bookMarkWrap{
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+#folderAdd{
+  background-color: RGB(112, 217, 223);
+  border: none;
+  height: 35px;
+  text-align: center;
+
+}
+
+#folderWrap{
+  cursor: pointer;
+}
+
+
+
+
+
+</style>
+</head>
+
+<body id="body" class="up-scroll">
+  
+ <div id="bookMark" tabindex="-1" role="dialog" aria-label="signupModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header rounded" id="modalTop">
+          <h3 class="modal-title text-uppercase font-weight-bold">내 즐겨찾기 폴더</h3>
+        </div>
+
+        <div class="modal-body">
+            <h4 style="font-weight: bold;">전체폴더 N</h4>
+
+            <button class="btn btn-facebook text-uppercase text-white" id="folderAdd">새폴더추가</button>
+            <div id="folderContainer">
+            <div style="height: 1px;">
+              <hr>
+            </div>
+            <!-- 반복
+            <div class="mb-3" id="bookMarkImg" style="float: left; padding-top: 15px; height: 40px;">
+              <img src="../resources/bookMark.png" alt="">
+            </div>
+            <div class="folderInfo">
+              <div class="folderName">
+                <h5 style="padding-left: 45px; margin-top: 15px;">폴더명</h5>
+              </div>
+              <div class="place">
+                <p style="padding-left: 40px; margin-top: 15px;">📍n(개)</p>
+              </div>
+            </div>
+            <div style="height: 1px;">
+              <hr>
+            </div>
+              반복 끝 -->
+            
+              <!-- 반복
+              <div class="mb-3" id="bookMarkImg" style="float: left; padding-top: 15px; height: 40px;">
+                <img src="../resources/bookMark.png" alt="">
+              </div>
+  
+              <div class="folderInfo">
+                <div class="folderName">
+                  <h5 style="padding-left: 45px; margin-top: 15px;">폴더명</h5>
+                </div>
+                <div class="place">
+                  <p style="padding-left: 40px; margin-top: 15px;">📍n(개)</p>
+                </div>
+              </div>
+              <div style="height: 1px;">
+                <hr>
+              </div>
+              반복 끝 -->
+
+              <!-- 반복
+              <div class="mb-3" id="bookMarkImg" style="float: left; padding-top: 15px; height: 40px;">
+                <img src="../resources/bookMark.png" alt="">
+              </div>
+  
+              <div class="folderInfo">
+                <div class="folderName">
+                  <h5 style="padding-left: 45px; margin-top: 15px;">폴더명</h5>
+                </div>
+                <div class="place">
+                  <p style="padding-left: 40px; margin-top: 15px;">📍n(개)</p>
+                </div>
+              </div>
+              <div style="height: 1px;">
+                <hr>
+              </div>
+              반복 끝 -->
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- 폴더 템플릿 -->
+<template id="folderTemplate">
+  <div id="folderWrap">
+  <div class="mb-3" id="bookMarkImg" style="float: left; height: 40px;">
+    <img src="../resources/bookMark.png" style="width: 35x; height: 35px; border-radius: 50%;">
+  </div>
+  <div class="folderInfo">
+    <div class="folderName">
+      <h5 style="padding-left: 45px; margin-top: 15px;">폴더명</h5>
+    </div>
+    <div class="place">
+      <p style="padding-left: 40px; margin-top: 15px;">📍n(개)</p>
+    </div>
+  </div>
+  <div style="height: 1px;">
+    <hr>
+  </div>
+</div>
+</template>
+
+<script>
+document.getElementById("folderAdd").addEventListener("click", function() {
+  // 새로운 폴더를 위한 템플릿 엘리먼트 복제
+  const folderTemplate = document.getElementById("folderTemplate");
+  const newFolder = folderTemplate.content.cloneNode(true);
+
+  // 폴더명을 입력받는 프롬프트 창 표시
+  const folderName = prompt("폴더명을 입력하세요.");
+  newFolder.querySelector(".folderName h5").textContent = folderName;
+
+  // 새로운 폴더를 폴더 컨테이너에 추가
+  const folderContainer = document.getElementById("folderContainer");
+  folderContainer.appendChild(newFolder);
+});
+</script>
+
+
+
+    <script src="../common/Star travel/Static HTML/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <script src="../common/Star travel/Static HTML/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../common/Star travel/Static HTML/assets/plugins/menuzord/js/menuzord.js"></script>
+    
+    
+    
+    <script src='../common/Star travel/Static HTML/assets/plugins/fancybox/jquery.fancybox.min.js'></script>
+    
+    <script src='../common/Star travel/Static HTML/assets/plugins/selectric/jquery.selectric.min.js'></script>
+    <script src='../common/Star travel/Static HTML/assets/plugins/daterangepicker/js/moment.min.js'></script>
+    <script src='../common/Star travel/Static HTML/assets/plugins/daterangepicker/js/daterangepicker.min.js'></script>
+    
+    <script src="../common/Star travel/Static HTML/assets/plugins/lazyestload/lazyestload.js"></script>
+    <script src='../common/Star travel/Static HTML/assets/plugins/dzsparallaxer/dzsparallaxer.js'></script>
+    
+    
+    
+    <script src='../common/Star travel/Static HTML/assets/plugins/slick/slick.min.js'></script>
+    
+    <script src='../common/Star travel/Static HTML/assets/plugins/revolution/js/jquery.themepunch.tools.min.js'></script>
+    <script src='../common/Star travel/Static HTML/assets/plugins/revolution/js/jquery.themepunch.revolution.min.js'></script>
+    <script src="../common/Star travel/Static HTML/assets/plugins/smoothscroll/SmoothScroll.js"></script>
+    
+    <script src="../common/Star travel/Static HTML/assets/js/star.js"></script>
+  </body>
+</html>
+

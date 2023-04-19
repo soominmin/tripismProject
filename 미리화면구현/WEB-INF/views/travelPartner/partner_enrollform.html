@@ -6,12 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
     
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
-
 <style > html {
     line-height: 1.15;
     text-size-adjust: 100%;
@@ -198,6 +192,7 @@ p {
     font-weight: 700;
     font-size: 15px;
 }
+
 /*세부지역영역설정*/
 .fTvelu > :nth-child(2) > div {
     position: relative;
@@ -565,15 +560,6 @@ input::placeholder {
     box-sizing: border-box;
     outline: auto;
 }
-
-/*달력스타일*/
-.ui-datepicker {
-  font-size: 12px;
-  width: 200px;
-  height: 250px;
-}
-
-
 </style>
     </head>
     <body>
@@ -980,11 +966,7 @@ input::placeholder {
                             <div class="InfoSection__SectionWrapper-sc-kxxjuz-0 QhPLj">
                                 <p class="InfoSection__PreventDragP-sc-kxxjuz-1 jZopBj">모집인원</p>
                                 <div class="Number__ItemWrapper-sc-chlyb5-0 QMYJI">
-                                  <input type="range" class="input-range"
-                                         min="1" max="20" value="1"
-                                         aria-valuemin="1" aria-valuemax="20" aria-valuenow="1"
-                                         style="height: 3px; background-color: rgb(219, 219, 219); width: 100%;"
-                                         oninput="document.querySelector('.recruit_no').innerText = this.value;">
+                                  <input type="range" min="1" max="20" value="1" class="rc-slider" style="width: 100%;" onchange="updateRecruitNo(this.value)">
                                   <div class="area_flex">
                                     <p class="Number__PreventDragP-sc-chlyb5-1 drqLrs recruit_no">1</p>
                                     <p class="Number__PreventDragP-sc-chlyb5-1 drqLrs" style="margin-left: 4px;">명</p>
@@ -992,34 +974,42 @@ input::placeholder {
                                 </div>
                               </div>
                               
-                              
-
-                              <div class="InfoSection__SectionWrapper-sc-kxxjuz-0 QhPLj">
-                                <p class="InfoSection__PreventDragP-sc-kxxjuz-1 jZopBj">날짜 선택</p>
-                                <div class="DatepickerRange__DatepickerRangeWrapper-sc-xqwwp5-0 bwNDmh datepicker_wrap">
-                                  <div class="DatepickerRange__DatePickerWrapper-sc-xqwwp5-1 djQkqt">
-                                    <div class="react-datepicker-wrapper">
-                                      <div class="react-datepicker__input-container">
-                                        <input type="text" name="calPrev" placeholder="날짜 선택" autocomplete="off" class="datepicker" value="">
-                                      </div>
-                                    </div>
-                                    <span class="DatepickerRange__PreventDragSpan-sc-xqwwp5-2 eiMlOY">-</span>
-                                    <div class="react-datepicker-wrapper">
-                                      <div class="react-datepicker__input-container">
-                                        <input type="text" name="calNext" placeholder="날짜 선택" autocomplete="off" class="datepicker" value="">
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              
                               <script>
-                                $(document).ready(function() {
-                                  $(".datepicker").datepicker({
-                                    inline: true
-                                  });
-                                });
+                              function updateRecruitNo(value) {
+                                const recruitNoElement = document.querySelector(".recruit_no");
+                                recruitNoElement.innerText = value;
+                              }
                               </script>
+                              
+                            
+
+                            <div class="InfoSection__SectionWrapper-sc-kxxjuz-0 QhPLj">
+                                <p class="InfoSection__PreventDragP-sc-kxxjuz-1 jZopBj">날짜 선택</p>
+                                <div
+                                    class="DatepickerRange__DatepickerRangeWrapper-sc-xqwwp5-0 bwNDmh datepicker_wrap">
+                                    <div class="DatepickerRange__DatePickerWrapper-sc-xqwwp5-1 djQkqt">
+                                        <div class="react-datepicker-wrapper">
+                                            <div class="react-datepicker__input-container"><input
+                                                type="text"
+                                                name="calPrev"
+                                                placeholder="날짜 선택"
+                                                autocomplete="off"
+                                                class="datepicker"
+                                                value=""></div>
+                                        </div>
+                                        <span class="DatepickerRange__PreventDragSpan-sc-xqwwp5-2 eiMlOY">-</span>
+                                        <div class="react-datepicker-wrapper">
+                                            <div class="react-datepicker__input-container"><input
+                                                type="text"
+                                                name="calNext"
+                                                placeholder="날짜 선택"
+                                                autocomplete="off"
+                                                class="datepicker"
+                                                value=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             
                         </div>
                     </div>

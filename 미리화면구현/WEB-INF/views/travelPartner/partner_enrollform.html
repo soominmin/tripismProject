@@ -316,45 +316,9 @@ p {
     -webkit-box-pack: justify;
     justify-content: space-between;
 }
-.rc-slider {
-    position: relative;
-    height: 14px;
-    padding: 5px 0;
-    width: 100%;
-    border-radius: 6px;
-    touch-action: none;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-.rc-slider * {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
+/*슬라이더바*/
 
-/*레일*/
-.rc-slider-rail {
-    position: absolute;
-    border-radius: 6px;
-}
-/*동그란거*/
-.rc-slider-track {
-    position: absolute;
-    height: 4px;
-    border-radius: 6px;
-}
-.rc-slider-step {
-    position: absolute;
-    width: 100%;
-    height: 4px;
-    background: transparent;
-}
-.rc-slider-mark {
-    position: absolute;
-    top: 18px;
-    left: 0;
-    width: 100%;
-    font-size: 12px;
-}
+
 /*인원알려주기*/
 .QMYJI > div:last-child {
     margin-left: 15px;
@@ -713,7 +677,8 @@ input::placeholder {
     color: rgb(255, 255, 255);
     border-radius: 10px;
     transition: background-color 0.3s ease-out 0s;
-    margin: 10px 2%;
+    margin: 10px 1.5%;
+    font-size: large;
     cursor: pointer;
 }
 /*버튼*/
@@ -755,6 +720,24 @@ input::placeholder {
   height: 100%;
   overflow: auto;
 }
+/*달력 스타일*/
+.ui-datepicker {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    font-size: 16px;
+    width: auto; /* 달력 전체 너비 */
+    height: auto; /* 달력 전체 높이 */
+}
+
+.ui-datepicker-calendar {
+  width: 100%; /* 달력 내부의 날짜 표시 영역 너비 */
+  height: 100%; /* 달력 내부의 날짜 표시 영역 높이 */
+}
+
+.ui-datepicker td {
+  padding: 3px; /* 각 날짜 셀의 패딩 */
+}
+
 
 </style>
     </head>
@@ -1219,7 +1202,7 @@ input::placeholder {
                                                 <input
                                                 type="text"
                                                 name="calPrev"
-                                                placeholder="날짜 선택"
+                                                placeholder= "날짜 선택"
                                                 autocomplete="off"
                                                 class="datepicker"
                                                 value=""></div>
@@ -1244,7 +1227,6 @@ input::placeholder {
                                     prevText: '이전 달',	// 마우스 오버시 이전달 텍스트
                                     nextText: '다음 달',	// 마우스 오버시 다음달 텍스트
                                     closeText: '닫기',      // 닫기 버튼 텍스트 변경
-                                    currentText: '오늘',    // 오늘 텍스트 변경 
                                     monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],	    // 한글 캘린더 중 월 표시를 위한 부분
                                     monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],	// 한글 캘린더 중 월 표시를 위한 부분
                                     dayNames: ['일', '월', '화', '수', '목', '금', '토'],	    // 한글 캘린더 요일 표시 부분
@@ -1252,7 +1234,6 @@ input::placeholder {
                                     dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],	// 한글 요일 표시 부분
                                     showMonthAfterYear: true,	// true : 년 월  false : 월 년 순으로 보여줌
                                     yearSuffix: '년',	//
-                                    showButtonPanel: true,	// 오늘로 가는 버튼과 달력 닫기 버튼 보기 옵션
                                     //        buttonImageOnly: true,	// input 옆에 조그만한 아이콘으로 캘린더 선택가능하게 하기
                                     //        buttonImage: "images/calendar.gif",	// 조그만한 아이콘 이미지
                                     //        buttonText: "Select date"	// 조그만한 아이콘 툴팁
@@ -1312,7 +1293,23 @@ input::placeholder {
                     type="file"
                     accept="image/png, image/jpeg"
                     style="display: none; margin: 0px; padding: 0px;">
-                
+                <script>
+                    const fileInput = document.getElementById('fileInput');
+                    const imageWrapper = document.querySelector('.Image__ItemWrapper-sc-16k9dmh-0');
+
+                    fileInput.addEventListener('change', (event) => {
+                    const file = event.target.files[0];
+                    const reader = new FileReader();
+
+                    reader.onload = (event) => {
+                        const imageUrl = event.target.result;
+                        imageWrapper.style.backgroundImage = `url(${imageUrl})`;
+                    }
+
+                    reader.readAsDataURL(file);
+                    });
+
+                </script>
                 
                     
                     <div>
@@ -1486,33 +1483,77 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
                                                             </div>
                                                         </div>
                         <script>
+                            // 모달 요소 가져오기
+                            const modal = document.querySelector('.kxfRvG');
+                        
                             // 작성완료 버튼을 클릭할 때마다 실행되는 함수
                             function openModal() {
                                 // body 요소에 overflow: hidden; 속성 추가
                                 document.body.style.overflow = 'hidden';
-                                // 모달 요소 가져오기
-                                const modal = document.querySelector('.kxfRvG');
                                 // 모달을 보이도록 함
                                 modal.style.display = 'flex';
                             }
-
+                        
                             // 작성완료 버튼 요소 가져오기
                             const submitButton = document.querySelector('.dcFMHq');
                             // 작성완료 버튼에 클릭 이벤트 리스너 추가하기
                             submitButton.addEventListener('click', openModal);
+                        
                             // 뒤로가기 버튼 요소 가져오기
-                            const backButton = document.querySelector(
-                                '.ModalButton__ButtonWrap-sc-1q3a6l3-0.hpRpYH'
-                            );
+                            const backButton = document.querySelector('.ModalButton__ButtonWrap-sc-1q3a6l3-0.hpRpYH');
                             // 모달 꺼지기
                             backButton.addEventListener('click', function () {
-                                // 모달 요소 가져오기
-                                const modal = document.querySelector('.kxfRvG');
                                 // 모달을 안 보이도록 함
                                 modal.style.display = 'none';
                                 // body 요소의 overflow 속성을 auto로 변경
                                 document.body.style.overflow = 'auto';
                             });
+                        
+                            // 모달 외부를 클릭할 때 모달이 사라지도록 함
+                            window.addEventListener('click', function (event) {
+                                // 클릭한 요소가 모달이 아닐 경우 모달을 안 보이도록 함
+                                if (event.target === modal) {
+                                    modal.style.display = 'none';
+                                    // body 요소의 overflow 속성을 auto로 변경
+                                    document.body.style.overflow = 'auto';
+                                }
+                            });
                         </script>
+                                                        
+                        <script>
+                            $(document).ready(function () {
+                                // 선택된 버튼을 저장할 배열 선언
+                                var selectedBtns = [];
+                                // 버튼 클릭 이벤트 핸들러 등록
+                                $(document).on(
+                                    "click",
+                                    ".WriteSelectionModal__StyledAnswer-sc-1cknulk-7.ckUMfu",
+                                        function () {
+                                            // 클릭된 버튼의 클래스 변경
+                                            $(this)
+                                                .removeClass("ckUMfu")
+                                                .addClass("eWrVZP");
+                                            // 선택된 버튼이 3개 이상일 경우 가장 오래된 버튼을 배열에서 제거하고 해당 버튼의 클래스를 초기화
+                                            if (selectedBtns.length >= 3) {
+                                                var oldestBtn = selectedBtns.shift();
+                                                oldestBtn
+                                                    .removeClass("eWrVZP bnbVGW jNSMIB cZpRAh")
+                                                    .addClass("ckUMfu");
+                                            }
+                                            // 선택된 버튼을 배열에 추가
+                                            selectedBtns.push($(this));
+                                            // 선택된 버튼의 클래스를 변경
+                                            for (var i = 0; i < selectedBtns.length; i++) {
+                                                var selectedBtn = selectedBtns[i];
+                                                selectedBtn
+                                                    .removeClass("ckUMfu jNSMIB cZpRAh")
+                                                    .addClass("eWrVZP");
+                                            }
+                                        }
+                                );
+                            });
+                        </script>
+    
+
                     </body>
                 </html>

@@ -11,12 +11,11 @@
         <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/datepicker-i18n/dist/umd/i18n.min.js"></script>
 
-        <script>
-
-
-        </script>
     
 <style >
+.WriteSelectionModal__StyledModalWrap-sc-1cknulk-0.kxfRvG{
+  display: none;
+}
  html {
     line-height: 1.15;
     text-size-adjust: 100%;
@@ -37,6 +36,20 @@ section {
 }
 main {
     display: block;
+}
+div {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-style: normal;
+}
+div > p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+body {
+    font-weight: 400;
+    font-size: 14px;
 }
 button {
     font-family: inherit;
@@ -150,7 +163,7 @@ p {
     justify-content: center;
     width: auto;
     height: fit-content;
-    background-color: rgb(0, 206, 124);
+    background-color: rgb(112, 217, 223);
     border: 0 solid rgb(255, 255, 255);
     padding: 19px 0 19px 25px;
     color: rgb(255, 255, 255);
@@ -199,9 +212,9 @@ p {
     align-items: center;
     -webkit-box-pack: center;
     height: fit-content;
-    border: 0px solid rgb(0, 206, 124);
+    border: 0px solid rgb(112, 217, 223);
     padding: 19px 0px 19px 25px;
-    color: rgb(0, 206, 124);
+    color: rgb(112, 217, 223);
     font-weight: 700;
     font-size: 15px;
 }
@@ -251,9 +264,9 @@ p {
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: center;
-    border: 0px solid rgb(0, 206, 124);
+    border: 0px solid rgb(112, 217, 223);
     padding: 19px;
-    color: rgb(0, 206, 124);
+    color: rgb(112, 217, 223);
     font-weight: 800;
     font-size: 15px;
 }
@@ -439,7 +452,7 @@ input {
 }
 /*클릭시*/
 input:focus {
-    outline-color: #00ce7c;
+    outline-color: rgb(112, 217, 223);
     outline-width: 1px;
 }
 /*본문내용*/
@@ -555,7 +568,7 @@ textarea {
     margin: 0;
 }
 textarea:focus {
-    outline-color: #00ce7c;
+    outline-color: rgb(112, 217, 223);
     outline-width: 1px;
 }
 textarea::placeholder {
@@ -590,7 +603,7 @@ input::placeholder {
     line-height: 20px;
     border-radius: 4px;
     padding: 17px 5px;
-    background-color: #00ce7c;
+    background-color: rgb(112, 217, 223);
     font-size: 14px;
     color: rgb(255, 255, 255);
     box-sizing: border-box;
@@ -643,14 +656,14 @@ input::placeholder {
     color: rgb(0, 0, 0);
 }
 .CWwyo {
-    font-size: 26px;
-    font-weight: 500;
+    font-size: 23px;
+    font-weight: 700;
 }
 .hZBcfU {
     font-size: 16px;
 }
 .fUbzlq {
-    font-size: 15px;
+    font-size: 14px;
 }
 .fUbzlq > span {
     color: rgb(240, 38, 38);
@@ -688,7 +701,7 @@ input::placeholder {
     color: rgb(37, 37, 37);
     border-radius: 10px;
     transition: background-color 0.3s ease-out 0s;
-    margin: 10px 2%;
+    margin: 10px 1.5%;
     cursor: pointer;
 }
 /*선택시*/
@@ -696,7 +709,7 @@ input::placeholder {
     box-sizing: border-box;
     width: 46%;
     height: 102px;
-    background-color: rgb(0, 206, 124);
+    background-color: rgb(112, 217, 223);
     color: rgb(255, 255, 255);
     border-radius: 10px;
     transition: background-color 0.3s ease-out 0s;
@@ -728,11 +741,21 @@ input::placeholder {
     width: 244px;
     color: rgb(255, 255, 255);
     height: 68px;
-    background: linear-gradient(90deg, rgb(89, 230, 131) 0%, rgb(0, 206, 124) 100%);
+    background: linear-gradient(90deg, rgb(112, 217, 223) 0%, rgb(88, 210, 216) 100%);
     border-radius: 50px;
     cursor: pointer;
     font-size: 16px;
 }
+/*모달창 위치 고정*/
+.WriteSelectionModal__StyledModalWrap-sc-1cknulk-0 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
 </style>
     </head>
     <body>
@@ -1325,145 +1348,171 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
                         class="button__ButtonConfirmButton-sc-1szjplo-7 dcFMHq"
                         style="width: calc(50% - 8px);">작성완료</button>
                 </div>
-            </section>
-        </main>
+                </section>
+                </main>
 
-
-
-
-        <div class="WriteSelectionModal__StyledModalWrap-sc-1cknulk-0 kxfRvG">
-        <div class="WriteSelectionModal__StyledModalInner-sc-1cknulk-1 fcUHXy">
-            <div class="WriteSelectionModal__StyledTitleBox-sc-1cknulk-2 fyfOyU">
-                <p class="WriteSelectionModal__StyledNumTitle-sc-1cknulk-3 hZBcfU">여행 키워드 선택하기(1/2)</p>
-                <p class="WriteSelectionModal__StyledTitle-sc-1cknulk-4 CWwyo">어떤 여행을 계획하고 있나요?</p>
-                <p class="WriteSelectionModal__StyledSubtitle-sc-1cknulk-5 fUbzlq">
-                    <span>* 최소 1개~ 최대 3개</span>의 키워드를 선택해주세요.</p>
-            </div>
-            <div class="WriteSelectionModal__StyledContentBox-sc-1cknulk-6 dBcUhY">
-                <button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
-                    <div>
-                        <img
-                            src="answer1_img01.png"
-                            alt="이모지"
-                            class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-                            <span>무계획</span>
-                        </div>
-                    </button>
+                <div class="WriteSelectionModal__StyledModalWrap-sc-1cknulk-0 kxfRvG">
+                <div class="WriteSelectionModal__StyledModalInner-sc-1cknulk-1 fcUHXy">
+                <div class="WriteSelectionModal__StyledTitleBox-sc-1cknulk-2 fyfOyU">
+                    <p class="WriteSelectionModal__StyledNumTitle-sc-1cknulk-3 hZBcfU">여행 키워드 선택하기</p>
+                    <p class="WriteSelectionModal__StyledTitle-sc-1cknulk-4 CWwyo">어떤 여행을 계획하고 있나요?</p>
+                    <p class="WriteSelectionModal__StyledSubtitle-sc-1cknulk-5 fUbzlq">
+                        <span>* 최소 1개~ 최대 3개</span>의 키워드를 선택해주세요.</p>
+                </div>
+                <div class="WriteSelectionModal__StyledContentBox-sc-1cknulk-6 dBcUhY">
                     <button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
                         <div>
                             <img
-                                src="2.png"
+                                src="answer1_img01.png"
                                 alt="이모지"
                                 class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-                                <span>관광</span>
+                                <span>무계획</span>
                             </div>
                         </button>
                         <button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
                             <div>
                                 <img
-                                    src="3.png"
+                                    src="2.png"
                                     alt="이모지"
                                     class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-                                    <span>바다</span>
+                                    <span>관광</span>
                                 </div>
                             </button>
                             <button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
                                 <div>
                                     <img
-                                        src="4.png"
+                                        src="3.png"
                                         alt="이모지"
                                         class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-                                        <span>등산</span>
+                                        <span>바다</span>
                                     </div>
                                 </button>
                                 <button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
                                     <div>
                                         <img
-                                            src="5.png"
+                                            src="4.png"
                                             alt="이모지"
                                             class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-                                            <span>맛집/카페 탐방</span>
+                                            <span>등산</span>
                                         </div>
                                     </button>
                                     <button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
                                         <div>
                                             <img
-                                                src="6.png"
+                                                src="5.png"
                                                 alt="이모지"
                                                 class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-                                                <span>핫플레이스 탐방</span>
+                                                <span>맛집/카페 탐방</span>
                                             </div>
                                         </button>
                                         <button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
                                             <div>
                                                 <img
-                                                    src="7.png"
+                                                    src="6.png"
                                                     alt="이모지"
                                                     class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-                                                    <span>쇼핑</span>
+                                                    <span>핫플레이스 탐방</span>
                                                 </div>
                                             </button>
                                             <button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
                                                 <div>
                                                     <img
-                                                        src="8.png"
+                                                        src="7.png"
                                                         alt="이모지"
                                                         class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-                                                        <span>드라이브</span>
+                                                        <span>쇼핑</span>
                                                     </div>
                                                 </button>
                                                 <button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
                                                     <div>
                                                         <img
-                                                            src="9.png"
+                                                            src="8.png"
                                                             alt="이모지"
                                                             class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-                                                            <span>전시회/공연 관람</span>
+                                                            <span>드라이브</span>
                                                         </div>
                                                     </button>
                                                     <button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
                                                         <div>
                                                             <img
-                                                                src="10.png"
+                                                                src="9.png"
                                                                 alt="이모지"
                                                                 class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-                                                                <span>스포츠 경기 직관</span>
+                                                                <span>전시회/공연 관람</span>
                                                             </div>
                                                         </button>
                                                         <button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
                                                             <div>
                                                                 <img
-                                                                    src="11.png"
+                                                                    src="10.png"
                                                                     alt="이모지"
                                                                     class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-                                                                    <span>글램핑</span>
+                                                                    <span>스포츠 경기 직관</span>
                                                                 </div>
                                                             </button>
                                                             <button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
                                                                 <div>
                                                                     <img
-                                                                        src="12.png"
+                                                                        src="11.png"
                                                                         alt="이모지"
                                                                         class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-                                                                        <span>서핑</span>
+                                                                        <span>글램핑</span>
                                                                     </div>
                                                                 </button>
-                                                                <div class="WriteSelectionModal__StyledButtonBox-sc-1cknulk-9 jUFPpk">
-                                                                    <button
-                                                                        width="244px"
-                                                                        height="68px"
-                                                                        color="#fff"
-                                                                        font-size="16px"
-                                                                        class="ModalButton__ButtonWrap-sc-1q3a6l3-0 hpRpYH">뒤로가기</button>
-                                                                    <button
-                                                                        width="244px"
-                                                                        height="68px"
-                                                                        color="#fff"
-                                                                        font-size="16px"
-                                                                        class="ModalButton__ButtonWrap-sc-1q3a6l3-0 hbQEgR">다음</button>
+                                                                <button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
+                                                                    <div>
+                                                                        <img
+                                                                            src="12.png"
+                                                                            alt="이모지"
+                                                                            class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
+                                                                            <span>서핑</span>
+                                                                        </div>
+                                                                    </button>
+                                                                    <div class="WriteSelectionModal__StyledButtonBox-sc-1cknulk-9 jUFPpk">
+                                                                        <button
+                                                                            width="244px"
+                                                                            height="68px"
+                                                                            color="#fff"
+                                                                            font-size="16px"
+                                                                            class="ModalButton__ButtonWrap-sc-1q3a6l3-0 hpRpYH">뒤로가기</button>
+                                                                        <button
+                                                                            width="244px"
+                                                                            height="68px"
+                                                                            color="#fff"
+                                                                            font-size="16px"
+                                                                            class="ModalButton__ButtonWrap-sc-1q3a6l3-0 hbQEgR">다음</button>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </body>
-                                            </html>
+                        <script>
+                            // 작성완료 버튼을 클릭할 때마다 실행되는 함수
+                            function openModal() {
+                                // body 요소에 overflow: hidden; 속성 추가
+                                document.body.style.overflow = 'hidden';
+                                // 모달 요소 가져오기
+                                const modal = document.querySelector('.kxfRvG');
+                                // 모달을 보이도록 함
+                                modal.style.display = 'flex';
+                            }
+
+                            // 작성완료 버튼 요소 가져오기
+                            const submitButton = document.querySelector('.dcFMHq');
+                            // 작성완료 버튼에 클릭 이벤트 리스너 추가하기
+                            submitButton.addEventListener('click', openModal);
+                            // 뒤로가기 버튼 요소 가져오기
+                            const backButton = document.querySelector(
+                                '.ModalButton__ButtonWrap-sc-1q3a6l3-0.hpRpYH'
+                            );
+                            // 모달 꺼지기
+                            backButton.addEventListener('click', function () {
+                                // 모달 요소 가져오기
+                                const modal = document.querySelector('.kxfRvG');
+                                // 모달을 안 보이도록 함
+                                modal.style.display = 'none';
+                                // body 요소의 overflow 속성을 auto로 변경
+                                document.body.style.overflow = 'auto';
+                            });
+                        </script>
+                    </body>
+                </html>

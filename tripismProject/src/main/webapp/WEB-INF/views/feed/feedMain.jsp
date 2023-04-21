@@ -1,12 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>feedMain</title>
+<meta charset="UTF-8">
+<title>피드 홈</title>
 
-    <!-- jQuery 라이브러리 -->
+	<!-- jQuery 라이브러리 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- 부트스트랩에서 제공하고 있는 스타일 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -85,10 +85,11 @@
                 border: none;
             }
     </style>
+
 </head>
 <body>
-
-    <!--  -->
+	
+	<!--  -->
     <div id="wrap">
         <!-- header -->
         <div id="header"> 
@@ -109,25 +110,29 @@
                 </form>
                 <hr class="inner-bar">
                     
-                <button style="background-color: transparent; border: none;"><img src="img/home.png" alt="home" style="width: 2em;">
+                <button style="background-color: transparent; border: none;" onclick="location.href='#'">
+                	<img src="C:\tripismProject\tripismProject\src\main\webapp\resources\img\icons\home.png" alt="home" style="width: 2em;">
                     <p>홈</p>
                 </button>
 
                 <br>
 
-                <button style="background-color: transparent; border: none;"><img src="img/hot.png" alt="hot" style="width: 2em;">
+                <button style="background-color: transparent; border: none;" onclick="location.href='#'">
+                	<img src="img/hot.png" alt="hot" style="width: 2em;">
                     <p>실시간</p>
                 </button>
 
                 <hr class="inner-bar">
 
-                <button style="background-color: transparent; border: none;"><img src="img/camera.png" alt="img" style="width: 2em;">
+                <button style="background-color: transparent; border: none;" onclick="location.href='#'">
+                	<img src="img/camera.png" alt="img" style="width: 2em;">
                     <p>사진</p>
                 </button>
                 
                 <br>
 
-                <button style="background-color: transparent; border: none;"><img src="img/video.png" alt="video" style="width: 2em;">
+                <button style="background-color: transparent; border: none;" onclick="location.href='#'">
+                	<img src="img/video.png" alt="video" style="width: 2em;">
                     <p>비디오</p>
                 </button>
 
@@ -398,5 +403,6 @@
     </div>
 
     
+	
 </body>
 </html>

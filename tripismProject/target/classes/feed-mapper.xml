@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mapper namespace="feedMapper">
+
+	<select id="selectFeedCount" resultType="_int">
+		select 
+				count(*)
+			from tb_feed
+			where status = "Y"
+	</select>
+	
+
+	<insert id="insertFeed">
+		insert 
+	        into tb_feed
+	    values( 
+	              seq_fno.nextval
+	            , #{memNo}
+	            , #{feedTitle}
+	            , #{feedContent}
+	            , sysdate
+	            , sysdate
+	            , default
+	                )
+	</insert>
+	
+	<delete id="deleteFeed">
+		update 
+		    tb_feed
+		    set feed_status = 'N'
+		where feed_no = #{feedNo}
+	</delete>
+	
+	<update id="updateFeed">
+		update 
+        tb_feed
+        set 
+              feed_title = #{feedTitle}
+            , feed_contents = #{feedTitle}
+            , feed_modify = sysdate
+        where feed_no = #{feedNo}
+	</update>
+	
+	<select id="selectFeedList" >
+		
+	</select>
+	
+	<insert id="insertReply">
+		
+	</insert>
+	
+	<delete id="deleteReply">
+		update 
+		    tb_reply
+		    set reply_status = 'N'
+		where reply_no = #{replyNo}
+	</delete>
+	
+	<select id="selectReplyList">
+	
+	</select>
+	
+</mapper>

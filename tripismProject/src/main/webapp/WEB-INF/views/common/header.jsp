@@ -311,63 +311,117 @@
 
 <body id="body" class="up-scroll">
 
-    <!-- ====================================
-    ——— HEADER SESSION
-    ===================================== -->
-    <header class="header" id="pageTop" style="height: auto;">
-      <!-- Menu Zord -->
-      <nav class="nav-menuzord navbar-sticky" style="height: 160PX;">
-        <div class="container clearfix">
-        <div id="header" style="width: 1200px; margin: 0px auto;">
+  <!-- ====================================
+  ——— HEADER SESSION
+  ===================================== -->
+  <header class="header" id="pageTop" style="height: auto;">
+    <!-- Menu Zord -->
+    <nav class="nav-menuzord navbar-sticky" style="height: 160px;">
+      <div id="header" style="width: 1200px; margin: 0px auto;">
+
+       <div class="Headersstyle__HeaderTopWrapDiv-sc-6xu8td-2 jolKUF">
+        <div class="Headersstyle__HeaderTopInnerDiv-sc-6xu8td-3 cUxSoB">
+          <img src="LOGO2.png" alt="logo" class="WebHeader__LogoImg-sc-12ctfsg-0 dlkFOB" style="width: 156px; height: 35px;">
+          
+          <div id="menuzord" class="menuzord">
+
+            <ul id="head-menu"class="menuzord-menu menuzord-right">
+              <li class="">
+                <a class="" href="javascript:void(0)">커뮤니티</a>
+                <ul class="dropdown drop-up">
+                  <li class="">
+                    <a href="#">
+                      <img src="../travelPartner/icon1.png" class="Button_pa hXhSDh">
+                       Tripism</a>
+                  </li>
   
-         <div class="Headersstyle__HeaderTopWrapDiv-sc-6xu8td-2 jolKUF">
-          <div class="Headersstyle__HeaderTopInnerDiv-sc-6xu8td-3 cUxSoB">
-            <img src="${pageContext.request.contextPath}/resources/img/LOGO2.png" alt="logo" class="WebHeader__LogoImg-sc-12ctfsg-0 dlkFOB" style="width: 156px; height: 35px;">
-            <div class="Headersstyle__HeaderContentWrapper-sc-6xu8td-4 bXSWqd">
-              <button width="auto" class="btnCommunity gbAvpk">커뮤니티</button>
-              <button width="auto" class="btnTravelCourse gbAvpk">여행코스</button>
-              <button width="auto" class="btnAnnouncement gbAvpk">공지사항</button>
-            </div>
+                  <li class="">
+                    <a href="#">
+                      <img src="../travelPartner/icon2.png" class="Button_pa hXhSDh">
+                      동행</a>
+                  </li>
+  
+                </ul>
+              </li>
+  
+              <li class="">
+                <a href="javascript:void(0)">여행코스</a>
+                <ul class="dropdown drop-up">
+
+                  <li class="">
+                    <a href="#">
+                      <img src="../travelPartner/icons5.png" class="Button_pa hXhSDh">
+                      여행지 둘러보기</a>
+                  </li>
+  
+                  <li class="">
+                    <a href="#">
+                      <img src="../travelPartner/icons6.png" class="Button_pa hXhSDh">
+                      여행 상품</a>
+                  </li>
+                  
+               <li class="">
+                    <a href="#">
+                      <img src="../travelPartner/icons4.png" class="Button_pa hXhSDh">
+                      여행 일정</a>
+                  </li>
+                </ul>
+              </li>
+  
+              <li class="">
+                <a href="javascript:void(0)">공지사항</a>
+              </li>
+
+              <li class="">
+                <a href="javascript:void(0)">
+                  <img src="../travelPartner/icons9.gif" style="width: 22px; height: 22px;">
+                  여행지도</a>
+              </li>
+  
+            </ul>
+
           </div>
-          <div class="Headersstyle__HeaderTopInnerDiv-sc-6xu8td-3 ioxJXd">
-            <div width="300px" class="Search__SearchInputWrappper-sc-1ef83fv-0 dJomdY">
-              <input type="text" placeholder=" 동행을 찾아보세요">
-            </div>
-            
-            <div class="WebHeader__SignBtnBox-sc-12ctfsg-1 eluuNw">
-             
-              <button class="WebHeader__HeaderButton-sc-12ctfsg-2 jmaRWD"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#login" class="media d-inline-flex align-items-center">로그인</a></button>
-              <button class="WebHeader__HeaderButton-sc-12ctfsg-2 cQcIDu"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#signup" class="media d-inline-flex align-items-center"> 회원가입</a></button>
-            </div>
-            <div class="Button__ButtonWrapper-sc-1m85upr-0 cmgUBW">
-              <button width="134px" height="44px" font-style="" type="button" class="btnButtonStyle-sc-1m85upr-1 iJuLkw">
-                <a style="color: rgb(255, 255, 255); display: inherit; font-weight: bold;">동행 찾기</a>
-              </button>
-            </div>
-            <div class="Popups__HeaderWritePopupDiv-sc-1hc7iv8-0 hbEFUq">
-  
-            </div>
-          </div>
+
         </div>
-  
-  
-        <div class="Headersstyle__HeaderContentWrapper-sc-6xu8td-4 bXSWqd" style="justify-content: flex-start; margin: 0px 12px;">
-          <button width="auto"  class="Button cRHDfz">홈</button>
-          <button width="auto"  class="Button_partnerImg enRKJR">
-            <img src="https://tripsoda.com/images/sub/accompany/head/accompany_head_icon.svg" alt="아이콘" class="Button_pa hXhSDh">동행</button>
-        </div>
+
         
-  
+        <div class="Headersstyle__HeaderTopInnerDiv-sc-6xu8td-3 ioxJXd">
+          <div width="300px" class="Search__SearchInputWrappper-sc-1ef83fv-0 dJomdY">
+            <input type="text" placeholder=" 동행을 찾아보세요">
+          </div>
+          
+          <div class="WebHeader__SignBtnBox-sc-12ctfsg-1 eluuNw">
+           
+            <button class="WebHeader__HeaderButton-sc-12ctfsg-2 jmaRWD"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#login" class="media d-inline-flex align-items-center">로그인</a></button>
+            <button class="WebHeader__HeaderButton-sc-12ctfsg-2 cQcIDu"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#signup" class="media d-inline-flex align-items-center"> 회원가입</a></button>
+          </div>
+          
+          <div class="Button__ButtonWrapper-sc-1m85upr-0 cmgUBW">
+            <button width="134px" height="44px" font-style="" type="button" class="btnButtonStyle-sc-1m85upr-1 iJuLkw">
+              <a style="color: rgb(255, 255, 255); display: inherit; font-weight: bold;">동행 찾기</a>
+            </button>
+          </div>
+          <div class="Popups__HeaderWritePopupDiv-sc-1hc7iv8-0 hbEFUq">
+
+          </div>
+        </div>
       </div>
+
+
+      <div class="Headersstyle__HeaderContentWrapper-sc-6xu8td-4 bXSWqd" style="justify-content: flex-start; margin: 0px 12px;">
+
       </div>
-      </nav>
-    </header>
-      <!-- ====================================
-      ——— HEADER SECTION END
-      ===================================== -->
       
 
-  <div class="main-wrapper packages-list-right-sidebar">
+    </div>
+    </nav>
+  </header>
+    <!-- ====================================
+    ——— HEADER SECTION END
+    ===================================== -->
+    
+
+<div class="main-wrapper packages-list-right-sidebar">
     <!-- ====================================
     ——— MODAL SECTION
     ===================================== -->

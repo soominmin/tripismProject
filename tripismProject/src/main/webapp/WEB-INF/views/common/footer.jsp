@@ -30,7 +30,7 @@
           color: rgb(106, 106, 106);
       }
       .gxaxWV {
-          padding: 50px 280px 0px 0px;
+          padding: 10px 10px 50px 100px;
           box-sizing: border-box;
           position: relative;
           width: 1200px;
@@ -157,9 +157,10 @@
     ——— FOOTER SECTION
     ===================================== -->
     <footer class="footer">
+    <hr>
       <div class="Footer__FooterInner-sc-19vhdob-1 gxaxWV">
         <h1 class="Footer__FooterLogo-sc-19vhdob-2 bFjQGc">
-          <img src="LOGO2.png" alt="logo" class="WebHeader__LogoImg-sc-12ctfsg-0 dlkFOB">
+          <img src="${pageContext.request.contextPath}/resources/img/header/LOGO2.png" alt="logo" class="WebHeader__LogoImg-sc-12ctfsg-0 dlkFOB">
         </h1>
         <div class="Footer__InfoBox-sc-19vhdob-3 fAFwwV">
           <div>

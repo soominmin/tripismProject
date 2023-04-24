@@ -16,6 +16,11 @@
 	.bgfeYQ {
 		padding: 0;
 	}
+	input:focus {
+		outline-color: rgb(112, 217, 223);
+		outline-width: 1px;
+		}
+
 	/*게시글스타일*/
 	.cxduOO {
 		display: flex;
@@ -197,6 +202,7 @@
 		grid-template-columns: repeat(4, 1fr);
 		gap: 24px;
 		box-sizing: border-box;
+		margin-top: 1rem;
 	}
 	/*윗단*/
 	.cxduOO > * {
@@ -436,6 +442,7 @@
 		line-height: 19px;
 		user-select: none;
 		color: rgb(0, 143, 246);
+		margin-bottom: 0rem;
 	}
 	/*아래단*/
 	.eAbKRa {
@@ -555,7 +562,7 @@
 		-webkit-box-align: center;
 		align-items: center;
 		padding: 0;
-		margin: 108px 0 0;
+		margin: 105px 0 20px;
 	}
 	.IJCLd {
 		padding-left: 0;
@@ -682,10 +689,9 @@
 									stroke-linecap="round"></path>
 							</svg>
 						</div>
-						<input
-							placeholder="어디로 여행가시나요?"
+						<input placeholder="어디로 여행가시나요?"
 							class="SearchInputTemplate__Input-sc-1p1wt1d-3 dABHVy"
-							value="">
+							value="" style="font-size: 12px;">
 					</div>
 				</div>
 			</div>
@@ -1046,7 +1052,6 @@
 
 				</div>
 
-				<!-------------------------------------------------------------------------->
 				<!-------------------------------------------------------------------------------------------------------------------------->
 				<div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
 
@@ -1156,6 +1161,117 @@
 					</div>
 
 				</div>
+				<!-------------------------------------------------------------------------------------------------------------------------->
+				<div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
+
+					<div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
+
+						<div class="AccompanyWebCard__ProfileWrap-sc-ws5mjw-6 gNWBdG">
+							<img
+								src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/member/1681209401892-1"
+								class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
+							<div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
+								<p
+									color="#000000"
+									class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">여행뿌수자</p>
+								<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
+									<p
+										color="#008ff6"
+										class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">20대</p>
+									<div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
+									<p
+										color="#008ff6"
+										class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">남성</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="AccompanyWebCard__GrayLine-sc-ws5mjw-2 fAUDUm"></div>
+
+						<div class="AccompanyWebCard__DateWrap-sc-ws5mjw-9 fdRVsr">
+							<div class="AccompanyWebCard__DateHoveredWrap-sc-ws5mjw-10 hWLPgS"></div>
+							<div class="AccompanyWebCard__DateTitleWrap-sc-ws5mjw-11 kdZjQK">
+								<img
+									src="/images/sub/accompany/card/accompany_gray_calendar.png"
+									class="AccompanyWebCard__DateIcon-sc-ws5mjw-12 ilUDog">
+								<p class="AccompanyWebCard__DateTitle-sc-ws5mjw-13 iBlyRM">여행기간</p>
+							</div>
+							<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
+								<p
+									color="#00CE7C"
+									class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 iVfuBW">4일</p>
+								<div color="#00CE7C" class="AccompanyWebCard__Circle-sc-ws5mjw-1 mKoaj"></div>
+								<p
+									color="#00CE7C"
+									class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">04/14 - 04/17</p>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
+						<img
+							src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/accompany/1681209598075-2"
+							class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
+
+						<div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
+							<div class="AccompanyWebCard__LocationIcon-sc-ws5mjw-17 lmqiXK">
+								<svg
+									width="13"
+									height="17"
+									viewbox="0 0 13 17"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M12.7244 7.11371C12.7244 10.6866 6.49995 16.3557 6.49995 16.3557C6.49995 16.3557 0.275513 10.6866 0.275513 7.11371C0.275513 3.54077 3.06229 0.644341 6.49995 0.644341C9.93761 0.644341 12.7244 3.54077 12.7244 7.11371Z"
+										fill="#008FF6"></path>
+									<ellipse cx="6.50063" cy="6.40462" rx="2.81106" ry="2.81106" fill="#fff"></ellipse>
+								</svg>
+							</div>
+							<p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">제주도</p>
+						</div>
+
+						<div class="AccompanyWebCard__DetailBottomWrap-sc-ws5mjw-19 LuXMO">
+							<div class="AccompanyWebCard__RecruitWrap-sc-ws5mjw-20 jfSGGP">
+								<p class="AccompanyWebCard__RecruitText-sc-ws5mjw-21 YIYAY">모집중</p>
+								<div color="#00CE7C" class="AccompanyWebCard__Circle-sc-ws5mjw-1 hMauwG"></div>
+								<p class="AccompanyWebCard__RecruitText-sc-ws5mjw-21 YIYAY">2명</p>
+							</div>
+							<div class="AccompanyWebCard__OptionWrap-sc-ws5mjw-22 jQFFHg">
+								<div class="AccompanyWebCard__OptionIconWrap-sc-ws5mjw-23 lhlIsf">
+									<img
+										src="/images/sub/accompany/card/accompany_white_eye.png"
+										class="AccompanyWebCard__OptionIcon-sc-ws5mjw-24 fbgSqP">
+									<p class="AccompanyWebCard__OptionText-sc-ws5mjw-25 gOZZpD">36</p>
+								</div>
+								<div class="AccompanyWebCard__OptionIconWrap-sc-ws5mjw-23 lhlIsf">
+									<img
+										src="/images/sub/accompany/card/accompany_white_message.png"
+										class="AccompanyWebCard__OptionIcon-sc-ws5mjw-24 fbgSqP">
+									<p class="AccompanyWebCard__OptionText-sc-ws5mjw-25 gOZZpD">0</p>
+								</div>
+								<div class="AccompanyWebCard__OptionIconWrap-sc-ws5mjw-23 ccCSmm">
+									<img
+										src="/images/sub/accompany/card/accompany_white_plane.png"
+										class="AccompanyWebCard__OptionIcon-sc-ws5mjw-24 fbgSqP">
+									<p class="AccompanyWebCard__OptionText-sc-ws5mjw-25 gOZZpD">0</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
+						<p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">재밌게 여행 뿌술분 있나요?</p>
+						<p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
+							렌트 완료고, 제주 프리패스 48시간이나 72시간 구입해서 여행 다닐 예정입니다. 요트, 낚시, 카페, 베이커리, 수목원, 민속촌, 서커스 등
+							하루는 성산 일출봉 일출 보러 올라 갈 거에요! (강제 등반 안 함) 티키타카 좋고, 에너지 활동 뿜뿜하신 분 모십니다~ 저녁식사 대접, 인생
+							샷 영접 해드려요~
+						</p>
+					</div>
+
+				</div>
+				<!-- -------------------------------------------------------------------------------------------------------------------------- -->
+
 				<script>
 					$(".cxduOO").hover(function() {
 					  $(this).find(".FemVM").css("transform", "scale(1.2)");
@@ -1174,110 +1290,28 @@
 			</ul>
 
 		</section>
+		
 		<section
 			direction="vertical"
 			class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq"
 			style="display: flex; box-sizing: border-box;">
 			<div class="ExtendedPaginationTemplate__PaginationWrap-sc-uw2t4b-0 dvaZUI">
-				<button
-					disabled=""
-					class="ExtendedPaginationTemplate__Button-sc-uw2t4b-1 IJCLd">
-					<svg
-						width="10"
-						height="16"
-						viewbox="0 0 10 16"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-						style="cursor: pointer;">
-						<path
-							d="M8 2L2 8L8 14"
-							stroke="#DBDBDB"
-							stroke-width="2"
-							stroke-linecap="square"></path>
-					</svg>
-					<svg
-						width="10"
-						height="16"
-						viewbox="0 0 10 16"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-						style="cursor: pointer;">
-						<path
-							d="M8 2L2 8L8 14"
-							stroke="#DBDBDB"
-							stroke-width="2"
-							stroke-linecap="square"></path>
-					</svg>
-				</button>
-				<button
-					disabled=""
-					class="ExtendedPaginationTemplate__Button-sc-uw2t4b-1 IJCLb">
-					<svg
-						width="10"
-						height="16"
-						viewbox="0 0 10 16"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-						style="cursor: pointer;">
-						<path
-							d="M8 2L2 8L8 14"
-							stroke="#DBDBDB"
-							stroke-width="2"
-							stroke-linecap="square"></path>
-					</svg>
-				</button>
-				<div class="ExtendedPaginationTemplate__PageButtonWrap-sc-uw2t4b-2 jMsedF">
-					<button class="ExtendedPaginationTemplate__PageButton-sc-uw2t4b-3 bSLTGL">1</button>
-					<button class="ExtendedPaginationTemplate__PageButton-sc-uw2t4b-3 bSLTGL">2</button>
-					<button class="ExtendedPaginationTemplate__PageButton-sc-uw2t4b-3 bSLTGL">3</button>
-					<button class="ExtendedPaginationTemplate__PageButton-sc-uw2t4b-3 bSLTGL">4</button>
-					<button class="ExtendedPaginationTemplate__PageButton-sc-uw2t4b-3 bSLTGL">5</button>
-				</div>
-				<button class="ExtendedPaginationTemplate__Button-sc-uw2t4b-1 ItMoo">
-					<svg
-						width="10"
-						height="16"
-						viewbox="0 0 10 16"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-						style="cursor: pointer;">
-						<path
-							d="M2 2L8 8L2 14"
-							stroke="#00CE7C"
-							stroke-width="2"
-							stroke-linecap="square"></path>
-					</svg>
-				</button>
-				<button class="ExtendedPaginationTemplate__Button-sc-uw2t4b-1 HUvPJ">
-					<svg
-						width="10"
-						height="16"
-						viewbox="0 0 10 16"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-						style="cursor: pointer;">
-						<path
-							d="M2 2L8 8L2 14"
-							stroke="#00CE7C"
-							stroke-width="2"
-							stroke-linecap="square"></path>
-					</svg>
-					<svg
-						width="10"
-						height="16"
-						viewbox="0 0 10 16"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-						style="cursor: pointer;">
-						<path
-							d="M2 2L8 8L2 14"
-							stroke="#00CE7C"
-							stroke-width="2"
-							stroke-linecap="square"></path>
-					</svg>
-				</button>
+
+				<ul>
+					<c:choose>
+						<c:when test="${pi.currentPage eq 1 }">
+							<li class="page-item disabled"><a>Previous</a>
+						</c:when>
+					</c:choose>
+				</ul>
+			
+				
 			</div>
 		</section>
+		
+		
 	</div>
+		<!-- 푸터바 포함 -->
+	<jsp:include page="../common/footer.jsp"/>
 </body>
 </html>

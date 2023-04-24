@@ -15,22 +15,22 @@
         <title>Document</title>
     
     <!-- Plugins css Style -->
-    <link href='assets/plugins/fontawesome-5.15.2/css/all.min.css' rel='stylesheet'>
-    <link href='assets/plugins/fontawesome-5.15.2/css/fontawesome.min.css' rel='stylesheet'>
-    <link href="assets/plugins/animate/animate.css" rel="stylesheet">
-    <link href="assets/plugins/menuzord/css/menuzord.css" rel="stylesheet">
-    <link href="assets/plugins/menuzord/css/menuzord-animations.css" rel="stylesheet">
-    <link href='assets/plugins/fancybox/jquery.fancybox.min.css' rel='stylesheet'>
-    <link href='assets/plugins/selectric/selectric.css' rel='stylesheet'>
-    <link href='assets/plugins/daterangepicker/css/daterangepicker.css' rel='stylesheet'>
-    <link href='assets/plugins/rateyo/jquery.rateyo.min.css' rel='stylesheet'>
-    <link href='assets/plugins/no-ui-slider/nouislider.min.css' rel='stylesheet'>
+    <link href='${pageContext.request.contextPath}/resources/plugins/fontawesome-5.15.2/css/all.min.css' rel='stylesheet'>
+    <link href='${pageContext.request.contextPath}/resources/plugins/fontawesome-5.15.2/css/fontawesome.min.css' rel='stylesheet'>
+    <link href="${pageContext.request.contextPath}/resources/plugins/animate/animate.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/plugins/menuzord/css/menuzord.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/plugins/menuzord/css/menuzord-animations.css" rel="stylesheet">
+    <link href='${pageContext.request.contextPath}/resources/plugins/fancybox/jquery.fancybox.min.css' rel='stylesheet'>
+    <link href='${pageContext.request.contextPath}/resources/plugins/selectric/selectric.css' rel='stylesheet'>
+    <link href='${pageContext.request.contextPath}/resources/plugins/daterangepicker/css/daterangepicker.css' rel='stylesheet'>
+    <link href='${pageContext.request.contextPath}/resources/plugins/rateyo/jquery.rateyo.min.css' rel='stylesheet'>
+    <link href='${pageContext.request.contextPath}/resources/plugins/no-ui-slider/nouislider.min.css' rel='stylesheet'>
     <!-- GOOGLE FONT -->
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700' rel='stylesheet'>
     <!-- CUSTOM CSS -->
-    <link href="assets/css/star.css" id="option_style" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/star.css" id="option_style" rel="stylesheet">
     <!-- FAVICON -->
-    <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/resources/img/favicon.png"/>
     
     <style>
         /* 전체 */

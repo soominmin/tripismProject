@@ -13,36 +13,6 @@
     <!-- 부트스트랩에서 제공하고 있는 스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
-    <!-- Plugins css Style -->
-    <link href='../common/Star travel/Static HTML/assets/plugins/fontawesome-5.15.2/css/all.min.css' rel='stylesheet'>
-    <link href='../common/Star travel/Static HTML/assets/plugins/fontawesome-5.15.2/css/fontawesome.min.css' rel='stylesheet'>
-    <link href="../common/Star travel/Static HTML/assets/plugins/animate/animate.css" rel="stylesheet">
-    <link href="../common/Star travel/Static HTML/assets/plugins/menuzord/css/menuzord.css" rel="stylesheet">
-    <link href="../common/Star travel/Static HTML/assets/plugins/menuzord/css/menuzord-animations.css" rel="stylesheet">
-
-    <link href='../common/Star travel/Static HTML/assets/plugins/fancybox/jquery.fancybox.min.css' rel='stylesheet'>
-    
-    <link href='../common/Star travel/Static HTML/assets/plugins/selectric/selectric.css' rel='stylesheet'>
- 
-    <!-- GOOGLE FONT -->
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700' rel='stylesheet'>
-
-    <!-- CUSTOM CSS -->
-    <link href="../common/Star travel/Static HTML/assets/css/star.css" id="option_style" rel="stylesheet">
-
-    <!-- Javascript -->
-    
-    <script src="../common/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <script src="../common/assets/plugins/menuzord/js/menuzord.js"></script>
-    
-    <script src='../common/assets/plugins/fancybox/jquery.fancybox.min.js'></script>
-    
-    <script src="../common/assets/plugins/lazyestload/lazyestload.js"></script>
-    
-    <script src="../common/assets/plugins/smoothscroll/SmoothScroll.js"></script>
-    
-    <script src="../common/assets/js/star.js"></script>
 
     <style>
         /* div{ border: 1px solid gray; } */

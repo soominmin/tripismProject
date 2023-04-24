@@ -14847,7 +14847,7 @@ hr {
 }
 ::selection {
   color: #fff;
-  background-color: #ff891e;
+  background-color: rgb(112, 217, 223);
 }
 
 /* Font Weight */

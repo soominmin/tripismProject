@@ -5,8 +5,33 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	#enroll{
+	    background-color:  #ff891e;
+	    border:none;
+	    font-size: 16px;
+	}
+	
+	#modal-body{
+	    padding: 25px 25px;
+	
+	}
+	
+	#modalTop{
+	  border-top: 6px solid RGB(112, 217, 223);
+	}
+	
+	#enrollBtn{
+	  background-color: RGB(112, 217, 223);
+	  border: none;
+	}
+
+</style>
 </head>
+
+
 <body id="body" class="up-scroll">
+<jsp:include page = "../common/header.jsp"/>
   
  <!-- Signup Modal -->
  <div id="signup" tabindex="-1" role="dialog" aria-label="signupModalLabel" aria-hidden="true">
@@ -96,6 +121,6 @@
       </div>
     </div>
   </div>
-
+<jsp:include page = "../common/footer.jsp"/>
 </body>
 </html>

@@ -26,12 +26,17 @@
     <link href='${pageContext.request.contextPath}/resources/plugins/daterangepicker/css/daterangepicker.css' rel='stylesheet'>
     <link href='${pageContext.request.contextPath}/resources/plugins/rateyo/jquery.rateyo.min.css' rel='stylesheet'>
     <link href='${pageContext.request.contextPath}/resources/plugins/no-ui-slider/nouislider.min.css' rel='stylesheet'>
+    <link href='${pageContext.request.contextPath}/resources/plugins/dzsparallaxer/dzsparallaxer.css' rel='stylesheet'>
+    <link href='${pageContext.request.contextPath}/resources/plugins/slick/slick.css' rel='stylesheet'>
+    <link href='${pageContext.request.contextPath}/resources/plugins/slick/slick-theme.css' rel='stylesheet'>
+    <link href='${pageContext.request.contextPath}/resources/plugins/revolution/css/settings.css' rel='stylesheet'>
+    
     <!-- GOOGLE FONT -->
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700' rel='stylesheet'>
     <!-- CUSTOM CSS -->
     <link href="${pageContext.request.contextPath}/resources/css/star.css" id="option_style" rel="stylesheet">
     <!-- FAVICON -->
-    <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/resources/img/favicon.png"/>
     
     <style>
         div {box-sizing:border-box;}
@@ -257,18 +262,18 @@
         }
         
         /* 로그인 모달창 CSS */
-        #kakao{
+       #kakao{
 		    margin-bottom: 10px;
-		    width: 258px;
-		    height: 36px;
+		    width: 358px;
+		    height: 45.382px;
 		    line-height: 10px;
 		    border-radius: 5px 5px 5px 5px;
 		    cursor: pointer;
 		}
 		#naver {
 		    margin-bottom: 10px;
-		    width: 258px;
-		    height: 36px;
+		    width: 358px;
+		    height: 45.382px;
 		    line-height: 10px;
 		    border-radius: 5px 5px 5px 5px;
 		    cursor: pointer;
@@ -285,9 +290,21 @@
 		
 		}
 
-#modalTop{
-  border-top: 6px solid RGB(112, 217, 223);
-}
+		#modalTop{
+		  border-top: 6px solid RGB(112, 217, 223);
+		}
+		
+		/* 회원가입 모달창 CSS */
+			#enroll{
+		    background-color:  #ff891e;
+		    border:none;
+		    font-size: 16px;
+		}
+
+		#enrollBtn{
+		  background-color: RGB(112, 217, 223);
+		  border: none;
+		}
         </style>
 
 </head>
@@ -320,7 +337,7 @@
             <div class="WebHeader__SignBtnBox-sc-12ctfsg-1 eluuNw">
              
               <button class="WebHeader__HeaderButton-sc-12ctfsg-2 jmaRWD"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#login" class="media d-inline-flex align-items-center">로그인</a></button>
-              <button class="WebHeader__HeaderButton-sc-12ctfsg-2 cQcIDu"><a href="WEB-INF/views/member/enrollForm.jsp"> 회원가입</a></button>
+              <button class="WebHeader__HeaderButton-sc-12ctfsg-2 cQcIDu"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#signup" class="media d-inline-flex align-items-center"> 회원가입</a></button>
             </div>
             <div class="Button__ButtonWrapper-sc-1m85upr-0 cmgUBW">
               <button width="134px" height="44px" font-style="" type="button" class="btnButtonStyle-sc-1m85upr-1 iJuLkw">
@@ -355,55 +372,95 @@
     ——— MODAL SECTION
     ===================================== -->
     <!-- Signup Modal -->
-    <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-label="signupModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header rounded">
-            <h3 class="modal-title text-uppercase font-weight-bold">Create your account</h3>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
+	 <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-label="signupModalLabel" aria-hidden="true">
+	    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+	      <div class="modal-content">
+	        <div class="modal-header rounded" id="modalTop">
+	          <h3 class="modal-title text-uppercase font-weight-bold">Tripism 회원가입</h3>
+	          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	        </div>
+	
+	        <div class="modal-body">
+	          <form class="" action="index.html" method="post">
+	            <div class="mb-3">
+	              아이디⭐ <br>
+	              <input type="text" class="form-control bg-smoke" required placeholder="아이디를 입력해주세요.">
+	            </div>
+	
+	            <div class="mb-3">
+	              이름⭐<br>
+	              <input type="text" class="form-control bg-smoke" required placeholder="이름">
+	            </div>
+	  
+	            <div class="mb-3">
+	              비밀번호⭐<br>
+	              <input type="password" class="form-control bg-smoke" required placeholder="비밀번호">
+	            </div>
+	
+	            <div class="mb-3">
+	              비밀번호 확인⭐<br>
+	                <input type="password" class="form-control bg-smoke" required placeholder="비밀번호 확인">
+	                <p>(영문 대소문자/숫자/특수문자중 2가지 이상 조합, 8자~16자)</p>
+	              </div>
+	
+	            <div class="mb-3">
+	              이메일⭐<br>
+	                <input type="email" class="form-control bg-smoke" required placeholder="이메일을 입력해주세요.">
+	            </div>
+	
+	            <div class="mb-3">
+	               닉네임 <br>
+	                <input type="text" class="form-control bg-smoke" required placeholder="닉네임을 입력해주세요.">
+	            </div>
+	
+	            <div class="mb-3" style="padding-bottom: 15px;">
+	                성별 <br>
+	                <input type="radio" name="gender" id="m" value="M">
+	                <label for="m">남자</label>
+	                <input type="radio" name="gender" id="f" value="F">
+	                <label for="f">여자</label>
+	            </div>
+	
+	            <div class="mb-3">
+	              <h5>이용약관 동의</h5>
+	                <input type="checkbox" name="agreeAll" id="agreeAll"" />
+	                <label for="agreeAll">약관 전체 동의</label><br />
+	                <input type="checkbox" name="agree" id="agreeAge" />
+	                <label for="agreeAge">[필수] 만14세 이상</label><br />
+	                <input type="checkbox" name="agree" id="agreeTerms" />
+	                <label for="agreeTerms">[필수] 이용약관 동의</label><br />
+	                <input type="checkbox" name="agree" id="agreePrivacy"  />
+	                <label for="agreePrivacy">[필수] 개인정보 수집 및 이용 동의</label><br />
+	                <input type="checkbox" name="agree" id="agreeMarketing" />
+	                <label for="agreeMarketing">[선택] 광고성 정보 수신 및 마케팅 활용 동의</label><br />
+	              </div>
+	
+	              <script>
+	                $(document).ready(function() {
+	                  $("#agreeAll").click(function() {
+	                    if($("#agreeAll").is(":checked")) $("input[name=agree]").prop("checked", true);
+	                      else $("input[name=agree]").prop("checked", false);
+	                  });
+	
+	                  $("input[name=agree]").click(function() {
+	                    var total = $("input[name=agree]").length;
+	                    var checked = $("input[name=agree]:checked").length;
+	
+	                    if(total != checked) $("#agreeAll").prop("checked", false);
+	                    else $("#agreeAll").prop("checked", true); 
+	                  });
+	                });
+	              </script>
+	
+	            <div class="d-grid" style="padding-bottom: 15px ;">
+	              <button type="submit" class="btn btn-primary btn-block text-uppercase" disabled id="enrollBtn">가입하기</button>
+	            </div>
+	          </form>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
 
-          <div class="modal-body">
-            <form class="" action="index.html" method="post">
-              <div class="mb-3">
-                <input type="text" class="form-control bg-smoke" required="" placeholder="Full Name">
-              </div>
-
-              <div class="mb-3">
-                <input type="email" class="form-control bg-smoke" required="" placeholder="Email">
-              </div>
-    
-              <div class="mb-3">
-                <input type="password" class="form-control bg-smoke" required="" placeholder="Password">
-              </div>
-    
-              <div class="mb-3 form-check mb-0">
-                <input type="checkbox" class="form-check-input" id="exampleCheck4">
-                <label class="form-check-label text-gray-color mb-3" for="exampleCheck4">
-                  I agree to the terms of use and privacy.
-                </label>
-              </div>
-
-              <div class="d-grid">
-                <button type="submit" class="btn btn-primary btn-block text-uppercase">Login</button>
-              </div>
-
-              <div class="text-uppercase text-center py-3">Or</div>
-
-              <div class="d-grid">
-                <button type="submit" class="btn btn-facebook btn-block text-uppercase text-white">Login with facebook</button>
-              </div>
-            </form>
-          </div>
-    
-          <div class="modal-footer justify-content-center">
-            <p class="mb-1">Don’t have an Account? <a href="javascript:void(0)">Sign up</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Login Modal -->
       <!-- Login Modal -->
       <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-label="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm modal-dialog-centered" role="document" >
@@ -455,6 +512,9 @@
           </div>
         </div>
       </div>
+      
+      
+  
     <!-- INQUIRY IN MODAL -->
     <div class="modal fade" id="inquiry" tabindex="-1" role="dialog" aria-label="inquiryModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-sm modal-dialog-centered" role="document">

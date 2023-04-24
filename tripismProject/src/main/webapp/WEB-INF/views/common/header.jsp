@@ -602,7 +602,22 @@
         </div>
       </div>
     </div>
-
     
+    
+    <!-- Javascript -->
+    <script src="${pageContext.request.contextPath}/resources/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/plugins/menuzord/js/menuzord.js"></script>
+    <script src='${pageContext.request.contextPath}/resources/plugins/fancybox/jquery.fancybox.min.js'></script>
+    <script src='${pageContext.request.contextPath}/resources/plugins/selectric/jquery.selectric.min.js'></script>
+    <script src='${pageContext.request.contextPath}/resources/plugins/daterangepicker/js/moment.min.js'></script>
+    <script src='${pageContext.request.contextPath}/resources/plugins/daterangepicker/js/daterangepicker.min.js'></script>
+    <script src='${pageContext.request.contextPath}/resources/plugins/rateyo/jquery.rateyo.min.js'></script>
+    <script src="${pageContext.request.contextPath}/resources/plugins/lazyestload/lazyestload.js"></script>
+    <script src='${pageContext.request.contextPath}/resources/plugins/no-ui-slider/nouislider.min.js'></script>
+    <script src="${pageContext.request.contextPath}/resources/plugins/smoothscroll/SmoothScroll.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/star.js"></script>
+    
+
 </body>
 </html>

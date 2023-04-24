@@ -14,23 +14,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
     
-    <!-- Plugins css Style -->
-    <link href='${pageContext.request.contextPath}/resources/plugins/fontawesome-5.15.2/css/all.min.css' rel='stylesheet'>
-    <link href='${pageContext.request.contextPath}/resources/plugins/fontawesome-5.15.2/css/fontawesome.min.css' rel='stylesheet'>
-    <link href="${pageContext.request.contextPath}/resources/plugins/animate/animate.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/resources/plugins/menuzord/css/menuzord.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/resources/plugins/menuzord/css/menuzord-animations.css" rel="stylesheet">
-    <link href='${pageContext.request.contextPath}/resources/plugins/fancybox/jquery.fancybox.min.css' rel='stylesheet'>
-    <link href='${pageContext.request.contextPath}/resources/plugins/selectric/selectric.css' rel='stylesheet'>
-    <link href='${pageContext.request.contextPath}/resources/plugins/daterangepicker/css/daterangepicker.css' rel='stylesheet'>
-    <link href='${pageContext.request.contextPath}/resources/plugins/rateyo/jquery.rateyo.min.css' rel='stylesheet'>
-    <link href='${pageContext.request.contextPath}/resources/plugins/no-ui-slider/nouislider.min.css' rel='stylesheet'>
-    <!-- GOOGLE FONT -->
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700' rel='stylesheet'>
-    <!-- CUSTOM CSS -->
-    <link href="${pageContext.request.contextPath}/resources/css/star.css" id="option_style" rel="stylesheet">
-    <!-- FAVICON -->
-    <link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/resources/img/favicon.png"/>
     
     <style>
         /* 전체 */
@@ -346,18 +329,5 @@
     </div>
 
 
-    <!-- Javascript -->
-    <script src="${pageContext.request.contextPath}/resources/plugins/jquery/jquery-3.4.1.min.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/plugins/menuzord/js/menuzord.js"></script>
-    <script src='${pageContext.request.contextPath}/resources/plugins/fancybox/jquery.fancybox.min.js'></script>
-    <script src='${pageContext.request.contextPath}/resources/plugins/selectric/jquery.selectric.min.js'></script>
-    <script src='${pageContext.request.contextPath}/resources/plugins/daterangepicker/js/moment.min.js'></script>
-    <script src='${pageContext.request.contextPath}/resources/plugins/daterangepicker/js/daterangepicker.min.js'></script>
-    <script src='${pageContext.request.contextPath}/resources/plugins/rateyo/jquery.rateyo.min.js'></script>
-    <script src="${pageContext.request.contextPath}/resources/plugins/lazyestload/lazyestload.js"></script>
-    <script src='${pageContext.request.contextPath}/resources/plugins/no-ui-slider/nouislider.min.js'></script>
-    <script src="${pageContext.request.contextPath}/resources/plugins/smoothscroll/SmoothScroll.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/js/star.js"></script>
   </body>
 </html>

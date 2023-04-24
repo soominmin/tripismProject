@@ -18485,7 +18485,7 @@ input[type=number]::-webkit-inner-spin-button {
     bottom: 28px;
     width: 0;
     height: 3px;
-    background-color: #ff891e;
+    background-color: rgb(112, 217, 223);
     transition: all 300ms ease-out;
     border-radius: 2px;
   }

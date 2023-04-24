@@ -321,8 +321,8 @@
 
        <div class="Headersstyle__HeaderTopWrapDiv-sc-6xu8td-2 jolKUF">
         <div class="Headersstyle__HeaderTopInnerDiv-sc-6xu8td-3 cUxSoB">
-          <img src="LOGO2.png" alt="logo" class="WebHeader__LogoImg-sc-12ctfsg-0 dlkFOB" style="width: 156px; height: 35px;">
-          
+          <img src="${pageContext.request.contextPath}/resources/img/header/LOGO2.png" alt="logo" class="WebHeader__LogoImg-sc-12ctfsg-0 dlkFOB" style="width: 156px; height: 35px;">
+        
           <div id="menuzord" class="menuzord">
 
             <ul id="head-menu"class="menuzord-menu menuzord-right">
@@ -331,13 +331,13 @@
                 <ul class="dropdown drop-up">
                   <li class="">
                     <a href="#">
-                      <img src="../travelPartner/icon1.png" class="Button_pa hXhSDh">
+                      <img src="${pageContext.request.contextPath}/resources/img/header/icon1.png" class="Button_pa hXhSDh">
                        Tripism</a>
                   </li>
   
                   <li class="">
                     <a href="#">
-                      <img src="../travelPartner/icon2.png" class="Button_pa hXhSDh">
+                      <img src="${pageContext.request.contextPath}/resources/img/header/icon2.png" class="Button_pa hXhSDh">
                       동행</a>
                   </li>
   
@@ -350,19 +350,19 @@
 
                   <li class="">
                     <a href="#">
-                      <img src="../travelPartner/icons5.png" class="Button_pa hXhSDh">
+                      <img src="${pageContext.request.contextPath}/resources/img/header/icons5.png" class="Button_pa hXhSDh">
                       여행지 둘러보기</a>
                   </li>
   
                   <li class="">
                     <a href="#">
-                      <img src="../travelPartner/icons6.png" class="Button_pa hXhSDh">
+                      <img src="${pageContext.request.contextPath}/resources/img/header/icons6.png" class="Button_pa hXhSDh">
                       여행 상품</a>
                   </li>
                   
                <li class="">
                     <a href="#">
-                      <img src="../travelPartner/icons4.png" class="Button_pa hXhSDh">
+                      <img src="${pageContext.request.contextPath}/resources/img/header/icons4.png" class="Button_pa hXhSDh">
                       여행 일정</a>
                   </li>
                 </ul>
@@ -374,7 +374,7 @@
 
               <li class="">
                 <a href="javascript:void(0)">
-                  <img src="../travelPartner/icons9.gif" style="width: 22px; height: 22px;">
+                  <img src="${pageContext.request.contextPath}/resources/img/header/icons9.gif" style="width: 22px; height: 22px;">
                   여행지도</a>
               </li>
   

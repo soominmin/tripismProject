@@ -149,6 +149,21 @@
             padding: 13px 18px 13px 40px;
             text-indent: 3px;
         }
+        /*돋보기아이콘*/
+        .dJomdY span:first-child {
+        position: absolute;
+        left: 14.25px;
+        top: 28px;
+        }
+
+        .dJomdY > button {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          width: 40px;
+          height: 40px;
+      }
+
         input {
             overflow: visible;
         }
@@ -321,8 +336,11 @@
 
        <div class="Headersstyle__HeaderTopWrapDiv-sc-6xu8td-2 jolKUF">
         <div class="Headersstyle__HeaderTopInnerDiv-sc-6xu8td-3 cUxSoB">
-          <img src="${pageContext.request.contextPath}/resources/img/header/LOGO2.png" alt="logo" class="WebHeader__LogoImg-sc-12ctfsg-0 dlkFOB" style="width: 156px; height: 35px;">
-        
+        <img src="${pageContext.request.contextPath}/resources/img/header/LOGO2.png"
+              alt="logo"
+              class="WebHeader__LogoImg-sc-12ctfsg-0 dlkFOB"
+              style="width: 156px; height: 35px;" >
+
           <div id="menuzord" class="menuzord">
 
             <ul id="head-menu"class="menuzord-menu menuzord-right">
@@ -386,10 +404,29 @@
 
         
         <div class="Headersstyle__HeaderTopInnerDiv-sc-6xu8td-3 ioxJXd">
-          <div width="300px" class="Search__SearchInputWrappper-sc-1ef83fv-0 dJomdY">
-            <input type="text" placeholder=" 동행을 찾아보세요">
-          </div>
-          
+        <div width="300px" class="Search__SearchInputWrappper-sc-1ef83fv-0 dJomdY">
+            <span>
+                <svg
+                    width="12px"
+                    height="12px"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style="display: inline-block;">
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M8.49933 1.5C7.11505 1.5 5.76184 1.91062 4.61081 2.67998C3.45978 3.44933 2.56262 4.54287 2.03283 5.82234C1.50304 7.10181 1.36441 8.50971 1.6345 9.86801C1.90459 11.2263 2.57126 12.4739 3.55015 13.4532C4.52904 14.4324 5.77619 15.0992 7.13388 15.3694C8.49157 15.6395 9.89885 15.5009 11.1778 14.9709C12.4567 14.441 13.5499 13.5436 14.319 12.3921C15.0881 11.2406 15.4987 9.88686 15.4987 8.50195C15.4987 6.64483 14.7612 4.86383 13.4485 3.55073C12.1359 2.23764 10.3556 1.5 8.49933 1.5ZM3.77726 1.4329C5.17498 0.498663 6.81827 0 8.49933 0C10.7536 0 12.9154 0.8958 14.5094 2.49025C16.1033 4.0847 16.9987 6.24717 16.9987 8.50195C16.9987 10.1834 16.5002 11.8271 15.5663 13.2253C14.6324 14.6234 13.305 15.7132 11.752 16.3567C10.1989 17.0002 8.48991 17.1686 6.84115 16.8405C5.19239 16.5125 3.67795 15.7027 2.48931 14.5136C1.30068 13.3246 0.491236 11.8097 0.163307 10.1605C-0.164622 8.51138 0.00368071 6.80197 0.646943 5.24848C1.29021 3.69498 2.37955 2.36714 3.77726 1.4329Z"
+                        fill="#9A9A9A"></path>
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M13.5933 13.5882C13.9839 13.1977 14.6171 13.1978 15.0075 13.5884L19.4572 18.0396C19.8477 18.4302 19.8476 19.0634 19.457 19.4538C19.0664 19.8443 18.4332 19.8442 18.0428 19.4536L13.5931 15.0024C13.2026 14.6118 13.2027 13.9786 13.5933 13.5882Z"
+                        fill="#9A9A9A"></path>
+                </svg>
+            </span>
+            <button></button>
+            <input placeholder="동행을 찾아보세요!" value="" style="font-size: 12px;"></div>
           <div class="WebHeader__SignBtnBox-sc-12ctfsg-1 eluuNw">
            
             <button class="WebHeader__HeaderButton-sc-12ctfsg-2 jmaRWD"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#login" class="media d-inline-flex align-items-center">로그인</a></button>

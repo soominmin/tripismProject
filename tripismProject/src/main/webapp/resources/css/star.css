@@ -6762,6 +6762,19 @@ fieldset:disabled .btn {
   outline: 0;
 }
 
+.modal-subin {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  outline: 0;
+}
+
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -6835,7 +6848,7 @@ fieldset:disabled .btn {
     min-height: calc(100% - 3.5rem);
   }
   .modal-sm {
-    max-width: 400px;
+    max-width: 1000px;
   }
 }
 
@@ -19807,6 +19820,11 @@ li.default-nav-item > .btn i {
 /** Custom  Modal **/
 .modal-sm .modal-content {
   border-radius: 6px;
+}
+
+.modal-sm .modal-subin{
+	width:400px;
+	border-radius: 6px;
 }
 
 .modal-sm .modal-content .modal-header {

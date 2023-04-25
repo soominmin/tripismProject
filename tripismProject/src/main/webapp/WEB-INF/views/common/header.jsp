@@ -336,10 +336,12 @@
 
        <div class="Headersstyle__HeaderTopWrapDiv-sc-6xu8td-2 jolKUF">
         <div class="Headersstyle__HeaderTopInnerDiv-sc-6xu8td-3 cUxSoB">
+        <a href="redirect:/">
         <img src="${pageContext.request.contextPath}/resources/img/header/LOGO2.png"
               alt="logo"
               class="WebHeader__LogoImg-sc-12ctfsg-0 dlkFOB"
               style="width: 156px; height: 35px;" >
+        </a>
 
           <div id="menuzord" class="menuzord">
 
@@ -387,7 +389,7 @@
               </li>
   
               <li class="">
-                <a href="javascript:void(0)">공지사항</a>
+                <a href="">공지사항</a>
               </li>
 
               <li class="">

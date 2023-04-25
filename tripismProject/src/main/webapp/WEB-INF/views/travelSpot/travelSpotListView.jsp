@@ -51,11 +51,9 @@
 	———	PAGE TITLE
 	===================================== -->
 	<section class="page-title">
-<<<<<<< HEAD
+
 	  <div class="page-title-img bg-img bg-overlay-darken" style="background-image: url(${pageContext.request.contextPath}/resources/img/pages/page-title-bg5.jpg);">
-=======
-	  <div class="page-title-img bg-img bg-overlay-darken" style="background-image: url(resources/img/pages/page-title-bg12.jpg);">
->>>>>>> c575eb08565994aa18f829bedccd5cdad8d8b7c1
+
 	    <div class="container">
 	      <div class="row align-items-center justify-content-center" style="height: 200px;">
 	        <div class="col-lg-6">

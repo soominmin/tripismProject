@@ -10,13 +10,7 @@ public class MemberController {
 	@RequestMapping("idfind.do")
 	public String EnrollMemberForm() {
 		return "member/idFind";
-
-	@RequestMapping("emailInquiry.me")
-	public String enrollForm() {
-		// WEB-INF/views/		member/enrollForm				.jsp
-		
-		return "admin/emailInquiry";
-
 	}
+
 	
 }

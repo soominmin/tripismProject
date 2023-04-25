@@ -335,7 +335,7 @@
 
        <div class="Headersstyle__HeaderTopWrapDiv-sc-6xu8td-2 jolKUF">
         <div class="Headersstyle__HeaderTopInnerDiv-sc-6xu8td-3 cUxSoB">
-        <a href="redirect:/">
+        <a href="index.pg">
         <img src="${pageContext.request.contextPath}/resources/img/header/LOGO2.png"
               alt="logo"
               class="WebHeader__LogoImg-sc-12ctfsg-0 dlkFOB"
@@ -388,7 +388,7 @@
               </li>
   
               <li class="">
-                <a href="">공지사항</a>
+                <a href="noticeList.bo">공지사항</a>
               </li>
 
               <li class="">
@@ -396,7 +396,7 @@
                   <img src="${pageContext.request.contextPath}/resources/img/header/icons9.gif" style="width: 22px; height: 22px;">
                   여행지도</a>
               </li>
-  
+              
             </ul>
 
           </div>

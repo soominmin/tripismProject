@@ -11,6 +11,17 @@
     <link rel="stylesheet" href="resources/css/star.css">
 </head>
 <body>
+<!-- ====================================
+——— HEADER
+===================================== -->
+  
+	<!-- 헤더바 포함 -->
+	<jsp:include page="../common/header.jsp"/>
+
+
+<!-- ====================================
+——— CONTENT SECTION
+===================================== -->
 
 
   <section class="page-title">
@@ -43,11 +54,6 @@
 
 </div>
 
-   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-   <!-- Style The Contact Form How Ever You Prefer -->
-   <link rel="stylesheet" href="../mainCss.css">
-
   <form class="gform pure-form pure-form-stacked" method="POST" data-email="example@email.net"
   action="https://script.google.com/macros/s/AKfycbwnfRUXYNHuP8To9utM3NJLbj5N-qMF-80ue1QcwA-rk-ZDowEN5IZ7fXjGbxKnUEqJVQ/exec">
     <!-- change the form action to your script url -->
@@ -63,7 +69,7 @@
       </tr>
       <tr>
         <th><label for="email" style="width: 100px">* 이메일</label></th>
-        <td><input type="text" style="width: 400px" id="email" name="email" class="form-control" placeholder="이메일주소를 입력해주세요"  required></td>
+        <td><input type="email" style="width: 400px" id="email" name="email" class="form-control" placeholder="이메일주소를 입력해주세요"  required></td>
       </tr>
 
       <tr>
@@ -78,9 +84,9 @@
       <button class="button-success pure-button button-xlarge">
         <i class="fa fa-paper-plane"></i>&nbsp;전송</button>
       <button class="button-success pure-button button-xlarge" type="reset">취소하기</button>
-    </div>
+    </div>ㄴ
 
-  
+
 
     <!-- 완료시 보여질 문구 -->
     <div class="thankyou_message" style="display:none;" align="center">
@@ -94,7 +100,11 @@
   <script data-cfasync="false" type="text/javascript"
   src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
 
-
+<!-- ====================================
+——— FOOTER SECTION
+===================================== -->
+    		<!-- 푸터바 포함 -->
+	<jsp:include page="../common/footer.jsp"/>
 
 </body>
 </html>

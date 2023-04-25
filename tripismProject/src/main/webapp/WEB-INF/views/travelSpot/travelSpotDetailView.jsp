@@ -43,7 +43,7 @@
 	———	PAGE TITLE
 	===================================== -->
 	<section class="page-title">
-	  <div class="page-title-img bg-img bg-overlay-darken" style="background-image: url(assets/img/pages/page-title-bg13.jpg);">
+	  <div class="page-title-img bg-img bg-overlay-darken" style="background-image: url(resources/img/pages/page-title-bg13.jpg);">
 	    <div class="container">
 	      <div class="row align-items-center justify-content-center" style="height: 200px;">
 	        <div class="col-lg-6">
@@ -63,7 +63,7 @@
 	———	PACKAGES SECTION
 	===================================== -->
 	<section class="py-10">
-	  <div class="container">
+	  <div class="container" style="width: 800px">
 	
 	    <div class="content-title" align="center">
 	      <div class="">
@@ -357,7 +357,7 @@
 	        
 	          <div class="media mb-6">
 	            <a class="me-6" href="">
-	              <img class="rounded lazyestload" data-src="assets/img/blog/comments-02.jpg" src="assets/img/blog/comments-02.jpg" alt="Generic placeholder image" style="width: 50px; height: 50px;">
+	              <img class="rounded lazyestload" data-src="${pageContext.request.contextPath}/resources/img/user (2).jfif" src="" alt="Generic placeholder image" style="width: 50px; height: 50px;">
 	            </a>
 	        
 	            <div class="media-body">
@@ -368,7 +368,7 @@
 	        
 	          <div class="media mb-6">
 	            <a class="me-6" href="">
-	              <img class="rounded lazyestload" data-src="assets/img/blog/comments-01.jpg" src="assets/img/blog/comments-01.jpg" alt="Generic placeholder image" style="width: 50px; height: 50px;">
+	              <img class="rounded lazyestload" data-src="${pageContext.request.contextPath}/resources/img/user (2).jfif" src="" alt="Generic placeholder image" style="width: 50px; height: 50px;">
 	            </a>
 	        
 	            <div class="media-body">
@@ -379,7 +379,7 @@
 	        
 	          <div class="media">
 	            <a class="me-6" href="">
-	              <img class="rounded lazyestload" data-src="assets/img/blog/comments-03.jpg" src="assets/img/blog/comments-03.jpg" alt="Generic placeholder image" style="width: 50px; height: 50px;">
+	              <img class="rounded lazyestload" data-src="${pageContext.request.contextPath}/resources/img/user (2).jfif" src="" alt="Generic placeholder image" style="width: 50px; height: 50px;">
 	            </a>
 	            <div class="media-body">
 	              <h5>우우</h5>
@@ -404,7 +404,7 @@
 	    </div>
 	    <div class="row">
 	
-	      <div class="col-md-6 col-lg-4 mb-5">
+	      	      <div class="col-md-6 col-lg-4 mb-5">
 	        <div class="card card-hover">
 	          <a href="javascript:void(0)" class="position-relative">
 	            <img class="card-img-top lazyestload" data-src="http://tong.visitkorea.or.kr/cms/resource/81/1075281_image2_1.jpg" src="" alt="Card image cap">
@@ -428,9 +428,13 @@
 	            </h5>
 	
 	            <div class="post_area" style="float: right;">
+	              <span class="num_like">
+	                <img src="${pageContext.request.contextPath}/resources/img/icons/after-like.png" style="width: 15px; height: 15px;" alt="">
+	                <span class="num" id="conRead" style="font-size: 10pt">37</span>
+	              </span>
 	              <span class="num_view">
-	                <img src="${pageContext.request.contextPath}/resources/img/icons/view.png" style="width: 20px; height: 20px;" alt="">
-	                <span class="num" id="conRead">562</span>
+	                <img src="${pageContext.request.contextPath}/resources/img/icons/view.png" style="width: 15px; height: 15px;" alt="">
+	                <span class="num" id="conRead" style="font-size: 10pt">562</span>
 	              </span>
 	            </div>
 	
@@ -463,9 +467,13 @@
 	            </h5>
 	
 	            <div class="post_area" style="float: right;">
+	              <span class="num_like">
+	                <img src="${pageContext.request.contextPath}/resources/img/icons/after-like.png" style="width: 15px; height: 15px;" alt="">
+	                <span class="num" id="conRead" style="font-size: 10pt">25</span>
+	              </span>
 	              <span class="num_view">
-	                <img src="${pageContext.request.contextPath}/resources/img/icons/view.png" style="width: 20px; height: 20px;" alt="">
-	                <span class="num" id="conRead">322</span>
+	                <img src="${pageContext.request.contextPath}/resources/img/icons/view.png" style="width: 15px; height: 15px;" alt="">
+	                <span class="num" id="conRead" style="font-size: 10pt">377</span>
 	              </span>
 	            </div>
 	
@@ -498,9 +506,13 @@
 	            </h5>
 	
 	            <div class="post_area" style="float: right;">
+	              <span class="num_like">
+	                <img src="${pageContext.request.contextPath}/resources/img/icons/after-like.png" style="width: 15px; height: 15px;" alt="">
+	                <span class="num" id="conRead" style="font-size: 10pt">17</span>
+	              </span>
 	              <span class="num_view">
-	                <img src="${pageContext.request.contextPath}/resources/img/icons/view.png" style="width: 20px; height: 20px;" alt="">
-	                <span class="num" id="conRead">402</span>
+	                <img src="${pageContext.request.contextPath}/resources/img/icons/view.png" style="width: 15px; height: 15px;" alt="">
+	                <span class="num" id="conRead" style="font-size: 10pt">406</span>
 	              </span>
 	            </div>
 	
@@ -533,9 +545,13 @@
 	            </h5>
 	
 	            <div class="post_area" style="float: right;">
+	              <span class="num_like">
+	                <img src="${pageContext.request.contextPath}/resources/img/icons/after-like.png" style="width: 15px; height: 15px;" alt="">
+	                <span class="num" id="conRead" style="font-size: 10pt">11</span>
+	              </span>
 	              <span class="num_view">
-	                <img src="${pageContext.request.contextPath}/resources/img/icons/view.png" style="width: 20px; height: 20px;" alt="">
-	                <span class="num" id="conRead">365</span>
+	                <img src="${pageContext.request.contextPath}/resources/img/icons/view.png" style="width: 15px; height: 15px;" alt="">
+	                <span class="num" id="conRead" style="font-size: 10pt">292</span>
 	              </span>
 	            </div>
 	
@@ -568,9 +584,13 @@
 	            </h5>
 	
 	            <div class="post_area" style="float: right;">
+	              <span class="num_like">
+	                <img src="${pageContext.request.contextPath}/resources/img/icons/after-like.png" style="width: 15px; height: 15px;" alt="">
+	                <span class="num" id="conRead" style="font-size: 10pt">9</span>
+	              </span>
 	              <span class="num_view">
-	                <img src="${pageContext.request.contextPath}/resources/img/icons/view.png" style="width: 20px; height: 20px;" alt="">
-	                <span class="num" id="conRead">238</span>
+	                <img src="${pageContext.request.contextPath}/resources/img/icons/view.png" style="width: 15px; height: 15px;" alt="">
+	                <span class="num" id="conRead" style="font-size: 10pt">221</span>
 	              </span>
 	            </div>
 	
@@ -603,9 +623,13 @@
 	            </h5>
 	
 	            <div class="post_area" style="float: right;">
+	              <span class="num_like">
+	                <img src="${pageContext.request.contextPath}/resources/img/icons/after-like.png" style="width: 15px; height: 15px;" alt="">
+	                <span class="num" id="conRead" style="font-size: 10pt">8</span>
+	              </span>
 	              <span class="num_view">
-	                <img src="${pageContext.request.contextPath}/resources/img/icons/view.png" style="width: 20px; height: 20px;" alt="">
-	                <span class="num" id="conRead">122</span>
+	                <img src="${pageContext.request.contextPath}/resources/img/icons/view.png" style="width: 15px; height: 15px;" alt="">
+	                <span class="num" id="conRead" style="font-size: 10pt">109</span>
 	              </span>
 	            </div>
 	

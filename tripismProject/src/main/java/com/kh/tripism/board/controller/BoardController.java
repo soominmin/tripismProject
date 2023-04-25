@@ -18,5 +18,10 @@ public class BoardController {
 		return "travelPartner/detailForm";
 	}
 	
+	@RequestMapping("noticeList.bo")
+	public String noticeList() {
+		return "notice/noticeList";
+	}
+	
 
 }

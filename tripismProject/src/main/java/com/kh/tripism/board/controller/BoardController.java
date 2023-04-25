@@ -13,5 +13,10 @@ public class BoardController {
 		return "travelPartner/partnerList";
 	}
 	
+	@RequestMapping("detail.pn")
+	public String detailForm() {
+		return "travelPartner/detailForm";
+	}
+	
 
 }

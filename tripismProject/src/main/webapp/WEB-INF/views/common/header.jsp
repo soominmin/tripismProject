@@ -367,7 +367,7 @@
                 <ul class="dropdown drop-up">
 
                   <li class="">
-                    <a href="#">
+                    <a href="list.sp">
                       <img src="${pageContext.request.contextPath}/resources/img/header/icons5.png" class="Button_pa hXhSDh">
                       여행지 둘러보기</a>
                   </li>

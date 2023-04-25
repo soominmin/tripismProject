@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="WEB-INF/views/common/header.jsp"/>
+	<jsp:include page="header.jsp"/>
 	
 	<body id="body" class="up-scroll">
 
@@ -285,6 +285,6 @@
 
   </div><!-- element wrapper ends -->
 	
-	<jsp:include page="WEB-INF/views/common/footer.jsp"/>
+	<jsp:include page="footer.jsp"/>
 </body>
 </html>

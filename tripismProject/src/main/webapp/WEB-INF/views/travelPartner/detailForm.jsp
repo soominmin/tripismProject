@@ -256,7 +256,7 @@
 				align-items: center;
 				-webkit-box-pack: center;
 				border: 0 solid rgb(37, 37, 37);
-				padding: 19px 0 19px 25px;
+				padding: 19px;
 				height: 16px;
 				color: rgb(37, 37, 37);
 				font-size: 15px;

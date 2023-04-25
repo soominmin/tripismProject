@@ -435,7 +435,7 @@
           
           <div class="Button__ButtonWrapper-sc-1m85upr-0 cmgUBW">
             <button width="134px" height="44px" font-style="" type="button" class="btnButtonStyle-sc-1m85upr-1 iJuLkw">
-              <a href="" style="color: rgb(255, 255, 255); display: inherit; font-weight: bold;">동행 찾기</a>
+              <a href="detail.pn" style="color: rgb(255, 255, 255); display: inherit; font-weight: bold;">동행 찾기</a>
             </button>
           </div>
           <div class="Popups__HeaderWritePopupDiv-sc-1hc7iv8-0 hbEFUq">

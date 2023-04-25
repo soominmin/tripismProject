@@ -335,10 +335,12 @@
 
        <div class="Headersstyle__HeaderTopWrapDiv-sc-6xu8td-2 jolKUF">
         <div class="Headersstyle__HeaderTopInnerDiv-sc-6xu8td-3 cUxSoB">
+        <a href="redirect:/">
         <img src="${pageContext.request.contextPath}/resources/img/header/LOGO2.png"
               alt="logo"
               class="WebHeader__LogoImg-sc-12ctfsg-0 dlkFOB"
               style="width: 156px; height: 35px;" >
+        </a>
 
           <div id="menuzord" class="menuzord">
 
@@ -366,7 +368,7 @@
                 <ul class="dropdown drop-up">
 
                   <li class="">
-                    <a href="#">
+                    <a href="list.sp">
                       <img src="${pageContext.request.contextPath}/resources/img/header/icons5.png" class="Button_pa hXhSDh">
                       여행지 둘러보기</a>
                   </li>
@@ -386,7 +388,7 @@
               </li>
   
               <li class="">
-                <a href="javascript:void(0)">공지사항</a>
+                <a href="">공지사항</a>
               </li>
 
               <li class="">
@@ -434,7 +436,7 @@
           
           <div class="Button__ButtonWrapper-sc-1m85upr-0 cmgUBW">
             <button width="134px" height="44px" font-style="" type="button" class="btnButtonStyle-sc-1m85upr-1 iJuLkw">
-              <a href="" style="color: rgb(255, 255, 255); display: inherit; font-weight: bold;">동행 찾기</a>
+              <a href="detail.pn" style="color: rgb(255, 255, 255); display: inherit; font-weight: bold;">동행 찾기</a>
             </button>
           </div>
           <div class="Popups__HeaderWritePopupDiv-sc-1hc7iv8-0 hbEFUq">

@@ -50,7 +50,7 @@
 	———	PAGE TITLE
 	===================================== -->
 	<section class="page-title">
-	  <div class="page-title-img bg-img bg-overlay-darken" style="background-image: url(assets/img/pages/page-title-bg5.jpg);">
+	  <div class="page-title-img bg-img bg-overlay-darken" style="background-image: url(resources/img/pages/page-title-bg12.jpg);">
 	    <div class="container">
 	      <div class="row align-items-center justify-content-center" style="height: 200px;">
 	        <div class="col-lg-6">

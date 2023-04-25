@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<!-- ====================================
+——— HEADER
+===================================== -->
 	<jsp:include page="header.jsp"/>
 	
 	<body id="body" class="up-scroll">
@@ -284,7 +287,9 @@
 </section>
 
   </div><!-- element wrapper ends -->
-	
+	<!-- ====================================
+——— FOOTER SECTION
+===================================== -->
 	<jsp:include page="footer.jsp"/>
 </body>
 </html>

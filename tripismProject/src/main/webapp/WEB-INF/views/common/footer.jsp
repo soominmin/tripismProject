@@ -160,12 +160,15 @@
     <hr>
       <div class="Footer__FooterInner-sc-19vhdob-1 gxaxWV">
         <h1 class="Footer__FooterLogo-sc-19vhdob-2 bFjQGc">
-          <img src="${pageContext.request.contextPath}/resources/img/header/LOGO2.png" alt="logo" class="WebHeader__LogoImg-sc-12ctfsg-0 dlkFOB">
+          <a href="index.pg">
+          <img src="${pageContext.request.contextPath}/resources/img/header/LOGO2.png" alt="logo" class="WebHeader__LogoImg-sc-12ctfsg-0 dlkFOB" style="width: 156px; height: 35px;">
+          </a>
+        
         </h1>
         <div class="Footer__InfoBox-sc-19vhdob-3 fAFwwV">
           <div>
             <span class="Footer__InfoBoldText-sc-19vhdob-4 jvHhMp">고객센터 0507-1490-2626</span>
-            <button><a href="emailInquiry.me">이메일 문의하기</a></button>
+            <button><a href="emailInquiry.pg">이메일 문의하기</a></button>
           </div>
           <span> * 실시간 채팅상담: 매일 9:00 ~ 24:00</span>
           <span> 친절 유선 상담: 평일 10:00 ~ 19:00 (12:00 - 13:00 제외)</span>

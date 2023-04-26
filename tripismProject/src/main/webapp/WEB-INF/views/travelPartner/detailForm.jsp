@@ -8,11 +8,20 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <!-- jQuery UI 불러오기 -->
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/datepicker-i18n/dist/umd/i18n.min.js"></script>
+
+		<!-- jQuery 라이브러리 -->
+		<script type="text/javascript" src="resources/js/jquery-3.4.1.min.js"></script>
+		<!-- jQuery 라이브러리 -->
+		<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		
+		<!-- jQuery UI 라이브러리 -->
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
+		<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+
 
 		<style >
 			.WriteSelectionModal__StyledModalWrap-sc-1cknulk-0.kxfRvG{
@@ -1212,47 +1221,41 @@
 											placeholder= "날짜 선택"
 											autocomplete="off"
 											class="datepicker"
-											value=""></div>
+											value=""></div>  
 									</div>
 									<span class="DatepickerRange__PreventDragSpan-sc-xqwwp5-2 eiMlOY">-</span>
 									<div class="react-datepicker-wrapper">
 										<div class="react-datepicker__input-container">
-											<input
-											type="text"
-											name="calNext"
-											placeholder="날짜 선택"
-											autocomplete="off"
-											class="datepicker"
-											value=""></div>
+											<input type="text" id="datepicker" name="datepicker"
+											placeholder="날짜 선택" autocomplete="off" class="datepicker" value=""></div>
 									</div>
 								</div>
 							</div>
 						</div>
 						<script>
-							$.datepicker.setDefaults({
-								dateFormat: 'yy-mm-dd',	// 날짜 포맷이다. 보통 yy-mm-dd 를 많이 사용하는것 같다.
-								prevText: '이전 달',	// 마우스 오버시 이전달 텍스트
-								nextText: '다음 달',	// 마우스 오버시 다음달 텍스트
-								closeText: '닫기',      // 닫기 버튼 텍스트 변경
-								monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],	    // 한글 캘린더 중 월 표시를 위한 부분
-								monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],	// 한글 캘린더 중 월 표시를 위한 부분
-								dayNames: ['일', '월', '화', '수', '목', '금', '토'],	    // 한글 캘린더 요일 표시 부분
-								dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],	// 한글 요일 표시 부분
-								dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],	// 한글 요일 표시 부분
-								showMonthAfterYear: true,	// true : 년 월  false : 월 년 순으로 보여줌
-								yearSuffix: '년',	//
-								//        buttonImageOnly: true,	// input 옆에 조그만한 아이콘으로 캘린더 선택가능하게 하기
-								//        buttonImage: "images/calendar.gif",	// 조그만한 아이콘 이미지
-								//        buttonText: "Select date"	// 조그만한 아이콘 툴팁
+							var $j = jQuery.noConflict();
+							
+							$j.datepicker.setDefaults({
+							    dateFormat: 'yy-mm-dd',	
+							    prevText: '이전 달',	
+							    nextText: '다음 달',	
+							    closeText: '닫기',      
+							    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],	    
+							    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],	
+							    dayNames: ['일', '월', '화', '수', '목', '금', '토'],	    
+							    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],	
+							    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],	
+							    showMonthAfterYear: true,	
+							    yearSuffix: '년',	
 							});
-
-
-							$(document).ready(function() {
-								$('.datepicker').datepicker({
-									minDate: 0, // 오늘 이전의 날짜 선택 불가능
-								});
+							
+							$j(document).ready(function() { 
+							    $j('.datepicker').datepicker({    
+							        minDate: 0, 
+							    });
 							});
 						</script>
+
 						
 						
 						
@@ -1295,11 +1298,7 @@
 					</div>
 				</div>
 			</label>
-			<input
-				id="fileInput"
-				type="file"
-				accept="image/png, image/jpeg"
-				style="display: none; margin: 0px; padding: 0px;">
+			<input id="fileInput" type="file" accept="image/png, image/jpeg" style="display: none; margin: 0px; padding: 0px;">
 			<script>
 				const fileInput = document.getElementById('fileInput');
 				const imageWrapper = document.querySelector('.Image__ItemWrapper-sc-16k9dmh-0');
@@ -1312,27 +1311,16 @@
 					const imageUrl = event.target.result;
 					imageWrapper.style.backgroundImage = `url(${imageUrl})`;
 				}
-
 				reader.readAsDataURL(file);
 				});
-
 			</script>
 			
 				
 				<div>
-					<input
-					type="text"
-					name="title"
-					placeholder="ex) 12월 3박4일 제주 바다 보러갈 동행 3명 구해요"
-					maxlength="100"
-					value=""></div>
+					<input type="text" name="title" placeholder="ex) 12월 3박4일 제주 바다 보러갈 동행 3명 구해요" maxlength="100" value=""></div>
 				<div class="WriteWebSectionstyle__HorizontalLine-sc-ixmlq3-1 cGslsG"></div>
 				<div>
-				<textarea
-					class="WriteWebSectionstyle__WriteTextarea-sc-ixmlq3-3 IUMRx desc"
-					name="content"
-					id="desc"
-					placeholder="
+				<textarea class="WriteWebSectionstyle__WriteTextarea-sc-ixmlq3-3 IUMRx desc" name="content" id="desc" placeholder="
 1. 현재 동행이 있나요? 
 ex) 혼자에요 / 동행 1명이 있어요 
 
@@ -1375,36 +1363,28 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 					</button>
 					<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
 						<div>
-							<img
-								src="${pageContext.request.contextPath}/resources/img/partner/2.png"
-								alt="이모지"
+							<img src="${pageContext.request.contextPath}/resources/img/partner/2.png" alt="이모지"
 								class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
 								<span>관광</span>
 							</div>
 						</button>
 						<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
 							<div>
-								<img
-									src="${pageContext.request.contextPath}/resources/img/partner/3.png"
-									alt="이모지"
+								<img src="${pageContext.request.contextPath}/resources/img/partner/3.png" alt="이모지"
 									class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
 									<span>바다</span>
 								</div>
 							</button>
 							<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
 								<div>
-									<img
-										src="${pageContext.request.contextPath}/resources/img/partner/4.png"
-										alt="이모지"
+									<img src="${pageContext.request.contextPath}/resources/img/partner/4.png" alt="이모지"
 										class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
 										<span>등산</span>
 									</div>
 								</button>
 								<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
 									<div>
-										<img
-											src="${pageContext.request.contextPath}/resources/img/partner/5.png"
-											alt="이모지"
+										<img src="${pageContext.request.contextPath}/resources/img/partner/5.png" alt="이모지"
 											class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
 											<span>맛집/카페 탐방</span>
 										</div>

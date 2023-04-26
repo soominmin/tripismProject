@@ -13,21 +13,6 @@
     <!-- 부트스트랩에서 제공하고 있는 스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
-    <!-- Plugins css Style -->
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/fontawesome-5.15.2/css/all.min.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/fontawesome-5.15.2/css/fontawesome.min.css' rel='stylesheet'>
-    <link defer href="${pageContext.request.contextPath}/resources/plugins/animate/animate.css" rel="stylesheet">
-    <link defer href="${pageContext.request.contextPath}/resources/plugins/menuzord/css/menuzord.css" rel="stylesheet">
-    <link defer href="${pageContext.request.contextPath}/resources/plugins/menuzord/css/menuzord-animations.css" rel="stylesheet">
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/fancybox/jquery.fancybox.min.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/selectric/selectric.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/daterangepicker/css/daterangepicker.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/rateyo/jquery.rateyo.min.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/no-ui-slider/nouislider.min.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/dzsparallaxer/dzsparallaxer.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/slick/slick.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/slick/slick-theme.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/revolution/css/settings.css' rel='stylesheet'>
 
     <style>
         /* div{ border: 1px solid gray; } */
@@ -77,9 +62,9 @@
 	<!--  -->
     <div id="wrap">
         <!-- header -->
-        <div id="header" align="center"> 
+        <div id="header"> 
             <!-- header.html 포함 -->
-            <img src="${pageContext.request.contextPath}/resources/img/LOGO2.png" alt="LOGO" style="width: auto; height: 100%;">
+            <img src="../common/LOGO.png" alt="LOGO" style="width: auto; height: 100%;">
         </div>
 
         <!-- feedPage- -->
@@ -87,25 +72,25 @@
 
                 <div class="inner-bar" align="center" style="padding:50% 0%;">
  
-                <button style="background-color: transparent; border: none;" onclick="location.href='index.jsp'"><img src="${pageContext.request.contextPath}/resources/img/feed/home.png" alt="home" style="width: 2em;">
+                <button style="background-color: transparent; border: none;"><img src="views/feed/img/home.png" alt="home" style="width: 2em;">
                     <p>홈</p>
                 </button>
 
                 <br>
 
-                <button style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/hot.png" alt="hot" style="width: 2em;">
+                <button style="background-color: transparent; border: none;"><img src="img/hot.png" alt="hot" style="width: 2em;">
                     <p>실시간</p>
                 </button>
 
                 <hr class="inner-bar">
 
-                <button style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/camera.png" alt="img" style="width: 2em;">
+                <button style="background-color: transparent; border: none;"><img src="img/camera.png" alt="img" style="width: 2em;">
                     <p>사진</p>
                 </button>
                 
                 <br>
 
-                <button style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/video.png" alt="video" style="width: 2em;">
+                <button style="background-color: transparent; border: none;"><img src="img/video.png" alt="video" style="width: 2em;">
                     <p>비디오</p>
                 </button>
 
@@ -155,7 +140,7 @@
                             <!-- Modal footer -->
                             <div>
                                 <button type="submit" class="btn btn-secondary">완료</button>
-                                <button type="button" class="btn btn-danger" onclick="location.href='feed.fd'">취소</button>
+                                <button type="button" class="btn btn-danger" href="#">취소</button>
                             </div>
                         
                         </div>
@@ -187,7 +172,7 @@
         </div>
         <div id="right-main">
             <div align="center">
-                <img src="${pageContext.request.contextPath}/resources/img/logo.png" alt="image" style="width: 10em;">
+                <img src="../common/LOGO.png" alt="image" style="width: 10em;">
             </div>
             <hr class="inner-bar">
             <div class="inner-bar">
@@ -235,8 +220,8 @@
         </div>
 
         <!-- footer -->
-        <div id="footer" style="display: flex; justify-content: center;">
-            <jsp:include page="../common/footer.jsp"></jsp:include>
+        <div id="footer">
+            1234
         </div>
     </div>
 

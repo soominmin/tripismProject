@@ -15,15 +15,4 @@ public class FeedController {
 	public String enrollForm() {
 		return "feed/feedEnrollForm";
 	}
-	
-	@RequestMapping("updateForm.fd")
-	public String updateForm() {
-		return "feed/feedUpdateForm";
-	}
-	
-	@RequestMapping("feedBest.fd")
-	public String feedBest() {
-		return "feed/feedBest";
-	}
-	
 }

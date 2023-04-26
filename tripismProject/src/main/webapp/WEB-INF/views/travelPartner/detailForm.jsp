@@ -8,11 +8,18 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <!-- jQuery UI 불러오기 -->
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/datepicker-i18n/dist/umd/i18n.min.js"></script>
+
+		<!-- jQuery 라이브러리 -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		
+		<!-- jQuery UI 라이브러리 -->
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
+		<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+
 
 		<style >
 			.WriteSelectionModal__StyledModalWrap-sc-1cknulk-0.kxfRvG{
@@ -1217,41 +1224,36 @@
 									<span class="DatepickerRange__PreventDragSpan-sc-xqwwp5-2 eiMlOY">-</span>
 									<div class="react-datepicker-wrapper">
 										<div class="react-datepicker__input-container">
-											<input
-											type="text"
-											name="calNext"
-											placeholder="날짜 선택"
-											autocomplete="off"
-											class="datepicker"
-											value=""></div>
+											<input type="text" id="datepicker" name="datepicker"
+											placeholder="날짜 선택" autocomplete="off" class="datepicker" value=""></div>
 									</div>
 								</div>
 							</div>
 						</div>
 						<script>
-							$.datepicker.setDefaults({
-								dateFormat: 'yy-mm-dd',	// 날짜 포맷이다. 보통 yy-mm-dd 를 많이 사용하는것 같다.
-								prevText: '이전 달',	// 마우스 오버시 이전달 텍스트
-								nextText: '다음 달',	// 마우스 오버시 다음달 텍스트
-								closeText: '닫기',      // 닫기 버튼 텍스트 변경
-								monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],	    // 한글 캘린더 중 월 표시를 위한 부분
-								monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],	// 한글 캘린더 중 월 표시를 위한 부분
-								dayNames: ['일', '월', '화', '수', '목', '금', '토'],	    // 한글 캘린더 요일 표시 부분
-								dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],	// 한글 요일 표시 부분
-								dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],	// 한글 요일 표시 부분
-								showMonthAfterYear: true,	// true : 년 월  false : 월 년 순으로 보여줌
-								yearSuffix: '년',	//
-								//        buttonImageOnly: true,	// input 옆에 조그만한 아이콘으로 캘린더 선택가능하게 하기
-								//        buttonImage: "images/calendar.gif",	// 조그만한 아이콘 이미지
-								//        buttonText: "Select date"	// 조그만한 아이콘 툴팁
+						$(function() {
+							  $("#datepicker").datepicker({
+							    dateFormat: 'yy-mm-dd',
+							    prevText: '이전 달',
+							    nextText: '다음 달',
+							    closeText: '닫기',
+							    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+							    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+							    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+							    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+							    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+							    showMonthAfterYear: true,
+							    yearSuffix: '년',
+							    minDate: 0 // 현재 날짜 이전의 날짜는 선택하지 못하도록 설정
+							  });
 							});
 
 
-							$(document).ready(function() {
-								$('.datepicker').datepicker({
-									minDate: 0, // 오늘 이전의 날짜 선택 불가능
-								});
-							});
+						$(function() {
+							$("#datepicker").datepicker({
+								minDate: 0,
+							})
+						})
 						</script>
 						
 						

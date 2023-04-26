@@ -399,6 +399,10 @@
                   여행지도</a>
               </li>
               
+              <li class="">
+              	<a href="mypage.bo">마이페이지(잠깐만든거)</a>
+              </li>
+              
             </ul>
 
           </div>
@@ -440,6 +444,8 @@
             <button width="134px" height="44px" font-style="" type="button" class="btnButtonStyle-sc-1m85upr-1 iJuLkw">
               <a href="detail.pn" style="color: rgb(255, 255, 255); display: inherit; font-weight: bold;">동행 찾기</a>
             </button>
+              
+            
           </div>
           <div class="Popups__HeaderWritePopupDiv-sc-1hc7iv8-0 hbEFUq">
 
@@ -597,7 +603,7 @@
 
               <div align="center" style="padding-top: 15px;">
                 <a href="idfind.do" align="center" style="color: black;">ID 찾기</a> | 
-                <a href="#" align="center" style="color: black;">비밀번호 찾기</a>
+                <a href="pwdFind.do" align="center" style="color: black;">비밀번호 찾기</a>
               </div>
               
             </div>

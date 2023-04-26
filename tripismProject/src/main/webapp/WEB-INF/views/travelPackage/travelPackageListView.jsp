@@ -1,24 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-  
-  <head>
-
+<html>
+<head>
     <!-- SITE TITTLE -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Packages Fullwidth Grid View - Star Travel</title>
+    <title>여행상품 목록</title>
 
     <!-- Plugins css Style -->
-    <link href='assets/plugins/fontawesome-5.15.2/css/all.min.css' rel='stylesheet'>
-    <link href='assets/plugins/fontawesome-5.15.2/css/fontawesome.min.css' rel='stylesheet'>
-    <link href="assets/plugins/animate/animate.css" rel="stylesheet">
-    <link href="assets/plugins/menuzord/css/menuzord.css" rel="stylesheet">
-    <link href="assets/plugins/menuzord/css/menuzord-animations.css" rel="stylesheet">
-    <link href='assets/plugins/fancybox/jquery.fancybox.min.css' rel='stylesheet'>
+    <link href='${pageContext.request.contextPath}/resources/plugins/fontawesome-5.15.2/css/all.min.css' rel='stylesheet'>
+    <link href='${pageContext.request.contextPath}/resources/plugins/fontawesome-5.15.2/css/fontawesome.min.css' rel='stylesheet'>
+    <link href="${pageContext.request.contextPath}/resources/plugins/animate/animate.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/plugins/menuzord/css/menuzord.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/plugins/menuzord/css/menuzord-animations.css" rel="stylesheet">
+    <link href='${pageContext.request.contextPath}/resources/plugins/fancybox/jquery.fancybox.min.css' rel='stylesheet'>
 
     <!-- CUSTOM CSS -->
-    <link href="assets/css/star.css" id="option_style" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/star.css" id="option_style" rel="stylesheet">
 
     <!-- FAVICON -->
     <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png"/>
@@ -26,20 +26,20 @@
   <style>
     .day-circle {
       background-color: RGB(112, 217, 223);
-      border-radius: 100%;
     }
   </style>
-
-  </head>     
-
+  
+</head>
 <body id="body" class="up-scroll">
 
+	<jsp:include page="../common/header.jsp"/>
 
-<!-- ====================================
+	
+	<!-- ====================================
 ———	PAGE TITLE
 ===================================== -->
 <section class="page-title">
-  <div class="page-title-img bg-img bg-overlay-darken" style="background-image: url(assets/img/pages/page-title-bg6.jpg);">
+  <div class="page-title-img bg-img bg-overlay-darken" style="background-image: url(${pageContext.request.contextPath}/resources/img/pages/page-title-bg6.jpg);">
     <div class="container">
       <div class="row align-items-center justify-content-center" style="height: 200px;">
         <div class="col-lg-6">
@@ -66,7 +66,7 @@
 
       <div class="col-md-6 col-lg-4 mb-5">
         <div class="card card-hover">
-          <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#inquiry" class="position-relative">
+          <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#packageDetail" class="position-relative">
             <img class="card-img-top lazyestload" data-src="https://a.cdn-hotels.com/gdcs/production47/d524/cf53813b-845b-42f3-a749-74875dd8bbf1.jpg?impolicy=fcrop&w=800&h=533&q=medium" src="" alt="Card image cap">
             <div class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">
               <div class="badge badge-rounded-circle day-circle">
@@ -80,7 +80,7 @@
         
           <div class="card-body px-4">
             <h5>
-              <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#inquiry" class="card-title text-uppercase">레일텔(KTX+페어필드부산송도호텔)</a>
+              <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#packageDetail" class="card-title text-uppercase">레일텔(KTX+페어필드부산송도호텔)</a>
             </h5>
             <p class="mb-5">송도의 오션뷰 호텔와 함께 인근에 위치한 남포동, 자갈치, 국제시장 등
               여행지를 돌아볼 수 있는 철도연계 자유여행 상품.</p>
@@ -90,7 +90,7 @@
                 <h3 class="text-primary">199,000원~</h3>
               </div>
               <div>
-                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#inquiry" class="btn btn-xs btn-outline-secondary text-uppercase">자세히보기</a>
+                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#packageDetail" class="btn btn-xs btn-outline-secondary text-uppercase">자세히보기</a>
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@
 
       <div class="col-md-6 col-lg-4 mb-5">
         <div class="card card-hover">
-          <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#inquiry" class="position-relative">
+          <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#packageDetail" class="position-relative">
             <img class="card-img-top lazyestload" data-src="https://a.cdn-hotels.com/gdcs/production47/d524/cf53813b-845b-42f3-a749-74875dd8bbf1.jpg?impolicy=fcrop&w=800&h=533&q=medium" src="" alt="Card image cap">
             <div class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">
               <div class="badge badge-rounded-circle day-circle">
@@ -113,7 +113,7 @@
         
           <div class="card-body px-4">
             <h5>
-              <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#inquiry" class="card-title text-uppercase">레일텔(KTX+페어필드부산송도호텔)</a>
+              <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#packageDetail" class="card-title text-uppercase">레일텔(KTX+페어필드부산송도호텔)</a>
             </h5>
             <p class="mb-5">송도의 오션뷰 호텔와 함께 인근에 위치한 남포동, 자갈치, 국제시장 등
               여행지를 돌아볼 수 있는 철도연계 자유여행 상품.</p>
@@ -123,7 +123,7 @@
                 <h3 class="text-primary">199,000원~</h3>
               </div>
               <div>
-                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#inquiry" class="btn btn-xs btn-outline-secondary text-uppercase">자세히보기</a>
+                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#packageDetail" class="btn btn-xs btn-outline-secondary text-uppercase">자세히보기</a>
               </div>
             </div>
           </div>
@@ -132,7 +132,7 @@
 
       <div class="col-md-6 col-lg-4 mb-5">
         <div class="card card-hover">
-          <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#inquiry" class="position-relative">
+          <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#packageDetail" class="position-relative">
             <img class="card-img-top lazyestload" data-src="https://a.cdn-hotels.com/gdcs/production47/d524/cf53813b-845b-42f3-a749-74875dd8bbf1.jpg?impolicy=fcrop&w=800&h=533&q=medium" src="" alt="Card image cap">
             <div class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">
               <div class="badge badge-rounded-circle day-circle">
@@ -146,7 +146,7 @@
         
           <div class="card-body px-4">
             <h5>
-              <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#inquiry" class="card-title text-uppercase">레일텔(KTX+페어필드부산송도호텔)</a>
+              <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#packageDetail" class="card-title text-uppercase">레일텔(KTX+페어필드부산송도호텔)</a>
             </h5>
             <p class="mb-5">송도의 오션뷰 호텔와 함께 인근에 위치한 남포동, 자갈치, 국제시장 등
               여행지를 돌아볼 수 있는 철도연계 자유여행 상품.</p>
@@ -156,7 +156,7 @@
                 <h3 class="text-primary">199,000원~</h3>
               </div>
               <div>
-                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#inquiry" class="btn btn-xs btn-outline-secondary text-uppercase">자세히보기</a>
+                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#packageDetail" class="btn btn-xs btn-outline-secondary text-uppercase">자세히보기</a>
               </div>
             </div>
           </div>
@@ -165,7 +165,7 @@
 
       <div class="col-md-6 col-lg-4 mb-5">
         <div class="card card-hover">
-          <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#inquiry" class="position-relative">
+          <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#packageDetail" class="position-relative">
             <img class="card-img-top lazyestload" data-src="https://a.cdn-hotels.com/gdcs/production47/d524/cf53813b-845b-42f3-a749-74875dd8bbf1.jpg?impolicy=fcrop&w=800&h=533&q=medium" src="" alt="Card image cap">
             <div class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">
               <div class="badge badge-rounded-circle day-circle">
@@ -179,7 +179,7 @@
         
           <div class="card-body px-4">
             <h5>
-              <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#inquiry" class="card-title text-uppercase">레일텔(KTX+페어필드부산송도호텔)</a>
+              <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#packageDetail" class="card-title text-uppercase">레일텔(KTX+페어필드부산송도호텔)</a>
             </h5>
             <p class="mb-5">송도의 오션뷰 호텔와 함께 인근에 위치한 남포동, 자갈치, 국제시장 등
               여행지를 돌아볼 수 있는 철도연계 자유여행 상품.</p>
@@ -189,7 +189,7 @@
                 <h3 class="text-primary">199,000원~</h3>
               </div>
               <div>
-                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#inquiry" class="btn btn-xs btn-outline-secondary text-uppercase">자세히보기</a>
+                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#packageDetail" class="btn btn-xs btn-outline-secondary text-uppercase">자세히보기</a>
               </div>
             </div>
           </div>
@@ -198,7 +198,7 @@
 
       <div class="col-md-6 col-lg-4 mb-5">
         <div class="card card-hover">
-          <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#inquiry" class="position-relative">
+          <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#packageDetail" class="position-relative">
             <img class="card-img-top lazyestload" data-src="https://a.cdn-hotels.com/gdcs/production47/d524/cf53813b-845b-42f3-a749-74875dd8bbf1.jpg?impolicy=fcrop&w=800&h=533&q=medium" src="" alt="Card image cap">
             <div class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">
               <div class="badge badge-rounded-circle day-circle">
@@ -212,7 +212,7 @@
         
           <div class="card-body px-4">
             <h5>
-              <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#inquiry" class="card-title text-uppercase">레일텔(KTX+페어필드부산송도호텔)</a>
+              <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#packageDetail" class="card-title text-uppercase">레일텔(KTX+페어필드부산송도호텔)</a>
             </h5>
             <p class="mb-5">송도의 오션뷰 호텔와 함께 인근에 위치한 남포동, 자갈치, 국제시장 등
               여행지를 돌아볼 수 있는 철도연계 자유여행 상품.</p>
@@ -222,7 +222,7 @@
                 <h3 class="text-primary">199,000원~</h3>
               </div>
               <div>
-                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#inquiry" class="btn btn-xs btn-outline-secondary text-uppercase">자세히보기</a>
+                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#packageDetail" class="btn btn-xs btn-outline-secondary text-uppercase">자세히보기</a>
               </div>
             </div>
           </div>
@@ -231,7 +231,7 @@
 
       <div class="col-md-6 col-lg-4 mb-5">
         <div class="card card-hover">
-          <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#inquiry" class="position-relative">
+          <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#packageDetail" class="position-relative">
             <img class="card-img-top lazyestload" data-src="https://a.cdn-hotels.com/gdcs/production47/d524/cf53813b-845b-42f3-a749-74875dd8bbf1.jpg?impolicy=fcrop&w=800&h=533&q=medium" src="" alt="Card image cap">
             <div class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">
               <div class="badge badge-rounded-circle day-circle">
@@ -245,7 +245,7 @@
         
           <div class="card-body px-4">
             <h5>
-              <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#inquiry" class="card-title text-uppercase">레일텔(KTX+페어필드부산송도호텔)</a>
+              <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#packageDetail" class="card-title text-uppercase">레일텔(KTX+페어필드부산송도호텔)</a>
             </h5>
             <p class="mb-5">송도의 오션뷰 호텔와 함께 인근에 위치한 남포동, 자갈치, 국제시장 등
               여행지를 돌아볼 수 있는 철도연계 자유여행 상품.</p>
@@ -255,7 +255,7 @@
                 <h3 class="text-primary">199,000원~</h3>
               </div>
               <div>
-                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#inquiry" class="btn btn-xs btn-outline-secondary text-uppercase">자세히보기</a>
+                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#packageDetail" class="btn btn-xs btn-outline-secondary text-uppercase">자세히보기</a>
               </div>
             </div>
           </div>
@@ -263,13 +263,15 @@
       </div>
 
 
-    </div>		
+    </div>
+    
+    <a href="insert.pk" class="btn" style="float:right; background-color:RGB(112, 217, 223); color:white">여행지 홍보하기 (기업회원전용)</a>
+    
   </div>
 </section>
 
 
 
-  </div><!-- element wrapper ends -->
 
 
   
@@ -279,7 +281,7 @@
 
 
     <!-- INQUIRY IN MODAL -->
-    <div class="modal fade" id="inquiry" tabindex="-1" role="dialog" aria-label="inquiryModalLabel" aria-hidden="true">
+    <div class="modal fade" id="packageDetail" tabindex="-1" role="dialog" aria-label="inquiryModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header rounded">
@@ -325,14 +327,17 @@
       </div>
     </div>
 
-    <!-- Javascript -->
-    <script src="assets/plugins/jquery/jquery-3.4.1.min.js"></script>
-    <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/plugins/menuzord/js/menuzord.js"></script>
-    <script src='assets/plugins/fancybox/jquery.fancybox.min.js'></script>
-    <script src="assets/plugins/lazyestload/lazyestload.js"></script>
-    <script src="assets/plugins/smoothscroll/SmoothScroll.js"></script>
+	<jsp:include page="../common/footer.jsp"/>
+	
+	<!-- Javascript -->
+    <script src="${pageContext.request.contextPath}/resources/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/plugins/menuzord/js/menuzord.js"></script>
+    <script src='${pageContext.request.contextPath}/resources/plugins/fancybox/jquery.fancybox.min.js'></script>
+    <script src="${pageContext.request.contextPath}/resources/plugins/lazyestload/lazyestload.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/plugins/smoothscroll/SmoothScroll.js"></script>
+    
     <script src="assets/js/star.js"></script>
-  </body>
-</html>
 
+</body>
+</html>

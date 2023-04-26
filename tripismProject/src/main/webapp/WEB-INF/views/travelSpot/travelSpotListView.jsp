@@ -17,8 +17,6 @@
     <link href="${pageContext.request.contextPath}/resources/plugins/menuzord/css/menuzord-animations.css" rel="stylesheet">
     <link href='${pageContext.request.contextPath}/resources/plugins/fancybox/jquery.fancybox.min.css' rel='stylesheet'>
 
-    <!-- GOOGLE FONT -->
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700' rel='stylesheet'>
 
     <!-- CUSTOM CSS -->
     <link href="${pageContext.request.contextPath}/resources/css/star.css" id="option_style" rel="stylesheet">
@@ -39,6 +37,7 @@
       color: gray;
       font-size: 10pt;
      }
+     
 
     </style>
 </head>

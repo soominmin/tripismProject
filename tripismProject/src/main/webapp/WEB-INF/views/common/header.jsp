@@ -349,7 +349,7 @@
                 <a class="" href="javascript:void(0)">커뮤니티</a>
                 <ul class="dropdown drop-up">
                   <li class="">
-                    <a href="#">
+                    <a href="feed.fd">
                       <img src="${pageContext.request.contextPath}/resources/img/header/icon1.png" class="Button_pa hXhSDh">
                        Tripism</a>
                   </li>

@@ -1221,7 +1221,7 @@
 											placeholder= "날짜 선택"
 											autocomplete="off"
 											class="datepicker"
-											value=""></div>
+											value=""></div>  
 									</div>
 									<span class="DatepickerRange__PreventDragSpan-sc-xqwwp5-2 eiMlOY">-</span>
 									<div class="react-datepicker-wrapper">

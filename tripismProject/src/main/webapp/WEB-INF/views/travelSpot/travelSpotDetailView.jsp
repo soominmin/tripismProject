@@ -23,9 +23,6 @@
     <link href='${pageContext.request.contextPath}/resources/plugins/rateyo/jquery.rateyo.min.css' rel='stylesheet'>
     <link href='${pageContext.request.contextPath}/resources/plugins/owl-carousel/owl.carousel.min.css' rel='stylesheet' media='screen'>
     <link href='${pageContext.request.contextPath}/resources/plugins/owl-carousel/owl.theme.default.min.css' rel='stylesheet' media='screen'>
-	
-    <!-- GOOGLE FONT -->
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700' rel='stylesheet'>
 
     <!-- CUSTOM CSS -->
     <link href="${pageContext.request.contextPath}/resources/css/star.css" id="option_style" rel="stylesheet">
@@ -33,10 +30,14 @@
     <!-- FAVICON -->
     <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png"/>
     
+   
+    
 
 </head>
 <body id="body" class="up-scroll">
-
+	<!-- 카카오맵 -->
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1986b6865e95c60fac90b9fdaef0579e"></script>
+	
 	<jsp:include page="../common/header.jsp"/>
 	
 	<!-- ====================================
@@ -51,6 +52,7 @@
 	            <div class="">
 	              <h2 class="text-uppercase text-white font-weight-bold">여행지 정보</h2>
 	            </div>
+	            <p class="text-white mb-0"></p>
 	          </div>
 	        </div>
 	      </div>
@@ -116,7 +118,7 @@
 	        <div class="mt-8">
 	          <h2 class="text-uppercase mb-5">상세정보</h2>
 	          <hr style="color: black;">
-	          <p class="mb-6">
+	          <p class="mb-6"">
 	            경복궁은 1395년 태조 이성계에 의해서 새로운 조선왕조의 법궁으로 지어졌다. 경복궁은 동궐(창덕궁)이나 서궐(경희궁)에 비해 위치가 북쪽에 있어 ''북궐''이라 불리기도 했다. 경복궁은 5대 궁궐 가운데 으뜸의 규모와 건축미를 자랑한다. 경복궁 근정전에서 즉위식을 가진 왕들을 보면 제2대 정종, 제4대 세종, 제6대 단종, 제7대 세조, 제9대 성종, 제11대 중종, 제13대 명종 등이다. 경복궁은 임진왜란 때 상당수의 건물이 불타 없어진 아픔을 갖고 있으며, 고종 때에 흥선대원군의 주도 아래 7,700여칸에 이르는 건물들을 다시 세웠다. 그러나 또 다시 명성황후 시해사건이 일어나면서 왕조의 몰락과 함께 경복궁도 왕궁으로서의 기능을 상실하고 말았다. 경복궁에는 조선시대의 대표적인 건축물인 경회루와 향원정의 연못이 원형대로 남아 있으며, 근정전의 월대와 조각상들은 당시의 조각미술을 대표한다. 현재 흥례문 밖 서편에는 국립고궁 박물관이 위치하고 있고, 경복궁 내 향원정의 동편에는 국립민속 박물관이 위치하고 있다.
 	          </p>
 	
@@ -212,8 +214,34 @@
 	          <hr>
 	          <div class="mb-7" id="map" style="width:100%; height:400px;"></div>
 	        </div>
+	        
+
+			<script>
+			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+			    mapOption = { 
+			        center: new kakao.maps.LatLng(37.578117, 126.977877), // 지도의 중심좌표
+			        level: 4 // 지도의 확대 레벨
+			    };
+			
+			var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+			
+			// 마커가 표시될 위치입니다 
+			var markerPosition  = new kakao.maps.LatLng(37.578117, 126.977877); 
+			
+			// 마커를 생성합니다
+			var marker = new kakao.maps.Marker({
+			    position: markerPosition
+			});
+			
+			// 마커가 지도 위에 표시되도록 설정합니다
+			marker.setMap(map);
+			
+			// 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+			// marker.setMap(null);    
+			</script>
+			
 	
-	        <div class="mb-7">
+	        <div class="mb-7"">
 	          <br>
 	          <h2 class="text-uppercase mb-6">상세정보</h2>
 	          <hr>
@@ -654,7 +682,6 @@
     <script src="${pageContext.request.contextPath}/resources/plugins/lazyestload/lazyestload.js"></script>
     <script src='${pageContext.request.contextPath}/resources/plugins/owl-carousel/owl.carousel.min.js'></script>
     <script src="${pageContext.request.contextPath}/resources/plugins/smoothscroll/SmoothScroll.js"></script>
-    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDU79W1lu5f6PIiuMqNfT1C6M0e_lq1ECY'></script>
     <script src="${pageContext.request.contextPath}/resources/js/star.js"></script>
     
 

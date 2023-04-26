@@ -1,10 +1,10 @@
-package com.kh.tripism.board.controller;
+package com.kh.tripism.partnerBoard.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class BoardController {
+public class PnBoardController {
 	
 	// private BoardServiceImpl bService;
 	

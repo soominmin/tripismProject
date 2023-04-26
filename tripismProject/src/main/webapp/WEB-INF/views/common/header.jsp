@@ -10,11 +10,11 @@
     <!-- 부트스트랩에서 제공하고 있는 스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- SITE TITTLE -->
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        
     <!-- Plugins css Style -->
     <link href='${pageContext.request.contextPath}/resources/plugins/fontawesome-5.15.2/css/all.min.css' rel='stylesheet'>
     <link href='${pageContext.request.contextPath}/resources/plugins/fontawesome-5.15.2/css/fontawesome.min.css' rel='stylesheet'>
@@ -31,14 +31,16 @@
     <link href='${pageContext.request.contextPath}/resources/plugins/slick/slick-theme.css' rel='stylesheet'>
     <link href='${pageContext.request.contextPath}/resources/plugins/revolution/css/settings.css' rel='stylesheet'>
     
-    <!-- GOOGLE FONT -->
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700' rel='stylesheet'>
     <!-- CUSTOM CSS -->
     <link href="${pageContext.request.contextPath}/resources/css/star.css" id="option_style" rel="stylesheet">
     <!-- FAVICON -->
     <link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/resources/img/favicon.png"/>
     
     <style>
+    	body * {
+			font-family: 'TheJamsil5Bold';
+		}
+    
         div {box-sizing:border-box;}
         #header {
             width:80%;
@@ -302,7 +304,6 @@
 		
 		#modal-body{
 		    padding: 25px 25px;
-		
 		}
 
 		#modalTop{
@@ -336,10 +337,12 @@
 
        <div class="Headersstyle__HeaderTopWrapDiv-sc-6xu8td-2 jolKUF">
         <div class="Headersstyle__HeaderTopInnerDiv-sc-6xu8td-3 cUxSoB">
+        <a href="index.pg">
         <img src="${pageContext.request.contextPath}/resources/img/header/LOGO2.png"
               alt="logo"
               class="WebHeader__LogoImg-sc-12ctfsg-0 dlkFOB"
               style="width: 156px; height: 35px;" >
+        </a>
 
           <div id="menuzord" class="menuzord">
 
@@ -348,7 +351,7 @@
                 <a class="" href="javascript:void(0)">커뮤니티</a>
                 <ul class="dropdown drop-up">
                   <li class="">
-                    <a href="#">
+                    <a href="feed.fd">
                       <img src="${pageContext.request.contextPath}/resources/img/header/icon1.png" class="Button_pa hXhSDh">
                        Tripism</a>
                   </li>
@@ -367,13 +370,13 @@
                 <ul class="dropdown drop-up">
 
                   <li class="">
-                    <a href="#">
+                    <a href="list.sp">
                       <img src="${pageContext.request.contextPath}/resources/img/header/icons5.png" class="Button_pa hXhSDh">
                       여행지 둘러보기</a>
                   </li>
   
                   <li class="">
-                    <a href="#">
+                    <a href="list.pk">
                       <img src="${pageContext.request.contextPath}/resources/img/header/icons6.png" class="Button_pa hXhSDh">
                       여행 상품</a>
                   </li>
@@ -387,15 +390,15 @@
               </li>
   
               <li class="">
-                <a href="javascript:void(0)">공지사항</a>
+                <a href="noticeList.bo">공지사항</a>
               </li>
 
               <li class="">
-                <a href="javascript:void(0)">
+                <a href="mapView.tm">
                   <img src="${pageContext.request.contextPath}/resources/img/header/icons9.gif" style="width: 22px; height: 22px;">
                   여행지도</a>
               </li>
-  
+              
             </ul>
 
           </div>
@@ -435,7 +438,7 @@
           
           <div class="Button__ButtonWrapper-sc-1m85upr-0 cmgUBW">
             <button width="134px" height="44px" font-style="" type="button" class="btnButtonStyle-sc-1m85upr-1 iJuLkw">
-              <a href="" style="color: rgb(255, 255, 255); display: inherit; font-weight: bold;">동행 찾기</a>
+              <a href="detail.pn" style="color: rgb(255, 255, 255); display: inherit; font-weight: bold;">동행 찾기</a>
             </button>
           </div>
           <div class="Popups__HeaderWritePopupDiv-sc-1hc7iv8-0 hbEFUq">
@@ -464,8 +467,8 @@
     ===================================== -->
     <!-- Signup Modal -->
 	 <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-label="signupModalLabel" aria-hidden="true">
-	    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
-	      <div class="modal-content">
+	    <div class="modal-dialog modal-dialog-centered" role="document"> 
+	      <div class="modal-subin" style="width: 500px !important;">
 	        <div class="modal-header rounded" id="modalTop">
 	          <h3 class="modal-title text-uppercase font-weight-bold">Tripism 회원가입</h3>
 	          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -514,7 +517,7 @@
 	
 	            <div class="mb-3">
 	              <h5>이용약관 동의</h5>
-	                <input type="checkbox" name="agreeAll" id="agreeAll"" />
+	                <input type="checkbox" name="agreeAll" id="agreeAll" />
 	                <label for="agreeAll">약관 전체 동의</label><br />
 	                <input type="checkbox" name="agree" id="agreeAge" />
 	                <label for="agreeAge">[필수] 만14세 이상</label><br />
@@ -554,8 +557,8 @@
 
       <!-- Login Modal -->
       <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-label="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm modal-dialog-centered" role="document" >
-          <div class="modal-content">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="document" >
+          <div class="modal-subin">
             <div class="modal-header rounded" id="modalTop">
               <h3 class="modal-title text-uppercase font-weight-bold">Tripism Login</h3>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -593,7 +596,7 @@
               </form>
 
               <div align="center" style="padding-top: 15px;">
-                <a href="#" align="center" style="color: black;">ID 찾기</a> | 
+                <a href="idfind.do" align="center" style="color: black;">ID 찾기</a> | 
                 <a href="#" align="center" style="color: black;">비밀번호 찾기</a>
               </div>
               
@@ -608,7 +611,7 @@
   
     <!-- INQUIRY IN MODAL -->
     <div class="modal fade" id="inquiry" tabindex="-1" role="dialog" aria-label="inquiryModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+      <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header rounded">
             <h3 class="modal-title text-uppercase font-weight-bold">Inquiry about tour</h3>
@@ -651,6 +654,10 @@
     <script src='${pageContext.request.contextPath}/resources/plugins/daterangepicker/js/daterangepicker.min.js'></script>
     <script src='${pageContext.request.contextPath}/resources/plugins/rateyo/jquery.rateyo.min.js'></script>
     <script src="${pageContext.request.contextPath}/resources/plugins/lazyestload/lazyestload.js"></script>
+    <script src='${pageContext.request.contextPath}/resources/plugins/dzsparallaxer/dzsparallaxer.js'></script>
+    <script src='${pageContext.request.contextPath}/resources/plugins/slick/slick.min.js'></script>
+    <script src='${pageContext.request.contextPath}/resources/plugins/revolution/js/jquery.themepunch.tools.min.js'></script>
+    <script src='${pageContext.request.contextPath}/resources/plugins/revolution/js/jquery.themepunch.revolution.min.js'></script>
     <script src='${pageContext.request.contextPath}/resources/plugins/no-ui-slider/nouislider.min.js'></script>
     <script src="${pageContext.request.contextPath}/resources/plugins/smoothscroll/SmoothScroll.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/star.js"></script>

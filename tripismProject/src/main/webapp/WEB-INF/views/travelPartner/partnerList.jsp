@@ -19,7 +19,7 @@
 	input:focus {
 		outline-color: rgb(112, 217, 223);
 		outline-width: 1px;
-		}
+	}
 
 	/*게시글스타일*/
 	.cxduOO {

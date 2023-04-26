@@ -12,6 +12,28 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- 부트스트랩에서 제공하고 있는 스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link defer href='${pageContext.request.contextPath}/resources/plugins/fontawesome-5.15.2/css/all.min.css' rel='stylesheet'>
+    <link defer href='${pageContext.request.contextPath}/resources/plugins/fontawesome-5.15.2/css/fontawesome.min.css' rel='stylesheet'>
+    <link defer href="${pageContext.request.contextPath}/resources/plugins/animate/animate.css" rel="stylesheet">
+    <link defer href="${pageContext.request.contextPath}/resources/plugins/menuzord/css/menuzord.css" rel="stylesheet">
+    <link defer href="${pageContext.request.contextPath}/resources/plugins/menuzord/css/menuzord-animations.css" rel="stylesheet">
+    <link defer href='${pageContext.request.contextPath}/resources/plugins/fancybox/jquery.fancybox.min.css' rel='stylesheet'>
+    <link defer href='${pageContext.request.contextPath}/resources/plugins/selectric/selectric.css' rel='stylesheet'>
+    <link defer href='${pageContext.request.contextPath}/resources/plugins/daterangepicker/css/daterangepicker.css' rel='stylesheet'>
+    <link defer href='${pageContext.request.contextPath}/resources/plugins/rateyo/jquery.rateyo.min.css' rel='stylesheet'>
+    <link defer href='${pageContext.request.contextPath}/resources/plugins/no-ui-slider/nouislider.min.css' rel='stylesheet'>
+    <link defer href='${pageContext.request.contextPath}/resources/plugins/dzsparallaxer/dzsparallaxer.css' rel='stylesheet'>
+    <link defer href='${pageContext.request.contextPath}/resources/plugins/slick/slick.css' rel='stylesheet'>
+    <link defer href='${pageContext.request.contextPath}/resources/plugins/slick/slick-theme.css' rel='stylesheet'>
+    <link defer href='${pageContext.request.contextPath}/resources/plugins/revolution/css/settings.css' rel='stylesheet'>
+
+    <!-- GOOGLE FONT -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700' rel='stylesheet'>
+    <!-- CUSTOM CSS -->
+    <link href="${pageContext.request.contextPath}/resources/css/star.css" id="option_style" rel="stylesheet">
+    <!-- FAVICON -->
+    <link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/resources/img/favicon.png"/>
     
 
     <style>
@@ -59,12 +81,12 @@
 </head>
 <body>
 	
-	<!--  -->
+    <!--  -->
     <div id="wrap">
         <!-- header -->
-        <div id="header"> 
+        <div id="header" align="center"> 
             <!-- header.html 포함 -->
-            <img src="../common/LOGO.png" alt="LOGO" style="width: auto; height: 100%;">
+            <img src="${pageContext.request.contextPath}/resources/img/LOGO2.png" alt="LOGO" style="width: auto; height: 100%;">
         </div>
 
         <!-- feedPage- -->
@@ -80,29 +102,25 @@
                 </form>
                 <hr class="inner-bar">
                     
-                <button style="background-color: transparent; border: none;" onclick="location.href='#'">
-                	<img src="C:\tripismProject\tripismProject\src\main\webapp\resources\img\icons\home.png" alt="home" style="width: 2em;">
+                <button style="background-color: transparent; border: none;" onclick="location.href='index.jsp'"><img src="${pageContext.request.contextPath}/resources/img/feed/home.png" alt="home" style="width: 2em;">
                     <p>홈</p>
                 </button>
 
                 <br>
 
-                <button style="background-color: transparent; border: none;" onclick="location.href='#'">
-                	<img src="img/hot.png" alt="hot" style="width: 2em;">
+                <button style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/hot.png" alt="hot" style="width: 2em;">
                     <p>실시간</p>
                 </button>
 
                 <hr class="inner-bar">
 
-                <button style="background-color: transparent; border: none;" onclick="location.href='#'">
-                	<img src="img/camera.png" alt="img" style="width: 2em;">
+                <button style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/camera.png" alt="img" style="width: 2em;">
                     <p>사진</p>
                 </button>
                 
                 <br>
 
-                <button style="background-color: transparent; border: none;" onclick="location.href='#'">
-                	<img src="img/video.png" alt="video" style="width: 2em;">
+                <button style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/video.png" alt="video" style="width: 2em;">
                     <p>비디오</p>
                 </button>
 
@@ -148,8 +166,43 @@
                 </div>
             </form>
 
+            <!-- 공유용 modal -->
+            <form action="#"> <!-- 쓸일없는 form일지도.. -->
+                <div class="modal" id="share">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">공유하기</h4>
+                            </div>
+                
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <button style="border: none;">
+                                    <img src="${pageContext.request.contextPath}/resources/img/feed/twitterLogo.png" alt="twitter" onclick=shareTwitter(); style="height: 75px;">
+                                </button>
+                                <button style="border: none;">
+                                    <img src="${pageContext.request.contextPath}/resources/img/feed/facebookLogo.png" alt="facebook" onclick=shareFacebook(); style="height: 75px;">
+                                </button>
+                                <button style="border: none;">
+                                    <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png" onclick=shareKakao();  alt="카카오톡 공유 보내기 버튼" style="height: 75px;">
+                                </button>
+                            </div>
+                        
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-secondary">완료</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+            </form>
+
             <div style="height: 20px;" align="right">
-                <button type="button" onclick="location.href='enrollForm.fd'">글쓰기</button>
+                <button type="button" class="btn-primary" onclick="location.href='enrollForm.fd'">글쓰기</button>
             </div>
 
             <div class="inner-bar" id="feedPage" style="padding: 5px;">
@@ -158,13 +211,13 @@
                     <b>차카이브</b>
                     <input type="text" style="width: 70px; text-align: center; border: none;" placeholder="1주일전" disabled>
 
-                    <button style="border: none;" data-toggle="modal" data-target="#modify">
-                        <img src="img/paper.png" alt="" style="width: 1.5em;">
+                    <button type="button" style="border: none;" onclick="location.href='updateForm.fd'">
+                        <img src="${pageContext.request.contextPath}/resources/img/feed/paper.png" alt="" style="width: 1.5em;">
                     </button>
                     
                     <button type="button" data-toggle="modal" data-target="#report" style="float: right; border: none;">
-                        <img src="img/siren.png" alt="" style="width: 1.4em; height: 1.4em;" >
-                        <img src="img/siren2.png" alt="" style="width: 1.4em; height: 1.4em;">
+                        <img src="${pageContext.request.contextPath}/resources/img/feed/siren.png" alt="" style="width: 1.4em; height: 1.4em;" >
+                        <img src="${pageContext.request.contextPath}/resources/img/feed/siren2.png" alt="" style="width: 1.4em; height: 1.4em;">
                     </button>
                    
                 </div>
@@ -194,7 +247,7 @@
                 <hr class="inner-bar">
 
                 <div class="inner-bar-small"> &nbsp;
-                    <img src="img/thumb-up.png" alt="thumb-up" style="width: 1.2em; height:1.2em;">
+                    <img src="${pageContext.request.contextPath}/resources/img/feed/thumb-up.png" alt="thumb-up" style="width: 1.2em; height:1.2em;">
                     <b>16</b>
                 </div>
 
@@ -203,14 +256,14 @@
                 <div class="inner-bar-small" align="center">
                     <button type="button" class="btn-feed-three" style="background-color: transparent; border: none;">좋아요</button> |
                     <button type="button" class="btn-feed-three" style="background-color: transparent; border: none;" onclick="viewReply();">댓글쓰기</button> |
-                    <button type="button" class="btn-feed-three" style="background-color: transparent; border: none;">공유하기</button>
+                    <button type="button" data-toggle="modal" data-target="#share" class="btn-feed-three" style="background-color: transparent; border: none;" >공유하기</button>
                 </div>
 
                 <hr class="inner-bar">
 
                 <div class="inner-bar-small" style="display: none;" id="reply-input"> &nbsp;
                     <form action="#">
-                        <img src="img/user.png" alt="loginUser-img" style="width: 1.8em;">
+                        <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="loginUser-img" style="width: 1.8em;">
                         <input type="text" placeholder="댓글을 입력하세요" style="border-radius: 5px;">
 
                         <div class="inner-bar-small" align="center" style="margin-top: 10px;">
@@ -221,7 +274,7 @@
 
                 <div class="inner-bar-small" style="background-color: white; box-sizing: border-box; margin-bottom: 0px;">
                     <div style="box-sizing: border-box; ">
-                        <img src="img/user.png" alt="reply-user" style=" width: 1.6em; display: inline;">
+                        <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="reply-user" style=" width: 1.6em; display: inline;">
                         <p style="display: inline;">1시간 전</p>
                     </div>
                     <div style="display: inline-block;">
@@ -232,7 +285,7 @@
 
                 <div class="inner-bar-small" style="background-color: white; box-sizing: border-box; margin-bottom: 0px;">
                     <div style="box-sizing: border-box; ">
-                        <img src="img/user.png" alt="reply-user" style=" width: 1.6em; display: inline;">
+                        <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="reply-user" style=" width: 1.6em; display: inline;">
                         <p style="display: inline;">1시간 전</p>
                     </div>
                     <div style="display: inline-block;">
@@ -241,6 +294,8 @@
                     </div>
                 </div>
             </div>
+            
+            <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
             <script>
                 function viewReply(){
@@ -252,6 +307,70 @@
                         btn1.style.display = 'block';
                     }
                 }
+
+                function shareTwitter() {
+                    let sendText = "tripism 새소식 보러오세요";
+                    let sendLink = "http://localhost:8007/tripism/feed/"
+                    window.open("https://twitter.com/intent/tweet?text=" + sendText + "&url=" + sendLink);
+                    console.log("트위터 이동됨")
+                }
+
+                function shareFacebook() {
+                    let sendUrl = "http://localhost:8007/tripism/feed/";
+                    window.open("http://www.facebook.com/sharer/sharer.php?href=" + sendUrl);
+                    console.log("페이스북 이동됨")
+                }
+                
+            </script>
+
+            <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.1.0/kakao.min.js"
+            integrity="sha384-dpu02ieKC6NUeKFoGMOKz6102CLEWi9+5RQjWSV0ikYSFFd8M3Wp2reIcquJOemx" crossorigin="anonymous"></script>
+            <script>
+            Kakao.init('4720b0d82591f066ae5570742f3e4a9c'); // 사용하려는 앱의 JavaScript 키 입력
+            </script>
+
+        
+            
+        
+
+            <script>
+            function shareKakao() {
+            Kakao.Share.sendDefault({
+                objectType: 'feed',
+                content: {
+                title: '딸기 치즈 케익',
+                description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
+                imageUrl:
+                    '${pageContext.request.contextPath}/resources/img/logo.png',
+                link: {
+                    // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
+                    mobileWebUrl: 'https://developers.kakao.com',
+                    webUrl: 'https://developers.kakao.com',
+                },
+                },
+                social: {
+                likeCount: 286,
+                commentCount: 45,
+                sharedCount: 845,
+                },
+                buttons: [
+                {
+                    title: '웹으로 보기',
+                    link: {
+                    mobileWebUrl: 'https://developers.kakao.com',
+                    webUrl: 'https://developers.kakao.com',
+                    },
+                },
+                {
+                    title: '앱으로 보기',
+                    link: {
+                    mobileWebUrl: 'https://developers.kakao.com',
+                    webUrl: 'https://developers.kakao.com',
+                    },
+                },
+                ],
+            });
+            }
             </script>
 
             <div class="inner-bar" id="feedPage">
@@ -259,7 +378,7 @@
                     <img src="https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/271049706_283720490453218_8148504195384117005_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=tygWrYFwxQMAX-hgaH4&_nc_ht=scontent-ssn1-1.xx&oh=00_AfATle1h24zaNY9Uqr9AxXO8g7cW_uSHHBkJ4dRBCVknvA&oe=6435A1C8" alt="강서구청-페이스북" style="width: 1.5em;height: 1.5em;"> 
                     <b>서울 강서구청</b>
                     <button type="button" style="float: right; border: none;">
-                        <img src="img/three-dot.png" alt="" style="width: 1em; height: 1em;">
+                        <img src="${pageContext.request.contextPath}/resources/img/feed/three-dot.png" alt="" style="width: 1em; height: 1em;">
                     </button>
 
                     <hr class="inner-bar">
@@ -290,7 +409,7 @@
                 <hr class="inner-bar">
 
                 <div class="inner-bar-small"> &nbsp;
-                    <img src="img/thumb-up.png" alt="thumb-up" style="width: 1.2em; height:1.2em;">
+                    <img src="${pageContext.request.contextPath}/resources/img/feed/thumb-up.png" alt="thumb-up" style="width: 1.2em; height:1.2em;">
                     <b>16</b>
                 </div>
 
@@ -305,7 +424,7 @@
                 <hr class="inner-bar">
 
                 <div class="inner-bar-small"> &nbsp;
-                    <img src="img/user.png" alt="loginUser-img" style="width: 1.8em;">
+                    <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="loginUser-img" style="width: 1.8em;">
                     <input type="text" placeholder="댓글을 입력하세요" style="border-radius: 5px;">
 
                     <div class="inner-bar-small" align="center" style="margin-top: 10px;">
@@ -319,7 +438,7 @@
         </div>
         <div id="right-main">
             <div align="center">
-                <img src="../common/LOGO.png" alt="image" style="width: 10em;">
+                <img src="${pageContext.request.contextPath}/resources/img/logo.png" alt="image" style="width: 10em;">
             </div>
             <hr class="inner-bar">
             <div class="inner-bar">
@@ -332,8 +451,8 @@
 
             <hr class="inner-bar">
 
-            <div class="inner-bar">
-                <b>추천 피드</b> <a href="#" style="float: right;">더보기&gt;</a>
+            <div class="inner-bar"> <!-- 페이지 만들자. -->
+                <b>추천 피드</b> <a href='feedBest.fd' style="float: right;">더보기&gt;</a>
             </div>
 
             <div class="inner-bar" onclick="location.href='#'">
@@ -367,12 +486,10 @@
         </div>
 
         <!-- footer -->
-        <div id="footer">
-            1234
+        <div id="footer" style="display: flex; justify-content: center;">
+            <jsp:include page="../common/footer.jsp"></jsp:include>
         </div>
     </div>
 
-    
-	
 </body>
 </html>

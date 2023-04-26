@@ -300,7 +300,7 @@
 
        <div class="Headersstyle__HeaderTopWrapDiv-sc-6xu8td-2 jolKUF">
         <div class="Headersstyle__HeaderTopInnerDiv-sc-6xu8td-3 cUxSoB">
-          <img src="LOGO2.png" alt="logo" class="WebHeader__LogoImg-sc-12ctfsg-0 dlkFOB" style="width: 156px; height: 35px;">
+          <img src="../resources/LOGO2.png" alt="logo" class="WebHeader__LogoImg-sc-12ctfsg-0 dlkFOB" style="width: 156px; height: 35px;">
           <div class="Headersstyle__HeaderContentWrapper-sc-6xu8td-4 bXSWqd">
             <button width="auto" class="Button_community gbAvpk">커뮤니티</button>
             <button width="auto" class="Button_travelCourse gbAvpk">여행코스</button>
@@ -335,29 +335,22 @@
       </div>
 
 
-                      <!-- 관리자 로그인시에만 보여지게 하기 -->
-                      <li class="">
-                        <a>관리자 페이지[관리자 로그인시만 보여지게]</a>
-                     <ul class="dropdown drop-up">
-                        
-                          <ul>
-                          <li><a href="adminMemberList.pg">회원 관리</a></li>
-            
-                          <li>
-                            <a>게시물 관리</a>
-                            <ul class="dropdown drop-up">
-                              <li><a href="adminNoticeBoardList.pg">공지사항 게시물</a></li>
-                              <li><a href="adminPartnerBoardList.pg">동행 게시물</a></li>
-                              <li><a href="adminTravelBoardList.pg">여행지 게시물</a></li>
-                              <li><a href="adminTravelPackageBoardList.pg">여행상품 게시물</a></li>
-                            </ul>
-                          </li>
-                          
-                          </ul>
-        
-                      </ul>              
-                        
-                      </li>
+        <div class="Headersstyle__HeaderContentWrapper-sc-6xu8td-4 bXSWqd" style="justify-content: flex-start; margin: 0px 12px;">
+          <ul id="adminNavbar">
+            <li><a href="#">회원 관리</a></li>
+
+            <li>
+              <a>게시물 관리</a>
+              <ul id="sub-menu">
+                <li><a href="#">공지사항 게시물</a></li>
+                <li><a href="#">동행 게시물</a></li>
+                <li><a href="#">여행지 게시물</a></li>
+                <li><a href="#">여행상품 게시물</a></li>
+              </ul>
+            </li>
+
+          </ul>
+        </div>
 
     </div>
     </div>

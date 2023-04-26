@@ -43,7 +43,7 @@
     
         div {box-sizing:border-box;}
         #header {
-            width:80%;
+            width:90%;
             height:100px;
             padding-top:20px;
             margin:auto;
@@ -333,7 +333,7 @@
   <header class="header" id="pageTop" style="height: auto;">
     <!-- Menu Zord -->
     <nav class="nav-menuzord navbar-sticky" style="height: 160px;">
-      <div id="header" style="width: 1200px; margin: 0px auto;">
+      <div id="header" style="width:2000px margin: 0px;">
 
        <div class="Headersstyle__HeaderTopWrapDiv-sc-6xu8td-2 jolKUF">
         <div class="Headersstyle__HeaderTopInnerDiv-sc-6xu8td-3 cUxSoB">
@@ -402,7 +402,30 @@
               <li class="">
               	<a href="mypage.bo">마이페이지(잠깐만든거)</a>
               </li>
-              
+              <!-- 관리자 로그인시에만 보여지게 하기 -->
+              <li class="">
+                <a>관리자 페이지[관리자 로그인시만 보여지게]</a>
+             	<ul class="dropdown drop-up">
+                        
+	                <ul>
+	                <li><a href="adminMemberList.pg">회원 관리</a></li>
+	  
+	                <li>
+	                  <a>게시물 관리</a>
+	                  <ul class="dropdown drop-up">
+	                    <li><a href="adminNoticeBoardList.pg">공지사항 게시물</a></li>
+	                    <li><a href="adminPartnerBoardList.pg">동행 게시물</a></li>
+	                    <li><a href="adminTravelBoardList.pg">여행지 게시물</a></li>
+	                    <li><a href="adminTravelPackageBoardList.pg">여행상품 게시물</a></li>
+	                  </ul>
+	                </li>
+	                
+	                </ul>
+	
+	            </ul>              
+	              
+	            </li>              
+         
             </ul>
 
           </div>
@@ -457,9 +480,14 @@
       <div class="Headersstyle__HeaderContentWrapper-sc-6xu8td-4 bXSWqd" style="justify-content: flex-start; margin: 0px 12px;">
 
       </div>
+
+      
       
 
     </div>
+
+
+    
     </nav>
   </header>
     <!-- ====================================

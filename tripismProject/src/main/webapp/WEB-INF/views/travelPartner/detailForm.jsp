@@ -1249,8 +1249,8 @@
 							    yearSuffix: '년',	
 							});
 							
-							$j(document).ready(function() {
-							    $j('.datepicker').datepicker({
+							$j(document).ready(function() { 
+							    $j('.datepicker').datepicker({    
 							        minDate: 0, 
 							    });
 							});

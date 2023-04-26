@@ -382,7 +382,7 @@
                   </li>
                   
                <li class="">
-                    <a href="#">
+                    <a href="plan.tr">
                       <img src="${pageContext.request.contextPath}/resources/img/header/icons4.png" class="Button_pa hXhSDh">
                       여행 일정</a>
                   </li>

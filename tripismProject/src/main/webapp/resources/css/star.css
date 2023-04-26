@@ -6774,6 +6774,18 @@ fieldset:disabled .btn {
   border-radius: 0.5rem;
   outline: 0;
 }
+.modal-plan {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  outline: 0;
+}
 
 .modal-backdrop {
   position: fixed;

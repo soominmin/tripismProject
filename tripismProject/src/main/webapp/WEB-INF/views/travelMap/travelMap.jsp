@@ -4,17 +4,34 @@
 	<html>
 		<head>
 		    <meta charset="utf-8">
-			    <title>키워드로 장소검색하고 목록으로 표출하기</title>
+			    <title>여행지도</title>
 		    <style>
-				.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+				body{
+				 -ms-overflow-style: none;
+				 }
+				 
+				::-webkit-scrollbar {
+				  display: none;
+				}
+				.map_wrap, .map_wrap * {margin:0;padding:0;font-size:12px;}
 				.map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
-				.map_wrap {position:relative;width:100%;height:500px;}
-				#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
+				.map_wrap {position:relative;width:100%;height:800px;}
+				#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:400px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgb(255, 255, 255);z-index: 1;font-size:12px;border-radius: 10px;}
 				.bg_white {background:#fff;}
 				#menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
 				#menu_wrap .option{text-align: center;}
 				#menu_wrap .option p {margin:10px 0;}  
 				#menu_wrap .option button {margin-left:5px;}
+				#menu_wrap #keyword {
+		            background: rgb(248, 248, 248);
+		            border: 1px solid rgb(233, 233, 233);
+		            box-sizing: border-box;
+		            border-radius: 30px;
+		            height: 40px;
+		            width: 70%;
+		            padding: 13px 18px 13px 40px;
+		            text-indent: 3px;
+				}
 				#placesList li {list-style: none;}
 				#placesList .item {position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
 				#placesList .item span {display: block;margin-top:4px;}
@@ -42,29 +59,65 @@
 				#pagination {margin:10px auto;text-align: center;}
 				#pagination a {display:inline-block;margin-right:10px;}
 				#pagination .on {font-weight: bold; cursor: default;color:#777;}
+				
+        		/*오버레이*/
+        		.overlaybox {position:relative;width:360px;height:350px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/box_movie.png') no-repeat;padding:15px 10px;}
+				.overlaybox div, ul {overflow:hidden;margin:0;padding:0;}
+				.overlaybox li {list-style: none;}
+				.overlaybox .boxtitle {color:#fff;font-size:16px;font-weight:bold;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png') no-repeat right 120px center;margin-bottom:8px;}
+				.overlaybox .first {position:relative;width:247px;height:136px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/thumb.png') no-repeat;margin-bottom:8px;}
+				.first .text {color:#fff;font-weight:bold;}
+				.first .triangle {position:absolute;width:48px;height:48px;top:0;left:0;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/triangle.png') no-repeat; padding:6px;font-size:18px;}
+				.first .movietitle {position:absolute;width:100%;bottom:0;background:rgba(0,0,0,0.4);padding:7px 15px;font-size:14px;}
+				.overlaybox ul {width:247px;}
+				.overlaybox li {position:relative;margin-bottom:2px;background:#2b2d36;padding:5px 10px;color:#aaabaf;line-height: 1;}
+				.overlaybox li span {display:inline-block;}
+				.overlaybox li .number {font-size:16px;font-weight:bold;}
+				.overlaybox li .title {font-size:13px;}
+				.overlaybox ul .arrow {position:absolute;margin-top:8px;right:25px;width:5px;height:3px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/updown.png') no-repeat;} 
+				.overlaybox li .up {background-position:0 -40px;}
+				.overlaybox li .down {background-position:0 -60px;}
+				.overlaybox li .count {position:absolute;margin-top:5px;right:15px;font-size:10px;}
+				.overlaybox li:hover {color:#fff;background:#d24545;}
+				.overlaybox li:hover .up {background-position:0 0px;}
+				.overlaybox li:hover .down {background-position:0 -20px;}   
+				
 			</style>
 		</head>
 	<body>
+	
+	<jsp:include page="../common/header.jsp"/>
+	
 	<div class="map_wrap">
 	    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
 	
 	    <div id="menu_wrap" class="bg_white">
 	        <div class="option">
+	        	<br>
 	            <div>
 	                <form onsubmit="searchPlaces(); return false;">
-	                    키워드 : <input type="text" value="이태원 맛집" id="keyword" size="15"> 
-	                    <button type="submit">검색하기</button> 
+	                    <input type="text" value="경복궁" id="keyword" size="15"> 
+	                    <button type="submit" class="btn-sm" style="background-color: rgb(112, 217, 223); color: white; border-radius: 30px; height: 40px">검색</button>
 	                </form>
 	            </div>
+	            <br>
 	        </div>
 	        <hr>
+	        <br>
 	        <ul id="placesList"></ul>
 	        <div id="pagination"></div>
 	    </div>
 	</div>
 	
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=발급받은 APP KEY를 사용하세요&libraries=services"></script>
+	
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1986b6865e95c60fac90b9fdaef0579e&libraries=services"></script>
 	<script>
+	
+	// 클릭시 위도 경도 변수
+	var mapx = null;
+	var mapy = null;
+	
+	
 	// 마커를 담을 배열입니다
 	var markers = [];
 	
@@ -281,6 +334,37 @@
 	        el.removeChild (el.lastChild);
 	    }
 	}
+	
+	// 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+	var mapTypeControl = new kakao.maps.MapTypeControl();
+
+	// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+	// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+	map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+	// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+	var zoomControl = new kakao.maps.ZoomControl();
+	map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+	
+	// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+	var iwContent = '<div style="padding:5px;">Hello World!</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+	    iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+	// 인포윈도우를 생성합니다
+	var infowindow = new kakao.maps.InfoWindow({
+	    content : iwContent,
+	    removable : iwRemoveable
+	});
+
+	// 마커에 클릭이벤트를 등록합니다
+	kakao.maps.event.addListener(marker, 'click', function() {
+	      // 마커 위에 인포윈도우를 표시합니다
+	      infowindow.open(map, marker);  
+	});
+	 
 	</script>
+	
+	
+	
 	</body>
 	</html>

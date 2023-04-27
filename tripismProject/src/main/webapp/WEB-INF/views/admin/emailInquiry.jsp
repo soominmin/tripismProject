@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Style The Contact Form How Ever You Prefer -->
     <link rel="stylesheet" href="resources/css/star.css">
+
+
 </head>
 <body>
 <!-- ====================================
@@ -80,7 +82,13 @@
           <th colspan="2"><label for="message" style="width: 100px">* 문의 내용</label></th>
       </tr>
       <tr>
-          <th colspan="2"><textarea class="form-control" name="message" id="message" rows="10" style="resize:none; width: 500px" required placeholder="문의 내용을 입력해주세요" value="사"></textarea></th>
+          <th colspan="2"><textarea class="form-control" name="message" id="summernote" rows="10" style="resize:none; width: 500px" required placeholder="문의 내용을 입력해주세요" value="사"></textarea></th>
+      </tr>
+      
+      <tr>
+      
+      <div id="summernote"></div>
+
       </tr>
     </table>
     <br>
@@ -103,6 +111,17 @@
 
   <script data-cfasync="false" type="text/javascript"
   src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
+  
+  <script>
+    // 메인화면 페이지 로드 함수
+    $(document).ready(function () {
+        $('#summernote').summernote({
+            placeholder: '내용을 작성하세요',
+            height: 400,
+            maxHeight: 400
+        });
+    });
+</script>
 
 <!-- ====================================
 ——— FOOTER SECTION

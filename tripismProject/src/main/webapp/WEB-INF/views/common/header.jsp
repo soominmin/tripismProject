@@ -164,7 +164,7 @@
           left: 0px;
           width: 40px;
           height: 40px;
-      }
+      	}
 
         input {
             overflow: visible;

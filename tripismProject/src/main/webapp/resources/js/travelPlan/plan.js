@@ -38,7 +38,7 @@
 		}
 
 		// 다각형을 생상하고 이벤트를 등록하는 함수입니다
-		function displayArea(area,color/*,code*/) {
+		function displayArea(area,color,code) {
 			
 			// 다각형을 생성합니다 
 			var polygon = new kakao.maps.Polygon({
@@ -77,6 +77,88 @@
 
 			// 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 다각형의 이름과 면적을 인포윈도우에 표시합니다 
 			kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
+
+				let area = code;
+				console.log(area);
+				// 지도 중심을 부드럽게 이동시킵니다
+				// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+				let lat = 0;
+				let lng = 0;
+				switch(area){
+					case '1' : 
+						lat = 37.715133;
+						lng = 127.0016985;
+						break;
+					case '2' :
+						lat = 37.4562557;
+						lng = 126.7052062
+						break;
+					case '3' :
+						lat = 36.3504119;
+						lng = 127.3845475;
+						break;
+					case '4' :
+						lat = 35.8714354;
+						lng = 128.601445;
+						break;
+					case '5' :
+						lat = 35.1;
+						lng = 126.8;
+						break;
+					case '6' :
+						lat = 35.1795543;
+						lng = 129.0756416;
+						break;
+					case '7' :
+						lat = 35.5383773;
+						lng = 129.3113596;
+						break;
+					case '8' :
+						lat = 36.5040736;
+						lng = 127.2494855;
+						break;
+					case '31' :
+						lat = 37.5864315;
+						lng = 127.0462765;
+						break;
+					case '32' :
+						lat = 37.8304115;
+						lng = 128.2260705;
+						break;
+					case '33' :
+						lat = 36.628503;
+						lng = 127.929344;
+						break;
+					case '37' : 
+						lat = 35.716705;
+						lng = 127.144185;
+						break;
+					case '39' :
+						lat = 33.4996213;
+						lng = 126.5311884;
+						break;
+					case '34' :
+						lat = 36.5184;
+						lng = 126.8;
+						break;
+					case '38' :
+						lat = 34.819400;
+						lng = 126.893113;
+						break;
+					case '35' :
+						lat = 36.248647;
+						lng = 128.664734;
+						break;
+					case '36' :
+						lat = 35.259787;
+						lng = 128.664734;
+						break;
+
+				}
+				console.log(lat,lng);
+				panTo(lat,lng);
+				
+				
 				// var content = '<div class="info">' + 
 				// 			'   <div class="title">' + area.name + '</div>' +
 				// 			'   <div class="size">총 면적 : 약 ' + Math.floor(polygon.getArea()) + ' m<sup>2</sup></div>' +
@@ -100,6 +182,15 @@
 				
 				
 			});
+			function panTo(lat,lng) {
+				// 이동할 위도 경도 위치를 생성합니다 
+				var moveLatLon = new kakao.maps.LatLng(lat, lng);
+				
+				// 지도 중심을 부드럽게 이동시킵니다
+				// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+				map.setLevel(10);          
+				map.panTo(moveLatLon);  
+			}        
 		}
 
 	
@@ -227,7 +318,7 @@ function makeDate(dates){
 				+ dates[i]
 				+'</div>'
 				+'<button type="button" class="addPlan" id="plan'+i+'">'
-				+'<a href="javascript:void(0)" onclick="createMap();" data-bs-toggle="modal" data-bs-target="#plan" class="media d-inline-flex align-items-center">일정추가</a>'
+				+'<a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#plan" class="media d-inline-flex align-items-center">일정추가</a>'
 				+'</button>'
 				+'</div>';
 

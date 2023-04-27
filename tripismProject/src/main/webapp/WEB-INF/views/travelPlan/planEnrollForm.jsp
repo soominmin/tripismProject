@@ -26,19 +26,16 @@
 		
 	</div>
     <div class="modal fade" id="plan" tabindex="-1" role="dialog" aria-label="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document" >
-          <div class="modal-plan" style="width: 700px !important;">
+        <div class="modal-dialog" role="document" >
+          <div class="modal-plan" style="width: 800px !important; height: 700px;">
             <div class="modal-header rounded" id="modalTop">
-              <h3 class="modal-title text-uppercase font-weight-bold">Tripism Login</h3>
+              <h3 class="modal-title text-uppercase font-weight-bold">여행지 검색</h3>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-  
-            <div class="modal-body">
-              <div id="map">지도</div>
-              <div align="center" style="padding-top: 15px;">
-                <a href="idfind.do" align="center" style="color: black;">ID 찾기</a> | 
-                <a href="pwdFind.do" align="center" style="color: black;">비밀번호 찾기</a>
-              </div>
+            
+            <div id="map" class="modal-body" style="width: 90%; height: 90%;">
+              <div >지도</div>
+              
               
             </div>
   
@@ -48,6 +45,13 @@
       </div>
     
     <script src="resources/js/travelPlan/plan.js"></script>
+    <script>
+      var mapModal = document.getElementById("plan");
+      mapModal.addEventListener('shown.bs.modal',function(event){
+        createMap();
+        
+      })
+    </script>
     
 
 </body>

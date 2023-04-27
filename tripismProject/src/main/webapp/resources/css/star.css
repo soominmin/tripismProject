@@ -6776,7 +6776,7 @@ fieldset:disabled .btn {
 }
 .modal-plan {
   position: relative;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   width: 100%;
   pointer-events: auto;

@@ -15,5 +15,30 @@ public class CommonController {
 	public String emailInquiry() {
 		return "admin/emailInquiry";
 	}
+	
+	@RequestMapping("adminMemberList.pg")
+	public String adminMemberList() {
+		return "admin/adminMemberList";
+	}
+	
+	@RequestMapping("adminNoticeBoardList.pg")
+	public String adminNoticeBoardList() {
+		return "admin/adminNoticeBoardList";
+	}
+	
+	@RequestMapping("adminPartnerBoardList.pg")
+	public String adminPartnerBoardList() {
+		return "admin/adminPartnerBoardList";
+	}
+	
+	@RequestMapping("adminTravelBoardList.pg")
+	public String adminTravelBoardList() {
+		return "admin/adminTravelBoardList";
+	}
+	
+	@RequestMapping("adminTravelPackageBoardList.pg")
+	public String adminTravelPackageBoardList() {
+		return "admin/adminTravelPackageBoardList";
+	}
 
 }

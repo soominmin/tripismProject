@@ -43,7 +43,7 @@
     
         div {box-sizing:border-box;}
         #header {
-            width:80%;
+            width:90%;
             height:100px;
             padding-top:20px;
             margin:auto;
@@ -164,7 +164,7 @@
           left: 0px;
           width: 40px;
           height: 40px;
-      }
+      	}
 
         input {
             overflow: visible;
@@ -333,7 +333,7 @@
   <header class="header" id="pageTop" style="height: auto;">
     <!-- Menu Zord -->
     <nav class="nav-menuzord navbar-sticky" style="height: 160px;">
-      <div id="header" style="width: 1200px; margin: 0px auto;">
+      <div id="header" style="width:2000px margin: 0px;">
 
        <div class="Headersstyle__HeaderTopWrapDiv-sc-6xu8td-2 jolKUF">
         <div class="Headersstyle__HeaderTopInnerDiv-sc-6xu8td-3 cUxSoB">
@@ -382,7 +382,7 @@
                   </li>
                   
                <li class="">
-                    <a href="#">
+                    <a href="plan.tr">
                       <img src="${pageContext.request.contextPath}/resources/img/header/icons4.png" class="Button_pa hXhSDh">
                       여행 일정</a>
                   </li>
@@ -399,6 +399,33 @@
                   여행지도</a>
               </li>
               
+              <li class="">
+              	<a href="mypage.bo">마이페이지(잠깐만든거)</a>
+              </li>
+              <!-- 관리자 로그인시에만 보여지게 하기 -->
+              <li class="">
+                <a>관리자 페이지[관리자 로그인시만 보여지게]</a>
+             	<ul class="dropdown drop-up">
+                        
+	                <ul>
+	                <li><a href="adminMemberList.pg">회원 관리</a></li>
+	  
+	                <li>
+	                  <a>게시물 관리</a>
+	                  <ul class="dropdown drop-up">
+	                    <li><a href="adminNoticeBoardList.pg">공지사항 게시물</a></li>
+	                    <li><a href="adminPartnerBoardList.pg">동행 게시물</a></li>
+	                    <li><a href="adminTravelBoardList.pg">여행지 게시물</a></li>
+	                    <li><a href="adminTravelPackageBoardList.pg">여행상품 게시물</a></li>
+	                  </ul>
+	                </li>
+	                
+	                </ul>
+	
+	            </ul>              
+	              
+	            </li>              
+         
             </ul>
 
           </div>
@@ -440,6 +467,8 @@
             <button width="134px" height="44px" font-style="" type="button" class="btnButtonStyle-sc-1m85upr-1 iJuLkw">
               <a href="detail.pn" style="color: rgb(255, 255, 255); display: inherit; font-weight: bold;">동행 찾기</a>
             </button>
+              
+            
           </div>
           <div class="Popups__HeaderWritePopupDiv-sc-1hc7iv8-0 hbEFUq">
 
@@ -451,9 +480,14 @@
       <div class="Headersstyle__HeaderContentWrapper-sc-6xu8td-4 bXSWqd" style="justify-content: flex-start; margin: 0px 12px;">
 
       </div>
+
+      
       
 
     </div>
+
+
+    
     </nav>
   </header>
     <!-- ====================================
@@ -597,7 +631,7 @@
 
               <div align="center" style="padding-top: 15px;">
                 <a href="idfind.do" align="center" style="color: black;">ID 찾기</a> | 
-                <a href="#" align="center" style="color: black;">비밀번호 찾기</a>
+                <a href="pwdFind.do" align="center" style="color: black;">비밀번호 찾기</a>
               </div>
               
             </div>

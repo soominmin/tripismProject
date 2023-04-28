@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>여행지 둘러보기</title>
     
-        <!-- Plugins css Style -->
+    <!-- Plugins css Style -->
     <link href='${pageContext.request.contextPath}/resources/plugins/fontawesome-5.15.2/css/all.min.css' rel='stylesheet'>
     <link href='${pageContext.request.contextPath}/resources/plugins/fontawesome-5.15.2/css/fontawesome.min.css' rel='stylesheet'>
     <link href="${pageContext.request.contextPath}/resources/plugins/animate/animate.css" rel="stylesheet">

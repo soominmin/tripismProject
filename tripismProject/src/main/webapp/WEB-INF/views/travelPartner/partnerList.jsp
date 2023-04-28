@@ -819,7 +819,7 @@
 
 					<div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
 						<p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">재밌게 여행 뿌술분 있나요?</p>
-						<p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
+						<p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI" style="color: gray;">
 							렌트 완료고, 제주 프리패스 48시간이나 72시간 구입해서 여행 다닐 예정입니다. 요트, 낚시, 카페, 베이커리, 수목원, 민속촌, 서커스 등
 							하루는 성산 일출봉 일출 보러 올라 갈 거에요! (강제 등반 안 함) 티키타카 좋고, 에너지 활동 뿜뿜하신 분 모십니다~ 저녁식사 대접, 인생
 							샷 영접 해드려요~
@@ -1262,7 +1262,7 @@
 
 					<div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
 						<p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">재밌게 여행 뿌술분 있나요?</p>
-						<p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
+						<p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI" >
 							렌트 완료고, 제주 프리패스 48시간이나 72시간 구입해서 여행 다닐 예정입니다. 요트, 낚시, 카페, 베이커리, 수목원, 민속촌, 서커스 등
 							하루는 성산 일출봉 일출 보러 올라 갈 거에요! (강제 등반 안 함) 티키타카 좋고, 에너지 활동 뿜뿜하신 분 모십니다~ 저녁식사 대접, 인생
 							샷 영접 해드려요~

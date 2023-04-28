@@ -6,51 +6,25 @@
 <meta charset="UTF-8">
 <title>Tripism Feed</title>
 
-	<!-- jQuery 라이브러리 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- 부트스트랩에서 제공하고 있는 스타일 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- 부트스트랩에서 제공하고 있는 스크립트 -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/fontawesome-5.15.2/css/all.min.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/fontawesome-5.15.2/css/fontawesome.min.css' rel='stylesheet'>
-    <link defer href="${pageContext.request.contextPath}/resources/plugins/animate/animate.css" rel="stylesheet">
-    <link defer href="${pageContext.request.contextPath}/resources/plugins/menuzord/css/menuzord.css" rel="stylesheet">
-    <link defer href="${pageContext.request.contextPath}/resources/plugins/menuzord/css/menuzord-animations.css" rel="stylesheet">
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/fancybox/jquery.fancybox.min.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/selectric/selectric.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/daterangepicker/css/daterangepicker.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/rateyo/jquery.rateyo.min.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/no-ui-slider/nouislider.min.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/dzsparallaxer/dzsparallaxer.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/slick/slick.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/slick/slick-theme.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/revolution/css/settings.css' rel='stylesheet'>
-
-    <!-- GOOGLE FONT -->
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700' rel='stylesheet'>
-    <!-- CUSTOM CSS -->
-    <link href="${pageContext.request.contextPath}/resources/css/star.css" id="option_style" rel="stylesheet">
-    <!-- FAVICON -->
-    <link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/resources/img/favicon.png"/>
-    
-
     <style>
         /* div{ border: 1px solid gray; } */
         
         #wrap{ height: 1000px;  position: relative;}
-        #header{ height: 10%; box-sizing: border-box; }
-        #left-main{ width: 17.5%; height: 80%; box-sizing: border-box; float: left; min-width: 120px; }
-        #middle-main{ width: 55%; height: 80%; box-sizing: border-box; float: left; min-width: 300px; overflow: scroll; margin: 0 2.5%; padding: 0 2.5%; border-left: 1px solid rgb(112, 217, 223); border-right: 1px solid rgb(112, 217, 223);}
-        #right-main{ width: 17.5%; height: 80%; box-sizing: border-box; float: left; min-width: 180px;}
-        #footer{ height: 10%; display: block; position: absolute; bottom: 0px;}
+        /* #header{ height: 10% ; box-sizing: border-box; } */
+        #left-main{ width: 17.5%; height: 100% !important; box-sizing: border-box; float: left; min-width: 120px; }
+        #middle-main{ width: 55%; height: 100% !important; box-sizing: border-box; float: left; min-width: 300px; overflow: scroll; margin: 0 2.5%; padding: 0 2.5%; border-left: 1px solid rgb(112, 217, 223); border-right: 1px solid rgb(112, 217, 223);}
+        #right-main{ width: 17.5%; height: 100% !important; box-sizing: border-box; float: left; min-width: 180px;}
+        /* #footer{ height: 10%; display: block; position: absolute; bottom: 0px !important;} */
         .inner-bar{ margin: 10px 15px; }
         .inner-bar-small{ margin: 10px 5px; }
         
         #feedPage{ background-color: whitesmoke; }
         .btn-feed-three{ width: 120px; }
         .feed-content>img{ display: block; margin: auto; } 
+        #shareButtons button{
+            margin: 0 8px;
+        }
+
         body{
             -ms-overflow-style: none;
             }
@@ -68,33 +42,76 @@
             #addFile, #deleteFile{
                 border: none;
             }
+
+        textarea {
+            overflow: auto;
+            position: relative;
+            resize: none;
+            display: block;
+            width: 100%;
+            padding: 16px 20px;
+            box-sizing: border-box;
+            border: 1px solid #e9e9e9;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 100%;
+            line-height: 2.0;
+            margin: 0;
+        }
+        textarea:focus {
+            outline-color: rgb(112, 217, 223);
+            outline-width: 1px;
+        }
+        textarea::placeholder {
+            color: #919191;
+            font-weight: 500;
+        }
+        input::placeholder {
+            color: #919191;
+            font-weight: 500;
+        }
+
+        .bBc{
+            width: 80px;
+            line-height: 20px;
+            border-radius: 4px;
+            padding: 17px 5px;
+            background-color: rgb(112, 217, 223);
+            font-size: 14px;
+            color: rgb(255, 255, 255);
+            box-sizing: border-box;
+            outline: auto;
+        }
     </style>
 
 </head>
 <body>
-	
-    <!--  -->
+    <!-- header -->
+    <jsp:include page="../common/header.jsp"/>
+
+    <br><br>
+    
     <div id="wrap">
-        <!-- header -->
-        <div id="header" align="center"> 
-            <!-- header.html 포함 -->
-            <img src="${pageContext.request.contextPath}/resources/img/LOGO2.png" alt="LOGO" style="width: auto; height: 100%;">
-        </div>
+        
 
         <!-- feedPage- -->
         <div id="left-main"> &nbsp;
 
-                <div class="inner-bar" align="center" style="padding:50% 0%;">
+                <div class="inner-bar" align="center" style="padding:10% 0%;">
                 
                 <form action="search.fd">
                     <div>
-                        <input type="text" name="keyword" value="" style="border-radius: 10px; text-align: center;"> <br><br>
-                        <button type="submit" class="btn btn-primary">검색</button>
+                        <input type="text" name="keyword" value="" placeholder="검색은 여기" style=" border: 0.5px solid gray; height: 2.5em; border-radius: 10px; text-align: center;"> <br><br>
+                        <button type="submit" class="bBc">검색</button>
                     </div>
                 </form>
+
                 <br>
+
                 <hr class="inner-bar">
-                    
+                
+                <br>
+
                 <button style="background-color: transparent; border: none;" onclick="location.href='index.jsp'"><img src="${pageContext.request.contextPath}/resources/img/feed/home.png" alt="home" style="width: 2em;">
                     <p>홈</p>
                 </button>
@@ -104,9 +121,13 @@
                 <button style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/hot.png" alt="hot" style="width: 2em;">
                     <p>실시간</p>
                 </button>
+                
 				<br>
+
                 <hr class="inner-bar">
+
 				<br>
+
                 <button style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/camera.png" alt="img" style="width: 2em;">
                     <p>사진</p>
                 </button>
@@ -122,6 +143,10 @@
 
         <div id="middle-main">&nbsp;
 
+            <div style="height: 80px;" align="right">
+                <button type="button" class="bBc" onclick="location.href='enrollForm.fd'">글쓰기</button>
+            </div>
+
             <!-- 신고용 modal -->
             <form action="#">
                 <div class="modal" id="report" >
@@ -134,7 +159,7 @@
                             </div>
                 
                             <!-- Modal body -->
-                            <div class="modal-body" align="center">
+                            <div class="modal-body" >
                                 <b>선택해주세요</b> <br>
                                 <select name="condition" id="condition">
                                     <option value="ad">광고</option>
@@ -145,7 +170,7 @@
                                 
                             <hr class="inner-bar">
 
-                                <textarea name="" id="" cols="57" rows="10" placeholder="자세한 내용을 적어주세요" align="center"></textarea>
+                                <textarea name="" id=""  placeholder="자세한 내용을 적어주세요" align="center"></textarea>
                             </div>
                         
                             <!-- Modal footer -->
@@ -171,7 +196,7 @@
                             </div>
                 
                             <!-- Modal body -->
-                            <div class="modal-body">
+                            <div class="modal-body" id="shareButtons">
                                 <button style="border: none;">
                                     <img src="${pageContext.request.contextPath}/resources/img/feed/twitterLogo.png" alt="twitter" onclick=shareTwitter(); style="height: 75px;">
                                 </button>
@@ -194,9 +219,7 @@
                 </div>
             </form>
 
-            <div style="height: 40px;" align="right">
-                <button type="button" class="btn btn-primary" onclick="location.href='enrollForm.fd'">글쓰기</button>
-            </div>
+            
             
 			<!-- 무한스크롤 시작할 자리 -->
             <div class="inner-bar" id="feedPage" style="padding: 5px;">
@@ -206,7 +229,7 @@
                     <input type="text" style="width: 70px; text-align: center; border: none;" placeholder="1주일전" disabled>
 
                     <button type="button" style="border: none;" onclick="location.href='updateForm.fd'">
-                        <img src="${pageContext.request.contextPath}/resources/img/feed/paper.png" alt="" style="width: 1.5em;">
+                        <img src="${pageContext.request.contextPath}/resources/img/feed/paper.png" alt="" style="width: 1.5em; margin: 8px 0px;">
                     </button>
                     
                     <button type="button" data-toggle="modal" data-target="#report" style="float: right; border: none;">
@@ -248,25 +271,25 @@
                 <hr class="inner-bar">
 
                 <div class="inner-bar-small" align="center">
-                    <button type="button" class="btn-feed-three" style="background-color: transparent; border: none;">좋아요</button> |
+                    <button type="button" class="btn-feed-three" style="background-color: transparent; border: none;" onclick="likeChange();">좋아요</button> |
                     <button type="button" class="btn-feed-three" style="background-color: transparent; border: none;" onclick="viewReply();">댓글쓰기</button> |
                     <button type="button" data-toggle="modal" data-target="#share" class="btn-feed-three" style="background-color: transparent; border: none;" >공유하기</button>
                 </div>
 
                 <hr class="inner-bar">
 
-			<!-- 댓글 작성 시작 -->
+			    <!-- 댓글 작성 시작 -->
                 <div class="inner-bar-small" style="display: none;" id="reply-input"> &nbsp;
                     <form action="#">
-                        <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="loginUser-img" style="width: 1.8em;">
-                        <input type="text" placeholder="댓글을 입력하세요" style="border-radius: 5px;">
+                        <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="loginUser-img" style="width: 2em;"> &nbsp;
+                        <input type="text" placeholder="댓글을 입력하세요" style="border-radius: 5px; width: 20em;">
 
                         <div class="inner-bar-small" align="center" style="margin-top: 10px;">
-                            <button type="submit" class="btn-primary" style="width: 10em;" >완료</button>
+                            <button type="submit" class="bBc" style="width: 10em;" >완료</button>
                         </div>
                     </form>
                 </div>
-            <!-- 댓글 작성 종료 -->
+                <!-- 댓글 작성 종료 -->
 
                 <div class="inner-bar-small" style="background-color: white; box-sizing: border-box; margin-bottom: 0px;">
                     <div style="box-sizing: border-box; ">
@@ -363,66 +386,6 @@
             }
             </script>
 
-            <div class="inner-bar" id="feedPage">
-                <div class="inner-bar-small">
-                    <img src="https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/271049706_283720490453218_8148504195384117005_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=ZszNIyjqR1MAX-qRdY_&_nc_ht=scontent-ssn1-1.xx&oh=00_AfABPqoHXuVaky6d504VdIbzdYnJ44ewRgfdQy_cXqWI0g&oe=644F5708" alt="강서구청-페이스북" style="width: 1.5em;height: 1.5em;"> 
-                    <b>서울 강서구청</b>
-                    <button type="button" style="float: right; border: none;">
-                        <img src="${pageContext.request.contextPath}/resources/img/feed/three-dot.png" alt="" style="width: 1em; height: 1em;">
-                    </button>
-
-                    <hr class="inner-bar">
-                </div>
-             
-                <div class="inner-bar-small">
-                    방화2동 주민센터가 신청사에서 업무를 시작합니다.
-                </div> <br>
-                <div class="feed-content inner-bar-small">
-                    <p>
-                    5호선 개화산역 1번출구 인근 <br>
-                    개화동로21길 52 로 이전 예정인 <br>
-                    방화2동 주민센터는 <br>
-                    작은도서관, 민원실, 체력단련실 등 <br>
-                    다양한 서비스를 제공할 예정입니다~! <br>
-                    </p>
-                    <img src="https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/339963247_1195460577841489_8810075331266977712_n.jpg?stp=dst-jpg_p526x296&_nc_cat=104&ccb=1-7&_nc_sid=730e14&_nc_ohc=QSd5sI0if1IAX8qLcWI&_nc_ht=scontent-ssn1-1.xx&oh=00_AfBSjMYlpIgQPnzF6zi2enHgM1ClXiOnEPkRt3gF0AkKNw&oe=64364C29" alt="img1">
-                </div>
-
-                <div class="inner-bar-small">
-                    <a href="#">#강서구</a>
-                    <a href="#">#강서구청</a>
-                    <a href="#">#방화2동주민센터</a>
-                    <a href="#">#방화2동</a>
-                    <a href="#">#주민센터</a>
-                </div>
-                
-                <hr class="inner-bar">
-
-                <div class="inner-bar-small"> &nbsp;
-                    <img src="${pageContext.request.contextPath}/resources/img/feed/thumb-up.png" alt="thumb-up" style="width: 1.2em; height:1.2em;">
-                    <b>16</b>
-                </div>
-
-                <hr class="inner-bar">
-
-                <div class="inner-bar-small" align="center">
-                    <button type="button" class="btn-feed-three" style="background-color: transparent; border: none;">좋아요</button> |
-                    <button type="button" class="btn-feed-three" style="background-color: transparent; border: none;">댓글달기</button> |
-                    <button type="button" class="btn-feed-three" style="background-color: transparent; border: none;">공유하기</button>
-                </div>
-
-                <hr class="inner-bar">
-
-                <div class="inner-bar-small"> &nbsp;
-                    <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="loginUser-img" style="width: 1.8em;">
-                    <input type="text" placeholder="댓글을 입력하세요" style="border-radius: 5px;">
-
-                    <div class="inner-bar-small" align="center" style="margin-top: 10px;">
-                        <button type="submit" class="btn-primary" style="width: 10em;" >완료</button>
-                    </div>
-                </div>
-            </div>
-
             <br>
             
         </div>
@@ -475,11 +438,9 @@
 
         </div>
 
-        <!-- footer -->
-        <div id="footer" style="display: flex; justify-content: center;">
-            <jsp:include page="../common/footer.jsp"></jsp:include>
-        </div>
     </div>
+    <!-- footer -->
+    <jsp:include page="../common/footer.jsp"/>
 
 </body>
 </html>

@@ -246,6 +246,8 @@
 		-webkit-box-orient: vertical;
 		user-select: none;
 		color: rgb(0, 143, 246);
+		margin-top: 0.3rem;
+		margin-bottom: 1rem;
 	}
 	/*여행 . */
 	.bdAMWe {
@@ -286,8 +288,8 @@
 		-webkit-line-clamp: 1;
 		-webkit-box-orient: vertical;
 		user-select: none;
-		color: rgb(0, 0, 0);
-		margin-top: 5px;
+		color: rgb(154, 154, 154);
+		margin-top: 0.5rem;
 		margin-bottom: 0;
 	}
 	/*가림막*/
@@ -306,7 +308,7 @@
 		z-index: 100;
 	}
 	.fdRVsr {
-		padding-left: 18px;
+		padding-left: 10px;
 		display: flex;
 		flex-shrink: 0;
 		flex-direction: column;
@@ -319,7 +321,7 @@
 	}
 	.iBlyRM {
 		font-weight: 400;
-		font-size: 11px;
+		font-size: 12px;
 		line-height: 16px;
 		display: flex;
 		flex-shrink: 0;
@@ -329,7 +331,7 @@
 		z-index: 100;
 		user-select: none;
 		box-sizing: border-box;
-		margin-top: 5px;
+		margin-top: 0.5rem;
 		margin-bottom: 0;
 	}
 	.iVfuBW {
@@ -345,6 +347,8 @@
 		user-select: none;
 		color: rgb(0, 206, 124);
 		z-index: 100;
+		margin-top: 0.3rem;
+		margin-bottom: 1rem;
 	}
 	.dKvksz {
 		margin-top: 2px;
@@ -379,6 +383,8 @@
 		user-select: none;
 		color: rgb(0, 206, 124);
 		z-index: 100;
+		margin-top: 0.3rem;
+		margin-bottom: 1rem;
 	}
 	/*5일 . */
 	.mKoaj {
@@ -438,7 +444,7 @@
 	}
 	.kPceoN {
 		font-weight: 500;
-		font-size: 13px;
+		font-size: 12px;
 		line-height: 19px;
 		user-select: none;
 		color: rgb(0, 143, 246);
@@ -481,7 +487,7 @@
 	}
 	.YIYAY {
 		font-weight: 500;
-		font-size: 14px;
+		font-size: 12px;
 		line-height: 21px;
 		user-select: none;
 		color: rgb(0, 206, 124);
@@ -541,7 +547,7 @@
 	.ckjOSI {
 		margin-top: 4px;
 		font-weight: 400;
-		font-size: 15px;
+		font-size: 12px;
 		line-height: 22px;
 		display: -webkit-box;
 		overflow: hidden;
@@ -549,7 +555,7 @@
 		overflow-wrap: break-word;
 		-webkit-line-clamp: 2;
 		-webkit-box-orient: vertical;
-		color: rgb(0, 0, 0);
+		color: rgb(154, 154, 154);
 		user-select: none;
 	}
 	/*페이징바*/
@@ -652,14 +658,62 @@
 		border: 1px solid rgb(238, 238, 238);
 		background-color: rgb(255, 255, 255);
 	}
+
+
+	/*상단바 이미지*/
+	section {
+    display: block;
+}
+	.fqcgyB {
+    padding: 0px;
+    width: unset;
+}
+	.fqcgyB {
+    position: relative;
+	background-image: url("${pageContext.request.contextPath}/resources/img/partner/star.webp");
+    background-size: cover;
+    background-position: center center;
+	}
+	.AxzSO {
+    position: relative;
+    width: 1200px;
+    margin: 0px auto;
+    min-height: 341px;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+	justify-content: space-evenly;
+    color: rgb(255, 255, 255);
+}
+.AxzSO > p:first-child {
+    font-weight: 400;
+    font-size: 22px;
+    display: inline-block;
+}
+.krJNwE {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+.AxzSO > p:nth-child(2) {
+    font-weight: 700;
+    font-size: 70px;
+    display: inline-block;
+}
+
 </style>
 </head>
 <body>
 	<!-- 헤더바 포함 -->
 	<jsp:include page="../common/header.jsp"/>
 
-	
-
+	<section class="FullSection__SectionWrapper-sc-1szrt90-0 fqcgyB">
+		<div class="FullSection__TopSectionWrapper-sc-1szrt90-1 AxzSO test">
+			<p class="TopSection__PreventDragP-sc-1sc5grx-0 krJNwE" style="color:rgb(255, 255, 255)">나와 맞는 여행동행과 이야기를 나누어 보아요!</p>
+			<p class="TopSection__PreventDragP-sc-1sc5grx-0 krJNwE" style="color:rgb(255, 255, 255);">여행친구찾기</p>
+		</div>
+	</section>
 
 	<div class="Layout__PageContentWrap-sc-1w3ggn5-0 bgfeYQ">
 		<section
@@ -1262,7 +1316,7 @@
 
 					<div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
 						<p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">재밌게 여행 뿌술분 있나요?</p>
-						<p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
+						<p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI" >
 							렌트 완료고, 제주 프리패스 48시간이나 72시간 구입해서 여행 다닐 예정입니다. 요트, 낚시, 카페, 베이커리, 수목원, 민속촌, 서커스 등
 							하루는 성산 일출봉 일출 보러 올라 갈 거에요! (강제 등반 안 함) 티키타카 좋고, 에너지 활동 뿜뿜하신 분 모십니다~ 저녁식사 대접, 인생
 							샷 영접 해드려요~

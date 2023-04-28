@@ -51,11 +51,13 @@
       }
       /*첫번째줄*/
       .fAFwwV {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 10px;
-          margin-top: 26px;
-          color: rgb(106, 106, 106);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        -webkit-box-align: center;
+        align-items: center;
+        margin-top: 26px;
+        color: rgb(154, 154, 154);
       }
       .fAFwwV > div {
           display: inline-flex;
@@ -87,7 +89,7 @@
           display: inline-block;
           font-size: 15px;
           line-height: 1.5em;
-          color: rgb(106, 106, 106);
+          color: rgb(154, 154, 154);
           vertical-align: top;
           margin: 0px 24px 6px 0px;
       }
@@ -170,7 +172,7 @@
         <div class="Footer__InfoBox-sc-19vhdob-3 fAFwwV">
           <div>
             <span class="Footer__InfoBoldText-sc-19vhdob-4 jvHhMp">고객센터 0507-1490-2626</span>
-            <button><a href="emailInquiry.pg">이메일 문의하기</a></button>
+            <button><a href="emailInquiry.pg">1:1 채팅상담</a></button>
           </div>
           <span> * 실시간 채팅상담: 매일 9:00 ~ 24:00</span>
           <span> 친절 유선 상담: 평일 10:00 ~ 19:00 (12:00 - 13:00 제외)</span>

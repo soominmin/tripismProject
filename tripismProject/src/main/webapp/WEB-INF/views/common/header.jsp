@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -302,6 +303,11 @@
 		    font-size: 16px;
 		}
 		
+		#enroll>a{
+			color:white;
+		    text-decoration: none;
+	   }
+		
 		#modal-body{
 		    padding: 25px 25px;
 		}
@@ -310,17 +316,7 @@
 		  border-top: 6px solid RGB(112, 217, 223);
 		}
 		
-		/* 회원가입 모달창 CSS */
-			#enroll{
-		    background-color:  #ff891e;
-		    border:none;
-		    font-size: 16px;
-		}
 
-		#enrollBtn{
-		  background-color: RGB(112, 217, 223);
-		  border: none;
-		}
         </style>
 
 </head>
@@ -399,9 +395,12 @@
                   여행지도</a>
               </li>
               
+              <!-- 로그인시 마이페이지 보이게 -->
+              <c:if test="${ not empty loginUser }">
               <li class="">
-              	<a href="mypage.bo">마이페이지(잠깐만든거)</a>
+              	<a href="mypage.bo">${loginUser.userName}(잠깐만든거)</a>
               </li>
+              </c:if>
               <!-- 관리자 로그인시에만 보여지게 하기 -->
               <li class="">
                 <a>관리자 페이지[관리자 로그인시만 보여지게]</a>
@@ -457,10 +456,11 @@
             </span>
             <button></button>
             <input placeholder="동행을 찾아보세요!" value="" style="font-size: 12px;"></div>
+            
+          
           <div class="WebHeader__SignBtnBox-sc-12ctfsg-1 eluuNw">
-           
-            <button class="WebHeader__HeaderButton-sc-12ctfsg-2 jmaRWD"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#login" class="media d-inline-flex align-items-center">로그인</a></button>
-            <button class="WebHeader__HeaderButton-sc-12ctfsg-2 cQcIDu"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#signup" class="media d-inline-flex align-items-center"> 회원가입</a></button>
+	            <button class="WebHeader__HeaderButton-sc-12ctfsg-2 jmaRWD"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#login" class="media d-inline-flex align-items-center">로그인</a></button>
+	            <button class="WebHeader__HeaderButton-sc-12ctfsg-2 cQcIDu"><a href="enrollForm.do"> 회원가입</a></button>
           </div>
           
           <div class="Button__ButtonWrapper-sc-1m85upr-0 cmgUBW">
@@ -499,95 +499,7 @@
     <!-- ====================================
     ——— MODAL SECTION
     ===================================== -->
-    <!-- Signup Modal -->
-	 <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-label="signupModalLabel" aria-hidden="true">
-	    <div class="modal-dialog modal-dialog-centered" role="document"> 
-	      <div class="modal-subin" style="width: 500px !important;">
-	        <div class="modal-header rounded" id="modalTop">
-	          <h3 class="modal-title text-uppercase font-weight-bold">Tripism 회원가입</h3>
-	          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-	        </div>
-	
-	        <div class="modal-body">
-	          <form class="" action="index.html" method="post">
-	            <div class="mb-3">
-	              아이디⭐ <br>
-	              <input type="text" class="form-control bg-smoke" required placeholder="아이디를 입력해주세요.">
-	            </div>
-	
-	            <div class="mb-3">
-	              이름⭐<br>
-	              <input type="text" class="form-control bg-smoke" required placeholder="이름">
-	            </div>
-	  
-	            <div class="mb-3">
-	              비밀번호⭐<br>
-	              <input type="password" class="form-control bg-smoke" required placeholder="비밀번호">
-	            </div>
-	
-	            <div class="mb-3">
-	              비밀번호 확인⭐<br>
-	                <input type="password" class="form-control bg-smoke" required placeholder="비밀번호 확인">
-	                <p>(영문 대소문자/숫자/특수문자중 2가지 이상 조합, 8자~16자)</p>
-	              </div>
-	
-	            <div class="mb-3">
-	              이메일⭐<br>
-	                <input type="email" class="form-control bg-smoke" required placeholder="이메일을 입력해주세요.">
-	            </div>
-	
-	            <div class="mb-3">
-	               닉네임 <br>
-	                <input type="text" class="form-control bg-smoke" required placeholder="닉네임을 입력해주세요.">
-	            </div>
-	
-	            <div class="mb-3" style="padding-bottom: 15px;">
-	                성별 <br>
-	                <input type="radio" name="gender" id="m" value="M">
-	                <label for="m">남자</label>
-	                <input type="radio" name="gender" id="f" value="F">
-	                <label for="f">여자</label>
-	            </div>
-	
-	            <div class="mb-3">
-	              <h5>이용약관 동의</h5>
-	                <input type="checkbox" name="agreeAll" id="agreeAll" />
-	                <label for="agreeAll">약관 전체 동의</label><br />
-	                <input type="checkbox" name="agree" id="agreeAge" />
-	                <label for="agreeAge">[필수] 만14세 이상</label><br />
-	                <input type="checkbox" name="agree" id="agreeTerms" />
-	                <label for="agreeTerms">[필수] 이용약관 동의</label><br />
-	                <input type="checkbox" name="agree" id="agreePrivacy"  />
-	                <label for="agreePrivacy">[필수] 개인정보 수집 및 이용 동의</label><br />
-	                <input type="checkbox" name="agree" id="agreeMarketing" />
-	                <label for="agreeMarketing">[선택] 광고성 정보 수신 및 마케팅 활용 동의</label><br />
-	              </div>
-	
-	              <script>
-	                $(document).ready(function() {
-	                  $("#agreeAll").click(function() {
-	                    if($("#agreeAll").is(":checked")) $("input[name=agree]").prop("checked", true);
-	                      else $("input[name=agree]").prop("checked", false);
-	                  });
-	
-	                  $("input[name=agree]").click(function() {
-	                    var total = $("input[name=agree]").length;
-	                    var checked = $("input[name=agree]:checked").length;
-	
-	                    if(total != checked) $("#agreeAll").prop("checked", false);
-	                    else $("#agreeAll").prop("checked", true); 
-	                  });
-	                });
-	              </script>
-	
-	            <div class="d-grid" style="padding-bottom: 15px ;">
-	              <button type="submit" class="btn btn-primary btn-block text-uppercase" disabled id="enrollBtn">가입하기</button>
-	            </div>
-	          </form>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
+    
 
       <!-- Login Modal -->
       <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-label="loginModalLabel" aria-hidden="true">
@@ -599,7 +511,7 @@
             </div>
   
             <div class="modal-body">
-              <form class="" action="index.html" method="post">
+              <form action="login.me" method="post">
                 <div class="mb-3">
                   <input type="text" class="form-control bg-smoke" required="" placeholder="아이디를 입력해주세요.">
                 </div>
@@ -625,7 +537,7 @@
                 <div class="d-grid" >
                   <div id="naver" style="text-align: center; background-color: #03C75A;"><img src="${pageContext.request.contextPath}/resources/img/naver_login.png" style="width: 60%; height: 60%; object-fit:cover; margin-top: 10px;"></div>
                   <div id="kakao" style="text-align: center; background-color: #FEE500;"><img src="${pageContext.request.contextPath}/resources/img/kakao_login_medium_narrow.png" style="width: 60%; height: 60%; object-fit:cover; margin-top: 10px;"></div>
-                  <button type="button" class="btn btn-facebook text-uppercase text-white" id="enroll" style="color: black;">회원가입하기</button>
+                  <button type="button" class="btn btn-facebook text-uppercase text-white" id="enroll" style="color: black;" ><a href="enrollForm.do">회원가입하기</a></button>
                  </div>
               </form>
 

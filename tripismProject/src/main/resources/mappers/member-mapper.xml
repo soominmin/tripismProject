@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+
+<mapper namespace="memberMapper">
+	<resultMap type="Member" id="memberResultSet">
+		<result column="MEM_NO" property="userId"/>
+		<result column="MEM_ID" property="userPwd"/>
+		<result column="MEM_PWD" property="userName"/>
+		<result column="MEM_NAME" property="email"/>
+		<result column="MEM_NICKNAME" property="gender"/>
+		<result column="MEM_EMAIL" property="age"/>
+		<result column="GENDER" property="phone"/>
+		<result column="EMROLL_DATE" property="address"/>
+		<result column="MEM_STATUS" property="enrollDate"/>
+		<result column="MEM_MBTI" property="modifyDate"/>
+	</resultMap>
+
+<select id="loginMember" parameterType="Member" resultMap="memberResultSet" >
+	select
+	        mem_no
+	      , mem_id
+	      , mem_pwd
+	      , mem_name
+	      , mem_nickname
+	      , mem_email
+	      , gender
+	      , enroll_date
+	      , mem_status
+	      , mem_mbti
+	   from tb_member
+	  where mem_id = #{userId}
+	    and mem_pwd = #{userPwd}
+	    and mem_status = 'Y'
+</select>
+
+</mapper>
+

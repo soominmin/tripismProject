@@ -6,44 +6,22 @@
 <meta charset="UTF-8">
 <title>피드 작성</title>
 
-	<!-- jQuery 라이브러리 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- 부트스트랩에서 제공하고 있는 스타일 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- 부트스트랩에서 제공하고 있는 스크립트 -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
-    <!-- Plugins css Style -->
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/fontawesome-5.15.2/css/all.min.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/fontawesome-5.15.2/css/fontawesome.min.css' rel='stylesheet'>
-    <link defer href="${pageContext.request.contextPath}/resources/plugins/animate/animate.css" rel="stylesheet">
-    <link defer href="${pageContext.request.contextPath}/resources/plugins/menuzord/css/menuzord.css" rel="stylesheet">
-    <link defer href="${pageContext.request.contextPath}/resources/plugins/menuzord/css/menuzord-animations.css" rel="stylesheet">
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/fancybox/jquery.fancybox.min.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/selectric/selectric.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/daterangepicker/css/daterangepicker.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/rateyo/jquery.rateyo.min.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/no-ui-slider/nouislider.min.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/dzsparallaxer/dzsparallaxer.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/slick/slick.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/slick/slick-theme.css' rel='stylesheet'>
-    <link defer href='${pageContext.request.contextPath}/resources/plugins/revolution/css/settings.css' rel='stylesheet'>
-
     <style>
         /* div{ border: 1px solid gray; } */
         
         #wrap{ height: 1000px;  position: relative;}
-        #header{ height: 10%; box-sizing: border-box; }
-        #left-main{ width: 17.5%; height: 80%; box-sizing: border-box; float: left; min-width: 120px; }
-        #middle-main{ width: 55%; height: 80%; box-sizing: border-box; float: left; min-width: 500px; overflow: scroll; margin: 0 2.5%; padding: 0 2.5%; border-left: 1px solid rgb(112, 217, 223); border-right: 1px solid rgb(112, 217, 223);}
-        #right-main{ width: 17.5%; height: 80%; box-sizing: border-box; float: left; min-width: 180px;}
-        #footer{ height: 10%; display: block; position: absolute; bottom: 0px;}
+        /* #header{ height: 10% ; box-sizing: border-box; } */
+        #left-main{ width: 17.5%; height: 90% !important; box-sizing: border-box; float: left; min-width: 120px; }
+        #middle-main{ width: 55%; height: 90% !important; box-sizing: border-box; float: left; min-width: 300px; overflow: scroll; margin: 0 2.5%; padding: 0 2.5%; border-left: 1px solid rgb(112, 217, 223); border-right: 1px solid rgb(112, 217, 223);}
+        #right-main{ width: 17.5%; height: 90% !important; box-sizing: border-box; float: left; min-width: 180px;}
+        /* #footer{ height: 10%; display: block; position: absolute; bottom: 0px !important;} */
         .inner-bar{ margin: 10px 15px; }
         .inner-bar-small{ margin: 10px 5px; }
         
         #feedPage{ background-color: whitesmoke; }
         .btn-feed-three{ width: 120px; }
         .feed-content>img{ display: block; margin: auto; } 
+
         body{
             -ms-overflow-style: none;
             }
@@ -66,18 +44,18 @@
 </head>
 <body>
 
+    <!-- header -->
+    <jsp:include page="../common/header.jsp"></jsp:include>
+    
 	<!--  -->
     <div id="wrap">
-        <!-- header -->
-        <div id="header" align="center"> 
-            <!-- header.html 포함 -->
-            <img src="${pageContext.request.contextPath}/resources/img/LOGO2.png" alt="LOGO" style="width: auto; height: 100%;">
-        </div>
+
+        <br><br>
 
         <!-- feedPage- -->
         <div id="left-main"> &nbsp;
 
-                <div class="inner-bar" align="center" style="padding:50% 0%;">
+                <div class="inner-bar" align="center" style="padding:30% 0%;">
  
                 <button style="background-color: transparent; border: none;" onclick="location.href='index.jsp'"><img src="${pageContext.request.contextPath}/resources/img/feed/home.png" alt="home" style="width: 2em;">
                     <p>홈</p>
@@ -89,7 +67,11 @@
                     <p>실시간</p>
                 </button>
 
+                <br>
+
                 <hr class="inner-bar">
+                
+                <br>
 
                 <button style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/camera.png" alt="img" style="width: 2em;">
                     <p>사진</p>
@@ -117,6 +99,71 @@
             <br>
 
             <div id="feed-wrap">
+                <div style="display: block;">
+                    <div style="float: right; width: 65%; height: 6em;" >
+                        <div style="height: 30%; margin-bottom: 3%;">제목</div>
+                        <div style="height: 60%;">내용</div>
+                    </div>
+                    
+                    <div style="float: left; width: 30%; height: 6em;">
+                        사진
+                    </div>
+                </div>
+                
+                <hr class="inner-bar" style="clear: both;">
+
+                <div style="display: block;">
+                    <div style="float: right; width: 65%; height: 6em;" >
+                        <div style="height: 30%; margin-bottom: 3%;">제목</div>
+                        <div style="height: 60%;">내용</div>
+                    </div>
+                    
+                    <div style="float: left; width: 30%; height: 6em;">
+                        사진
+                    </div>
+                </div>
+                
+                <hr class="inner-bar" style="clear: both;">
+
+                <div style="display: block;">
+                    <div style="float: right; width: 65%; height: 6em;" >
+                        <div style="height: 30%; margin-bottom: 3%;">제목</div>
+                        <div style="height: 60%;">내용</div>
+                    </div>
+                    
+                    <div style="float: left; width: 30%; height: 6em;">
+                        사진
+                    </div>
+                </div>
+                
+                <hr class="inner-bar" style="clear: both;">
+
+                <div style="display: block;">
+                    <div style="float: right; width: 65%; height: 6em;" >
+                        <div style="height: 30%; margin-bottom: 3%;">제목</div>
+                        <div style="height: 60%;">내용</div>
+                    </div>
+                    
+                    <div style="float: left; width: 30%; height: 6em;">
+                        사진
+                    </div>
+                </div>
+                
+                <hr class="inner-bar" style="clear: both;">
+
+                <div style="display: block;">
+                    <div style="float: right; width: 65%; height: 6em;" >
+                        <div style="height: 30%; margin-bottom: 3%;">제목</div>
+                        <div style="height: 60%;">내용</div>
+                    </div>
+                    
+                    <div style="float: left; width: 30%; height: 6em;">
+                        사진
+                    </div>
+                </div>
+                
+                <hr class="inner-bar" style="clear: both;">
+
                 <div style="display: block;">
                     <div style="float: right; width: 65%; height: 6em;" >
                         <div style="height: 30%; margin-bottom: 3%;">제목</div>
@@ -238,12 +285,10 @@
 
         </div>
 
-        <!-- footer -->
-        <div id="footer" style="display: flex; justify-content: center;">
-            <jsp:include page="../common/footer.jsp"></jsp:include>
-        </div>
     </div>
 
+    <!-- footer -->
+    <jsp:include page="../common/footer.jsp"></jsp:include>
     
 
 </body>

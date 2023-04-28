@@ -37,10 +37,10 @@
     <link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/resources/img/favicon.png"/>
     
     <style>
-    	body * {
-			font-family: 'TheJamsil5Bold';
-		}
-    
+          body * {
+          font-family: 'TheJamsil5Bold';
+        }
+        
         div {box-sizing:border-box;}
         #header {
             width:90%;
@@ -321,6 +321,11 @@
 		  background-color: RGB(112, 217, 223);
 		  border: none;
 		}
+
+    /*header font-weight*/
+    #menuzord{
+      font-weight: 700;
+    }
         </style>
 
 </head>
@@ -333,7 +338,7 @@
   <header class="header" id="pageTop" style="height: auto;">
     <!-- Menu Zord -->
     <nav class="nav-menuzord navbar-sticky" style="height: 160px;">
-      <div id="header" style="width:2000px margin: 0px;">
+      <div id="header" >
 
        <div class="Headersstyle__HeaderTopWrapDiv-sc-6xu8td-2 jolKUF">
         <div class="Headersstyle__HeaderTopInnerDiv-sc-6xu8td-3 cUxSoB">
@@ -344,7 +349,7 @@
               style="width: 156px; height: 35px;" >
         </a>
 
-          <div id="menuzord" class="menuzord">
+          <di  v id="menuzord" class="menuzord">
 
             <ul id="head-menu"class="menuzord-menu menuzord-right">
               <li class="">

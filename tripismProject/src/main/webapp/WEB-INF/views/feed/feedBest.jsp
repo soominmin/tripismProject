@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>피드 수정</title>
+<title>피드 작성</title>
 
 	<!-- jQuery 라이브러리 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -13,7 +13,6 @@
     <!-- 부트스트랩에서 제공하고 있는 스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
-
     <!-- Plugins css Style -->
     <link defer href='${pageContext.request.contextPath}/resources/plugins/fontawesome-5.15.2/css/all.min.css' rel='stylesheet'>
     <link defer href='${pageContext.request.contextPath}/resources/plugins/fontawesome-5.15.2/css/fontawesome.min.css' rel='stylesheet'>
@@ -29,8 +28,8 @@
     <link defer href='${pageContext.request.contextPath}/resources/plugins/slick/slick.css' rel='stylesheet'>
     <link defer href='${pageContext.request.contextPath}/resources/plugins/slick/slick-theme.css' rel='stylesheet'>
     <link defer href='${pageContext.request.contextPath}/resources/plugins/revolution/css/settings.css' rel='stylesheet'>
+
     <style>
-        
         /* div{ border: 1px solid gray; } */
         
         #wrap{ height: 1000px;  position: relative;}
@@ -67,7 +66,7 @@
 </head>
 <body>
 
-		<!--  -->
+	<!--  -->
     <div id="wrap">
         <!-- header -->
         <div id="header" align="center"> 
@@ -109,70 +108,81 @@
         </div>
 
         <div id="middle-main" align="center">&nbsp;
+            <div>
+                <h4>추천피드</h4>
+            </div>
 
-            <!-- 글쓰기용 modal -->
-            <form action="#">
-                <div id="input-feed">
-                    <div>
-                        <div style="width: 445px;">
-                
-                            <!-- Modal Header -->
-                            <div>
-                                <h4>피드수정</h4> <br>
-                            </div>
-                
-                            <!-- Modal body -->
-                            <div>
-                                <input type="text" style="width: 444px;"> <br>
-                                <hr class="inner-bar" style="width: 430px;">
-                                <textarea name="" id="" cols="57" rows="20"></textarea>
-                                <hr class="inner-bar" style="width: 430px;">
-                                <div align="left">
-                                    <table>
-                                        <thead>
-                                            <th>
-                                                사진첨부 &nbsp; <button class="addFile">더하기</button> &nbsp; <button class="deleteFile">빼기</button>
-                                            </th> 
-                                        </thead>
-                                        <tbody id="fileHere">
-                                            <tr>
-                                                <td><input type="file"></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+            <br>
+            <hr class="inner-bar">
+            <br>
 
-                            <hr class="inner-bar" style="width: 430px;">
-                        
-                            <!-- Modal footer -->
-                            <div>
-                                <button type="submit" class="btn btn-secondary">수정</button>
-                                <button type="button" class="btn btn-danger" onclick="location.href='feed.fd'">취소</button>
-                            </div>
-                        
-                        </div>
+            <div id="feed-wrap">
+                <div style="display: block;">
+                    <div style="float: right; width: 65%; height: 6em;" >
+                        <div style="height: 30%; margin-bottom: 3%;">제목</div>
+                        <div style="height: 60%;">내용</div>
+                    </div>
+                    
+                    <div style="float: left; width: 30%; height: 6em;">
+                        사진
                     </div>
                 </div>
-            </form>
+                
+                <hr class="inner-bar" style="clear: both;">
 
+                <div style="display: block;">
+                    <div style="float: right; width: 65%; height: 6em;" >
+                        <div style="height: 30%; margin-bottom: 3%;">제목</div>
+                        <div style="height: 60%;">내용</div>
+                    </div>
+                    
+                    <div style="float: left; width: 30%; height: 6em;">
+                        사진
+                    </div>
+                </div>
+                
+                <hr class="inner-bar" style="clear: both;">
 
-            <script>
-                $(function(){ // 첨부파일 추가버튼
-                    $(".addFile").click(function(){
-                        $("#fileHere").append("<tr><td><input type='file'></td></tr>");
-                    })
-                })
-                $(function(){ // 첨부파일 제거버튼. 한 개는 남게 만듦
-                    $(".deleteFile").click(function(){
-                        if($("#fileHere>tr").length <2) {
-                            return;
-                        }else{
-                            $("#fileHere>tr:last").remove();
-                        }
-                    })
-                })
-            </script>
+                <div style="display: block;">
+                    <div style="float: right; width: 65%; height: 6em;" >
+                        <div style="height: 30%; margin-bottom: 3%;">제목</div>
+                        <div style="height: 60%;">내용</div>
+                    </div>
+                    
+                    <div style="float: left; width: 30%; height: 6em;">
+                        사진
+                    </div>
+                </div>
+                
+                <hr class="inner-bar" style="clear: both;">
+
+                <div style="display: block;">
+                    <div style="float: right; width: 65%; height: 6em;" >
+                        <div style="height: 30%; margin-bottom: 3%;">제목</div>
+                        <div style="height: 60%;">내용</div>
+                    </div>
+                    
+                    <div style="float: left; width: 30%; height: 6em;">
+                        사진
+                    </div>
+                </div>
+                
+                <hr class="inner-bar" style="clear: both;">
+
+                <div style="display: block;">
+                    <div style="float: right; width: 65%; height: 6em;" >
+                        <div style="height: 30%; margin-bottom: 3%;">제목</div>
+                        <div style="height: 60%;">내용</div>
+                    </div>
+                    
+                    <div style="float: left; width: 30%; height: 6em;">
+                        사진
+                    </div>
+                </div>
+                
+                <hr class="inner-bar" style="clear: both;">
+            </div>
+            
 
         
             
@@ -181,7 +191,9 @@
             <div align="center">
                 <img src="${pageContext.request.contextPath}/resources/img/logo.png" alt="image" style="width: 10em;">
             </div>
+
             <hr class="inner-bar">
+
             <div class="inner-bar">
                 <b>#태그</b> <br>
                 <a href="#">#봄</a>
@@ -232,6 +244,7 @@
         </div>
     </div>
 
+    
 
 </body>
 </html>

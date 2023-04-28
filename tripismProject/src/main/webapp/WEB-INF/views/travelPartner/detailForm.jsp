@@ -269,6 +269,7 @@
 				height: 16px;
 				color: rgb(37, 37, 37);
 				font-size: 15px;
+				height: auto;
 			}
 			/*세부지역선택시*/
 			.bnbVGW {

@@ -41,4 +41,6 @@ public class CommonController {
 		return "admin/adminTravelPackageBoardList";
 	}
 
+
+
 }

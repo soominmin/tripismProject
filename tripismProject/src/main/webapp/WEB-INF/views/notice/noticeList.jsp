@@ -72,7 +72,7 @@
           <tbody>
                 <tr>
                     <td class="bno">5</td>
-                    <td>마지막 공지사항 제목</td>
+                    <td><a href="noticeDetailView.bo">마지막 공지사항 제목</a></td>
                     <td>admin</td>
                     <td>10</td>
                     <td>2023-03-29</td>
@@ -83,7 +83,7 @@
 
                   <tr>
                     <td class="bno">4</td>
-                    <td>네번째 공지사항 제목</td>
+                    <td><a href="noticeDetailView.bo">네번째 공지사항 제목</a></td>
                     <td>admin</td>
                     <td>10</td>
                     <td>2023-03-26</td>
@@ -94,7 +94,7 @@
 
                   <tr>
                     <td class="bno">3</td>
-                    <td>세번째 공지사항 제목</td>
+                    <td><a href="noticeDetailView.bo">세번째 공지사항 제목</a></td>
                     <td>admin</td>
                     <td>10</td>
                     <td>2023-03-24</td>
@@ -105,7 +105,7 @@
 
                   <tr>
                     <td class="bno">2</td>
-                    <td>두번째 공지사항 제목</td>
+                    <td><a href="noticeDetailView.bo">두번째 공지사항 제목</a></td>
                     <td>admin</td>
                     <td>10</td>
                     <td>2023-03-22</td>
@@ -116,7 +116,7 @@
 
                   <tr>
                     <td class="bno">1</td>
-                    <td>첫번째 공지사항 제목</td>
+                    <td><a href="noticeDetailView.bo">첫번째 공지사항 제목</a></td>
                     <td>admin</td>
                     <td>100</td>
                     <td>2023-03-20</td>

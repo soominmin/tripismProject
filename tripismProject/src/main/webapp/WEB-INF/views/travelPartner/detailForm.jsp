@@ -193,7 +193,7 @@
 				font-weight: 500;
 				font-size: 15px;
 			}
-			/*세부지역설정*/
+			/*세부지역설정*/ 
 			.gZpguq {
 				position: relative;
 				width: 100%;

@@ -99,11 +99,7 @@
           
       }
 
-        #header a {
-          text-decoration:none;
-          color:black;
-          font-weight: 700;
-        }
+        #header a {text-decoration:none; color:black;}
         button {
           cursor: pointer;
           outline: none;
@@ -326,7 +322,10 @@
         border: none;
       }
 
-
+    /*header font-weight*/
+    #menuzord{
+      font-weight: 700;
+    }
         </style>
 
 </head>
@@ -336,10 +335,10 @@
   <!-- ====================================
   ——— HEADER SESSION
   ===================================== -->
-  <header class="header" id="pageTop" style="height: auto;" >
+  <header class="header" id="pageTop" style="height: auto;">
     <!-- Menu Zord -->
-    <nav class="nav-menuzord navbar-sticky" class="sc-584527a1-1 cHBTwe" style="height: 150px;">
-      <div id="header" class="sc-2cf0ad3b-0 iwFWzK">
+    <nav class="nav-menuzord navbar-sticky" style="height: 145px;">
+      <div id="header" >
 
        <div class="Headersstyle__HeaderTopWrapDiv-sc-6xu8td-2 jolKUF">
         <div class="Headersstyle__HeaderTopInnerDiv-sc-6xu8td-3 cUxSoB">
@@ -350,7 +349,7 @@
               style="width: 156px; height: 35px;" >
         </a>
 
-          <div id="menuzord" class="menuzord">
+          <di  v id="menuzord" class="menuzord">
 
             <ul id="head-menu"class="menuzord-menu menuzord-right">
               <li class="">
@@ -406,15 +405,15 @@
               </li>
               
               <li class="">
-                 <a href="mypage.bo">마이페이지(잠깐)</a>
+                 <a href="mypage.bo">마이페이지(잠깐만든거)</a>
               </li>
               <!-- 관리자 로그인시에만 보여지게 하기 -->
               <li class="">
-                <a>관리자 페이지(잠깐)</a>
-                <ul class="dropdown drop-up" >
+                <a>관리자 페이지[관리자 로그인시만 보여지게]</a>
+                <ul class="dropdown drop-up">
                         
                    <ul>
-                   <li ><a href="adminMemberList.pg">회원 관리</a></li>
+                   <li><a href="adminMemberList.pg">회원 관리</a></li>
      
                    <li>
                      <a>게시물 관리</a>
@@ -471,7 +470,7 @@
           
           <div class="Button__ButtonWrapper-sc-1m85upr-0 cmgUBW">
             <button width="134px" height="44px" font-style="" type="button" class="btnButtonStyle-sc-1m85upr-1 iJuLkw">
-              <a href="enrollForm.pn" style="color: rgb(255, 255, 255); display: inherit; font-weight: bold;">동행 찾기</a>
+              <a href="detail.pn" style="color: rgb(255, 255, 255); display: inherit; font-weight: bold;">동행 찾기</a>
             </button>
               
             

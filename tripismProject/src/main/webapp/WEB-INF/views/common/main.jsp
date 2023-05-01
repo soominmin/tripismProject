@@ -25,9 +25,7 @@ body * {
 <!-- ====================================
 ———	BANNER SECTION
 ===================================== -->
-<div align="center">
-  <img src="${pageContext.request.contextPath}/resources/img/map.webp" alt="">
-</div>
+
 
 
 <!-- ====================================

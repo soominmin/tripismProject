@@ -3,1542 +3,698 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동행상세게시글</title>
 
+    
+<style >
+    /*메인div정렬*/
+    div {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-style: normal;
+    }
+    .UvObH {
+        padding: calc(140px + var(--app-padding-top)) 0 0;
+        width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        box-sizing: border-box;
+        min-height: calc(100vh - var(--app-padding-bottom) - var(--app-padding-top));
+    }
+    main {
+        display: block;
+    }
+    /*메인이미지*/
+    .buQzNq {
+        position: relative;
+        width: 1200px;
+        margin: 0 auto;
+        border: 0;
+    }
+    .buQzNq > img:first-child {
+        width: 100%;
+        height: 400px;
+        border-radius: 8px;
+        margin: 40px 0;
+    }
+    img {
+        border-style: none;
+    }
+    img {
+        vertical-align: top;
+        object-fit: cover;
+    }
+    /*전체내용영역*/
+    .jLghAG {
+        padding: 70px 0 250px;
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+    }
+    /*1단.본문*/
+    .birXOP {
+        max-width: 800px;
+        width: 800px;
+        margin-right: 80px;
+    }
+    .rgrEj {
+        margin-bottom: 65px;
+    }
+    /*제목*/
+    .gMhobB {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+    .gMhobB > p {
+        width: 100%;
+        overflow: hidden;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 1.5em;
+        text-overflow: ellipsis;
+    }
+    /*모집box*/
+    .ioZvtx {
+        margin: 24px 0 30px;
+    }
+    .ihbYE {
+        border: 1px solid rgb(233, 233, 233);
+        border-radius: 5px;
+        padding: 20px 30px;
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 40px;
+    }
+    /*인원*/
+    .ihbYE {
+        border: 1px solid rgb(233, 233, 233);
+        border-radius: 5px;
+        padding: 20px 30px;
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 40px;
+    }
+    .kosINv {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+    .kosINv p {
+        color: rgb(106, 106, 106);
+    }
+    .kosINv span {
+        margin-left: 10px;
+    }
+    /*인원*/
+    .eBgxXA {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        margin-left: 10px;
+    }
+    .eBgxXA p {
+        color: rgb(106, 106, 106);
+    }
+    .eBgxXA span {
+        margin-left: 10px;
+    }
+    /*날짜*/
+    .fVZoIM {
+        margin-top: 10px;
+    }
+    element.style {
+        display: inline-block;
+    }
+    .kosINv span {
+        margin-left: 10px;
+    }
+    .fVZoIM {
+        margin-top: 10px;
+    }
+    /*2단태그*/
+    .ioZvtx {
+        margin: 24px 0 30px;
+    }
+    
+    /*첫번째줄*/
+    .klFqPP {
+        display: flex;
+        align-items: flex-start;
+    }
+    .klFqPP:first-child > p {
+        margin-bottom: 10px;
+    }
+    .klFqPP > p > span {
+        color: #00ce7c;
+    }
+    .ioZvtx > div > p {
+        font-size: 15px;
+        color: rgb(37, 37, 37);
+    }
+    .klFqPP > p {
+        margin-left: 10px;
+    }
+    
+    /*두번째줄*/
+    .ioZvtx > div > p {
+        font-size: 15px;
+        color: rgb(37, 37, 37);
+    }
+    .ioZvtx > div > p {
+        font-size: 15px;
+        color: rgb(37, 37, 37);
+    }
+    /*본문내용*/
+    .jbdwEb {
+        margin-top: 31px;
+        font-size: 15px;
+        line-height: 1.5em;
+        min-height: 100px;
+        font-family: sans-serif;
+        word-break: break-all;
+        white-space: pre-wrap;
+    }
+    p {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+    }
+    /*태그*/
+    p {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-style: normal;
+    }
+    .Ewzzt > div {
+        display: flex;
+        width: max-content;
+    }
+    .cdLLix > div {
+        display: flex;
+        width: max-content;
+    }
+    .cFzGDF {
+        display: flex;
+        color: rgb(106, 106, 106);
+        font-size: 13px;
+        font-weight: 500;
+        background-color: rgb(245, 245, 245);
+        border-radius: 3px;
+        padding: 4px 7px;
+    }
+    .ekdtxk {
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+    .cFzGDF > :nth-child(n+2) {
+        margin-left: 4px;
+    }
 
-		<!-- jQuery 라이브러리 -->
-		<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-		
-		<!-- jQuery UI 라이브러리 -->
-		<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
-
-
-		<style >
-			.WriteSelectionModal__StyledModalWrap-sc-1cknulk-0.kxfRvG{
-			  display: none;
-			}
-			 html {
-				line-height: 1.15;
-				text-size-adjust: 100%;
-			}
-			section {
-				margin: 0;
-				padding: 0;
-				border: 0;
-				font-style: normal;
-				display: block;
-			}
-			.gBZHir {
-				padding: 18px 0 220px;
-				width: 1200px;
-				margin: 0 auto;
-				position: relative;
-				box-sizing: border-box;
-			}
-			main {
-				display: block;
-			}
-			div {
-				margin: 0;
-				padding: 0;
-				border: 0;
-				font-style: normal;
-			}
-			div > p {
-				margin-top: 0;
-				margin-bottom: 0;
-			}
-			body {
-				font-weight: 400;
-				font-size: 14px;
-			}
-			button {
-				line-height: 1.15;
-				margin: 0;
-				overflow: visible;
-				text-transform: none;
-				cursor: pointer;
-				outline: none;
-				vertical-align: top;
-				background: unset;
-				border: 0;
-				padding: 0;
-				
-			}
-			div {
-				margin: 0;
-				padding: 0;
-				border: 0;
-				font-style: normal;
-			}
-			p {
-				margin: 0;
-				padding: 0;
-				border: 0;
-				margin-inline-start: 0;
-				margin-inline-end: 0;
-			}
-			
-			/*상단바 이미지*/
-			.kSLJBy {
-				padding: 0;
-				width: unset;
-				margin-top: 0;
-			}
-			.kSLJBy {
-				position: relative;
-				margin-top: 0;
-				background-image: url("${pageContext.request.contextPath}/resources/img/partner/img1.jpg");
-				background-size: cover;
-				background-position: center center;
-			}
-			.AxzSO {
-				position: relative;
-				width: 1200px;
-				margin: 0 auto;
-				min-height: 341px;
-				display: flex;
-				flex-direction: column;
-				-webkit-box-align: center;
-				align-items: center;
-				-webkit-box-pack: center;
-				justify-content: center;
-				color: rgb(255, 255, 255);
-				justify-content: space-evenly;
-			}
-			/*나와맞는동행찾기*/
-			.AxzSO > p:first-child {
-				font-weight: 400;
-				font-size: 22px;
-				display: inline-block;
-			}
-			.krJNwE {
-				user-select: none;
-				-webkit-user-drag: none;
-			}
-			/*여행친구찾기*/
-			.AxzSO > p:nth-child(2) {
-				font-weight: 500;
-				font-size: 70px;
-				display: inline-block;
-			}
-			
-			/*장소설정*/
-			/*전체영역*/
-			.fIxQSV {
-				position: relative;
-				width: 1200px;
-				margin: 0 auto;
-			}
-			.eMbJju {
-				position: relative;
-				padding: 16px;
-				border-radius: 6px;
-				border: 1px solid rgb(233, 233, 233);
-				background-color: rgb(255, 255, 255);
-			}
-			.gZYroh {
-				position: relative;
-				border: 1px solid rgb(233, 233, 233);
-				border-radius: 3px;
-				display: flex;
-				max-height: 424px;
-			}
-			/*장소좌측나라*/
-			.cksfQf {
-				position: relative;
-				border-width: 0 1px 0 0;
-				border-style: solid;
-				border-color: rgb(233, 233, 233);
-				width: fit-content;
-			}
-			.StvrC {
-				position: relative;
-			}
-			/*버튼클릭시*/
-			.jWOSQK {
-				position: relative;
-				display: flex;
-				-webkit-box-align: center;
-				align-items: center;
-				-webkit-box-pack: center;
-				justify-content: center;
-				width: auto;
-				height: fit-content;
-				background-color: rgb(112, 217, 223);
-				border: 0 solid rgb(255, 255, 255);
-				padding: 19px 0 19px 25px;
-				color: rgb(255, 255, 255);
-				font-weight: 500;
-				font-size: 15px;
-			}
-			/*버튼미클릭*/
-			.kRktcM {
-				position: relative;
-				display: flex;
-				-webkit-box-align: center;
-				align-items: center;
-				-webkit-box-pack: center;
-				justify-content: center;
-				width: auto;
-				height: fit-content;
-				background-color: rgb(255, 255, 255);
-				border: 0 solid rgb(37, 37, 37);
-				padding: 19px 0 19px 25px;
-				color: rgb(37, 37, 37);
-				font-weight: 500;
-				font-size: 15px;
-			}
-			/*세부지역설정*/ 
-			.gZpguq {
-				position: relative;
-				width: 100%;
-				overflow-y: scroll;
-			}
-			.fTvelu {
-				position: relative;
-				display: flex;
-			}
-			.StvrC {
-				position: relative;
-			}
-			.fTvelu > :nth-child(2) {
-				position: relative;
-				width: 795px;
-			}
-			/*지역클릭시*/
-			.cZpRAh {
-				position: relative;
-				display: flex;
-				-webkit-box-align: center;
-				align-items: center;
-				-webkit-box-pack: center;
-				height: fit-content;
-				border: 0px solid rgb(112, 217, 223);
-				padding: 19px 0px 19px 25px;
-				color: rgb(112, 217, 223);
-				font-weight: 700;
-				font-size: 15px;
-			}
-			
-			/*세부지역영역설정*/
-			.fTvelu > :nth-child(2) > div {
-				position: relative;
-				display: flex;
-				width: max-content;
-			}
-			.StvrC {
-				position: relative;
-			}
-			/*세부선택*/
-			.jNSMIB {
-				position: relative;
-				display: flex;
-				-webkit-box-align: center;
-				align-items: center;
-				-webkit-box-pack: center;
-				justify-content: center;
-				width: auto;
-				height: fit-content;
-				border: 0 solid rgb(154, 154, 154);
-				padding: 19px;
-				color: rgb(154, 154, 154);
-				font-weight: 400;
-				font-size: 15px;
-			}
-			/*세부나라미클릭시*/
-			.bKQVyS {
-				position: relative;
-				display: flex;
-				-webkit-box-align: center;
-				align-items: center;
-				-webkit-box-pack: center;
-				border: 0 solid rgb(37, 37, 37);
-				padding: 19px;
-				height: 16px;
-				color: rgb(37, 37, 37);
-				font-size: 15px;
-				height: auto;
-			}
-			/*세부지역선택시*/
-			.bnbVGW {
-				position: relative;
-				display: flex;
-				-webkit-box-align: center;
-				align-items: center;
-				-webkit-box-pack: center;
-				border: 0px solid rgb(112, 217, 223);
-				padding: 19px;
-				color: rgb(112, 217, 223);
-				font-weight: 800;
-				font-size: 15px;
-			}
-			/*모집인원*/
-			.eMbJju > :nth-child(n+2) {
-				border: unset;
-				padding: 16px 0 0;
-			}
-			.QhPLj {
-				display: flex;
-				-webkit-box-align: center;
-				align-items: center;
-				-webkit-box-pack: justify;
-				justify-content: space-between;
-				position: relative;
-			}
-			.QhPLj > p:first-child {
-				padding: 0 18px 18px;
-				font-size: 14px;
-				display: block;
-				font-weight: 500;
-			}
-			.jZopBj {
-				user-select: none;
-				-webkit-user-drag: none;
-			}
-			/*모집인원*/
-			.QhPLj > p:first-child {
-				padding: 0 0 0 25px;
-				font-size: 14px;
-				display: block;
-				font-weight: 500;
-			}
-			/*인원조절*/
-			.QhPLj > :nth-child(n) {
-				padding: 0;
-				width: calc(100% - 220px);
-			}
-			.QMYJI > div:first-child {
-				margin-left: 7px;
-				width: 100%;
-			}
-			.QMYJI {
-				position: relative;
-				display: flex;
-				align-items: center;
-				-webkit-box-pack: justify;
-				justify-content: space-between;
-			}
-			/*슬라이더바*/
-			
-			
-			/*인원알려주기*/
-			.QMYJI > div:last-child {
-				margin-left: 15px;
-			}
-			.area_flex {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-			}
-			.drqLrs {
-				user-select: none;
-				-webkit-user-drag: none;
-			}
-			element.style {
-				margin-left: 4px;
-			}
-			/*날짜선택*/
-			.eMbJju > :nth-child(n+2) {
-				border: unset;
-				padding: 16px 0 0;
-			}
-			.QhPLj > p:first-child {
-				padding: 0 0 0 25px;
-				width: fit-content;
-			}
-			/*날짜*/
-			.bwNDmh {
-				margin-bottom: -1px;
-				position: relative;
-				display: flex;
-			}
-			.djQkqt {
-				position: relative;
-				display: flex;
-				-webkit-box-align: center;
-				align-items: center;
-				width: 100%;
-				-webkit-box-pack: justify;
-				justify-content: space-between;
-			}
-			/*날짜출발*/
-			.djQkqt > .react-datepicker-wrapper {
-				width: 100%;
-			}
-			.react-datepicker-wrapper {
-				display: inline-block;
-				padding: 0;
-				border: 0;
-			}
-			.react-datepicker__input-container {
-				position: relative;
-				display: inline-block;
-				width: 100%;
-			}
-			.djQkqt .react-datepicker__input-container::before {
-				content: "";
-				width: 16px;
-				height: 16px;
-				background: url("${pageContext.request.contextPath}/resources/img/partner/calender.svg") no-repeat;
-				display: inline-block;
-				position: absolute;
-				z-index: 1;
-				margin: 18px;
-			}
-			.djQkqt .datepicker[type="text"] {
-				padding: 16px 28px 16px 46px;
-				display: inline-block;
-			}
-			input[type="text"] {
-				display: inline-block;
-				width: 100%;
-				font-size: 13px;
-				line-height: 20px;
-				padding: 16px 20px;
-				background: #fff;
-				border: 1px solid #e9e9e9;
-				border-radius: 4px;
-				box-sizing: border-box;
-				vertical-align: top;
-			}
-			input {
-				overflow: visible;
-				margin: 0;
-			}
-			.djQkqt > .react-datepicker-wrapper {
-				width: 100%;
-			}
-			.djQkqt > span {
-				margin: 0 12px;
-			}
-			.eiMlOY {
-				user-select: none;
-				-webkit-user-drag: none;
-			}
-			/*클릭시*/
-			input:focus {
-				outline-color: rgb(112, 217, 223);
-				outline-width: 1px;
-			}
-			/*본문내용*/
-			.fIxQSV > :nth-child(n+2) {
-				margin-top: 65px;
-			}
-			/*이미지넣기*/
-			.gegbdD > :first-child {
-				margin-top: 0;
-			}
-			.iRoMKW {
-				height: 400px;
-			}
-			.iRoMKW {
-				position: relative;
-				display: flex;
-				flex-direction: column;
-				-webkit-box-align: center;
-				align-items: center;
-				-webkit-box-pack: center;
-				justify-content: center;
-				border: 1px solid rgb(233, 233, 233);
-				background-color: rgb(244, 244, 244);
-				width: 1200px;
-				border-radius: 4px;
-			}
-			input:read-only {
-				color: #9a9a9a;
-				outline: none;
-			}
-			/*이미지텍스트*/
-			.iRoMKW > :nth-child(n+2) {
-				margin-top: 10px;
-			}
-			.iRoMKW > div {
-				position: relative;
-				display: flex;
-				color: rgb(153, 153, 153);
-				font-size: 14px;
-				font-weight: 300;
-				-webkit-box-align: center;
-				align-items: center;
-				-webkit-box-pack: center;
-				justify-content: center;
-			}
-			.iOsHZd {
-				user-select: none;
-				-webkit-user-drag: none;
-				margin-top: 0;
-			}
-			.iRoMKW > img {
-				position: relative;
-				width: 100%;
-				height: 100%;
-				border-radius: 4px;
-				margin: 0px !important;
-			}
-			/*이미지취소*/
-			.iRoMKW > #close {
-				position: absolute;
-				top: 10px;
-				right: 10px;
-				z-index: 2;
-			}
-			/*조그만거*/
-			.iRoMKW > div > :nth-child(n+2) {
-				margin-left: 4px;
-				margin-top: 0;
-			}
-			/*제목*/
-			.gegbdD > :nth-child(n) {
-				margin-top: 26px;
-			}
-			input[type="text"] {
-				display: inline-block;
-				width: 100%;
-				font-size: 13px;
-				line-height: 20px;
-				padding: 16px 20px;
-				background: #fff;
-				border: 1px solid #e9e9e9;
-				border-radius: 4px;
-				box-sizing: border-box;
-				vertical-align: top;
-			}
-			/*영역분리*/
-			.gegbdD > :nth-child(n) {
-				margin-top: 26px;
-			}
-			.cGslsG {
-				border-top: 1px solid rgb(233, 233, 233);
-			}
-			/*동행 내용*/
-			.gegbdD > :nth-child(n) {
-				margin-top: 26px;
-			}
-			.gegbdD textarea {
-				min-height: 400px;
-			}
-			textarea {
-				overflow: auto;
-				position: relative;
-				resize: none;
-				display: block;
-				width: 100%;
-				padding: 16px 20px;
-				box-sizing: border-box;
-				border: 1px solid #e9e9e9;
-				border-radius: 4px;
-				font-size: 100%;
-				line-height: 2.0;
-				margin: 0;
-			}
-			textarea:focus {
-				outline-color: rgb(112, 217, 223);
-				outline-width: 1px;
-			}
-			textarea::placeholder {
-				color: #919191;
-				font-weight: 500;
-			}
-			input::placeholder {
-				color: #919191;
-				font-weight: 500;
-			}
-			/*버튼선택*/
-			.bGwIdM {
-				display: flex;
-				-webkit-box-pack: justify;
-				justify-content: space-between;
-				padding: 65px 0 70px;
-			}
-			/*취소*/
-			.hlWCvk {
-				position: relative;
-				line-height: 20px;
-				border-radius: 4px;
-				padding: 17px 5px;
-				background-color: rgb(219, 219, 219);
-				font-size: 14px;
-				color: rgb(255, 255, 255);
-				box-sizing: border-box;
-				outline: auto;
-			}
-			.dcFMHq {
-				position: relative;
-				line-height: 20px;
-				border-radius: 4px;
-				padding: 17px 5px;
-				background-color: rgb(112, 217, 223);
-				font-size: 14px;
-				color: rgb(255, 255, 255);
-				box-sizing: border-box;
-				outline: auto;
-			}
-			
-			/*modal*/
-			/*전체창*/
-			.kxfRvG {
-				width: 100%;
-				height: 100%;
-				position: fixed;
-				top: 0px;
-				left: 0px;
-				display: flex;
-				-webkit-box-pack: center;
-				justify-content: center;
-				-webkit-box-align: center;
-				align-items: center;
-				z-index: 10001;
-				box-sizing: border-box;
-				background: rgba(25, 25, 25, 0.5);
-			}
-			/*모달창*/
-			.fcUHXy {
-				box-sizing: border-box;
-				width: 606px;
-				height: 47.5rem;
-				background-color: rgb(255, 255, 255);
-				position: absolute;
-				border-radius: 10px;
-				overflow-y: auto;
-			}
-			/*헤드*/
-			.fyfOyU {
-				width: 318px;
-				height: 104px;
-				margin: 50px auto 20px;
-				display: flex;
-				flex-direction: column;
-				-webkit-box-pack: justify;
-				justify-content: space-between;
-				-webkit-box-align: center;
-				align-items: center;
-				position: relative;
-			}
-			.fyfOyU > p {
-				user-select: none;
-				-webkit-user-drag: none;
-				color: rgb(0, 0, 0);
-			}
-			.CWwyo {
-				font-size: 23px;
-				font-weight: 700;
-			}
-			.hZBcfU {
-				font-size: 16px;
-			}
-			.fUbzlq {
-				font-size: 14px;
-			}
-			.fUbzlq > span {
-				color: rgb(240, 38, 38);
-			}
-			.ckUMfu > div > span {
-				display: block;
-				margin-left: 4px;
-				font-size: 20px;
-			}
-			.ckUMfu > div {
-				display: flex;
-				-webkit-box-align: center;
-				align-items: center;
-				-webkit-box-pack: center;
-				justify-content: center;
-			}
-			/*이모지*/
-			.djivRF {
-				width: 24px;
-				height: 24px;
-			}
-			/*태그 선택박스*/
-			.dBcUhY {
-				width: 100%;
-				box-sizing: border-box;
-				padding: 0px 24px;
-				position: relative;
-			}
-			/*미선택시*/
-			.ckUMfu {
-				box-sizing: border-box;
-				width: 46%;
-				height: 102px;
-				background-color: rgb(248, 248, 248);
-				color: rgb(37, 37, 37);
-				border-radius: 10px;
-				transition: background-color 0.3s ease-out 0s;
-				margin: 10px 1.5%;
-				cursor: pointer;
-			}
-			/*선택시*/
-			.eWrVZP {
-				box-sizing: border-box;
-				width: 46%;
-				height: 102px;
-				background-color: rgb(112, 217, 223);
-				color: rgb(255, 255, 255);
-				border-radius: 10px;
-				transition: background-color 0.3s ease-out 0s;
-				margin: 10px 1.5%;
-				font-size: large;
-				cursor: pointer;
-			}
-			/*버튼*/
-			.jUFPpk {
-				width: 100%;
-				box-sizing: border-box;
-				padding: 0px 22px;
-				margin: 60px 0px 24px;
-				display: flex;
-				-webkit-box-pack: justify;
-				justify-content: space-between;
-			}
-			/*뒤로가기*/
-			.hpRpYH {
-				width: 244px;
-				color: rgb(255, 255, 255);
-				height: 68px;
-				background: rgb(219, 219, 219);
-				border-radius: 50px;
-				cursor: pointer;
-				font-size: 16px;
-			}
-			/*작성완료*/
-			.hbQEgR {
-				width: 244px;
-				color: rgb(255, 255, 255);
-				height: 68px;
-				background: linear-gradient(90deg, rgb(112, 217, 223) 0%, rgb(88, 210, 216) 100%);
-				border-radius: 50px;
-				cursor: pointer;
-				font-size: 16px;
-			}
-			/*모달창 위치 고정*/
-			.WriteSelectionModal__StyledModalWrap-sc-1cknulk-0 {
-			  position: fixed;
-			  top: 0;
-			  left: 0;
-			  width: 100%;
-			  height: 100%;
-			  overflow: auto;
-			}
-			/*달력 스타일*/
-			.ui-datepicker {
-				background-color: #f8f8f8;
-				border-radius: 10px;
-				font-size: 16px;
-				width: auto; /* 달력 전체 너비 */
-				height: auto; /* 달력 전체 높이 */
-			}
-			
-			.ui-datepicker-calendar {
-			  width: 100%; /* 달력 내부의 날짜 표시 영역 너비 */
-			  height: 100%; /* 달력 내부의 날짜 표시 영역 높이 */
-			}
-			
-			.ui-datepicker td {
-			  padding: 3px; /* 각 날짜 셀의 패딩 */
-			}
-			
-			</style>
+    /*n번째태그*/
+    .cdLLix > div > :nth-child(n+2) {
+        margin-left: 8px;
+    }
+    /*작성날짜*/
+    .xqeY {
+        margin-top: 10px;
+        font-size: 13px;
+        color: rgb(154, 154, 154);
+        display: flex;
+    }
+    .iLlzSN {
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+    /*신고하기*/
+    .xqeY > :nth-child(n+2) {
+        margin-left: 10px;
+    }
+    .xqeY button {
+        font-size: 13px;
+        color: rgb(154, 154, 154);
+    }
+    .laOqNb {
+        text-decoration: underline;
+    }
+    button {
+        font-family: inherit;
+        line-height: 1.15;
+        margin: 0;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+        outline: none;
+        vertical-align: top;
+        background: unset;
+    }
+    /*댓글창*/
+    .eGJmXC {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        margin-top: 24px;
+    }
+    .goDHMI {
+        display: flex;
+        position: relative;
+        width: 100%;
+        min-height: 48px;
+        line-height: 48px;
+        -webkit-box-align: center;
+        align-items: center;
+        box-sizing: border-box;
+        border: 1px solid rgb(220, 220, 220);
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .dMqEYk {
+        display: block;
+        overflow: auto;
+        width: 85%;
+        font-weight: 400;
+        font-size: 13px;
+        padding: 12px;
+        outline: none;
+        border: none;
+    }
+    textarea {
+        font-family: inherit;
+        line-height: 1.15;
+        margin: 0;
+        position: relative;
+        resize: none;
+        box-sizing: border-box;
+    }
+    /*게시버튼*/
+    .hnSauy {
+        display: block;
+        position: absolute;
+        overflow: hidden;
+        width: max-content;
+        height: 100%;
+        align-self: center;
+        text-align: center;
+        font-weight: 400;
+        font-size: 14px;
+        color: rgb(0, 206, 124);
+        padding: 0 12px;
+        right: 0;
+    }
+    /*사용자영역*/
+    .bdoziM {
+        width: 320px;
+    }
+    .profile_section {
+        border: 1px solid #e9e9e9;
+        padding: 20px 19px;
+        border-radius: 4px;
+    }
+    /*사용자 푸로필*/
+    .hAClzB > :first-child {
+        margin-top: 0;
+    }
+    .profile_section .area_top {
+        display: flex;
+        margin-bottom: 15px;
+    }
+    .profile_section .area_top img {
+        border-radius: 100%;
+        object-fit: cover;
+    }
+    .profile_section .profile_info_wrap {
+        margin: 7px 0 0 7px;
+    }
+    .profile_section .area_flex {
+        justify-content: space-between;
+        align-items: center;
+    }
+    /*닉네임*/
+    .profile_section .profile_nickname {
+        display: inline-block;
+        width: 80px;
+        margin-right: 15px;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 2px 0;
+        text-align: left;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    /*정보*/
+    .profile_section .profile_taste {
+        margin-top: 5px;
+        font-size: 13px;
+    }
+    .gray_text {
+        color: #6a6a6a;
+    }
+    .eOlhBT {
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+    /*영역정리*/
+    .hAClzB > :nth-child(n) {
+        margin-top: 26px;
+    }
+    .profile_section .area_middle {
+        border-top: 1px solid #e9e9e9;
+        padding: 40px 0 0;
+        margin: 0;
+        min-height: unset;
+    }
+    .profile_section .profile_click {
+        display: flex;
+    }
+    /*프로필알림*/
+    .profile_section .area_middle .desc {
+        font-size: 14px;
+        color: #252525;
+        font-weight: bold;
+        margin: 0 0 0 6px;
+        line-height: 18px;
+    }
+    .eOlhBT {
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+    /*동행신청하기*/
+    .iNZmaX {
+        color: rgb(255, 255, 255);
+        background-color: rgb(112, 217, 223);
+        width: -webkit-fill-available;
+        height: 55px;
+        border-radius: 4px;
+        margin: 17px 0 0;
+        cursor: pointer;
+        transition: all 0.1s ease-out 0s;
+    }
+    .iNZmaX a {
+        color: rgb(255, 255, 255);
+    }
+    .cmgUBW a {
+        display: inherit;
+        font-weight: bold;
+    }
+    /*동행신청 모달*/
+    .dompyb {
+        position: fixed;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 10010;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        box-sizing: border-box;
+        background: rgba(25, 25, 25, 0.5);
+        padding: 0px;
+        opacity: 1;
+        transition: opacity 0.6s ease 0s;
+        
+    }
+    .dompyb > div {
+        transform: translateY(0px);
+    }
+    .bgZZfo {
+        width: 375px;
+        height: auto;
+        padding: 0px;
+        box-sizing: border-box;
+        border-radius: 20px;
+        transition: transform 0.6s ease 0s;
+        background-color: rgb(255, 255, 255);
+    }
+    .bJjRJT {
+        width: 100%;
+        height: auto;
+        box-sizing: border-box;
+        padding: 34px 18px;
+    }
+    /*모달 p태그*/
+    .gpnsLj {
+        width: 100%;
+        box-sizing: border-box;
+        word-break: break-all;
+        white-space: pre-wrap;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 21px;
+        text-align: center;
+        user-select: none;
+        -webkit-user-drag: none;
+        margin-bottom: 24px;
+    }
+    .bcDKTX {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+    }
+    .cMnydo {
+        box-sizing: border-box;
+        width: 49%;
+        height: 100%;
+        background: rgb(112, 217, 223);
+        color: rgb(255, 255, 255);
+        border-radius: 10px;
+        transition: background-color 0.3s ease-out 0s;
+        border: none;
+        cursor: pointer;
+        margin: 0px;
+        font-size: 15px;
+        font-weight: 400;
+    }
+    .hOSFcy {
+        box-sizing: border-box;
+        width: 49%;
+        height: 100%;
+        background: rgb(248, 248, 248);
+        color: rgb(0, 0, 0);
+        border-radius: 10px;
+        transition: background-color 0.3s ease-out 0s;
+        border: none;
+        cursor: pointer;
+        margin: 0px;
+        font-size: 15px;
+        font-weight: 400;
+    }
+    </style>
 </head>
 <body>
-	<jsp:include page="../common/header.jsp"></jsp:include>
-	<section class="WriteWebSectionstyle__WebSectionImgWrapper-sc-ixmlq3-0 kSLJBy">
-		<div class="FullSection__TopSectionWrapper-sc-1szrt90-1 AxzSO">
-			<p class="TopSection__PreventDragP-sc-1sc5grx-0 krJNwE" style="margin-top: 0; margin-bottom: 0;">나와 맞는 여행동행과 이야기를 나누어 보아요!</p>
-			<p class="TopSection__PreventDragP-sc-1sc5grx-0 krJNwE" style="margin-top: 0; margin-bottom: 0;">여행친구찾기</p>
-		</div>
-	</section>
-	<main class="LayoutWrapper__ItemWrapper-sc-14edszd-0 gBZHir">
-		<section
-			direction="vertical"
-			class="WebSection__SectionWrapper-sc-1hzt8o9-0 fIxQSV">
-			<section
-				direction="vertical"
-				class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq">
-				<div>
-					<div class="WebSection__AreaWebFilterWrapper-sc-1hzt8o9-1 eMbJju">
-						<div class="filter__WebItemWrapper-sc-1055oli-2 gZYroh">
-							<div class="filter__WebContinentFilter-sc-1055oli-3 cksfQf">
-								<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-									<button
-										width="auto"
-										font-size="15px"
-										font-weight="500"
-										class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jWOSQK"
-										style="width: 220px; justify-content: flex-start;">국내여행</button>
-								</div>
-							</div>
-							<div class="filter__WebCountryFilter-sc-1055oli-4 gZpguq">
-								<div class="filter__WebCountryItemWrapper-sc-1055oli-5 fTvelu">
-									<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-										<button
-											width="auto"
-											font-size="15px"
-											font-weight="900"
-											class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 bKQVyS"
-											style="width: 144px; justify-content: flex-start;">서울</button>
-									</div>
-									<div>
-										<div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">종로구</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">강남구</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">성동구</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">송파구</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="filter__WebCountryItemWrapper-sc-1055oli-5 fTvelu">
-									<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-										<button
-											width="auto"
-											font-size="15px"
-											font-weight="400"
-											class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 bKQVyS"
-											style="width: 144px; justify-content: flex-start;">경기</button>
-									</div>
-									<div>
-										<div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">가평군</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">광명시</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">수원시</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">파주시</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">양평군</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">과천시</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">용인시</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">안성시</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="filter__WebCountryItemWrapper-sc-1055oli-5 fTvelu">
-									<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-										<button
-											width="auto"
-											font-size="15px"
-											font-weight="400"
-											class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 bKQVyS"
-											style="width: 144px; justify-content: flex-start;">인천</button>
-									</div>
-									<div>
-										<div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">중구</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">연수구</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">옹진군</button>
-											</div>
-										</div>
-									</div>
-									
-								</div>
-
-								<div class="filter__WebCountryItemWrapper-sc-1055oli-5 fTvelu">
-									<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-										<button
-											width="auto"
-											font-size="15px"
-											font-weight="400"
-											class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 bKQVyS"
-											style="width: 144px; justify-content: flex-start;">강원</button>
-									</div>
-									<div>
-										<div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">춘천시</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">평창구</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">동해시</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="filter__WebCountryItemWrapper-sc-1055oli-5 fTvelu">
-									<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-										<button
-											width="auto"
-											font-size="15px"
-											font-weight="400"
-											class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 bKQVyS"
-											style="width: 144px; justify-content: flex-start;">충청권</button>
-									</div>
-									<div>
-										<div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">대전</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">세종</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">충남</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">충북</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="filter__WebCountryItemWrapper-sc-1055oli-5 fTvelu">
-									<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-										<button
-											width="auto"
-											font-size="15px"
-											font-weight="400"
-											class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 bKQVyS"
-											style="width: 144px; justify-content: flex-start;">경상권</button>
-									</div>
-									<div>
-										<div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">부산</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">울산</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">경남</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">대구</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">경북</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="filter__WebCountryItemWrapper-sc-1055oli-5 fTvelu">
-									<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-										<button
-											width="auto"
-											font-size="15px"
-											font-weight="400"
-											class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 bKQVyS"
-											style="width: 144px; justify-content: flex-start;">전라권</button>
-									</div>
-									<div>
-										<div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">광주</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">전남</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">전북</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="filter__WebCountryItemWrapper-sc-1055oli-5 fTvelu">
-									<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-										<button
-											width="auto"
-											font-size="15px"
-											font-weight="400"
-											class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 bKQVyS"
-											style="width: 144px; justify-content: flex-start;">제주도</button>
-									</div>
-									<div>
-										<div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">한라봉시</button>
-											</div>
-											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
-												<button
-													width="auto"
-													font-size="15px"
-													font-weight="400"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
-													style="width: fit-content; justify-content: flex-start;">서귀포시</button>
-											</div>
-							
-										</div>
-									</div>
-								</div>
-								<script>
-									var $j = jQuery.noConflict();
-									$j(document).ready(function() {
-									var prevBtn = null;
-									$j(document).on("click", ".ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2.jNSMIB", function() {
-										$j(this).removeClass("jNSMIB").addClass("bnbVGW");
-										if (prevBtn !== null) {
-											prevBtn.removeClass("bnbVGW").addClass("jNSMIB");
-										}
-										prevBtn = $j(this);
-										$j(this).siblings().find(".bnbVGW").removeClass("bnbVGW").addClass("jNSMIB");
-										$j(this).closest(".filter__WebCountryItemWrapper-sc-1055oli-5").siblings().find(".bnbVGW").removeClass("bnbVGW").addClass("jNSMIB");
-										// Select the 제주도 button when one of the city buttons is clicked
-										$j(this).closest(".filter__WebCountryItemWrapper-sc-1055oli-5").find(".ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2.bKQVyS").removeClass("jNSMIB").addClass("bnbVGW");
-										$j(this).closest(".filter__WebCountryItemWrapper-sc-1055oli-5").find(".ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2.jNSMIB").removeClass("bnbVGW").addClass("jNSMIB");
-										$j(this).closest(".filter__WebCountryItemWrapper-sc-1055oli-5").find(".ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2.jNSMIB").removeClass("bnbVGW").addClass("jNSMIB").addClass("cZpRAh");
-
-									});
-								});
-
-								$j(document).ready(function() {
-									$j(document).on("click", ".ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2.jNSMIB", function() {
-										$j(".filter__WebCountryItemWrapper-sc-1055oli-5 .ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2.bKQVyS").removeClass("cZpRAh");
-										$j(".filter__WebCountryItemWrapper-sc-1055oli-5 .ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2.jNSMIB").removeClass("cZpRAh");
-										$j(this).addClass("cZpRAh");
-									});
-								});
-								</script>
-								
-								
-							</div>
-						</div>
-
-
-						<div class="InfoSection__SectionWrapper-sc-kxxjuz-0 QhPLj">
-							<p class="InfoSection__PreventDragP-sc-kxxjuz-1 jZopBj">모집인원</p>
-							<div class="Number__ItemWrapper-sc-chlyb5-0 QMYJI">
-							  <input type="range" min="1" max="20" value="1" class="rc-slider" style="width: 100%;" onchange="updateRecruitNo(this.value)">
-							  <div class="area_flex">
-								<p class="Number__PreventDragP-sc-chlyb5-1 drqLrs recruit_no">1</p>
-								<p class="Number__PreventDragP-sc-chlyb5-1 drqLrs" style="margin-left: 4px;">명</p>
-							  </div>
-							</div>
-						  </div>
-						  
-						  <script>
-						  function updateRecruitNo(value) {
-							const recruitNoElement = document.querySelector(".recruit_no");
-							recruitNoElement.innerText = value;
-						  }
-						  </script>
-						  
-						
-
-						<div class="InfoSection__SectionWrapper-sc-kxxjuz-0 QhPLj">
-							<p class="InfoSection__PreventDragP-sc-kxxjuz-1 jZopBj">날짜 선택</p>
-							<div class="DatepickerRange__DatepickerRangeWrapper-sc-xqwwp5-0 bwNDmh datepicker_wrap">
-								<div class="DatepickerRange__DatePickerWrapper-sc-xqwwp5-1 djQkqt">
-									<div class="react-datepicker-wrapper">
-										<div class="react-datepicker__input-container">
-											<input
-											type="text"
-											name="calPrev"
-											placeholder= "날짜 선택"
-											autocomplete="off"
-											class="datepicker"
-											value=""></div>  
-									</div>
-									<span class="DatepickerRange__PreventDragSpan-sc-xqwwp5-2 eiMlOY">-</span>
-									<div class="react-datepicker-wrapper">
-										<div class="react-datepicker__input-container">
-											<input type="text" id="datepicker" name="datepicker"
-											placeholder="날짜 선택" autocomplete="off" class="datepicker" value=""></div>
-									</div>
-								</div>
-							</div>
-						</div>
-							
-						
-					
-					</div>
-				</div>
-			</section>
-		<div class="WriteWebSectionstyle__TitleContentImgWrap-sc-ixmlq3-2 gegbdD">
-			
-			<label for="fileInput">
-				<div class="Image__ItemWrapper-sc-16k9dmh-0 iRoMKW">
-					<svg
-						width="50"
-						height="50"
-						viewbox="0 0 50 50"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-						style="display: inline-block;">
-						<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
-						d="M0 6.54397C0 2.92984 2.93584 0 6.55738 0H43.4426C47.0642 0 50 2.92983 50 6.54397V43.456C50 47.0702 47.0642 50 43.4426 50H6.55738C2.93584 50 0 47.0702 0 43.456V6.54397ZM6.55738 2.86299C4.52026 2.86299 2.86885 4.51102 2.86885 6.54397V43.456C2.86885 45.489 4.52026 47.137 6.55738 47.137H9.23315L32.1003 23.5656C34.6482 20.9392 38.8581 20.9052 41.4483 23.4901L47.1311 29.1613V6.54397C47.1311 4.51102 45.4797 2.86299 43.4426 2.86299H6.55738ZM43.4426 47.137H13.2262L34.1615 25.557C35.5947 24.0796 37.9627 24.0605 39.4197 25.5145L47.1311 33.2102V43.456C47.1311 45.489 45.4797 47.137 43.4426 47.137ZM11.5779 17.1268C11.5779 14.1056 14.032 11.6564 17.0594 11.6564C20.0868 11.6564 22.541 14.1056 22.541 17.1268C22.541 20.148 20.0868 22.5971 17.0594 22.5971C14.032 22.5971 11.5779 20.148 11.5779 17.1268ZM17.0594 8.79346C12.4476 8.79346 8.70902 12.5244 8.70902 17.1268C8.70902 21.7292 12.4476 25.4601 17.0594 25.4601C21.6712 25.4601 25.4098 21.7292 25.4098 17.1268C25.4098 12.5244 21.6712 8.79346 17.0594 8.79346Z"
-						fill="#DBDBDB"></path>
-					</svg>
-					<div>
-						<p class="Image__PreventDragP-sc-16k9dmh-1 iOsHZd">배경사진을 선택해주세요</p>
-						<div
-							style="width: 14px; height: 14px; background-color: rgba(0, 0, 0, 0.2); border-radius: 7px; display: inline-flex; align-items: center; justify-content: center;">
-							<svg
-								width="2"
-								height="8"
-								viewbox="0 0 2 8"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg">
-								<path
-								d="M0.493506 5.23368H1.49351L1.7013 1.57833L1.75325 0.5H0.246753L0.285714 1.57833L0.493506 5.23368ZM0.987013 7.5C1.55844 7.5 2 7.19843 2 6.76893C2 6.33943 1.55844 6.01958 0.987013 6.01958C0.428571 6.01958 0 6.33943 0 6.76893C0 7.19843 0.428571 7.5 0.987013 7.5Z"
-								fill="#FFF"></path>
-							</svg>
-						</div>
-					</div>
-				</div>
-			</label>
-			<input id="fileInput" type="file" accept="image/png, image/jpeg" style="display: none; margin: 0px; padding: 0px;">
-			<script>
-				const fileInput = document.getElementById('fileInput');
-				const imageWrapper = document.querySelector('.Image__ItemWrapper-sc-16k9dmh-0');
-
-				fileInput.addEventListener('change', (event) => {
-				const file = event.target.files[0];
-				const reader = new FileReader();
-
-				reader.onload = (event) => {
-					const imageUrl = event.target.result;
-					imageWrapper.style.backgroundImage = `url(${imageUrl})`;
-				}
-				reader.readAsDataURL(file);
-				});
-			</script>
-			
-				
-				<div>
-					<input type="text" name="title" placeholder="ex) 12월 3박4일 제주 바다 보러갈 동행 3명 구해요" maxlength="100" value=""></div>
-				<div class="WriteWebSectionstyle__HorizontalLine-sc-ixmlq3-1 cGslsG"></div>
-				<div>
-				<textarea class="WriteWebSectionstyle__WriteTextarea-sc-ixmlq3-3 IUMRx desc" name="content" id="desc" placeholder="
-1. 현재 동행이 있나요? 
-ex) 혼자에요 / 동행 1명이 있어요 
-
-2.어떤 동행을 찾고 있나요? 
-ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요! 
-
-3. 원하는 여행 코스가 있다면 알려주세요! 
-
-(1000자 이내) "></textarea>
-				</div>
-			</div>
-			<div class="button__ButtonAreaDiv-sc-1szjplo-6 bGwIdM" style="margin-top: 7px;">
-				<button
-					class="button__ButtonConfirmButton-sc-1szjplo-7 hlWCvk"
-					style="width: calc(50% - 8px);">취소</button>
-				<button
-					class="button__ButtonConfirmButton-sc-1szjplo-7 dcFMHq"
-					style="width: calc(50% - 8px);">작성완료</button>
-			</div>
-			</section>
-			</main>
-
-			<div class="WriteSelectionModal__StyledModalWrap-sc-1cknulk-0 kxfRvG">
-			<div class="WriteSelectionModal__StyledModalInner-sc-1cknulk-1 fcUHXy">
-			<div class="WriteSelectionModal__StyledTitleBox-sc-1cknulk-2 fyfOyU">
-				<p class="WriteSelectionModal__StyledNumTitle-sc-1cknulk-3 hZBcfU">여행 키워드 선택하기</p>
-				<p class="WriteSelectionModal__StyledTitle-sc-1cknulk-4 CWwyo">어떤 여행을 계획하고 있나요?</p>
-				<p class="WriteSelectionModal__StyledSubtitle-sc-1cknulk-5 fUbzlq">
-					<span>* 최소 1개~ 최대 3개</span>의 키워드를 선택해주세요.</p>
-			</div>
-			<div class="WriteSelectionModal__StyledContentBox-sc-1cknulk-6 dBcUhY">
-				<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
-					<div>
-						<img
-							src="${pageContext.request.contextPath}/resources/img/partner/answer1_img01.png"
-							alt="이모지"
-							class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-							<span>무계획</span>
-						</div>
-					</button>
-					<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
-						<div>
-							<img src="${pageContext.request.contextPath}/resources/img/partner/2.png" alt="이모지"
-								class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-								<span>관광</span>
-							</div>
-						</button>
-						<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
-							<div>
-								<img src="${pageContext.request.contextPath}/resources/img/partner/3.png" alt="이모지"
-									class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-									<span>바다</span>
-								</div>
-							</button>
-							<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
-								<div>
-									<img src="${pageContext.request.contextPath}/resources/img/partner/4.png" alt="이모지"
-										class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-										<span>등산</span>
-									</div>
-								</button>
-								<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
-									<div>
-										<img src="${pageContext.request.contextPath}/resources/img/partner/5.png" alt="이모지"
-											class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-											<span>맛집/카페 탐방</span>
-										</div>
-									</button>
-									<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
-										<div>
-											<img
-												src="${pageContext.request.contextPath}/resources/img/partner/6.png"
-												alt="이모지"
-												class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-												<span>핫플레이스 탐방</span>
-											</div>
-										</button>
-										<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
-											<div>
-												<img
-													src="${pageContext.request.contextPath}/resources/img/partner/7.png"
-													alt="이모지"
-													class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-													<span>쇼핑</span>
-												</div>
-											</button>
-											<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
-												<div>
-													<img
-														src="${pageContext.request.contextPath}/resources/img/partner/8.png"
-														alt="이모지"
-														class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-														<span>드라이브</span>
-													</div>
-												</button>
-												<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
-													<div>
-														<img
-															src="${pageContext.request.contextPath}/resources/img/partner/9.png"
-															alt="이모지"
-															class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-															<span>전시회/공연 관람</span>
-														</div>
-													</button>
-													<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
-														<div>
-															<img
-																src="${pageContext.request.contextPath}/resources/img/partner/10.png"
-																alt="이모지"
-																class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-																<span>스포츠 경기 직관</span>
-															</div>
-														</button>
-														<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
-															<div>
-																<img
-																	src="${pageContext.request.contextPath}/resources/img/partner/11.png"
-																	alt="이모지"
-																	class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-																	<span>글램핑</span>
-																</div>
-															</button>
-															<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu">
-																<div>
-																	<img
-																		src="${pageContext.request.contextPath}/resources/img/partner/12.png"
-																		alt="이모지"
-																		class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
-																		<span>서핑</span>
-																	</div>
-																</button>
-																<div class="WriteSelectionModal__StyledButtonBox-sc-1cknulk-9 jUFPpk">
-																	<button
-																		width="244px"
-																		height="68px"
-																		color="#fff"
-																		font-size="16px"
-																		class="ModalButton__ButtonWrap-sc-1q3a6l3-0 hpRpYH">뒤로가기</button>
-																	<button
-																		width="244px"
-																		height="68px"
-																		color="#fff"
-																		font-size="16px"
-																		class="ModalButton__ButtonWrap-sc-1q3a6l3-0 hbQEgR">다음</button>
-																</div>
-															</div>
-														</div>
-													</div>
-					<script>
-						// 모달 요소 가져오기
-						const modal = document.querySelector('.kxfRvG');
-					
-						// 작성완료 버튼을 클릭할 때마다 실행되는 함수
-						function openModal() {
-							// body 요소에 overflow: hidden; 속성 추가
-							document.body.style.overflow = 'hidden';
-							// 모달을 보이도록 함
-							modal.style.display = 'flex';
-						}
-					
-						// 작성완료 버튼 요소 가져오기
-						const submitButton = document.querySelector('.dcFMHq');
-						// 작성완료 버튼에 클릭 이벤트 리스너 추가하기
-						submitButton.addEventListener('click', openModal);
-					
-						// 뒤로가기 버튼 요소 가져오기
-						const backButton = document.querySelector('.ModalButton__ButtonWrap-sc-1q3a6l3-0.hpRpYH');
-						// 모달 꺼지기
-						backButton.addEventListener('click', function () {
-							// 모달을 안 보이도록 함
-							modal.style.display = 'none';
-							// body 요소의 overflow 속성을 auto로 변경
-							document.body.style.overflow = 'auto';
-						});
-					
-						// 모달 외부를 클릭할 때 모달이 사라지도록 함
-						window.addEventListener('click', function (event) {
-							// 클릭한 요소가 모달이 아닐 경우 모달을 안 보이도록 함
-							if (event.target === modal) {
-								modal.style.display = 'none';
-								// body 요소의 overflow 속성을 auto로 변경
-								document.body.style.overflow = 'auto';
-							}
-						});
-					</script>
-													
-					<script>
-						$j(document).ready(function () {
-							// 선택된 버튼을 저장할 배열 선언
-							var selectedBtns = [];
-							// 버튼 클릭 이벤트 핸들러 등록
-							$j(document).on(
-								"click",
-								".WriteSelectionModal__StyledAnswer-sc-1cknulk-7.ckUMfu",
-									function () {
-										// 클릭된 버튼의 클래스 변경
-										$j(this)
-											.removeClass("ckUMfu")
-											.addClass("eWrVZP");
-										// 선택된 버튼이 3개 이상일 경우 가장 오래된 버튼을 배열에서 제거하고 해당 버튼의 클래스를 초기화
-										if (selectedBtns.length >= 3) {
-											var oldestBtn = selectedBtns.shift();
-											oldestBtn
-												.removeClass("eWrVZP bnbVGW jNSMIB cZpRAh")
-												.addClass("ckUMfu");
-										}
-										// 선택된 버튼을 배열에 추가
-										selectedBtns.push($j(this));
-										// 선택된 버튼의 클래스를 변경
-										for (var i = 0; i < selectedBtns.length; i++) {
-											var selectedBtn = selectedBtns[i];
-											selectedBtn
-												.removeClass("ckUMfu jNSMIB cZpRAh")
-												.addClass("eWrVZP");
-										}
-									}
-							);
-						});
-					</script>
-
+	<!-- 헤더바 포함 -->
+	<jsp:include page="../common/header.jsp"/>
 	
-	
-	
-			<!-- 푸터바 포함 -->
-	<jsp:include page="../common/footer.jsp"/>
+    <main class="LayoutWrapper__ItemWrapper-sc-14edszd-0 UvObH">
+        <section
+            direction="vertical"
+            class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq">
+            <img alt="이미지" src="${pageContext.request.contextPath}/resources/img/partner/img5.jpg"></section>
+            <div class="accompanyId__BulletinWrapDiv-sc-1up08zu-1 jLghAG">
+                <div class="innerSection__AreaLeftDiv-sc-1ag5fhb-4 birXOP">
+                    <div class="AccompanyContainer__Wrap-sc-zoqt5l-0 rgrEj">
+                        <div class="AccompanyContainer__TitleBox-sc-zoqt5l-1 gMhobB">
+                            <p>5월 막주 갬성 동행하실 분 구해요~~</p>
+                        </div>
+                        <div class="AccompanyContainer__TopInfoBox-sc-zoqt5l-3 ihbYE">
+                            <div class="AccompanyContainer__FlexBox-sc-zoqt5l-4 kosINv">
+                                <div class="AccompanyContainer__FlexBox-sc-zoqt5l-4 kosINv">
+                                    <p>지역</p>
+                                    <span>강원도</span>
+                                </div>
+                                <div class="AccompanyContainer__FlexMarginBox-sc-zoqt5l-5 eBgxXA">
+                                    <p>모집인원</p>
+                                    <span>4명</span>
+                                </div>
+                            </div>
+                            <div class="AccompanyContainer__MarginBox-sc-zoqt5l-6 fVZoIM">
+                                <div class="AccompanyContainer__FlexBox-sc-zoqt5l-4 kosINv">
+                                    <svg
+                                        width="14"
+                                        height="14"
+                                        viewBox="0 0 14 16"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        style="display: inline-block;">
+                                        <path
+                                            d="M13.8828 4.3846C13.8829 4.10977 13.8294 3.83763 13.7256 3.58372C13.6218 3.32981 13.4696 3.09909 13.2777 2.90475C13.0858 2.7104 12.858 2.55624 12.6072 2.45106C12.3565 2.34588 12.0878 2.29175 11.8164 2.29175H2.08262C1.53477 2.29215 1.00949 2.51283 0.622273 2.90528C0.235052 3.29773 0.0175774 3.82983 0.0176569 4.3846V5.9756H0V13.806C0 14.3879 0.228278 14.946 0.634616 15.3575C1.04095 15.7689 1.59206 16.0001 2.16671 16.0001H11.6988C12.2734 15.9999 12.8244 15.7687 13.2307 15.3573C13.637 14.9459 13.8653 14.3879 13.8655 13.806V6.21561H13.8828V4.3846Z"
+                                            fill="#9A9A9A"></path>
+                                        <path
+                                            d="M3.22294 3.04927C2.98173 3.04927 2.75041 2.95348 2.57985 2.78298C2.40929 2.61249 2.31348 2.38124 2.31348 2.14012V0.909143C2.31348 0.668024 2.40929 0.436779 2.57985 0.266282C2.75041 0.0957845 2.98173 0 3.22294 0C3.46414 0 3.69547 0.0957845 3.86602 0.266282C4.03658 0.436779 4.1324 0.668024 4.1324 0.909143V2.14012C4.1324 2.38124 4.03658 2.61249 3.86602 2.78298C3.69547 2.95348 3.46414 3.04927 3.22294 3.04927Z"
+                                            fill="#9A9A9A"></path>
+                                        <path
+                                            d="M10.8584 3.04927C10.6172 3.04927 10.3859 2.95348 10.2153 2.78298C10.0448 2.61249 9.94897 2.38124 9.94897 2.14012V0.909143C9.94897 0.668024 10.0448 0.436779 10.2153 0.266282C10.3859 0.0957845 10.6172 0 10.8584 0C11.0996 0 11.331 0.0957845 11.5015 0.266282C11.6721 0.436779 11.7679 0.668024 11.7679 0.909143V2.14012C11.7679 2.38124 11.6721 2.61249 11.5015 2.78298C11.331 2.95348 11.0996 3.04927 10.8584 3.04927Z"
+                                            fill="#9A9A9A"></path>
+                                        <path d="M14 5.57568H0.117188V6.82461H14V5.57568Z" fill="white"></path>
+                                    </svg>
+                                    <span>2023.05.22 ~ 2023.05.31</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="AccompanyContainer__TempWrap-sc-zoqt5l-7 ioZvtx">
+                            <div class="AccompanyContainer__TempBox-sc-zoqt5l-8 klFqPP">
+                                <svg
+                                    width="15"
+                                    height="15"
+                                    viewBox="0 0 13 13"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 6.65217L5.58333 11L12 1" stroke="#00CE7C" stroke-width="1.5"></path>
+                                </svg>
+                                <p>함께
+                                    <span>맛집/카페 탐방, 핫플레이스 탐방</span>
+                                    여행을 떠나려고 해요.</p>
+                            </div>
+                            <div
+                                class="AccompanyContainer__TempBox-sc-zoqt5l-8 klFqPP"
+                                style="align-items: center;">
+                                <svg
+                                    width="15"
+                                    height="15"
+                                    viewBox="0 0 13 13"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 6.65217L5.58333 11L12 1" stroke="#00CE7C" stroke-width="1.5"></path>
+                                </svg>
+                                <p>저는
+                                    <span>느긋한, 사진 찍는, 친화력 좋은</span>
+                                    여행자에요.</p>
+                            </div>
+                        </div>
+                        <p class="AccompanyContainer__ContentBox-sc-zoqt5l-9 jbdwEb">맛집과 감성장소가서 커피마시는 것을 좋아합니다! 저는 막주 한주 가있을 건데, 혼자보단 같이 놀면 재밌을 것 같아요! 커피 산책 사진 음주 등 전부 좋고 부분 동행도 좋아요 남녀노소 함께 합시다! (전 30초 남자에요!!)</p>
+                        <div class="badge__HashTagArrayWrapper-sc-1ju2uee-1 Ewzzt">
+                            <div>
+                                <div class="badge__HashTagArrayWrapper-sc-1ju2uee-1 cdLLix">
+                                    <div>
+                                        <div
+                                            font-size="13px"
+                                            font-weight="500"
+                                            class="badge__HashTagWrapper-sc-1ju2uee-0 cFzGDF">
+                                            <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">#</p>
+                                            <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">남성</p>
+                                        </div>
+                                        <div
+                                            font-size="13px"
+                                            font-weight="500"
+                                            class="badge__HashTagWrapper-sc-1ju2uee-0 cFzGDF">
+                                            <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">#</p>
+                                            <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">30대</p>
+                                        </div>
+                                        <div
+                                            font-size="13px"
+                                            font-weight="500"
+                                            class="badge__HashTagWrapper-sc-1ju2uee-0 cFzGDF">
+                                            <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">#</p>
+                                            <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">아무나다좋아</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="AccompanyContainer__BottomBox-sc-zoqt5l-11 xqeY">
+                            <p class="AccompanyContainer__PreventDragP-sc-zoqt5l-10 iLlzSN">2023.04.13 19:54 · 조회수 14 · 메시지 0</p>
+                            <button class="AccompanyContainer__ReportButton-sc-zoqt5l-12 laOqNb">신고하기</button>
+                        </div>
+                        <div class="AccompanyCommentInputBox__CommentContainer-sc-1t3w1p4-0 eGJmXC">
+                            <div class="CommentInputBox__InputContainer-sc-kzgy2k-0 goDHMI">
+                                <textarea
+                                    placeholder="댓글을 입력해주세요."
+                                    class="CommentInputBox__Input-sc-kzgy2k-1 dMqEYk"
+                                    style="height: 39px;"></textarea>
+                                <button class="CommentInputBox__SubmitText-sc-kzgy2k-2 hnSauy">게시</button>
+                            </div>
+                        </div>
+                        <div class="AccompanyContainer__CommentContainer-sc-zoqt5l-13 kEMgcA"></div>
+                    </div>
+                </div>
+                <div class="innerSection__AreaRightDiv-sc-1ag5fhb-5 bdoziM">
+                    <div class="Layout__LayoutEqualDistanceDiv-sc-1w3ggn5-1 hAClzB profile_section">
+                        <div class="area_top" style="margin: 0; margin-bottom: 15px;">
+                            <img src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/member/1681382896035-2" style="width: 50px; height: 50px; padding: 4px;">
+                                <div class="profile_info_wrap">
+                                    <div class="area_flex" style="display: flex;">
+                                        <p class="profile_nickname">Mucamba</p>
+                                    </div>
+                                    <div class="profile_taste gray_text">
+                                        <p class="ProfileCompanion eOlhBT">30대 · 남성 · 대한민국</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="area_middle">
+                                <div class="profile_click">
+                                    <p class="ProfileCompanion_desc">프로필 사진을 클릭해보세요!</p>
+                                </div>
+                                <div class="Button cmgUBW">
+                                    <button width="268px" height="55px" font-style="" type="button" class="Button iNZmaX" id="applyBtn">
+                                        <a>동행 신청하기</a>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- 동행신청 모달창 -->
+            <div id="ModalController" style="display: none;">
+                <div>
+                    <div class="ModalContainer dompyb">
+                        <div width="375px" class="ModalContainer bgZZfo">
+                            <div class="ModalConfirm bJjRJT">
+                                <p class="ModalConfirm gpnsLj">동행 신청을 하시겠습니까? 동행신청 누를시 신청하시는 분의 정보가 전달 됩니다.</p>
+                                <div class="ModalConfirm bcDKTX">
+                                    <button width="49%" height="100%" color="#fff" class="ButtonTemplate hOSFcy">취소</button>
+                                    <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo">동행신청</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                // 동행신청하기 버튼 클릭 시 모달창 띄우기
+                var applyBtn = document.querySelector('#applyBtn');
+                applyBtn.addEventListener('click', function() {
+                var modal = document.querySelector('#ModalController');
+                modal.style.display = "block";
+                });
+
+                // 모달창 닫기 버튼 클릭 시 모달창 닫기
+                var closeBtn = document.querySelector('.ButtonTemplate.hOSFcy');
+                closeBtn.addEventListener('click', function() {
+                var modal = document.querySelector('#ModalController');
+                modal.style.display = "none";
+                });
+
+                // 동행신청 버튼 클릭 시 신청 정보 전송
+                var applyConfirmBtn = document.querySelector('.ButtonTemplate.cMnydo');
+                applyConfirmBtn.addEventListener('click', function() {
+                // 신청 정보 전송 코드 작성
+                });
+            </script>
             
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/jquery-ui-datepicker-with-i18n@1.10.4/ui/i18n/jquery.ui.datepicker-de.min.js"></script>
-
-	<script>
-		var $j = jQuery.noConflict();
-		
-		
-		
-		$j(document).ready(function() { 
-			console.log("jquery testwwa")
-	
-
-			$j.datepicker.setDefaults({
-			minDate: 0, 
-			dateFormat: 'yy-mm-dd',	
-			prevText: '이전 달',	
-			nextText: '다음 달',	
-			closeText: '닫기',      
-			monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],	    
-			monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],	
-			dayNames: ['일', '월', '화', '수', '목', '금', '토'],	    
-			dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],	
-			dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],	
-			showMonthAfterYear: true,	
-			yearSuffix: '년',	
-		});
-		});
-	</script>
+            
+            <!-- 푸터바 포함 -->
+			<jsp:include page="../common/footer.jsp"/>
 </body>
 </html>

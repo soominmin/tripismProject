@@ -12,7 +12,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <!-- Style The Contact Form How Ever You Prefer -->
     <link rel="stylesheet" href="resources/css/star.css">
-<title>Insert title here</title>
+<title>공지사항</title>
 
 
 
@@ -56,7 +56,7 @@
   <div class="innerOuter" style="padding:5% 10%;">
       <br>
         <!-- (관리자)로그인후 상태일 경우만 보여지는 글쓰기 버튼-->
-         <a class="btn btn-secondary btn-sm" style="float:right" href="enrollForm.bo">글쓰기</a>
+         <a class="btn btn-secondary btn-sm" style="float:right" href="noticeEnrollForm.bo">글쓰기</a>
       <br></br>
       <table id="boardList" class="table table-hover" align="center">
           <thead>

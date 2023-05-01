@@ -10,5 +10,15 @@ public class NoticeController {
 	public String noticeDetailView() {
 		return "notice/noticeDetailView";
 	}
+	
+	@RequestMapping("noticeEnrollForm.bo")
+	public String noticeEnrollForm() {
+		return "notice/noticeEnrollForm";
+	}	
+
+	@RequestMapping("noticeUpdateForm.bo")
+	public String noticeUpdateForm() {
+		return "notice/noticeUpdateForm";
+	}	
 
 }

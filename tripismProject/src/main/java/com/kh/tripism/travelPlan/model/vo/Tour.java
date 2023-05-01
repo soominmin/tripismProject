@@ -4,9 +4,9 @@ package com.kh.tripism.travelPlan.model.vo;
 public class Tour {
 	private int spotNo; 
 	private int spotContentId;
+	private int spotContentType;
 	private String spotCreateDate;
 	private String spotModifiedDate; 
-	private String spotHomePage;
 	private String spotTel;
 	private String spotTitle; 
 	private String spotImgPath; 
@@ -14,26 +14,25 @@ public class Tour {
 	private String spotPostalCode;
 	private String spotMapx; 
 	private String spotMapy; 
-	private String spotOverview; 
 	private String largeCategoryNo; 
 	private String middleCategoryNo; 
 	private String smallCategoryNo; 
 	private String areaCategoryNo; 
-	private String cityCategoryNo; 
 	private int spotCount;
+	private int spotLike;
 	
 	public Tour() {}
 
-	public Tour(int spotNo, int spotContentId, String spotCreateDate, String spotModifiedDate, String spotHomePage,
+	public Tour(int spotNo, int spotContentId, int spotContentType, String spotCreateDate, String spotModifiedDate,
 			String spotTel, String spotTitle, String spotImgPath, String spotAddress, String spotPostalCode,
-			String spotMapx, String spotMapy, String spotOverview, String largeCategoryNo, String middleCategoryNo,
-			String smallCategoryNo, String areaCategoryNo, String cityCategoryNo, int spotCount) {
+			String spotMapx, String spotMapy, String largeCategoryNo, String middleCategoryNo, String smallCategoryNo,
+			String areaCategoryNo, int spotCount, int spotLike) {
 		super();
 		this.spotNo = spotNo;
 		this.spotContentId = spotContentId;
+		this.spotContentType = spotContentType;
 		this.spotCreateDate = spotCreateDate;
 		this.spotModifiedDate = spotModifiedDate;
-		this.spotHomePage = spotHomePage;
 		this.spotTel = spotTel;
 		this.spotTitle = spotTitle;
 		this.spotImgPath = spotImgPath;
@@ -41,13 +40,12 @@ public class Tour {
 		this.spotPostalCode = spotPostalCode;
 		this.spotMapx = spotMapx;
 		this.spotMapy = spotMapy;
-		this.spotOverview = spotOverview;
 		this.largeCategoryNo = largeCategoryNo;
 		this.middleCategoryNo = middleCategoryNo;
 		this.smallCategoryNo = smallCategoryNo;
 		this.areaCategoryNo = areaCategoryNo;
-		this.cityCategoryNo = cityCategoryNo;
 		this.spotCount = spotCount;
+		this.spotLike = spotLike;
 	}
 
 	public int getSpotNo() {
@@ -66,6 +64,14 @@ public class Tour {
 		this.spotContentId = spotContentId;
 	}
 
+	public int getSpotContentType() {
+		return spotContentType;
+	}
+
+	public void setSpotContentType(int spotContentType) {
+		this.spotContentType = spotContentType;
+	}
+
 	public String getSpotCreateDate() {
 		return spotCreateDate;
 	}
@@ -80,14 +86,6 @@ public class Tour {
 
 	public void setSpotModifiedDate(String spotModifiedDate) {
 		this.spotModifiedDate = spotModifiedDate;
-	}
-
-	public String getSpotHomePage() {
-		return spotHomePage;
-	}
-
-	public void setSpotHomePage(String spotHomePage) {
-		this.spotHomePage = spotHomePage;
 	}
 
 	public String getSpotTel() {
@@ -146,14 +144,6 @@ public class Tour {
 		this.spotMapy = spotMapy;
 	}
 
-	public String getSpotOverview() {
-		return spotOverview;
-	}
-
-	public void setSpotOverview(String spotOverview) {
-		this.spotOverview = spotOverview;
-	}
-
 	public String getLargeCategoryNo() {
 		return largeCategoryNo;
 	}
@@ -186,14 +176,6 @@ public class Tour {
 		this.areaCategoryNo = areaCategoryNo;
 	}
 
-	public String getCityCategoryNo() {
-		return cityCategoryNo;
-	}
-
-	public void setCityCategoryNo(String cityCategoryNo) {
-		this.cityCategoryNo = cityCategoryNo;
-	}
-
 	public int getSpotCount() {
 		return spotCount;
 	}
@@ -202,17 +184,27 @@ public class Tour {
 		this.spotCount = spotCount;
 	}
 
+	public int getSpotLike() {
+		return spotLike;
+	}
+
+	public void setSpotLike(int spotLike) {
+		this.spotLike = spotLike;
+	}
+
 	@Override
 	public String toString() {
-		return "Tour [spotNo=" + spotNo + ", spotContentId=" + spotContentId + ", spotCreateDate=" + spotCreateDate
-				+ ", spotModifiedDate=" + spotModifiedDate + ", spotHomePage=" + spotHomePage + ", spotTel=" + spotTel
-				+ ", spotTitle=" + spotTitle + ", spotImgPath=" + spotImgPath + ", spotAddress=" + spotAddress
+		return "Tour [spotNo=" + spotNo + ", spotContentId=" + spotContentId + ", spotContentType=" + spotContentType
+				+ ", spotCreateDate=" + spotCreateDate + ", spotModifiedDate=" + spotModifiedDate + ", spotTel="
+				+ spotTel + ", spotTitle=" + spotTitle + ", spotImgPath=" + spotImgPath + ", spotAddress=" + spotAddress
 				+ ", spotPostalCode=" + spotPostalCode + ", spotMapx=" + spotMapx + ", spotMapy=" + spotMapy
-				+ ", spotOverview=" + spotOverview + ", largeCategoryNo=" + largeCategoryNo + ", middleCategoryNo="
-				+ middleCategoryNo + ", smallCategoryNo=" + smallCategoryNo + ", areaCategoryNo=" + areaCategoryNo
-				+ ", cityCategoryNo=" + cityCategoryNo + ", spotCount=" + spotCount + "]";
+				+ ", largeCategoryNo=" + largeCategoryNo + ", middleCategoryNo=" + middleCategoryNo
+				+ ", smallCategoryNo=" + smallCategoryNo + ", areaCategoryNo=" + areaCategoryNo + ", spotCount="
+				+ spotCount + ", spotLike=" + spotLike + "]";
 	}
+
 	
+
 	
 
 	

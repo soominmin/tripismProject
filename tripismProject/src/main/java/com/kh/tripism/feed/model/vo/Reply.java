@@ -10,8 +10,8 @@ import java.sql.Date;
 */
 
 public class Reply {
-	private int ReplyNo;
-	private int BoardNo;
+	private int replyNo;
+	private int boardNo;
 	private int memNo;
 	private String replyContents;
 	private Date replyDate;
@@ -21,8 +21,8 @@ public Reply() {}
 
 public Reply(int replyNo, int boardNo, int memNo, String replyContents, Date replyDate, String replyDistinct) {
 	super();
-	ReplyNo = replyNo;
-	BoardNo = boardNo;
+	this.replyNo = replyNo;
+	this.boardNo = boardNo;
 	this.memNo = memNo;
 	this.replyContents = replyContents;
 	this.replyDate = replyDate;
@@ -30,19 +30,19 @@ public Reply(int replyNo, int boardNo, int memNo, String replyContents, Date rep
 }
 
 public int getReplyNo() {
-	return ReplyNo;
+	return replyNo;
 }
 
 public void setReplyNo(int replyNo) {
-	ReplyNo = replyNo;
+	this.replyNo = replyNo;
 }
 
 public int getBoardNo() {
-	return BoardNo;
+	return boardNo;
 }
 
 public void setBoardNo(int boardNo) {
-	BoardNo = boardNo;
+	this.boardNo = boardNo;
 }
 
 public int getMemNo() {
@@ -79,9 +79,10 @@ public void setReplyDistinct(String replyDistinct) {
 
 @Override
 public String toString() {
-	return "Reply [ReplyNo=" + ReplyNo + ", BoardNo=" + BoardNo + ", memNo=" + memNo + ", replyContents="
+	return "Reply [replyNo=" + replyNo + ", boardNo=" + boardNo + ", memNo=" + memNo + ", replyContents="
 			+ replyContents + ", replyDate=" + replyDate + ", replyDistinct=" + replyDistinct + "]";
-};
+}
+
 
 
 	

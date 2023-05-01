@@ -404,13 +404,12 @@
                   여행지도</a>
               </li>
               
-              <!-- 로그인시 마이페이지 보이게 -->
-              <c:if test="${ not empty loginUser }">
+           
               <li class="">
-              	<a href="mypage.bo">${loginUser.userName}(잠깐만든거)</a>
+              	<a href="mypage.bo"> 마이페이지(잠깐만든거)</a>
               </li>
-              </c:if>
-              <!-- 관리자 로그인시에만 보여지게 하기 -->
+
+
               <li class="">
                 <a>관리자 페이지[관리자 로그인시만 보여지게]</a>
              	<ul class="dropdown drop-up">

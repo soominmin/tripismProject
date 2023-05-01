@@ -42,6 +42,20 @@ public class MemberController {
 	public String enrollForm() {
 		return "member/enrollForm";
 	}
-
+	
+	@RequestMapping("spotLike.do")
+	public String spotLike() {
+		return "member/myPageTripLikeItems";
+	}
+	
+	@RequestMapping("userSetting.do")
+	public String userSetting() {
+		return "member/usersetting";
+	}
+	
+	@RequestMapping("partnerPostList.do")
+	public String partnerPostList() {
+		return "member/partnerPostList";
+	}
 	
 }

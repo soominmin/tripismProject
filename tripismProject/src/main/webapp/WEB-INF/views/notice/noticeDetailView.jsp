@@ -26,11 +26,21 @@
     <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png"/>
     <style>
       table * {
-          margin: 5px;
+          widows: 600px;
       }
       
       table {
-          width: 80%;
+      	width-left: 20% 
+      	width-right: 20% 
+      }
+      
+      .content{
+      	margin: 100px;
+      	width: 80%
+      }
+      
+      .innerOuter{
+      	width: 80%
       }
   </style>
   
@@ -41,7 +51,9 @@
 <!-- ====================================
 ——— HEADER
 ===================================== -->
-  
+<!-- 이쪽에 헤더바 포함할꺼임 -->
+    <jsp:include page="../common/header.jsp"/>
+    
 
 
 <!-- ====================================
@@ -115,7 +127,8 @@
 ——— FOOTER SECTION
 ===================================== -->
     
-
+    <!-- 이쪽에 푸터바 포함할꺼임 -->
+    <jsp:include page="../common/footer.jsp"/>
   
 
 </body>

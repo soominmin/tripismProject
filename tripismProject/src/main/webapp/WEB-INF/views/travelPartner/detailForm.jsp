@@ -8,19 +8,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <!-- jQuery UI 불러오기 -->
-        <script src="https://cdn.jsdelivr.net/npm/datepicker-i18n/dist/umd/i18n.min.js"></script>
 
-		<!-- jQuery 라이브러리 -->
-		<script type="text/javascript" src="resources/js/jquery-3.4.1.min.js"></script>
+
 		<!-- jQuery 라이브러리 -->
 		<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		
 		<!-- jQuery UI 라이브러리 -->
 		<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
-		<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
 
 
 		<style >
@@ -63,7 +57,6 @@
 				font-size: 14px;
 			}
 			button {
-				font-family: inherit;
 				line-height: 1.15;
 				margin: 0;
 				overflow: visible;
@@ -200,7 +193,7 @@
 				font-weight: 500;
 				font-size: 15px;
 			}
-			/*세부지역설정*/
+			/*세부지역설정*/ 
 			.gZpguq {
 				position: relative;
 				width: 100%;
@@ -269,6 +262,7 @@
 				height: 16px;
 				color: rgb(37, 37, 37);
 				font-size: 15px;
+				height: auto;
 			}
 			/*세부지역선택시*/
 			.bnbVGW {
@@ -414,7 +408,6 @@
 			}
 			input {
 				overflow: visible;
-				font-family: inherit;
 				margin: 0;
 			}
 			.djQkqt > .react-datepicker-wrapper {
@@ -539,7 +532,6 @@
 				box-sizing: border-box;
 				border: 1px solid #e9e9e9;
 				border-radius: 4px;
-				font-family: inherit;
 				font-size: 100%;
 				line-height: 2.0;
 				margin: 0;
@@ -751,13 +743,10 @@
 			  padding: 3px; /* 각 날짜 셀의 패딩 */
 			}
 			
-			
 			</style>
 </head>
 <body>
-		<!-- 헤더바 포함 -->
-	<jsp:include page="../common/header.jsp"/>
-	
+	<jsp:include page="../common/header.jsp"></jsp:include>
 	<section class="WriteWebSectionstyle__WebSectionImgWrapper-sc-ixmlq3-0 kSLJBy">
 		<div class="FullSection__TopSectionWrapper-sc-1szrt90-1 AxzSO">
 			<p class="TopSection__PreventDragP-sc-1sc5grx-0 krJNwE" style="margin-top: 0; margin-bottom: 0;">나와 맞는 여행동행과 이야기를 나누어 보아요!</p>
@@ -1157,29 +1146,30 @@
 									</div>
 								</div>
 								<script>
-									$(document).ready(function() {
+									var $j = jQuery.noConflict();
+									$j(document).ready(function() {
 									var prevBtn = null;
-									$(document).on("click", ".ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2.jNSMIB", function() {
-										$(this).removeClass("jNSMIB").addClass("bnbVGW");
+									$j(document).on("click", ".ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2.jNSMIB", function() {
+										$j(this).removeClass("jNSMIB").addClass("bnbVGW");
 										if (prevBtn !== null) {
 											prevBtn.removeClass("bnbVGW").addClass("jNSMIB");
 										}
-										prevBtn = $(this);
-										$(this).siblings().find(".bnbVGW").removeClass("bnbVGW").addClass("jNSMIB");
-										$(this).closest(".filter__WebCountryItemWrapper-sc-1055oli-5").siblings().find(".bnbVGW").removeClass("bnbVGW").addClass("jNSMIB");
+										prevBtn = $j(this);
+										$j(this).siblings().find(".bnbVGW").removeClass("bnbVGW").addClass("jNSMIB");
+										$j(this).closest(".filter__WebCountryItemWrapper-sc-1055oli-5").siblings().find(".bnbVGW").removeClass("bnbVGW").addClass("jNSMIB");
 										// Select the 제주도 button when one of the city buttons is clicked
-										$(this).closest(".filter__WebCountryItemWrapper-sc-1055oli-5").find(".ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2.bKQVyS").removeClass("jNSMIB").addClass("bnbVGW");
-										$(this).closest(".filter__WebCountryItemWrapper-sc-1055oli-5").find(".ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2.jNSMIB").removeClass("bnbVGW").addClass("jNSMIB");
-										$(this).closest(".filter__WebCountryItemWrapper-sc-1055oli-5").find(".ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2.jNSMIB").removeClass("bnbVGW").addClass("jNSMIB").addClass("cZpRAh");
+										$j(this).closest(".filter__WebCountryItemWrapper-sc-1055oli-5").find(".ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2.bKQVyS").removeClass("jNSMIB").addClass("bnbVGW");
+										$j(this).closest(".filter__WebCountryItemWrapper-sc-1055oli-5").find(".ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2.jNSMIB").removeClass("bnbVGW").addClass("jNSMIB");
+										$j(this).closest(".filter__WebCountryItemWrapper-sc-1055oli-5").find(".ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2.jNSMIB").removeClass("bnbVGW").addClass("jNSMIB").addClass("cZpRAh");
 
 									});
 								});
 
-								$(document).ready(function() {
-									$(document).on("click", ".ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2.jNSMIB", function() {
-										$(".filter__WebCountryItemWrapper-sc-1055oli-5 .ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2.bKQVyS").removeClass("cZpRAh");
-										$(".filter__WebCountryItemWrapper-sc-1055oli-5 .ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2.jNSMIB").removeClass("cZpRAh");
-										$(this).addClass("cZpRAh");
+								$j(document).ready(function() {
+									$j(document).on("click", ".ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2.jNSMIB", function() {
+										$j(".filter__WebCountryItemWrapper-sc-1055oli-5 .ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2.bKQVyS").removeClass("cZpRAh");
+										$j(".filter__WebCountryItemWrapper-sc-1055oli-5 .ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2.jNSMIB").removeClass("cZpRAh");
+										$j(this).addClass("cZpRAh");
 									});
 								});
 								</script>
@@ -1232,34 +1222,9 @@
 								</div>
 							</div>
 						</div>
-						<script>
-							var $j = jQuery.noConflict();
 							
-							$j.datepicker.setDefaults({
-							    dateFormat: 'yy-mm-dd',	
-							    prevText: '이전 달',	
-							    nextText: '다음 달',	
-							    closeText: '닫기',      
-							    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],	    
-							    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],	
-							    dayNames: ['일', '월', '화', '수', '목', '금', '토'],	    
-							    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],	
-							    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],	
-							    showMonthAfterYear: true,	
-							    yearSuffix: '년',	
-							});
-							
-							$j(document).ready(function() { 
-							    $j('.datepicker').datepicker({    
-							        minDate: 0, 
-							    });
-							});
-						</script>
-
 						
-						
-						
-						
+					
 					</div>
 				</div>
 			</section>
@@ -1508,16 +1473,16 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 					</script>
 													
 					<script>
-						$(document).ready(function () {
+						$j(document).ready(function () {
 							// 선택된 버튼을 저장할 배열 선언
 							var selectedBtns = [];
 							// 버튼 클릭 이벤트 핸들러 등록
-							$(document).on(
+							$j(document).on(
 								"click",
 								".WriteSelectionModal__StyledAnswer-sc-1cknulk-7.ckUMfu",
 									function () {
 										// 클릭된 버튼의 클래스 변경
-										$(this)
+										$j(this)
 											.removeClass("ckUMfu")
 											.addClass("eWrVZP");
 										// 선택된 버튼이 3개 이상일 경우 가장 오래된 버튼을 배열에서 제거하고 해당 버튼의 클래스를 초기화
@@ -1528,7 +1493,7 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 												.addClass("ckUMfu");
 										}
 										// 선택된 버튼을 배열에 추가
-										selectedBtns.push($(this));
+										selectedBtns.push($j(this));
 										// 선택된 버튼의 클래스를 변경
 										for (var i = 0; i < selectedBtns.length; i++) {
 											var selectedBtn = selectedBtns[i];
@@ -1546,6 +1511,34 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 	
 			<!-- 푸터바 포함 -->
 	<jsp:include page="../common/footer.jsp"/>
+            
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery-ui-datepicker-with-i18n@1.10.4/ui/i18n/jquery.ui.datepicker-de.min.js"></script>
 
+	<script>
+		var $j = jQuery.noConflict();
+		
+		
+		
+		$j(document).ready(function() { 
+			console.log("jquery testwwa")
+	
+
+			$j.datepicker.setDefaults({
+			minDate: 0, 
+			dateFormat: 'yy-mm-dd',	
+			prevText: '이전 달',	
+			nextText: '다음 달',	
+			closeText: '닫기',      
+			monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],	    
+			monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],	
+			dayNames: ['일', '월', '화', '수', '목', '금', '토'],	    
+			dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],	
+			dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],	
+			showMonthAfterYear: true,	
+			yearSuffix: '년',	
+		});
+		});
+	</script>
 </body>
 </html>

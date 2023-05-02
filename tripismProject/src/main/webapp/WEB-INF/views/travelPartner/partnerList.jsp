@@ -12,6 +12,25 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <style >
+	a:link {
+		color: rgb(44, 44, 44);
+		text-decoration: none;
+	}
+	a:visited {
+		color: rgb(44, 44, 44);
+		text-decoration: none;
+	}
+	a:hover {
+		color: rgb(44, 44, 44);
+		text-decoration: none;
+	}
+	a:active {
+		color: rgb(44, 44, 44);
+		text-decoration: none;
+	}
+	body * {
+		font-family: 'TheJamsil';
+	}
 			
 	element.style {
 		display: flex;
@@ -269,8 +288,8 @@
 		display: flex;
 		flex-wrap: nowrap;
 		flex-shrink: 0;
-		width: 30px;
-		height: 30px;
+		width: 40px;
+		height: 40px;
 		object-fit: cover;
 		border-radius: 50%;
 	}
@@ -776,16 +795,16 @@
 			<ul type="portrait"
 				class="AccompanyWebSection__AccompanyList-sc-lvz8r6-0 dkymTH">
 				<div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
-
+					<a href="detail.pn" style="text-decoration:none;">
 					<div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
 
 						<div class="AccompanyWebCard__ProfileWrap-sc-ws5mjw-6 gNWBdG">
-							<img src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/member/1681209401892-1"
+							<img src="${pageContext.request.contextPath}/resources/img/partner/ner.jpg"
 								class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
 							<div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
-								<p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">여행뿌수자</p>
+								<p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">Mucamba</p>
 								<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
-									<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">20대</p>
+									<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">30대</p>
 									<div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
 									<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">남성</p>
 								</div>
@@ -810,7 +829,7 @@
 					</div>
 
 					<div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
-						<img src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/accompany/1681209598075-2" 
+						<img src="${pageContext.request.contextPath}/resources/img/partner/img5.jpg" 
 							class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
 
 						<div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
@@ -861,16 +880,12 @@
 					</div>
 
 					<div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
-						<a href="detail.pn">
-							<p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">재밌게 여행 뿌술분 있나요?</p>
+							<p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">5월 막주 갬성 동행하실 분 구해요~~</p>
 							<p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
-								렌트 완료고, 제주 프리패스 48시간이나 72시간 구입해서 여행 다닐 예정입니다. 요트, 낚시, 카페, 베이커리, 수목원, 민속촌, 서커스 등
-								하루는 성산 일출봉 일출 보러 올라 갈 거에요! (강제 등반 안 함) 티키타카 좋고, 에너지 활동 뿜뿜하신 분 모십니다~ 저녁식사 대접, 인생
-								샷 영접 해드려요~
+								맛집과 감성장소가서 커피마시는 것을 좋아합니다! 저는 막주 한주 가있을 건데, 혼자보단 같이 놀면 재밌을 것 같아요! 커피 산책 사진 음주 등 전부 좋고 부분 동행도 좋아요 남녀노소 함께 합시다! (전 30초 남자에요!!)
 							</p>
-						</a>
 					</div>
-
+					</a>
 				</div>
 				<!-------------------------------------------------------------------------------------------------------------------------->
 

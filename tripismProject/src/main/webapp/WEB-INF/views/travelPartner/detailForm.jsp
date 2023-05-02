@@ -11,6 +11,12 @@
 
     
 <style >
+    body * {
+        font-family: 'TheJamsil';
+    }
+    p {
+        margin-bottom: 0rem;
+    }
     /*메인div정렬*/
     div {
         margin: 0;
@@ -107,6 +113,7 @@
     }
     .kosINv p {
         color: rgb(106, 106, 106);
+        margin-bottom: 0rem;
     }
     .kosINv span {
         margin-left: 10px;
@@ -214,6 +221,7 @@
     .ekdtxk {
         user-select: none;
         -webkit-user-drag: none;
+        margin-bottom: 0rem;
     }
     .cFzGDF > :nth-child(n+2) {
         margin-left: 4px;
@@ -233,6 +241,7 @@
     .iLlzSN {
         user-select: none;
         -webkit-user-drag: none;
+        margin-bottom: 0rem;
     }
     /*신고하기*/
     .xqeY > :nth-child(n+2) {
@@ -288,6 +297,8 @@
         padding: 12px;
         outline: none;
         border: none;
+        line-height: 1.15;
+        resize: none;
     }
     textarea {
         font-family: inherit;
@@ -296,6 +307,9 @@
         position: relative;
         resize: none;
         box-sizing: border-box;
+        position: relative;
+        resize: none;
+        appearance: none;
     }
     /*게시버튼*/
     .hnSauy {
@@ -334,7 +348,7 @@
         object-fit: cover;
     }
     .profile_section .profile_info_wrap {
-        margin: 7px 0 0 7px;
+        margin: 7px 0 0 14px;
     }
     .profile_section .area_flex {
         justify-content: space-between;
@@ -352,6 +366,7 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
+        margin-bottom: 0rem;
     }
     /*정보*/
     .profile_section .profile_taste {
@@ -371,7 +386,7 @@
     }
     .profile_section .area_middle {
         border-top: 1px solid #e9e9e9;
-        padding: 40px 0 0;
+        padding: 35px 0 0;
         margin: 0;
         min-height: unset;
     }
@@ -614,10 +629,7 @@
                         </div>
                         <div class="AccompanyCommentInputBox__CommentContainer-sc-1t3w1p4-0 eGJmXC">
                             <div class="CommentInputBox__InputContainer-sc-kzgy2k-0 goDHMI">
-                                <textarea
-                                    placeholder="댓글을 입력해주세요."
-                                    class="CommentInputBox__Input-sc-kzgy2k-1 dMqEYk"
-                                    style="height: 39px;"></textarea>
+                                <textarea rows="1" placeholder="댓글을 입력해주세요." class="CommentInputBox__Input-sc-kzgy2k-1 dMqEYk" id="pnComment" style="height: 40px;"></textarea>
                                 <button class="CommentInputBox__SubmitText-sc-kzgy2k-2 hnSauy">게시</button>
                             </div>
                         </div>
@@ -627,7 +639,7 @@
                 <div class="innerSection__AreaRightDiv-sc-1ag5fhb-5 bdoziM">
                     <div class="Layout__LayoutEqualDistanceDiv-sc-1w3ggn5-1 hAClzB profile_section">
                         <div class="area_top" style="margin: 0; margin-bottom: 15px;">
-                            <img src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/member/1681382896035-2" style="width: 50px; height: 50px; padding: 4px;">
+                            <img src="${pageContext.request.contextPath}/resources/img/partner/ner.jpg" style="width: 55px; height: 55px; padding: 4px; margin-top: 10px;">
                                 <div class="profile_info_wrap">
                                     <div class="area_flex" style="display: flex;">
                                         <p class="profile_nickname">Mucamba</p>
@@ -640,7 +652,7 @@
 
                             <div class="area_middle">
                                 <div class="profile_click">
-                                    <p class="ProfileCompanion_desc">프로필 사진을 클릭해보세요!</p>
+                                    <p class="ProfileCompanion_desc" style="margin-bottom: 0rem;">프로필 사진을 클릭해보세요!</p>
                                 </div>
                                 <div class="Button cmgUBW">
                                     <button width="268px" height="55px" font-style="" type="button" class="Button iNZmaX" id="applyBtn">
@@ -653,6 +665,7 @@
                     </div>
                 </div>
             </main>
+
 
             <!-- 동행신청 모달창 -->
             <div id="ModalController" style="display: none;">
@@ -671,6 +684,15 @@
                 </div>
             </div>
 
+            <script>
+                const textarea = document.querySelector('#pnComment');
+
+                function autoResizeTextArea() {
+                    this.style.height = 'auto';
+                    this.style.height = this.scrollHeight  + 'px';
+                }
+                textarea.addEventListener('input', autoResizeTextArea);
+            </script>
             <script>
                 // 동행신청하기 버튼 클릭 시 모달창 띄우기
                 var applyBtn = document.querySelector('#applyBtn');

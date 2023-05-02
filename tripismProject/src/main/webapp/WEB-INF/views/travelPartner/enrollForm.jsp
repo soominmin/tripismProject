@@ -18,6 +18,9 @@
 
 
 		<style >
+		body * {
+          font-family: 'TheJamsil';
+        }
 			.WriteSelectionModal__StyledModalWrap-sc-1cknulk-0.kxfRvG{
 			  display: none;
 			}

@@ -38,7 +38,7 @@
     
     <style>
           body * {
-          font-family: 'TheJamsil5Bold';
+          font-family: 'TheJamsil';
         }
         
         div {box-sizing:border-box;}

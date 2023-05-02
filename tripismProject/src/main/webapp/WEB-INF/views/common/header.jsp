@@ -338,6 +338,7 @@
 
 <body id="body" class="up-scroll">
 
+
   <!-- ====================================
   ——— HEADER SESSION
   ===================================== -->
@@ -471,7 +472,7 @@
                 </svg>
             </span>
             <button></button>
-            <input placeholder="동행을 찾아보세요!" value="" style="font-size: 12px;"></div>
+            <input placeholder="어디로 여행가시나요!" value="" style="font-size: 12px;"></div>
             
           
           <div class="WebHeader__SignBtnBox-sc-12ctfsg-1 eluuNw">

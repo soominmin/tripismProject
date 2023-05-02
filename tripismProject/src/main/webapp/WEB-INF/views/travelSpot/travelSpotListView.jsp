@@ -30,13 +30,19 @@
       list-style: none;
       padding: 10px;
       border: 0.5px;
-      color: RGB(112, 217, 223);
+      color: rgb(112, 217, 223);
      }
 
      #arealist li button span{
       color: gray;
       font-size: 10pt;
      }
+
+	 /*div 스타일*/
+	 .card.card-hover {
+		box-shadow: rgba(25, 25, 25, 0.2) 0 6px 10px;
+
+	 }
      
 
     </style>
@@ -58,7 +64,7 @@
 	        <div class="col-lg-6">
 	          <div class="page-title-content">
 	            <div class="title-border">
-	              <h2 class="text-uppercase text-white font-weight-bold">여행지 목록</h2>
+	              <h2 class="text-uppercase text-white font-weight-bold">여행지 둘러보기</h2>
 	            </div>
 	            <p class="text-white mb-0"></p>
 	          </div>
@@ -154,7 +160,7 @@
 	
 	
 	      <div class="col-md-6 col-lg-4 mb-5">
-	        <div class="card card-hover">
+	        <div class="card card-hover" >
 	          <a href="detail.sp" class="position-relative">
 	            <img class="card-img-top lazyestload" data-src="http://tong.visitkorea.or.kr/cms/resource/81/1075281_image2_1.jpg" src="" alt="Card image cap">
 	            <div class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">
@@ -173,7 +179,7 @@
 	              서울특별시 중구
 	            </p>
 	            <h5>
-	              <a href="detail.sp" class="card-title text-uppercase">광화문</a>
+					<a href="detail.sp" class="card-title text-uppercase">광화문</a>
 	            </h5>
 	
 	            <div class="post_area" style="float: right;">

@@ -13,9 +13,9 @@ public class PnBoardController {
 		return "travelPartner/partnerList";
 	}
 	
-	@RequestMapping("detail.pn")
-	public String detailForm() {
-		return "travelPartner/detailForm";
+	@RequestMapping("enrollForm.pn")
+	public String enrollForm() {
+		return "travelPartner/enrollForm";
 	}
 	
 	@RequestMapping("noticeList.bo")
@@ -24,4 +24,8 @@ public class PnBoardController {
 	}
 	
 
+	@RequestMapping("detail.pn")
+	public String detailForm() {
+		return "travelPartner/detailForm";
+	}
 }

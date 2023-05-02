@@ -22,7 +22,7 @@
 	        	, feed_status
 	        )
 	    values( 
-	              seq_fno.nextval
+	              seq_feedno.nextval
 	            , 1
 	            , #{feedTitle}
 	            , #{feedContent}

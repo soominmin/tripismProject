@@ -134,7 +134,7 @@
             
             <br>
 
-            <button type="button" style="background-color: transparent; border: none;" onclick="location.href='index.jsp'"><img src="${pageContext.request.contextPath}/resources/img/feed/home.png" alt="home" style="width: 2.4em;">
+            <button type="button" style="background-color: transparent; border: none;" onclick="location.href='feed.fd'"><img src="${pageContext.request.contextPath}/resources/img/feed/home.png" alt="home" style="width: 2.4em;">
                 <p>전체보기</p>
             </button>
 

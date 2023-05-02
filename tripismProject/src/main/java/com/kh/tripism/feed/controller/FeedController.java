@@ -55,10 +55,10 @@ public class FeedController {
 			
 			i.setImgOriginName(upfile.getOriginalFilename());
 			i.setImgChangeName("resources/uploadFiles/" + changeName);
-			
 		}
-		int result = fService.insertFeed(f);
+		
 		System.out.println("컨트롤러 탔나?");
+		int result = fService.insertFeed(f);
 		
 		if(result > 0) {
 			return "redirect:feed.fd";

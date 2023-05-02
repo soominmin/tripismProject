@@ -273,7 +273,7 @@
                             <div class="WriteWebSectionstyle__HorizontalLine-sc-ixmlq3-1 cGslsG"></div>
 
                             <div>
-                            <textarea class="WriteWebSectionstyle__WriteTextarea-sc-ixmlq3-3 IUMRx desc" name="feedContent" id="desc" placeholder="
+                            <textarea class="WriteWebSectionstyle__WriteTextarea-sc-ixmlq3-3 IUMRx desc" name="feedContents" id="desc" placeholder="
 				            1. 작성할 내용을 생각해보세요 
 				            ex) 가족과 함께 오랜만에 나들이를 다녀왔습니다. 
 				            
@@ -297,7 +297,7 @@
                                 </thead>
                                 <tbody id="fileHere">
                                     <tr>
-                                        <td><input type="file" name="upFiles"></td>
+                                        <td><input type="file" name="upFile"></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -327,7 +327,7 @@
             <script>
                 $(function(){ // 첨부파일 추가버튼
                     $(".addFile").click(function(){
-                        $("#fileHere").append("<tr><td><input type='file' name='upFiles'></td></tr>");
+                        $("#fileHere").append("<tr><td><input type='file' name='upFile'></td></tr>");
                     })
                 })
                 $(function(){ // 첨부파일 제거버튼. 한 개는 남게 만듦

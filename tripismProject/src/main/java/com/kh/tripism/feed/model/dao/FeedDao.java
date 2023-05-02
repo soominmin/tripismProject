@@ -14,6 +14,7 @@ public class FeedDao {
 
 	// 피드 추가
 	public int insertFeed(SqlSessionTemplate sqlSession, Feed f) {
+		System.out.println("dao 탔나?");
 		return sqlSession.insert("feedMapper.insertFeed", f);
 	};
 	

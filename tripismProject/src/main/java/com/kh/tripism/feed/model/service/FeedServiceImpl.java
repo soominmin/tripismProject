@@ -23,6 +23,7 @@ public class FeedServiceImpl implements FeedService {
 
 	@Override
 	public int insertFeed(Feed f) {
+		System.out.println("서비스탔냐?");
 		return fDao.insertFeed(sqlSession, f);
 	}
 

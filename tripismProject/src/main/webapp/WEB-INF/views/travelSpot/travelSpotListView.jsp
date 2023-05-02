@@ -155,11 +155,11 @@
 	
 	      <div class="col-md-6 col-lg-4 mb-5">
 	        <div class="card card-hover">
-	          <a href="javascript:void(0)" class="position-relative">
+	          <a href="detail.sp" class="position-relative">
 	            <img class="card-img-top lazyestload" data-src="http://tong.visitkorea.or.kr/cms/resource/81/1075281_image2_1.jpg" src="" alt="Card image cap">
 	            <div class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">
 	              <div style="margin-left: 90%;">
-	                <button style="border-radius: 50%; background-color:rgba(255, 255, 255, 0); border: none;">
+	                <button style="border-radius: 50%; background-color:rgba(255, 255, 255, 0); border: none; z-index: 99">
 	                  <img src="${pageContext.request.contextPath}/resources/img/icons/before-like.png" style="width: 25px; height: 25px;" alt="">
 	                </button>
 	              </div>

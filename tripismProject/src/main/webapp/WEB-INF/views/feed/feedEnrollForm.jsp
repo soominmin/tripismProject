@@ -251,7 +251,7 @@
         <div id="middle-main" align="center">&nbsp;
 
             <!-- 글쓰기용  -->
-            <form action="insert.fd" method="post" enctype="multipart/form-data"> <!--  파일 그 자체를 넘기려면 enctype이 필요 -->>
+            <form action="insert.fd" method="post" enctype="multipart/form-data"> <!--  파일 그 자체를 넘기려면 enctype이 필요 -->
                 <div>
                     <div>
                         <div>
@@ -283,15 +283,16 @@
 				            3. 다른 사람들에게 다녀온 여행지를 추천해보세요
 				            ex) 가족과 함께~ , 부모님과 함께~, 우리 아이 체험학습장소로~
 				            
-				            (1000자 이내) " style="height: 400px;" required></textarea>
+				            (1000자 이내) " style="height: 400px; resize: none ;" required></textarea>
                             </div>
                         </div>
                         
+						<br>
                         <div align="left">
                             <table>
                                 <thead>
                                     <th>
-                                        첨부 &nbsp; <button type="button" class="addFile">(더하기+)</button> &nbsp; <button type="button" class="deleteFile">(빼기-)</button>
+                                        첨부 &nbsp; <button type="button" class="addFile">(추가)</button> &nbsp; / &nbsp;  <button type="button" class="deleteFile">(제거)</button>
                                     </th> 
                                 </thead>
                                 <tbody id="fileHere">
@@ -301,7 +302,11 @@
                                 </tbody>
                             </table>
                         </div>
-                        
+                        <div align="left">
+							<div style="width: 672.4px; height: 400px; border: 1px dotted gray;" >
+
+							</div>
+						</div>
                         <!-- Enroll footer -->
                         <div class="button__ButtonAreaDiv-sc-1szjplo-6 bGwIdM" style="margin-top: 7px;">
                             <button type="button"

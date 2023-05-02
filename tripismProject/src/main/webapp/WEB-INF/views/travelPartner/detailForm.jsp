@@ -649,7 +649,7 @@
                 <div class="innerSection__AreaRightDiv-sc-1ag5fhb-5 bdoziM">
                     <div class="Layout__LayoutEqualDistanceDiv-sc-1w3ggn5-1 hAClzB profile_section">
                         <div class="area_top" style="margin: 0; margin-bottom: 15px;">
-                            <a href="detail.pn" style="text-decoration:none;">
+                            <a href="mypage.bo" style="text-decoration:none;">
                                 <img src="${pageContext.request.contextPath}/resources/img/partner/ner.jpg" style="width: 55px; height: 55px; padding: 4px; margin-top: 10px;">
                             </a>
                                 <div class="profile_info_wrap">

@@ -199,7 +199,7 @@
 	/*게시글정렬*/
 	.dkymTH {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: repeat(3, 1fr);
 		gap: 24px;
 		box-sizing: border-box;
 		margin-top: 1rem;
@@ -713,11 +713,14 @@
     <div class="container">
       <div class="row">
 		<div class="col-lg-8 col-xl-9 order-1 order-lg-0">
-			<div class="card rounded-0 card-transparent border-bottom mb-7 pb-7">
+			<div class="card rounded-0 card-transparent border-bottom mb-7 pb-7"  style="background:#f5f5f5";>
 			  <div class="row align-items-xl-center">
 			  <div class="container">
 			  <div class="bg-smoke p-2 p-md-6 pb-6 pb-md-8 mb-9 rounded">
 				<div class="row">
+               <div class="mb-4" style="padding-top: 40px;">
+             <h3 class="text-uppercase mb-3" align="center">내 동행 게시글</h3>
+           </div>
 
 	<div class="Layout__PageContentWrap-sc-1w3ggn5-0 bgfeYQ">
 		
@@ -1303,23 +1306,7 @@
 
 		</section>
 		
-		<section
-			direction="vertical"
-			class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq"
-			style="display: flex; box-sizing: border-box;">
-			<div class="ExtendedPaginationTemplate__PaginationWrap-sc-uw2t4b-0 dvaZUI">
 
-				<ul>
-					<c:choose>
-						<c:when test="${pi.currentPage eq 1 }">
-							<li class="page-item disabled"><a>Previous</a>
-						</c:when>
-					</c:choose>
-				</ul>
-			
-				
-			</div>
-		</section>
 		
 	</div>
 	</div>

@@ -42,7 +42,9 @@
       }
 
       #myPagebar{
-        position: fixed;
+        position: sticky;
+        top: 99px;
+        left: 155px;
       }
 
 </style>
@@ -72,17 +74,25 @@
               <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
                   <span id="likePost"><a href="spotLike.do">❤️ 내가 좋아요한 여행지</a></span>
               </li>
+
+              <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
+                <span id="likePost"><a href="spotLike.do">📱 내가 좋아요한 피드</a></span>
+              </li>
       
               <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
                   <span id="tripartner"><a href="partnerPostList.do">🔎 내 동행 게시글</a></span>
               </li>
       
               <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                  <span id="bookMark">⭐ 즐겨찾기</span>
+                  <span id="bookMark"><a href="bookMarkList.do">⭐ 즐겨찾기</a></span>
               </li>
               
               <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                  <span id="bookMark">👯팔로우/팔로잉</span>
+                  <span id="bookMark"><a href="following.do">👯 팔로우/팔로잉</a></span>
+              </li>
+
+              <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
+                <span id="bookMark"><a href="following.do"> 💭 내가 작성한 댓글</a></span>
               </li>
             </ul>
         </div>

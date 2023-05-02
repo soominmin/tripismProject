@@ -28,7 +28,7 @@
         
           <!-- 여행지 리스트 시작 -->
   <div class="col-lg-8 col-xl-9 order-1 order-lg-0">
-    <div class="card rounded-0 card-transparent border-bottom mb-7 pb-7">
+    <div class="card rounded-0 card-transparent border-bottom mb-7 pb-7"  style="background:#f5f5f5;">
       <div class="row align-items-xl-center">
       <div class="container">
       <div class="bg-smoke p-2 p-md-6 pb-6 pb-md-8 mb-9 rounded">

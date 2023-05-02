@@ -58,4 +58,14 @@ public class MemberController {
 		return "member/partnerPostList";
 	}
 	
+	@RequestMapping("bookMarkList.do")
+	public String bookMarkList() {
+		return "member/bookMarkList";
+	}
+	
+	@RequestMapping("following.do")
+	public String following() {
+		return "member/following";
+	}
+	
 }

@@ -13,12 +13,19 @@
 	<insert id="insertFeed">
 		insert 
 	        into tb_feed
+	        (
+	        	  feed_no
+	        	, mem_no
+	        	, feed_title
+	        	, feed_contents
+	        	, feed_date
+	        	, feed_status
+	        )
 	    values( 
 	              seq_fno.nextval
-	            , #{memNo}
+	            , 1
 	            , #{feedTitle}
 	            , #{feedContent}
-	            , sysdate
 	            , sysdate
 	            , default
 	                )

@@ -80,6 +80,7 @@
 		let j =1;
 		
 		function tourInsert(){ //한국관광공사 api 관광지 전체 데이터 insert
+		 console.log("asd")
 		 let interval = setInterval(function () {
 				
 		 	$.ajax({

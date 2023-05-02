@@ -37,7 +37,7 @@ public class PlanServiceImpl implements PlanService {
 			t.setLargeCategoryNo(item.get("cat1").getAsString());
 			t.setMiddleCategoryNo(item.get("cat2").getAsString());
 			t.setSmallCategoryNo(item.get("cat3").getAsString());
-			t.setAreaCategoryNo(item.get("areacode").getAsString());
+			t.setAreaCategoryNo(Integer.parseInt(item.get("areacode").getAsString()));
 			result += pDao.insertTour(sqlSession,t);
 			
 		}

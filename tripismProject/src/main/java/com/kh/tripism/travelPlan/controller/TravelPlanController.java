@@ -35,7 +35,7 @@ public class TravelPlanController {
 		
 		
 		String url = "https://apis.data.go.kr/B551011/KorService1/areaBasedList1";
-		url +="?numOfRows=300&pageNo="+pageNum+"&MobileOS=etc&MobileApp=tripism&serviceKey=A6F8utDlM9IPwcIVzaKxhidc95xG6E6JULEYGT5vre5KEjVdQI8liVeENFWkKtHyqlUUOUoNmiRB0qxOIqHnvA%3D%3D&_type=json";
+		url +="?numOfRows=300&pageNo="+pageNum+"&MobileOS=etc&MobileApp=tripism&serviceKey=VR7yfFJDTCiY0id7o4GoBl439nXxiBWsUoTxEc9jW5riF/oSnubIFVeefhSCJTfJA6mEayLvAWPu82nOvT8tiQ==&_type=json";
 		
 		
 		URL requestUrl = new URL(url);

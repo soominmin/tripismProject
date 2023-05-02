@@ -17,7 +17,7 @@ public class Tour {
 	private String largeCategoryNo; 
 	private String middleCategoryNo; 
 	private String smallCategoryNo; 
-	private String areaCategoryNo; 
+	private int areaCategoryNo; 
 	private int spotCount;
 	private int spotLike;
 	
@@ -26,7 +26,7 @@ public class Tour {
 	public Tour(int spotNo, int spotContentId, int spotContentType, String spotCreateDate, String spotModifiedDate,
 			String spotTel, String spotTitle, String spotImgPath, String spotAddress, String spotPostalCode,
 			String spotMapx, String spotMapy, String largeCategoryNo, String middleCategoryNo, String smallCategoryNo,
-			String areaCategoryNo, int spotCount, int spotLike) {
+			int areaCategoryNo, int spotCount, int spotLike) {
 		super();
 		this.spotNo = spotNo;
 		this.spotContentId = spotContentId;
@@ -168,11 +168,11 @@ public class Tour {
 		this.smallCategoryNo = smallCategoryNo;
 	}
 
-	public String getAreaCategoryNo() {
+	public int getAreaCategoryNo() {
 		return areaCategoryNo;
 	}
 
-	public void setAreaCategoryNo(String areaCategoryNo) {
+	public void setAreaCategoryNo(int areaCategoryNo) {
 		this.areaCategoryNo = areaCategoryNo;
 	}
 
@@ -203,10 +203,8 @@ public class Tour {
 				+ spotCount + ", spotLike=" + spotLike + "]";
 	}
 
-	
 
 	
-
 	
 	
 	

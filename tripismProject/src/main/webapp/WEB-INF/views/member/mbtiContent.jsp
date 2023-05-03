@@ -198,28 +198,28 @@ input[type=radio] {
   
                 <div class="in" id="question1">
                   <span class="num">Q 01.</span>
-                  <div class="name">여행을 떠날 때 계획은</div>
+                  <div class="name">여행계획은 어떻게?</div>
                   <label>
                     <input type="radio" name="que1" value="P" class="label_que1">
-                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
+                    <b id="mbti">어떻게든 다 가게 돼있어~</b>
                   </label>
                   <label>
                     <input type="radio" name="que1" value="J" class="label_que1">
-                    <b id="mbti">계획은 필수</b>
+                    <b id="mbti">사전에 무조건 자세히 계획</b>
                   </label>
                 </div>
                 
   
                 <div id="question2" style="display: none;">
                   <span class="num">Q 02.</span>
-                  <div class="name">여행을 떠날 때 계획은</div>
-                  <label>
-                    <input type="radio" name="question3" value="P" class="label_que">
-                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
-                  </label>
+                  <div class="name">여행경비 계산은?</div>
                   <label>
                     <input type="radio" name="question3" value="J" class="label_que">
-                    <b id="mbti">계획은 필수</b>
+                    <b id="mbti">돈쓰는건 적어놔야지</b>
+                  </label>
+                  <label>
+                    <input type="radio" name="question3" value="P" class="label_que">
+                    <b id="mbti">계산? 대충 어림잡아 하지 뭐</b>
                   </label>
                 </div>
                 
@@ -227,42 +227,42 @@ input[type=radio] {
 
                 <div id="question3" style="display: none;">
                   <span class="num">Q 03.</span>
-                  <div class="name">여행을 떠날 때 계획은</div>
+                  <div class="name">여행지에서 밥먹을때</div>
                   <label>
-                    <input type="radio" name="question3" value="P" class="label_que">
-                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
+                    <input type="radio" name="question3" value="S" class="label_que">
+                    <b id="mbti">유명하고 실패하지 않는걸로!</b>
                   </label>
                   <label>
-                    <input type="radio" name="question3" value="J" class="label_que">
-                    <b id="mbti">계획은 필수</b>
+                    <input type="radio" name="question3" value="N" class="label_que">
+                    <b id="mbti">끌리는 곳으로 가는게 여행갬성</b>
                   </label>
                 </div>
                 
   
                 <div id="question4" style="display: none;">
                   <span class="num">Q 04.</span>
-                  <div class="name">여행을 떠날 때 계획은</div>
+                  <div class="name">여행하다가 수상한데 신기한 곳을 봤다</div>
                   <label>
-                    <input type="radio" name="question3" value="P" class="label_que">
-                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
+                    <input type="radio" name="question3" value="N" class="label_que">
+                    <b id="mbti">오 뭐지? 한번 가본다</b>
                   </label>
                   <label>
-                    <input type="radio" name="question3" value="J" class="label_que">
-                    <b id="mbti">계획은 필수</b>
+                    <input type="radio" name="question3" value="S" class="label_que">
+                    <b id="mbti">모르는 곳은 가는게 아니랬음</b>
                   </label>
                 </div>
                 
   
                 <div id="question5" style="display: none;">
                   <span class="num">Q 05.</span>
-                  <div class="name">여행을 떠날 때 계획은</div>
+                  <div class="name">아침에 늦잠 잔 친구에게</div>
                   <label>
-                    <input type="radio" name="question3" value="P" class="label_que">
-                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
+                    <input type="radio" name="question3" value="F" class="label_que">
+                    <b id="mbti">"여행이 역시 피곤하지."</b>
                   </label>
                   <label>
-                    <input type="radio" name="question3" value="J" class="label_que">
-                    <b id="mbti">계획은 필수</b>
+                    <input type="radio" name="question3" value="T" class="label_que">
+                    <b id="mbti">"내일은 시간 지키자."</b>
                   </label>
                 </div>
                 
@@ -271,28 +271,28 @@ input[type=radio] {
 
                 <div id="question6" style="display: none;">
                   <span class="num">Q 06.</span>
-                  <div class="name">여행을 떠날 때 계획은</div>
+                  <div class="name">친구한테 달이 이쁘다고 전화가 왔다</div>
                   <label>
-                    <input type="radio" name="question3" value="P" class="label_que">
-                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
+                    <input type="radio" name="question3" value="T" class="label_que">
+                    <b id="mbti">달이 이쁜데 나한테 전화를 왜...?</b>
                   </label>
                   <label>
-                    <input type="radio" name="question3" value="J" class="label_que">
-                    <b id="mbti">계획은 필수</b>
+                    <input type="radio" name="question3" value="F" class="label_que">
+                    <b id="mbti">감동이야.. </b>
                   </label>
                 </div>
                 
   
                 <div id="question7" style="display: none;">
                   <span class="num">Q 07.</span>
-                  <div class="name">여행을 떠날 때 계획은</div>
+                  <div class="name">친구가 쓸데없는 기념품을 살 때</div>
                   <label>
                     <input type="radio" name="question3" value="P" class="label_que">
-                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
+                    <b id="mbti">"그래 니가 행복하다면..."</b>
                   </label>
                   <label>
                     <input type="radio" name="question3" value="J" class="label_que">
-                    <b id="mbti">계획은 필수</b>
+                    <b id="mbti">"그거 결국 쓰레기 된다"</b>
                   </label>
                 </div>
 
@@ -301,14 +301,14 @@ input[type=radio] {
   
                 <div id="question8" style="display: none;">
                   <span class="num">Q 08.</span>
-                  <div class="name">여행을 떠날 때 계획은</div>
+                  <div class="name">나는 여행지를 선택할 때 주로</div>
                   <label>
-                    <input type="radio" name="question3" value="P" class="label_que">
-                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
+                    <input type="radio" name="question3" value="E" class="label_que">
+                    <b id="mbti">사람이 많은 도시로</b>
                   </label>
                   <label>
-                    <input type="radio" name="question3" value="J" class="label_que">
-                    <b id="mbti">계획은 필수</b>
+                    <input type="radio" name="question3" value="I" class="label_que">
+                    <b id="mbti">사람없는 조용한 곳에서 힐링</b>
                   </label>
                 </div>
 
@@ -317,14 +317,14 @@ input[type=radio] {
   
                 <div id="question9" style="display: none;">
                   <span class="num">Q 09.</span>
-                  <div class="name">여행을 떠날 때 계획은</div>
+                  <div class="name">숙소를 구할때 나는</div>
                   <label>
-                    <input type="radio" name="question3" value="P" class="label_que">
-                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
+                    <input type="radio" name="question3" value="E" class="label_que">
+                    <b id="mbti">저녁에 바베큐 파티를 여는 곳</b>
                   </label>
                   <label>
-                    <input type="radio" name="question3" value="J" class="label_que">
-                    <b id="mbti">계획은 필수</b>
+                    <input type="radio" name="question3" value="I" class="label_que">
+                    <b id="mbti">조용하고 아늑한 곳</b>
                   </label>
                 </div>
 
@@ -333,14 +333,14 @@ input[type=radio] {
   
                 <div id="question10" style="display: none;">
                   <span class="num">Q 10.</span>
-                  <div class="name">여행을 떠날 때 계획은</div>
+                  <div class="name">여행지에 대한 감상을</div>
                   <label>
-                    <input type="radio" name="question3" value="P" class="label_que">
-                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
+                    <input type="radio" name="question3" value="E" class="label_que">
+                    <b id="mbti">마음에 담고 느낀다</b>
                   </label>
                   <label>
                     <input type="radio" name="question3" value="J" class="label_que">
-                    <b id="mbti">계획은 필수</b>
+                    <b id="mbti">말로 내뱉어야 직성이 풀린다</b>
                   </label>
                 </div>
 
@@ -349,14 +349,14 @@ input[type=radio] {
   
                 <div id="question11" style="display: none;">
                   <span class="num">Q 11.</span>
-                  <div class="name">여행을 떠날 때 계획은</div>
+                  <div class="name">돌아오는 비행기안에서</div>
                   <label>
-                    <input type="radio" name="question3" value="P" class="label_que">
-                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
+                    <input type="radio" name="question3" value="S" class="label_que">
+                    <b id="mbti">호옥~시라도 떨어지면 어떡하지?</b>
                   </label>
                   <label>
-                    <input type="radio" name="question3" value="J" class="label_que">
-                    <b id="mbti">계획은 필수</b>
+                    <input type="radio" name="question3" value="N" class="label_que">
+                    <b id="mbti">와 개꿀잠자야지 편-안</b>
                   </label>
                 </div>
 
@@ -365,14 +365,14 @@ input[type=radio] {
   
                 <div id="question12" style="display: none;">
                   <span class="num">Q 12.</span>
-                  <div class="name">여행을 떠날 때 계획은</div>
+                  <div class="name">여행이 끝나고 집에 돌아왔다.</div>
                   <label>
                     <input type="radio" name="question3" value="P" class="label_que">
-                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
+                    <b id="mbti">침대로 바로 고!</b>
                   </label>
                   <label>
                     <input type="radio" name="question3" value="J" class="label_que">
-                    <b id="mbti">계획은 필수</b>
+                    <b id="mbti">일단 짐정리부터.. 캐리어를 연다</b>
                   </label>
                 </div>
 

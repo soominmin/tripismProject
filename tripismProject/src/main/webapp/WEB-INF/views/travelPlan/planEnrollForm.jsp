@@ -44,9 +44,9 @@
                 <div id="menu_wrap" class="bg_white">
                   <div class="option">
                     <br>
-                      <div>
-                          <form onsubmit="searchPlaces(); return false;">
-                              <input type="text" value="경복궁" id="keyword" size="15"> 
+                      <div style="position: absolute;">
+                          <form onsubmit="searchPlaces(); return false;" >
+                              <input type="text" value="경복궁" id="keyword" size="15" style="z-index: 999;"> 
                               <button type="submit" class="btn-sm" style="background-color: rgb(112, 217, 223); color: white; border-radius: 30px; height: 40px">검색</button>
                           </form>
                       </div>

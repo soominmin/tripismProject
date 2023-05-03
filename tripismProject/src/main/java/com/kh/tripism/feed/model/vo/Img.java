@@ -2,27 +2,27 @@ package com.kh.tripism.feed.model.vo;
 
 public class Img {
 
-	private int imgNo;
+	private int feedImgNo;
 	private int feedNo;
-	private String imgOriginName;
+	private String imgOriginalName;
 	private String imgChangeName;
 	
 	public Img() {}
 
-	public Img(int imgNo, int feedNo, String imgOriginName, String imgChangeName) {
+	public Img(int feedImgNo, int feedNo, String imgOriginalName, String imgChangeName) {
 		super();
-		this.imgNo = imgNo;
+		this.feedImgNo = feedImgNo;
 		this.feedNo = feedNo;
-		this.imgOriginName = imgOriginName;
+		this.imgOriginalName = imgOriginalName;
 		this.imgChangeName = imgChangeName;
 	}
 
-	public int getImgNo() {
-		return imgNo;
+	public int getFeedImgNo() {
+		return feedImgNo;
 	}
 
-	public void setImgNo(int imgNo) {
-		this.imgNo = imgNo;
+	public void setFeedImgNo(int feedImgNo) {
+		this.feedImgNo = feedImgNo;
 	}
 
 	public int getFeedNo() {
@@ -33,12 +33,12 @@ public class Img {
 		this.feedNo = feedNo;
 	}
 
-	public String getImgOriginName() {
-		return imgOriginName;
+	public String getImgOriginalName() {
+		return imgOriginalName;
 	}
 
-	public void setImgOriginName(String imgOriginName) {
-		this.imgOriginName = imgOriginName;
+	public void setImgOriginalName(String imgOriginalName) {
+		this.imgOriginalName = imgOriginalName;
 	}
 
 	public String getImgChangeName() {
@@ -51,8 +51,8 @@ public class Img {
 
 	@Override
 	public String toString() {
-		return "Img [imgNo=" + imgNo + ", feedNo=" + feedNo + ", imgOriginName=" + imgOriginName + ", imgChangeName="
-				+ imgChangeName + "]";
+		return "Img [feedImgNo=" + feedImgNo + ", feedNo=" + feedNo + ", imgOriginalName=" + imgOriginalName
+				+ ", imgChangeName=" + imgChangeName + "]";
 	}
 	
 	

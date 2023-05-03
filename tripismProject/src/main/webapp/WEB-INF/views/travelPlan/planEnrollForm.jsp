@@ -87,7 +87,8 @@
 		 		url: "tourInsert.do",
 		 		data:{pageNum:j++},
 		 		success:function(){
-		 			console.log("데이터입력 성공")
+		 			console.log("데이터입력 성공");
+		 			console.log("wqelkjwqelkjwqlkejlwqkejl");
 				},
 		 		error:function(){
 		 			console.log("데이터입력 실패");

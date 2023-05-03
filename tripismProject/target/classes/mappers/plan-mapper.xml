@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="planMapper">
+
+	<insert id="insertTour">
+		insert
+			into tb_travel_spot
+			(
+				SPOT_NO,
+				SPOT_CONTENT_ID,
+				SPOT_CONTENT_TYPE,
+				SPOT_TEL,
+				SPOT_TITLE,
+				SPOT_IMG_PATH,
+				SPOT_ADDRESS,
+				SPOT_POSTAL_CODE,
+				SPOT_MAPX,
+				SPOT_MAPY,
+				LARGE_CATEGORY_NO,
+				MIDDLE_CATEGORY_NO,
+				SMALL_CATEGORY_NO,
+				AREA_CATEGORY_NO	
+			)
+			values
+			(
+				seq_spotno.nextval,
+				#{spotContentId},
+				#{spotContentType},
+				#{spotTel},
+				#{spotTitle},
+				#{spotImgPath},
+				#{spotAddress},
+				#{spotPostalCode},
+				#{spotMapx},
+				#{spotMapy},
+				#{largeCategoryNo},
+				#{middleCategoryNo},
+				#{smallCategoryNo},
+				#{areaCategoryNo}		
+			)
+			
+	
+	</insert>
+</mapper>

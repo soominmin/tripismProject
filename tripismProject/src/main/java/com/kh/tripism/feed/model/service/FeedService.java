@@ -2,6 +2,8 @@ package com.kh.tripism.feed.model.service;
 
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Service;
+
 import com.kh.tripism.feed.model.vo.Feed;
 import com.kh.tripism.feed.model.vo.PageInfo;
 import com.kh.tripism.feed.model.vo.Reply;

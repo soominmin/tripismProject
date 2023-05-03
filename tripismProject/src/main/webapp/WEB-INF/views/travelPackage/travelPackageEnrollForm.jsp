@@ -106,14 +106,14 @@
 	    
 	            <div class="col-lg-6">
 	              <div class="form-group">
-	                <label for="inputName">상품 가격을 입력해 주세요 <span style="color: gray;">* 최저가 기준으로 입력. ex : 80,000원~</span> </label>
+	                <label for="inputName">상품 가격을 입력해 주세요 <br><span style="color: gray;">* 최저가 기준으로 입력. ex : 80,000원~</span> </label>
 	                <input type="number" class="form-control border-0 bg-smoke">
 	              </div>
 	            </div>
 	    
 	            <div class="col-lg-6">
 	              <div class="form-group">
-	                <label for="inputName">여행 기간을 입력해 주세요</label>
+	                <label for="inputName">여행 기간을 입력해 주세요</label> <br><br>
 	                <input type="text" class="form-control border-0 bg-smoke">
 	              </div>
 	            </div>

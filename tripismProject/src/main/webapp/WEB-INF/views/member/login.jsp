@@ -77,11 +77,11 @@
             <div class="modal-body">
               <form class="" action="index.html" method="post">
                 <div class="mb-3">
-                  <input type="text" class="form-control bg-smoke" required="" placeholder="아이디를 입력해주세요.">
+                  <input type="text" name="userId" class="form-control bg-smoke" required placeholder="아이디를 입력해주세요.">
                 </div>
   
                 <div class="mb-3">
-                  <input type="password" class="form-control bg-smoke" required="" placeholder="비밀번호를 입력해주세요.">
+                  <input type="password" name="userPwd" class="form-control bg-smoke" required placeholder="비밀번호를 입력해주세요.">
                 </div>
   
                 <div class="mb-3 form-check mb-0">

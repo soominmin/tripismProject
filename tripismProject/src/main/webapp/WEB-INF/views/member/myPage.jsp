@@ -50,7 +50,7 @@
       
           <!-- 계정설정시작 -->
             <div class="col-lg-8 col-xl-9 order-1 order-lg-0">
-              <div class="card rounded-0 card-transparent border-bottom mb-7 pb-7">
+              <div class="card rounded-0 card-transparent border-bottom mb-7 pb-7"  style="background:#f5f5f5";>
                 <div class="row align-items-xl-center">
                   <div class="container">
                     <div class="bg-smoke p-2 p-md-6 pb-6 pb-md-8 mb-9 rounded">
@@ -58,8 +58,8 @@
                         <div class="col-12">
                           <div class="row">
                             <div class="col-lg-6" style="margin: auto;">
-                              <div class="mb-4">
-                                <h3 class="text-uppercase mb-3">회원정보수정</h3>
+                              <div class="mb-4" style="padding-top: 40px;">
+                                <h3 class="text-uppercase mb-3" align="center">회원정보수정</h3>
                               </div>
                               <div class="modal-body">
                                   <div class="mb-3">
@@ -131,49 +131,7 @@
             <!-- 계정설정 끝 -->
       
       
-      
-      
-            
-            <div class="col-lg-4 col-xl-3" >
-              <div class="mb-md-6 mb-lg-0" id="myPagebar" style="width: 280px;">
-                <div class="row" >
-                  
-                <!-- Sidebar -->
-                  <div class="col-md-6 col-lg-12 d-none d-md-block">
-                    <div class="bg-smoke border border-light-gray rounded p-3 mb-4">
-                      <div>
-                        <h3 class="mb-4" id="userName"><img src="../resources/user (2).jfif" alt=""></h3>
-                          <div id="userId"><h4>userId</h4></div>
-                          <div id="userNickName"><p>userNickName</p></div>
-                      </div>
-                      
-                  <div id="ulli">
-                      <ul class="list-unstyled list-group list-group-flush">
-                        <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                            <span id="userSetting" onclick="userSetting();">🌐 계정설정 </span>
-                            <small class="ms-auto font-weight-bold">(9)</small>
-                        </li>
-                
-                        <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                            <span id="likePost">❤️ 내가 좋아요한 게시글</span>
-                            <small class="ms-auto font-weight-bold">(7)</small>
-                        </li>
-                
-                        <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                            <span id="tripPartner">🔎 내 동행 게시글</span>
-                            <small class="ms-auto font-weight-bold">(5)</small>
-                        </li>
-                
-                        <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                            <span id="bookMark">⭐ 즐겨찾기</span>
-                            <small class="ms-auto font-weight-bold">(8)</small>
-                        </li>
-                      </ul>
-                  </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <jsp:include page="../member/mypageSidebar.jsp"/>
             </div>
           </div>
       
@@ -187,32 +145,6 @@
         </div><!-- element wrapper ends -->
       
 
-  <script>
-    function sideBar(condition){
-      if(condition == 'userSetting'){
-        $("#userSetting").fadeIn();
-        $("#likePost").fadeOut();
-        $("#tripartner").fadeOut();
-        $("#bookMark").fadeOut();
-      } else if(condition == 'likePost'){
-        $("#userSetting").fadeOut();
-        $("#likePost").fadeIn();
-        $("#tripartner").fadeOut();
-        $("#bookMark").fadeOut();
-      } else if(condition == 'tripartner'){
-        $("#userSetting").fadeOut();
-        $("#likePost").fadeOut();
-        $("#tripartner").fadeIn();
-        $("#bookMark").fadeOut();
-      } else {
-        $("#userSetting").fadeOut();
-        $("#likePost").fadeOut();
-        $("#tripartner").fadeOut();
-        $("#bookMark").fadeIn();
-      }
-    }
-    
-  </script>
 
 
 

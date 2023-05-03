@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="feedMapper">
+
+	<resultMap type="Feed" id="feedResultSet">
+		<result column = "feed_no" property="feedNo" />
+		<result column = "mem_no" property="memNo" />
+		<result column = "feed_title" property="feedTitle" />
+		<result column = "feed_contents" property="feedContents" />
+		<result column = "feed_date" property="feedDate" />
+		<result column = "feed_modify" property="feedModify" />
+		<result column = "feed_status" property="feedStatus" />
+	</resultMap>
+	
+	<resultMap type="Reply" id="replyResultSet">
+		<result column="reply_no" property="replyNo" />
+		<result column="board_no" property="boardNo" />
+		<result column="mem_no" property="memNo" />
+		<result column="reply_contents" property="replyContents" />
+		<result column="reply_date" property="replyDate" />
+		<result column="reply_distinct" property="replyDistict" />
+	</resultMap>
+	
+	<resultMap type="Img" id="imgResultSet">
+		<result column="feed_img_no" property="feedImgNo"/>
+		<result column="feed_no" property="feedNo"/>
+		<result column="img_original_name" property="imgOriginalName"/>
+		<result column="img_change_name" property="imgChangeName"/>
+	</resultMap>
+
+	<select id="selectFeedCount" resultType="_int">
+		select 
+				count(*)
+			from tb_feed
+			where status = "Y"
+	</select>
+	
+
+	<insert id="insertFeed">
+		insert 
+	        into tb_feed
+	        (
+	        	  feed_no
+	        	, mem_no
+	        	, feed_title
+	        	, feed_contents
+	        	, feed_date
+	        	, feed_status
+	        )
+	    values( 
+	              seq_feedno.nextval
+	            , 1
+	            , #{feedTitle}
+	            , #{feedContents}
+	            , sysdate
+	            , 'Y'
+	                )
+	</insert>
+	
+	<delete id="deleteFeed">
+		update 
+		    tb_feed
+		    set feed_status = 'N'
+		where feed_no = #{feedNo}
+	</delete>
+	
+	<update id="updateFeed">
+		update 
+        tb_feed
+        set 
+              feed_title = #{feedTitle}
+            , feed_contents = #{feedTitle}
+            , feed_modify = sysdate
+        where feed_no = #{feedNo}
+	</update>
+	
+	<select id="selectFeedList" >
+		
+	</select>
+	
+	<insert id="insertReply">
+		
+	</insert>
+	
+	<delete id="deleteReply">
+		update 
+		    tb_reply
+		    set reply_status = 'N'
+		where reply_no = #{replyNo}
+	</delete>
+	
+	<select id="selectReplyList">
+	
+	</select>
+	
+</mapper>

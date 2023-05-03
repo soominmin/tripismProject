@@ -14,6 +14,9 @@
     
     
     <style>
+        body * {
+          font-family: 'TheJamsil';
+        }
         /* 전체 */
         .ijbmef {
           display: flex;
@@ -170,7 +173,7 @@
         <div class="Footer__InfoBox-sc-19vhdob-3 fAFwwV">
           <div>
             <span class="Footer__InfoBoldText-sc-19vhdob-4 jvHhMp">고객센터 0507-1490-2626</span>
-            <button><a href="emailInquiry.pg">1:1 채팅상담</a></button>
+            <button><a href="emailInquiry.pg">이메일 상담</a></button>
           </div>
           <span> * 실시간 채팅상담: 매일 9:00 ~ 24:00</span>
           <span> 친절 유선 상담: 평일 10:00 ~ 19:00 (12:00 - 13:00 제외)</span>

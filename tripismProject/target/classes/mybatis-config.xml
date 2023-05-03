@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "https://mybatis.org/dtd/mybatis-3-config.dtd" >
+
+<configuration>
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+		
+	</settings>
+	
+	<typeAliases>
+		<typeAlias type="com.kh.tripism.travelPlan.model.vo.Tour" alias="Tour"/>
+		<typeAlias type="com.kh.tripism.feed.model.vo.Feed" alias="Feed"/>
+		<typeAlias type="com.kh.tripism.feed.model.vo.Img" alias="Img"/>
+		<typeAlias type="com.kh.tripism.feed.model.vo.Reply" alias="Reply"/>
+		
+	</typeAliases>
+
+	
+	
+	<mappers>
+		<mapper resource="/mappers/plan-mapper.xml"/>
+		<mapper resource="/mappers/feed-mapper.xml"/>
+	</mappers>
+	 
+	 
+		 
+
+</configuration>
+
+
+

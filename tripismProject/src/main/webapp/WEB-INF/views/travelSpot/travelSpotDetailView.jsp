@@ -82,7 +82,7 @@
 					<span class="num" id="conLike">1</span>
 				</button>
 				<span class="num_view">
-	        <img src="${pageContext.request.contextPath}/resources/img/icons/view.png" style="width: 30px; height: 30px;" alt="">
+	        <img src="${pageContext.request.contextPath}/resources/img/icons/view.png" style="width: 25px; height: 25px;" alt="">
 	        <span class="num" id="conRead">562</span>
 	      		</span>
 				<span class="rline" style="float: right;">

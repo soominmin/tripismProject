@@ -252,6 +252,7 @@
 
             <!-- 글쓰기용  -->
             <form action="insert.fd" method="post" enctype="multipart/form-data"> <!--  파일 그 자체를 넘기려면 enctype이 필요 -->
+            
                 <div>
                     <div>
                         <div>
@@ -273,21 +274,22 @@
                             <div class="WriteWebSectionstyle__HorizontalLine-sc-ixmlq3-1 cGslsG"></div>
 
                             <div>
-                            <textarea class="WriteWebSectionstyle__WriteTextarea-sc-ixmlq3-3 IUMRx desc" name="feedContents" id="desc" placeholder="
-				            1. 작성할 내용을 생각해보세요 
-				            ex) 가족과 함께 오랜만에 나들이를 다녀왔습니다. 
-				            
-				            2. 사진을 넣을지 동영상을 넣을지 생각해보세요
-				            ex) 꽃사진 1, 2, 3 / 동영상.mp4
-				            
-				            3. 다른 사람들에게 다녀온 여행지를 추천해보세요
-				            ex) 가족과 함께~ , 부모님과 함께~, 우리 아이 체험학습장소로~
-				            
-				            (1000자 이내) " style="height: 400px; resize: none ;" required></textarea>
+								<textarea class="WriteWebSectionstyle__WriteTextarea-sc-ixmlq3-3 IUMRx desc" name="feedContents" id="desc" placeholder="
+								1. 작성할 내용을 생각해보세요 
+								ex) 가족과 함께 오랜만에 나들이를 다녀왔습니다. 
+								
+								2. 사진을 넣을지 동영상을 넣을지 생각해보세요
+								ex) 꽃사진 1, 2, 3 / 동영상.mp4
+								
+								3. 다른 사람들에게 다녀온 여행지를 추천해보세요
+								ex) 가족과 함께~ , 부모님과 함께~, 우리 아이 체험학습장소로~
+								
+								(1000자 이내) " style="height: 400px; resize: none ;" required></textarea>
                             </div>
                         </div>
                         
 						<br>
+
                         <div align="left">
                             <table>
                                 <thead>
@@ -302,11 +304,11 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div align="left">
-							<div style="width: 672.4px; height: 400px; border: 1px dotted gray;" >
 
-							</div>
+                        <div align="left">
+							<div style="width: 672.4px; height: 400px; border: 1px dotted gray;" >	</div>
 						</div>
+
                         <!-- Enroll footer -->
                         <div class="button__ButtonAreaDiv-sc-1szjplo-6 bGwIdM" style="margin-top: 7px;">
                             <button type="button"
@@ -318,11 +320,11 @@
                                 style="width: calc(50% - 8px);">작성완료</button>
                         </div>
                         
-                        </div>
+                        
                     </div>
                 </div>
             </form>
-
+            
 
             <script>
                 $(function(){ // 첨부파일 추가버튼

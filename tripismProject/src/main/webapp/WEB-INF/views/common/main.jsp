@@ -364,7 +364,7 @@ body * {
 
     </div>
     
-  <a href="mbtiTest.do" type="button" class="btn-sm">mbti(클릭ㄴ)</button>  
+  <a href="mbtiStart.do" type="button" class="btn-sm">mbti(클릭ㄴ)</button>  
   </div>
   
   

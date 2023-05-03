@@ -22,7 +22,11 @@
         .btn-feed-three{ width: 120px; }
         .feed-content>img{ display: block; margin: auto; } 
         #shareButtons button{
-            margin: 0 8px;
+            margin: 5px 8px;
+        }
+        #shareButtons div{
+            display: inline-block;
+            margin: 0px 30px;
         }
 
         body{
@@ -213,15 +217,32 @@
                 
                             <!-- Modal body -->
                             <div class="modal-body" id="shareButtons">
-                                <button style="border: none;">
-                                    <img src="${pageContext.request.contextPath}/resources/img/feed/twitterLogo.png" alt="twitter" onclick=shareTwitter(); style="height: 75px;">
-                                </button>
-                                <button style="border: none;">
-                                    <img src="${pageContext.request.contextPath}/resources/img/feed/facebookLogo.png" alt="facebook" onclick=shareFacebook(); style="height: 75px;">
-                                </button>
-                                <button style="border: none;">
-                                    <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png" onclick=shareKakao();  alt="카카오톡 공유 보내기 버튼" style="height: 75px;">
-                                </button>
+                                <div align="center">
+                                    <button style="border: none;">
+                                        <img src="${pageContext.request.contextPath}/resources/img/feed/twitterLogo.png" alt="twitter" onclick=shareTwitter(); style="height: 75px;">
+                                    </button>
+                                    <p>트위터</p>
+                                </div>
+
+                                <div align="center">
+                                    <button style="border: none; border-radius: 15px;">
+                                        <img src="${pageContext.request.contextPath}/resources/img/feed/facebookLogo.png" alt="facebook" onclick=shareFacebook(); style="height: 75px;">
+                                    </button>
+                                    <p>페이스북</p>
+                                </div>
+
+                                <div align="center">
+                                    <button style="border: none;">
+                                        <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png" onclick=shareKakao();  alt="카카오톡 공유 보내기 버튼" style="height: 75px;">
+                                    </button>
+                                    <p>카카오톡</p>
+                                </div>
+
+                                <div style="margin-top: 30px;">
+                                    <span onclick="copyTheURL(this)">
+                                        <input type="text" value="여기에 피드주소 넣으려함" style="text-align: center; width: 280px;" readonly>
+                                    </span> &nbsp; &lt;&lt; &nbsp; 클릭 시 복사
+                                </div>
                             </div>
                         
                             <!-- Modal footer -->
@@ -359,9 +380,23 @@
                 }
                 function shareFacebook() {
                     let sendUrl = "http://localhost:8007/tripism/feed/";
-                    window.open("http://www.facebook.com/sharer/sharer.php?href=" + sendUrl);
+                    // window.open("http://www.facebook.com/sharer/sharer.php?href=" + sendUrl); 기존 것
+                    window.open('http://www.facebook.com/sharer.php?href=http://localhost:8007/tripism/feed.fd')
                     console.log("페이스북 이동됨")
                 }
+
+                function copyTheURL(ths) {
+
+                    var ths = $(ths);
+
+                    var obj = ths.children("input");
+
+                    obj.select();
+
+                    document.execCommand("copy");
+
+                    }
+
                 
             </script>
 

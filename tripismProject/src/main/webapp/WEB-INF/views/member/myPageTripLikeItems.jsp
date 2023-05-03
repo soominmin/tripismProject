@@ -1,61 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-  
-  <head>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+  .day-circle {
+    background-color: RGB(112, 217, 223);
+  }
 
-    <!-- SITE TITTLE -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Packages Fullwidth Grid View - Star Travel</title>
-
-   <!-- Plugins css Style -->
-  <link href='../common/Star travel/Static HTML/assets/plugins/fontawesome-5.15.2/css/all.min.css' rel='stylesheet'>
-  <link href='../common/Star travel/Static HTML/assets/plugins/fontawesome-5.15.2/css/fontawesome.min.css' rel='stylesheet'>
-  <link href="../common/Star travel/Static HTML/assets/plugins/animate/animate.css" rel="stylesheet">
-  <link href="../common/Star travel/Static HTML/assets/plugins/menuzord/css/menuzord.css" rel="stylesheet">
-  <link href="../common/Star travel/Static HTML/assets/plugins/menuzord/css/menuzord-animations.css" rel="stylesheet">
-
-  <link href='../common/Star travel/Static HTML/assets/plugins/fancybox/jquery.fancybox.min.css' rel='stylesheet'>
-
-    <!-- GOOGLE FONT -->
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700' rel='stylesheet'>
-
-    <!-- CUSTOM CSS -->
-    <link href="../common/Star travel/Static HTML/assets/css/star.css" id="option_style" rel="stylesheet">
-
-
-    <!-- FAVICON -->
-    <link rel="shortcut icon" type="image/png" href="../common/Star travel/Static HTML/assets/img/favicon.png" />
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-  <style>
-    .day-circle {
-      background-color: RGB(112, 217, 223);
-    }
- 
-  </style>
-
-  </head>     
+</style>
+</head>
 
 <body id="body" class="up-scroll">
 
+<jsp:include page="../common/header.jsp"/>
 
 
 <!-- ====================================
 ———	TOUR PACKAGES SECTION
 ===================================== -->
-<section class="py-9 py-md-10">
-  <div class="container">
-    <div class="row">
+<div class="main-wrapper blog-list-right-sidebar">
+  <section class="py-9 py-md-10">
+    <div class="container">
+      <div class="row">
+        
+          <!-- 여행지 리스트 시작 -->
   <div class="col-lg-8 col-xl-9 order-1 order-lg-0">
-    <div class="card rounded-0 card-transparent border-bottom mb-7 pb-7">
+    <div class="card rounded-0 card-transparent border-bottom mb-7 pb-7"  style="background:#f5f5f5;">
       <div class="row align-items-xl-center">
       <div class="container">
       <div class="bg-smoke p-2 p-md-6 pb-6 pb-md-8 mb-9 rounded">
@@ -455,75 +428,28 @@
           </div>
         </div>
       </div>
-
-    </div>		
-  </div>
-</section>
-
-
-
-  </div><!-- element wrapper ends -->
-
-
-  
-    <!-- ====================================
-    ——— MODAL SECTION
-    ===================================== -->
-
-
-    <!-- INQUIRY IN MODAL -->
-    <div class="modal fade" id="inquiry" tabindex="-1" role="dialog" aria-label="inquiryModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header rounded">
-            <h3 class="modal-title text-uppercase font-weight-bold">여행상품 상세보기</h3>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-
-          <div class="modal-body pb-3">
-
-            <img class="card-img-top lazyestload" data-src="https://a.cdn-hotels.com/gdcs/production47/d524/cf53813b-845b-42f3-a749-74875dd8bbf1.jpg?impolicy=fcrop&w=800&h=533&q=medium" src="" alt="Card image cap">
-
-            <br><br>
-
-            <h4 style="font-weight: 900;">레일텔(KTX+페어필드부산송도호텔)</h4>
-
-            <hr>
-
-            <p>송도의 오션뷰 호텔와 함께 인근에 위치한 남포동, 자갈치, 국제시장 등 여행지를 돌아볼 수 있는 철도연계 자유여행 상품.</p>
-
-            <span class="badge bg-info text-dark">예약가능기간</span>
-            2020.11.10 ~ 2023.04.01
-
-            <br>
-
-            <hr>
-
-            <h5 style="font-weight: 900;">이 상품 속 주요 여행지</h5>
-
-            <br>
-
-            <div style="width: 150px; height: 150px; border: 1px solid black;"></div>
-
-            <br>
-            <button class="btn btn-primary" type="button" style="width: 100%;">예약하러가기</button>
-            
-
           </div>
         </div>
       </div>
     </div>
   </div>
   </div>
+<jsp:include page="../member/mypageSidebar.jsp"/>
 </div>
 
-    <!-- Javascript -->
-    <script src="../common/Star travel/Static HTML/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
-    <script src="../common/Star travel/Static HTML/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../common/Star travel/Static HTML/assets/plugins/menuzord/js/menuzord.js"></script>
-    <script src='../common/Star travel/Static HTML/assets/plugins/fancybox/jquery.fancybox.min.js'></script>
-    <script src="../common/Star travel/Static HTML/assets/plugins/lazyestload/lazyestload.js"></script>
-    <script src="../common/Star travel/Static HTML/assets/plugins/smoothscroll/SmoothScroll.js"></script>
-    <script src="../common/Star travel/Static HTML/assets/js/star.js"></script>
-</html>
 
+
+
+    </div>		
+  	</div>
+	</section>
+  	</div><!-- element wrapper ends -->
+
+
+
+
+
+<jsp:include page="../common/footer.jsp"/>
+
+</body>
+</html>

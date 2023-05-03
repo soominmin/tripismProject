@@ -25,9 +25,7 @@ body * {
 <!-- ====================================
 ———	BANNER SECTION
 ===================================== -->
-<div align="center">
-  <img src="${pageContext.request.contextPath}/resources/img/map.webp" alt="">
-</div>
+
 
 
 <!-- ====================================
@@ -366,8 +364,10 @@ body * {
 
     </div>
     
-    
+  <a href="mbtiTest.do" type="button" class="btn-sm">mbti(클릭ㄴ)</button>  
   </div>
+  
+  
 </section>
 
   </div><!-- element wrapper ends -->

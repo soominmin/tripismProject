@@ -247,47 +247,11 @@
 
         <br><br>
         
-        <!-- feedPage- -->
-        <!-- <div id="left-main"> &nbsp;
-
-            <div class="inner-bar" align="center" style="padding:30% 0%;">
- 
-                <button style="background-color: transparent; border: none;" onclick="location.href='index.jsp'"><img src="${pageContext.request.contextPath}/resources/img/feed/home.png" alt="home" style="width: 2em;">
-                    <p>홈</p>
-                </button>
-
-                <br>
-
-                <button style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/hot.png" alt="hot" style="width: 2em;">
-                    <p>실시간</p>
-                </button>
-
-                <br>
-
-                <hr class="inner-bar">
-                
-                <br>
-
-                <button style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/camera.png" alt="img" style="width: 2em;">
-                    <p>사진</p>
-                </button>
-                
-                <br>
-
-                <button style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/video.png" alt="video" style="width: 2em;">
-                    <p>비디오</p>
-                </button>
-
-
-                
-                더 적어보자
-            </div>            
-        </div> -->
 
         <div id="middle-main" align="center">&nbsp;
 
-            <!-- 글쓰기용 modal -->
-            <form action="#">
+            <!-- 글쓰기용  -->
+            <form action="insert.fd" method="post" enctype="multipart/form-data"> <!--  파일 그 자체를 넘기려면 enctype이 필요 -->
                 <div>
                     <div>
                         <div>
@@ -299,7 +263,7 @@
                 
                             <!-- Enroll body -->
                             <div>
-                                <input type="text" name="title" placeholder="ex) 아침고요수목원에 다녀왔어요" maxlength="100" value="">
+                                <input type="text" name="feedTitle" placeholder="ex) 아침고요수목원에 다녀왔어요" maxlength="100" value="" required>
                             </div>
 
                             <br>
@@ -309,42 +273,47 @@
                             <div class="WriteWebSectionstyle__HorizontalLine-sc-ixmlq3-1 cGslsG"></div>
 
                             <div>
-                            <textarea class="WriteWebSectionstyle__WriteTextarea-sc-ixmlq3-3 IUMRx desc" name="content" id="desc" placeholder="
-            1. 작성할 내용을 생각해보세요 
-            ex) 가족과 함께 오랜만에 나들이를 다녀왔습니다. 
-            
-            2. 사진을 넣을지 동영상을 넣을지 생각해보세요
-            ex) 꽃사진 1, 2, 3 / 동영상.mp4
-            
-            3. 다른 사람들에게 다녀온 여행지를 추천해보세요
-            ex) 가족과 함께~ , 부모님과 함께~, 우리 아이 체험학습장소로~
-            
-            (1000자 이내) " style="height: 400px;"></textarea>
+                            <textarea class="WriteWebSectionstyle__WriteTextarea-sc-ixmlq3-3 IUMRx desc" name="feedContents" id="desc" placeholder="
+				            1. 작성할 내용을 생각해보세요 
+				            ex) 가족과 함께 오랜만에 나들이를 다녀왔습니다. 
+				            
+				            2. 사진을 넣을지 동영상을 넣을지 생각해보세요
+				            ex) 꽃사진 1, 2, 3 / 동영상.mp4
+				            
+				            3. 다른 사람들에게 다녀온 여행지를 추천해보세요
+				            ex) 가족과 함께~ , 부모님과 함께~, 우리 아이 체험학습장소로~
+				            
+				            (1000자 이내) " style="height: 400px; resize: none ;" required></textarea>
                             </div>
                         </div>
                         
+						<br>
                         <div align="left">
                             <table>
                                 <thead>
                                     <th>
-                                        첨부 &nbsp; <button class="addFile">(더하기+)</button> &nbsp; <button class="deleteFile">(빼기-)</button>
+                                        첨부 &nbsp; <button type="button" class="addFile">(추가)</button> &nbsp; / &nbsp;  <button type="button" class="deleteFile">(제거)</button>
                                     </th> 
                                 </thead>
                                 <tbody id="fileHere">
                                     <tr>
-                                        <td><input type="file"></td>
+                                        <td><input type="file" name="upFile"></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        
+                        <div align="left">
+							<div style="width: 672.4px; height: 400px; border: 1px dotted gray;" >
+
+							</div>
+						</div>
                         <!-- Enroll footer -->
                         <div class="button__ButtonAreaDiv-sc-1szjplo-6 bGwIdM" style="margin-top: 7px;">
-                            <button
+                            <button type="button"
                                 class="button__ButtonConfirmButton-sc-1szjplo-7 hlWCvk"
                                 style="width: calc(50% - 8px);"
                                 onclick="location.href='feed.fd'">취소</button>
-                            <button
+                            <button type="submit"
                                 class="button__ButtonConfirmButton-sc-1szjplo-7 dcFMHq"
                                 style="width: calc(50% - 8px);">작성완료</button>
                         </div>
@@ -358,7 +327,7 @@
             <script>
                 $(function(){ // 첨부파일 추가버튼
                     $(".addFile").click(function(){
-                        $("#fileHere").append("<tr><td><input type='file'></td></tr>");
+                        $("#fileHere").append("<tr><td><input type='file' name='upFile'></td></tr>");
                     })
                 })
                 $(function(){ // 첨부파일 제거버튼. 한 개는 남게 만듦
@@ -372,57 +341,7 @@
                 })
             </script>
 
-        
-            
         </div>
-        <!-- <div id="right-main">
-            <div align="center">
-                <img src="${pageContext.request.contextPath}/resources/img/logo.png" alt="image" style="width: 10em;">
-            </div>
-            <hr class="inner-bar">
-            <div class="inner-bar">
-                <b>#태그</b> <br>
-                <a href="#">#봄</a>
-                <a href="#">#여름</a>
-                <a href="#">#가을</a>
-                <a href="#">#겨울</a>    
-            </div>
-
-            <hr class="inner-bar">
-
-            <div class="inner-bar">
-                <b>추천 피드</b> <a href="#" style="float: right;">더보기&gt;</a>
-            </div>
-
-            <div class="inner-bar" onclick="location.href='#'">
-                <p>
-                    <b>여의도 벚꽃축제</b> <br>
-                    여의도 벚꽃축제 다녀왔어요!
-                </p>
-
-            </div>
-
-            <div class="inner-bar"><hr></div>
-            
-            <div class="inner-bar" onclick="location.href='#'">
-                <p>
-                    <b>제주도 얼른 오세요</b> <br>
-                    가족여행으로 제주도를 다녀왔습니다
-                </p>
-
-            </div>
-
-            <div class="inner-bar"><hr></div>
-
-            <div class="inner-bar" onclick="location.href='#'">
-                <p>
-                    <b>서울숲 탐방기</b> <br>
-                    안녕하세요. 서울 도심 속 숲을 찾아 서울숲에 다녀왔습니다.
-                </p>
-
-            </div>
-
-        </div> -->
 
     </div>
 

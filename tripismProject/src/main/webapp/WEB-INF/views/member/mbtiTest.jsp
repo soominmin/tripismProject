@@ -1,7 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-  
-  <head>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -27,53 +30,46 @@
 
   <!-- FAVICON -->
   <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png"/>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <style>
-      #btn_pwd, #infoUpdate{
-        background-color: RGB(112, 217, 223);
-        border: none;
-      }
-
-
-      .test_obj input[type="radio"] {
-        display: none;
-      }
   
-      .test_obj input[type="radio"] + span {
-        display: inline-block;
-        padding: 15px 10px;
-        border: 1px solid #dfdfdf;
-        background-color: #ffffff;
-        text-align: center;
-        cursor: pointer;
-      }
-  
-      .test_obj input[type="radio"]:checked + span {
-        background-color: RGB(112, 217, 223);
-        color: #ffffff;
-      }
-
-      .test_btn {
-        display: inline-block;
-        padding: 15px 10px;
-        background-color: RGB(112, 217, 223);
-        color: #ffffff;
-        border: 1px solid #dfdfdf;
-      }
+  <style>
+  #btn_pwd, #infoUpdate{
+    background-color: RGB(112, 217, 223);
+    border: none;
+  }
 
 
+  .test_obj input[type="radio"] {
+    display: none;
+  }
 
-    </style>
-  </head>     
+  .test_obj input[type="radio"] + span {
+    display: inline-block;
+    padding: 15px 10px;
+    border: 1px solid #dfdfdf;
+    background-color: #ffffff;
+    text-align: center;
+    cursor: pointer;
+  }
 
+  .test_obj input[type="radio"]:checked + span {
+    background-color: RGB(112, 217, 223);
+    color: #ffffff;
+  }
+
+  .test_btn {
+    display: inline-block;
+    padding: 15px 10px;
+    background-color: RGB(112, 217, 223);
+    color: #ffffff;
+    border: 1px solid #dfdfdf;
+  }
+
+  </style>
+
+</head>
 <body id="body" class="up-scroll">
+
+<jsp:include page="../common/header.jsp"/>
 
 <section class="py-9">
   <div class="container">
@@ -104,7 +100,7 @@
                     <input type="radio" name="question1" value="J">
                     <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
                 </label>
-                <br><br>
+                <br><br><br><br>
               </div>
               
 
@@ -122,7 +118,7 @@
                     <input type="radio" name="question2" value="I">
                     <span>그냥 혼자있고 싶다. 거절한다.</span>
                 </label>
-                <br><br>
+                <br><br><br><br>
               </div>
               
 
@@ -140,7 +136,7 @@
                     <input type="radio" name="question3" value="J">
                     <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
                 </label>
-                <br><br>
+                <br><br><br><br>
               </div>
               
 
@@ -158,7 +154,7 @@
                     <input type="radio" name="question4" value="J">
                     <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
                 </label>
-                <br><br>
+                <br><br><br><br>
               </div>
               
 
@@ -176,7 +172,7 @@
                     <input type="radio" name="question5" value="J">
                     <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
                 </label>
-                <br><br>
+                <br><br><br><br>
               </div>
               
 
@@ -194,7 +190,7 @@
                     <input type="radio" name="question6" value="J">
                     <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
                 </label>
-                <br><br>
+                <br><br><br><br>
               </div>
               
 
@@ -212,7 +208,7 @@
                     <input type="radio" name="question7" value="J">
                     <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
                 </label>
-                <br><br>
+                <br><br><br><br>
               </div>
 
               <div id="question8" style="display: none;">
@@ -229,7 +225,7 @@
                     <input type="radio" name="question8" value="J">
                     <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
                 </label>
-                <br><br>
+                <br><br><br><br>
               </div>
 
               <div id="question9" style="display: none;">
@@ -246,7 +242,7 @@
                     <input type="radio" name="question9" value="J">
                     <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
                 </label>
-                <br><br>
+                <br><br><br><br>
               </div>
 
               <div id="question10" style="display: none;">
@@ -263,7 +259,7 @@
                     <input type="radio" name="question10" value="J">
                     <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
                 </label>
-                <br><br>
+                <br><br><br><br>
               </div>
 
               <div id="question11" style="display: none;">
@@ -280,7 +276,7 @@
                     <input type="radio" name="question11" value="J">
                     <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
                 </label>
-                <br><br>
+                <br><br><br><br>
               </div>
 
               <div id="question12" style="display: none;">
@@ -297,7 +293,7 @@
                     <input type="radio" name="question12" value="J">
                     <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
                 </label>
-                <br><br>
+                <br><br><br><br>
               </div>
 
               
@@ -317,7 +313,7 @@
 
               <br>
 
-              <div>
+              <div style="width: 100%;">
               <button type="submit" class="test_btn" style="width: 100%; display: none;">내 여행MBTI 확인하러 가기</button>
               </div>
 
@@ -394,9 +390,8 @@
                 });
 
                 $('#question12').click(function() {
-                  $('.test_btn').attr('style', 'display');
+                    $('.test_btn').attr('style', 'display');
                 });
-
 
 
               </script>
@@ -412,20 +407,5 @@
 </div>
 </section>
 
-
-
-   
-
-
-    <!-- Javascript -->
-    <script src="assets/plugins/jquery/jquery-3.4.1.min.js"></script>
-    <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/plugins/menuzord/js/menuzord.js"></script>
-    <script src='assets/plugins/fancybox/jquery.fancybox.min.js'></script>
-    <script src="assets/plugins/lazyestload/lazyestload.js"></script>
-    <script src="assets/plugins/smoothscroll/SmoothScroll.js"></script>
-    
-    <script src="assets/js/star.js"></script>
 </body>
 </html>
-

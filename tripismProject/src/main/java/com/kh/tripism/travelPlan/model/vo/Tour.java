@@ -3,8 +3,8 @@ package com.kh.tripism.travelPlan.model.vo;
 
 public class Tour {
 	private int spotNo; 
-	private int spotContentId;
-	private int spotContentType;
+	private String spotContentId;
+	private String spotContentType;
 	private String spotCreateDate;
 	private String spotModifiedDate; 
 	private String spotTel;
@@ -17,16 +17,16 @@ public class Tour {
 	private String largeCategoryNo; 
 	private String middleCategoryNo; 
 	private String smallCategoryNo; 
-	private int areaCategoryNo; 
+	private String areaCategoryNo; 
 	private int spotCount;
 	private int spotLike;
 	
 	public Tour() {}
 
-	public Tour(int spotNo, int spotContentId, int spotContentType, String spotCreateDate, String spotModifiedDate,
-			String spotTel, String spotTitle, String spotImgPath, String spotAddress, String spotPostalCode,
-			String spotMapx, String spotMapy, String largeCategoryNo, String middleCategoryNo, String smallCategoryNo,
-			int areaCategoryNo, int spotCount, int spotLike) {
+	public Tour(int spotNo, String spotContentId, String spotContentType, String spotCreateDate,
+			String spotModifiedDate, String spotTel, String spotTitle, String spotImgPath, String spotAddress,
+			String spotPostalCode, String spotMapx, String spotMapy, String largeCategoryNo, String middleCategoryNo,
+			String smallCategoryNo, String areaCategoryNo, int spotCount, int spotLike) {
 		super();
 		this.spotNo = spotNo;
 		this.spotContentId = spotContentId;
@@ -56,19 +56,19 @@ public class Tour {
 		this.spotNo = spotNo;
 	}
 
-	public int getSpotContentId() {
+	public String getSpotContentId() {
 		return spotContentId;
 	}
 
-	public void setSpotContentId(int spotContentId) {
+	public void setSpotContentId(String spotContentId) {
 		this.spotContentId = spotContentId;
 	}
 
-	public int getSpotContentType() {
+	public String getSpotContentType() {
 		return spotContentType;
 	}
 
-	public void setSpotContentType(int spotContentType) {
+	public void setSpotContentType(String spotContentType) {
 		this.spotContentType = spotContentType;
 	}
 
@@ -168,11 +168,11 @@ public class Tour {
 		this.smallCategoryNo = smallCategoryNo;
 	}
 
-	public int getAreaCategoryNo() {
+	public String getAreaCategoryNo() {
 		return areaCategoryNo;
 	}
 
-	public void setAreaCategoryNo(int areaCategoryNo) {
+	public void setAreaCategoryNo(String areaCategoryNo) {
 		this.areaCategoryNo = areaCategoryNo;
 	}
 
@@ -203,7 +203,7 @@ public class Tour {
 				+ spotCount + ", spotLike=" + spotLike + "]";
 	}
 
-
+	
 	
 	
 	

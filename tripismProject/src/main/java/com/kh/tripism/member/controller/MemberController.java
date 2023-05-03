@@ -68,9 +68,13 @@ public class MemberController {
 		return "member/following";
 	}
 	
+	@RequestMapping("mbtiStart.do")
+	public String mbtiStartt() {
+		return "member/mbtiStart";
+	}
 	@RequestMapping("mbtiTest.do")
 	public String mbtiTest() {
-		return "member/mbtiTest";
+		return "member/mbtiContent";
 	}
 	
 }

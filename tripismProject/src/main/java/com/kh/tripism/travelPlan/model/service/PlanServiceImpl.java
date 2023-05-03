@@ -11,7 +11,7 @@ import com.kh.tripism.travelPlan.model.vo.Tour;
 @Service
 public class PlanServiceImpl implements PlanService {
 	@Autowired
-	PlanDao pDao = new PlanDao();
+	private PlanDao pDao;
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	@Override
@@ -22,6 +22,7 @@ public class PlanServiceImpl implements PlanService {
 		Tour t = new Tour();
 		int result = 0;
 		
+		System.out.println(items);
 		
 		for(int i=0;i<items.getAsJsonObject().get("item").getAsJsonArray().size();i++) {
 			JsonObject item = items.getAsJsonObject().get("item").getAsJsonArray().get(i).getAsJsonObject();
@@ -37,13 +38,14 @@ public class PlanServiceImpl implements PlanService {
 			t.setLargeCategoryNo(item.get("cat1").getAsString());
 			t.setMiddleCategoryNo(item.get("cat2").getAsString());
 			t.setSmallCategoryNo(item.get("cat3").getAsString());
-			t.setAreaCategoryNo(item.get("areacode").getAsString());
+			t.setAreaCategoryNo(Integer.parseInt(item.get("areacode").getAsString()));
+			System.out.println(t);
 			result += pDao.insertTour(sqlSession,t);
 			
 		}
 		
-		System.out.println(result);
-		return 0;
+//		System.out.println(result);
+		return result;
 		
 	}
 

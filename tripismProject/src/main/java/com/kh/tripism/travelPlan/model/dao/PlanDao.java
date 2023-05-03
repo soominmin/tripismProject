@@ -9,6 +9,7 @@ import com.kh.tripism.travelPlan.model.vo.Tour;
 public class PlanDao {
 	
 	public int insertTour(SqlSessionTemplate sqlSession,Tour t) {
+		System.out.println(t);
 		return sqlSession.insert("planMapper.insertTour",t);
 	}
 

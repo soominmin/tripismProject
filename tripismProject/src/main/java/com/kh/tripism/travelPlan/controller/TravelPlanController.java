@@ -21,7 +21,7 @@ import com.kh.tripism.travelPlan.model.service.PlanServiceImpl;
 public class TravelPlanController {
 	
 	@Autowired
-	PlanServiceImpl pService = new PlanServiceImpl();
+	private PlanServiceImpl pService;
 	
 	@RequestMapping("plan.tr")
 	public String planEnrollForm() {
@@ -35,7 +35,7 @@ public class TravelPlanController {
 		
 		
 		String url = "https://apis.data.go.kr/B551011/KorService1/areaBasedList1";
-		url +="?numOfRows=300&pageNo="+pageNum+"&MobileOS=etc&MobileApp=tripism&serviceKey=A6F8utDlM9IPwcIVzaKxhidc95xG6E6JULEYGT5vre5KEjVdQI8liVeENFWkKtHyqlUUOUoNmiRB0qxOIqHnvA%3D%3D&_type=json";
+		url +="?numOfRows=300&pageNo="+pageNum+"&MobileOS=etc&MobileApp=tripism&serviceKey=VR7yfFJDTCiY0id7o4GoBl439nXxiBWsUoTxEc9jW5riF/oSnubIFVeefhSCJTfJA6mEayLvAWPu82nOvT8tiQ==&_type=json";
 		
 		
 		URL requestUrl = new URL(url);
@@ -50,20 +50,20 @@ public class TravelPlanController {
 		}
 		br.close();
 		urlConnection.disconnect();
-//		System.out.println(responseText);
+		System.out.println("responseText"+responseText);
 		Gson strItems = new Gson();
 		JsonParser parser = new JsonParser();
 		JsonElement element = parser.parse(responseText);
 		JsonObject rootob = element.getAsJsonObject().get("response").getAsJsonObject();
 		JsonObject body = rootob.getAsJsonObject().get("body").getAsJsonObject();
 		JsonObject items = body.getAsJsonObject().get("items").getAsJsonObject();
-		
-		System.out.println(items.getAsJsonObject().get("item").getAsJsonArray().size());
-		System.out.println((String)items.getAsJsonObject().get("item").getAsJsonArray().get(0).getAsJsonObject().get("addr1").getAsString());
+//		System.out.println(items);
+		//System.out.println(items.getAsJsonObject().get("item").getAsJsonArray().size());
+		//System.out.println((String)items.getAsJsonObject().get("item").getAsJsonArray().get(0).getAsJsonObject().get("addr1").getAsString());
 		int result = pService.insertTour(items);
+//		System.out.println(result);
 		
-		m.addAttribute("alertMsg", "데이터 추가를 성공했습니다");
-		return "main";
+		return "common/main";
 	}
 
 }

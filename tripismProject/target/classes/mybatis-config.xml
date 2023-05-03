@@ -9,12 +9,17 @@
 	
 	<typeAliases>
 		<typeAlias type="com.kh.tripism.travelPlan.model.vo.Tour" alias="Tour"/>
+		<typeAlias type="com.kh.tripism.feed.model.vo.Feed" alias="Feed"/>
+		<typeAlias type="com.kh.tripism.feed.model.vo.Img" alias="Img"/>
+		<typeAlias type="com.kh.tripism.feed.model.vo.Reply" alias="Reply"/>
+		
 	</typeAliases>
 
 	
 	
 	<mappers>
 		<mapper resource="/mappers/plan-mapper.xml"/>
+		<mapper resource="/mappers/feed-mapper.xml"/>
 	</mappers>
 	 
 	 

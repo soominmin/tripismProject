@@ -753,7 +753,11 @@
 
 			.Image__ItemWrapper-sc-16k9dmh-0{
 				background-repeat : no-repeat;
-				background-size: contain;
+				background-size: cover;
+				background-position: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 			}
 			
 			</style>

@@ -82,7 +82,7 @@
             text-decoration: none;
         }
 
-        /*질문지 리스트*/
+  /*질문지 리스트*/
   .test_obj input[type="radio"] {
     display: none;
   }
@@ -94,20 +94,81 @@
     background-color: #ffffff;
     text-align: center;
     cursor: pointer;
+    width: 500px;
+    margin-left: 80px;
   }
 
   .test_obj input[type="radio"]:checked + span {
-    background-color: RGB(112, 217, 223);
+    background-color: rgb(112, 217, 223);
     color: #ffffff;
+    font-family: 'omyu_pretty';
   }
 
   .test_btn {
     display: inline-block;
     padding: 15px 10px;
-    background-color: RGB(112, 217, 223);
+    background-color: rgb(112, 217, 223);
     color: #ffffff;
     border: 1px solid #dfdfdf;
+    border-radius: 10px;
+    margin-left: 200px;
+    margin-bottom: 50px;
+    width: 300px;
+    height: 65px;
+    font-size: 20px;
   }
+
+  .question-p {
+    margin-bottom: 30px;
+  }
+
+  /*숫자 폰트*/
+  .num {
+    margin-bottom: 16px;
+    font-size: 60px;
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    color: #ffcb00;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+    margin-top: 80px;
+}
+.name {
+    margin-bottom: 26px;
+    font-size: 33px;
+    padding: 0 20px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: -1px -1px 0 #fff8d6, 1px -1px 0 #fff8d6, -1px 1px 0 #fff8d6, 1px 1px 0 #fff8d6;
+}
+.label_que1 {
+    width: 400px;
+    cursor: pointer;
+    display: block;
+    width: 70%;
+    margin: 0 auto 10px auto;
+}
+input[type=radio] {
+    display: none;
+    outline: none;
+    vertical-align: middle;
+    border: 0;
+}
+#mbti {
+    display: block;
+    padding: 10px;
+    border: 3px solid #000;
+    border-radius: 10px;
+    background: #fff;
+    transition: all .3s ease;
+    font-family: 'omyu_pretty';
+    font-size: 32px;
+    width: 400px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 150px;
+}
     </style>
 </head>
     <body id="body" class="up-scroll">
@@ -135,215 +196,187 @@
   
               <form action="">
   
-                <div id="question1">
-  
-                  <h3 class="question-p">1. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나는?</h3>
-                  <br>
-  
-                  <label class="test_obj">
-                      <input type="radio" name="question1" value="P">
-                      <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                <div class="in" id="question1">
+                  <span class="num">Q 01.</span>
+                  <div class="name">여행을 떠날 때 계획은</div>
+                  <label>
+                    <input type="radio" name="que1" value="P" class="label_que1">
+                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
                   </label>
-                  <br>
-                  <label class="test_obj">
-                      <input type="radio" name="question1" value="J">
-                      <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                  <label>
+                    <input type="radio" name="que1" value="J" class="label_que1">
+                    <b id="mbti">계획은 필수</b>
                   </label>
-                  <br><br><br><br>
                 </div>
                 
   
                 <div id="question2" style="display: none;">
-  
-                  <h3 class="question-p">2. 게스트하우스에 가서 다같이 저녁을 먹는 자리가 생겼다. 그럴때 나는?</h3>
-                  <br>
-  
-                  <label class="test_obj">
-                      <input type="radio" name="question2" value="E">
-                      <span>새로운 사람을 만나고 이야기할 생각에 설렌다.</span>
+                  <span class="num">Q 02.</span>
+                  <div class="name">여행을 떠날 때 계획은</div>
+                  <label>
+                    <input type="radio" name="question3" value="P" class="label_que">
+                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
                   </label>
-                  <br>
-                  <label class="test_obj">
-                      <input type="radio" name="question2" value="I">
-                      <span>그냥 혼자있고 싶다. 거절한다.</span>
+                  <label>
+                    <input type="radio" name="question3" value="J" class="label_que">
+                    <b id="mbti">계획은 필수</b>
                   </label>
-                  <br><br><br><br>
                 </div>
                 
   
+
                 <div id="question3" style="display: none;">
-  
-                  <h3 class="question-p">3. </h3>
-                  <br>
-  
-                  <label class="test_obj">
-                      <input type="radio" name="question3" value="P">
-                      <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                  <span class="num">Q 03.</span>
+                  <div class="name">여행을 떠날 때 계획은</div>
+                  <label>
+                    <input type="radio" name="question3" value="P" class="label_que">
+                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
                   </label>
-                  <br>
-                  <label class="test_obj">
-                      <input type="radio" name="question3" value="J">
-                      <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                  <label>
+                    <input type="radio" name="question3" value="J" class="label_que">
+                    <b id="mbti">계획은 필수</b>
                   </label>
-                  <br><br><br><br>
                 </div>
                 
   
                 <div id="question4" style="display: none;">
-  
-                  <h3 class="question-p">4. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
-                  <br>
-  
-                  <label class="test_obj">
-                      <input type="radio" name="question4" value="P">
-                      <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                  <span class="num">Q 04.</span>
+                  <div class="name">여행을 떠날 때 계획은</div>
+                  <label>
+                    <input type="radio" name="question3" value="P" class="label_que">
+                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
                   </label>
-                  <br>
-                  <label class="test_obj">
-                      <input type="radio" name="question4" value="J">
-                      <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                  <label>
+                    <input type="radio" name="question3" value="J" class="label_que">
+                    <b id="mbti">계획은 필수</b>
                   </label>
-                  <br><br><br><br>
                 </div>
                 
   
                 <div id="question5" style="display: none;">
-  
-                  <h3 class="question-p">5. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
-                  <br>
-  
-                  <label class="test_obj">
-                      <input type="radio" name="question5" value="P">
-                      <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                  <span class="num">Q 05.</span>
+                  <div class="name">여행을 떠날 때 계획은</div>
+                  <label>
+                    <input type="radio" name="question3" value="P" class="label_que">
+                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
                   </label>
-                  <br>
-                  <label class="test_obj">
-                      <input type="radio" name="question5" value="J">
-                      <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                  <label>
+                    <input type="radio" name="question3" value="J" class="label_que">
+                    <b id="mbti">계획은 필수</b>
                   </label>
-                  <br><br><br><br>
                 </div>
                 
-  
+
+
+
                 <div id="question6" style="display: none;">
-  
-                  <h3 class="question-p">6. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
-                  <br>
-  
-                  <label class="test_obj">
-                      <input type="radio" name="question6" value="P">
-                      <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                  <span class="num">Q 06.</span>
+                  <div class="name">여행을 떠날 때 계획은</div>
+                  <label>
+                    <input type="radio" name="question3" value="P" class="label_que">
+                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
                   </label>
-                  <br>
-                  <label class="test_obj">
-                      <input type="radio" name="question6" value="J">
-                      <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                  <label>
+                    <input type="radio" name="question3" value="J" class="label_que">
+                    <b id="mbti">계획은 필수</b>
                   </label>
-                  <br><br><br><br>
                 </div>
                 
   
                 <div id="question7" style="display: none;">
-  
-                  <h3 class="question-p">7. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
-                  <br>
-  
-                  <label class="test_obj">
-                      <input type="radio" name="question7" value="P">
-                      <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                  <span class="num">Q 07.</span>
+                  <div class="name">여행을 떠날 때 계획은</div>
+                  <label>
+                    <input type="radio" name="question3" value="P" class="label_que">
+                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
                   </label>
-                  <br>
-                  <label class="test_obj">
-                      <input type="radio" name="question7" value="J">
-                      <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                  <label>
+                    <input type="radio" name="question3" value="J" class="label_que">
+                    <b id="mbti">계획은 필수</b>
                   </label>
-                  <br><br><br><br>
                 </div>
+
+
+
   
                 <div id="question8" style="display: none;">
-  
-                  <h3 class="question-p">8. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
-                  <br>
-  
-                  <label class="test_obj">
-                      <input type="radio" name="question8" value="P">
-                      <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                  <span class="num">Q 08.</span>
+                  <div class="name">여행을 떠날 때 계획은</div>
+                  <label>
+                    <input type="radio" name="question3" value="P" class="label_que">
+                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
                   </label>
-                  <br>
-                  <label class="test_obj">
-                      <input type="radio" name="question8" value="J">
-                      <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                  <label>
+                    <input type="radio" name="question3" value="J" class="label_que">
+                    <b id="mbti">계획은 필수</b>
                   </label>
-                  <br><br><br><br>
                 </div>
+
+
+
   
                 <div id="question9" style="display: none;">
-  
-                  <h3 class="question-p">9. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
-                  <br>
-  
-                  <label class="test_obj">
-                      <input type="radio" name="question9" value="P">
-                      <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                  <span class="num">Q 09.</span>
+                  <div class="name">여행을 떠날 때 계획은</div>
+                  <label>
+                    <input type="radio" name="question3" value="P" class="label_que">
+                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
                   </label>
-                  <br>
-                  <label class="test_obj">
-                      <input type="radio" name="question9" value="J">
-                      <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                  <label>
+                    <input type="radio" name="question3" value="J" class="label_que">
+                    <b id="mbti">계획은 필수</b>
                   </label>
-                  <br><br><br><br>
                 </div>
+
+
+
   
                 <div id="question10" style="display: none;">
-  
-                  <h3 class="question-p">10. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
-                  <br>
-  
-                  <label class="test_obj">
-                      <input type="radio" name="question10" value="P">
-                      <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                  <span class="num">Q 10.</span>
+                  <div class="name">여행을 떠날 때 계획은</div>
+                  <label>
+                    <input type="radio" name="question3" value="P" class="label_que">
+                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
                   </label>
-                  <br>
-                  <label class="test_obj">
-                      <input type="radio" name="question10" value="J">
-                      <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                  <label>
+                    <input type="radio" name="question3" value="J" class="label_que">
+                    <b id="mbti">계획은 필수</b>
                   </label>
-                  <br><br><br><br>
                 </div>
+
+
+
   
                 <div id="question11" style="display: none;">
-  
-                  <h3 class="question-p">11. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
-                  <br>
-  
-                  <label class="test_obj">
-                      <input type="radio" name="question11" value="P">
-                      <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                  <span class="num">Q 11.</span>
+                  <div class="name">여행을 떠날 때 계획은</div>
+                  <label>
+                    <input type="radio" name="question3" value="P" class="label_que">
+                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
                   </label>
-                  <br>
-                  <label class="test_obj">
-                      <input type="radio" name="question11" value="J">
-                      <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                  <label>
+                    <input type="radio" name="question3" value="J" class="label_que">
+                    <b id="mbti">계획은 필수</b>
                   </label>
-                  <br><br><br><br>
                 </div>
+
+
+
   
                 <div id="question12" style="display: none;">
-  
-                  <h3 class="question-p">12. 친구랑 둘이 여행가기로 했는데 갑자기 친구가 못간다고 한다. 그럴때 나의 선택은?</h3>
-                  <br>
-  
-                  <label class="test_obj">
-                      <input type="radio" name="question12" value="P">
-                      <span>어쩔수 없지, 그냥 혼자 간다.</span>
+                  <span class="num">Q 12.</span>
+                  <div class="name">여행을 떠날 때 계획은</div>
+                  <label>
+                    <input type="radio" name="question3" value="P" class="label_que">
+                    <b id="mbti">내가 걷는 길이 곧 여행코스</b>
                   </label>
-                  <br>
-                  <label class="test_obj">
-                      <input type="radio" name="question12" value="J">
-                      <span>무조건 취소하고 다음에 계획하고 다시간다.</span>
+                  <label>
+                    <input type="radio" name="question3" value="J" class="label_que">
+                    <b id="mbti">계획은 필수</b>
                   </label>
-                  <br><br><br><br>
                 </div>
+
+
   
                 
                 <br>
@@ -363,7 +396,8 @@
                 <br>
   
                 <div style="width: 100%;">
-                <button type="submit" class="test_btn" style="width: 100%; display: none;">내 여행MBTI 확인하러 가기</button>
+                <button type="submit" class="test_btn" 
+                style="width: 100%; display: none; ">내 여행MBTI 확인하러 가기</button>
                 </div>
   
   

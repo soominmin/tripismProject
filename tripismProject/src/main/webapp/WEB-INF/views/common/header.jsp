@@ -413,7 +413,7 @@
            
               <li class="">
 
-                 <a href="mypage.bo">마이페이지(잠깐)</a>
+                 <a href="mypage.do">마이페이지(잠깐)</a>
 
               </li>
 

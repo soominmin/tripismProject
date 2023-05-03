@@ -33,7 +33,7 @@ public class MemberController {
 		return "member/pwdResult";
 	}
 	
-	@RequestMapping("mypage.bo")
+	@RequestMapping("mypage.do")
 	public String mypage() {
 		return "member/myPage";
 	}
@@ -66,6 +66,11 @@ public class MemberController {
 	@RequestMapping("following.do")
 	public String following() {
 		return "member/following";
+	}
+	
+	@RequestMapping("otherPage.do")
+	public String otherPage() {
+		return "member/othersInfoPage";
 	}
 	
 }

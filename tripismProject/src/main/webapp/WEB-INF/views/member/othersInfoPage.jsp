@@ -69,6 +69,23 @@
         text-decoration: none;
         color: RGB(112, 217, 223);
       }
+      #tripartner, #likePost, #userSetting, #bookMark {
+        cursor: pointer;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        display: inline-block;
+      }
+      
+      #tripartner>a, #likePost>a, #userSetting>a, #bookMark>a {
+      	text-decoration: none;
+        color: black;
+      }
+
+      #tripartner>a:hover, #likePost>a:hover, #userSetting>a:hover, #bookMark>a:hover {
+        color: RGB(112, 217, 223);
+      }
+
+
 
 
 </style>
@@ -78,7 +95,6 @@
 
 <jsp:include page="../common/header.jsp"/>
 
-    <div class="main-wrapper blog-list-right-sidebar">
       <section class="py-9 py-md-10">
         <div class="container">
           <div class="row">
@@ -92,12 +108,9 @@
                       <div class="row">
                         <div class="col-12">
                           <div class="row" style="width: 1500px;">
-                            <div class="col-lg-6" style="margin-left: 160px; border: solid 3px rgba(199, 198, 198, 0.37); padding: 35px; border-radius: 15px 15px 15px 15px;">
-                              <div class="WebHeader__SignBtnBox-sc-12ctfsg-1 eluuNw" style="float: right; margin-bottom: 0px; height: 55px;">
-                                <button class="WebHeader__HeaderButton-sc-12ctfsg-2 jmaRWD"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pwdChange" class="media d-inline-flex align-items-center">비밀번호변경하기</a></button>
-                              </div>
+                            <div class="col-lg-6" style="margin-left: 160px; border: solid 3px rgba(199, 198, 198, 0.37); padding: 35px; border-radius:  15px 15px 15px 15px;">
                               <div>
-                                <h3 class="text-uppercase mb-3" style="padding-left: 15px;">마이페이지</h3>
+                                <h3 class="text-uppercase mb-3" align="center">지수의꽃 님의 프로필</h3>
                               </div>
                               <hr>
                               <div align="center" style="padding-top: 25px;">
@@ -116,14 +129,14 @@
                               </div>
 
                               <div class="mb-3" align="center" style="padding-top: 20px; padding-bottom: 25px;">
-                                <input type="text" class="form-control bg-smoke" placeholder="subani" style="width:200px; border: none;" readonly>
+                                <input type="text" class="form-control bg-smoke" placeholder="flower[닉네임]" style="width:200px; border: none;" readonly>
                               </div>
                               <hr>
 
                               <table>
                                 <tr align="center">
-                                  <td style="width: 300px;"> 팔로잉 </td>
-                                  <td style="width: 300px;"> 팔로우 </td>
+                                  <td style="width: 400px;"> 팔로잉 </td>
+                                  <td style="width: 400px;"> 팔로우 </td>
                                 </tr>
                                 <tr align="center">
                                   <td>6</td>
@@ -132,7 +145,6 @@
                               </table>
 
                               <hr>
-
                               <div id="ulli" style="width: 100%; margin-top: 20px;">
                                 <ul class="list-unstyled list-group list-group-flush">
                                   <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
@@ -167,6 +179,8 @@
                                   
                                 </ul>
                             </div>
+
+
 
                               
 
@@ -211,11 +225,9 @@
                 </div>
               </div>
             </div>
-          
             <!-- 계정설정 끝 -->
       
       
-            
             </div>
           </div>
       

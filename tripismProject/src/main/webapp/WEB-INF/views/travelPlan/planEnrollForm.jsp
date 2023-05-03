@@ -80,13 +80,15 @@
 		let j =1;
 		
 		function tourInsert(){ //한국관광공사 api 관광지 전체 데이터 insert
+		 console.log("asd");
 		 let interval = setInterval(function () {
 				
 		 	$.ajax({
 		 		url: "tourInsert.do",
 		 		data:{pageNum:j++},
-		 		success:function(){
-		 			console.log("데이터입력 성공")
+		 		success:function(data){
+		 			console.log("데이터입력 성공");
+		 			console.log(data);
 				},
 		 		error:function(){
 		 			console.log("데이터입력 실패");

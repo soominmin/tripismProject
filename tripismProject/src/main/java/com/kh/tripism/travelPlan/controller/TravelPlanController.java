@@ -50,8 +50,8 @@ public class TravelPlanController {
 		}
 		br.close();
 		urlConnection.disconnect();
-		System.out.println("responseText"+responseText);
-		Gson strItems = new Gson();
+//		System.out.println("responseText"+responseText);
+
 		JsonParser parser = new JsonParser();
 		JsonElement element = parser.parse(responseText);
 		JsonObject rootob = element.getAsJsonObject().get("response").getAsJsonObject();
@@ -61,9 +61,10 @@ public class TravelPlanController {
 		//System.out.println(items.getAsJsonObject().get("item").getAsJsonArray().size());
 		//System.out.println((String)items.getAsJsonObject().get("item").getAsJsonArray().get(0).getAsJsonObject().get("addr1").getAsString());
 		int result = pService.insertTour(items);
+		
 //		System.out.println(result);
 		
-		return "common/main";
+		return "index";
 	}
 
 }

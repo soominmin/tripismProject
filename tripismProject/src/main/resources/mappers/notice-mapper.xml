@@ -19,7 +19,19 @@
 	select
         	count(*)
 	    from tb_notice
-	    where notice_status = 'Y';
+	    where notice_status = 'Y'
+	</select>
+
+	<select id="selectList" resultMap="NoticeResultSet">
+		select
+        notice_no
+        , notice_name
+        , notice_writer
+        , to_char(notice_date, 'YYYY-MM-DD') as "notice_date"
+    from tb_notice
+    where notice_status = 'Y'
+    order
+        by  notice_no desc
 	</select>
 
 </mapper>

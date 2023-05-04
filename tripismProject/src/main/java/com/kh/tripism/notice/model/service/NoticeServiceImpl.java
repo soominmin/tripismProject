@@ -2,6 +2,7 @@ package com.kh.tripism.notice.model.service;
 
 import java.util.ArrayList;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,15 +16,17 @@ public class NoticeServiceImpl implements NoticeService{
 	@Autowired
 	private NoticeDao nDao;
 	
+	@Autowired
+	private SqlSessionTemplate sqlSession;
+	
 	@Override
 	public int selectListCount() {
-		return 0;
+		return nDao.selectListCount(sqlSession);
 	}
 
 	@Override
 	public ArrayList<Notice> selectList(PageInfo pi) {
-		// TODO Auto-generated method stub
-		return null;
+		return nDao.selectList(sqlSession, pi);
 	}
 
 	@Override

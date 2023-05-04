@@ -246,6 +246,8 @@
 				$("#placesList").append(value);
 				console.log(currentPage);
 				console.log(list);
+				console.log(document.getElementById("placesDiv").scrollHeight)
+				console.dir(document.getElementById("placesDiv"))
 			},
 			error:function(){
 				console.log("실패");
@@ -255,43 +257,43 @@
 	}
 	
 
-	// let isUpdateList = true;
-	
-	// window.onscroll = function(e) {
-    //   console.log(window.innerHeight , window.scrollY,document.body.offsetHeight)
-    //   if((window.innerHeight + window.scrollY) >= document.body.offsetHeight) { 
-    //     if(isUpdateList){
-    //         isUpdateList = false;
+	let isUpdateList = true;
+	const placesDiv = document.getElementById("placesDiv");
+	placesDiv.onscroll = function(e) {
+      console.log(document.getElementById("placesDiv").clientHeight ,  document.getElementById("placesDiv").scrollTop,document.getElementById("placesDiv").scrollHeight)
+      if((placesDiv.clientHeight + placesDiv.scrollTop) >= (placesDiv.scrollHeight-3)) { 
+        if(isUpdateList){
+            isUpdateList = false;
             
-	// 		selectTourList(currentCode,++currentPage,searchValue);
-    //         isUpdateList = true;
-    //     }
+			selectTourList(currentCode,++currentPage,searchValue);
+            isUpdateList = true;
+        }
         
-    //   }
-    // }
-	// function searchTour(){
+      }
+    }
+	function searchTour(){
 		
-	// 	$("#content").html("");
-	// 	currentPage=1;
-	// 	searchValue = $("#searchVal").val();
-	// 	$("#searchVal").val("");
-	// 	selectTourList(currentCode,currentPage,searchValue);
+		$("#content").html("");
+		currentPage=1;
+		searchValue = $("#searchVal").val();
+		$("#searchVal").val("");
+		selectTourList(currentCode,currentPage,searchValue);
 
-	// 	$.ajax({
-	// 		url:"tourList.do",
-	// 		data:{areaCode:currentCode,
-	// 			currentPage:currentPage++,
-	// 			searchValue:$("#searchVal").val()},
-	// 		success:function(){
-	// 			console.log($("#searchVal").val())
-	// 		},
-	// 		error:function(){
-	// 			console.log("실패");
-	// 		}
+		$.ajax({
+			url:"tourList.do",
+			data:{areaCode:currentCode,
+				currentPage:currentPage++,
+				searchValue:$("#searchVal").val()},
+			success:function(){
+				console.log($("#searchVal").val())
+			},
+			error:function(){
+				console.log("실패");
+			}
 
 
-	// 	})
-	// }
+		})
+	}
 	}
 
 

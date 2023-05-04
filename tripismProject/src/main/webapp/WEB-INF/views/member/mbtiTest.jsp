@@ -81,6 +81,7 @@
               <div class="mb-4">
                 <h2 class="text-uppercase mb-3">나의 여행 MBTI는?</h2>
               </div>
+              
 
               <hr>
 

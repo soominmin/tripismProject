@@ -299,7 +299,7 @@
                                 </thead>
                                 <tbody id="fileHere">
                                     <tr>
-                                        <td><input type="file" name="upFile"></td>
+                                        <td><input type="file" name="upFile" accept="image/*"></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -329,7 +329,7 @@
             <script>
                 $(function(){ // 첨부파일 추가버튼
                     $(".addFile").click(function(){
-                        $("#fileHere").append("<tr><td><input type='file' name='upFile'></td></tr>");
+                        $("#fileHere").append("<tr><td><input type='file' name='upFile' accept='image/*'></td></tr>");
                     })
                 })
                 $(function(){ // 첨부파일 제거버튼. 한 개는 남게 만듦

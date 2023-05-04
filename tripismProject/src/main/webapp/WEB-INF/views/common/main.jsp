@@ -370,7 +370,7 @@ body * {
   
 </section>
 
-  </div><!-- element wrapper ends -->
+<!-- element wrapper ends -->
 	<!-- ====================================
 ——— FOOTER SECTION
 ===================================== -->

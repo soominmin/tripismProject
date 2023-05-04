@@ -5,17 +5,20 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.kh.tripism.travelPlan.model.service.PlanServiceImpl;
+import com.kh.tripism.travelPlan.model.vo.Tour;
 
 @Controller
 public class TravelPlanController {
@@ -65,6 +68,16 @@ public class TravelPlanController {
 //		System.out.println(result);
 		
 		return "index";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "tourList.do",produces = "application/json; charset=utf-8")
+	public String selectTourList(int areaCode,int currentPage,String searchValue) {
+//		int listCount = bService.selectListCount(areaCode);
+		System.out.println(searchValue);
+		
+		ArrayList<Tour> list = pService.selectTourList(areaCode,currentPage,searchValue);
+		return new Gson().toJson(list);
 	}
 
 }

@@ -18,6 +18,7 @@
 				poly.path.push(new kakao.maps.LatLng(tourInfo[i].Polygon[j][1], tourInfo[i].Polygon[j][0])) ;
 			}
 			areas.push(poly)
+			
 		}
 		console.log(areas);
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -80,6 +81,7 @@
 
 				let area = code;
 				console.log(area);
+				let markerNum = 1;
 				// 지도 중심을 부드럽게 이동시킵니다
 				// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
 				let lat = 0;
@@ -168,16 +170,16 @@
 				// infowindow.setPosition(mouseEvent.latLng); 
 				// infowindow.setMap(map);
 				// $("#search").css("display","block")
-				// currentPage = 1;
+				currentPage = 1;
 				// searchValue="";
 				// flag = true;
 				
 				// console.log(code);
 
-				// selectTourList(code,currentPage,searchValue);
+				selectTourList(code,currentPage,searchValue,markerNum);
 				// console.log(currentPage);
 				
-				// currentCode = code;
+				currentCode = code;
 				
 				
 				
@@ -194,41 +196,63 @@
 		}
 
 	
-	// function selectTourList(code,currentPage,searchValue){
-	// 	if(currentCode!=code){
-	// 		$("#content").html("");
-	// 	}
-	// 	let value = "";
-	// 	$.ajax({
-	// 		url:"tourList.do",
-	// 		data:{areaCode:code,
-	// 			currentPage:currentPage,
-	// 			searchValue:searchValue},
-	// 		success:function(list){
-	// 			for(let i=0; i<list.length; i++){
-	// 				value += "<div class='list'>"
-	// 						+"<div> 여행지:" + list[i].spotTitle + "            </div>"
-	// 						+"<div> 주소:" + list[i].spotAddress + "</div>"
+	function selectTourList(code,currentPage,searchValue,markerNum){
+		if(currentCode!=code){
+			$("#placesList").html("");
+		}
+		let value = "";
+		$.ajax({
+			url:"tourList.do",
+			data:{areaCode:code,
+				currentPage:currentPage,
+				searchValue:searchValue},
+			success:function(list){
+				// for(let i=0; i<list.length; i++){
+				// 	value += "<div class='list'>"
+				// 			+"<div> 여행지:" + list[i].spotTitle + "            </div>"
+				// 			+"<div> 주소:" + list[i].spotAddress + "</div>"
 							
 							
 
-	// 				if(list[i].spotImgPath!=null){
-	// 					value+="<img src='"+list[i].spotImgPath+"' style='width:250px; height:250px;'>"
-	// 				}
-	// 				+"</div>"
-	// 			}
-	// 			value+="<div> 주소:----------------------------------------------------</div>";
+				// 	if(list[i].spotImgPath!=null){
+				// 		value+="<img src='"+list[i].spotImgPath+"' style='width:250px; height:250px;'>"
+				// 	}else{
+
+				// 	}
+				// 	+"</div>"
+				// }
+				https://3.bp.blogspot.com/-WhBe10rJzG4/U4W-hvWvRCI/AAAAAAAABxg/RyWcixpgr3k/s1600/noimg.jpg
+				for(let i=0; i<list.length; i++){
+					value += '<hr style="margin-top:0;"><li class="item">'
+							+ '<span class="markerbg marker_'+(markerNum++)+'"></span>'
+							+ '<div class="info" style="display:flex;">' ; 
+							if(list[i].spotImgPath!=null){
+								value+='<img src="'+list[i].spotImgPath+'" style="width:50px; height:50px;">';
+							}else{
+								value+='<img src="https://3.bp.blogspot.com/-WhBe10rJzG4/U4W-hvWvRCI/AAAAAAAABxg/RyWcixpgr3k/s1600/noimg.jpg" style="width:50px; height:50px;">';
+							} 
+							value+='<h5>'+list[i].spotTitle+'</h5>'    
+							   
+							 
+							
+							+'</div>'
+							+'<span>'+list[i].spotAddress+'</span>'
+							+'<span class="tel">'+list[i].spotTel+'</span>'
+						+'</li>';
+						
+				}
 				
-	// 			$("#content").append(value);
-	// 			console.log(currentPage);
-	// 			console.log(list);
-	// 		},
-	// 		error:function(){
-	// 			console.log("실패");
-	// 		}
-	// 	})
+				
+				$("#placesList").append(value);
+				console.log(currentPage);
+				console.log(list);
+			},
+			error:function(){
+				console.log("실패");
+			}
+		})
 		
-	// }
+	}
 	
 
 	// let isUpdateList = true;

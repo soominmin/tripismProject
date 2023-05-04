@@ -18,10 +18,7 @@ public class PnBoardController {
 		return "travelPartner/enrollForm";
 	}
 	
-	@RequestMapping("noticeList.bo")
-	public String noticeList() {
-		return "notice/noticeList";
-	}
+
 	
 
 	@RequestMapping("detail.pn")

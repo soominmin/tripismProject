@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,7 +54,9 @@
   <div class="innerOuter" style="padding:5% 10%;">
       <br>
         <!-- (관리자)로그인후 상태일 경우만 보여지는 글쓰기 버튼-->
+        <c:if test="${ not empty loginUser }">
          <a class="btn btn-secondary btn-sm" style="float:right" href="noticeEnrollForm.bo">글쓰기</a>
+        </c:if>
       <br></br>
       <table id="boardList" class="table table-hover" align="center">
           <thead>
@@ -61,83 +64,64 @@
               <th>글번호</th>
               <th>제목</th>
               <th>작성자</th>
-              <th>조회수</th>
               <th>작성일</th>
               <th>첨부파일</th>
             </tr>
           </thead>
           <tbody>
+          	<c:forEach var="n" items="${ list }">
                 <tr>
-                    <td class="bno">5</td>
-                    <td><a href="noticeDetailView.bo">마지막 공지사항 제목</a></td>
-                    <td>admin</td>
-                    <td>10</td>
-                    <td>2023-03-29</td>
+                    <td class="bno">${ n.noticeNo }</td>
+                    <td>${ n.noticeName }</td>
+                    <td>${ n.noticeWriter }</td>
+                    <td>${ n.noticeDate }</td>
                     <td>
                         ★
                     </td>
                 </tr>
-
-                  <tr>
-                    <td class="bno">4</td>
-                    <td><a href="noticeDetailView.bo">네번째 공지사항 제목</a></td>
-                    <td>admin</td>
-                    <td>10</td>
-                    <td>2023-03-26</td>
-                    <td>
-                        
-                    </td>
-                </tr>
-
-                  <tr>
-                    <td class="bno">3</td>
-                    <td><a href="noticeDetailView.bo">세번째 공지사항 제목</a></td>
-                    <td>admin</td>
-                    <td>10</td>
-                    <td>2023-03-24</td>
-                    <td>
-                        ★
-                    </td>
-                </tr>
-
-                  <tr>
-                    <td class="bno">2</td>
-                    <td><a href="noticeDetailView.bo">두번째 공지사항 제목</a></td>
-                    <td>admin</td>
-                    <td>10</td>
-                    <td>2023-03-22</td>
-                    <td>
-                        
-                    </td>
-                </tr>
-
-                  <tr>
-                    <td class="bno">1</td>
-                    <td><a href="noticeDetailView.bo">첫번째 공지사항 제목</a></td>
-                    <td>admin</td>
-                    <td>100</td>
-                    <td>2023-03-20</td>
-                    <td>
-                        ★
-                    </td>
-                </tr>
+          	</c:forEach>
           </tbody>
       </table>
       <br>
+      
+      <script>
+      	$(function() {
+			$("#boardList>tbody>tr").click(function(){
+				location.href='detail.bo?bno=' + $(this).shildren(".bno").text();
+			})
+		})
+      </script>
 
 
-      <div id="pagingArea">
-          <ul class="pagination">
-            
-                <li class="page-item disabled"><a class="page-link" href="">Previous</a></li>
-                <li class="page-item"><a class="page-link" href="">1</a></li>
-                <li class="page-item"><a class="page-link" href="">2</a></li>
-                <li class="page-item"><a class="page-link" href="">3</a></li>
-                <li class="page-item"><a class="page-link" href="">4</a></li>
-                <li class="page-item"><a class="page-link" href="">5</a></li>
-                  <li class="page-item"><a class="page-link" href="">Next</a></li>
-          </ul>
-      </div>
+            <div id="pagingArea">
+                <ul class="pagination">
+                		<c:choose>
+        	        		<c:when test="${ pi.currentPage eq 1 }">
+		        	            <li class="page-item disabled"><a class="page-link" href="">Previous</a></li>
+            	    		</c:when>
+            	    		<c:otherwise>
+		            	        <li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage -1 }">Previous</a></li>
+            	    		</c:otherwise>
+                		</c:choose>
+                		
+                		
+	                    <c:forEach var="p" begin="${ pi.startPage }" end="${ pi.endPage }">
+                    		<li class="page-item"><a class="page-link" href="list.bo?cpage=${ p }">${ p }</a></li>
+	                    </c:forEach>
+	                    
+	                    
+	                    	<c:choose>
+		                    	<c:when test="${ pi.currentPage eq pi.maxPage }">
+		              		      <li class="page-item disabled"><a class="page-link" href="">Next</a></li>
+		                    	</c:when>
+		                    	<c:otherwise>
+	    	             		   <li class="page-item"><a class="page-link" href="${ pi.currentPage + 1 }">Next</a></li>
+		                    	</c:otherwise>
+	                    	</c:choose>
+	                    
+	                    
+                </ul>
+            </div>
      
       <br clear="both"><br>
       

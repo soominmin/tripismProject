@@ -299,7 +299,7 @@
                 
                             <!-- Enroll body -->
                             <div>
-                                <input type="text" name="title" placeholder="ex) 속초는 아직 벚꽃엔딩 중🌸" maxlength="100" value="">
+                                <input type="text" name="title" placeholder="작성한 글 제목" maxlength="100" value="">
                             </div>
 
                             <br>
@@ -310,10 +310,7 @@
 
                             <div>
                             <textarea class="WriteWebSectionstyle__WriteTextarea-sc-ixmlq3-3 IUMRx desc" name="content" id="desc" placeholder="
-                            남쪽나라는 이제 겹벚꽃, 등나무 이야기가 나오고 있지만 우리 북쪽나라 속초는 이제야 벚꽃엔딩을 맞았어요 🌸 🍃
-                            속초 영랑호에는 아직 부분부분 살아있는 벚꽃이 있으니, 이번 주말 마지막 벚꽃여행 하시는 분은 참고하세요!
-                            📹 23. 4. 6.(목) 18시 이후 촬영
-                            📍 영랑호수공원, 해병대전우회 부근
+                            작성한 글 내용
                              " style="height: 400px;"></textarea>
                             </div>
                         </div>
@@ -327,7 +324,7 @@
                                 </thead>
                                 <tbody id="fileHere">
                                     <tr>
-                                        <td><input type="file"></td>
+                                        <td><input type="file" accept="image/*"></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -353,7 +350,7 @@
             <script>
                 $(function(){ // 첨부파일 추가버튼
                     $(".addFile").click(function(){
-                        $("#fileHere").append("<tr><td><input type='file'></td></tr>");
+                        $("#fileHere").append("<tr><td><input type='file' accept='image/*'></td></tr>");
                     })
                 })
                 $(function(){ // 첨부파일 제거버튼. 한 개는 남게 만듦

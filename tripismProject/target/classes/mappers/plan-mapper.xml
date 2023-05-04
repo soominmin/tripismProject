@@ -42,4 +42,66 @@
 			
 	
 	</insert>
+	<resultMap type="Tour" id="tourResult">
+		<result column="SPOT_NO" property="spotNo"/>
+		<result column="SPOT_CONTENTID" property="spotContentId"/>
+		<result column="SPOT_CONTENT_TYPE" property="spotContentType"/>
+		<result column="SPOT_CREATED_DATE" property="spotCreatedDate"/>
+		<result column="SPOT_MODIFIED_DATE" property="spotModifiedDate"/>
+		<result column="SPOT_TEL" property="spotTel"/>
+		<result column="SPOT_TITLE" property="spotTitle"/>
+		<result column="SPOT_IMG_PATH" property="spotImgPath"/>
+		<result column="SPOT_ADDRESS" property="spotAddress"/>
+		<result column="SPOT_POSTAL_CODE" property="spotPostalCode"/>
+		<result column="SPOT_MAPX" property="spotMapx"/>
+		<result column="SPOT_MAPY" property="spotMapy"/>
+		<result column="LARGE_CATEGORY_NO" property="largeCategoryNo"/>
+		<result column="MIDDLE_CATEGORY_NO" property="middleCategoryNo"/>
+		<result column="SMALL_CATEGORY_NO" property="smallCategoryNo"/>
+		<result column="AREA_CATEGORY_NO" property="areaCategoryNo"/>
+		<result column="SPOT_COUNT" property="spotCount"/>
+		<result column="SPOT_LIKE" property="spotLike"/>
+		
+	
+	
+	</resultMap>
+	<select id="selectTourList" resultMap="tourResult">
+	<choose>
+		<when test='searchValue == "" or searchValue == null'>
+			select
+				spot_no,
+				spot_title,
+				spot_address,
+				large_category_no,
+				middle_category_no,
+				small_category_no,
+				spot_img_path
+				
+			from
+				tb_travel_spot
+			where
+				area_category_no = #{areaCode}
+			
+		
+		</when>
+		<otherwise>
+			select
+				spot_no,
+				spot_title,
+				spot_address,
+				large_category_no,
+				middle_category_no,
+				small_category_no,
+				spot_img_path
+				
+			from
+				tb_travel_spot
+			where
+				area_category_no = #{areaCode}
+			and
+            	spot_title like #{searchValue}
+		</otherwise>
+	</choose>
+	
+	</select>
 </mapper>

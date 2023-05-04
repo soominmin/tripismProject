@@ -76,5 +76,9 @@ public class MemberController {
 	public String mbtiTest() {
 		return "member/mbtiContent";
 	}
+	@RequestMapping("testMbti.test")
+	public String testMbti() {
+		return "member/mbtiTest";
+	}
 	
 }

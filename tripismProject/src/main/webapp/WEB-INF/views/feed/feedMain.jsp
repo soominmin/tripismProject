@@ -9,10 +9,10 @@
     <style>
         /* div{ border: 1px solid gray; } */
         
-        #wrap{ height: 1200px;  position: relative; margin-left: 5%;}
+        #wrap{ height: 1200px;  position: relative; margin-left: 20%;}
         /* #header{ height: 10% ; box-sizing: border-box; } */
-        #left-main{ width: 25%; height: 100% !important; box-sizing: border-box; float: left; min-width: 120px; }
-        #middle-main{ width: 65%; height: 100% !important; box-sizing: border-box; float: left; min-width: 300px; overflow: scroll; margin: 0 2.5%; padding: 0 2%; border-left: 1px solid rgb(112, 217, 223);}
+        #left-main{ width: 15%; height: 100% !important; box-sizing: border-box; float: left; min-width: 120px; }
+        #middle-main{ width: 50%; height: 100% !important; box-sizing: border-box; float: left; min-width: 300px; overflow: scroll; margin: 0 2.5/; padding: 0 2%; border-left: 1px solid rgb(112, 217, 223);}
         /* #right-main{ width: 17.5%; height: 100% !important; box-sizing: border-box; float: left; min-width: 180px;} */
         /* #footer{ height: 10%; display: block; position: absolute; bottom: 0px !important;} */
         .inner-bar{ margin: 10px 15px; }
@@ -101,9 +101,9 @@
         <!-- feedPage- -->
         <div id="left-main"> &nbsp;
 
-            <div align="center">
+            <%-- <div align="center">
                 <img src="${pageContext.request.contextPath}/resources/img/logo.png" alt="image" style="width: 10em;">
-            </div>
+            </div> --%>
             <!--<hr class="inner-bar">
              <div class="inner-bar">
                 <b>#태그</b> <br>
@@ -115,13 +115,13 @@
 
             
 
-            <div style="height: 50px;" align="center">
+            <!-- <div style="height: 50px;" align="center">
                 <button type="button" class="bBc" style="width: 80%; font-size: large;" onclick="location.href='enrollForm.fd'">글쓰기</button>
-            </div> 
+            </div>  -->
 
-            <br>
+            <!-- <br>
 
-            <hr class="inner-bar">
+            <hr class="inner-bar"> -->
 
             <div class="inner-bar" align="center" style="padding:10% 0%;">
             
@@ -138,8 +138,8 @@
             
             <br>
 
-            <button type="button" style="background-color: transparent; border: none;" onclick="location.href='feed.fd'"><img src="${pageContext.request.contextPath}/resources/img/feed/home.png" alt="home" style="width: 2.4em;">
-                <p>전체보기</p>
+            <button type="button" style="background-color: transparent; border: none;" onclick="location.href='feed.fd'"><img src="${pageContext.request.contextPath}/resources/img/feed/home2.png" alt="home" style="width: 2.4em;">
+                <p style="margin-top: 10px">전체보기</p>
             </button>
 
             <br>
@@ -152,15 +152,19 @@
 
             <br>
 
-            <button type="button" style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/camera.png" alt="img" style="width: 2.4em;">
-                <p>이미지</p>
+            <button type="button" style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/image2.png" alt="img" style="width: 2.4em;">
+                <p style="margin-top: 10px">이미지</p>
             </button>
             
             <br>
-
-            <button type="button" style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/video.png" alt="video" style="width: 2.4em;">
-                <p>동영상</p>
+            
+            <button type="button" style="background-color: transparent; border: none;" onclick="location.href='enrollForm.fd'"><img src="${pageContext.request.contextPath}/resources/img/feed/plus.png" alt="img" style="width: 2.4em;">
+            	<p style="margin-top: 10px">글쓰기</p>
             </button>
+
+            <%-- <button type="button" style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/video.png" alt="video" style="width: 2.4em;">
+                <p>동영상</p>
+            </button> --%>
 
             </div>            
         </div>
@@ -190,7 +194,7 @@
                                 
                             <hr class="inner-bar">
 
-                                <textarea name="" id=""  placeholder="자세한 내용을 적어주세요" align="center"></textarea>
+                                <textarea name="" id=""  placeholder="자세한 내용을 적어주세요" align="center" style="resize: none"></textarea>
                             </div>
                         
                             <!-- Modal footer -->
@@ -321,7 +325,7 @@
 			    <!-- 댓글 작성 시작 -->
                 <div class="inner-bar-small" style="display: none;" id="reply-input"> &nbsp;
                     <form action="#">
-                        <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="loginUser-img" style="width: 2em;"> &nbsp;
+                        <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="loginUser-img" style="width: 4em;"> &nbsp;
                         <input type="text" placeholder="댓글을 입력하세요" style="border-radius: 5px; width: 20em;">
 
                         <div class="inner-bar-small" align="center" style="margin-top: 10px;">

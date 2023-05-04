@@ -1,5 +1,7 @@
 package com.kh.tripism.travelPlan.model.service;
 
+import java.util.ArrayList;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -69,6 +71,13 @@ public class PlanServiceImpl implements PlanService {
 //		System.out.println(result);
 		return result;
 		
+	}
+	
+	@Override
+	public ArrayList<Tour> selectTourList(int areaCode,int currentPage,String searchValue) {
+		ArrayList<Tour> list = pDao.selectTourList(sqlSession,areaCode,currentPage,searchValue);
+		System.out.println(list);
+		return list;
 	}
 
 }

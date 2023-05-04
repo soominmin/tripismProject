@@ -339,6 +339,7 @@
 <body id="body" class="up-scroll">
 
 
+
   <!-- ====================================
   ——— HEADER SESSION
   ===================================== -->
@@ -607,7 +608,8 @@
         </div>
       </div>
     </div>
-    
+  </div>
+  
     
     <!-- Javascript -->
     <script src="${pageContext.request.contextPath}/resources/plugins/jquery/jquery-3.4.1.min.js"></script>

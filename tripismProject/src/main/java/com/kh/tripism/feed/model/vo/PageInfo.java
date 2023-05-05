@@ -1,4 +1,4 @@
-package com.kh.tripism.common.model.vo;
+package com.kh.tripism.feed.model.vo;
 
 public class PageInfo {
 

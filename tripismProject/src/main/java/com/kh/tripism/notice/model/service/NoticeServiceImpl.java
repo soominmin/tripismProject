@@ -37,13 +37,11 @@ public class NoticeServiceImpl implements NoticeService{
 
 	@Override
 	public int increaseCount(int noticeNo) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public Notice selectNotice(int noticeNo) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -54,7 +54,8 @@
   <div class="innerOuter" style="padding:5% 10%;">
       <br>
         <!-- (관리자)로그인후 상태일 경우만 보여지는 글쓰기 버튼-->
-        <c:if test="${ not empty loginUser }">
+
+        <c:if test="${ empty loginUser }">
          <a class="btn btn-secondary btn-sm" style="float:right" href="noticeEnrollForm.bo">글쓰기</a>
         </c:if>
       <br></br>
@@ -69,14 +70,16 @@
             </tr>
           </thead>
           <tbody>
-          	<c:forEach var="n" items="${ list }">
+            <c:forEach var="n" items="${ list }">
                 <tr>
                     <td class="bno">${ n.noticeNo }</td>
                     <td>${ n.noticeName }</td>
                     <td>${ n.noticeWriter }</td>
                     <td>${ n.noticeDate }</td>
                     <td>
-                        ★
+
+	                        		★
+
                     </td>
                 </tr>
           	</c:forEach>
@@ -84,13 +87,13 @@
       </table>
       <br>
       
-      <script>
-      	$(function() {
-			$("#boardList>tbody>tr").click(function(){
-				location.href='detail.bo?bno=' + $(this).shildren(".bno").text();
-			})
-		})
-      </script>
+            <script>
+            	$(function(){
+            		$("#boardList>tbody>tr").click(function(){
+            			location.href='noticeDetailView.bo?bno=' + $(this).children(".bno").text();
+            		})
+            	})
+            </script>
 
 
             <div id="pagingArea">
@@ -100,13 +103,13 @@
 		        	            <li class="page-item disabled"><a class="page-link" href="">Previous</a></li>
             	    		</c:when>
             	    		<c:otherwise>
-		            	        <li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage -1 }">Previous</a></li>
+		            	        <li class="page-item"><a class="page-link" href="noticeList.bo?cpage=${ pi.currentPage -1 }">Previous</a></li>
             	    		</c:otherwise>
                 		</c:choose>
                 		
                 		
 	                    <c:forEach var="p" begin="${ pi.startPage }" end="${ pi.endPage }">
-                    		<li class="page-item"><a class="page-link" href="list.bo?cpage=${ p }">${ p }</a></li>
+                    		<li class="page-item"><a class="page-link" href="noticeList.bo?cpage=${ p }">${ p }</a></li>
 	                    </c:forEach>
 	                    
 	                    

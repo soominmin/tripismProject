@@ -20,16 +20,30 @@ public class NoticeController {
 	private NoticeServiceImpl nService;
 	
 	@RequestMapping("noticeList.bo")
-	public ModelAndView selectList(@RequestParam(value = "cpage", defaultValue = "1")int currentPage, ModelAndView mv) {
+	public ModelAndView selectList(@RequestParam(value="cpage", defaultValue = "1")int currentPage, ModelAndView mv) {
+		// System.out.println(currentPage);
+		
 		int listCount = nService.selectListCount();
+		
+		// System.out.println(listCount);
 		
 		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, 10, 5);
 		
-		ArrayList<Notice> list = nService.selectList(pi);
+		// System.out.println(pi);
 		
-		mv.addObject("pi",pi).addObject("list", list).setViewName("notice/noticeList");
+		ArrayList<Notice> list = nService.selectList(pi);
+		/*
+		mv.addObject("pi", pi);
+		mv.addObject("list", list);
+		mv.setViewName("board/boardListView");
+		 */
+		
+		// 메소드 체이닝
+		mv.addObject("pi", pi).addObject("list", list).setViewName("notice/noticeList");
 		
 		return mv;
+
+		
 	}
 	
 	@RequestMapping("noticeDetailView.bo")

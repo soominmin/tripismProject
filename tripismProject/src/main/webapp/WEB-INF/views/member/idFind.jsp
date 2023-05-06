@@ -31,10 +31,10 @@
                 <h3 class="text-uppercase mb-3">아이디 찾기</h3>
                 <p>아이디는 가입시 입력하신 이메일을 통해 찾을 수 있습니다.</p>
               </div>
-              
+              <form action="idfind2.do">
               <div class="modal-body" style="padding-top:0;">
                   <div class="mb-3" style="width: 500px;">
-                    <input type="text" class="form-control bg-smoke" name="name" placeholder="이름" style="width:300px" required>
+                    <input type="text" class="form-control bg-smoke" name="memName" placeholder="이름" style="width:300px" required>
                   </div>
 
                   <div class="mb-3" style="width: 500px;">
@@ -45,10 +45,11 @@
 
                   <div class="row" style="text-align: center;">
                     <div class="pt-3">
-                      <button type="submit" onclick="location.href='idResult.do'" class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6" id="infoUpdate" style="width:300px;">확인</button>
+                      <button class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6" id="infoUpdate" style="width:300px;">확인</button>
                     </div>
                 </div>
             </div>
+            </form>
         </div>
       </div>
     </div>

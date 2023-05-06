@@ -18,13 +18,17 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Override
 	public Member loginMember(Member m) {
+		
 		Member loginUser = mDao.loginMember(m, sqlSession);
+		
 		return loginUser;
 	}
 
 	@Override
 	public int insertMember(Member m) {
-		return 0;
+
+		int result = mDao.insertMember(sqlSession, m);
+		return result;
 	}
 
 	@Override
@@ -39,7 +43,23 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int idCheck(String checkId) {
-		return 0;
+		return mDao.idCheck(sqlSession, checkId);
 	}
+
+	@Override
+	public int nicknameCheck(String checkNickname) {
+		return mDao.nicknameCheck(sqlSession, checkNickname);
+	}
+
+	@Override
+	public Member idfind2(Member m) {
+		return mDao.idfind2(sqlSession, m);
+	}
+
+	@Override
+	public Member pwdfind(Member m) {
+		return mDao.pwdfind(sqlSession, m);
+	}
+	
 
 }

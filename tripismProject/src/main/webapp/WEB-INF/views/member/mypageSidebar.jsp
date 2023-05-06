@@ -51,7 +51,7 @@
 <body id="body" class="up-scroll">
 
       <div class="col-lg-4 col-xl-3" >
-  <div class="mb-md-6 mb-lg-0" id="myPagebar" style="width: 280px; padding-left:50px;">
+  <div class="mb-md-6 mb-lg-0" id="myPagebar" style="width: 280px; padding-left:15px;">
     <div class="row" >
 
 
@@ -67,7 +67,7 @@
         <div id="ulli" style="width: 100%; margin-top: 20px;">
             <ul class="list-unstyled list-group list-group-flush">
               <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                  <span id="userSetting"><a href="userSetting.do">⚙️ 계정설정 </a></span>
+                  <span id="userSetting"><a href="mypage.do">⚙️ 마이페이지 </a></span>
               </li>
       
               <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">

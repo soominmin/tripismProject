@@ -69,6 +69,15 @@
         text-decoration: none;
         color: RGB(112, 217, 223);
       }
+      
+      #tripartner>a, #likePost>a, #userSetting>a, #bookMark>a {
+      	text-decoration: none;
+        color: black;
+      }
+
+      #tripartner>a:hover, #likePost>a:hover, #userSetting>a:hover, #bookMark>a:hover {
+        color: RGB(112, 217, 223);
+      }
 
 
 </style>
@@ -122,8 +131,8 @@
 
                               <table>
                                 <tr align="center">
-                                  <td style="width: 300px;"> 팔로잉 </td>
-                                  <td style="width: 300px;"> 팔로우 </td>
+                                  <td style="width: 350px;"> 팔로잉 </td>
+                                  <td style="width: 350px;"> 팔로우 </td>
                                 </tr>
                                 <tr align="center">
                                   <td>6</td>
@@ -135,10 +144,6 @@
 
                               <div id="ulli" style="width: 100%; margin-top: 20px;">
                                 <ul class="list-unstyled list-group list-group-flush">
-                                  <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                                      <span id="userSetting"><a href="userSetting.do">⚙️ 계정설정 </a></span>
-                                  </li>
-                          
                                   <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
                                       <span id="likePost"><a href="spotLike.do">❤️ 찜목록</a></span>
                                   </li>

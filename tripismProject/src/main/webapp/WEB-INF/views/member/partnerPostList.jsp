@@ -25,7 +25,7 @@
 	.cxduOO {
 		display: flex;
 		flex-direction: column;
-		width: 235px;
+		width: 210px;
 		height: 350px;
 		background: rgb(255, 255, 255);
 		box-shadow: rgba(25, 25, 25, 0.2) 0 6px 10px;
@@ -203,6 +203,7 @@
 		gap: 24px;
 		box-sizing: border-box;
 		margin-top: 1rem;
+		padding: 0;
 	}
 	/*윗단*/
 	.cxduOO > * {
@@ -1313,13 +1314,13 @@
 
 		
 	</div>
-	</div>
+</div>
+<jsp:include page="../member/mypageSidebar.jsp"/>
 	</div>
 	</div>
 	</div>
 	</div>
 </div>
-	<jsp:include page="../member/mypageSidebar.jsp"/>
 	
 	    </div>		
   	</div>

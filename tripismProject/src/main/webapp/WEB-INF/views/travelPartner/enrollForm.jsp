@@ -13,8 +13,13 @@
 		<!-- jQuery 라이브러리 -->
 		<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		
-		<!-- jQuery UI 라이브러리 -->
+		<!-- jQuery UI 라이브러리
 		<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" href="/resources/demos/style.css">
+ 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+ 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+
+		  
 
 
 		<style >
@@ -745,6 +750,15 @@
 			.ui-datepicker td {
 			  padding: 3px; /* 각 날짜 셀의 패딩 */
 			}
+
+			.Image__ItemWrapper-sc-16k9dmh-0{
+				background-repeat : no-repeat;
+				background-size: cover;
+				background-position: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
 			
 			</style>
 </head>
@@ -1220,7 +1234,7 @@
 									<div class="react-datepicker-wrapper">
 										<div class="react-datepicker__input-container">
 											<input type="text" id="datepicker" name="datepicker"
-											placeholder="날짜 선택" autocomplete="off" class="datepicker" value=""></div>
+											placeholder="날짜 선택" autocomplete="off" class="datepicker"  value=""></div>
 									</div>
 								</div>
 							</div>
@@ -1277,7 +1291,8 @@
 
 				reader.onload = (event) => {
 					const imageUrl = event.target.result;
-					imageWrapper.style.backgroundImage = `url(${imageUrl})`;
+					imageWrapper.style.backgroundImage = 'url('+imageUrl+')';
+					console.log(imageUrl)
 				}
 				reader.readAsDataURL(file);
 				});
@@ -1288,7 +1303,7 @@
 					<input type="text" name="title" placeholder="ex) 12월 3박4일 제주 바다 보러갈 동행 3명 구해요" maxlength="100" value=""></div>
 				<div class="WriteWebSectionstyle__HorizontalLine-sc-ixmlq3-1 cGslsG"></div>
 				<div>
-				<textarea class="WriteWebSectionstyle__WriteTextarea-sc-ixmlq3-3 IUMRx desc" name="content" id="desc" placeholder="
+				<textarea style="resize: none;" class="WriteWebSectionstyle__WriteTextarea-sc-ixmlq3-3 IUMRx desc" name="content" id="desc" placeholder="
 1. 현재 동행이 있나요? 
 ex) 혼자에요 / 동행 1명이 있어요 
 
@@ -1515,19 +1530,13 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 			<!-- 푸터바 포함 -->
 	<jsp:include page="../common/footer.jsp"/>
             
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/jquery-ui-datepicker-with-i18n@1.10.4/ui/i18n/jquery.ui.datepicker-de.min.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery-ui-datepicker-with-i18n@1.10.4/ui/i18n/jquery.ui.datepicker-de.min.js"></script> -->
 
 	<script>
-		var $j = jQuery.noConflict();
-		
-		
-		
-		$j(document).ready(function() { 
-			console.log("jquery testwwa")
-	
 
-			$j.datepicker.setDefaults({
+		$(function() {
+			$.datepicker.setDefaults({
 			minDate: 0, 
 			dateFormat: 'yy-mm-dd',	
 			prevText: '이전 달',	
@@ -1540,8 +1549,13 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 			dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],	
 			showMonthAfterYear: true,	
 			yearSuffix: '년',	
-		});
-		});
+			});
+			$('.datepicker').datepicker();
+		})
 	</script>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </body>
 </html>

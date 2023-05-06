@@ -182,6 +182,22 @@ public class MemberController {
 	}
 	
 
+
+	
+
+
+	@RequestMapping("mbtiStart.do")
+	public String mbtiStartt() {
+		return "member/mbtiStart";
+	}
+	@RequestMapping("mbtiTest.do")
+	public String mbtiTest() {
+		return "member/mbtiContent";
+	}
+	@RequestMapping("testMbti.test")
+	public String testMbti() {
+		return "member/mbtiTest";
+	}
 	
 
 }

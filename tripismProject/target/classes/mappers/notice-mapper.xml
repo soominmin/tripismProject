@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="noticeMapper">
+	<resultMap type="Notice" id="NoticeResultSet">
+		<result column="notice_no" property="noticeNo"/>
+		<result column="notice_writer" property="noticeWriter"/>
+		<result column="notice_name" property="noticeName"/>
+		<result column="notice_content" property="noticeContent"/>
+		<result column="notice_date" property="noticeDate"/>
+		<result column="notice_clsfc" property="noticeClsfc"/>
+		<result column="notice_upfile" property="noticeUpfile"/>
+	</resultMap>
+	
+	<select id="noticeSelectListCount" resultType="_int">
+	select
+        	count(*)
+	    from tb_notice
+	    where notice_status = 'Y'
+	</select>
+
+	<select id="noticeSelectList" resultMap="NoticeResultSet">
+		select
+        notice_no
+        , notice_name
+        , notice_writer
+        , to_char(notice_date, 'YYYY-MM-DD') as "notice_date"
+    from tb_notice
+    where notice_status = 'Y'
+    order
+        by  notice_no desc
+	</select>
+	
+
+	
+	
+
+</mapper>

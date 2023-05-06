@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>[관리자] 회원관리 리스트</title>
     <!-- GOOGLE FONT -->
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700' rel='stylesheet'>
     
@@ -80,7 +80,7 @@
             <th>아이디</th>
             <th>이름</th>
             <th>닉네임</th>
-            <th>연락처</th>
+            <th>이메일</th>
             <th>가입일</th>
             <th>신고 누적 횟수</th>
           </tr>
@@ -90,9 +90,9 @@
             <td><input type="checkbox" name="memberSelect" id="memberSelect"></td>
             <td class="bno">6</td>
             <td>user05</td>
-            <td>한수빈</td>
+            <td>한수빈</a></td>
             <td>막냉이바보</td>
-            <td>010-6789-0123</td>
+            <td>user05@tripism.com</td>
             <td>2022-10-18</td>
             <td>0</td>
           </tr>
@@ -102,7 +102,7 @@
             <td>user04</td>
             <td>김수민</td>
             <td>김수민</td>
-            <td>010-5678-9012</td>
+            <td>user04@tripism.com</td>
             <td>2022-10-18</td>
             <td>0</td>
           </tr>
@@ -112,7 +112,7 @@
             <td>user03</td>
             <td>이종규</td>
             <td>이종규</td>
-            <td>010-4567-8901</td>
+            <td>user03@tripism.com</td>
             <td>2022-10-18</td>
             <td>0</td>
           </tr>
@@ -122,7 +122,7 @@
             <td>user02</td>
             <td>김동현</td>
             <td>바지적삼</td>
-            <td>010-3456-7890</td>
+            <td>user02@tripism.com</td>
             <td>2022-10-18</td>
             <td>0</td>
           </tr>
@@ -132,7 +132,7 @@
             <td>user01</td>
             <td>정민교</td>
             <td>민팀장</td>
-            <td>010-2345-6789</td>
+            <td>user01@tripism.com</td>
             <td>2022-10-18</td>
             <td>0</td>
           </tr>
@@ -142,7 +142,7 @@
             <td>admin</td>
             <td>관리자</td>
             <td>관리자</td>
-            <td>010-1234-5678</td>
+            <td>team.tripism@gmail.com</td>
             <td>2022-10-18</td>
             <td>0</td>
           </tr>

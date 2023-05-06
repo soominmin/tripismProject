@@ -9,20 +9,24 @@
     <style>
         /* div{ border: 1px solid gray; } */
         
-        #wrap{ height: 1000px;  position: relative;}
+        #wrap{ height: 1200px;  position: relative; margin-left: 20%;}
         /* #header{ height: 10% ; box-sizing: border-box; } */
-        #left-main{ width: 17.5%; height: 100% !important; box-sizing: border-box; float: left; min-width: 120px; }
-        #middle-main{ width: 55%; height: 100% !important; box-sizing: border-box; float: left; min-width: 300px; overflow: scroll; margin: 0 2.5%; padding: 0 2.5%; border-left: 1px solid rgb(112, 217, 223); border-right: 1px solid rgb(112, 217, 223);}
-        #right-main{ width: 17.5%; height: 100% !important; box-sizing: border-box; float: left; min-width: 180px;}
+        #left-main{ width: 15%; height: 100% !important; box-sizing: border-box; float: left; min-width: 120px; }
+        #middle-main{ width: 50%; height: 100% !important; box-sizing: border-box; float: left; min-width: 300px; overflow: scroll; margin: 0 2.5/; padding: 0 2%; border-left: 1px solid rgb(112, 217, 223);}
+        /* #right-main{ width: 17.5%; height: 100% !important; box-sizing: border-box; float: left; min-width: 180px;} */
         /* #footer{ height: 10%; display: block; position: absolute; bottom: 0px !important;} */
         .inner-bar{ margin: 10px 15px; }
         .inner-bar-small{ margin: 10px 5px; }
         
-        #feedPage{ background-color: whitesmoke; }
+        /* #feedPage{ background-color: whitesmoke; } */
         .btn-feed-three{ width: 120px; }
         .feed-content>img{ display: block; margin: auto; } 
         #shareButtons button{
-            margin: 0 8px;
+            margin: 5px 8px;
+        }
+        #shareButtons div{
+            display: inline-block;
+            margin: 0px 30px;
         }
 
         body{
@@ -97,55 +101,75 @@
         <!-- feedPage- -->
         <div id="left-main"> &nbsp;
 
-                <div class="inner-bar" align="center" style="padding:10% 0%;">
-                
-                <form action="search.fd">
-                    <div>
-                        <input type="text" name="keyword" value="" placeholder="검색은 여기" style=" border: 0.5px solid gray; height: 2.5em; border-radius: 10px; text-align: center;"> <br><br>
-                        <button type="submit" class="bBc">검색</button>
-                    </div>
-                </form>
+            <%-- <div align="center">
+                <img src="${pageContext.request.contextPath}/resources/img/logo.png" alt="image" style="width: 10em;">
+            </div> --%>
+            <!--<hr class="inner-bar">
+             <div class="inner-bar">
+                <b>#태그</b> <br>
+                <a href="#">#봄</a>
+                <a href="#">#여름</a>
+                <a href="#">#가을</a>
+                <a href="#">#겨울</a>    
+            </div> -->
 
-                <br>
+            
 
-                <hr class="inner-bar">
-                
-                <br>
+            <!-- <div style="height: 50px;" align="center">
+                <button type="button" class="bBc" style="width: 80%; font-size: large;" onclick="location.href='enrollForm.fd'">글쓰기</button>
+            </div>  -->
 
-                <button style="background-color: transparent; border: none;" onclick="location.href='index.jsp'"><img src="${pageContext.request.contextPath}/resources/img/feed/home.png" alt="home" style="width: 2em;">
-                    <p>홈</p>
-                </button>
+            <!-- <br>
 
-                <br>
+            <hr class="inner-bar"> -->
 
-                <button style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/hot.png" alt="hot" style="width: 2em;">
-                    <p>실시간</p>
-                </button>
-                
-				<br>
+            <div class="inner-bar" align="center" style="padding:10% 0%;">
+            
+            <form action="search.fd">
+                <div>
+                    <input type="text" name="keyword" value="" placeholder="검색 내용을 입력해주세요" style=" border: 0.5px solid gray; height: 2.5em; width: 100%; border-radius: 10px; text-align: center;"> <br><br>
+                    <button type="submit" class="bBc">검색</button>
+                </div>
+            </form>
 
-                <hr class="inner-bar">
+            <br>
 
-				<br>
+            <hr class="inner-bar">
+            
+            <br>
 
-                <button style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/camera.png" alt="img" style="width: 2em;">
-                    <p>사진</p>
-                </button>
-                
-                <br>
+            <button type="button" style="background-color: transparent; border: none;" onclick="location.href='feed.fd'"><img src="${pageContext.request.contextPath}/resources/img/feed/home2.png" alt="home" style="width: 2.4em;">
+                <p style="margin-top: 10px">전체보기</p>
+            </button>
 
-                <button style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/video.png" alt="video" style="width: 2em;">
-                    <p>비디오</p>
-                </button>
+            <br>
+            <!-- 
+            <button style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/hot.png" alt="hot" style="width: 2em;">
+                <p>실시간</p>
+            </button>
+             -->
+            <br>
+
+            <br>
+
+            <button type="button" style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/image2.png" alt="img" style="width: 2.4em;">
+                <p style="margin-top: 10px">이미지</p>
+            </button>
+            
+            <br>
+            
+            <button type="button" style="background-color: transparent; border: none;" onclick="location.href='enrollForm.fd'"><img src="${pageContext.request.contextPath}/resources/img/feed/plus.png" alt="img" style="width: 2.4em;">
+            	<p style="margin-top: 10px">글쓰기</p>
+            </button>
+
+            <%-- <button type="button" style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/video.png" alt="video" style="width: 2.4em;">
+                <p>동영상</p>
+            </button> --%>
 
             </div>            
         </div>
 
         <div id="middle-main">&nbsp;
-
-            <div style="height: 80px;" align="right">
-                <button type="button" class="bBc" onclick="location.href='enrollForm.fd'">글쓰기</button>
-            </div>
 
             <!-- 신고용 modal -->
             <form action="#">
@@ -170,7 +194,7 @@
                                 
                             <hr class="inner-bar">
 
-                                <textarea name="" id=""  placeholder="자세한 내용을 적어주세요" align="center"></textarea>
+                                <textarea name="" id=""  placeholder="자세한 내용을 적어주세요" align="center" style="resize: none"></textarea>
                             </div>
                         
                             <!-- Modal footer -->
@@ -197,15 +221,32 @@
                 
                             <!-- Modal body -->
                             <div class="modal-body" id="shareButtons">
-                                <button style="border: none;">
-                                    <img src="${pageContext.request.contextPath}/resources/img/feed/twitterLogo.png" alt="twitter" onclick=shareTwitter(); style="height: 75px;">
-                                </button>
-                                <button style="border: none;">
-                                    <img src="${pageContext.request.contextPath}/resources/img/feed/facebookLogo.png" alt="facebook" onclick=shareFacebook(); style="height: 75px;">
-                                </button>
-                                <button style="border: none;">
-                                    <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png" onclick=shareKakao();  alt="카카오톡 공유 보내기 버튼" style="height: 75px;">
-                                </button>
+                                <div align="center">
+                                    <button style="border: none;">
+                                        <img src="${pageContext.request.contextPath}/resources/img/feed/twitterLogo.png" alt="twitter" onclick=shareTwitter(); style="height: 75px;">
+                                    </button>
+                                    <p>트위터</p>
+                                </div>
+
+                                <div align="center">
+                                    <button style="border: none; border-radius: 15px;">
+                                        <img src="${pageContext.request.contextPath}/resources/img/feed/facebookLogo.png" alt="facebook" onclick=shareFacebook(); style="height: 75px;">
+                                    </button>
+                                    <p>페이스북</p>
+                                </div>
+
+                                <div align="center">
+                                    <button style="border: none;">
+                                        <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png" onclick=shareKakao();  alt="카카오톡 공유 보내기 버튼" style="height: 75px;">
+                                    </button>
+                                    <p>카카오톡</p>
+                                </div>
+
+                                <div style="margin-top: 30px;">
+                                    <span onclick="copyTheURL(this)">
+                                        <input type="text" value="여기에 피드주소 넣으려함" style="text-align: center; width: 280px;" readonly>
+                                    </span> &nbsp; &lt;&lt; &nbsp; 클릭 시 복사
+                                </div>
                             </div>
                         
                             <!-- Modal footer -->
@@ -224,17 +265,20 @@
 			<!-- 무한스크롤 시작할 자리 -->
             <div class="inner-bar" id="feedPage" style="padding: 5px;">
                 <div class="inner-bar-small">
-                    <img src="http://k.kakaocdn.net/dn/bg1bQs/btrN4Orw1rt/ywz81BDR7UcSZ319qKlLQ1/img_640x640.jpg" alt="강서구청-페이스북" style="width: 2.7em;"> 
-                    <b>차카이브</b>
+                    <img src="http://k.kakaocdn.net/dn/bg1bQs/btrN4Orw1rt/ywz81BDR7UcSZ319qKlLQ1/img_640x640.jpg" alt="닉네임" style="width: 2.7em;"> 
+                    <b style="margin-left: 13px ;">차카이브</b>
                     <input type="text" style="width: 70px; text-align: center; border: none;" placeholder="1주일전" disabled>
 
                     <button type="button" style="border: none;" onclick="location.href='updateForm.fd'">
                         <img src="${pageContext.request.contextPath}/resources/img/feed/paper.png" alt="" style="width: 1.5em; margin: 8px 0px;">
                     </button>
                     
-                    <button type="button" data-toggle="modal" data-target="#report" style="float: right; border: none;">
-                        <img src="${pageContext.request.contextPath}/resources/img/feed/siren.png" alt="" style="width: 1.4em; height: 1.4em;" >
-                        <img src="${pageContext.request.contextPath}/resources/img/feed/siren2.png" alt="" style="width: 1.4em; height: 1.4em;">
+                    <button type="button" data-toggle="modal" data-target="#report" style="float: right; margin-top: 5px; ">
+
+                        신고하기
+
+                        <!-- <img src="${pageContext.request.contextPath}/resources/img/feed/siren.png" alt="" style="width: 1.4em; height: 1.4em;" >
+                        <img src="${pageContext.request.contextPath}/resources/img/feed/siren2.png" alt="" style="width: 1.4em; height: 1.4em;"> -->
                     </button>
                    
                 </div>
@@ -281,35 +325,41 @@
 			    <!-- 댓글 작성 시작 -->
                 <div class="inner-bar-small" style="display: none;" id="reply-input"> &nbsp;
                     <form action="#">
-                        <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="loginUser-img" style="width: 2em;"> &nbsp;
+                        <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="loginUser-img" style="width: 4em;"> &nbsp;
                         <input type="text" placeholder="댓글을 입력하세요" style="border-radius: 5px; width: 20em;">
 
                         <div class="inner-bar-small" align="center" style="margin-top: 10px;">
-                            <button type="submit" class="bBc" style="width: 10em;" >완료</button>
+                            <button type="submit" class="bBc" style="width: 10em;">완료</button>
                         </div>
                     </form>
                 </div>
                 <!-- 댓글 작성 종료 -->
-
-                <div class="inner-bar-small" style="background-color: white; box-sizing: border-box; margin-bottom: 0px;">
-                    <div style="box-sizing: border-box; ">
-                        <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="reply-user" style=" width: 1.6em; display: inline;">
-                        <p style="display: inline;">1시간 전</p>
+                
+                <div>
+                    <div class="inner-bar-small" style="float: left; box-sizing: border-box; margin-bottom: 0px;">
+                        <div style="box-sizing: border-box; ">
+                            <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="reply-user" style=" width: 1.6em; display: inline;">
+                        </div>
                     </div>
-                    <div style="display: inline-block;">
-                        <p style="margin-bottom: 5px;">유저닉네임1</p>
+                    <div style="display: inline-block; background-color: #ebebeb; margin-left: 10px; border-radius: 9px; padding: 5px 10px;">
+                        <span style="display: inline;">1시간 전</span> <br>
+                        <b style="margin-bottom: 5px;">유저닉네임1</b>
                         <p style="margin-bottom: 0px;">첫번째 댓글 달아보고 지나가고 또 봅니다.</p>
                     </div>
                 </div>
 
-                <div class="inner-bar-small" style="background-color: white; box-sizing: border-box; margin-bottom: 0px;">
-                    <div style="box-sizing: border-box; ">
-                        <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="reply-user" style=" width: 1.6em; display: inline;">
-                        <p style="display: inline;">1시간 전</p>
+                <br>
+
+                <div>
+                    <div class="inner-bar-small" style="float: left; box-sizing: border-box; margin-bottom: 0px;">
+                        <div style="box-sizing: border-box; ">
+                            <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="reply-user" style=" width: 1.6em; display: inline;">
+                        </div>
                     </div>
-                    <div style="display: inline-block;">
-                        <p style="margin-bottom: 5px;">유저닉네임2</p>
-                        <p style="margin-bottom: 0px;">두번째 댓글 달아보고 지나가고 또 봅니다.</p>
+                    <div style="display: inline-block; background-color: #ebebeb; margin-left: 10px; border-radius: 9px; padding: 5px 10px;">
+                        <span style="display: inline;">30분 전</span> <br>
+                        <b style="margin-bottom: 5px;">유저닉네임2</b>
+                        <p style="margin-bottom: 0px;">우리 동네에서 하는 축제는 가고 싶어요~</p>
                     </div>
                 </div>
             </div>
@@ -334,9 +384,23 @@
                 }
                 function shareFacebook() {
                     let sendUrl = "http://localhost:8007/tripism/feed/";
-                    window.open("http://www.facebook.com/sharer/sharer.php?href=" + sendUrl);
+                    // window.open("http://www.facebook.com/sharer/sharer.php?href=" + sendUrl); 기존 것
+                    window.open('http://www.facebook.com/sharer.php?href=http://localhost:8007/tripism/feed.fd')
                     console.log("페이스북 이동됨")
                 }
+
+                function copyTheURL(ths) {
+
+                    var ths = $(ths);
+
+                    var obj = ths.children("input");
+
+                    obj.select();
+
+                    document.execCommand("copy");
+
+                    }
+
                 
             </script>
 
@@ -389,54 +453,10 @@
             <br>
             
         </div>
-        <div id="right-main">
-            <div align="center">
-                <img src="${pageContext.request.contextPath}/resources/img/logo.png" alt="image" style="width: 10em;">
-            </div>
-            <hr class="inner-bar">
-            <div class="inner-bar">
-                <b>#태그</b> <br>
-                <a href="#">#봄</a>
-                <a href="#">#여름</a>
-                <a href="#">#가을</a>
-                <a href="#">#겨울</a>    
-            </div>
-
-            <hr class="inner-bar">
-
-            <div class="inner-bar"> <!-- 페이지 만들자. -->
-                <b>추천 피드</b> <a href='feedBest.fd' style="float: right;">더보기&gt;</a>
-            </div>
-
-            <div class="inner-bar" onclick="location.href='#'">
-                <p>
-                    <b>여의도 벚꽃축제</b> <br>
-                    여의도 벚꽃축제 다녀왔어요!
-                </p>
-
-            </div>
-
-            <div class="inner-bar"><hr></div>
+        <!-- <div id="right-main">
             
-            <div class="inner-bar" onclick="location.href='#'">
-                <p>
-                    <b>제주도 얼른 오세요</b> <br>
-                    가족여행으로 제주도를 다녀왔습니다
-                </p>
 
-            </div>
-
-            <div class="inner-bar"><hr></div>
-
-            <div class="inner-bar" onclick="location.href='#'">
-                <p>
-                    <b>서울숲 탐방기</b> <br>
-                    안녕하세요. 서울 도심 속 숲을 찾아 서울숲에 다녀왔습니다.
-                </p>
-
-            </div>
-
-        </div>
+        </div> -->
 
     </div>
     <!-- footer -->

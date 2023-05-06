@@ -10,6 +10,7 @@
 	 	<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
 	 	<property name="username" value="tripism"/>
 	 	<property name="password" value="tripism"/>
+	 
 	 </bean>
 	 
 	
@@ -23,6 +24,7 @@
 		<constructor-arg ref="sqlSessionFactory"/>
 	</bean>
 	
+
 <!-- 
 	   이메일 인증 관련 빈 등록
 	   <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
@@ -45,5 +47,14 @@
 	      
 	   </bean> -->
 	   
+
+	<!-- 파일 업로드 관련 빈 등록 -->
+    <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+    	<property name="maxUploadSize" value="100000000"/> <!-- value="100000000" =>100mb, 그리고 이건 용량 무제한이나 이렇게 제한을 걸어두긴 해야함  -->
+    	<property name="maxInMemorySize" value="100000000"/>
+    </bean>
+	
+	
+
 		
 </beans>

@@ -364,11 +364,13 @@ body * {
 
     </div>
     
-    
+  <a href="mbtiStart.do" type="button" class="btn-sm">mbti(클릭ㄴ)</button>  
   </div>
+  
+  
 </section>
 
-  </div><!-- element wrapper ends -->
+<!-- element wrapper ends -->
 	<!-- ====================================
 ——— FOOTER SECTION
 ===================================== -->

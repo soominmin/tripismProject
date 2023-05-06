@@ -338,6 +338,8 @@
 
 <body id="body" class="up-scroll">
 
+
+
   <!-- ====================================
   ——— HEADER SESSION
   ===================================== -->
@@ -401,7 +403,7 @@
               </li>
   
               <li class="">
-                <a href="noticeList.bo">공지사항</a>
+                <a href="noticeSelectlist.bo">공지사항</a>
               </li>
 
               <li class="">
@@ -466,7 +468,7 @@
                 </svg>
             </span>
             <button></button>
-            <input placeholder="동행을 찾아보세요!" value="" style="font-size: 12px;"></div>
+            <input placeholder="어디로 여행가시나요!" value="" style="font-size: 12px;"></div>
             
           
           <div class="WebHeader__SignBtnBox-sc-12ctfsg-1 eluuNw">
@@ -609,7 +611,8 @@
         </div>
       </div>
     </div>
-    
+  </div>
+  
     
     <!-- Javascript -->
     <script src="${pageContext.request.contextPath}/resources/plugins/jquery/jquery-3.4.1.min.js"></script>

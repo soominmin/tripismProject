@@ -511,6 +511,16 @@
         font-size: 15px;
         font-weight: 400;
     }
+    .btn-ono {
+        margin-left: 5px;
+        border: 1px solid rgb(233, 233, 233);
+        font-size: 15px;
+        line-height: 22px;
+        font-weight: 500;
+        color: rgb(106, 106, 106);
+        background-color: rgb(255, 255, 255);
+        border-radius: 5px;
+    }
     </style>
 </head>
 <body>
@@ -639,7 +649,9 @@
                 <div class="innerSection__AreaRightDiv-sc-1ag5fhb-5 bdoziM">
                     <div class="Layout__LayoutEqualDistanceDiv-sc-1w3ggn5-1 hAClzB profile_section">
                         <div class="area_top" style="margin: 0; margin-bottom: 15px;">
-                            <img src="${pageContext.request.contextPath}/resources/img/partner/ner.jpg" style="width: 55px; height: 55px; padding: 4px; margin-top: 10px;">
+                            <a href="mypage.bo" style="text-decoration:none;">
+                                <img src="${pageContext.request.contextPath}/resources/img/partner/ner.jpg" style="width: 55px; height: 55px; padding: 4px; margin-top: 10px;">
+                            </a>
                                 <div class="profile_info_wrap">
                                     <div class="area_flex" style="display: flex;">
                                         <p class="profile_nickname">Mucamba</p>
@@ -648,6 +660,12 @@
                                         <p class="ProfileCompanion eOlhBT">30대 · 남성 · 대한민국</p>
                                     </div>
                                 </div>
+                            </div>
+                            <div style="display: flex; justify-content: flex-start; margin-top: 0px; margin-bottom: 20px;">
+                                <button style="width: 100px; height: 35px; margin-right: 0;" type="button" class="btn-ono">
+                                    신고하기</button>
+                                <button style="width: 100px; height: 35px;" type="button" class="btn-ono">
+                                    쪽지보내기</button>
                             </div>
 
                             <div class="area_middle">

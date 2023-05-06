@@ -392,6 +392,13 @@
 	
 	        </div>
 	      </div>
+	      
+	      <div id="spotDiv">
+		      <div id="spotList">
+		      </div>
+	      </div>
+	      
+	      <script src="resources/js/travelSpot/travelSpot.js"></script>
 	
 	
 	      

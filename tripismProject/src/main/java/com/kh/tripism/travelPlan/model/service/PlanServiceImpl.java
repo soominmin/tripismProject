@@ -61,6 +61,7 @@ public class PlanServiceImpl implements PlanService {
 			t.setMiddleCategoryNo(item.get("cat2").getAsString());
 			t.setSmallCategoryNo(item.get("cat3").getAsString());
 			t.setAreaCategoryNo(item.get("areacode").getAsString());
+			t.setCityCategoryNo(item.get("sigungucode").getAsString());
 //			System.out.println("impl에서 찍은 : " + t);
 			result += pDao.insertTour(sqlSession,t);
 			

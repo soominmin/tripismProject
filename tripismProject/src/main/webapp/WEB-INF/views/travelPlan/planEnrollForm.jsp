@@ -40,26 +40,17 @@
             <div style="width: 100%; height: 100%; display:flex; ">
 	            <div id="map" class="modal-body" style="width: 50% !important; height: 70%;">
 	            </div>
-	            <div style="width: 50%; height: 70%; background-color:white; overflow: auto;">
-                <div id="menu_wrap" class="bg_white">
-                  <div class="option">
-                    <br>
-                      <div style="position: absolute;">
-                          <form onsubmit="searchPlaces(); return false;" >
-                              <input type="text" value="경복궁" id="keyword" size="15" style="z-index: 999;"> 
-                              <button type="submit" class="btn-sm" style="background-color: rgb(112, 217, 223); color: white; border-radius: 30px; height: 40px">검색</button>
-                          </form>
-                      </div>
-                      <br>
-                  </div>
-                  <hr>
-                  <br>
-                  <ul id="placesList">
-                  </ul>
-              </div>
-	            	
-	            	
-	            	
+	            <div style="width: 50%; height: 70%; background-color:white;">
+	            	<div class="option" style="height: 10%;">
+	                	<form onsubmit="searchPlaces(); return false;" >
+	                    	<input type="text" value="" id="keyword" size="15" > 
+	                        <button type="submit" class="btn-sm" style="background-color: rgb(112, 217, 223); color: white; border-radius: 30px; height: 40px">검색</button>
+	                     </form>
+	                 </div>
+                  	 <div id="placesDiv" style="overflow: auto; height: 90%;">
+	                 	<ul id="placesList">
+	                  	</ul>
+                  	</div>
 	            </div>
             </div>
   

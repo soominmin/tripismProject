@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>공지사항 작성</title>
 
     <!-- GOOGLE FONT -->
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700' rel='stylesheet'>
@@ -33,13 +33,14 @@
 ——— HEADER
 ===================================== -->
   
-
+	<!-- 헤더바 포함 -->
+	<jsp:include page="../common/header.jsp"/>
 
 <!-- ====================================
 ———	PAGE TITLE
 ===================================== -->
 <section class="page-title">
-  <div class="page-title-img bg-img bg-overlay-darken" style="background-image: url(assets/img/pages/page-title-bg.jpg);">
+  <div class="page-title-img bg-img bg-overlay-darken" style="background-image: url(resources/img/pages/page-title-bg3.jpg);">
     <div class="container">
       <div class="row align-items-center justify-content-center" style="height: 200px;">
         <div class="col-lg-6">
@@ -110,7 +111,8 @@
 ——— FOOTER SECTION
 ===================================== -->
     
-
+    		<!-- 푸터바 포함 -->
+	<jsp:include page="../common/footer.jsp"/>
 
 </body>
 </html>

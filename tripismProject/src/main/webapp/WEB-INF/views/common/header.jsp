@@ -403,7 +403,7 @@
               </li>
   
               <li class="">
-                <a href="noticeList.bo">공지사항</a>
+                <a href="noticeSelectlist.bo">공지사항</a>
               </li>
 
               <li class="">

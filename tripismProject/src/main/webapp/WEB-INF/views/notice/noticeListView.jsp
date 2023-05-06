@@ -55,9 +55,9 @@
       <br>
         <!-- (관리자)로그인후 상태일 경우만 보여지는 글쓰기 버튼-->
 
-        <c:if test="${ empty loginUser }">
+
          <a class="btn btn-secondary btn-sm" style="float:right" href="noticeEnrollForm.bo">글쓰기</a>
-        </c:if>
+
       <br></br>
       <table id="boardList" class="table table-hover" align="center">
           <thead>
@@ -70,6 +70,17 @@
             </tr>
           </thead>
           <tbody>
+                          <tr>
+                    <td class="bno">${ n.noticeNo }</td>
+                    <td>${ n.noticeName }</td>
+                    <td>${ n.noticeWriter }</td>
+                    <td>${ n.noticeDate }</td>
+                    <td>
+
+	                        		★
+
+                    </td>
+                </tr>
             <c:forEach var="n" items="${ list }">
                 <tr>
                     <td class="bno">${ n.noticeNo }</td>

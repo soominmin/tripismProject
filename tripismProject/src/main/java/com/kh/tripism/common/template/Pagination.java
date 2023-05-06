@@ -1,6 +1,6 @@
-package com.kh.tripism.notice.template;
+package com.kh.tripism.common.template;
 
-import com.kh.tripism.common.model.vo.PageInfo;
+import com.kh.tripism.feed.model.vo.PageInfo;
 
 public class Pagination {
 	
@@ -15,6 +15,7 @@ public class Pagination {
 			
 		}
 		return new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
+		
 	}
 
 }

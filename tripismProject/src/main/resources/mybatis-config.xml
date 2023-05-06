@@ -20,8 +20,8 @@
 	
 	<mappers>
 		<mapper resource="/mappers/plan-mapper.xml"/>
-		<mapper resource="/mappers/notice-mapper.xml"/>
 		<mapper resource="/mappers/feed-mapper.xml"/>
+		<mapper resource="/mappers/notice-mapper.xml"/>
 	</mappers>
 	 
 	 

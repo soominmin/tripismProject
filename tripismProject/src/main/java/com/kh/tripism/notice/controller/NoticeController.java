@@ -8,22 +8,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kh.tripism.common.model.vo.PageInfo;
+import com.kh.tripism.common.template.Pagination;
+import com.kh.tripism.feed.model.vo.PageInfo;
 import com.kh.tripism.notice.model.service.NoticeServiceImpl;
 import com.kh.tripism.notice.model.vo.Notice;
-import com.kh.tripism.notice.template.Pagination;
+
 
 @Controller
 public class NoticeController {
 	
 	@Autowired
 	private NoticeServiceImpl nService;
+
 	
-	@RequestMapping("noticeList.bo")
-	public ModelAndView selectList(@RequestParam(value="cpage", defaultValue = "1")int currentPage, ModelAndView mv) {
+	@RequestMapping("noticeSelectlist.bo")
+	public ModelAndView noticeSelectList(@RequestParam(value="cpage", defaultValue = "1")int currentPage, ModelAndView mv) {
 		// System.out.println(currentPage);
 		
-		int listCount = nService.selectListCount();
+		int listCount = nService.noticeSelectListCount();
 		
 		// System.out.println(listCount);
 		
@@ -39,7 +41,7 @@ public class NoticeController {
 		 */
 		
 		// 메소드 체이닝
-		mv.addObject("pi", pi).addObject("list", list).setViewName("notice/noticeList");
+		mv.addObject("pi", pi).addObject("list", list).setViewName("notice/noticeListView");
 		
 		return mv;
 

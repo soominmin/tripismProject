@@ -9,16 +9,15 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+
 public class Notice {
+	
 	private int noticeNo;
 	private int noticeWriter;
 	private String noticeName;
 	private String noticeContent;
 	private String noticeDate;
-	private String noticeClsfc;
-	private String noticeUpfile;
 	private String noticeStatus;
-	
 	
 
 }

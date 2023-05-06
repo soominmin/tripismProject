@@ -14,14 +14,14 @@
 		<result column="notice_upfile" property="noticeUpfile"/>
 	</resultMap>
 	
-	<select id="selectListCount" resultType="_int">
+	<select id="noticeSelectListCount" resultType="_int">
 	select
         	count(*)
 	    from tb_notice
 	    where notice_status = 'Y'
 	</select>
 
-	<select id="selectList" resultMap="NoticeResultSet">
+	<select id="noticeSelectList" resultMap="NoticeResultSet">
 		select
         notice_no
         , notice_name

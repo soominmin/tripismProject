@@ -1,7 +1,6 @@
-package com.kh.tripism.travelPlan.model.vo;
+package com.kh.tripism.travelSpot.model.vo;
 
-
-public class Tour {
+public class Spot {
 	private int spotNo; 
 	private String spotContentId;
 	private String spotContentType;
@@ -22,9 +21,9 @@ public class Tour {
 	private int spotCount;
 	private int spotLike;
 	
-	public Tour() {}
+	public Spot() {}
 
-	public Tour(int spotNo, String spotContentId, String spotContentType, String spotCreateDate,
+	public Spot(int spotNo, String spotContentId, String spotContentType, String spotCreateDate,
 			String spotModifiedDate, String spotTel, String spotTitle, String spotImgPath, String spotAddress,
 			String spotPostalCode, String spotMapx, String spotMapy, String largeCategoryNo, String middleCategoryNo,
 			String smallCategoryNo, String areaCategoryNo, String cityCategoryNo, int spotCount, int spotLike) {
@@ -193,7 +192,6 @@ public class Tour {
 	public void setSpotLike(int spotLike) {
 		this.spotLike = spotLike;
 	}
-	
 
 	public String getCityCategoryNo() {
 		return cityCategoryNo;
@@ -205,7 +203,7 @@ public class Tour {
 
 	@Override
 	public String toString() {
-		return "Tour [spotNo=" + spotNo + ", spotContentId=" + spotContentId + ", spotContentType=" + spotContentType
+		return "Spot [spotNo=" + spotNo + ", spotContentId=" + spotContentId + ", spotContentType=" + spotContentType
 				+ ", spotCreateDate=" + spotCreateDate + ", spotModifiedDate=" + spotModifiedDate + ", spotTel="
 				+ spotTel + ", spotTitle=" + spotTitle + ", spotImgPath=" + spotImgPath + ", spotAddress=" + spotAddress
 				+ ", spotPostalCode=" + spotPostalCode + ", spotMapx=" + spotMapx + ", spotMapy=" + spotMapy
@@ -213,11 +211,6 @@ public class Tour {
 				+ ", smallCategoryNo=" + smallCategoryNo + ", areaCategoryNo=" + areaCategoryNo + ", cityCategoryNo="
 				+ cityCategoryNo + ", spotCount=" + spotCount + ", spotLike=" + spotLike + "]";
 	}
-
 	
 	
-	
-	
-	
-
 }

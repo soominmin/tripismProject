@@ -13,7 +13,7 @@
 		<typeAlias type="com.kh.tripism.feed.model.vo.Img" alias="Img"/>
 		<typeAlias type="com.kh.tripism.feed.model.vo.Reply" alias="Reply"/>
 		<typeAlias type="com.kh.tripism.notice.model.vo.Notice" alias="Notice"/>
-		
+		<typeAlias type="com.kh.tripism.travelSpot.model.vo.Spot" alias="Spot"/>
 	</typeAliases>
 
 	
@@ -22,6 +22,7 @@
 		<mapper resource="/mappers/plan-mapper.xml"/>
 		<mapper resource="/mappers/feed-mapper.xml"/>
 		<mapper resource="/mappers/notice-mapper.xml"/>
+		<mapper resource="/mappers/spot-Mapper.xml"/>
 	</mappers>
 	 
 	 

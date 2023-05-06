@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,15 +61,15 @@
             <div class="col-lg-6" style="margin: auto;">
               <div class="mb-4" style="padding-top:30px;">
                 <h3 class="text-uppercase mb-3">ID 찾기 결과</h3>
-                <p>다음정보로 가입된 아이디가 총 n개 있습니다.</p>
+                <p>다음정보로 가입된 아이디가 있습니다.</p>
               </div>
               
               <div class="modal-body" style="padding:0px;">
                     <div class="mb-3" id="userInfo">
                         <h3 class="mb-4" id="userImg"><img src="${pageContext.request.contextPath}/resources/img/user (2).jfif" alt=""></h3>
-                          <div id="userName"><p>이름 : 한수반</p></div>
-                          <div id="email"><p>이메일 : subani@gmail.com</p></div>
-                          <div id="userId"><p>찾아낸 아이디</p></div>
+                          <div id="userName"><p>이름 : ${idfind.memName }</p></div>
+                          <div id="email"><p>이메일 : ${idfind.email }</p></div>
+                          <div id="userId"><p>아이디 : ${idfind.memId }</p></div>
                     </div>
                   </div>
 
@@ -78,7 +79,7 @@
                   <div class="row" style="text-align: center;">
                     <div class="pt-3" style="padding:0px;">
                       <button onclick="location.href='javascript:void(0)" data-bs-toggle="modal" data-bs-target="#login" class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6" id="loginBtn">로그인</button>
-                      <button type="submit" onclick="location.href='pwdFind.do'" class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6" id="pwdFind">비밀번호찾기</button>
+                      <button type="submit" onclick="location.href='pwdFindForm.do'" class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6" id="pwdFind">비밀번호찾기</button>
                     </div>
                 </div>
             </div>

@@ -43,8 +43,7 @@
 
       #myPagebar{
         position: sticky;
-        top: 99px;
-        left: 155px;
+
       }
 
 </style>
@@ -52,31 +51,31 @@
 <body id="body" class="up-scroll">
 
       <div class="col-lg-4 col-xl-3" >
-  <div class="mb-md-6 mb-lg-0" id="myPagebar" style="width: 280px;">
+  <div class="mb-md-6 mb-lg-0" id="myPagebar" style="width: 280px; padding-left:15px;">
     <div class="row" >
 
 
     <!-- Sidebar -->
       <div class="col-md-6 col-lg-12 d-none d-md-block">
-        <div class="bg-smoke border border-light-gray rounded p-3 mb-4">
+        <div style="border: solid 3px rgba(199, 198, 198, 0.37); border-radius: 10px 10px 10px 10px; padding: 25px;">
           <div>
             <h3 class="mb-4" id="userName"><img src="${pageContext.request.contextPath}/resources/img/user (2).jfif" alt=""></h3>
                 <div id="userId"><h4>userId</h4></div>
                 <div id="userNickName"><p>userNickName</p></div>
             </div>
             
-        <div id="ulli">
+        <div id="ulli" style="width: 100%; margin-top: 20px;">
             <ul class="list-unstyled list-group list-group-flush">
               <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                  <span id="userSetting"><a href="userSetting.do">⚙️ 계정설정 </a></span>
+                  <span id="userSetting"><a href="mypage.do">⚙️ 마이페이지 </a></span>
               </li>
       
               <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                  <span id="likePost"><a href="spotLike.do">❤️ 내가 좋아요한 여행지</a></span>
+                  <span id="likePost"><a href="spotLike.do">❤️ 찜목록</a></span>
               </li>
 
               <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                <span id="likePost"><a href="spotLike.do">📱 내가 좋아요한 피드</a></span>
+                <span id="likePost"><a href="spotLike.do">📱 내가 작성한 목록</a></span>
               </li>
       
               <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
@@ -84,16 +83,19 @@
               </li>
       
               <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                  <span id="bookMark"><a href="bookMarkList.do">⭐ 즐겨찾기</a></span>
+                  <span id="bookMark"><a href="bookMarkList.do">⭐ 즐겨찾기 </a></span>
               </li>
               
-              <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                  <span id="bookMark"><a href="following.do">👯 팔로우/팔로잉</a></span>
               </li>
 
               <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                <span id="bookMark"><a href="following.do"> 💭 내가 작성한 댓글</a></span>
+                <span id="bookMark"><a href="following.do"> 💭 MBTI 유형검사 </a></span>
               </li>
+              
+              <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
+                <span id="bookMark"><a href="otherPage.do"> 💭 다른사람마페(잠깐) </a></span>
+              </li>
+              
             </ul>
         </div>
           </div>

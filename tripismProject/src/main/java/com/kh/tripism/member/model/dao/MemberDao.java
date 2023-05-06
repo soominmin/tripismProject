@@ -13,5 +13,24 @@ public class MemberDao {
 		return sqlSession.selectOne("memberMapper.loginMember", m);
 	}
 	
+	public int insertMember(SqlSessionTemplate sqlSession, Member m) {
+		return sqlSession.insert("memberMapper.insertMember", m);
+	}
+	
+	public int idCheck(SqlSessionTemplate sqlSession, String checkId) {
+		return sqlSession.selectOne("memberMapper.idCheck", checkId);
+	}
+	
+	public int nicknameCheck(SqlSessionTemplate sqlSession, String checkNickname) {
+		return sqlSession.selectOne("memberMapper.nicknameCheck", checkNickname);
+	}
+	
+	public Member idfind2(SqlSessionTemplate sqlSession, Member m) {
+		return sqlSession.selectOne("memberMapper.idfind2", m);
+	}
+	
+	public Member pwdfind(SqlSessionTemplate sqlSession, Member m) {
+		return sqlSession.selectOne("memberMapper.pwdfind", m);
+	}
 	
 }

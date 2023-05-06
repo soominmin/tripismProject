@@ -25,7 +25,7 @@
 	.cxduOO {
 		display: flex;
 		flex-direction: column;
-		width: 235px;
+		width: 210px;
 		height: 350px;
 		background: rgb(255, 255, 255);
 		box-shadow: rgba(25, 25, 25, 0.2) 0 6px 10px;
@@ -203,6 +203,7 @@
 		gap: 24px;
 		box-sizing: border-box;
 		margin-top: 1rem;
+		padding: 0;
 	}
 	/*윗단*/
 	.cxduOO > * {
@@ -713,12 +714,16 @@
     <div class="container">
       <div class="row">
 		<div class="col-lg-8 col-xl-9 order-1 order-lg-0">
-			<div class="card rounded-0 card-transparent border-bottom mb-7 pb-7"  style="background:#f5f5f5";>
+			<div>
 			  <div class="row align-items-xl-center">
 			  <div class="container">
-			  <div class="bg-smoke p-2 p-md-6 pb-6 pb-md-8 mb-9 rounded">
+				<div>
 				<div class="row">
-               <div class="mb-4" style="padding-top: 40px;">
+					<div class="col-12">
+						<div class="row" style="width: 1500px;">
+						  <div class="col-lg-6" style="border: solid 3px rgba(199, 198, 198, 0.37); padding: 35px; border-radius:  15px 15px 15px 15px;">
+
+               <div class="mb-4">
              <h3 class="text-uppercase mb-3" align="center">내 동행 게시글</h3>
            </div>
 
@@ -1309,13 +1314,13 @@
 
 		
 	</div>
-	</div>
+</div>
+<jsp:include page="../member/mypageSidebar.jsp"/>
 	</div>
 	</div>
 	</div>
 	</div>
 </div>
-	<jsp:include page="../member/mypageSidebar.jsp"/>
 	
 	    </div>		
   	</div>

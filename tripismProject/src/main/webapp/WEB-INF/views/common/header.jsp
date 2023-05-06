@@ -413,11 +413,6 @@
               </li>
               
            
-              <li class="">
-
-                 <a href="mypage.bo">마이페이지(잠깐)</a>
-
-              </li>
 
 
               <li class="">
@@ -477,8 +472,16 @@
             
           
           <div class="WebHeader__SignBtnBox-sc-12ctfsg-1 eluuNw">
+          	<c:choose>
+				<c:when test="${ empty loginUser }">
 	            <button class="WebHeader__HeaderButton-sc-12ctfsg-2 jmaRWD"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#login" class="media d-inline-flex align-items-center">로그인</a></button>
 	            <button class="WebHeader__HeaderButton-sc-12ctfsg-2 cQcIDu"><a href="enrollForm.do"> 회원가입</a></button>
+	            </c:when>
+	            <c:otherwise>
+		       		            <button class="WebHeader__HeaderButton-sc-12ctfsg-2 cQcIDu"><a href="mypage.do"> 마이페이지 (잠깐)</a></button>
+		       		            <button class="WebHeader__HeaderButton-sc-12ctfsg-2 cQcIDu"><a href="logout.do"> 로그아웃</a></button>
+		      	</c:otherwise>
+	            </c:choose>
           </div>
           
           <div class="Button__ButtonWrapper-sc-1m85upr-0 cmgUBW">
@@ -531,13 +534,13 @@
             </div>
   
             <div class="modal-body">
-              <form action="login.me" method="post">
+              <form action="login.do" method="post">
                 <div class="mb-3">
-                  <input type="text" class="form-control bg-smoke" required="" placeholder="아이디를 입력해주세요.">
+                  <input type="text" class="form-control bg-smoke" name="memId" required placeholder="아이디를 입력해주세요.">
                 </div>
   
                 <div class="mb-3">
-                  <input type="password" class="form-control bg-smoke" required="" placeholder="비밀번호를 입력해주세요.">
+                  <input type="password" class="form-control bg-smoke" name="memPwd" placeholder="비밀번호를 입력해주세요.">
                 </div>
   
                 <div class="mb-3 form-check mb-0">
@@ -563,7 +566,7 @@
 
               <div align="center" style="padding-top: 15px;">
                 <a href="idfind.do" align="center" style="color: black;">ID 찾기</a> | 
-                <a href="pwdFind.do" align="center" style="color: black;">비밀번호 찾기</a>
+                <a href="pwdFindForm.do" align="center" style="color: black;">비밀번호 찾기</a>
               </div>
               
             </div>

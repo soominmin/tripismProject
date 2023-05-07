@@ -620,7 +620,7 @@
                                             font-weight="500"
                                             class="badge__HashTagWrapper-sc-1ju2uee-0 cFzGDF">
                                             <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">#</p>
-                                            <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">30대</p>
+                                            <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">ENFJ</p>
                                         </div>
                                         <div
                                             font-size="13px"
@@ -657,7 +657,7 @@
                                         <p class="profile_nickname">Mucamba</p>
                                     </div>
                                     <div class="profile_taste gray_text">
-                                        <p class="ProfileCompanion eOlhBT">30대 · 남성 · 대한민국</p>
+                                        <p class="ProfileCompanion eOlhBT">ENFJ · 남성 · 대한민국</p>
                                     </div>
                                 </div>
                             </div>

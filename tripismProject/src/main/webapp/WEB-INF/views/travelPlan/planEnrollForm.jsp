@@ -90,7 +90,7 @@
 		 	if(j==169){
 		 		clearInterval(interval);
 			}
-		 },3000)
+		 },1000)
 
 		 }
 		</script>

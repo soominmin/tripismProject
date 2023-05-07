@@ -17,7 +17,8 @@ public class Tour {
 	private String largeCategoryNo; 
 	private String middleCategoryNo; 
 	private String smallCategoryNo; 
-	private String areaCategoryNo; 
+	private String areaCategoryNo;
+	private String cityCategoryNo;
 	private int spotCount;
 	private int spotLike;
 	
@@ -26,7 +27,7 @@ public class Tour {
 	public Tour(int spotNo, String spotContentId, String spotContentType, String spotCreateDate,
 			String spotModifiedDate, String spotTel, String spotTitle, String spotImgPath, String spotAddress,
 			String spotPostalCode, String spotMapx, String spotMapy, String largeCategoryNo, String middleCategoryNo,
-			String smallCategoryNo, String areaCategoryNo, int spotCount, int spotLike) {
+			String smallCategoryNo, String areaCategoryNo, String cityCategoryNo, int spotCount, int spotLike) {
 		super();
 		this.spotNo = spotNo;
 		this.spotContentId = spotContentId;
@@ -44,6 +45,7 @@ public class Tour {
 		this.middleCategoryNo = middleCategoryNo;
 		this.smallCategoryNo = smallCategoryNo;
 		this.areaCategoryNo = areaCategoryNo;
+		this.cityCategoryNo = cityCategoryNo;
 		this.spotCount = spotCount;
 		this.spotLike = spotLike;
 	}
@@ -191,6 +193,15 @@ public class Tour {
 	public void setSpotLike(int spotLike) {
 		this.spotLike = spotLike;
 	}
+	
+
+	public String getCityCategoryNo() {
+		return cityCategoryNo;
+	}
+
+	public void setCityCategoryNo(String cityCategoryNo) {
+		this.cityCategoryNo = cityCategoryNo;
+	}
 
 	@Override
 	public String toString() {
@@ -199,8 +210,8 @@ public class Tour {
 				+ spotTel + ", spotTitle=" + spotTitle + ", spotImgPath=" + spotImgPath + ", spotAddress=" + spotAddress
 				+ ", spotPostalCode=" + spotPostalCode + ", spotMapx=" + spotMapx + ", spotMapy=" + spotMapy
 				+ ", largeCategoryNo=" + largeCategoryNo + ", middleCategoryNo=" + middleCategoryNo
-				+ ", smallCategoryNo=" + smallCategoryNo + ", areaCategoryNo=" + areaCategoryNo + ", spotCount="
-				+ spotCount + ", spotLike=" + spotLike + "]";
+				+ ", smallCategoryNo=" + smallCategoryNo + ", areaCategoryNo=" + areaCategoryNo + ", cityCategoryNo="
+				+ cityCategoryNo + ", spotCount=" + spotCount + ", spotLike=" + spotLike + "]";
 	}
 
 	

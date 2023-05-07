@@ -190,7 +190,7 @@
 				
 				// 지도 중심을 부드럽게 이동시킵니다
 				// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
-				map.setLevel(10);          
+				map.setLevel(11);          
 				map.panTo(moveLatLon);  
 			}        
 		}
@@ -200,6 +200,7 @@
 		if(currentCode!=code){
 			$("#placesList").html("");
 		}
+		console.log(searchValue)
 		let value = "";
 		$.ajax({
 			url:"tourList.do",
@@ -221,7 +222,6 @@
 				// 	}
 				// 	+"</div>"
 				// }
-				https://3.bp.blogspot.com/-WhBe10rJzG4/U4W-hvWvRCI/AAAAAAAABxg/RyWcixpgr3k/s1600/noimg.jpg
 				for(let i=0; i<list.length; i++){
 					value += '<hr style="margin-top:0;"><li class="item">'
 							+ '<span class="markerbg marker_'+(markerNum++)+'"></span>'

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>[관리자] 여행상품 리스트</title>
 
     <!-- GOOGLE FONT -->
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700' rel='stylesheet'>
@@ -88,7 +88,7 @@
             <td><input type="checkbox" name="memberSelect" id="memberSelect"></td>
             <td class="bno">6</td>
             <td>admin</td>
-            <td>여행 상품</td>
+            <td><a href="adminConfirmEnrollFrom.pg">여행 상품</a></td>
             <td>0</td>
             <td>N</td>
           </tr>

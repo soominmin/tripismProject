@@ -40,6 +40,11 @@ public class CommonController {
 	public String adminTravelPackageBoardList() {
 		return "admin/adminTravelPackageBoardList";
 	}
+	
+	@RequestMapping("adminConfirmEnrollFrom.pg")
+	public String adminConfirmEnrollFrom() {
+		return "admin/adminConfirmEnrollFrom";
+	}
 
 
 

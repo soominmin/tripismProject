@@ -20,7 +20,8 @@
 				LARGE_CATEGORY_NO,
 				MIDDLE_CATEGORY_NO,
 				SMALL_CATEGORY_NO,
-				AREA_CATEGORY_NO	
+				AREA_CATEGORY_NO,
+				CITY_CATEGORY_NO	
 			)
 			values
 			(
@@ -37,7 +38,8 @@
 				#{largeCategoryNo},
 				#{middleCategoryNo},
 				#{smallCategoryNo},
-				#{areaCategoryNo}		
+				#{areaCategoryNo},
+				#{cityCategoryNo}
 			)
 			
 	
@@ -59,6 +61,7 @@
 		<result column="MIDDLE_CATEGORY_NO" property="middleCategoryNo"/>
 		<result column="SMALL_CATEGORY_NO" property="smallCategoryNo"/>
 		<result column="AREA_CATEGORY_NO" property="areaCategoryNo"/>
+		<result column="CITY_CATEGORY_NO" property="cityCategoryNo"/>
 		<result column="SPOT_COUNT" property="spotCount"/>
 		<result column="SPOT_LIKE" property="spotLike"/>
 		
@@ -75,7 +78,9 @@
 				large_category_no,
 				middle_category_no,
 				small_category_no,
-				spot_img_path
+				spot_img_path,
+				spot_mapx,
+				spot_mapy
 				
 			from
 				tb_travel_spot

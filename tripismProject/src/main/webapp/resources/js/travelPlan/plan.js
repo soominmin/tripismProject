@@ -1,10 +1,10 @@
 
-
+let searchValue =null;
+let currentCode = 0;
+let flag = false;
+let currentPage = 1;
 	function createMap(){
-		let searchValue =null;
-		let currentCode = 0;
-		let flag = false;
-		let currentPage = 1;
+		
 		let tourInfo = JSON.parse(JSON.stringify(info));
 		console.log(tourInfo[0].color);
 		console.log(tourInfo);
@@ -169,7 +169,7 @@
 				// infowindow.setContent(content); 
 				// infowindow.setPosition(mouseEvent.latLng); 
 				// infowindow.setMap(map);
-				// $("#search").css("display","block")
+				$("#search").css("display","block")
 				currentPage = 1;
 				// searchValue="";
 				// flag = true;
@@ -196,6 +196,24 @@
 		}
 
 	
+	
+	
+
+	let isUpdateList = true;
+	const placesDiv = document.getElementById("placesDiv");
+	placesDiv.onscroll = function(e) {
+      console.log(document.getElementById("placesDiv").clientHeight ,  document.getElementById("placesDiv").scrollTop,document.getElementById("placesDiv").scrollHeight)
+      if((placesDiv.clientHeight + placesDiv.scrollTop) >= (placesDiv.scrollHeight-3)) { 
+        if(isUpdateList){
+            isUpdateList = false;
+            
+			selectTourList(currentCode,++currentPage,searchValue);
+            isUpdateList = true;
+        }
+        
+      }
+    }
+}
 	function selectTourList(code,currentPage,searchValue,markerNum){
 		if(currentCode!=code){
 			$("#placesList").html("");
@@ -247,7 +265,8 @@
 				console.log(currentPage);
 				console.log(list);
 				console.log(document.getElementById("placesDiv").scrollHeight)
-				console.dir(document.getElementById("placesDiv"))
+				console.dir(document.getElementsByClassName("info"))
+				
 			},
 			error:function(){
 				console.log("실패");
@@ -256,44 +275,32 @@
 		
 	}
 	
-
-	let isUpdateList = true;
-	const placesDiv = document.getElementById("placesDiv");
-	placesDiv.onscroll = function(e) {
-      console.log(document.getElementById("placesDiv").clientHeight ,  document.getElementById("placesDiv").scrollTop,document.getElementById("placesDiv").scrollHeight)
-      if((placesDiv.clientHeight + placesDiv.scrollTop) >= (placesDiv.scrollHeight-3)) { 
-        if(isUpdateList){
-            isUpdateList = false;
-            
-			selectTourList(currentCode,++currentPage,searchValue);
-            isUpdateList = true;
-        }
-        
-      }
-    }
+	
+	
 	function searchTour(){
-		
-		$("#content").html("");
+		console.log("검색함수")
+		console.dir(document.getElementById("searchVal"))
+		console.log(document.getElementById("searchVal").value)
+		$("#placesList").html("");
 		currentPage=1;
 		searchValue = $("#searchVal").val();
 		$("#searchVal").val("");
 		selectTourList(currentCode,currentPage,searchValue);
 
-		$.ajax({
-			url:"tourList.do",
-			data:{areaCode:currentCode,
-				currentPage:currentPage++,
-				searchValue:$("#searchVal").val()},
-			success:function(){
-				console.log($("#searchVal").val())
-			},
-			error:function(){
-				console.log("실패");
-			}
+		// $.ajax({
+		// 	url:"tourList.do",
+		// 	data:{areaCode:currentCode,
+		// 		currentPage:currentPage++,
+		// 		searchValue:$("#searchVal").val()},
+		// 	success:function(){
+		// 		console.log($("#searchVal").val())
+		// 	},
+		// 	error:function(){
+		// 		console.log("실패");
+		// 	}
 
 
-		})
-	}
+		// })
 	}
 
 
@@ -356,3 +363,4 @@ function makeDate(dates){
 function addPlan(){
 
 }
+

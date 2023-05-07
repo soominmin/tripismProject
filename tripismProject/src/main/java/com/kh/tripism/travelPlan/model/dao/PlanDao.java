@@ -16,13 +16,18 @@ public class PlanDao {
 //		System.out.println("이건 다오에서 찍음 : " + t);
 		return sqlSession.insert("planMapper.insertTour",t);
 	}
-	public ArrayList<Tour> selectTourList(SqlSessionTemplate sqlSession,int areaCode,int currentPage,String searchValue){
+	public ArrayList<Tour> selectTourList(SqlSessionTemplate sqlSession,int areaCode,int currentPage,String searchVal){
 		HashMap<String, Object> selectList = new HashMap<String, Object>();
 		selectList.put("areaCode", areaCode);
-		selectList.put("searchValue", "%"+searchValue+"%");
+		if(searchVal==null) {
+			selectList.put("searchValue", null);
+		}else {
+			selectList.put("searchValue", "%"+searchVal+"%");
+		}
 		RowBounds rowBouns = new RowBounds((currentPage-1)*10,10);
 		
-		
+		System.out.println("searchvalue:"+ searchVal);
+		System.out.println("hashmap:"+selectList.get("searchValue"));
 		return (ArrayList)sqlSession.selectList("planMapper.selectTourList", selectList,  rowBouns);
 		
 	}

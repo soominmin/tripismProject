@@ -23,36 +23,40 @@
 	</div>
     <input type="text" name="dates">
 	
-	<div id="search" style="display: none;">
-		<input type="text" id="searchVal">
-		<button type="button" onclick="searchTour();">검색</button>
-	</div>
+	
 	<div id="content">
 		
 	</div>
     <div class="modal fade" id="plan" tabindex="-1" role="dialog" aria-label="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document" style="margin-left:300px; ">
-          <div class="modal-plan" style="width: 1000px !important; height: 1000px;">
-            <div class="modal-header rounded" id="modalTop">
+          <div class="modal-plan" style="width: 1000px ; height: 1000px;">
+            <div class="modal-header rounded" id="modalTop" style="height: 5%;">
               <h3 class="modal-title text-uppercase font-weight-bold">여행지 검색</h3>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div style="width: 100%; height: 100%; display:flex; ">
-	            <div id="map" class="modal-body" style="width: 50% !important; height: 70%;">
+            <div style="width: 100%; height: 70%; display:flex; ">
+	            <div id="map" class="modal-body" style="width: 50%; height: 100%;">
 	            </div>
-	            <div style="width: 50%; height: 70%; background-color:white;">
+	            <div style="width: 50%; height: 100%; background-color:white;">
 	            	<div class="option" style="height: 10%;">
-	                	<form onsubmit="searchPlaces(); return false;" >
-	                    	<input type="text" value="" id="keyword" size="15" > 
-	                        <button type="submit" class="btn-sm" style="background-color: rgb(112, 217, 223); color: white; border-radius: 30px; height: 40px">검색</button>
-	                     </form>
+	                	
+	                    <div id="search" style="display: none;">
+							<input type="text" id="searchVal">
+							<button type="button" onclick="searchTour();">검색</button>
+						</div>
 	                 </div>
                   	 <div id="placesDiv" style="overflow: auto; height: 90%;">
 	                 	<ul id="placesList">
 	                  	</ul>
                   	</div>
 	            </div>
+				
             </div>
+			<div style="width: 100%; height: 25%; overflow: auto;">
+				<h3>여행지 목록</h3>
+				dvi
+
+			</div>
   
             
           </div>
@@ -66,7 +70,14 @@
         createMap();
         
       })
+	  
     </script>
+	<script>
+
+		document.getElementsByClassName("info").addEventListener("click",function(){
+			console.log("여행지 클릭")
+		});
+	</script>
     <script>
 		let j =1;
 		

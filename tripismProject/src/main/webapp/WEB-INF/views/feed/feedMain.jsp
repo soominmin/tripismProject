@@ -11,14 +11,14 @@
         
         #wrap{ height: 1200px;  position: relative; margin-left: 20%;}
         /* #header{ height: 10% ; box-sizing: border-box; } */
-        #left-main{ width: 15%; height: 100% !important; box-sizing: border-box; float: left; min-width: 120px; }
-        #middle-main{ width: 50%; height: 100% !important; box-sizing: border-box; float: left; min-width: 300px; overflow: scroll; margin: 0 2.5/; padding: 0 2%; border-left: 1px solid rgb(112, 217, 223);}
+        #left-main{ width: 20%; height: 100% !important; box-sizing: border-box; float: left; min-width: 120px; padding: 0 2%; }
+        #middle-main{ width: 50%; height: 100% !important; box-sizing: border-box; float: left; min-width: 300px; overflow: scroll; margin: 0 2.5%; padding: 0 2%; border-left: 1px solid rgb(112, 217, 223);}
         /* #right-main{ width: 17.5%; height: 100% !important; box-sizing: border-box; float: left; min-width: 180px;} */
         /* #footer{ height: 10%; display: block; position: absolute; bottom: 0px !important;} */
         .inner-bar{ margin: 10px 15px; }
         .inner-bar-small{ margin: 10px 5px; }
         
-        /* #feedPage{ background-color: whitesmoke; } */
+         #feedPage{ border: 1px solid whitesmoke; }
         .btn-feed-three{ width: 120px; }
         .feed-content>img{ display: block; margin: auto; } 
         #shareButtons button{
@@ -86,6 +86,18 @@
             box-sizing: border-box;
             outline: auto;
         }
+        
+        .LrN{ padding: 0px 20px }
+        
+        .font-bold{ 
+        	font-weight: 700;
+        	font-size: 18px;
+        	line-height: 26px;
+        	color: black;
+        }
+        
+        .non-click{ background-color: none;}
+        .click{ background-color: rgb(112, 217, 223); }
     </style>
 
 </head>
@@ -138,27 +150,26 @@
             
             <br>
 
-            <button type="button" style="background-color: transparent; border: none;" onclick="location.href='feed.fd'"><img src="${pageContext.request.contextPath}/resources/img/feed/home2.png" alt="home" style="width: 2.4em;">
+            <button type="button" class="non-click" style=" background-color: rgb(112, 217, 223); border: none; border-radius: 20px" onclick="location.href='feed.fd'">
+            	<img src="${pageContext.request.contextPath}/resources/img/feed/home2.png" alt="home" style="width: 2.4em;">
                 <p style="margin-top: 10px">전체보기</p>
             </button>
 
-            <br>
             <!-- 
             <button style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/hot.png" alt="hot" style="width: 2em;">
                 <p>실시간</p>
             </button>
              -->
-            <br>
 
             <br>
 
-            <button type="button" style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/image2.png" alt="img" style="width: 2.4em;">
+            <button type="button" class="non-click" style="border: none;" onclick="location.href='feedImgAll.fd'"><img src="${pageContext.request.contextPath}/resources/img/feed/image2.png" alt="img" style="width: 2.4em;">
                 <p style="margin-top: 10px">이미지</p>
             </button>
             
             <br>
             
-            <button type="button" style="background-color: transparent; border: none;" onclick="location.href='enrollForm.fd'"><img src="${pageContext.request.contextPath}/resources/img/feed/plus.png" alt="img" style="width: 2.4em;">
+            <button type="button" class="non-click" style="border: none;" onclick="location.href='enrollForm.fd'"><img src="${pageContext.request.contextPath}/resources/img/feed/plus.png" alt="img" style="width: 2.4em;">
             	<p style="margin-top: 10px">글쓰기</p>
             </button>
 
@@ -263,58 +274,64 @@
             
             
 			<!-- 무한스크롤 시작할 자리 -->
-            <div class="inner-bar" id="feedPage" style="padding: 5px;">
-                <div class="inner-bar-small">
-                    <img src="http://k.kakaocdn.net/dn/bg1bQs/btrN4Orw1rt/ywz81BDR7UcSZ319qKlLQ1/img_640x640.jpg" alt="닉네임" style="width: 2.7em;"> 
-                    <b style="margin-left: 13px ;">차카이브</b>
+            <div class="inner-bar" id="feedPage">
+                <div class="inner-bar-small LrN">
+                    <img src="http://k.kakaocdn.net/dn/bg1bQs/btrN4Orw1rt/ywz81BDR7UcSZ319qKlLQ1/img_640x640.jpg" alt="사진이미지" style="width: 2.7em;"> 
+                    <b style="margin-left: 13px ;" >차카이브</b>
                     <input type="text" style="width: 70px; text-align: center; border: none;" placeholder="1주일전" disabled>
 
-                    <button type="button" style="border: none;" onclick="location.href='updateForm.fd'">
-                        <img src="${pageContext.request.contextPath}/resources/img/feed/paper.png" alt="" style="width: 1.5em; margin: 8px 0px;">
-                    </button>
-                    
-                    <button type="button" data-toggle="modal" data-target="#report" style="float: right; margin-top: 5px; ">
-
-                        신고하기
-
-                        <!-- <img src="${pageContext.request.contextPath}/resources/img/feed/siren.png" alt="" style="width: 1.4em; height: 1.4em;" >
-                        <img src="${pageContext.request.contextPath}/resources/img/feed/siren2.png" alt="" style="width: 1.4em; height: 1.4em;"> -->
-                    </button>
-                   
+					<div style="float: right; margin-top: 5px;">
+	                    <button type="button" style="border: none;" onclick="location.href='updateForm.fd'">
+	                    	<span>수정하기</span>
+	                        <!--  <img src="${pageContext.request.contextPath}/resources/img/feed/paper.png" alt="" style="width: 1.5em; margin: 8px 0px;">-->
+	                    </button>
+	                    
+	                    <span>|</span>
+	                    
+	                    <button type="button" data-toggle="modal" data-target="#report">
+	                        <span>신고하기</span>
+	                        <!-- <img src="${pageContext.request.contextPath}/resources/img/feed/siren.png" alt="" style="width: 1.4em; height: 1.4em;" >
+	                        <img src="${pageContext.request.contextPath}/resources/img/feed/siren2.png" alt="" style="width: 1.4em; height: 1.4em;"> -->
+	                    </button>
+                   </div>
                 </div>
 
-                <hr class="inner-bar">
+                <hr class="inner-bar ">
 			
-                <div class="inner-bar-small">
-                    <b>속초는 아직 벚꽃엔딩 중🌸</b>
-                </div> <br>
-                <div class="feed-content inner-bar-small">
-                    <p>
+                <div class="inner-bar-small LrN ">
+                    <p class="font-bold">속초는 아직 벚꽃엔딩 중🌸</p>
+                </div> 
+                
+                <br>
+                
+                <div class="feed-content inner-bar-small LrN">
+                    <p style="color: black">
                         남쪽나라는 이제 겹벚꽃, 등나무 이야기가 나오고 있지만 우리 북쪽나라 속초는 이제야 벚꽃엔딩을 맞았어요 🌸 🍃 <br>
 
                         속초 영랑호에는 아직 부분부분 살아있는 벚꽃이 있으니, 이번 주말 마지막 벚꽃여행 하시는 분은 참고하세요! <br>
     
                         📹 23. 4. 6.(목) 18시 이후 촬영 <br>
                         📍 영랑호수공원, 해병대전우회 부근 <br>
-                        <img src="https://s3-image.yeomi.travel/71b361ed-6df3-4617-b71f-a8cb7b537ba9.jpeg?w=1120&q=80" alt="" style="width: 100%; height: 100%;">
                     </p>
                 </div>
+                
+                <img src="https://s3-image.yeomi.travel/71b361ed-6df3-4617-b71f-a8cb7b537ba9.jpeg?w=1120&q=80" alt="" style="width: 100%; height: 100%;">
 
-                <div class="inner-bar-small">
+                <div class="inner-bar-small LrN">
                     <a href="#">#영랑호</a>
                     <a href="#">#벚꽃</a>
                 </div>
 
                 <hr class="inner-bar">
 
-                <div class="inner-bar-small"> &nbsp;
+                <div class="inner-bar-small LrN"> &nbsp;
                     <img src="${pageContext.request.contextPath}/resources/img/feed/thumb-up.png" alt="thumb-up" style="width: 1.2em; height:1.2em;">
                     <b>16</b>
                 </div>
 
                 <hr class="inner-bar">
 
-                <div class="inner-bar-small" align="center">
+                <div class="inner-bar-small LrN" align="center">
                     <button type="button" class="btn-feed-three" style="background-color: transparent; border: none;" onclick="likeChange();">좋아요</button> |
                     <button type="button" class="btn-feed-three" style="background-color: transparent; border: none;" onclick="viewReply();">댓글쓰기</button> |
                     <button type="button" data-toggle="modal" data-target="#share" class="btn-feed-three" style="background-color: transparent; border: none;" >공유하기</button>
@@ -323,10 +340,10 @@
                 <hr class="inner-bar">
 
 			    <!-- 댓글 작성 시작 -->
-                <div class="inner-bar-small" style="display: none;" id="reply-input"> &nbsp;
+                <div class="inner-bar-small LrN" id="reply-input"> &nbsp;
                     <form action="#">
-                        <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="loginUser-img" style="width: 4em;"> &nbsp;
-                        <input type="text" placeholder="댓글을 입력하세요" style="border-radius: 5px; width: 20em;">
+                        <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="loginUser-img" style="width: 2em;"> &nbsp;
+                        <input type="text" placeholder="댓글을 입력하세요" style="border-radius: 5px; width: 550px; padding: 5px">
 
                         <div class="inner-bar-small" align="center" style="margin-top: 10px;">
                             <button type="submit" class="bBc" style="width: 10em;">완료</button>
@@ -335,7 +352,7 @@
                 </div>
                 <!-- 댓글 작성 종료 -->
                 
-                <div>
+                <div class="LrN">
                     <div class="inner-bar-small" style="float: left; box-sizing: border-box; margin-bottom: 0px;">
                         <div style="box-sizing: border-box; ">
                             <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="reply-user" style=" width: 1.6em; display: inline;">
@@ -344,13 +361,13 @@
                     <div style="display: inline-block; background-color: #ebebeb; margin-left: 10px; border-radius: 9px; padding: 5px 10px;">
                         <span style="display: inline;">1시간 전</span> <br>
                         <b style="margin-bottom: 5px;">유저닉네임1</b>
-                        <p style="margin-bottom: 0px;">첫번째 댓글 달아보고 지나가고 또 봅니다.</p>
+                        <p style="margin-bottom: 0px; color: black;">첫번째 댓글 달아보고 지나가고 또 봅니다.</p>
                     </div>
                 </div>
 
                 <br>
 
-                <div>
+                <div class="LrN">
                     <div class="inner-bar-small" style="float: left; box-sizing: border-box; margin-bottom: 0px;">
                         <div style="box-sizing: border-box; ">
                             <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="reply-user" style=" width: 1.6em; display: inline;">
@@ -359,7 +376,7 @@
                     <div style="display: inline-block; background-color: #ebebeb; margin-left: 10px; border-radius: 9px; padding: 5px 10px;">
                         <span style="display: inline;">30분 전</span> <br>
                         <b style="margin-bottom: 5px;">유저닉네임2</b>
-                        <p style="margin-bottom: 0px;">우리 동네에서 하는 축제는 가고 싶어요~</p>
+                        <p style="margin-bottom: 0px; color: black;">우리 동네에서 하는 축제는 가고 싶어요~</p>
                     </div>
                 </div>
             </div>
@@ -368,14 +385,15 @@
             <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
             <script>
-                function viewReply(){
+                /*function viewReply(){ 리플 숨기기/나타내기
                     let btn1 = document.getElementById('reply-input');
                     if(btn1.style.display !== 'none'){
                         btn1.style.display = 'none';
                     } else {
                         btn1.style.display = 'block';
                     }
-                }
+                }*/
+                
                 function shareTwitter() {
                     let sendText = "tripism 새소식 보러오세요";
                     let sendLink = "http://localhost:8007/tripism/feed/"
@@ -400,6 +418,20 @@
                     document.execCommand("copy");
 
                     }
+                
+                const nonClick = document.querySelectorAll(".non-click");
+                function handleClick(event) {
+                	  // div에서 모든 "click" 클래스 제거
+                	  nonClick.forEach((e) => {
+                	    e.classList.remove("click");
+                	  });
+                	  // 클릭한 div만 "click"클래스 추가
+                	  event.target.classList.add("click");
+                	}
+
+                	nonClick.forEach((e) => {
+                	  e.addEventListener("click", handleClick);
+                	});
 
                 
             </script>

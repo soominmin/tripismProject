@@ -542,7 +542,7 @@
                             <div class="AccompanyContainer__FlexBox-sc-zoqt5l-4 kosINv">
                                 <div class="AccompanyContainer__FlexBox-sc-zoqt5l-4 kosINv">
                                     <p>지역</p>
-                                    <span>강원도</span>
+                                    <span>제주도</span>
                                 </div>
                                 <div class="AccompanyContainer__FlexMarginBox-sc-zoqt5l-5 eBgxXA">
                                     <p>모집인원</p>
@@ -587,23 +587,9 @@
                                     <span>맛집/카페 탐방, 핫플레이스 탐방</span>
                                     여행을 떠나려고 해요.</p>
                             </div>
-                            <div
-                                class="AccompanyContainer__TempBox-sc-zoqt5l-8 klFqPP"
-                                style="align-items: center;">
-                                <svg
-                                    width="15"
-                                    height="15"
-                                    viewBox="0 0 13 13"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1 6.65217L5.58333 11L12 1" stroke="#00CE7C" stroke-width="1.5"></path>
-                                </svg>
-                                <p>저는
-                                    <span>느긋한, 사진 찍는, 친화력 좋은</span>
-                                    여행자에요.</p>
-                            </div>
+
                         </div>
-                        <p class="AccompanyContainer__ContentBox-sc-zoqt5l-9 jbdwEb">맛집과 감성장소가서 커피마시는 것을 좋아합니다! 저는 막주 한주 가있을 건데, 혼자보단 같이 놀면 재밌을 것 같아요! 커피 산책 사진 음주 등 전부 좋고 부분 동행도 좋아요 남녀노소 함께 합시다! (전 30초 남자에요!!)</p>
+                        <p class="AccompanyContainer__ContentBox-sc-zoqt5l-9 jbdwEb">맛집과 감성장소가서 커피마시는 것을 좋아합니다! 저는 막주 한주 가있을 건데, 혼자보단 같이 놀면 재밌을 것 같아요! 커피 산책 사진 음주 등 전부 좋고 부분 동행도 좋아요 남녀노소 함께 합시다!</p>
                         <div class="badge__HashTagArrayWrapper-sc-1ju2uee-1 Ewzzt">
                             <div>
                                 <div class="badge__HashTagArrayWrapper-sc-1ju2uee-1 cdLLix">
@@ -620,7 +606,7 @@
                                             font-weight="500"
                                             class="badge__HashTagWrapper-sc-1ju2uee-0 cFzGDF">
                                             <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">#</p>
-                                            <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">30대</p>
+                                            <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">ENFJ</p>
                                         </div>
                                         <div
                                             font-size="13px"
@@ -654,10 +640,10 @@
                             </a>
                                 <div class="profile_info_wrap">
                                     <div class="area_flex" style="display: flex;">
-                                        <p class="profile_nickname">Mucamba</p>
+                                        <p class="profile_nickname">밍구</p>
                                     </div>
                                     <div class="profile_taste gray_text">
-                                        <p class="ProfileCompanion eOlhBT">30대 · 남성 · 대한민국</p>
+                                        <p class="ProfileCompanion eOlhBT">ENFJ · 남성 · 대한민국</p>
                                     </div>
                                 </div>
                             </div>
@@ -691,7 +677,7 @@
                     <div class="ModalContainer dompyb">
                         <div width="375px" class="ModalContainer bgZZfo">
                             <div class="ModalConfirm bJjRJT">
-                                <p class="ModalConfirm gpnsLj">동행 신청을 하시겠습니까? 동행신청 누를시 신청하시는 분의 정보가 전달 됩니다.</p>
+                                <p class="ModalConfirm gpnsLj">동행 신청을 하시겠습니까? <br> 동행신청 누를시 신청하시는 분의 정보가 전달 됩니다.</p>
                                 <div class="ModalConfirm bcDKTX">
                                     <button width="49%" height="100%" color="#fff" class="ButtonTemplate hOSFcy">취소</button>
                                     <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo">동행신청</button>

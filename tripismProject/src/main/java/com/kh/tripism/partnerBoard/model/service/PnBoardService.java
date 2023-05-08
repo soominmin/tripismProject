@@ -1,0 +1,36 @@
+package com.kh.tripism.partnerBoard.model.service;
+
+import java.util.ArrayList;
+
+import com.kh.tripism.feed.model.vo.PageInfo;
+import com.kh.tripism.partnerBoard.model.vo.PnBoard;
+import com.kh.tripism.partnerBoard.model.vo.PnReply;
+
+public interface PnBoardService {
+	
+	// 1. 게시판 리스트 페이지 조회용 서비스(페이징처리)
+	int selectListCount();	// 페이징처리를 위한 전체 개수를 리턴하는 메소드
+	ArrayList<PnBoard> selectList(PageInfo pi);
+	
+	// 2. 게시글 작성하기 위한 서비스
+	int insertPnBoard(PnBoard pb);
+	
+	// 3. 게시글 상세 조회용 서비스
+	// - 카운트 올리기
+	int increaseCount(int PnBoardNo);	// where 절에 그것만 조회수 올리기 해야함
+	// - 게시글 조회
+	PnBoard selectPnBoard(int PnBoardNo);
+	
+	// 4. 게시글 삭제용 서비스
+	int deletePnBoard(int PnBoardNo);	
+	
+	// 5. 게시글 수정용 서비스
+	int updatePnBoard(PnBoard pb);
+	
+	// 6. 댓글 리스트 조회
+	ArrayList<PnReply> selectPnReplyList(int PnBoardNo);
+	
+	// 7. 댓글 작성용 서비스(ajax)
+	int insertPnReply(PnReply pr);
+	
+}

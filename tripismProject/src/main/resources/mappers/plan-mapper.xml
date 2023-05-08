@@ -97,7 +97,9 @@
 				large_category_no,
 				middle_category_no,
 				small_category_no,
-				spot_img_path
+				spot_img_path,
+				spot_mapx,
+				spot_mapy
 				
 			from
 				tb_travel_spot

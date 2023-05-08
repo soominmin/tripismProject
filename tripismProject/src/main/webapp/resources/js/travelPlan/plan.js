@@ -3,6 +3,8 @@ let searchValue =null;
 let currentCode = 0;
 let flag = false;
 let currentPage = 1;
+var map = null;
+var markers = [];
 	function createMap(){
 		
 		let tourInfo = JSON.parse(JSON.stringify(info));
@@ -27,7 +29,7 @@ let currentPage = 1;
 				level: 13 // 지도의 확대 레벨
 			};
 
-		var map = new kakao.maps.Map(mapContainer, mapOption),
+		map = new kakao.maps.Map(mapContainer, mapOption),
 			customOverlay = new kakao.maps.CustomOverlay({}),
 			infowindow = new kakao.maps.InfoWindow({removable: true});
 
@@ -161,25 +163,18 @@ let currentPage = 1;
 				panTo(lat,lng);
 				
 				
-				// var content = '<div class="info">' + 
-				// 			'   <div class="title">' + area.name + '</div>' +
-				// 			'   <div class="size">총 면적 : 약 ' + Math.floor(polygon.getArea()) + ' m<sup>2</sup></div>' +
-				// 			'</div>';
-
-				// infowindow.setContent(content); 
-				// infowindow.setPosition(mouseEvent.latLng); 
-				// infowindow.setMap(map);
+				
 				$("#search").css("display","block")
 				currentPage = 1;
-				// searchValue="";
+				searchValue="";
 				// flag = true;
 				
 				// console.log(code);
-
+				
 				selectTourList(code,currentPage,searchValue,markerNum);
 				// console.log(currentPage);
-				
 				currentCode = code;
+				
 				
 				
 				
@@ -217,29 +212,21 @@ let currentPage = 1;
 	function selectTourList(code,currentPage,searchValue,markerNum){
 		if(currentCode!=code){
 			$("#placesList").html("");
+			markers.forEach(marker=>{
+				marker.setMap(null);
+			})
+			markers.length=0;
+			
 		}
 		console.log(searchValue)
 		let value = "";
+		
 		$.ajax({
 			url:"tourList.do",
 			data:{areaCode:code,
 				currentPage:currentPage,
 				searchValue:searchValue},
 			success:function(list){
-				// for(let i=0; i<list.length; i++){
-				// 	value += "<div class='list'>"
-				// 			+"<div> 여행지:" + list[i].spotTitle + "            </div>"
-				// 			+"<div> 주소:" + list[i].spotAddress + "</div>"
-							
-							
-
-				// 	if(list[i].spotImgPath!=null){
-				// 		value+="<img src='"+list[i].spotImgPath+"' style='width:250px; height:250px;'>"
-				// 	}else{
-
-				// 	}
-				// 	+"</div>"
-				// }
 				for(let i=0; i<list.length; i++){
 					value += '<hr style="margin-top:0;"><li class="item">'
 							+ '<span class="markerbg marker_'+(markerNum++)+'"></span>'
@@ -249,24 +236,45 @@ let currentPage = 1;
 							}else{
 								value+='<img src="https://3.bp.blogspot.com/-WhBe10rJzG4/U4W-hvWvRCI/AAAAAAAABxg/RyWcixpgr3k/s1600/noimg.jpg" style="width:50px; height:50px;">';
 							} 
-							value+='<h5>'+list[i].spotTitle+'</h5>'    
-							   
-							 
-							
+							value+='<h5 class="spotTilte">'+list[i].spotTitle+'</h5>'
+									+'<button type="button" class="addSpot">추가</button>'
 							+'</div>'
 							+'<span>'+list[i].spotAddress+'</span>'
 							+'<span class="tel">'+list[i].spotTel+'</span>'
 						+'</li>';
+
+						// positions.push(
+						// 	{
+						// 		title:list[i].spotTitle,
+						// 		latlng: new kakao.maps.LatLng(list[i].spotMapy, list[i].spotMapx)
+						// 	}
+
+						// )
+						var marker = new kakao.maps.Marker({
+							
+							position: new kakao.maps.LatLng(list[i].spotMapy, list[i].spotMapx), 
+							title : list[i].spotTitle 
+						});
+						markers.push(marker);
+						
 						
 				}
-				
-				
+				markers.forEach(marker=>{
+					marker.setMap(map);
+				})
+				console.log(markers);
 				$("#placesList").append(value);
 				console.log(currentPage);
 				console.log(list);
 				console.log(document.getElementById("placesDiv").scrollHeight)
 				console.dir(document.getElementsByClassName("info"))
-				
+				// for (var i = 0; i < positions.length; i ++) {
+				// 	var marker = new kakao.maps.Marker({
+				// 		map: map, 
+				// 		position: positions[i].latlng, 
+				// 		title : positions[i].title, 
+				// 	});
+				// }
 			},
 			error:function(){
 				console.log("실패");
@@ -281,26 +289,16 @@ let currentPage = 1;
 		console.log("검색함수")
 		console.dir(document.getElementById("searchVal"))
 		console.log(document.getElementById("searchVal").value)
+		markers.forEach(marker=>{
+			marker.setMap(null);
+		})
+		markers.length=0;
 		$("#placesList").html("");
 		currentPage=1;
 		searchValue = $("#searchVal").val();
 		$("#searchVal").val("");
 		selectTourList(currentCode,currentPage,searchValue);
 
-		// $.ajax({
-		// 	url:"tourList.do",
-		// 	data:{areaCode:currentCode,
-		// 		currentPage:currentPage++,
-		// 		searchValue:$("#searchVal").val()},
-		// 	success:function(){
-		// 		console.log($("#searchVal").val())
-		// 	},
-		// 	error:function(){
-		// 		console.log("실패");
-		// 	}
-
-
-		// })
 	}
 
 

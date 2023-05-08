@@ -13,6 +13,10 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <style type="text/css">
 
+	.spotTilte:hover{cursor: pointer;}
+	.addSpot,.info img{width: 20%;}
+	.spotTitle{width: 60%;}
+
 </style>
 </head>
 <body>
@@ -28,7 +32,7 @@
 		
 	</div>
     <div class="modal fade" id="plan" tabindex="-1" role="dialog" aria-label="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document" style="margin-left:300px; ">
+        <div class="modal-dialog" role="document" style="margin-left:50px; ">
           <div class="modal-plan" style="width: 1000px ; height: 1000px;">
             <div class="modal-header rounded" id="modalTop" style="height: 5%;">
               <h3 class="modal-title text-uppercase font-weight-bold">여행지 검색</h3>
@@ -52,9 +56,12 @@
 	            </div>
 				
             </div>
-			<div style="width: 100%; height: 25%; overflow: auto;">
-				<h3>여행지 목록</h3>
-				dvi
+			<div id="spotList" style="width: 100%; height: 25%; ">
+				<h3 style="width: 10%;">여행지 목록</h3>
+				<div id="addedList" style="width: 100%; height: 80%; overflow: auto;">
+
+				</div>
+				
 
 			</div>
   
@@ -74,9 +81,20 @@
     </script>
 	<script>
 
-		document.getElementsByClassName("info").addEventListener("click",function(){
-			console.log("여행지 클릭")
-		});
+		const placesList = document.getElementById("placesList");
+		placesList.addEventListener("click",e=>{
+			const targetEl = e.target;
+			if(!targetEl.classList.contains('addSpot'))return;
+			
+			const spotList = document.getElementById('addedList');
+			const spot = document.createElement('div');
+
+			spot.className='addedSpot';
+			spot.innerText=e.target.previousElementSibling.innerText;
+			spotList.appendChild(spot);
+			spotList.scrollTop = spotList.scrollHeight;
+		})
+			
 	</script>
     <script>
 		let j =1;

@@ -729,6 +729,8 @@
 
 </style>
 </head>
+
+
 <body>
 	<!-- 헤더바 포함 -->
 	<jsp:include page="../common/header.jsp"/>
@@ -780,8 +782,6 @@
 						<button class="TextFilterTemplate__TextFilterButton-sc-434wll-1 tkvTm">최신 순</button>
 						<button class="TextFilterTemplate__TextFilterButton-sc-434wll-1 tkvTm">모집 중인 순</button>
 						<button class="TextFilterTemplate__TextFilterButton-sc-434wll-1 tkvTm">인기 순</button>
-						<button class="TextFilterTemplate__TextFilterButton-sc-434wll-1 tkvTm">많이 본 순</button>
-						<button class="TextFilterTemplate__TextFilterButton-sc-434wll-1 tkvTm">댓글 순</button>
 					</div>
 				</div>
 				<div class="FilterButtonTemplatestyle__Wrapper-sc-1ga095c-0 Swiwe">
@@ -804,7 +804,7 @@
 							<img src="${pageContext.request.contextPath}/resources/img/partner/ner.jpg"
 								class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
 							<div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
-								<p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">Mucamba</p>
+								<p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">밍구</p>
 								<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
 									<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">ENFJ</p>
 									<div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>

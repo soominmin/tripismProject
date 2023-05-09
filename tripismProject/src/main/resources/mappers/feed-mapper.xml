@@ -54,10 +54,9 @@
 					, feed_date
 					, feed_status
 				)
-				
 				values (
 					 seq_feedno.nextval
-					, 1
+					, '1'
 					, #{feedTitle}
 					, #{feedContents}
 					, sysdate
@@ -67,33 +66,17 @@
 				(
 					  feed_img_no
 					, feed_no
-					, img_orifinal_name
+					, img_original_name
 					, img_change_name
 				)	
 				values (
 						  seq_feedimgno.nextval
-						, 
+						, seq_feedno.currval
+                        , #{originName}
+                        , #{changeName}
 					)
+            select * from dual
 		
-		
-		insert 
-	        into tb_feed
-	        (
-	        	  feed_no
-	        	, mem_no
-	        	, feed_title
-	        	, feed_contents
-	        	, feed_date
-	        	, feed_status
-	        )
-	    values( 
-	              seq_feedno.nextval
-	            , 1
-	            , #{feedTitle}
-	            , #{feedContents}
-	            , sysdate
-	            , 'Y'
-	                )
 	</insert>
 	
 	<!-- 피드 삭제용 -->

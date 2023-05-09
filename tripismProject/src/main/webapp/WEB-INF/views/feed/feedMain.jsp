@@ -306,11 +306,18 @@
                 </div>
             </form>
 
-			<!-- 무한스크롤 시작할 자리 -->
+			<!-- 무한스크롤 시작할 자리 **미구현 0509 --> 
+			
+			<!-- 여기부터 반복문 시작 -->
+			<c:forEach var="f" items="${Feed}">
 			
 			<div class="inner-bar feedPage">
                 <div class="inner-bar-small LrN">
-                    <img src="${ m.img }" alt="회원이미지" style="width: 2.7em;"> 
+                
+                	<c:forEach var="m" items="${Member}">
+                    	<img src="${ m.img }" alt="회원이미지" style="width: 2.7em;"> 
+                    </c:forEach>
+                    
                     <b style="margin-left: 13px ;" >${ f.memNo }</b>
                     <input type="text" style="width: 70px; text-align: center; border: none;" placeholder="${ f.feedDate }" disabled>
 
@@ -343,8 +350,10 @@
                     </p>
                 </div>
                 
-                <img src="${ i.imgChangeName }" alt="첨부사진" style="width: 100%; height: 100%;">
-
+                <c:forEach var="i" items="${Img}" >
+                	<img src="${ i.imgChangeName }" alt="첨부사진" style="width: 100%; height: 100%;">
+				</c:forEach>
+				
                 <div class="inner-bar-small LrN">
                     <a href="#">#영랑호</a> <!-- 후순위 -->
                     <a href="#">#벚꽃</a>
@@ -400,6 +409,8 @@
                 </div>
                 
             </div>
+			</c:forEach>
+			<!-- 반복문 종료 -->
 			
             <div class="inner-bar feedPage">
                 <div class="inner-bar-small LrN">

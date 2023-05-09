@@ -79,9 +79,9 @@ public class FeedController {
 		
 	}
 	
-	public String saveFile(MultipartFile upfile, HttpSession session) {
+	public String saveFile(MultipartFile upFile, HttpSession session) {
 		
-		String originName = upfile.getOriginalFilename();
+		String originName = upFile.getOriginalFilename();
 		
 		String currentTime = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 		
@@ -94,7 +94,7 @@ public class FeedController {
 		String savePath = session.getServletContext().getRealPath("/resources/uploadFiles/");
 		
 		try {
-			upfile.transferTo(new File(savePath + changeName));
+			upFile.transferTo(new File(savePath + changeName));
 		} catch (IllegalStateException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

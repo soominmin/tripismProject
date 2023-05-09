@@ -34,7 +34,7 @@
 		<result column="mem_no" property="memNo"/>
 	</resultMap>
 
-	<!-- 피드 계시물 조회? -->
+	<!-- 피드 게시물 조회? -->
 	<select id="selectFeedCount" resultType="_int">
 		select 
 				count(*)
@@ -44,6 +44,38 @@
 	
 	<!-- 피드 작성용 -->
 	<insert id="insertFeed">
+		insert all
+			into tb_feed
+				(
+					  feed_no
+					, mem_no
+					, feed_title
+					, feed_contents
+					, feed_date
+					, feed_status
+				)
+				
+				values (
+					 seq_feedno.nextval
+					, 1
+					, #{feedTitle}
+					, #{feedContents}
+					, sysdate
+					,'Y'
+					)
+			into tb_feed_img
+				(
+					  feed_img_no
+					, feed_no
+					, img_orifinal_name
+					, img_change_name
+				)	
+				values (
+						  seq_feedimgno.nextval
+						, 
+					)
+		
+		
 		insert 
 	        into tb_feed
 	        (
@@ -93,7 +125,17 @@
 	
 	<!-- 피드 목록 조회용 -->
 	<select id="selectFeedList" >
-		
+		select
+		    mem_img, 
+		    mem_nickname, 
+		    sysdate,
+		    feed_title,
+		    feed_contents,
+		    img_change_name 
+		from tb_feed f, tb_member m, tb_feed_img i
+		where f.mem_no = m.mem_no 
+		and f.feed_no = i.feed_no
+		and f.feed_no = #{feedNo};
 	</select>
 	
 	<!-- 댓글 작성용 -->

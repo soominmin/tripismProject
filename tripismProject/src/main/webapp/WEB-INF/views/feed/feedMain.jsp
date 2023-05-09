@@ -376,7 +376,7 @@
 		                        <input type="text" placeholder="로그인한 사용자만 댓글작성 가능합니다." style="border-radius: 5px; width: 80%; padding: 5px" readonly>
 		
 		                        <div class="inner-bar-small" align="center" style="margin-top: 10px;">
-		                            <button type="submit" class="bBc" style="width: 10em;">완료</button>
+		                            <button type="submit" class="bBc" style="width: 10em;" disabled>완료</button>
 		                        </div>
 		                    </form>
                 		</c:when>
@@ -384,10 +384,10 @@
                 		<c:otherwise>
 		                    <form action="#">
 		                        <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="loginUser-img" style="width: 2em;"> &nbsp;
-		                        <input type="text" placeholder="댓글을 입력하세요" style="border-radius: 5px; width: 80%; padding-left: 10px">
+		                        <input type="text" id="replyContent" placeholder="댓글을 입력하세요" style="border-radius: 5px; width: 80%; padding-left: 10px">
 		
 		                        <div class="inner-bar-small" align="center" style="margin-top: 10px;">
-		                            <button type="submit" class="bBc" style="width: 10em;">완료</button>
+		                            <button type="submit" class="bBc" style="width: 10em;" onclick="addReply();">완료</button>
 		                        </div>
 		                    </form>
                 		</c:otherwise>
@@ -395,17 +395,8 @@
                 </div>
                 <!-- 댓글 작성 종료 -->
                 
-                <div class="LrN">
-                    <div class="inner-bar-small" style="float: left; box-sizing: border-box; margin-bottom: 0px;">
-                        <div style="box-sizing: border-box; ">
-                            <img src="${ m.img }" alt="reply-user" style=" width: 1.6em; display: inline;">
-                        </div>
-                    </div>
-                    <div style="display: inline-block; background-color: #ebebeb; margin-left: 10px; border-radius: 9px; padding: 5px 10px;">
-                        <span style="display: inline;">${ r.replyDate }</span> <br>
-                        <b style="margin-bottom: 5px;">${ r.memNo }</b>
-                        <p style="margin-bottom: 0px; color: black;">${ r.replyContents }</p>
-                    </div>
+                <div class="LrN" id="replyArea">
+                   
                 </div>
                 
             </div>
@@ -491,6 +482,7 @@
                             <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="reply-user" style=" width: 1.6em; display: inline;">
                         </div>
                     </div>
+                    
                     <div style="display: inline-block; background-color: #ebebeb; margin-left: 10px; border-radius: 9px; padding: 5px 10px;">
                         <span style="display: inline;">1시간 전</span> <br>
                         <b style="margin-bottom: 5px;">유저닉네임1</b>
@@ -515,10 +507,79 @@
             </div>
             
 			<!-- 무한스크롤 끝낼 자리 -->
+			
+			<script>
+				$(function(){
+					selectReplyList();
+				})
+				
+				function addReply(){
+					if($("#replyContent").val().trim().length != 0) {
+						
+						$.ajax({
+							url:"",
+							data:{
+								refBoardNo:${f.feedNo},
+								replyContent:${"#replyContent"}.val(),
+								replyWriter:'${loginUser.memId}',
+							},
+							success:function(status){
+								if(status == "success"){
+									selectReplyList();
+									$("#replyContent").val("");
+								}
+							},
+							error:function(){
+								console.log("댓글작성 ajax 통신 실패")
+							}
+						});
+						
+					} else {
+						alert("댓글 작성 후 등록 요청해주세요")
+					}
+				}
+				
+				function selectReplyList(){ // 해당 게시글에 딸린 댓글리스트 조회용 ajax
+		    		$.ajax({
+		    			url:"rlist.bo",
+		    			data:{
+		    				fno:${f.feedNo}
+		    			},
+		    			success:function(list){
+		    				console.log(list);
+		    				
+		    				let value = "";
+		    				
+		    				for(let i in list){
+		    					value += 
+					                    "<div class='inner-bar-small' style='float: left; box-sizing: border-box; margin-bottom: 0px;'>"
+					                      + "<div style='box-sizing: border-box;'>"
+				                          + "<img src=" + list[i].img + "alt='reply-user' style='width: 1.6em; display: inline;'>"
+					                      + "</div>"
+					                    + "</div>"
+					                    + "<div style='display: inline-block; background-color: #ebebeb; margin-left: 10px; border-radius: 9px; padding: 5px 10px;'>"
+						                + "<span style='display: inline;'>" + list[i].replyDate + "</span> <br>"
+					                    + "<b style='margin-bottom: 5px;'>" + list[i].memNo + "</b>"
+					                    + "<p style='margin-bottom: 0px; color: black;'>" + list[i].replyContents + "</p>"
+					                    + "</div>" 
+				                        
+		    				}
+		    				
+		    				$("#replyArea").html(value);
+		    			},
+		    			error:function(){
+		    				console.log("댓글리스트 조회용 ajax 통신 실패!")
+		    			}
+		    		});
+		    		
+		    	}
+			
+			</script>
             
             <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
             <script>
+            
                 /*function viewReply(){ 리플 숨기기/나타내기
                     let btn1 = document.getElementById('reply-input');
                     if(btn1.style.display !== 'none'){

@@ -31,6 +31,11 @@ public class FeedController {
 		return "feed/feedMain";
 	}
 	
+	@RequestMapping("feedImgAll.fd")
+	public String feedImgAll() {
+		return "feed/feedImgAll";
+	}
+	
 	@RequestMapping("enrollForm.fd")
 	public String enrollForm() {
 		return "feed/feedEnrollForm";
@@ -45,6 +50,7 @@ public class FeedController {
 	public String feedBest() {
 		return "feed/feedBest";
 	}
+	
 	
 	@RequestMapping("insert.fd")
 	public String insertFeed(Feed f, String feedTitle, String feedContents, Img i, MultipartFile upFile, HttpSession session, Model model) {

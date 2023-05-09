@@ -22,10 +22,10 @@
     <style>
         /* div{ border: 1px solid gray; } */
         
-        #wrap{ height: 1000px;  position: relative;}
+        #wrap{ height: 1000px;  position: relative; margin-left: 5%}
         /* #header{ height: 10% ; box-sizing: border-box; } */
         /* #left-main{ width: 10%; height: 90% !important; box-sizing: border-box; float: left !important; min-width: 120px; } */
-        #middle-main{ width: 70%; height: 90% !important; box-sizing: border-box; float: left !important; min-width: 300px; overflow: scroll; display: block; margin: auto 15% !important; padding: 0 2.5%; }
+        #middle-main{ width: 65%; height: 90% !important; box-sizing: border-box; float: left !important; min-width: 300px; overflow: scroll; display: block; margin: auto 15% !important; padding: 0 2.5%; }
         /* #right-main{ width: 10%; height: 90% !important; box-sizing: border-box; float: left !important; min-width: 180px;} */
         /* #footer{ height: 10%; display: block; position: absolute; bottom: 0px !important;} */
         .inner-bar{ margin: 10px 15px; }
@@ -234,6 +234,11 @@
 				font-size: 16px;
 			}
 			
+			.thumbnail {
+				height: 100px;
+				margin: 10px
+			}
+			
     </style>
 
 </head>
@@ -292,21 +297,27 @@
 
                         <div align="left">
                             <table>
-                                <thead>
+                                <!-- <thead>
                                     <th>
                                         첨부 &nbsp; <button type="button" class="addFile">(추가)</button> &nbsp; / &nbsp;  <button type="button" class="deleteFile">(제거)</button>
                                     </th> 
-                                </thead>
+                                </thead> -->
                                 <tbody id="fileHere">
                                     <tr>
-                                        <td><input type="file" name="upFile" accept="image/*"></td>
+                                        <!-- 1번시도 <td><input type="file" name="upFile" onchange="readURL(this)" accept="image/*" ></td> -->
+                                        <input id="files" type="file" multiple="multiple" /> <!-- 2번 -->
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
 
+
+						
+						
                         <div align="left">
-							<div style="width: 672.4px; height: 400px; border: 1px dotted gray;" >	</div>
+							<div style="width: 672.4px; height: 400px; border: 1px dotted gray; overflow: auto">	
+								<div id="result"></div>
+							</div>
 						</div>
 
                         <!-- Enroll footer -->
@@ -329,7 +340,7 @@
             <script>
                 $(function(){ // 첨부파일 추가버튼
                     $(".addFile").click(function(){
-                        $("#fileHere").append("<tr><td><input type='file' name='upFile' accept='image/*'></td></tr>");
+                        $("#fileHere").append("<tr><td><input type='file' name='upFile' multiple='multiple' accept='image/*'></td></tr>");
                     })
                 })
                 $(function(){ // 첨부파일 제거버튼. 한 개는 남게 만듦
@@ -341,6 +352,47 @@
                         }
                     })
                 })
+                
+                /* function readURL(input) { 1번 시도
+					  if (input.files && input.files[0]) {
+					    var reader = new FileReader();
+					    reader.onload = function(e) {
+					      document.getElementById('preview').src = e.target.result;
+					    };
+					    reader.readAsDataURL(input.files[0]);
+					  } else {
+					    document.getElementById('preview').src = "";
+					  }
+					} */
+					
+					function handleFileSelect() { // 2번 시도
+					    //Check File API support
+					    if (window.File && window.FileList && window.FileReader) {
+
+					        var files = event.target.files; //FileList object
+					        var output = document.getElementById("result");
+
+					        for (var i = 0; i < files.length; i++) {
+					            var file = files[i];
+					            //Only pics
+					            if (!file.type.match('image')) continue;
+
+					            var picReader = new FileReader();
+					            picReader.addEventListener("load", function (event) {
+					                var picFile = event.target;
+					                var div = document.createElement("div");
+					                div.innerHTML = "<img class='thumbnail' src='" + picFile.result + "'" + "title='" + picFile.name + "'/>";
+					                output.insertBefore(div, null);
+					            });
+					            //Read the image
+					            picReader.readAsDataURL(file);
+					        }
+					    } else {
+					        console.log("Your browser does not support File API");
+					    }
+					}
+
+					document.getElementById('files').addEventListener('change', handleFileSelect, false);
             </script>
 
         </div>

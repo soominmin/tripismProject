@@ -64,15 +64,12 @@
 		<div class="mb-3" style="width: 400px; margin: auto;">
 			비밀번호⭐<br>
 			<input type="password" name="memPwd" id="memPwd" class="form-control bg-smoke" required placeholder="비밀번호">
-
 			<div style="float:left;"><p style="margin:0;" id="pwdCheck1">영문</p></div>
 			<div style="float:left;"><p style="margin:0;" id="pwdCheck2">&nbsp; 숫자</p></div>
 			<div style="float:left;"><p style="margin:0;" id="pwdCheck3">&nbsp; 특수문자 &nbsp;</p></div>
 			<div style="float:left;"><p style="margin:0;" id="pwdCheck4">&nbsp;  2가지 이상,</p></div>
 			<div style="padding:0px;"><p style="margin:0;" id="pwdCheck5">&nbsp; &nbsp;  8~16자</p></div>
 			<div id="pwdResult" style="font-size:0.9em; padding-top:0px;"></div>
-
-			
 		</div>
 
 		<div class="mb-3" style="width: 400px; margin: auto;">
@@ -173,7 +170,6 @@
 						});
 					}else {
 							$("#checkResult").hide();
-							$("#enrollForm :submit").attr("disabled", true);
 						}
 					})
 			})

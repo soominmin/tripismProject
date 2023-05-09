@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -78,6 +79,17 @@
       #tripartner>a:hover, #likePost>a:hover, #userSetting>a:hover, #bookMark>a:hover {
         color: RGB(112, 217, 223);
       }
+      
+      #mbti>a{
+      	text-decoration: none;
+        color: white;
+      }
+      #mbti{
+        width: 100px;
+        background-color: RGB(112, 217, 223);
+        border: RGB(112, 217, 223);
+      
+      }
 
 
 </style>
@@ -116,16 +128,27 @@
                               </div>
                               
                               <div style="padding-top: 15px;">
-                              <table align="center"">
-                                <tr style="width: 30px;">
-                                  <td id="mbti" align="center">ENFP</td>
-                                  <td id="mbti-char" align="center">#활동적인활동가</td>
-                                </tr>
-                              </table>
+                              <c:choose>
+                              	<c:when test="${ not empty loginUser.mbti }">
+	                              <table align="center">
+	                                <tr style="width: 30px;">
+	                                  <td id="mbti" align="center">${loginUser.mbti }</td>
+	                                  <td id="mbti-char" align="center">#활동적인활동가</td>
+	                                </tr>
+	                              </table>
+                              </c:when>
+                              <c:otherwise>
+                                <table align="center">
+	                                <tr style="width: 30px;">
+	                                  <td id="mbti" align="center"><button style="width:250px;" class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6" id="mbti" align="center"><a href="mbtiStart.do"> MBTI 검사하러가기</a></button></td>
+	                                </tr>
+	                              </table>
+                              </c:otherwise>
+                              </c:choose>
                               </div>
 
                               <div class="mb-3" align="center" style="padding-top: 20px; padding-bottom: 25px;">
-                                <input type="text" class="form-control bg-smoke" placeholder="subani" style="width:200px; border: none;" readonly>
+                                <input type="text" class="form-control bg-smoke" value="${loginUser.memNickname }" style="width:200px; border: none;" readonly>
                               </div>
                               <hr>
 

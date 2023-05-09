@@ -91,15 +91,22 @@
 	      , mem_id
 	      , mem_name
 	      , mem_email
+	      , mem_pwd
 	  from tb_member
 	 where mem_name = #{memName}
 	   and mem_id = #{memId}
 	   and mem_email = #{email}
 	   and mem_status = 'Y'
 	</select>
-
-
-
+	
+	<update id="pwdUpdate">
+		update
+			tb_member
+		 set mem_pwd = #{memPwd}
+		 where mem_id = #{memId}
+		  and mem_email = #{email}
+		  and mem_name = #{memName}
+	</update>
 
 
 </mapper>

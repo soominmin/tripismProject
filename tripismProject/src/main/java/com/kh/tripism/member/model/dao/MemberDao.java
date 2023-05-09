@@ -33,4 +33,10 @@ public class MemberDao {
 		return sqlSession.selectOne("memberMapper.pwdfind", m);
 	}
 	
+	public int pwdUpdate(SqlSessionTemplate sqlSession, Member pwdMember) {
+		return sqlSession.update("memberMapper.pwdUpdate", pwdMember);
+	}
+	
+
+	
 }

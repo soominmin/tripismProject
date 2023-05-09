@@ -1,11 +1,19 @@
 package com.kh.tripism.notice.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.tripism.common.template.Pagination;
@@ -49,18 +57,76 @@ public class NoticeController {
 	}
 	
 	@RequestMapping("noticeDetailView.bo")
-	public String noticeDetailView() {
-		return "notice/noticeDetailView";
+	public ModelAndView noticeDetailView(int bno, ModelAndView mv) {
+//		int result = nService.increaseCount(bno);
+		
+
+			Notice n = nService.selectNotice(bno);
+			
+			mv.addObject("n", n).setViewName("notice/noticeDetailView");
+
+		
+		
+		return mv;
 	}
 	
 	@RequestMapping("noticeEnrollForm.bo")
 	public String noticeEnrollForm() {
 		return "notice/noticeEnrollForm";
-	}	
+	}
+	
+	@RequestMapping("insertNotice.bo")
+	public String insertNotice(Notice n, MultipartFile upfile, HttpSession session, Model model) {
+		if(!upfile.getOriginalFilename().equals("")) {
+			String changeName = saveFile(upfile, session);
+			
+			n.setNoticeUpfile("resources/uploadFiles/");
+			
+		}
+		
+		int result = nService.insertNotice(n);
+		
+		if(result>0) {
+			session.setAttribute("alertMsg", "성공적으로 게시글이 등록되었습니다.");
+			return "redirect:noticeSelectlist.bo";
+		}else {
+			model.addAttribute("errorMsg", "게시글 등록 실패!");
+			return "common/errorPage";
+			
+		}
+		
+		
+	}
 
 	@RequestMapping("noticeUpdateForm.bo")
 	public String noticeUpdateForm() {
 		return "notice/noticeUpdateForm";
 	}	
+	
+	
+	public String saveFile(MultipartFile upfile, HttpSession session) {
+		String originName = upfile. getOriginalFilename();
+		
+		String currentTime = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+		
+		int ranNum = (int)(Math.random() * 90000 + 10000);
+		
+		String ext = originName.substring(originName.lastIndexOf("."));
+		
+		String changeName = currentTime + ranNum + ext;
+		
+		String savePath = session.getServletContext().getRealPath("/resources/uploadFiles/");
+		
+		try {
+			upfile.transferTo(new File(savePath + changeName));
+			
+		} catch (IllegalStateException | IOException e) {
+			e.printStackTrace();
+		}
+		
+		return changeName;
+		
+		
+	}
 
 }

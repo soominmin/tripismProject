@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,26 +86,32 @@
   <br><br>
   <div class="innerOuter">
 
-      <a class="btn btn-secondary" style="float:right" href="">목록으로</a>
+      <a class="btn btn-secondary" style="float:right" href="noticeSelectlist.bo">목록으로</a>
       <br><br><br>
       <table id="contentArea" align="center" class="table">
           <tr>
               <th width="100">제목</th>
-              <td colspan="3">게시글 제목입니다</td>
+              <td colspan="3">${ n.noticeName }</td>
           </tr>
           <tr>
               <th>작성자</th>
-              <td>관리자</td>
+              <td>${ n.noticeWriter }</td>
               <th>작성일</th>
-              <td>2023-03-31</td>
+              <td>${ n.noticeDate }</td>
           </tr>
           <tr>
               <th>첨부파일</th>
               <td colspan="3">
-                <!-- 첨부파일이 없는 경우 -->
-                <!-- 첨부파일이 없습니다. -->
-                <!-- 첨부파일이 있는 경우-->
-                <a href="" download="">피자.png</a>
+              	<c:choose>
+              		<c:when test="${ empty n.noticeUpfile }">
+         				<!-- 첨부파일이 없는 경우 -->
+         					첨부파일이 없습니다.
+              		</c:when>
+              		<c:otherwise>
+		                <!-- 첨부파일이 있는 경우-->
+		                <a href="${ n.noticeUpfile }" download="${ n.noticeUpfile }">${ n.noticeUpfile }</a>
+              		</c:otherwise>
+              	</c:choose>
               </td>
           </tr>
           <tr>
@@ -111,16 +119,22 @@
               <td colspan="3"></td>
           </tr>
           <tr>
-              <td colspan="4"><p style="height:150px">피자가 먹고싶네오</p></td>
+              <td colspan="4"><p style="height:150px">${ n.noticeContents }</p></td>
           </tr>
       </table>
       <br>
-
+      
+      <c:if test="${ not empty loginUser.userId and loginUser.userId eq n.noticeWriter }"></c:if>
       <div align="center">
           <!-- 수정하기, 삭제하기 버튼은 관리자일 경우만 보여져야됨 -->
             <a class="btn btn-primary" onclick="" href="noticeUpdateForm.bo">수정하기</a> <!-- 요기에 href="" 를 작성하면 get방식이기 떄문에 노출된다. -->
             <a class="btn btn-danger" onclick="">삭제하기</a>
       </div><br><br>
+      
+      <form id="postForm" action="" method="post">
+         <input type="hidden" name="bno" value="${ b.boardNo }">
+         <input type="hidden" name="filePath" value="${ b.changeName }">
+      </form>
 
 
 <!-- ====================================

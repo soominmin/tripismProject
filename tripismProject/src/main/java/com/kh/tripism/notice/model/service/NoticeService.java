@@ -13,6 +13,7 @@ public interface NoticeService {
 	
 	// 2. 게시글 작성하기 서비스
 	int insertNotice(Notice n);
+		
 	
 	// 3. 게시글 상세조회용 서비스
 	int increaseCount(int noticeNo);

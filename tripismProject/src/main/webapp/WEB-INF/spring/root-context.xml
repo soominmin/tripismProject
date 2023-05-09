@@ -25,27 +25,36 @@
 	</bean>
 	
 
-<!-- 
-	   이메일 인증 관련 빈 등록
-	   <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-	      <property name="host" value="smtp.gmail.com" />
-	      <property name="port" value="8007" />
-	      <property name="username" value="${email.account}" />
-	      <property name="password" value="${email.password}" />
-	      <property name="javaMailProperties">
-	         <props>
-	                <prop key="mail.transport.protocol">smtp</prop>
-	                <prop key="mail.smtp.auth">true</prop>
-	                gmail의 경우 보안문제 업데이트로 인해 SSLSocketFactory를 추가해야 smtp 사용 가능.
-	                <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
-	                <prop key="mail.smtp.starttls.enable">true</prop>
-	                <prop key="mail.debug">true</prop>
-	                <prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>
-					<prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
-	            </props>
-	      </property>
-	      
-	   </bean> -->
+
+	<!-- 이메일 인증 관련 빈 등록 password 앱비밀번호 gmail 2단계 설정 들어가서 변경함-->   
+	<bean id="mailSender"
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="hsb10920" />
+		<property name="password" value="omshakvlqlbfbeto" />
+		<property name="defaultEncoding" value="utf-8" />
+		<property name="javaMailProperties">
+<!-- 			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.smtps.ssl.checkserveridentity">true</prop>
+				<prop key="mail.smtps.ssl.trust">*</prop>
+				<prop key="mail.debug">true</prop>
+				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+			</props> -->
+			
+			<!-- TLS는 암호화 프로토콜 버전 확인안하면 오류뜸..! -->
+ 			 <props>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.smtp.auth">true    </prop>
+                <prop key="mail.transport.protocol">smtp</prop>
+                <prop key="mail.debug">true</prop>
+                <prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>
+                <prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
+            </props>
+		</property>
+	</bean>
 	   
 
 	<!-- 파일 업로드 관련 빈 등록 -->

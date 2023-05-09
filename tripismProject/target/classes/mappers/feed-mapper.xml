@@ -27,7 +27,14 @@
 		<result column="img_original_name" property="imgOriginalName"/>
 		<result column="img_change_name" property="imgChangeName"/>
 	</resultMap>
+	
+	<resultMap type="Like" id="likeResultSet">
+		<result column="like_no" property="likeNo"/>
+		<result column="feed_no" property="feedNo"/>
+		<result column="mem_no" property="memNo"/>
+	</resultMap>
 
+	<!-- 피드 계시물 조회? -->
 	<select id="selectFeedCount" resultType="_int">
 		select 
 				count(*)
@@ -35,7 +42,7 @@
 			where status = "Y"
 	</select>
 	
-
+	<!-- 피드 작성용 -->
 	<insert id="insertFeed">
 		insert 
 	        into tb_feed
@@ -57,6 +64,7 @@
 	                )
 	</insert>
 	
+	<!-- 피드 삭제용 -->
 	<delete id="deleteFeed">
 		update 
 		    tb_feed
@@ -64,6 +72,7 @@
 		where feed_no = #{feedNo}
 	</delete>
 	
+	<!-- 피드 수정용 -->
 	<update id="updateFeed">
 		update 
         tb_feed
@@ -74,14 +83,25 @@
         where feed_no = #{feedNo}
 	</update>
 	
+	<!-- 좋아요 수 조회용 -->
+	<select id="countLike">
+		select 
+			count(*)
+		from tb_like 
+		where feed_no = #{feedNo}
+	</select>
+	
+	<!-- 피드 목록 조회용 -->
 	<select id="selectFeedList" >
 		
 	</select>
 	
+	<!-- 댓글 작성용 -->
 	<insert id="insertReply">
 		
 	</insert>
 	
+	<!-- 댓글 삭제용 -->
 	<delete id="deleteReply">
 		update 
 		    tb_reply
@@ -89,6 +109,7 @@
 		where reply_no = #{replyNo}
 	</delete>
 	
+	<!-- 댓글 수정용 -->
 	<select id="selectReplyList">
 	
 	</select>

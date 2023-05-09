@@ -257,7 +257,6 @@
 
             <!-- 글쓰기용  -->
             <form action="insert.fd" method="post" enctype="multipart/form-data"> <!--  파일 그 자체를 넘기려면 enctype이 필요 -->
-            
                 <div>
                     <div>
                         <div>
@@ -311,9 +310,6 @@
                             </table>
                         </div>
 
-
-						
-						
                         <div align="left">
 							<div style="width: 672.4px; height: 400px; border: 1px dotted gray; overflow: auto">	
 								<div id="result"></div>

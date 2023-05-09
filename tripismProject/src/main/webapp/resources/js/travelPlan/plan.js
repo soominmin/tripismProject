@@ -80,7 +80,7 @@ var markers = [];
 
 			// 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 다각형의 이름과 면적을 인포윈도우에 표시합니다 
 			kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
-
+				
 				let area = code;
 				console.log(area);
 				let markerNum = 1;
@@ -160,7 +160,7 @@ var markers = [];
 
 				}
 				console.log(lat,lng);
-				panTo(lat,lng);
+				// panTo(lat,lng);
 				
 				
 				
@@ -171,6 +171,8 @@ var markers = [];
 				
 				// console.log(code);
 				
+
+
 				selectTourList(code,currentPage,searchValue,markerNum);
 				// console.log(currentPage);
 				currentCode = code;
@@ -178,16 +180,17 @@ var markers = [];
 				
 				
 				
-			});
-			function panTo(lat,lng) {
-				// 이동할 위도 경도 위치를 생성합니다 
-				var moveLatLon = new kakao.maps.LatLng(lat, lng);
 				
-				// 지도 중심을 부드럽게 이동시킵니다
-				// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
-				map.setLevel(11);          
-				map.panTo(moveLatLon);  
-			}        
+			});
+			// function panTo(lat,lng) {
+			// 	// 이동할 위도 경도 위치를 생성합니다 
+			// 	var moveLatLon = new kakao.maps.LatLng(lat, lng);
+				
+			// 	// 지도 중심을 부드럽게 이동시킵니다
+			// 	// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+			// 	map.setLevel(11);          
+			// 	map.panTo(moveLatLon);  
+			// }        
 		}
 
 	
@@ -237,7 +240,7 @@ var markers = [];
 								value+='<img src="https://3.bp.blogspot.com/-WhBe10rJzG4/U4W-hvWvRCI/AAAAAAAABxg/RyWcixpgr3k/s1600/noimg.jpg" style="width:50px; height:50px;">';
 							} 
 							value+='<h5 class="spotTilte">'+list[i].spotTitle+'</h5>'
-									+'<button type="button" class="addSpot">추가</button>'
+									+'<button type="button" class="addSpot btnButtonStyle-sc-1m85upr-1 iJuLkw">추가</button>'
 							+'</div>'
 							+'<span>'+list[i].spotAddress+'</span>'
 							+'<span class="tel">'+list[i].spotTel+'</span>'
@@ -342,19 +345,80 @@ function getDatesStartToLast(startDate, lastDate) {
 }
 
 function makeDate(dates){
-	result = "";
+	let result = "";
+	let modals = [];
+	let content = document.getElementById('content');
 	for(let i=0; i<dates.length; i++){
-		result += '<div>'
+		result += '<div class="plan'+(i+1)+'">'
 				+'<div>'
 				+ dates[i]
 				+'</div>'
-				+'<button type="button" class="addPlan" id="plan'+i+'">'
+				+'<button type="button" class="addPlan" id="plan'+(i+1)+'">'
 				+'<a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#plan" class="media d-inline-flex align-items-center">일정추가</a>'
 				+'</button>'
 				+'</div>';
 
+		let modal = document.createElement('div');
+		modal.setAttribute('class','modal fade');
+		modal.setAttribute('id','plan'+(i+1));
+		modal.setAttribute('tabindex','-1');
+		modal.setAttribute('role','dialog');
+		modal.setAttribute('aria-label','loginModalLabel');
+		modal.setAttribute('aria-hidden','true');
+		
+	
+		modals.push(modal);
+		console.log(modal);
+		
+		modalHTML = '<div class="modal-dialog" role="document" style="margin-left:50px; ">'
+          +'<div class="modal-plan" style="width: 1000px ; height: 850px;">'
+            +'<div class="modal-header rounded" id="modalTop" style="height: 5%;">'
+              +'<h3 class="modal-title text-uppercase font-weight-bold">여행지 검색</h3>'
+             +'<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>'
+            +'</div>'
+            +'<div style="width: 100%; height: 70%; display:flex; ">'
+	            +'<div id="map" class="modal-body" style="width: 50%; height: 100%;">'
+	            +'</div>'
+	            +'<div style="width: 50%; height: 100%; background-color:white;">'
+	            +	'<div class="option" style="height: 10%;">'
+	                	
+	                  +  '<div id="search" style="display: none;">'
+						+	'<input type="text" id="searchVal">'
+							+'<button type="button" onclick="searchTour();">검색</button>'
+						+'</div>'
+	                +'</div>'
+                  	 +'<div id="placesDiv" style="overflow: auto; height: 90%;">'
+	                 	+'<ul id="placesList">'
+	                  	+'</ul>'
+                  	+'</div>'
+	            +'</div>'
+				
+           +'</div>'
+			
+			+'<div id="spotList" style="width: 100%; height: 20%; ">'
+				+'<h3 style="width: 10%;">여행지 목록</h3>'
+				+'<div id="addedList" style="width: 100%; height: 80%; overflow: auto;">'
+
+				+'</div>'
+				
+
+			+'</div>'
+			
+			+'<div style="height: 5%;">'
+				+'<button id="btnCom" class="btnButtonStyle-sc-1m85upr-1 iJuLkw" type="button" data-bs-dismiss="modal" aria-label="Close">완료</button>'
+			+'</div>'
+  
+            
+          +'</div>'
+        +'</div>';
+		modal.innerHTML = modalHTML;
+		content.appendChild(modal);
+
 	}
-	$("#content").html(result);
+	
+	
+	console.dir(content);
+	content.innerHTML = result;
 
 }
 

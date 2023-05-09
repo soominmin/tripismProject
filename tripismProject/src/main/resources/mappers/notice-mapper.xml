@@ -8,7 +8,7 @@
 		<result column="notice_no" property="noticeNo"/>
 		<result column="notice_writer" property="noticeWriter"/>
 		<result column="notice_name" property="noticeName"/>
-		<result column="notice_content" property="noticeContent"/>
+		<result column="notice_contents" property="noticeContents"/>
 		<result column="notice_date" property="noticeDate"/>
 		<result column="notice_clsfc" property="noticeClsfc"/>
 		<result column="notice_upfile" property="noticeUpfile"/>
@@ -31,6 +31,52 @@
     where notice_status = 'Y'
     order
         by  notice_no desc
+	</select>
+	
+	<insert id="insertNotice">
+	insert
+		into tb_notice
+				(
+				notice_no
+				, notice_writer
+				, notice_name
+				, notice_contents
+				, notice_date
+				, notice_clsfc
+				, notice_upfile
+				)
+				values
+				(
+				seq_noticeno.nextval
+                , #{noticeWriter}
+				, #{noticeName}
+                , #{noticeContents}
+                , #{noticeDate}
+                , #{noticeClsfc}
+                , #{noticeUpfile}
+				)
+	</insert>
+	
+	<update id="increaseCount">
+		update
+				tb_notice
+			set count = count + 1
+			where notice_no = #{boardNo}
+			and notice_status = 'Y'
+	</update>
+	
+
+	
+		<select id="selectNotice" resultMap="NoticeResultSet">
+		select
+				notice_no
+				, notice_name
+				, notice_contents
+				, to_char(notice_date, 'YYYY-MM-DD') as "notice_date"
+				, notice_upfile
+			from tb_notice
+			where notice_no = #{noticeNo}
+			
 	</select>
 	
 

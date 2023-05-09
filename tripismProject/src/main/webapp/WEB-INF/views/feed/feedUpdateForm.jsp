@@ -22,10 +22,10 @@
     <style>
         /* div{ border: 1px solid gray; } */
         
-        #wrap{ height: 1000px;  position: relative;}
+        #wrap{ height: 1000px;  position: relative; margin-left: 5%}
         /* #header{ height: 10% ; box-sizing: border-box; } */
         /* #left-main{ width: 10%; height: 90% !important; box-sizing: border-box; float: left !important; min-width: 120px; } */
-        #middle-main{ width: 70%; height: 90% !important; box-sizing: border-box; float: left !important; min-width: 300px; overflow: scroll; display: block; margin: auto 15% !important; padding: 0 2.5%; }
+        #middle-main{ width: 65%; height: 90% !important; box-sizing: border-box; float: left !important; min-width: 300px; overflow: scroll; display: block; margin: auto 15% !important; padding: 0 2.5%; }
         /* #right-main{ width: 10%; height: 90% !important; box-sizing: border-box; float: left !important; min-width: 180px;} */
         /* #footer{ height: 10%; display: block; position: absolute; bottom: 0px !important;} */
         .inner-bar{ margin: 10px 15px; }

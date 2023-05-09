@@ -31,9 +31,9 @@
 	<div id="content">
 		
 	</div>
-    <div class="modal fade" id="plan" tabindex="-1" role="dialog" aria-label="loginModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="plan" tabindex="-1" role="dialog" aria-label="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document" style="margin-left:50px; ">
-          <div class="modal-plan" style="width: 1000px ; height: 1000px;">
+          <div class="modal-plan" style="width: 1000px ; height: 850px;">
             <div class="modal-header rounded" id="modalTop" style="height: 5%;">
               <h3 class="modal-title text-uppercase font-weight-bold">여행지 검색</h3>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -56,7 +56,8 @@
 	            </div>
 				
             </div>
-			<div id="spotList" style="width: 100%; height: 25%; ">
+			
+			<div id="spotList" style="width: 100%; height: 20%; ">
 				<h3 style="width: 10%;">여행지 목록</h3>
 				<div id="addedList" style="width: 100%; height: 80%; overflow: auto;">
 
@@ -64,15 +65,20 @@
 				
 
 			</div>
+			
+			<div style="height: 5%;">
+				<button id="btnCom" class="btnButtonStyle-sc-1m85upr-1 iJuLkw" type="button" data-bs-dismiss="modal" aria-label="Close">완료</button>
+			</div>
   
             
           </div>
         </div>
-      </div>
+      </div> -->
+	  <div></div>
     
     <script src="resources/js/travelPlan/plan.js"></script>
     <script>
-      var mapModal = document.getElementById("plan");
+      const mapModal = document.getElementById("plan");
       mapModal.addEventListener('shown.bs.modal',function(event){
         createMap();
         
@@ -94,7 +100,18 @@
 			spotList.appendChild(spot);
 			spotList.scrollTop = spotList.scrollHeight;
 		})
+		
+
+		document.getElementById('btnCom').addEventListener('click',()=>{
 			
+			const addedSpot = document.getElementsByClassName('addedSpot');
+			console.log(addedSpot);
+			for(let i=0;i<addedSpot.length;i++){
+				console.log(addedSpot[i].innerText);
+			}
+		
+
+		})
 	</script>
     <script>
 		let j =1;

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,7 +74,7 @@
               </tr>
               <tr>
                   <th><label for="writer">작성자</label></th>
-                  <td><input type="text" id="writer" class="form-control" name="noticeWriter"></td>
+                  <td><input type="text" id="writer" class="form-control" value="${ loginUser.userId }" name="noticeWriter"></td>
               </tr>
               <tr>
                   <th><label for="upfile">첨부파일</label></th>

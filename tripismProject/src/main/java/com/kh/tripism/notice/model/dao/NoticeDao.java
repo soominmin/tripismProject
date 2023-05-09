@@ -32,7 +32,7 @@ public class NoticeDao {
 		
 	}
 	
-	public int insertBoard(SqlSessionTemplate sqlSession, Notice n) {
+	public int insertNotice(SqlSessionTemplate sqlSession, Notice n) {
 		return sqlSession.insert("noticeMapper.insertNotice", n);
 	}
 	

@@ -31,7 +31,7 @@ public class NoticeServiceImpl implements NoticeService{
 
 	@Override
 	public int insertNotice(Notice n) {
-		return nDao.insertBoard(sqlSession, n);
+		return nDao.insertNotice(sqlSession, n);
 	}
 
 

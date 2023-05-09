@@ -77,13 +77,6 @@ public class NoticeController {
 	
 	@RequestMapping("insertNotice.bo")
 	public String insertNotice(Notice n, MultipartFile upfile, HttpSession session, Model model) {
-		if(!upfile.getOriginalFilename().equals("")) {
-			String changeName = saveFile(upfile, session);
-			
-			n.setNoticeUpfile("resources/uploadFiles/");
-			
-		}
-		
 		int result = nService.insertNotice(n);
 		
 		if(result>0) {

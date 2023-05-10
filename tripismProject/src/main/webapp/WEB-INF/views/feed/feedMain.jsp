@@ -316,9 +316,10 @@
                 
                 	<c:forEach var="m" items="${member}">
                     	<img src="${ m.img }" alt="회원이미지" style="width: 2.7em;"> 
-                    </c:forEach>
+                    
                     	
-                    <b style="margin-left: 13px;" >${ f.memNo }</b>
+                    <b style="margin-left: 13px;" >${ m.memNickname }</b>
+                    </c:forEach>
                     <input type="text" style="width: 70px; text-align: center; border: none;" placeholder="${ f.feedDate }" disabled>
 
 					<div style="float: right; margin-top: 5px;">
@@ -350,7 +351,7 @@
                     </p>
                 </div>
                 
-                <c:forEach var="i" items="${Img}" >
+                <c:forEach var="i" items="${img}" >
                 	<img src="${ i.imgChangeName }" alt="첨부사진" style="width: 100%; height: 100%;">
 				</c:forEach>
 				

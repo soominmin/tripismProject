@@ -46,10 +46,11 @@ public class FeedController {
 			PageInfo pi = Pagination.getPageInfo(listCount, currentPage, 10, 5);
 			
 			ArrayList<Feed> feed = fService.selectFeedList(pi);
-			
+			ArrayList<Member> member = fService.selectMember(pi);
+			ArrayList<Img> img = fService.selectImg(pi);
 				
 			
-			mv.addObject("pi", pi).addObject("feed", feed).setViewName("feed/feedMain");
+			mv.addObject("pi", pi).addObject("feed", feed).addObject("member", member).addObject("img", img).setViewName("feed/feedMain");
 			
 			return mv;
 		

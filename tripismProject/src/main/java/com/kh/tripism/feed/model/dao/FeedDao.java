@@ -11,6 +11,7 @@ import com.kh.tripism.feed.model.vo.Feed;
 import com.kh.tripism.feed.model.vo.Img;
 import com.kh.tripism.feed.model.vo.PageInfo;
 import com.kh.tripism.feed.model.vo.Reply;
+import com.kh.tripism.member.model.vo.Member;
 
 @Repository
 public class FeedDao {
@@ -80,6 +81,14 @@ public class FeedDao {
 	// 댓글 목록 조회 *
 	public ArrayList<Reply> selectReplyList(SqlSessionTemplate sqlSession, int feedNo) {
 		return (ArrayList)sqlSession.selectList("feedMapper.selectReplyList", feedNo);
+	}
+
+	public ArrayList<Member> selectMember(SqlSessionTemplate sqlSession, PageInfo pi) {
+		return (ArrayList)sqlSession.selectList("feedMapper.selectMember");
+	}
+	
+	public ArrayList<Img> selectImg(SqlSessionTemplate sqlSession, PageInfo pi) {
+		return (ArrayList)sqlSession.selectList("feedMapper.selectImg");
 	}
 	
 }

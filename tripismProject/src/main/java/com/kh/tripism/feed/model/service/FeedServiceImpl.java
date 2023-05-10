@@ -12,6 +12,7 @@ import com.kh.tripism.feed.model.vo.Feed;
 import com.kh.tripism.feed.model.vo.Img;
 import com.kh.tripism.feed.model.vo.PageInfo;
 import com.kh.tripism.feed.model.vo.Reply;
+import com.kh.tripism.member.model.vo.Member;
 
 @Service
 public class FeedServiceImpl implements FeedService {
@@ -83,6 +84,14 @@ public class FeedServiceImpl implements FeedService {
 	public ArrayList<Reply> selectReplyList(int FeedNo) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public ArrayList<Member> selectMember(PageInfo pi) {
+		return fDao.selectMember(sqlSession, pi);
+	}
+	
+	public ArrayList<Img> selectImg(PageInfo pi) {
+		return fDao.selectImg(sqlSession, pi);
 	}
 
 }

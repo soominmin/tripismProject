@@ -33,6 +33,20 @@
 		<result column="feed_no" property="feedNo"/>
 		<result column="mem_no" property="memNo"/>
 	</resultMap>
+	
+	<resultMap type="Member" id="memberResultSet">
+		<result column="mem_no" property="memNo" />
+		<result column="mem_id" property="memId" />
+		<result column="mem_pwd" property="memPwd" />
+		<result column="mem_name" property="memName" />
+		<result column="mem_nickname" property="memNickname" />
+		<result column="gender" property="gender" />
+		<result column="enroll_date" property="enrollDate" />
+		<result column="mem_status" property="status" />
+		<result column="mem_mbti" property="mbti" />
+		<result column="mem_email" property="email" />
+		<result column="mem_img" property="img" />
+	</resultMap>
 
 	<!-- 피드 게시물 개수 조회 -->
 	<select id="selectFeedCount" resultType="_int">
@@ -113,7 +127,7 @@
 		select
 		    mem_img, 
 		    mem_nickname, 
-		    sysdate,
+		    feed_date,
 		    feed_title,
 		    feed_contents,
 		    img_change_name 
@@ -143,4 +157,14 @@
 	
 	</select>
 	
+	<!-- 추가. 회원조회 -->
+	<select id="selectMember" resultMap="memberResultSet">
+		select * 
+			from tb_member
+	</select>
+	
+	<select id="selectImg" resultMap="imgResultSet">
+	select *
+		from tb_feed_img
+	</select>
 </mapper>

@@ -6,7 +6,7 @@
 
 	<resultMap type="Spot" id="spotResult">
 		<result column="SPOT_NO" property="spotNo"/>
-		<result column="SPOT_CONTENTID" property="spotContentId"/>
+		<result column="SPOT_CONTENT_ID" property="spotContentId"/>
 		<result column="SPOT_CONTENT_TYPE" property="spotContentType"/>
 		<result column="SPOT_CREATED_DATE" property="spotCreatedDate"/>
 		<result column="SPOT_MODIFIED_DATE" property="spotModifiedDate"/>
@@ -32,6 +32,7 @@
 
 	<select id="selectSpotList" resultMap="spotResult">
 		select
+				spot_content_id,
 				spot_title,
 				spot_img_path,
                 area_category_title,

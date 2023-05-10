@@ -9,15 +9,17 @@ import org.springframework.stereotype.Service;
 
 import com.kh.tripism.feed.model.dao.FeedDao;
 import com.kh.tripism.feed.model.vo.Feed;
+import com.kh.tripism.feed.model.vo.Img;
 import com.kh.tripism.feed.model.vo.PageInfo;
 import com.kh.tripism.feed.model.vo.Reply;
+import com.kh.tripism.member.model.vo.Member;
 
 @Service
 public class FeedServiceImpl implements FeedService {
 
 	@Autowired
 	private FeedDao fDao;
-	
+
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
@@ -25,6 +27,12 @@ public class FeedServiceImpl implements FeedService {
 	public int insertFeed(Feed f) {
 		System.out.println("서비스탔냐?");
 		return fDao.insertFeed(sqlSession, f);
+	}
+
+	@Override
+	public int insertFeed2(Feed f) {
+		System.out.println("이미지 service 탔나?");
+		return fDao.insertFeed2(sqlSession, f);
 	}
 
 	@Override
@@ -42,8 +50,15 @@ public class FeedServiceImpl implements FeedService {
 		return fDao.selectFeedCount(sqlSession);
 	}
 
+	
+	@Override public int selectListCount() { 
+		 return fDao.selectListCount(sqlSession); 
+	}
+	 
+
 	@Override
 	public ArrayList<Feed> selectFeedList(PageInfo pi) {
+		System.out.println("피드리스트 나왔나? service");
 		return fDao.selectFeedList(sqlSession, pi);
 	}
 
@@ -71,10 +86,12 @@ public class FeedServiceImpl implements FeedService {
 		return null;
 	}
 
-	@Override
-	public ArrayList<Feed> selectTopFeedList() {
-		return fDao.selectTopFeedList(sqlSession);
+	public ArrayList<Member> selectMember(PageInfo pi) {
+		return fDao.selectMember(sqlSession, pi);
 	}
-
+	
+	public ArrayList<Img> selectImg(PageInfo pi) {
+		return fDao.selectImg(sqlSession, pi);
+	}
 
 }

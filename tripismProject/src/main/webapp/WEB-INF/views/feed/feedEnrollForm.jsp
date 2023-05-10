@@ -257,7 +257,6 @@
 
             <!-- 글쓰기용  -->
             <form action="insert.fd" method="post" enctype="multipart/form-data"> <!--  파일 그 자체를 넘기려면 enctype이 필요 -->
-            
                 <div>
                     <div>
                         <div>
@@ -269,7 +268,7 @@
                 
                             <!-- Enroll body -->
                             <div>
-                                <input type="text" name="feedTitle" placeholder="ex) 아침고요수목원에 다녀왔어요" maxlength="100" value="" required>
+                                <input type="text" name="feedTitle" placeholder="ex) 아침고요수목원에 다녀왔어요" maxlength="100" required>
                             </div>
 
                             <br>
@@ -297,23 +296,17 @@
 
                         <div align="left">
                             <table>
-                                <!-- <thead>
-                                    <th>
-                                        첨부 &nbsp; <button type="button" class="addFile">(추가)</button> &nbsp; / &nbsp;  <button type="button" class="deleteFile">(제거)</button>
-                                    </th> 
-                                </thead> -->
+                                <thead>
+                                   
+                                </thead>
                                 <tbody id="fileHere">
                                     <tr>
-                                        <!-- 1번시도 <td><input type="file" name="upFile" onchange="readURL(this)" accept="image/*" ></td> -->
-                                        <input id="files" type="file" multiple="multiple" /> <!-- 2번 -->
+                                        <input type="file" id="files" name="upFile" accept="image/*" /> <!-- 2번 -->
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
 
-
-						
-						
                         <div align="left">
 							<div style="width: 672.4px; height: 400px; border: 1px dotted gray; overflow: auto">	
 								<div id="result"></div>
@@ -338,33 +331,6 @@
             
 
             <script>
-                $(function(){ // 첨부파일 추가버튼
-                    $(".addFile").click(function(){
-                        $("#fileHere").append("<tr><td><input type='file' name='upFile' multiple='multiple' accept='image/*'></td></tr>");
-                    })
-                })
-                $(function(){ // 첨부파일 제거버튼. 한 개는 남게 만듦
-                    $(".deleteFile").click(function(){
-                        if($("#fileHere>tr").length <2) {
-                            return;
-                        }else{
-                            $("#fileHere>tr:last").remove();
-                        }
-                    })
-                })
-                
-                /* function readURL(input) { 1번 시도
-					  if (input.files && input.files[0]) {
-					    var reader = new FileReader();
-					    reader.onload = function(e) {
-					      document.getElementById('preview').src = e.target.result;
-					    };
-					    reader.readAsDataURL(input.files[0]);
-					  } else {
-					    document.getElementById('preview').src = "";
-					  }
-					} */
-					
 					function handleFileSelect() { // 2번 시도
 					    //Check File API support
 					    if (window.File && window.FileList && window.FileReader) {

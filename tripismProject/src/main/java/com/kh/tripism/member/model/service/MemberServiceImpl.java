@@ -79,6 +79,36 @@ public class MemberServiceImpl implements MemberService {
 		return 0;
 	}
 
+
+	@Override
+	public int insertMBTI(Member m) {
+		int result = mDao.insertMBTI(sqlSession,m);
+		return result;
+	}
+
+	
+	@Override
+	public String resultMBTI(String result) {
+		System.out.println(result);
+		String mbti="";
+		mbti += (countStr(result,'E')>countStr(result, 'I'))?"E":"I";
+		mbti += (countStr(result,'S')>countStr(result, 'N'))?"S":"N";
+		mbti += (countStr(result,'T')>countStr(result, 'F'))?"T":"F";
+		mbti += (countStr(result,'J')>countStr(result, 'P'))?"J":"P";
+		System.out.println(mbti);
+		return mbti;
+	}
+	
+	public static int countStr(String str,char ch) {
+		int count=0;
+		for(int i=0;i<str.length();i++){
+			if(str.charAt(i)==ch) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	
 
 }

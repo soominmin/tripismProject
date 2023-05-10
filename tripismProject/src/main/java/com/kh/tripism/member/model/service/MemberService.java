@@ -34,6 +34,12 @@ public interface MemberService {
 		
 		// 마이페이지에서 비밀번호 변경 서비스
 		int pwdUpdateMypage(Member m);
+		
+		String resultMBTI(String result);
+		
+		int insertMBTI(Member m);
+		
+		
 
 		
 }

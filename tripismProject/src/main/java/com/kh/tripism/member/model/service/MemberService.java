@@ -32,4 +32,8 @@ public interface MemberService {
 		// 비밀번호 변경(인증번호 후)서비스
 		int pwdUpdate(Member m);
 		
+		// 마이페이지에서 비밀번호 변경 서비스
+		int pwdUpdateMypage(Member m);
+
+		
 }

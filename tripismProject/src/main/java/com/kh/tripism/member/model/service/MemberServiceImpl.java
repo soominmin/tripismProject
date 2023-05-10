@@ -54,23 +54,30 @@ public class MemberServiceImpl implements MemberService {
 	public Member pwdfind(Member m) {
 		return mDao.pwdfind(sqlSession, m);
 	}
-
-	@Override
-	public int updateMember(Member m) {
-		return 0;
-	}
-
-	@Override
-	public int deleteMember(String userId) {
-		return 0;
-	}
-
+	
+	// 비밀번호 찾기에서 비밀번호 변경하기
 	@Override
 	public int pwdUpdate(Member m) {
 		int result = mDao.pwdUpdate(sqlSession, m);
 		return result;
 	}
-
+	
+	// 마이페이지에서 비밀번호 변경하기
+	@Override
+	public int pwdUpdateMypage(Member m) {
+		int result = mDao.pwdUpdateMypage(sqlSession, m);
+		return result;
+	}
+	
+	@Override
+	public int updateMember(Member m) {
+		return 0;
+	}
+	
+	@Override
+	public int deleteMember(String userId) {
+		return 0;
+	}
 
 	
 

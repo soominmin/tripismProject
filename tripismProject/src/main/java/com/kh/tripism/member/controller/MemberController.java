@@ -41,7 +41,6 @@ public class MemberController {
 	// 로그인 (암호화작업)
 	@RequestMapping("login.do")
 	public ModelAndView loginMember(Member m, HttpSession session, ModelAndView mv) {
-		
 		Member loginUser = mService.loginMember(m);
 		if(loginUser != null && bcryptPasswordEncoder.matches(m.getMemPwd(), loginUser.getMemPwd())) {
 			session.setAttribute("loginUser", loginUser);
@@ -50,7 +49,6 @@ public class MemberController {
 			mv.addObject("errorMsg", "로그인실패");
 			mv.setViewName("common/errorPage");
 		}
-		
 		return mv;
 	}
 	
@@ -172,21 +170,60 @@ public class MemberController {
 	// 인증번호 확인후 비밀번호 변경하기
 	@RequestMapping("pwdUpdate.do")
 	public String pwdUpdateMember(Member m, HttpSession session, Model model) {
+	
+		// int result = mService.pwdUpdate(m);
+		Member pwdfind = mService.pwdfind(m);
 		
-		int result = mService.pwdUpdate(m);
+		String pwd = bcryptPasswordEncoder.encode(m.getMemPwd());
 		
-		String pwd = bcryptPasswordEncoder.encode(m.getMemPwd()); // null
-		m.setMemPwd(pwd); // null
+		m.setMemPwd(pwd);
+		// System.out.println(pwd);
+		// System.out.println(pwdfind);
 		
-		if(result > 0) {
-			Member pwdUpdateMem = mService.pwdfind(m); // m에는 변경 된 값이 있음, 갱신된 회원의 비밀번호 정보가 담겨있는 회원정보를 pwdUpdateMem
-			session.setAttribute("pwdfind", pwdUpdateMem); // 새로운 값으로 변경
+		if(pwdfind != null) {
+			int pwdUpdateMem = mService.pwdUpdate(m); // m에는 변경 된 값이 있음, 갱신된 회원의 비밀번호 정보가 담겨있는 회원정보를 pwdUpdateMem
+		//	session.setAttribute("pwdfind", m); // 새로운 값으로 변경
+			
+		//	System.out.println(pwdUpdateMem);
 			session.setAttribute("alertMsg", "성공적으로 비밀번호가 변경되었습니다.");
-		
 			return "redirect:/"; // 메인화면으로
 		} else {
 			session.setAttribute("alertMsg", "비번수정실패");
 			return "member/pwdUpdateForm";
+		}
+	}
+	
+	// 마이페이지 비밀번호변경 1차 유효성 검사
+	@RequestMapping("pwdCheck.do")
+	public ModelAndView pwdCheck(Member m, ModelAndView mv) {
+		Member loginUser = mService.loginMember(m);
+		if(loginUser != null && bcryptPasswordEncoder.matches(m.getMemPwd(), loginUser.getMemPwd())) {
+			mv.setViewName("member/pwdUpdateMypage");
+		} else {
+			mv.addObject("errorMsg", "비밀번호 확인 실패");
+			mv.setViewName("common/errorPage");
+		}
+		return mv;
+	}
+	
+	@RequestMapping("pwdUpdateMypage.do")
+	public String pwdUpdateMypage(Member m, HttpSession session, Model model) {
+		
+		String pwd = bcryptPasswordEncoder.encode(m.getMemPwd());
+		m.setMemPwd(pwd);
+		
+		int result = mService.pwdUpdateMypage(m);
+		
+		
+		if(result > 0) {
+			Member pwdUpdate = mService.loginMember(m); // 변경된 값을 담는다.
+			// System.out.println("pwdUpdate"+pwdUpdate);
+			session.setAttribute("loginUser", pwdUpdate); // loginUser세션에 변경된 값으로 담는다.
+			session.setAttribute("alertMsg", "비밀번호변경성공");
+			return "redirect:mypage.do";
+		} else {
+			model.addAttribute("errorMsg", "회원가입 실패");
+			return "common/errorPage";
 		}
 	}
 	

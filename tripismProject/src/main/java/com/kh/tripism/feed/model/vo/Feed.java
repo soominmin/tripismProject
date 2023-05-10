@@ -22,6 +22,8 @@ public class Feed {
 	private Date feedDate;
 	private Date feedModify;
 	private String feedStatus;
+	private String originalName;
+	private String changeName;
 	
 
 	

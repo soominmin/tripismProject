@@ -1,11 +1,14 @@
 package com.kh.tripism.feed.model.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
+import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.kh.tripism.feed.model.vo.Feed;
+import com.kh.tripism.feed.model.vo.Img;
 import com.kh.tripism.feed.model.vo.PageInfo;
 import com.kh.tripism.feed.model.vo.Reply;
 
@@ -13,13 +16,26 @@ import com.kh.tripism.feed.model.vo.Reply;
 public class FeedDao {
 
 	// 피드 추가
-	public int insertFeed(SqlSessionTemplate sqlSession, Feed f) {
+	public int insertFeed(SqlSessionTemplate sqlSession, Feed f) { // feed 제목/본문 넣어주는 부분
 		System.out.println("dao 탔나?");
+		
+		//HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		//map.put("f", f);
+		
+		//System.out.println("해쉬맵 확인 : " + map);
 		return sqlSession.insert("feedMapper.insertFeed", f);
 	};
 	
+	public int insertFeed2(SqlSession sqlSession, Feed f) { // feed 이미지 넣는 부분
+		System.out.println("dao 이미지편 탔나?");
+		System.out.println("최종 바뀐이름 : " + f.getChangeName());
+		
+		return sqlSession.insert("feedMapper.insertFeed2", f);
+	}
+	
 	// 피드 삭제
-	public int deleteFeed(SqlSessionTemplate sqlSession, int feedNo) {
+	public int deleteFeed(SqlSessionTemplate sqlSession, int feedNo) { // feed 지우는 부분
 		return sqlSession.delete("feedMapper.deleteFeed", feedNo);
 	};
 	
@@ -35,8 +51,16 @@ public class FeedDao {
 	
 	// 피드 목록 조회 *
 	public ArrayList<Feed> selectFeedList(SqlSessionTemplate sqlSession, PageInfo pi){
-		return (ArrayList)sqlSession.selectList("feedMapper.selectFeedList");
+		System.out.println("피드 리스트 나왔나 dao");
+		
+		return (ArrayList)sqlSession.selectList("feedMapper.selectFeedList", null);
 	}
+	
+	
+	public int selectListCount(SqlSession sqlSession) { 
+		return sqlSession.selectOne("feedMapper.selectFeedCount");
+	}
+	 
 	
 	// 댓글 추가
 	public int insertReply(SqlSessionTemplate sqlSession, Reply r) {
@@ -58,8 +82,4 @@ public class FeedDao {
 		return (ArrayList)sqlSession.selectList("feedMapper.selectReplyList", feedNo);
 	}
 	
-	// 인기 피드 조회
-	public ArrayList<Feed> selectTopFeedList(SqlSessionTemplate sqlSession){
-		return (ArrayList)sqlSession.selectList("feedMapper.selectTopFeedList");
-	}
 }

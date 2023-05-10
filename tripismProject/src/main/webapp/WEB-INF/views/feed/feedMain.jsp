@@ -306,19 +306,19 @@
                 </div>
             </form>
 
-			<!-- 무한스크롤 시작할 자리 **미구현 0509 --> 
+			<!-- 무한스크롤 시작할 자리 **구현중 0510 --> 
 			
 			<!-- 여기부터 반복문 시작 -->
-			<c:forEach var="f" items="${Feed}">
+			<c:forEach var="f" items="${feed}">
 			
 			<div class="inner-bar feedPage">
                 <div class="inner-bar-small LrN">
                 
-                	<c:forEach var="m" items="${Member}">
+                	<c:forEach var="m" items="${member}">
                     	<img src="${ m.img }" alt="회원이미지" style="width: 2.7em;"> 
                     </c:forEach>
-                    
-                    <b style="margin-left: 13px ;" >${ f.memNo }</b>
+                    	
+                    <b style="margin-left: 13px;" >${ f.memNo }</b>
                     <input type="text" style="width: 70px; text-align: center; border: none;" placeholder="${ f.feedDate }" disabled>
 
 					<div style="float: right; margin-top: 5px;">
@@ -415,7 +415,7 @@
             <div class="inner-bar feedPage">
                 <div class="inner-bar-small LrN">
                     <img src="http://k.kakaocdn.net/dn/bg1bQs/btrN4Orw1rt/ywz81BDR7UcSZ319qKlLQ1/img_640x640.jpg" alt="사진이미지" style="width: 2.7em;"> 
-                    <b style="margin-left: 13px ;" >차카이브</b>
+                    <b style="margin-left: 13px ;">차카이브</b>
                     <input type="text" style="width: 70px; text-align: center; border: none;" placeholder="1주일전" disabled>
 
 					<div style="float: right; margin-top: 5px;">

@@ -34,50 +34,52 @@
 		<result column="mem_no" property="memNo"/>
 	</resultMap>
 
-	<!-- 피드 게시물 조회? -->
+	<!-- 피드 게시물 개수 조회 -->
 	<select id="selectFeedCount" resultType="_int">
 		select 
 				count(*)
 			from tb_feed
-			where status = "Y"
+			where feed_status = 'Y'
 	</select>
 	
 	<!-- 피드 작성용 -->
-	<insert id="insertFeed">
-		insert all
+	<insert id="insertFeed" >
+		insert
 			into tb_feed
 				(
 					  feed_no
 					, mem_no
 					, feed_title
 					, feed_contents
-					, feed_date
-					, feed_status
 				)
 				values (
 					 seq_feedno.nextval
 					, '1'
 					, #{feedTitle}
 					, #{feedContents}
-					, sysdate
-					,'Y'
 					)
-			into tb_feed_img
-				(
-					  feed_img_no
-					, feed_no
-					, img_original_name
-					, img_change_name
-				)	
-				values (
-						  seq_feedimgno.nextval
-						, seq_feedno.currval
-                        , #{originName}
-                        , #{changeName}
-					)
-            select * from dual
 		
 	</insert>
+	
+	<!-- 피드 작성용 이미지편 -->
+	<insert id="insertFeed2">
+		insert 
+	        into tb_feed_img
+	        (
+	              feed_img_no
+	            , feed_no
+	            , img_original_name
+	            , img_change_name
+	        )  
+	        values
+	        (
+	              seq_feedimgno.nextval
+	            , seq_feedno.currval
+	            , #{originalName}
+	            , #{changeName}
+	        )
+	</insert>
+	
 	
 	<!-- 피드 삭제용 -->
 	<delete id="deleteFeed">
@@ -107,7 +109,7 @@
 	</select>
 	
 	<!-- 피드 목록 조회용 -->
-	<select id="selectFeedList" >
+	<select id="selectFeedList" resultMap="feedResultSet" >
 		select
 		    mem_img, 
 		    mem_nickname, 
@@ -115,10 +117,12 @@
 		    feed_title,
 		    feed_contents,
 		    img_change_name 
-		from tb_feed f, tb_member m, tb_feed_img i
-		where f.mem_no = m.mem_no 
-		and f.feed_no = i.feed_no
-		and f.feed_no = #{feedNo};
+        from tb_feed f
+        full outer join tb_member m
+        on f.mem_no = m.mem_no
+        full outer join tb_feed_img i
+        on f.feed_no = i.feed_no
+        order by f.feed_no desc
 	</select>
 	
 	<!-- 댓글 작성용 -->

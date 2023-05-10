@@ -268,7 +268,7 @@
                 
                             <!-- Enroll body -->
                             <div>
-                                <input type="text" name="feedTitle" placeholder="ex) 아침고요수목원에 다녀왔어요" maxlength="100" value="" required>
+                                <input type="text" name="feedTitle" placeholder="ex) 아침고요수목원에 다녀왔어요" maxlength="100" required>
                             </div>
 
                             <br>

@@ -198,7 +198,7 @@ input[type=radio] {
                 
                 <a href="testMbti.test" color="white">t</a>
   
-              <form action="">
+              <form action="mbtiResult.do" method="post">
   
                 <div class="question1" id="question1">
                   <span class="num">Q 01.</span>
@@ -291,11 +291,11 @@ input[type=radio] {
                   <span class="num">Q 07.</span>
                   <div class="name">친구가 쓸데없는 기념품을 살 때</div>
                   <label class="test_obj">
-                    <input type="radio" name="question7" value="P" class="label_que">
+                    <input type="radio" name="question7" value="F" class="label_que">
                     <span id="mbti">"그래 니가 행복하다면..."</span>
                   </label>
                   <label class="test_obj">
-                    <input type="radio" name="question7" value="J" class="label_que">
+                    <input type="radio" name="question7" value="T" class="label_que">
                     <span id="mbti">"그거 결국 쓰레기 된다"</span>
                   </label>
                 </div>
@@ -399,9 +399,9 @@ input[type=radio] {
                 </div>
   
                 <br>
-  
+                <input type="hidden" id="result" name="result">
                 <div style="width: 100%;">
-                	<button type="submit" class="test_btn" style="width: 100%; display: none; ">내 여행MBTI 확인하러 가기</button>
+                	<button type="submit" onclick="mbtiResult();" class="test_btn" style="width: 100%; display: none; ">내 여행MBTI 확인하러 가기</button>
                 </div>
   
   
@@ -479,7 +479,35 @@ input[type=radio] {
                   $('#question12').click(function() {
                       $('.test_btn').attr('style', 'display');
                   });
+                  
+                  $('input[name*=question]').click(()=>{
+                    console.log(document.body.scrollTop)
+                    console.log(document.body.scrollHeight)
+                    
+                    window.scrollTo(0,document.body.scrollHeight)
+                  });
+                    
+                 
 				  
+
+                </script>
+                <script>
+
+                  function mbtiResult(){
+                    let $mbti = $('input[name*=question]:checked');
+                    
+                    let checkedStr = "";
+
+                    $mbti.each((i,item)=>{
+                      // console.log($(item).val());
+                      checkedStr+=$(item).val();
+                    })
+                    console.log(checkedStr);
+                    $('#result').val(checkedStr);
+                   
+                  }
+                  
+                 
 
                 </script>
                 

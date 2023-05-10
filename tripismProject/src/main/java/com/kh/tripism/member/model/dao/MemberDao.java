@@ -41,6 +41,10 @@ public class MemberDao {
 		return sqlSession.update("memberMapper.pwdUpdate", m);
 	}
 	
+	public int insertMBTI(SqlSessionTemplate sqlSession,Member m) {
+		return sqlSession.update("memberMapper.insertMBTI",m);
+	}
+	
 
 	
 

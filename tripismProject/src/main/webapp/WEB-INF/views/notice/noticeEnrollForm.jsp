@@ -25,7 +25,15 @@
 
     <!-- FAVICON -->
     <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png"/>
-
+<style>
+    #enrollForm>table {
+        width: 50%;
+    }
+    
+    #enrollForm>table * {
+        margin: 5px;
+    }
+</style>
 </head>
 <body>
 
@@ -74,11 +82,11 @@
               </tr>
               <tr>
                   <th><label for="writer">작성자</label></th>
-                  <td><input type="text" id="writer" class="form-control" value="${ loginUser.userId }" name="noticeWriter"></td>
+                  <td><input type="text" id="writer" class="form-control" value="${ loginUser.memId }" name="noticeWriter" readonly></td>
               </tr>
               <tr>
                   <th><label for="upfile">첨부파일</label></th>
-                  <td><input type="file" id="upfile" class="form-control-file border" name="noticeUpfile"></td>
+                  <td><input type="file" id="upfile" class="form-control-file border" name="upfile"></td>
               </tr>
               <tr>
                 <th><label for="status">공개 여부</label></th>
@@ -88,14 +96,7 @@
 
                 </td>
               </tr>
-              <tr>
-                <th><label for="clsfc">분류</label></th>
-                <td>
-                  <label for="N"><input type="radio" id="N" name="noticeClsfc" checked="checked">일반</label>
-                  <label for="E"><input type="radio" id="E" name="noticeClsfc">긴급</label>
-
-                </td>
-              </tr>              
+             
               <tr>
                   <th colspan="2"><label for="noticeContents">내용</label></th>
               </tr>

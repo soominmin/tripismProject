@@ -24,6 +24,10 @@
 		<result column="CITY_CATEGORY_NO" property="cityCategoryNo"/>
 		<result column="SPOT_COUNT" property="spotCount"/>
 		<result column="SPOT_LIKE" property="spotLike"/>
+		
+		<result column="area_category_title" property="areaTitle"/>
+		<result column="sigungu_title" property="sigunguTitle"/>
+		
 	</resultMap>
 
 	<select id="selectSpotList" resultMap="spotResult">
@@ -39,9 +43,15 @@
 		where
                 tvs.area_category_no = tscc.area_category_no
            and
-                tvs.city_category_no = tscc.city_category_no
+                tvs.city_category_no = tscc.sigungu_no
            and
                 tvs.area_category_no = tsac.area_category_no
+           and
+                tvs.spot_img_path is not null
+           and
+                spot_title not LIKE '%축제%'
+           and
+                spot_title not LIKE '%페스티%'
            and
                 (
 				tvs.large_category_no = 'A01'

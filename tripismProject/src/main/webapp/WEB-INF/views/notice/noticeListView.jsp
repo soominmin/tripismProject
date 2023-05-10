@@ -70,17 +70,7 @@
             </tr>
           </thead>
           <tbody>
-                          <tr>
-                    <td class="bno">${ n.noticeNo }</td>
-                    <td>${ n.noticeName }</td>
-                    <td>${ n.noticeWriter }</td>
-                    <td>${ n.noticeDate }</td>
-                    <td>
 
-	                        		★
-
-                    </td>
-                </tr>
             <c:forEach var="n" items="${ list }">
                 <tr>
                     <td class="bno">${ n.noticeNo }</td>
@@ -88,8 +78,9 @@
                     <td>${ n.noticeWriter }</td>
                     <td>${ n.noticeDate }</td>
                     <td>
-
+						<c:if test="${ not empty n.noticeUpfile }">
 	                        		★
+						</c:if>
 
                     </td>
                 </tr>

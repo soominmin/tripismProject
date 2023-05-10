@@ -31,6 +31,8 @@ public class travelSpotController {
 	@RequestMapping(value="spotList.sp", produces = "application/json; charset=utf-8")
 	public String selectSpotList(int currentPage) {
 		
+		System.out.println("ddddd");
+		
 		ArrayList<Spot> list = sService.selectSpotList(currentPage);
 		
 		return new Gson().toJson(list);

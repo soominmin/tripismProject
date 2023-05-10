@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -78,6 +79,21 @@
       #tripartner>a:hover, #likePost>a:hover, #userSetting>a:hover, #bookMark>a:hover {
         color: RGB(112, 217, 223);
       }
+      
+      #mbti>a{
+      	text-decoration: none;
+        color: white;
+      }
+      #mbti{
+        width: 100px;
+        background-color: RGB(112, 217, 223);
+        border: RGB(112, 217, 223);
+      
+      }
+      
+      #memNickname{
+        text-align: center;
+     }
 
 
 </style>
@@ -103,29 +119,51 @@
                           <div class="row" style="width: 1500px;">
                             <div class="col-lg-6" style="margin-left: 160px; border: solid 3px rgba(199, 198, 198, 0.37); padding: 35px; border-radius: 15px 15px 15px 15px;">
                               <div class="WebHeader__SignBtnBox-sc-12ctfsg-1 eluuNw" style="float: right; margin-bottom: 0px; height: 55px;">
-                                <button class="WebHeader__HeaderButton-sc-12ctfsg-2 jmaRWD"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pwdChange" class="media d-inline-flex align-items-center">비밀번호변경하기</a></button>
+                                <button class="WebHeader__HeaderButton-sc-12ctfsg-2 jmaRWD"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pwdCheck" class="media d-inline-flex align-items-center">비밀번호변경하기</a></button>
                               </div>
                               <div>
                                 <h3 class="text-uppercase mb-3" style="padding-left: 15px;">마이페이지</h3>
                               </div>
                               <hr>
-                              <div align="center" style="padding-top: 25px;">
-                              <label for="file-upload"></label>
-                              <input id="file-upload" type="file" style="display:none">
-                              	<img src="${pageContext.request.contextPath}/resources/img/user (2).jfif" id="preview-img" style="width:65px; height:65px; cursor: pointer;" onclick="document.getElementById('file-upload').click();" />
-                              </div>
+                              <c:choose>
+                              <c:when test="${ empty loginUser.img }">
+	                              <div align="center" style="padding-top: 25px;">
+	                              <label for="file-upload"></label>
+	                              <input id="file-upload" type="file" style="display:none">
+	                              	<img src="${pageContext.request.contextPath}/resources/img/user (2).jfif" id="preview-img" style="width:65px; height:65px; cursor: pointer;" onclick="document.getElementById('file-upload').click();" />
+	                              </div>
+                              </c:when>
+                              <c:otherwise>
+	                              <div align="center" style="padding-top: 25px;">
+	                              <label for="file-upload"></label>
+	                              <input id="file-upload" type="file" style="display:none">
+	                              	<img src="${pageContext.request.contextPath}${loginUser.img}" id="preview-img" style="width:65px; height:65px; cursor: pointer;" onclick="document.getElementById('file-upload').click();" />
+	                              </div>
+                              </c:otherwise>
+                              </c:choose>
                               
                               <div style="padding-top: 15px;">
-                              <table align="center"">
-                                <tr style="width: 30px;">
-                                  <td id="mbti" align="center">ENFP</td>
-                                  <td id="mbti-char" align="center">#활동적인활동가</td>
-                                </tr>
-                              </table>
+                              <c:choose>
+                              	<c:when test="${ not empty loginUser.mbti }">
+	                              <table align="center">
+	                                <tr style="width: 30px;">
+	                                  <td id="mbti" align="center">${loginUser.mbti }</td>
+	                                  <td id="mbti-char" align="center">#활동적인활동가</td>
+	                                </tr>
+	                              </table>
+                              </c:when>
+                              <c:otherwise>
+                                <table align="center">
+	                                <tr style="width: 30px;">
+	                                  <td id="mbti" align="center"><button style="width:200px;" class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6" id="mbti" align="center"><a href="mbtiStart.do"> MBTI 검사하러가기</a></button></td>
+	                                </tr>
+	                              </table>
+                              </c:otherwise>
+                              </c:choose>
                               </div>
 
-                              <div class="mb-3" align="center" style="padding-top: 20px; padding-bottom: 25px;">
-                                <input type="text" class="form-control bg-smoke" placeholder="subani" style="width:200px; border: none;" readonly>
+                              <div class="mb-3" align="center" style="padding-top: 10px; padding-bottom: 25px;">
+                                <input type="text" class="form-control bg-smoke" value="${loginUser.memNickname }" id="memNickname" style="width:200px; border: none;" readonly>
                               </div>
                               <hr>
 
@@ -172,33 +210,25 @@
                                   
                                 </ul>
                             </div>
-
-                              
-
-
-
-                              <div class="modal fade" id="pwdChange" tabindex="-1" role="dialog" aria-label="loginModalLabel" aria-hidden="true">
+                            
+                            <!-- 1차 유효성 체크 -->
+                             <div class="modal fade" id="pwdCheck" tabindex="-1" role="dialog"  aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-sm" role="document" >
                                   <div class="modal-subin">
                                     <div class="modal-header rounded" id="modalTop">
                                       <h4 class="modal-title text-uppercase font-weight-bold">Tripism 비밀번호 재설정</h4>
                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
+                                    <div style="padding-top:15px;">
+                                    	<pre align="center">비밀번호변경을 위해 현재 비밀번호를 입력해주세요.</pre>
+                                    </div>
                           
                                     <div class="modal-body" style="width: 350px;">
-                                      <form action="비밀번호변경form" method="">
+                                      <form action="pwdCheck.do" method="post">
                                         <div class="form-group mb-4">
-                                          <input type="password" class="form-control bg-smoke" required="" placeholder="현재 비밀번호">
+                                          <input type="password" name="memPwd" id="memPwd" class="form-control bg-smoke" required placeholder="현재 비밀번호">
+                                          <input type="hidden" name="memId" id="memNo" value="${loginUser.memId }">
                                         </div>
-                        
-                                        <div class="form-group mb-4">
-                                          <input type="password" class="form-control bg-smoke" required="" placeholder="새로 변경할 비밀번호">
-                                        </div>
-                        
-                                        <div class="form-group mb-4">
-                                          <input type="password" class="form-control bg-smoke" required="" placeholder="새로운 비밀번호 확인">
-                                        </div>
-                        
                                         <div class="pt-2" style="text-align: center;">
                                           <button type="submit" class="btn btn-primary text-uppercase font-size-15 px-6 px-md-7" id="btn_pwd">확인</button>
                                         </div>
@@ -218,20 +248,71 @@
             </div>
           
             <!-- 계정설정 끝 -->
-      
-      
-            
             </div>
           </div>
-      
-      
-      
-      
       </section>
       
       
       
         </div><!-- element wrapper ends -->
+        
+        <script>
+		const memPwd = document.querySelector('#memPwd');
+		const pwdCheck1 = document.querySelector('#pwdCheck1');
+		const pwdCheck2 = document.querySelector('#pwdCheck2');
+		const pwdCheck3 = document.querySelector('#pwdCheck3');
+		const pwdCheck4 = document.querySelector('#pwdCheck4');
+		const pwdCheck5 = document.querySelector('#pwdCheck5');
+		const pwdResult = document.querySelector('#pwdResult');
+		
+		memPwd.addEventListener('input', () => {
+		    const password = memPwd.value;
+		    let count = 0;
+		
+		    if (/^(.*[a-zA-Z]){2,}.*$/.test(password)) {
+		        pwdCheck1.style.color = 'green';
+		        count++;
+		    } else {
+		        pwdCheck1.style.color = '';
+		    }
+		
+		    if (/[0-9]/.test(password)) {
+		        pwdCheck2.style.color = 'green';
+		        count++;
+		    } else {
+		        pwdCheck2.style.color = '';
+		    }
+		
+		    if (/[\W_]/.test(password)) {
+		        pwdCheck3.style.color = 'green';
+		        count++;
+		    } else {
+		        pwdCheck3.style.color = '';
+		    }
+		
+		    if (/^(?=.*[a-zA-Z].*[a-zA-Z])(?=.*\d.*\d)(?=.*[!@#$%^&*()_\-+=\[{\]}\|\\,.?/;:<>`~].*[!@#$%^&*()_\-+=\[{\]}\|\\,.?/;:<>`~])/.test(password)) {
+		        pwdCheck4.style.color = 'green';
+		    } else {
+		        pwdCheck4.style.color = '';
+		    }
+		
+		    if (password.length >= 8 && password.length <= 16) {
+		        pwdCheck5.style.color = 'green';
+		    } else {
+		        pwdCheck5.style.color = '';
+		    }
+		
+		    if (/^(?=.*\d.*\d)(?=.*[a-zA-Z].*[a-zA-Z])(?=.*[^a-zA-Z0-9].*[^a-zA-Z0-9]).{8,16}$/.test(password)) {
+		        pwdResult.textContent = '사용 가능한 비밀번호입니다.';
+		        pwdResult.style.color = 'green'
+		    } else {
+		        pwdResult.textContent = '';
+		    }
+		});
+
+		
+		
+</script>
       
 
 

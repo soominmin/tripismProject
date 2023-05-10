@@ -1,11 +1,18 @@
 package com.kh.tripism.member.controller;
 
+import java.io.IOException;
 import java.util.Random;
 
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kh.tripism.member.model.service.MailSendService;
 import com.kh.tripism.member.model.service.MemberServiceImpl;
 import com.kh.tripism.member.model.vo.Member;
 
@@ -26,6 +34,9 @@ public class MemberController {
 	
 	@Autowired
 	private BCryptPasswordEncoder bcryptPasswordEncoder;
+	
+	@Autowired
+	private MailSendService mailService;
 	
 	// 로그인 (암호화작업)
 	@RequestMapping("login.do")
@@ -121,35 +132,69 @@ public class MemberController {
 	
 	// 인증번호 받기전 form
 	@RequestMapping("pwdResult.do")
-	public ModelAndView pwdFind(Member m, ModelAndView mv) {
+	public ModelAndView pwdFind(Member m, ModelAndView mv, HttpSession session) {
 		
 		Member pwdfind = mService.pwdfind(m);
-		System.out.println(pwdfind);
-		mv.addObject("pwdfind", pwdfind).setViewName("member/pwdAuthentication");
+		
+		if(pwdfind != null) {
+			session.setAttribute("pwdfind", pwdfind);
+			mv.setViewName("member/pwdAuthentication");
+		} else {
+			mv.addObject("errorMsg", "해당하는 이메일이 존재하지않습니다.");
+			mv.setViewName("common/errorPage");
+		}
 		return mv;
 	}
 
-	// 비밀번호 변경 폼 이동
+	// 비밀번호 찾기 폼 이동
 	@RequestMapping("pwdFindForm.do")
 	public String pwdResult() {
 		return "member/pwdFindForm";
 	}
 	
-//	// 인증번호 발송
-//	@ResponseBody
-//	@GetMapping("/mailCheck")
-//	public String mailCheck(String email) {
-//		System.out.println("이메일 인증 요청이 들어옴");
-//		System.out.println("이메일 인증 이메일 : " + email);
-//		
-//	}
+	// 인증번호 보내는 Controller
+	@ResponseBody
+	@RequestMapping("pwdAuth.do")
+	public String pwdAuth(String email){
+		
+		// System.out.println("이메일 인증요청 들어옴");
+		// System.out.println("이메일 인증 이메일 : " + email);
+		return mailService.contentEmail(email);
+
+	}
+	
+	// 인증번호 확인후 비밀번호 변경 폼 띄우기
+	@RequestMapping("pwdUpdateForm.do")
+	public String pwdUpdateForm() {
+		return "member/pwdUpdateForm";
+	}
+	
+	// 인증번호 확인후 비밀번호 변경하기
+	@RequestMapping("pwdUpdate.do")
+	public String pwdUpdateMember(Member m, HttpSession session, Model model) {
+		
+		int result = mService.pwdUpdate(m);
+		
+		String pwd = bcryptPasswordEncoder.encode(m.getMemPwd()); // null
+		m.setMemPwd(pwd); // null
+		
+		if(result > 0) {
+			Member pwdUpdateMem = mService.pwdfind(m); // m에는 변경 된 값이 있음, 갱신된 회원의 비밀번호 정보가 담겨있는 회원정보를 pwdUpdateMem
+			session.setAttribute("pwdfind", pwdUpdateMem); // 새로운 값으로 변경
+			session.setAttribute("alertMsg", "성공적으로 비밀번호가 변경되었습니다.");
+		
+			return "redirect:/"; // 메인화면으로
+		} else {
+			session.setAttribute("alertMsg", "비번수정실패");
+			return "member/pwdUpdateForm";
+		}
+	}
+	
 
 	@RequestMapping("mypage.do")
 	public String mypage() {
 		return "member/myPage";
 	}
-
-
 
 	@RequestMapping("spotLike.do")
 	public String spotLike() {

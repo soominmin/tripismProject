@@ -31,19 +31,13 @@ public class NoticeServiceImpl implements NoticeService{
 
 	@Override
 	public int insertNotice(Notice n) {
-		return 0;
+		return nDao.insertNotice(sqlSession, n);
 	}
 
-	@Override
-	public int increaseCount(int noticeNo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	@Override
 	public Notice selectNotice(int noticeNo) {
-		// TODO Auto-generated method stub
-		return null;
+		return nDao.selectNotice(sqlSession, noticeNo);
 	}
 
 	@Override
@@ -62,6 +56,11 @@ public class NoticeServiceImpl implements NoticeService{
 	public ArrayList<Notice> selectTopNoticeList() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public int increaseCount(int noticeNo) {
+		return nDao.increaseCount(sqlSession, noticeNo);
 	}
 
 }

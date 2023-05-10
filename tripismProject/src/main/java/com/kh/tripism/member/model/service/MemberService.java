@@ -26,6 +26,10 @@ public interface MemberService {
 		// 아이디 찾기 서비스
 		Member idfind2(Member m);
 		
-		// 비밀번호 찾기(인증번호전) 서비스
+		// 비밀번호 찾기(인증번호 전) 서비스
 		Member pwdfind(Member m);
+		
+		// 비밀번호 변경(인증번호 후)서비스
+		int pwdUpdate(Member m);
+		
 }

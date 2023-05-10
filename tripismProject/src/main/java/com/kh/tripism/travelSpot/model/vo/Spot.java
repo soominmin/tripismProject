@@ -21,12 +21,16 @@ public class Spot {
 	private int spotCount;
 	private int spotLike;
 	
+	private String areaTitle;
+	private String sigunguTitle;
+	
 	public Spot() {}
 
 	public Spot(int spotNo, String spotContentId, String spotContentType, String spotCreateDate,
 			String spotModifiedDate, String spotTel, String spotTitle, String spotImgPath, String spotAddress,
 			String spotPostalCode, String spotMapx, String spotMapy, String largeCategoryNo, String middleCategoryNo,
-			String smallCategoryNo, String areaCategoryNo, String cityCategoryNo, int spotCount, int spotLike) {
+			String smallCategoryNo, String areaCategoryNo, String cityCategoryNo, int spotCount, int spotLike,
+			String areaTitle, String sigunguTitle) {
 		super();
 		this.spotNo = spotNo;
 		this.spotContentId = spotContentId;
@@ -47,7 +51,11 @@ public class Spot {
 		this.cityCategoryNo = cityCategoryNo;
 		this.spotCount = spotCount;
 		this.spotLike = spotLike;
+		this.areaTitle = areaTitle;
+		this.sigunguTitle = sigunguTitle;
 	}
+
+
 
 	public int getSpotNo() {
 		return spotNo;
@@ -201,6 +209,22 @@ public class Spot {
 		this.cityCategoryNo = cityCategoryNo;
 	}
 
+	public String getAreaTitle() {
+		return areaTitle;
+	}
+
+	public void setAreaTitle(String areaTitle) {
+		this.areaTitle = areaTitle;
+	}
+
+	public String getSigunguTitle() {
+		return sigunguTitle;
+	}
+
+	public void setSigunguTitle(String sigunguTitle) {
+		this.sigunguTitle = sigunguTitle;
+	}
+
 	@Override
 	public String toString() {
 		return "Spot [spotNo=" + spotNo + ", spotContentId=" + spotContentId + ", spotContentType=" + spotContentType
@@ -209,8 +233,9 @@ public class Spot {
 				+ ", spotPostalCode=" + spotPostalCode + ", spotMapx=" + spotMapx + ", spotMapy=" + spotMapy
 				+ ", largeCategoryNo=" + largeCategoryNo + ", middleCategoryNo=" + middleCategoryNo
 				+ ", smallCategoryNo=" + smallCategoryNo + ", areaCategoryNo=" + areaCategoryNo + ", cityCategoryNo="
-				+ cityCategoryNo + ", spotCount=" + spotCount + ", spotLike=" + spotLike + "]";
+				+ cityCategoryNo + ", spotCount=" + spotCount + ", spotLike=" + spotLike + ", areaTitle=" + areaTitle
+				+ ", sigunguTitle=" + sigunguTitle + "]";
 	}
-	
+
 	
 }

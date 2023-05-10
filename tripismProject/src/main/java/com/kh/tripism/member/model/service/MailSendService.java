@@ -22,7 +22,7 @@ public class MailSendService {
 		public void randomNum() {
 			Random r = new Random();
 			authNumber = r.nextInt(888888)+111111;
-			System.out.println("인증번호" + authNumber);
+			// System.out.println("인증번호" + authNumber);
 		}
 		
 		// 이메일 보낼 양식

@@ -89,9 +89,15 @@
 		select
 	        mem_no
 	      , mem_id
-	      , mem_name
-	      , mem_email
 	      , mem_pwd
+	      , mem_name
+	      , mem_nickname
+	      , gender
+	      , to_char(enroll_date, 'YYYY-MM-DD') as "enroll_date"
+	      , mem_status
+	      , mem_mbti
+	      , mem_email
+	      , mem_img
 	  from tb_member
 	 where mem_name = #{memName}
 	   and mem_id = #{memId}
@@ -107,6 +113,9 @@
 		  and mem_email = #{email}
 		  and mem_name = #{memName}
 	</update>
+	
+
+	
 
 
 </mapper>

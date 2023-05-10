@@ -1,78 +1,70 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-  #btn_pwd, #infoUpdate{
-    background-color: RGB(112, 217, 223);
-    border: none;
-  }
-  
-  #infoUpdate{
-  	width:100px;
-  }
+	#btn_pwd{
+		background-color: RGB(112, 217, 223);
+		border: RGB(112, 217, 223);
+	}
 </style>
 </head>
-<body id="body" class="up-scroll">
-
+<body>
 <jsp:include page="../common/header.jsp"/>
 
-<section class="py-9">
-  <div class="container">
-    <div class="bg-smoke p-2 p-md-6 pb-6 pb-md-8 mb-9 rounded">
+<div class="main-wrapper blog-list-right-sidebar">
+  <section class="py-9 py-md-10">
+    <div class="container">
       <div class="row">
-        <div class="col-12">
-          <div class="row">
-            <div class="col-lg-6" style="margin: auto;" align="center">
-              <div class="mb-4" style="padding-top:20px;">
-                <h3 class="text-uppercase mb-3">비밀번호 변경</h3>
-                <p>비밀번호를 재설정 합니다.</p>
-              </div>
-              
-              <form action="pwdUpdate.do"  method="post">
-              <div class="modal-body" style="width:405px; margin-left:20px;">
-                  <div class="mb-3">
-                    <input type="text" class="form-control bg-smoke" value="${pwdfind.memId }" name="memId" readonly>
-                  </div>
-                  
-                  
-                 <div class="mb-3" style="width: 373px; margin: auto;">
-					<input type="password" name="memPwd" id="memPwd" class="form-control bg-smoke" required placeholder="새로운 비밀번호">
+      <div class="col-lg-8 col-xl-9 order-1 order-lg-0">
+			<div>
+			  <div class="row align-items-xl-center">
+			  <div class="container">
+				<div>
+				<div class="row">
+					<div class="col-12">
+						<div class="row" style="width: 1500px;">
+						  <div class="col-lg-6" style="border: solid 3px rgba(199, 198, 198, 0.37); padding: 35px; border-radius:  15px 15px 15px 15px;">
+
+               	<div class="mb-4" style="padding-top: 35px;">
+             		<h3 class="text-uppercase mb-3" align="center">Tripism 비밀번호 재설정</h3>
+           		</div>
+               
+           <form action="pwdUpdateMypage.do" method="post">
+             <div class="form-group mb-4" style="width: 400px; margin: auto; padding-top: 40px;">
+               <input type="password" name="memPwd" id="memPwd" class="form-control bg-smoke" required placeholder="새로운 비밀번호">
 					<div style="float:left;"><p style="margin:0;" id="pwdCheck1">영문</p></div>
 					<div style="float:left;"><p style="margin:0;" id="pwdCheck2">&nbsp; 숫자</p></div>
 					<div style="float:left;"><p style="margin:0;" id="pwdCheck3">&nbsp; 특수문자 &nbsp;</p></div>
 					<div style="float:left;"><p style="margin:0;" id="pwdCheck4">&nbsp;  2가지 이상,</p></div>
 					<div style="float:left;"><p style="margin:0;" id="pwdCheck5">&nbsp; 8~16자</p></div>
 					<div id="pwdResult" style="font-size:0.9em; padding-top:0px; float:left; padding-bottom:10px;"></div>
-				</div>
-
-				<div class="mb-3" style="width: 373px; margin: auto;">
-					<input type="password" name="pwdCheck" class="form-control bg-smoke" required placeholder="비밀번호 확인">
-				<div id="pwdCheckResult" style="font-size:0.9em; padding-top:0px; float:left;"></div>
-				</div>
-
-                  <div class="row" style="text-align: center;">
-                    <div class="pt-3">
-                    	<input type="hidden" value="${pwdfind.email }" name="email">
-                    	<input type="hidden" value="${pwdfind.memName }" name="memName">
-                    	<input type="hidden" value="${pwdfind.memNo }" name="memNo">
-                      <button type="submit" class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6" id="infoUpdate" >확인</button>
-                    </div>
-                </div>
-            </div>
-            </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-</div>
-
-<script>
+              </div>
+             
+		 <div class="form-group mb-4" style="width: 400px; padding-top:15px; margin: auto;">
+		   <input type="password" name="pwdCheck" class="form-control bg-smoke" required placeholder="비밀번호 확인">
+ 			<div id="pwdCheckResult" style="font-size:0.9em; padding-top:0px; float:left;"></div>
+         </div>
+             
+         <div class="pt-2" style="text-align: center;">
+           	<input type="hidden" name="memId" value="${loginUser.memId }">
+           	<input type="hidden" name="email" value="${loginUser.email }">
+           	<input type="hidden" name="memName" value="${loginUser.memName }">
+	        <button type="submit" class="btn btn-primary text-uppercase font-size-15 px-6 px-md-7" id="btn_pwd">확인</button>
+	     </div>
+	       </form>
+	         </div>
+	       <jsp:include page="../member/mypageSidebar.jsp"/>
+	          </div>
+	        </div>
+			</section>
+	      </div>
+	     
+	      
+	      <script>
 	const memPwd = document.querySelector('#memPwd');
 	const pwdCheck1 = document.querySelector('#pwdCheck1');
 	const pwdCheck2 = document.querySelector('#pwdCheck2');
@@ -140,10 +132,8 @@
 	  }
 	});
 </script>
-</section>
 
-
+                              
 <jsp:include page="../common/footer.jsp"/>
-
 </body>
 </html>

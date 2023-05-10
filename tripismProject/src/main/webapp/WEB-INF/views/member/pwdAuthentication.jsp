@@ -20,6 +20,17 @@
     width: 130px;
     height: 40px;
   }
+  
+  #Authentication:hover{
+  	background-color:RGB(112, 217, 223);
+  	color:white;
+  	border:RGB(112, 217, 223);
+  }
+  
+  #authCheck{
+  	background-color:RGB(112, 217, 223);
+  	border:RGB(112, 217, 223);
+  }
 </style>
 </head>
 <body id="body" class="up-scroll">

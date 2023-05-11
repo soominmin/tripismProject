@@ -7,6 +7,8 @@ let currentPage = 1;
 let maps = [];
 let markers = [];
 let currentMapNum = 0;
+let currentAreaLat = 0;
+let currentAreaLng = 0;
 
 	function createMap(mapNum){
 		currentMapNum=mapNum;
@@ -165,7 +167,10 @@ let currentMapNum = 0;
 				}
 				console.log(lat,lng);
 				// panTo(lat,lng);
-				
+				currentAreaLat=lat;
+				currentAreaLng=lng;
+				console.log(currentAreaLat);
+				console.log(currentAreaLng);
 				
 				
 				$("#search"+(mapNum+1)).css("display","block")
@@ -361,7 +366,11 @@ function makeDate(dates){
 				+'<button type="button" class="addPlan">'
 				+'<a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#plan'+(i+1)+'" class="media d-inline-flex align-items-center">일정추가</a>'
 				+'</button>'
-				+'<div id="resultMap'+(i+1)+'"></div>'
+				+'<hr>'
+				+'<div style="display:flex;">'
+				+'<div id="resultList'+(i+1)+'"></div>'
+				+'<div id="resultMap'+(i+1)+'" style="width:500px; height:300px"></div>'
+				+'</div>'
 				+'</div>';
 
 		let modal = document.createElement('div');
@@ -450,13 +459,27 @@ function makeDate(dates){
 		}
 		
 		for(let i=0;i<btnCom.length;i++){
-			btnCom[i].addEventListener('click',()=>{
+			btnCom[i].addEventListener('click',(event)=>{
 			
-				const addedSpot = document.getElementsByClassName('addedSpot');
-				console.log(addedSpot);
+				
+				const resultList = document.getElementById('resultList'+(currentMapNum+1));
+				const addedList = document.getElementById('addedList'+(currentMapNum+1));
+				const addedSpot = addedList.getElementsByClassName('addedSpot');
+				let positions = [];
 				for(let i=0;i<addedSpot.length;i++){
-					console.log(addedSpot[i].innerText);
+					console.log(addedSpot[i].querySelector('.mapX').value);
+					console.log(addedSpot[i].querySelector('.mapY').value);
+					positions.push(new kakao.maps.LatLng(addedSpot[i].querySelector('.mapY').value, addedSpot[i].querySelector('.mapX').value));
+
 				}
+				
+				
+				resultList.innerHTML=addedList.innerHTML;
+				console.log(positions);
+				// for(let i=0;i<addedSpot.length;i++){
+				// 	console.log(addedSpot[i].innerText);
+				// }
+				createResultMap(currentMapNum,positions);
 		
 
 			})
@@ -474,7 +497,38 @@ function makeDate(dates){
 
 }
 
-function addPlan(){
+function createResultMap(mapNum,positions){
+
+	let mapContainer = document.getElementById('resultMap'+(mapNum+1));
+	let mapOption = {
+		center : new kakao.maps.LatLng(currentAreaLat,currentAreaLng),
+		level : 12
+	}
+	
+	
+	console.log(maps[mapNum]);
+	maps[mapNum] = new kakao.maps.Map(mapContainer,mapOption);
+	
+		let line = new kakao.maps.Polyline({
+			map: maps[mapNum], // 선을 표시할 지도입니다 
+			path: positions, // 선을 구성하는 좌표 배열입니다 클릭한 위치를 넣어줍니다
+			strokeWeight: 3, // 선의 두께입니다 
+			strokeColor: '#db4040', // 선의 색깔입니다
+			strokeOpacity: 1, // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
+			strokeStyle: 'solid' // 선의 스타일입니다
+		});
+		
+	
+	
+
+	for(let i=0;i<positions.length;i++){
+		let marker = new kakao.maps.Marker({
+			position:positions[i]
+		});
+		marker.setMap(maps[mapNum])
+	}
+
+	// console.log(Math.round(lines[0].getLength()));
 
 }
 

@@ -54,26 +54,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	
 	<insert id="insertPnBoard">
-		insert
-			into pnBoard
-			(
-				post_no
-			,	partner_name
-			,	partner_type
-			,	partner_original_img
-			, 	partner_change_img
-			,	partner_date
-			,	partner_views
-			,	partner_content
-			,	partner_time
-			,	partner_location
-			,	partner_number
-			,	partner_status
-			)
-			values
-			(
-				
-			)
+
 	</insert>
 
 </mapper>

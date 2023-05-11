@@ -16,6 +16,8 @@
 		<typeAlias type="com.kh.tripism.feed.model.vo.Like" alias="Like"/>
 		<typeAlias type="com.kh.tripism.notice.model.vo.Notice" alias="Notice"/>
 		<typeAlias type="com.kh.tripism.travelSpot.model.vo.Spot" alias="Spot"/>
+		<typeAlias type="com.kh.tripism.partnerBoard.model.vo.PnBoard" alias="PnBoard"/>
+		<typeAlias type="com.kh.tripism.partnerBoard.model.vo.PnReply" alias="PnReply"/>
 	</typeAliases>
 
 	<mappers>
@@ -24,6 +26,7 @@
 		<mapper resource="/mappers/feed-mapper.xml"/>
 		<mapper resource="/mappers/notice-mapper.xml"/>
 		<mapper resource="/mappers/spot-Mapper.xml"/>
+		<mapper resource="/mappers/pnBoard-mapper.xml"/>
 	</mappers>
 	 
 	 

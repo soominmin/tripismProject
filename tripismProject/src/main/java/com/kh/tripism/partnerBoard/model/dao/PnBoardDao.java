@@ -6,7 +6,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.kh.tripism.feed.model.vo.PageInfo;
+import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.partnerBoard.model.vo.PnBoard;
 import com.kh.tripism.partnerBoard.model.vo.PnReply;
 
@@ -15,12 +15,14 @@ public class PnBoardDao {
 	
 	// 동행관련 조회수 
 	public int selectListCount(SqlSessionTemplate sqlSession) {
+		// System.out.println("selectLisCountDao");
+		
 		return sqlSession.selectOne("pnBoardMapper.selectListCount");
 	}
 	
 	// 동행관련 리스트 조회
 	public ArrayList<PnBoard> selectList(SqlSessionTemplate sqlSession, PageInfo pi) {
-		
+		//System.out.println("selectListDao");
 		int offset = (pi.getCurrentPage()-1) * pi.getBoardLimit();	// 몇개 건너 뛸 건지
 		int limit = pi.getBoardLimit();	// 총 몇개를 조회할건지
 		

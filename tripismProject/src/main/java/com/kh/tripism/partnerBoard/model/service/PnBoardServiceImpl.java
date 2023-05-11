@@ -4,12 +4,14 @@ import java.util.ArrayList;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.kh.tripism.feed.model.vo.PageInfo;
+import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.partnerBoard.model.dao.PnBoardDao;
 import com.kh.tripism.partnerBoard.model.vo.PnBoard;
 import com.kh.tripism.partnerBoard.model.vo.PnReply;
 
+@Service
 public class PnBoardServiceImpl implements PnBoardService {
 	
 	
@@ -25,6 +27,7 @@ public class PnBoardServiceImpl implements PnBoardService {
 	// 1. 게시판 리스트 페이지 조회용 서비스(페이징처리)
 	@Override
 	public int selectListCount() {
+		// System.out.println("selectListCount");
 		return pbDao.selectListCount(sqlSession);
 	}
 
@@ -78,5 +81,6 @@ public class PnBoardServiceImpl implements PnBoardService {
 		return pbDao.insertPnReply(sqlSession, pr);
 	}
 
+	
 
 }

@@ -78,7 +78,7 @@
                     <td>${ n.noticeWriter }</td>
                     <td>${ n.noticeDate }</td>
                     <td>
-						<c:if test="${ not empty n.noticeUpfile }">
+						<c:if test="${ not empty n.originName }">
 	                        		★
 						</c:if>
 
@@ -105,13 +105,13 @@
 		        	            <li class="page-item disabled"><a class="page-link" href="">Previous</a></li>
             	    		</c:when>
             	    		<c:otherwise>
-		            	        <li class="page-item"><a class="page-link" href="noticeList.bo?cpage=${ pi.currentPage -1 }">Previous</a></li>
+		            	        <li class="page-item"><a class="page-link" href="noticeSelectlist.bo?cpage=${ pi.currentPage -1 }">Previous</a></li>
             	    		</c:otherwise>
                 		</c:choose>
                 		
                 		
 	                    <c:forEach var="p" begin="${ pi.startPage }" end="${ pi.endPage }">
-                    		<li class="page-item"><a class="page-link" href="noticeList.bo?cpage=${ p }">${ p }</a></li>
+                    		<li class="page-item"><a class="page-link" href="noticeSelectlist.bo?cpage=${ p }">${ p }</a></li>
 	                    </c:forEach>
 	                    
 	                    

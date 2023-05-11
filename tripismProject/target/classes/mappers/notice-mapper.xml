@@ -4,14 +4,16 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="noticeMapper">
-	<resultMap type="Notice" id="NoticeResultSet">
+	<resultMap type="Notice" id="noticeResultSet">
 		<result column="notice_no" property="noticeNo"/>
 		<result column="notice_writer" property="noticeWriter"/>
 		<result column="notice_name" property="noticeName"/>
 		<result column="notice_contents" property="noticeContents"/>
 		<result column="notice_date" property="noticeDate"/>
-		<result column="notice_clsfc" property="noticeClsfc"/>
-		<result column="notice_upfile" property="noticeUpfile"/>
+		<result column="count" property="count"/>
+		<result column="origin_name" property="originName"/>
+		<result column="change_name" property="changeName"/>
+		
 	</resultMap>
 	
 	<select id="noticeSelectListCount" resultType="_int">
@@ -21,7 +23,7 @@
 	    where notice_status = 'Y'
 	</select>
 
-	<select id="noticeSelectList" resultMap="NoticeResultSet">
+	<select id="noticeSelectList" resultMap="noticeResultSet">
 		select
         notice_no
         , notice_name
@@ -41,9 +43,8 @@
 				, notice_writer
 				, notice_name
 				, notice_contents
-				, notice_date
-				, notice_clsfc
-				, notice_upfile
+				, origin_name
+				, change_name
 				)
 				values
 				(
@@ -51,9 +52,8 @@
                 , #{noticeWriter}
 				, #{noticeName}
                 , #{noticeContents}
-                , #{noticeDate}
-                , #{noticeClsfc}
-                , #{noticeUpfile}
+				, #{originName}
+				, #{changeName}
 				)
 	</insert>
 	
@@ -61,19 +61,20 @@
 		update
 				tb_notice
 			set count = count + 1
-			where notice_no = #{boardNo}
+			where notice_no = #{noticeNo}
 			and notice_status = 'Y'
 	</update>
 	
 
 	
-		<select id="selectNotice" resultMap="NoticeResultSet">
+		<select id="selectNotice" resultMap="noticeResultSet">
 		select
 				notice_no
 				, notice_name
 				, notice_contents
 				, to_char(notice_date, 'YYYY-MM-DD') as "notice_date"
-				, notice_upfile
+				, origin_name
+				, change_name
 			from tb_notice
 			where notice_no = #{noticeNo}
 			

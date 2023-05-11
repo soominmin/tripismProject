@@ -19,7 +19,9 @@ public class Notice {
 	private String noticeDate;
 	private String noticeStatus;
 	private String noticeClsfc;
-	private String noticeUpfile;
+	private String originName;
+	private String changeName;
+	private int count;
 	
 
 }

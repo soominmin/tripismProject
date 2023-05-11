@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,7 +70,7 @@
 	
 	    <div class="content-title" align="center">
 	      <div class="">
-	        <h2 class="font-weight-bold" style="font-size: 40px;">경복궁</h2>
+	        <h2 class="font-weight-bold" style="font-size: 40px;">${s.spotTitle}</h2>
 	      </div>
 	      <br>
 	      <p class="mb-0" style="font-size: 15px;">서울 중구</p>

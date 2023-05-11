@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.kh.tripism.feed.model.vo.PageInfo;
+import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.partnerBoard.model.dao.PnBoardDao;
 import com.kh.tripism.partnerBoard.model.vo.PnBoard;
 import com.kh.tripism.partnerBoard.model.vo.PnReply;

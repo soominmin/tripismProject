@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.kh.tripism.feed.model.dao.FeedDao;
 import com.kh.tripism.feed.model.vo.Feed;
 import com.kh.tripism.feed.model.vo.Img;
-import com.kh.tripism.feed.model.vo.PageInfo;
+import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.feed.model.vo.Reply;
 import com.kh.tripism.member.model.vo.Member;
 

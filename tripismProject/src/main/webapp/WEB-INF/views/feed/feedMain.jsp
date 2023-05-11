@@ -105,6 +105,13 @@
         .non-click:hover{
         	background-color: rgb(112, 217, 223);
         }
+        
+        .img-wrap{}
+        .img-wrap>img{
+        	display: inline-block;
+        	
+        	box-sizing: border-box;
+        }
     </style>
 
 </head>
@@ -119,29 +126,6 @@
 
         <!-- feedPage- -->
         <div id="left-main"> &nbsp;
-
-            <%-- <div align="center">
-                <img src="${pageContext.request.contextPath}/resources/img/logo.png" alt="image" style="width: 10em;">
-            </div> --%>
-            <!--<hr class="inner-bar">
-             <div class="inner-bar">
-                <b>#태그</b> <br>
-                <a href="#">#봄</a>
-                <a href="#">#여름</a>
-                <a href="#">#가을</a>
-                <a href="#">#겨울</a>    
-            </div> -->
-
-            
-
-            <!-- <div style="height: 50px;" align="center">
-                <button type="button" class="bBc" style="width: 80%; font-size: large;" onclick="location.href='enrollForm.fd'">글쓰기</button>
-            </div>  -->
-
-            <!-- <br>
-
-            <hr class="inner-bar"> -->
-
             <div class="inner-bar" align="center" style="padding:10% 0%; display: inline-block; margin-top: 50%"  >
             
             <form action="search.fd">
@@ -208,10 +192,7 @@
             	<p style="margin-top: 10px">글쓰기</p>
             </button>
 
-            <%-- <button type="button" style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/video.png" alt="video" style="width: 2.4em;">
-                <p>동영상</p>
-            </button> --%>
-
+    
             </div>            
         </div>
 
@@ -308,18 +289,19 @@
 
 			<!-- 무한스크롤 시작할 자리 **구현중 0510 --> 
 			
+			<c:set var="done_loop" value="false"/>
+			
 			<!-- 여기부터 반복문 시작 -->
 			<c:forEach var="f" items="${feed}">
 			
 			<div class="inner-bar feedPage">
                 <div class="inner-bar-small LrN">
                 
-                	<c:forEach var="m" items="${member}">
-                    	<img src="${ m.img }" alt="회원이미지" style="width: 2.7em;"> 
+                    	<img src="${ f.memImg }" alt="회원이미지" style="width: 2.7em;"> 
                     
                     	
-                    <b style="margin-left: 13px;" >${ m.memNickname }</b>
-                    </c:forEach>
+                    <b style="margin-left: 13px;" >${ f.memNickname }</b>
+                    
                     <input type="text" style="width: 70px; text-align: center; border: none;" placeholder="${ f.feedDate }" disabled>
 
 					<div style="float: right; margin-top: 5px;">
@@ -350,14 +332,23 @@
                         ${ f.feedContents }
                     </p>
                 </div>
-                
-                <c:forEach var="i" items="${img}" >
-                	<img src="${ i.imgChangeName }" alt="첨부사진" style="width: 100%; height: 100%;">
-				</c:forEach>
-				
+            	<div class="img-wrap">	 
+                	<c:if test="${ not empty f.imgOriginalName1 }">
+                		<img src="${ f.imgChangeName1 }" alt="첨부사진" style="width: 50%; height: 50%;">
+	                </c:if>	
+	                <c:if test="${ not empty f.imgOriginalName2 }">
+                		<img src="${ f.imgChangeName2 }" alt="첨부사진" style="width: 50%; height: 50%;">
+	                </c:if>	
+	                <c:if test="${ not empty f.imgOriginalName3 }">
+                		<img src="${ f.imgChangeName3 }" alt="첨부사진" style="width: 50%; height: 50%;">
+	                </c:if>	
+	                <c:if test="${ not empty f.imgOriginalName4 }">
+                		<img src="${ f.imgChangeName4 }" alt="첨부사진" style="width: 50%; height: 50%;">
+	                </c:if>	
+				</div>
                 <div class="inner-bar-small LrN">
-                    <a href="#">#영랑호</a> <!-- 후순위 -->
-                    <a href="#">#벚꽃</a>
+                   <!--  <a href="#">#영랑호</a> 후순위
+                    <a href="#">#벚꽃</a> -->
                 </div>
 
                 <hr class="inner-bar">

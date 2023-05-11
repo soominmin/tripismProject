@@ -10,6 +10,16 @@
 		<result column = "feed_date" property="feedDate" />
 		<result column = "feed_modify" property="feedModify" />
 		<result column = "feed_status" property="feedStatus" />
+		<result column = "mem_img" property="memImg" />
+		<result column = "mem_nickname" property="memNickname" />
+		<result column = "img_original_name1" property="imgOriginalName1" />
+		<result column = "img_change_name1" property="imgChangeName1" />
+		<result column = "img_original_name2" property="imgOriginalName2" />
+		<result column = "img_change_name2" property="imgChangeName2" />
+		<result column = "img_original_name3" property="imgOriginalName3" />
+		<result column = "img_change_name3" property="imgChangeName3" />
+		<result column = "img_original_name4" property="imgOriginalName4" />
+		<result column = "img_change_name4" property="imgChangeName4" />
 	</resultMap>
 	
 	<resultMap type="Reply" id="replyResultSet">
@@ -21,32 +31,13 @@
 		<result column="reply_distinct" property="replyDistict" />
 	</resultMap>
 	
-	<resultMap type="Img" id="imgResultSet">
-		<result column="feed_img_no" property="feedImgNo"/>
-		<result column="feed_no" property="feedNo"/>
-		<result column="img_original_name" property="imgOriginalName"/>
-		<result column="img_change_name" property="imgChangeName"/>
-	</resultMap>
-	
 	<resultMap type="Like" id="likeResultSet">
 		<result column="like_no" property="likeNo"/>
 		<result column="feed_no" property="feedNo"/>
 		<result column="mem_no" property="memNo"/>
 	</resultMap>
 	
-	<resultMap type="Member" id="memberResultSet">
-		<result column="mem_no" property="memNo" />
-		<result column="mem_id" property="memId" />
-		<result column="mem_pwd" property="memPwd" />
-		<result column="mem_name" property="memName" />
-		<result column="mem_nickname" property="memNickname" />
-		<result column="gender" property="gender" />
-		<result column="enroll_date" property="enrollDate" />
-		<result column="mem_status" property="status" />
-		<result column="mem_mbti" property="mbti" />
-		<result column="mem_email" property="email" />
-		<result column="mem_img" property="img" />
-	</resultMap>
+
 
 	<!-- 피드 게시물 개수 조회 -->
 	<select id="selectFeedCount" resultType="_int">
@@ -82,15 +73,27 @@
 	        (
 	              feed_img_no
 	            , feed_no
-	            , img_original_name
-	            , img_change_name
+	            , img_original_name1
+	            , img_change_name1
+	            , img_original_name2
+	            , img_change_name2
+	            , img_original_name3
+	            , img_change_name3
+	            , img_original_name4
+	            , img_change_name4
 	        )  
 	        values
 	        (
 	              seq_feedimgno.nextval
 	            , seq_feedno.currval
-	            , #{originalName}
-	            , #{changeName}
+	            , #{imgOriginalName1}
+	            , #{imgChangeName1}
+	            , #{imgOriginalName2}
+	            , #{imgChangeName2}
+	            , #{imgOriginalName3}
+	            , #{imgChangeName3}
+	            , #{imgOriginalName4}
+	            , #{imgChangeName4}
 	        )
 	</insert>
 	
@@ -99,14 +102,14 @@
 	<delete id="deleteFeed">
 		update 
 		    tb_feed
-		    set feed_status = 'N'
+		set feed_status = 'N'
 		where feed_no = #{feedNo}
 	</delete>
 	
 	<!-- 피드 수정용 -->
 	<update id="updateFeed">
 		update 
-        tb_feed
+        	tb_feed
         set 
               feed_title = #{feedTitle}
             , feed_contents = #{feedTitle}
@@ -125,18 +128,26 @@
 	<!-- 피드 목록 조회용 -->
 	<select id="selectFeedList" resultMap="feedResultSet" >
 		select
+		    f.mem_no,
 		    mem_img, 
 		    mem_nickname, 
 		    feed_date,
 		    feed_title,
 		    feed_contents,
-		    img_change_name 
-        from tb_feed f
-        full outer join tb_member m
-        on f.mem_no = m.mem_no
-        full outer join tb_feed_img i
-        on f.feed_no = i.feed_no
-        order by f.feed_no desc
+	        img_original_name1,
+            img_change_name1,
+            img_original_name2,
+            img_change_name2,
+            img_original_name3,
+            img_change_name3,
+            img_original_name4,
+            img_change_name4
+	        from tb_feed f
+	        join tb_member m
+	        on f.mem_no = m.mem_no
+	        full outer join tb_feed_img i
+	        on f.feed_no = i.feed_no
+	        order by f.feed_no desc
 	</select>
 	
 	<!-- 댓글 작성용 -->
@@ -156,15 +167,6 @@
 	<select id="selectReplyList">
 	
 	</select>
-	
-	<!-- 추가. 회원조회 -->
-	<select id="selectMember" resultMap="memberResultSet">
-		select * 
-			from tb_member
-	</select>
-	
-	<select id="selectImg" resultMap="imgResultSet">
-	select *
-		from tb_feed_img
-	</select>
+
+
 </mapper>

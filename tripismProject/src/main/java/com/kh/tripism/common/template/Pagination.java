@@ -1,6 +1,6 @@
 package com.kh.tripism.common.template;
 
-import com.kh.tripism.feed.model.vo.PageInfo;
+import com.kh.tripism.common.vo.PageInfo;
 
 public class Pagination {
 	

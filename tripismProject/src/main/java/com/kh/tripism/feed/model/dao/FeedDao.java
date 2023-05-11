@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.tripism.feed.model.vo.Feed;
 import com.kh.tripism.feed.model.vo.Img;
-import com.kh.tripism.feed.model.vo.PageInfo;
+import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.feed.model.vo.Reply;
 import com.kh.tripism.member.model.vo.Member;
 
@@ -19,12 +19,6 @@ public class FeedDao {
 	// 피드 추가
 	public int insertFeed(SqlSessionTemplate sqlSession, Feed f) { // feed 제목/본문 넣어주는 부분
 		System.out.println("dao 탔나?");
-		
-		//HashMap<String, Object> map = new HashMap<String, Object>();
-		
-		//map.put("f", f);
-		
-		//System.out.println("해쉬맵 확인 : " + map);
 		return sqlSession.insert("feedMapper.insertFeed", f);
 	};
 	

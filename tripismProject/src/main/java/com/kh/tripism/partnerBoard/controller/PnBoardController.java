@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.tripism.common.template.Pagination;
-import com.kh.tripism.feed.model.vo.PageInfo;
+import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.partnerBoard.model.service.PnBoardServiceImpl;
 import com.kh.tripism.partnerBoard.model.vo.PnBoard;
 

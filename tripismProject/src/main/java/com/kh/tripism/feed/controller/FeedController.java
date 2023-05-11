@@ -77,32 +77,46 @@ public class FeedController {
 		System.out.println("제목 : " + f.getFeedTitle());
 		System.out.println("본문 : " + f.getFeedContents());
 		
-		//System.out.println("첨부파일 : " + upFile1.getOriginalFilename());
-		//System.out.println("첨부파일 : " + upFile2.getOriginalFilename());
-		//System.out.println("첨부파일 : " + upFile[3].getOriginalFilename());
-		//System.out.println("첨부파일 : " + upFile[4].getOriginalFilename());
-		
-		
 		if(!upFile1.getOriginalFilename().equals("")) { // 첨부를 했다.
 			
 			String changeName1 = saveFile1(upFile1, session);
-			String changeName2 = saveFile2(upFile2, session);
-			String changeName3 = saveFile3(upFile3, session);
-			String changeName4 = saveFile4(upFile4, session);
-			System.out.println("바뀐이름 : " + changeName1);
 			
 			// f => field에 담는작업
-			f.setOriginalName(upFile1.getOriginalFilename());
-			f.setChangeName("resources/uploadFiles/" + changeName1);
 			
-			f.setOriginalName(upFile2.getOriginalFilename());
-			f.setChangeName("resources/uploadFiles/" + changeName2);
+			f.setImgOriginalName1(upFile1.getOriginalFilename());
+			f.setImgChangeName1("resources/uploadFiles/" + changeName1);
+		}
+		
+		if(!upFile2.getOriginalFilename().equals("")) { // 첨부를 했다.
 			
-			f.setOriginalName(upFile3.getOriginalFilename());
-			f.setChangeName("resources/uploadFiles/" + changeName3);
+			String changeName2 = saveFile2(upFile2, session);
 			
-			f.setOriginalName(upFile4.getOriginalFilename());
-			f.setChangeName("resources/uploadFiles/" + changeName4);
+			// f => field에 담는작업
+			
+			f.setImgOriginalName2(upFile2.getOriginalFilename());
+			f.setImgChangeName2("resources/uploadFiles/" + changeName2);
+			
+		}
+		
+		if(!upFile3.getOriginalFilename().equals("")) { // 첨부를 했다.
+			
+			String changeName3 = saveFile3(upFile3, session);
+			
+			// f => field에 담는작업
+			
+			f.setImgOriginalName3(upFile3.getOriginalFilename());
+			f.setImgChangeName3("resources/uploadFiles/" + changeName3);
+			
+		}
+		
+		if(!upFile4.getOriginalFilename().equals("")) { // 첨부를 했다.
+			
+			String changeName4 = saveFile4(upFile4, session);
+			
+			// f => field에 담는작업
+			
+			f.setImgOriginalName4(upFile2.getOriginalFilename());
+			f.setImgChangeName4("resources/uploadFiles/" + changeName4);
 			
 		}
 		
@@ -112,6 +126,11 @@ public class FeedController {
 		
 		int result = fService.insertFeed(f); // 제목/본문 넣을 곳
 		int result2 = fService.insertFeed2(f); // 이미지 넣을 곳 
+		
+		System.out.println("사진 변환이름1 : " + f.getImgChangeName1());
+		System.out.println("사진 변환이름2 : " + f.getImgChangeName2());
+		System.out.println("사진 변환이름3 : " + f.getImgChangeName3());
+		System.out.println("사진 변환이름4 : " + f.getImgChangeName4());
 				
 		if(result > 0) {
 			return "redirect:feed.fd";

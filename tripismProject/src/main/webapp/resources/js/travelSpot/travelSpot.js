@@ -33,8 +33,10 @@ function selectSpotList(currentPage) {
         success:function(list){
             for(let i=0; i<list.length; i++){
                 value += '<div class="col-md-6 col-lg-4 mb-5">'
+                        + '<form class="postForm" action="detailAPI.sp" method="post">'
                         + '<input type="hidden" name="contentId" value="'+list[i].spotContentId+'">'
-                        + '<input type="hidden" name="contentId" value="'+list[i].spotContentType+'">'
+                        + '<input type="hidden" name="contentType" value="'+list[i].spotContentType+'">'
+                        + '</form>'
                         + '<div class="card card-hover">'
                         + '<a href="javascript:void(0)" class="position-relative">'
                         if(list[i].spotImgPath == null){
@@ -88,38 +90,43 @@ function selectSpotList(currentPage) {
 
 function selectSpotAPI(contentId, contentType) {
 
+//     // $(".postForm").attr("action", "detailAPI.sp").submit();
 
-    $.ajax({
-        url:"detailAPI.sp",
-        data:{
-            contentId:contentId,
-            contentType:contentType
-        },
-        success:function(content){
-            console.log("spotAPI 성공" + content + ", 아이디 : " + contentId);
-        },
-        error:function(){
-            console.log("spotAPI 실패");
-        }
-    })
+    location.href="detailAPI.sp?contentId="+contentId+"&contentType="+contentType;
+
+//     $.ajax({
+//         url:"detailAPI.sp",
+//         data:{
+//             contentId:contentId,
+//             contentType:contentType
+//         },
+//         success:function(content){
+//             console.log("spotAPI 성공" + content + ", 아이디 : " + contentId);
+//         },
+//         error:function(){
+//             console.log("spotAPI 실패");
+//         }
+//     })
 
     
-    // function selectSpotDetail(){
 
-    //     $.ajax({
-    //         url:"detailView.sp",
-    //         data:{
-    //             contentId:contentId
-    //         },
-    //         success:function(){
-    //             console.log("통신성공");
-    //         },
-    //         error:function(){
-    //             console.log("실패");
-    //         }
-    //     })
+    
+//     // function selectSpotDetail(){
 
-    // }
+//     //     $.ajax({
+//     //         url:"detailView.sp",
+//     //         data:{
+//     //             contentId:contentId
+//     //         },
+//     //         success:function(){
+//     //             console.log("통신성공");
+//     //         },
+//     //         error:function(){
+//     //             console.log("실패");
+//     //         }
+//     //     })
+
+//     // }
 
 
 

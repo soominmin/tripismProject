@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.google.gson.JsonObject;
 import com.kh.tripism.travelSpot.model.dao.SpotDao;
 import com.kh.tripism.travelSpot.model.vo.Spot;
+import com.kh.tripism.travelSpot.model.vo.SpotTour;
 
 @Service
 public class SpotServiceImpl implements SpotService {
@@ -25,9 +26,16 @@ public class SpotServiceImpl implements SpotService {
 	@Override
 	public ArrayList<Spot> selectSpotAPI(JsonObject items) {
 		
-		
 		return null;
 	}
+	
+	@Override
+	public Spot selectSpotDetail(int contentId) {
+		
+		return sDao.selectSpotDetail(sqlSession, contentId);
+		
+	}
+	
 
 	
 }

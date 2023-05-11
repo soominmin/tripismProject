@@ -12,6 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="partner_change_img" property="partnerChangeImg"/>
 		<result column="partner_date" property="partnerDate"/>
 		<result column="partner_views" property="partnerViews"/>
+		<result column="partner_title" property="partnerTitle"/>
 		<result column="partner_content" property="partnerContent"/>
 		<result column="partner_start_date" property="partnerStartDate"/>
 		<result column="partner_end_date" property="partnerEndDate"/>
@@ -58,12 +59,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select
 				p.partner_type
 			,	p.partner_original_img
+			,	p.partner_title
 			,	p.partner_content
 			,	p.partner_start_date
 			,	p.partner_end_date
 			,	p.partner_location
             ,   m.gender
             ,   m.mem_nickname
+            ,	m.mem_mbti
+            ,	m.mem_img
 		from tb_partner p
         inner join tb_member m
         on  p.mem_no = m.mem_no

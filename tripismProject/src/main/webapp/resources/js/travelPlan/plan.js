@@ -355,6 +355,7 @@ function getDatesStartToLast(startDate, lastDate) {
 }
 
 function makeDate(dates){
+	document.getElementById('modalDiv').innerHTML="";
 	let result = "";
 	let modals = [];
 	let modalDiv = document.getElementById('modalDiv');
@@ -369,7 +370,7 @@ function makeDate(dates){
 				+'<hr>'
 				+'<div style="display:flex;">'
 				+'<div id="resultList'+(i+1)+'"></div>'
-				+'<div id="resultMap'+(i+1)+'" style="width:500px; height:300px"></div>'
+				+'<div id="resultMap'+(i+1)+'" style="width:700px; height:500px"></div>'
 				+'</div>'
 				+'</div>';
 
@@ -508,17 +509,55 @@ function createResultMap(mapNum,positions){
 	
 	console.log(maps[mapNum]);
 	maps[mapNum] = new kakao.maps.Map(mapContainer,mapOption);
+	let distanceOverlays=[];
+	let lines = [];
+	for(let j=0; j<positions.length-1;j++){
+		let line= new kakao.maps.Polyline({
+			map : maps[mapNum],
+			path: [positions[j],positions[j+1]],
+			strokeWeight: 3,
+			strokeColor: '#db4040',
+			strokeOpacity: 1,
+			strokeStyle: 'solid'
+		})
+		lines.push(line);
+
+	}
+
+	for(let k=0;k<lines.length;k++){
+		console.log(lines[k].getLength());
+	}
+	console.log(lines[0].getPath());
+	centerLan = (lines[0].getPath()[0].La+lines[0].getPath()[1].La)/2;
+	centerLat = (lines[0].getPath()[0].Ma+lines[0].getPath()[1].Ma)/2;
+	centerPosition = new kakao.maps.LatLng(centerLat,centerLan)
+	console.log(centerPosition);
 	
-		let line = new kakao.maps.Polyline({
-			map: maps[mapNum], // 선을 표시할 지도입니다 
-			path: positions, // 선을 구성하는 좌표 배열입니다 클릭한 위치를 넣어줍니다
-			strokeWeight: 3, // 선의 두께입니다 
-			strokeColor: '#db4040', // 선의 색깔입니다
-			strokeOpacity: 1, // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
-			strokeStyle: 'solid' // 선의 스타일입니다
-		});
+		// let line = new kakao.maps.Polyline({
+		// 	map: maps[mapNum], // 선을 표시할 지도입니다 
+		// 	path: positions, // 선을 구성하는 좌표 배열입니다 클릭한 위치를 넣어줍니다
+		// 	strokeWeight: 3, // 선의 두께입니다 
+		// 	strokeColor: '#db4040', // 선의 색깔입니다
+		// 	strokeOpacity: 1, // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
+		// 	strokeStyle: 'solid' // 선의 스타일입니다
+		// });
+	for(let i=0;i<lines.length;i++){
+		let centerLan = (lines[i].getPath()[0].La+lines[i].getPath()[1].La)/2;
+		let centerLat = (lines[i].getPath()[0].Ma+lines[i].getPath()[1].Ma)/2;
+		let centerPosition = new kakao.maps.LatLng(centerLat,centerLan);
 		
+		var distanceOverlay = new kakao.maps.CustomOverlay({
+			content: '<div class="dotOverlay">거리 <span class="number">' + Math.round(lines[i].getLength())/1000 + '</span>km</div>',
+			position: centerPosition,
+			yAnchor: 1,
+			zIndex: 2
+		});
+		distanceOverlay.setMap(maps[mapNum]);
+	}
 	
+
+        // 지도에 표시합니다
+	distanceOverlay.setMap(maps[mapNum]);
 	
 
 	for(let i=0;i<positions.length;i++){
@@ -526,6 +565,7 @@ function createResultMap(mapNum,positions){
 			position:positions[i]
 		});
 		marker.setMap(maps[mapNum])
+
 	}
 
 	// console.log(Math.round(lines[0].getLength()));

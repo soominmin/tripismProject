@@ -1,12 +1,16 @@
 
+
 let searchValue =null;
 let currentCode = 0;
 let flag = false;
 let currentPage = 1;
-var map = null;
-var markers = [];
-	function createMap(){
-		
+let maps = [];
+let markers = [];
+let currentMapNum = 0;
+
+	function createMap(mapNum){
+		currentMapNum=mapNum;
+		console.log("asdsad");
 		let tourInfo = JSON.parse(JSON.stringify(info));
 		console.log(tourInfo[0].color);
 		console.log(tourInfo);
@@ -23,13 +27,13 @@ var markers = [];
 			
 		}
 		console.log(areas);
-		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		var mapContainer = document.getElementById('map'+(mapNum+1)), // 지도를 표시할 div 
 			mapOption = { 
 				center: new kakao.maps.LatLng(35.95, 128.25), // 지도의 중심좌표
 				level: 13 // 지도의 확대 레벨
 			};
 
-		map = new kakao.maps.Map(mapContainer, mapOption),
+		maps[mapNum] = new kakao.maps.Map(mapContainer, mapOption),
 			customOverlay = new kakao.maps.CustomOverlay({}),
 			infowindow = new kakao.maps.InfoWindow({removable: true});
 
@@ -45,7 +49,7 @@ var markers = [];
 			
 			// 다각형을 생성합니다 
 			var polygon = new kakao.maps.Polygon({
-				map: map, // 다각형을 표시할 지도 객체
+				map: maps[mapNum], // 다각형을 표시할 지도 객체
 				path: area.path,
 				strokeWeight: 2,
 				strokeColor: '#004c80',
@@ -164,7 +168,7 @@ var markers = [];
 				
 				
 				
-				$("#search").css("display","block")
+				$("#search"+(mapNum+1)).css("display","block")
 				currentPage = 1;
 				searchValue="";
 				// flag = true;
@@ -198,9 +202,8 @@ var markers = [];
 	
 
 	let isUpdateList = true;
-	const placesDiv = document.getElementById("placesDiv");
+	const placesDiv = document.getElementById("placesDiv"+(mapNum+1));
 	placesDiv.onscroll = function(e) {
-      console.log(document.getElementById("placesDiv").clientHeight ,  document.getElementById("placesDiv").scrollTop,document.getElementById("placesDiv").scrollHeight)
       if((placesDiv.clientHeight + placesDiv.scrollTop) >= (placesDiv.scrollHeight-3)) { 
         if(isUpdateList){
             isUpdateList = false;
@@ -214,7 +217,7 @@ var markers = [];
 }
 	function selectTourList(code,currentPage,searchValue,markerNum){
 		if(currentCode!=code){
-			$("#placesList").html("");
+			$("#placesList"+(currentMapNum+1)).html("");
 			markers.forEach(marker=>{
 				marker.setMap(null);
 			})
@@ -240,6 +243,8 @@ var markers = [];
 								value+='<img src="https://3.bp.blogspot.com/-WhBe10rJzG4/U4W-hvWvRCI/AAAAAAAABxg/RyWcixpgr3k/s1600/noimg.jpg" style="width:50px; height:50px;">';
 							} 
 							value+='<h5 class="spotTilte">'+list[i].spotTitle+'</h5>'
+								+'<input type="hidden" class="mapX" value="'+list[i].spotMapx+'">'
+								+'<input type="hidden" class="mapY" value="'+list[i].spotMapy+'">'
 									+'<button type="button" class="addSpot btnButtonStyle-sc-1m85upr-1 iJuLkw">추가</button>'
 							+'</div>'
 							+'<span>'+list[i].spotAddress+'</span>'
@@ -263,13 +268,13 @@ var markers = [];
 						
 				}
 				markers.forEach(marker=>{
-					marker.setMap(map);
+					marker.setMap(maps[currentMapNum]);
 				})
 				console.log(markers);
-				$("#placesList").append(value);
+				$("#placesList"+(currentMapNum+1)).append(value);
 				console.log(currentPage);
 				console.log(list);
-				console.log(document.getElementById("placesDiv").scrollHeight)
+				
 				console.dir(document.getElementsByClassName("info"))
 				// for (var i = 0; i < positions.length; i ++) {
 				// 	var marker = new kakao.maps.Marker({
@@ -290,16 +295,16 @@ var markers = [];
 	
 	function searchTour(){
 		console.log("검색함수")
-		console.dir(document.getElementById("searchVal"))
-		console.log(document.getElementById("searchVal").value)
+		console.dir(document.getElementById("searchVal"+(currentMapNum+1)))
+		console.log(document.getElementById("searchVal"+(currentMapNum+1)).value)
 		markers.forEach(marker=>{
 			marker.setMap(null);
 		})
 		markers.length=0;
-		$("#placesList").html("");
+		$("#placesList"+(currentMapNum+1)).html("");
 		currentPage=1;
-		searchValue = $("#searchVal").val();
-		$("#searchVal").val("");
+		searchValue = $("#searchVal"+(currentMapNum+1)).val();
+		$("#searchVal"+(currentMapNum+1)).val("");
 		selectTourList(currentCode,currentPage,searchValue);
 
 	}
@@ -347,19 +352,20 @@ function getDatesStartToLast(startDate, lastDate) {
 function makeDate(dates){
 	let result = "";
 	let modals = [];
-	let content = document.getElementById('content');
+	let modalDiv = document.getElementById('modalDiv');
 	for(let i=0; i<dates.length; i++){
 		result += '<div class="plan'+(i+1)+'">'
 				+'<div>'
 				+ dates[i]
 				+'</div>'
-				+'<button type="button" class="addPlan" id="plan'+(i+1)+'">'
-				+'<a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#plan" class="media d-inline-flex align-items-center">일정추가</a>'
+				+'<button type="button" class="addPlan">'
+				+'<a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#plan'+(i+1)+'" class="media d-inline-flex align-items-center">일정추가</a>'
 				+'</button>'
+				+'<div id="resultMap'+(i+1)+'"></div>'
 				+'</div>';
 
 		let modal = document.createElement('div');
-		modal.setAttribute('class','modal fade');
+		modal.setAttribute('class','modal fade plan-modal');
 		modal.setAttribute('id','plan'+(i+1));
 		modal.setAttribute('tabindex','-1');
 		modal.setAttribute('role','dialog');
@@ -377,27 +383,27 @@ function makeDate(dates){
              +'<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>'
             +'</div>'
             +'<div style="width: 100%; height: 70%; display:flex; ">'
-	            +'<div id="map" class="modal-body" style="width: 50%; height: 100%;">'
+	            +'<div id="map'+(i+1)+'" class="modal-body" style="width: 50%; height: 100%;">'
 	            +'</div>'
 	            +'<div style="width: 50%; height: 100%; background-color:white;">'
 	            +	'<div class="option" style="height: 10%;">'
 	                	
-	                  +  '<div id="search" style="display: none;">'
-						+	'<input type="text" id="searchVal">'
+	                  +  '<div id="search'+(i+1)+'" style="display: none;">'
+						+	'<input type="text" id="searchVal'+(i+1)+'">'
 							+'<button type="button" onclick="searchTour();">검색</button>'
 						+'</div>'
 	                +'</div>'
-                  	 +'<div id="placesDiv" style="overflow: auto; height: 90%;">'
-	                 	+'<ul id="placesList">'
+                  	 +'<div id="placesDiv'+(i+1)+'" style="overflow: auto; height: 90%;">'
+	                 	+'<ul id="placesList'+(i+1)+'" class="placesList">'
 	                  	+'</ul>'
                   	+'</div>'
 	            +'</div>'
 				
            +'</div>'
 			
-			+'<div id="spotList" style="width: 100%; height: 20%; ">'
+			+'<div id="spotList'+(i+1)+'" style="width: 100%; height: 20%; ">'
 				+'<h3 style="width: 10%;">여행지 목록</h3>'
-				+'<div id="addedList" style="width: 100%; height: 80%; overflow: auto;">'
+				+'<div id="addedList'+(i+1)+'" style="width: 100%; height: 80%; overflow: auto;">'
 
 				+'</div>'
 				
@@ -405,24 +411,71 @@ function makeDate(dates){
 			+'</div>'
 			
 			+'<div style="height: 5%;">'
-				+'<button id="btnCom" class="btnButtonStyle-sc-1m85upr-1 iJuLkw" type="button" data-bs-dismiss="modal" aria-label="Close">완료</button>'
+				+'<button class="btnCom btnButtonStyle-sc-1m85upr-1 iJuLkw" type="button" data-bs-dismiss="modal" aria-label="Close">완료</button>'
 			+'</div>'
   
             
           +'</div>'
         +'</div>';
 		modal.innerHTML = modalHTML;
-		content.appendChild(modal);
-
+		modalDiv.appendChild(modal);
+		console.log(modal)
+		maps.length=i;
 	}
 	
 	
-	console.dir(content);
+	console.dir(modalDiv);
 	content.innerHTML = result;
+
+	const placesList = document.getElementsByClassName('placesList');
+		const btnCom = document.getElementsByClassName('btnCom');
+		console.log(placesList);
+		for(let i=0;i<placesList.length;i++){
+			placesList[i].addEventListener('click',e=>{
+				const targetEl = e.target;
+				const infoEl = targetEl.parentElement;
+				
+				if(!targetEl.classList.contains('addSpot'))return;
+				
+				const spotList = document.getElementById('addedList'+(currentMapNum+1));
+				const spot = document.createElement('div');
+
+				spot.className='addedSpot';
+				spot.innerText=infoEl.querySelector('.spotTilte').innerText;
+				spot.appendChild(infoEl.querySelector('.mapX'));
+				spot.appendChild(infoEl.querySelector('.mapY'));
+				spotList.appendChild(spot);
+				spotList.scrollTop = spotList.scrollHeight;
+			})
+		}
+		
+		for(let i=0;i<btnCom.length;i++){
+			btnCom[i].addEventListener('click',()=>{
+			
+				const addedSpot = document.getElementsByClassName('addedSpot');
+				console.log(addedSpot);
+				for(let i=0;i<addedSpot.length;i++){
+					console.log(addedSpot[i].innerText);
+				}
+		
+
+			})
+		}
+		const mapModal = document.getElementsByClassName('plan-modal');
+		console.log(mapModal.length);
+	  	for(let i=0;i<mapModal.length;i++){
+			mapModal[i].addEventListener('shown.bs.modal',function(event){
+			
+			console.log(mapModal[i]);
+			createMap(i);
+        
+      	})
+	  }
 
 }
 
 function addPlan(){
 
 }
+
 

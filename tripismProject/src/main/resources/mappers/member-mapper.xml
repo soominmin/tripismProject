@@ -114,6 +114,12 @@
 		  and mem_name = #{memName}
 	</update>
 	
+	<update id="insertMBTI">
+		update
+			tb_member
+		set mem_mbti = #{mbti}
+		where mem_id = #{memId}
+	</update>
 
 	
 

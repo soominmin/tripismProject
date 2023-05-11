@@ -3,7 +3,9 @@ package com.kh.tripism.feed.controller;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,11 +14,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.*;
 
+import com.kh.tripism.common.template.Pagination;
 import com.kh.tripism.feed.model.service.FeedServiceImpl;
 import com.kh.tripism.feed.model.vo.Feed;
 import com.kh.tripism.feed.model.vo.Img;
+import com.kh.tripism.feed.model.vo.PageInfo;
+import com.kh.tripism.member.model.vo.Member;
 
 import lombok.AllArgsConstructor;
 
@@ -27,9 +33,31 @@ public class FeedController {
 	private FeedServiceImpl fService;
 
 	@RequestMapping("feed.fd")
-	public String feedMain() {
-		return "feed/feedMain";
+	public ModelAndView feedMain(Integer currentPage, ModelAndView mv) {
+		
+		// 전체 피드 조회
+			
+			System.out.println("피드 나왔나?");
+			
+			currentPage = 1;
+			
+			int listCount = fService.selectListCount();
+			 
+			PageInfo pi = Pagination.getPageInfo(listCount, currentPage, 10, 5);
+			
+			ArrayList<Feed> feed = fService.selectFeedList(pi);
+			ArrayList<Member> member = fService.selectMember(pi);
+			ArrayList<Img> img = fService.selectImg(pi);
+				
+			
+			mv.addObject("pi", pi).addObject("feed", feed).addObject("member", member).addObject("img", img).setViewName("feed/feedMain");
+			
+			return mv;
+		
+		
+		// return "feed/feedMain";
 	}
+	
 	
 	@RequestMapping("feedImgAll.fd")
 	public String feedImgAll() {
@@ -46,31 +74,38 @@ public class FeedController {
 		return "feed/feedUpdateForm";
 	}
 	
-	@RequestMapping("feedBest.fd")
-	public String feedBest() {
-		return "feed/feedBest";
-	}
+	
+	
 	
 	
 	@RequestMapping("insert.fd")
-	public String insertFeed(Feed f, String feedTitle, String feedContents, Img i, MultipartFile upFile, HttpSession session, Model model) {
-		System.out.println(f);
-		System.out.println(feedTitle);
-		System.out.println(feedContents);
-		System.out.println(upFile);
+	public String insertFeed(Feed f, MultipartFile upFile, HttpSession session, Model model) {
+		System.out.println("피드전체 : " + f);
+		System.out.println("제목 : " + f.getFeedTitle());
+		System.out.println("본문 : " + f.getFeedContents());
+		System.out.println("첨부파일 : " + upFile.getOriginalFilename());
 		
-		if(!upFile.getOriginalFilename().equals("")) {
+		
+		if(!upFile.getOriginalFilename().equals("")) { // 첨부를 했다.
 			
 			
 			String changeName = saveFile(upFile, session);
+			System.out.println("바뀐이름 : " + changeName);
 			
-			i.setImgOriginalName(upFile.getOriginalFilename());
-			i.setImgChangeName("resources/uploadFiles/" + changeName);
+			// f => field에 담는작업
+			f.setOriginalName(upFile.getOriginalFilename());
+			f.setChangeName("resources/uploadFiles/" + changeName);
+			
+			
 		}
 		
-		System.out.println("컨트롤러 탔나?");
-		int result = fService.insertFeed(f);
 		
+		System.out.println("컨트롤러 탔나?");
+		//System.out.println("이미지 : " + i);
+		
+		int result = fService.insertFeed(f); // 제목/본문 넣을 곳
+		int result2 = fService.insertFeed2(f); // 이미지 넣을 곳 
+				
 		if(result > 0) {
 			return "redirect:feed.fd";
 		} else {
@@ -79,9 +114,9 @@ public class FeedController {
 		
 	}
 	
-	public String saveFile(MultipartFile upfile, HttpSession session) {
+	public String saveFile(MultipartFile upFile, HttpSession session) {
 		
-		String originName = upfile.getOriginalFilename();
+		String originName = upFile.getOriginalFilename();
 		
 		String currentTime = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 		
@@ -94,7 +129,7 @@ public class FeedController {
 		String savePath = session.getServletContext().getRealPath("/resources/uploadFiles/");
 		
 		try {
-			upfile.transferTo(new File(savePath + changeName));
+			upFile.transferTo(new File(savePath + changeName));
 		} catch (IllegalStateException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

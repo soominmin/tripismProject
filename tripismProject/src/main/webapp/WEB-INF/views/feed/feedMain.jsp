@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,7 @@
         .inner-bar{ margin: 10px 15px; }
         .inner-bar-small{ margin: 10px 5px; }
         
-         #feedPage{ border: 1px solid whitesmoke; }
+        .feedPage{ border: 1px solid whitesmoke; }
         .btn-feed-three{ width: 120px; }
         .feed-content>img{ display: block; margin: auto; } 
         #shareButtons button{
@@ -89,7 +90,7 @@
             outline: auto;
         }
         
-        .LrN{ padding: 0px 20px }
+        .LrN{ padding: 0px 20px; margin-bottom: 20px }
         
         .font-bold{ 
         	font-weight: 700;
@@ -145,7 +146,7 @@
             
             <form action="search.fd">
             
-            	<span style="position: absolute; left:70px; top: 183px; z-index: 999">
+            	<span style="position: absolute; left:70px; top: 183px; z-index: 999;">
                 <svg
                     width="12px"
                     height="12px"
@@ -305,27 +306,128 @@
                 </div>
             </form>
 
-            
-            
-			<!-- 무한스크롤 시작할 자리 -->
-            <div class="inner-bar" id="feedPage">
+			<!-- 무한스크롤 시작할 자리 **구현중 0510 --> 
+			
+			<!-- 여기부터 반복문 시작 -->
+			<c:forEach var="f" items="${feed}">
+			
+			<div class="inner-bar feedPage">
+                <div class="inner-bar-small LrN">
+                
+                	<c:forEach var="m" items="${member}">
+                    	<img src="${ m.img }" alt="회원이미지" style="width: 2.7em;"> 
+                    
+                    	
+                    <b style="margin-left: 13px;" >${ m.memNickname }</b>
+                    </c:forEach>
+                    <input type="text" style="width: 70px; text-align: center; border: none;" placeholder="${ f.feedDate }" disabled>
+
+					<div style="float: right; margin-top: 5px;">
+						<c:if test="${ not empty loginUser.memId and loginUser.memNo eq f.memNo }">
+		                    <button type="button" style="border: none;" onclick="location.href='updateForm.fd'">
+		                    	<span>수정하기</span>
+		                    </button>
+		                    
+		                    <span>|</span>
+	                    </c:if>
+	                    
+	                    <button type="button" data-toggle="modal" data-target="#report">
+	                        <span>신고하기</span>
+	                    </button>
+                   </div>
+                </div>
+
+                <hr class="inner-bar ">
+			
+                <div class="inner-bar-small LrN ">
+                    <p class="font-bold">${ f.feedTitle }</p>
+                </div> 
+                
+                <br>
+                
+                <div class="feed-content inner-bar-small LrN">
+                    <p style="color: black">
+                        ${ f.feedContents }
+                    </p>
+                </div>
+                
+                <c:forEach var="i" items="${img}" >
+                	<img src="${ i.imgChangeName }" alt="첨부사진" style="width: 100%; height: 100%;">
+				</c:forEach>
+				
+                <div class="inner-bar-small LrN">
+                    <a href="#">#영랑호</a> <!-- 후순위 -->
+                    <a href="#">#벚꽃</a>
+                </div>
+
+                <hr class="inner-bar">
+
+                <div class="inner-bar-small LrN"> &nbsp;
+                    <img src="${pageContext.request.contextPath}/resources/img/feed/thumb-up.png" alt="thumb-up" style="width: 1.2em; height:1.2em;">
+                    <b><%-- ${ 좋아요수를 가져올것 } --%>#</b>
+                </div>
+
+                <hr class="inner-bar">
+
+                <div class="inner-bar-small LrN" align="center">
+                    <button type="button" class="btn-feed-three" style="background-color: transparent; border: none;" onclick="likeChange();">좋아요</button> |
+                    <button type="button" class="btn-feed-three" style="background-color: transparent; border: none;" onclick="viewReply();">댓글쓰기</button> |
+                    <button type="button" data-toggle="modal" data-target="#share" class="btn-feed-three" style="background-color: transparent; border: none;" >공유하기</button>
+                </div>
+
+                <hr class="inner-bar">
+
+			    <!-- 댓글 작성 시작 -->
+                <div class="inner-bar-small LrN" id="reply-input"> &nbsp;
+                	<c:choose>
+                		<c:when test="${ empty loginUser }">
+                			<form action="#">
+	                       		<img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="loginUser-img" style="width: 2em;"> &nbsp;
+		                        <input type="text" placeholder="로그인한 사용자만 댓글작성 가능합니다." style="border-radius: 5px; width: 80%; padding: 5px" readonly>
+		
+		                        <div class="inner-bar-small" align="center" style="margin-top: 10px;">
+		                            <button type="submit" class="bBc" style="width: 10em;" disabled>완료</button>
+		                        </div>
+		                    </form>
+                		</c:when>
+                		
+                		<c:otherwise>
+		                    <form action="#">
+		                        <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="loginUser-img" style="width: 2em;"> &nbsp;
+		                        <input type="text" id="replyContent" placeholder="댓글을 입력하세요" style="border-radius: 5px; width: 80%; padding-left: 10px">
+		
+		                        <div class="inner-bar-small" align="center" style="margin-top: 10px;">
+		                            <button type="submit" class="bBc" style="width: 10em;" onclick="addReply();">완료</button>
+		                        </div>
+		                    </form>
+                		</c:otherwise>
+                	</c:choose>
+                </div>
+                <!-- 댓글 작성 종료 -->
+                
+                <div class="LrN" id="replyArea">
+                   
+                </div>
+                
+            </div>
+			</c:forEach>
+			<!-- 반복문 종료 -->
+			
+            <div class="inner-bar feedPage">
                 <div class="inner-bar-small LrN">
                     <img src="http://k.kakaocdn.net/dn/bg1bQs/btrN4Orw1rt/ywz81BDR7UcSZ319qKlLQ1/img_640x640.jpg" alt="사진이미지" style="width: 2.7em;"> 
-                    <b style="margin-left: 13px ;" >차카이브</b>
+                    <b style="margin-left: 13px ;">차카이브</b>
                     <input type="text" style="width: 70px; text-align: center; border: none;" placeholder="1주일전" disabled>
 
 					<div style="float: right; margin-top: 5px;">
 	                    <button type="button" style="border: none;" onclick="location.href='updateForm.fd'">
 	                    	<span>수정하기</span>
-	                        <!--  <img src="${pageContext.request.contextPath}/resources/img/feed/paper.png" alt="" style="width: 1.5em; margin: 8px 0px;">-->
 	                    </button>
 	                    
 	                    <span>|</span>
 	                    
 	                    <button type="button" data-toggle="modal" data-target="#report">
 	                        <span>신고하기</span>
-	                        <!-- <img src="${pageContext.request.contextPath}/resources/img/feed/siren.png" alt="" style="width: 1.4em; height: 1.4em;" >
-	                        <img src="${pageContext.request.contextPath}/resources/img/feed/siren2.png" alt="" style="width: 1.4em; height: 1.4em;"> -->
 	                    </button>
                    </div>
                 </div>
@@ -367,7 +469,7 @@
 
                 <div class="inner-bar-small LrN" align="center">
                     <button type="button" class="btn-feed-three" style="background-color: transparent; border: none;" onclick="likeChange();">좋아요</button> |
-                    <button type="button" class="btn-feed-three" style="background-color: transparent; border: none;" onclick="viewReply();">댓글쓰기</button> |
+                    <button type="button" class="btn-feed-three" style="background-color: transparent; border: none;">댓글쓰기</button> |
                     <button type="button" data-toggle="modal" data-target="#share" class="btn-feed-three" style="background-color: transparent; border: none;" >공유하기</button>
                 </div>
 
@@ -377,7 +479,7 @@
                 <div class="inner-bar-small LrN" id="reply-input"> &nbsp;
                     <form action="#">
                         <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="loginUser-img" style="width: 2em;"> &nbsp;
-                        <input type="text" placeholder="댓글을 입력하세요" style="border-radius: 5px; width: 80%; padding: 5px">
+                        <input type="text" placeholder="댓글을 입력하세요" style="border-radius: 5px; width: 80%; padding-left: 10px">
 
                         <div class="inner-bar-small" align="center" style="margin-top: 10px;">
                             <button type="submit" class="bBc" style="width: 10em;">완료</button>
@@ -392,6 +494,7 @@
                             <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="reply-user" style=" width: 1.6em; display: inline;">
                         </div>
                     </div>
+                    
                     <div style="display: inline-block; background-color: #ebebeb; margin-left: 10px; border-radius: 9px; padding: 5px 10px;">
                         <span style="display: inline;">1시간 전</span> <br>
                         <b style="margin-bottom: 5px;">유저닉네임1</b>
@@ -414,11 +517,81 @@
                     </div>
                 </div>
             </div>
+            
 			<!-- 무한스크롤 끝낼 자리 -->
+			
+			<script>
+				$(function(){
+					selectReplyList();
+				})
+				
+				function addReply(){
+					if($("#replyContent").val().trim().length != 0) {
+						
+						$.ajax({
+							url:"",
+							data:{
+								refBoardNo:${f.feedNo},
+								replyContent:${"#replyContent"}.val(),
+								replyWriter:'${loginUser.memId}',
+							},
+							success:function(status){
+								if(status == "success"){
+									selectReplyList();
+									$("#replyContent").val("");
+								}
+							},
+							error:function(){
+								console.log("댓글작성 ajax 통신 실패")
+							}
+						});
+						
+					} else {
+						alert("댓글 작성 후 등록 요청해주세요")
+					}
+				}
+				
+				function selectReplyList(){ // 해당 게시글에 딸린 댓글리스트 조회용 ajax
+		    		$.ajax({
+		    			url:"rlist.bo",
+		    			data:{
+		    				fno:${f.feedNo}
+		    			},
+		    			success:function(list){
+		    				console.log(list);
+		    				
+		    				let value = "";
+		    				
+		    				for(let i in list){
+		    					value += 
+					                    "<div class='inner-bar-small' style='float: left; box-sizing: border-box; margin-bottom: 0px;'>"
+					                      + "<div style='box-sizing: border-box;'>"
+				                          + "<img src=" + list[i].img + "alt='reply-user' style='width: 1.6em; display: inline;'>"
+					                      + "</div>"
+					                    + "</div>"
+					                    + "<div style='display: inline-block; background-color: #ebebeb; margin-left: 10px; border-radius: 9px; padding: 5px 10px;'>"
+						                + "<span style='display: inline;'>" + list[i].replyDate + "</span> <br>"
+					                    + "<b style='margin-bottom: 5px;'>" + list[i].memNo + "</b>"
+					                    + "<p style='margin-bottom: 0px; color: black;'>" + list[i].replyContents + "</p>"
+					                    + "</div>" 
+				                        
+		    				}
+		    				
+		    				$("#replyArea").html(value);
+		    			},
+		    			error:function(){
+		    				console.log("댓글리스트 조회용 ajax 통신 실패!")
+		    			}
+		    		});
+		    		
+		    	}
+			
+			</script>
             
             <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
             <script>
+            
                 /*function viewReply(){ 리플 숨기기/나타내기
                     let btn1 = document.getElementById('reply-input');
                     if(btn1.style.display !== 'none'){

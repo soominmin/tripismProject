@@ -22,8 +22,23 @@ public class travelSpotController {
 		return "travelSpot/travelSpotListView";
 	}
 	
-	@RequestMapping("detail.sp")
-	public String selectBoard() {
+	@ResponseBody
+	@RequestMapping(value="detailAPI.sp", produces = "application/json; charset=utf-8")
+	public String selectSpotAPI(int contentId) {
+		
+		System.out.println("selectSpotAPI 탐");
+		
+		String content = "테스트";
+		
+		return content;
+	}
+	
+	@ResponseBody 
+	@RequestMapping(value="detailView.sp", produces = "application/json; charset=utf-8")
+	public String selectSpotDetail(int contentId) {
+		
+		
+		
 		return "travelSpot/travelSpotDetailView";
 	}
 	

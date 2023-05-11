@@ -74,44 +74,71 @@
           </div>
         </div>
       </div> -->
-	  <div></div>
+	  <div id="modalDiv"></div>
     
     <script src="resources/js/travelPlan/plan.js"></script>
     <script>
-      const mapModal = document.getElementById("plan");
-      mapModal.addEventListener('shown.bs.modal',function(event){
-        createMap();
+    //   const mapModal = document.getElementById("plan");
+	//   const mapModal = document.getElementsByClassName('modal');
+	  
+	//   for(let i=0;i<mapModal.length;i++){
+	// 	mapModal[i].addEventListener('shown.bs.modal',function(event){
+	// 		console.log(mapModal[i]);
+	// 		createMap(i);
         
-      })
+    //   	})
+	//   }
+      
 	  
     </script>
 	<script>
 
-		const placesList = document.getElementById("placesList");
-		placesList.addEventListener("click",e=>{
-			const targetEl = e.target;
-			if(!targetEl.classList.contains('addSpot'))return;
+		// const placesList = document.getElementById("placesList");
+		// placesList.addEventListener("click",e=>{
+		// 	const targetEl = e.target;
+		// 	if(!targetEl.classList.contains('addSpot'))return;
 			
-			const spotList = document.getElementById('addedList');
-			const spot = document.createElement('div');
+		// 	const spotList = document.getElementById('addedList');
+		// 	const spot = document.createElement('div');
 
-			spot.className='addedSpot';
-			spot.innerText=e.target.previousElementSibling.innerText;
-			spotList.appendChild(spot);
-			spotList.scrollTop = spotList.scrollHeight;
-		})
+		// 	spot.className='addedSpot';
+		// 	spot.innerText=e.target.previousElementSibling.innerText;
+		// 	spotList.appendChild(spot);
+		// 	spotList.scrollTop = spotList.scrollHeight;
+		// })
 		
 
-		document.getElementById('btnCom').addEventListener('click',()=>{
+		// const placesList = document.getElementsByClassName('placesList');
+		// const btnCom = document.getElementsByClassName('btnCom');
+
+		// for(let i=0;i<placesList.length;i++){
+		// 	placesList[i].addEventListener('click',e=>{
+		// 		const targetEl = e.target;
+		// 		if(!targetEl.classList.contains('addSpot'))return;
+				
+		// 		const spotList = document.getElementById('addedList');
+		// 		const spot = document.createElement('div');
+
+		// 		spot.className='addedSpot';
+		// 		spot.innerText=e.target.previousElementSibling.innerText;
+		// 		spotList.appendChild(spot);
+		// 		spotList.scrollTop = spotList.scrollHeight;
+		// 	})
+		// }
+		
+		// for(let i=0;i<btnCom.length;i++){
+		// 	btnCom[i].addEventListener('click',()=>{
 			
-			const addedSpot = document.getElementsByClassName('addedSpot');
-			console.log(addedSpot);
-			for(let i=0;i<addedSpot.length;i++){
-				console.log(addedSpot[i].innerText);
-			}
+		// 		const addedSpot = document.getElementsByClassName('addedSpot');
+		// 		console.log(addedSpot);
+		// 		for(let i=0;i<addedSpot.length;i++){
+		// 			console.log(addedSpot[i].innerText);
+		// 		}
 		
 
-		})
+		// 	})
+		// }
+		
 	</script>
     <script>
 		let j =1;

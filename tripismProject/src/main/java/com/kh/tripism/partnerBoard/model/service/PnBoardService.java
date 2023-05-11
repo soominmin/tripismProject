@@ -2,7 +2,7 @@ package com.kh.tripism.partnerBoard.model.service;
 
 import java.util.ArrayList;
 
-import com.kh.tripism.feed.model.vo.PageInfo;
+import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.partnerBoard.model.vo.PnBoard;
 import com.kh.tripism.partnerBoard.model.vo.PnReply;
 

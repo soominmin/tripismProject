@@ -796,20 +796,20 @@
 			<ul type="portrait" class="AccompanyWebSection__AccompanyList-sc-lvz8r6-0 dkymTH">
 
 			<!-------------------------------------------------------------------------------------------------------------------------->
-				<c:forEach var="pn" items="${ pnList }">
+				<c:forEach var="pn" items="${ pnlist }">
 					<div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
 						<a href="detail.pn" style="text-decoration:none;">
 						<div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
 	
 							<div class="AccompanyWebCard__ProfileWrap-sc-ws5mjw-6 gNWBdG">
-								<img src="${pageContext.request.contextPath}/resources/img/partner/ner.jpg"
+								<img src="${pageContext.request.contextPath}/resources/img/partner/${ pn.partnerOriginalImg }.jpg"
 									class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
 								<div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
-									<p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">밍구</p>
+									<p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">${ pn.member.memNickname }</p>
 									<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
-										<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${pn.partnerType}</p>
+										<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${ pn.partnerType }</p>
 										<div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
-										<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">남성</p>
+										<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${ pn.member.gender }</p>
 									</div>
 								</div>
 							</div>
@@ -823,7 +823,7 @@
 									<p class="AccompanyWebCard__DateTitle-sc-ws5mjw-13 iBlyRM">여행기간</p>
 								</div>
 								<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
-									<p color="#00CE7C" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">04/14 - 04/17</p>
+									<p color="#00CE7C" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">${ pn.partnerStartDate } - ${ pn.partnerEndDate }</p>
 								</div>
 							</div>
 	

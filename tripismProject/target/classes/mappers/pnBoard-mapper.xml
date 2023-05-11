@@ -3,7 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="pnBoardMapper">
-	<resultMap type="PnBoard" id="pnBaordResultSet">
+	<resultMap type="PnBoard" id="pnBoardResultSet">
 		<result column="post_no" property="postNo"/>
 		<result column="mem_no" property="memNo"/>
 		<result column="partner_name" property="partnerName"/>
@@ -13,12 +13,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="partner_date" property="partnerDate"/>
 		<result column="partner_views" property="partnerViews"/>
 		<result column="partner_content" property="partnerContent"/>
-		<result column="partner_time" property="partnerTime"/>
+		<result column="partner_start_date" property="partnerStartDate"/>
+		<result column="partner_end_date" property="partnerEndDate"/>
 		<result column="partner_location" property="partnerLocation"/>
 		<result column="partner_number" property="partnerNumber"/>
 		<result column="partner_status" property="partnerStatus"/>
+		<collection property="member" resultMap="memberResultSet"/>
+	</resultMap>
+
+
+	<resultMap type="Member" id="memberResultSet">
+		<result column="MEM_NO" property="memNo"/>
+		<result column="MEM_ID" property="memId"/>
+		<result column="MEM_PWD" property="memPwd"/>
+		<result column="MEM_NAME" property="memName"/>
+		<result column="MEM_NICKNAME" property="memNickname"/>
+		<result column="GENDER" property="gender"/>
+		<result column="ENROLL_DATE" property="enrollDate"/>
+		<result column="MEM_STATUS" property="status"/>
+		<result column="MEM_MBTI" property="mbti"/>
+		<result column="MEM_EMAIL" property="email"/>
+		<result column="MEM_IMG" property="img"/>
 	</resultMap>
 	
+
 	<resultMap type="PnReply" id="pnReplyResultSet">
 		<result column="reply_no" property="replyNo"/>
 		<result column="board_no" property="boardNo"/>
@@ -28,7 +46,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="reply_distinct" property="replyDistinct"/>
 	</resultMap>
 	
-	<select id="selectListCount" resultMap="_int">
+	<select id="selectListCount" resultType="_int">
 		select
 				count(*)
 		from tb_partner
@@ -38,24 +56,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="selectList" resultMap="pnBoardResultSet">
 		select
-				post_no
-			,	mem_no
-			,	partner_name
-			,	partner_type
-			,	partner_original_img
-			, 	partner_change_img
-			,	partner_date
-			,	partner_views
-			,	partner_content
-			,	partner_time
-			,	partner_location
-			,	partner_number
-			,	partner_status
-		from tb_partner
+				p.partner_type
+			,	p.partner_original_img
+			,	p.partner_content
+			,	p.partner_start_date
+			,	p.partner_end_date
+			,	p.partner_location
+            ,   m.gender
+            ,   m.mem_nickname
+		from tb_partner p
+        inner join tb_member m
+        on  p.mem_no = m.mem_no
 		where partner_status = 'Y'
-		order by post_no desc;
-	</select>	
-
+		order by post_no desc
+	</select>
+	
+	
+	
+	
 </mapper>
 
 

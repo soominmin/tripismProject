@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.gson.JsonObject;
 import com.kh.tripism.travelSpot.model.dao.SpotDao;
 import com.kh.tripism.travelSpot.model.vo.Spot;
 
@@ -19,6 +20,13 @@ public class SpotServiceImpl implements SpotService {
 	public ArrayList<Spot> selectSpotList(int currentPage) {
 		ArrayList<Spot> list = sDao.selectSpotList(sqlSession, currentPage);
 		return list;
+	}
+	
+	@Override
+	public ArrayList<Spot> selectSpotAPI(JsonObject items) {
+		
+		
+		return null;
 	}
 
 	

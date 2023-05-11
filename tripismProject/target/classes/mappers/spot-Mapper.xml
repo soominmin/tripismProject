@@ -33,6 +33,7 @@
 	<select id="selectSpotList" resultMap="spotResult">
 		select
 				spot_content_id,
+				spot_content_type,
 				spot_title,
 				spot_img_path,
                 area_category_title,

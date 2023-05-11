@@ -15,7 +15,7 @@ public class SpotDao {
 	public ArrayList<Spot> selectSpotList(SqlSessionTemplate sqlSession, int currentPage){
 		HashMap<String, Object> selectList = new HashMap<String, Object>();
 		
-		RowBounds rowBounds = new RowBounds((currentPage-1)*10,10);
+		RowBounds rowBounds = new RowBounds((currentPage-1)*10,9);
 		
 		return (ArrayList)sqlSession.selectList("spotMapper.selectSpotList", selectList, rowBounds);
 	}

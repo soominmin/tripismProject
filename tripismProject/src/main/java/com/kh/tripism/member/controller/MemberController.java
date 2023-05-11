@@ -281,5 +281,31 @@ public class MemberController {
 		return "member/mbtiTest";
 	}
 	
+	@RequestMapping("mbtiResult.do")
+	public String mbtiResult(String result,Model model) {
+		String mbti=mService.resultMBTI(result);
+		
+		
+		model.addAttribute("mbti",mbti);
+		return "member/mbtiResult";
+	}
+	
+	@RequestMapping("mbtiInsert.do")
+	public String insertMBTI(String mbti,HttpSession session) {
+		
+		Member m = (Member)session.getAttribute("loginUser");
+		m.setMbti(mbti);
+		int result = mService.insertMBTI(m);
+		if(result>0) {
+
+			
+			session.setAttribute("loginUser",m); ;
+		}
+		
+		return "redirect:/";
+	}
+	
+	
+	
 
 }

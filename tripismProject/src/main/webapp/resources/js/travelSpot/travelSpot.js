@@ -33,6 +33,7 @@ function selectSpotList(currentPage) {
         success:function(list){
             for(let i=0; i<list.length; i++){
                 value += '<div class="col-md-6 col-lg-4 mb-5">'
+                        + '<input type="hidden" name="contentId" value="'+list[i].spotContentId+'">'
                         + '<div class="card card-hover">'
                         + '<a href="javascript:void(0)" class="position-relative">'
                         if(list[i].spotImgPath == null){
@@ -41,7 +42,7 @@ function selectSpotList(currentPage) {
                         }else{
                             value += '<img class="card-img-top lazyestload" data-src="'+list[i].spotImgPath+'" src="" alt="Card image cap"></img>';
                         }
-                        value += '<div class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">'
+                        value += '<div onclick="selectSpotAPI('+list[i].spotContentId+');" class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">'
                         + '<div style="margin-left: 90%;">'
                         + '<button style="border-radius: 50%; background-color:rgba(255, 255, 255, 0); border: none;">'
                         + '<img src="resources/img/icons/before-like.png" style="width: 25px; height: 25px;" alt="">'
@@ -55,7 +56,7 @@ function selectSpotList(currentPage) {
                         + list[i].areaTitle + " " + list[i].sigunguTitle
                         + '</p>'
                         + '<h5>'
-                        + '<a href="detail.sp" class="card-title text-uppercase">'+list[i].spotTitle+'</a>'
+                        + '<a href="javascript:selectSpotAPI('+list[i].spotContentId+');" class="card-title text-uppercase">'+list[i].spotTitle+'</a>'
                         + '<h5>'
                         + '<div class="post_area" style="float: right;">'
                         + '<span class="num_like">'
@@ -76,11 +77,48 @@ function selectSpotList(currentPage) {
             $("#spotList").append(value);
             console.log(currentPage);
             console.log(list);
-            console.log(document.getElementById("spotDiv").scrollHeight)
-            console.dir(document.getElementById("spotDiv"))
         },
         error:function(){
             console.log("실패");
         }
     })
+}
+
+
+function selectSpotAPI(contentId) {
+
+
+    $.ajax({
+        url:"detailAPI.sp",
+        data:{
+            contentId:contentId
+        },
+        success:function(content){
+            console.log("spotAPI 성공" + content + ", 아이디 : " + contentId);
+        },
+        error:function(){
+            console.log("spotAPI 실패");
+        }
+    })
+
+    
+    // function selectSpotDetail(){
+
+    //     $.ajax({
+    //         url:"detailView.sp",
+    //         data:{
+    //             contentId:contentId
+    //         },
+    //         success:function(){
+    //             console.log("통신성공");
+    //         },
+    //         error:function(){
+    //             console.log("실패");
+    //         }
+    //     })
+
+    // }
+
+
+
 }

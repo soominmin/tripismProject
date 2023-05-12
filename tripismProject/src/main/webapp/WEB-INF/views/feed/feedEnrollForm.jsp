@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -301,7 +302,10 @@
                                 </thead>
                                 <tbody id="fileHere">
                                     <tr>
-                                        <input type="file" id="files" name="upFile" accept="image/*" /> <!-- 2번 -->
+                                        <input type="file" class="files" name="upFile1" accept="image/*"> <!-- 2번 -->
+                                        <input type="file" class="files" name="upFile2" accept="image/*"> <br>
+                                        <input type="file" class="files" name="upFile3" accept="image/*"> 
+                                        <input type="file" class="files" name="upFile4" accept="image/*"> 
                                     </tr>
                                 </tbody>
                             </table>
@@ -357,8 +361,11 @@
 					        console.log("Your browser does not support File API");
 					    }
 					}
-
-					document.getElementById('files').addEventListener('change', handleFileSelect, false);
+	
+					let img = document.getElementsByClassName('files')
+			        for(var i = 0; i<img.length; i++){
+			            img[i].addEventListener('change', handleFileSelect, false)
+			        }
             </script>
 
         </div>

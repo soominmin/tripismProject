@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.kh.tripism.feed.model.dao.FeedDao;
 import com.kh.tripism.feed.model.vo.Feed;
 import com.kh.tripism.feed.model.vo.Img;
-import com.kh.tripism.feed.model.vo.PageInfo;
+import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.feed.model.vo.Reply;
 import com.kh.tripism.member.model.vo.Member;
 
@@ -40,6 +40,11 @@ public class FeedServiceImpl implements FeedService {
 		return fDao.deleteFeed(sqlSession, feedNo);
 	}
 
+	@Override
+	public Feed selectFeed(int feedNo) {
+		return fDao.selectFeed(sqlSession, feedNo);
+	}
+	
 	@Override
 	public int updateFeed(Feed f) {
 		return fDao.updateFeed(sqlSession, f);
@@ -93,5 +98,7 @@ public class FeedServiceImpl implements FeedService {
 	public ArrayList<Img> selectImg(PageInfo pi) {
 		return fDao.selectImg(sqlSession, pi);
 	}
+
+	
 
 }

@@ -94,21 +94,29 @@
       #memNickname{
         text-align: center;
      }
+     
+     #nicknameUpdate>a{
+     	text-decoration: none;
+        color: black;
+     }
+     
+     #nicknameUpdate{
+     	border: none;
+     }
 
 
 </style>
 </head>
 
-<body id="body" class="up-scroll">
+<body>
+
 
 <jsp:include page="../common/header.jsp"/>
-
+<!-- 마이페이지 감싸는 Form -->
     <div class="main-wrapper blog-list-right-sidebar">
       <section class="py-9 py-md-10">
         <div class="container">
           <div class="row">
-      
-          <!-- 계정설정시작 -->
             <div class="col-lg-8 col-xl-9 order-1 order-lg-0">
               <div>
                 <div class="row align-items-xl-center">
@@ -117,12 +125,14 @@
                       <div class="row">
                         <div class="col-12">
                           <div class="row" style="width: 1500px;">
-                            <div class="col-lg-6" style="margin-left: 160px; border: solid 3px rgba(199, 198, 198, 0.37); padding: 35px; border-radius: 15px 15px 15px 15px;">
+                            <div class="col-lg-6" style="border: solid 3px rgba(199, 198, 198, 0.37); padding: 35px; border-radius: 15px 15px 15px 15px;">
+                           
+                           		<!-- 정보수정 시작 -->   
                               <div class="WebHeader__SignBtnBox-sc-12ctfsg-1 eluuNw" style="float: right; margin-bottom: 0px; height: 55px;">
                                 <button class="WebHeader__HeaderButton-sc-12ctfsg-2 jmaRWD"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pwdCheck" class="media d-inline-flex align-items-center">비밀번호변경하기</a></button>
                               </div>
                               <div>
-                                <h3 class="text-uppercase mb-3" style="padding-left: 15px;">마이페이지</h3>
+                                <h3 class="text-uppercase mb-3" style="padding-left: 15px;">나의 정보 수정하기</h3>
                               </div>
                               <hr>
                               <c:choose>
@@ -162,7 +172,7 @@
                               </div>
 
                               <div class="mb-3" align="center" style="padding-top: 10px; padding-bottom: 25px;">
-                                <input type="text" class="form-control bg-smoke" value="${loginUser.memNickname }" id="memNickname" style="width:200px; border: none;" readonly>
+                              	<button id="nicknameUpdate" class="form-control bg-smoke" style="width:200px;"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#nicknameUpdatemodal" class="media d-inline-flex align-items-center">${loginUser.memNickname }</a></button>
                               </div>
                               <hr>
 
@@ -182,7 +192,7 @@
                               <div id="ulli" style="width: 100%; margin-top: 20px;">
                                 <ul class="list-unstyled list-group list-group-flush">
 								  <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                                      <span id="likePost"><a href="myInfoUpdate.do">ℹ️ 내정보수정하기</a></span>
+                                      <span id="likePost"><a href="spotLike.do">ℹ️ 내정보수정하기</a></span>
                                   </li>
                                                     
                                 
@@ -202,28 +212,24 @@
                                       <span id="bookMark"><a href="bookMarkList.do">⭐ 즐겨찾기 </a></span>
                                   </li>
                                   
+                                  
+                    
+                                  <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
+                                    <span id="bookMark"><a href="following.do"> 💭 MBTI 유형검사 </a></span>
                                   </li>
-                   			 	<c:choose>
-                   			 	  <c:when test="${empty loginUser.mbti }">
-	                                  <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-	                                    <span id="bookMark"><a href="mbtiStart.do"> 💭 MBTI 유형검사 </a></span>
-	                                  </li>
-                                  </c:when>
-                                  <c:otherwise>
-	                                  <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-	                                    <span id="bookMark"><a href="mbtiStart.do"> 💭 MBTI 다시하기 </a></span>
-	                                  </li>
-                                  </c:otherwise>
-                                 </c:choose>
                                   
                                   <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
                                     <span id="bookMark"><a href="otherPage.do"> 💭 다른사람마페(잠깐) </a></span>
                                   </li>
                                   
+                                  <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
+                                    <span id="bookMark"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#deleteCheck" class="media d-inline-flex align-items-center"> 😭 탈퇴하기 </a></span>
+                                  </li>
+                                  
                                 </ul>
                             </div>
                             
-                            <!-- 1차 유효성 체크 -->
+                            <!-- 비밀번호 변경 모달창 -->
                              <div class="modal fade" id="pwdCheck" tabindex="-1" role="dialog"  aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-sm" role="document" >
                                   <div class="modal-subin">
@@ -249,83 +255,121 @@
                                   </div>
                                 </div>
                               </div>
+                              
+                              <!-- 닉네임 변경 모달창 -->
+                             <div class="modal fade" id="nicknameUpdatemodal" tabindex="-1" role="dialog"  aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-sm" role="document" >
+                                  <div class="modal-subin">
+                                    <div class="modal-header rounded" id="modalTop">
+                                      <h4 class="modal-title text-uppercase font-weight-bold">Tripism 닉네임 재설정</h4>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div style="padding-top:15px;">
+                                    	<pre align="center">변경하실 닉네임을 입력해주세요.</pre>
+                                    </div>
+                          
+                                    <div class="modal-body" style="width: 350px;">
+                                      <form action="nicknameUpdate.do" method="post" id="nicknameUpdateForm">
+                                        <div class="form-group mb-4">
+                                          <input type="text" name="memNickname" id="memNickname" class="form-control bg-smoke" required>
+                                			<div id="nicknameResult" style="font-size:1em"></div>
+          
+											<div id="nicknameResult" style="font-size:1em; display:none"></div>
+                                          
+                                          <input type="hidden" name="memId" id="memId" value="${loginUser.memId }">
+                                        </div>
+                                        <div class="pt-2" style="text-align: center;">
+                                          <button type="submit" class="btn btn-primary text-uppercase font-size-15 px-6 px-md-7" id="btn_pwd">확인</button>
+                                        </div>
+                                      </form>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <!-- 탈퇴 1차 확인 모달창 -->
+                             <div class="modal fade" id="deleteCheck" tabindex="-1" role="dialog"  aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-sm" role="document" >
+                                  <div class="modal-subin">
+                                    <div class="modal-header rounded" id="modalTop">
+                                      <h4 class="modal-title text-uppercase font-weight-bold">Tripism 탈퇴하기</h4>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div style="padding-top:15px;">
+                                    	<pre align="center">회원탈퇴를 위해 현재 비밀번호를 입력해주세요.</pre>
+                                    </div>
+                          
+                                    <div class="modal-body" style="width: 350px;">
+                                      <form action="deleteCheck.do" method="post">
+                                        <div class="form-group mb-4">
+                                          <input type="password" name="memPwd" id="memPwd" class="form-control bg-smoke" required placeholder="현재 비밀번호">
+                                          <input type="hidden" name="memId" id="memId" value="${loginUser.memId }">
+                                        </div>
+                                        <div class="pt-2" style="text-align: center;">
+                                          <button type="submit" class="btn btn-primary text-uppercase font-size-15 px-6 px-md-7" id="btn_pwd">확인</button>
+                                        </div>
+                                      </form>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <script>
+	                              $(function(){
+	      							
+	                  				const $nicknameInput = $("#nicknameUpdateForm input[name=memNickname]");
+	                  				
+	                  				$nicknameInput.keyup(function(){
+	                  					console.log($nicknameInput.val());
+	                  					
+	                  					if($nicknameInput.val().length >= 1) {
+	                  						
+	                  						$.ajax({
+	                  	    					url:"nicknameCheck.do",
+	                  	    					data:{checkNickname:$nicknameInput.val()},
+	                  	    					success:function(count){
+	                  	    						
+	                  	    						if(count == "NNNNN") { // 사용불가능
+	                  	    							
+	                  	    							// => 빨간색 메시지 (사용불가능)
+	                  	    							$("#nicknameResult").show();
+	                  	    							$("#nicknameResult").css("color", "red").text("중복된 닉네임입니다.");
+	                  	    							
+	                  	    							
+	                  	    						} else {	// 사용가능
+	                  	    							
+	                  	    							// => 초록색 메시지(사용가능) 출력
+	                  	    							$("#nicknameResult").show();
+	                  	    							$("#nicknameResult").css("color", "green").text("사용가능한 닉네임입니다.");
+	                  	    							
+	                  	    						}
+	                  							}, error : function(){	
+	                  										console.log("ajax 통신 실패");
+	                  							}
+	                  						});
+	                  					}
+	                  					})
+	                  			})
+                              </script>
                         </div>
+                        <!-- 정보수정끝 -->
                       </div>
                     </div>
+                  </div>
                   </div>
                   </div>
                 </div>
                 </div>
               </div>
+          <jsp:include page="../member/mypageSidebar.jsp"/>
             </div>
-          
             <!-- 계정설정 끝 -->
+            
             </div>
-          </div>
       </section>
-      
-      
-      
         </div><!-- element wrapper ends -->
         
-        <script>
-		const memPwd = document.querySelector('#memPwd');
-		const pwdCheck1 = document.querySelector('#pwdCheck1');
-		const pwdCheck2 = document.querySelector('#pwdCheck2');
-		const pwdCheck3 = document.querySelector('#pwdCheck3');
-		const pwdCheck4 = document.querySelector('#pwdCheck4');
-		const pwdCheck5 = document.querySelector('#pwdCheck5');
-		const pwdResult = document.querySelector('#pwdResult');
-		
-		memPwd.addEventListener('input', () => {
-		    const password = memPwd.value;
-		    let count = 0;
-		
-		    if (/^(.*[a-zA-Z]){2,}.*$/.test(password)) {
-		        pwdCheck1.style.color = 'green';
-		        count++;
-		    } else {
-		        pwdCheck1.style.color = '';
-		    }
-		
-		    if (/[0-9]/.test(password)) {
-		        pwdCheck2.style.color = 'green';
-		        count++;
-		    } else {
-		        pwdCheck2.style.color = '';
-		    }
-		
-		    if (/[\W_]/.test(password)) {
-		        pwdCheck3.style.color = 'green';
-		        count++;
-		    } else {
-		        pwdCheck3.style.color = '';
-		    }
-		
-		    if (/^(?=.*[a-zA-Z].*[a-zA-Z])(?=.*\d.*\d)(?=.*[!@#$%^&*()_\-+=\[{\]}\|\\,.?/;:<>`~].*[!@#$%^&*()_\-+=\[{\]}\|\\,.?/;:<>`~])/.test(password)) {
-		        pwdCheck4.style.color = 'green';
-		    } else {
-		        pwdCheck4.style.color = '';
-		    }
-		
-		    if (password.length >= 8 && password.length <= 16) {
-		        pwdCheck5.style.color = 'green';
-		    } else {
-		        pwdCheck5.style.color = '';
-		    }
-		
-		    if (/^(?=.*\d.*\d)(?=.*[a-zA-Z].*[a-zA-Z])(?=.*[^a-zA-Z0-9].*[^a-zA-Z0-9]).{8,16}$/.test(password)) {
-		        pwdResult.textContent = '사용 가능한 비밀번호입니다.';
-		        pwdResult.style.color = 'green'
-		    } else {
-		        pwdResult.textContent = '';
-		    }
-		});
-
-		
-		
-</script>
-      
+        
 
 
 

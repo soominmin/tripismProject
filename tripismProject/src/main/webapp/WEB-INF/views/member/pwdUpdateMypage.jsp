@@ -27,7 +27,7 @@
 				<div class="row">
 					<div class="col-12">
 						<div class="row" style="width: 1500px;">
-						  <div class="col-lg-6" style="border: solid 3px rgba(199, 198, 198, 0.37); padding: 35px; border-radius:  15px 15px 15px 15px;">
+						  <div class="col-lg-6" style="border: solid 3px rgba(199, 198, 198, 0.37); border-radius:  15px 15px 15px 15px;">
 
                	<div class="mb-4" style="padding-top: 35px;">
              		<h3 class="text-uppercase mb-3" align="center">Tripism 비밀번호 재설정</h3>

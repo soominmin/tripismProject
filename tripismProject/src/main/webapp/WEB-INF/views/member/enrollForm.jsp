@@ -81,6 +81,9 @@
 		<div class="mb-3" style="width: 400px; margin: auto;">
 			이메일⭐<br>
 			<input type="email" name="email"class="form-control bg-smoke" required placeholder="이메일을 입력해주세요.">
+				<div id="emailResult" style="font-size:1em"></div>
+                    
+        		<div id="emailResult" style="font-size:1em; display:none"></div>
 		</div>
 
 		<div class="mb-3" style="width: 400px; margin: auto;">
@@ -279,6 +282,41 @@
 					})
 			})
 			
+			$(function(){
+							
+				const $emailInput = $("#enrollForm input[name=email]");
+				
+				$emailInput.keyup(function(){
+					console.log($emailInput.val());
+					
+					if($emailInput.val().length >= 13) {
+						
+						$.ajax({
+	    					url:"emailCheck.do",
+	    					data:{checkEmail:$emailInput.val()},
+	    					success:function(count){
+	    						
+	    						if(count == "NNNNN") { // 사용불가능
+	    							
+	    							// => 빨간색 메시지 (사용불가능)
+	    							$("#emailResult").show();
+	    							$("#emailResult").css("color", "red").text("중복된 이메일입니다.");
+	    							
+	    							
+	    						} else {	// 사용가능
+	    							
+	    							// => 초록색 메시지(사용가능) 출력
+	    							$("#emailResult").show();
+	    							$("#emailResult").css("color", "green").text("사용가능한 이메일입니다.");
+	    							
+	    						}
+							}, error : function(){	
+										console.log("ajax 통신 실패");
+							}
+						});
+					}
+					})
+			})
 			</script>
 	</div>
 	</div>

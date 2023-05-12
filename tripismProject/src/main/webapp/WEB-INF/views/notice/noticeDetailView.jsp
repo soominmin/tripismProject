@@ -26,25 +26,15 @@
 
     <!-- FAVICON -->
     <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png"/>
-    <style>
-      table * {
-          widows: 600px;
-      }
-      
-      table {
-      	width-left: 20% 
-      	width-right: 20% 
-      }
-      
-      .content{
-      	margin: 100px;
-      	width: 80%
-      }
-      
-      .innerOuter{
-      	width: 80%
-      }
-  </style>
+<style>
+    #contentArea>table {
+        width: 50%;
+    }
+    
+    #contentArea>table * {
+        margin: 5px;
+    }
+</style>
   
 </head>
 <body>
@@ -103,13 +93,13 @@
               <th>첨부파일</th>
               <td colspan="3">
               	<c:choose>
-              		<c:when test="${ empty n.noticeUpfile }">
+              		<c:when test="${ empty n.originName }">
          				<!-- 첨부파일이 없는 경우 -->
          					첨부파일이 없습니다.
               		</c:when>
               		<c:otherwise>
 		                <!-- 첨부파일이 있는 경우-->
-		                <a href="${ n.noticeUpfile }" download="${ n.noticeUpfile }">${ n.noticeUpfile }</a>
+		                <a href="${ n.changeName }" download="${ n.originName }">${ n.originName }</a>
               		</c:otherwise>
               	</c:choose>
               </td>
@@ -124,17 +114,30 @@
       </table>
       <br>
       
-      <c:if test="${ not empty loginUser.userId and loginUser.userId eq n.noticeWriter }"></c:if>
+      <c:if test="${ not empty loginUser.memNo and loginUser.memNo eq n.noticeWriter }">
       <div align="center">
           <!-- 수정하기, 삭제하기 버튼은 관리자일 경우만 보여져야됨 -->
-            <a class="btn btn-primary" onclick="" href="noticeUpdateForm.bo">수정하기</a> <!-- 요기에 href="" 를 작성하면 get방식이기 떄문에 노출된다. -->
-            <a class="btn btn-danger" onclick="">삭제하기</a>
+            <a class="btn btn-primary" onclick="postFormSubmit(1);">수정하기</a> 
+            <a class="btn btn-danger" onclick="postFormSubmit(2)">삭제하기</a>
       </div><br><br>
       
       <form id="postForm" action="" method="post">
-         <input type="hidden" name="bno" value="${ b.boardNo }">
-         <input type="hidden" name="filePath" value="${ b.changeName }">
+         <input type="hidden" name="bno" value="${ n.noticeNo }">
+         <input type="hidden" name="filePath" value="${ n.changeName }">
       </form>
+      
+                     <script>
+                  function postFormSubmit(num){
+                     if(num == 1){
+                        $("#postForm").attr("action", "updateForm.bo").submit();
+                     }else{
+                        $("#postForm").attr("action", "delete.bo").submit();
+                     }
+                  }
+                  
+               </script>
+               
+            </c:if>
 
 
 <!-- ====================================

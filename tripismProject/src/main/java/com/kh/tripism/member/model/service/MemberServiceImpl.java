@@ -29,7 +29,13 @@ public class MemberServiceImpl implements MemberService {
 		int result = mDao.insertMember(sqlSession, m);
 		return result;
 	}
-
+	
+	// 탈퇴
+	@Override
+	public int deleteMember(Member m) {
+		int result = mDao.deleteMember(sqlSession, m);
+		return result;
+	}
 	
 	// 회원가입 아이디 중복확인
 	@Override
@@ -41,6 +47,12 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int nicknameCheck(String checkNickname) {
 		return mDao.nicknameCheck(sqlSession, checkNickname);
+	}
+	
+	// 이메일 중복확인
+	@Override
+	public int emailCheck(String email) {
+		return mDao.emailCheck(sqlSession, email);
 	}
 
 	// 아이디 찾기
@@ -69,15 +81,19 @@ public class MemberServiceImpl implements MemberService {
 		return result;
 	}
 	
+	// 닉네임 변경하기
+	@Override
+	public int nicknameUpdate(Member m) {
+		int result = mDao.nicknameUpdate(sqlSession, m);
+		return result;
+	}
+	
 	@Override
 	public int updateMember(Member m) {
 		return 0;
 	}
 	
-	@Override
-	public int deleteMember(String userId) {
-		return 0;
-	}
+
 
 
 	@Override
@@ -108,6 +124,10 @@ public class MemberServiceImpl implements MemberService {
 		}
 		return count;
 	}
+
+
+
+
 
 	
 

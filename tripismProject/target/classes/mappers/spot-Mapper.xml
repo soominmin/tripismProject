@@ -32,33 +32,92 @@
 
 	<select id="selectSpotList" resultMap="spotResult">
 		select
-				spot_content_id,
-				spot_title,
-				spot_img_path,
+	            spot_content_id,
+	            spot_content_type,
+	            spot_title,
+	            spot_img_path,
                 area_category_title,
                 sigungu_title,
                 spot_count,
                 spot_like
-		from
-				tb_travel_spot tvs, tb_spot_city_category tscc, tb_spot_area_category tsac
-		where
-                tvs.area_category_no = tscc.area_category_no
+	      from
+	            tb_travel_spot tvs, tb_spot_city_category tscc, tb_spot_area_category tsac
+	      where
+	                tvs.area_category_no = tscc.area_category_no
+	           and
+	                tvs.city_category_no = tscc.sigungu_no
+	           and
+	                tvs.area_category_no = tsac.area_category_no
+	           and
+	                tvs.spot_img_path is not null
+	           and
+	                spot_title not LIKE '%축제%'
+	           and
+	                spot_title not LIKE '%페스티%'
+	           and
+	                (
+	            	tvs.large_category_no = 'A01'
+	           or
+	                tvs.large_category_no = 'A02'
+	                )
+	</select>
+	
+	<!-- 
+	<resultMap type="Spot" id="spotResult">
+		<result column="SPOT_CONTENT_ID" property="contentid"/>
+		<result column="SPOT_CONTENT_TYPE" property="contenttypeid"/>
+		<result column="SPOT_CREATED_DATE" property="spotcreateddate"/>
+		<result column="SPOT_MODIFIED_DATE" property="spotmodifieddate"/>
+		<result column="SPOT_TEL" property="spottel"/>
+		<result column="SPOT_TITLE" property="spottitle"/>
+		<result column="SPOT_IMG_PATH" property="spotimgpath"/>
+		<result column="SPOT_ADDRESS" property="spotaddress"/>
+		<result column="SPOT_POSTAL_CODE" property="spotpostalcode"/>
+		<result column="SPOT_MAPX" property="spotmapx"/>
+		<result column="SPOT_MAPY" property="spotmapy"/>
+		<result column="LARGE_CATEGORY_NO" property="largecategoryno"/>
+		<result column="MIDDLE_CATEGORY_NO" property="middlecategoryno"/>
+		<result column="SMALL_CATEGORY_NO" property="smallcategoryno"/>
+		<result column="AREA_CATEGORY_NO" property="areacategoryno"/>
+		<result column="CITY_CATEGORY_NO" property="citycategoryno"/>
+		<result column="SPOT_COUNT" property="spotcount"/>
+		<result column="SPOT_LIKE" property="spotlike"/>
+		
+	</resultMap>
+	 -->
+	
+	<select id="selectSpotDetail" resultMap="spotResult">
+		select
+		        SPOT_CONTENT_ID
+		     ,  SPOT_CONTENT_TYPE
+		     ,  to_char(SPOT_CREATED_DATE, 'YYYY-MM-DD') as "SPOT_CREATED_DATE"
+		     ,  to_char(SPOT_MODIFIED_DATE, 'YYYY-MM-DD') as "SPOT_MODIFIED_DATE"
+		     ,  SPOT_TEL
+		     ,  SPOT_TITLE
+		     ,  SPOT_IMG_PATH
+		     ,  SPOT_ADDRESS
+		     ,  SPOT_POSTAL_CODE
+		     ,  SPOT_MAPX
+		     ,  SPOT_MAPY
+		     ,  LARGE_CATEGORY_NO
+		     ,  MIDDLE_CATEGORY_NO
+		     ,  SMALL_CATEGORY_NO
+		     ,  tvs.AREA_CATEGORY_NO
+		     ,  tvs.CITY_CATEGORY_NO
+		     ,  SPOT_COUNT
+		     ,  SPOT_LIKE
+             , 	area_category_title
+             , 	sigungu_title
+		  from 
+		  		tb_travel_spot tvs, tb_spot_city_category tscc, tb_spot_area_category tsac
+		 where  
+               	tvs.area_category_no = tscc.area_category_no
            and
                 tvs.city_category_no = tscc.sigungu_no
            and
                 tvs.area_category_no = tsac.area_category_no
            and
-                tvs.spot_img_path is not null
-           and
-                spot_title not LIKE '%축제%'
-           and
-                spot_title not LIKE '%페스티%'
-           and
-                (
-				tvs.large_category_no = 'A01'
-           or
-                tvs.large_category_no = 'A02'
-                )
+		 		spot_content_id = #{contentId}
 	</select>
 
 </mapper>

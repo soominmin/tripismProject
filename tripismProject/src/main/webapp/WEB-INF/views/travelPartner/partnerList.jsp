@@ -326,13 +326,15 @@
 	/*여행기간*/
 	.ilUDog {
 		margin-right: 2px;
-		width: 14px;
-		height: 14px;
-		object-fit: contain;
-		z-index: 100;
+    width: 15px;
+    height: 15px;
+    object-fit: contain;
+    z-index: 100;
+    margin-top: 5px;
+    margin-left: 10px;
 	}
 	.fdRVsr {
-		padding-left: 10px;
+		padding-left: 3px;
 		display: flex;
 		flex-shrink: 0;
 		flex-direction: column;
@@ -409,7 +411,7 @@
 		z-index: 100;
 		margin-top: 0.3rem;
 		margin-bottom: 1rem;
-		margin-left: 17px;
+		margin-left: 10px;
 	}
 	/*5일 . */
 	.mKoaj {
@@ -557,10 +559,11 @@
 	/*<!-- hear -->*/
 	/*아래단 제목*/
 	.kVTEEb {
-		font-weight: 700;
+		font-weight: 500;
 		font-size: 16px;
 		line-height: 24px;
 		color: rgb(0, 0, 0);
+		display: -webkit-box;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		overflow-wrap: break-word;
@@ -781,7 +784,6 @@
 					<div class="TextFilterTemplate__TextFilterWrap-sc-434wll-0 cJFGWH">
 						<button class="TextFilterTemplate__TextFilterButton-sc-434wll-1 tkvTm">최신 순</button>
 						<button class="TextFilterTemplate__TextFilterButton-sc-434wll-1 tkvTm">모집 중인 순</button>
-						<button class="TextFilterTemplate__TextFilterButton-sc-434wll-1 tkvTm">인기 순</button>
 					</div>
 				</div>
 				<div class="FilterButtonTemplatestyle__Wrapper-sc-1ga095c-0 Swiwe">
@@ -801,15 +803,26 @@
 						<a href="detail.pn" style="text-decoration:none;">
 						<div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
 	
-							<div class="AccompanyWebCard__ProfileWrap-sc-ws5mjw-6 gNWBdG">
-								<img src="${pageContext.request.contextPath}/resources/img/partner/${ pn.partnerOriginalImg }.jpg"
-									class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
+							<div class="AccompanyWebCard__ProfileWrap-sc-ws5mjw-6 gNWBdG"> 
+							<!--  ---------------------------------------------------------------------------------------------------------------------- 여기가 member ${pn.member.img }-->
+								<c:choose>
+								<c:when test="${not empty pn.member.img }">
+									<img src="${pageContext.request.contextPath}/resources/img/partner/${pn.member.img }.jpg"
+										class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
+								</c:when>
+								<c:otherwise>
+									<img src="${pageContext.request.contextPath}/resources/img/partner/ner.jpg"
+										class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
+								</c:otherwise>
+								</c:choose>
+									
 								<div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
-									<p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">${ pn.member.memNickname }</p>
+									<p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">${pn.member.memNickname }</p>
 									<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
-										<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${ pn.partnerType }</p>
+									<!-- ----------------------------------------------------------------------------------------------------------------------- ${pn.member.mbti } -->
+										<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${pn.member.mbti }</p>
 										<div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
-										<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${ pn.member.gender }</p>
+										<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${pn.member.gender == 'F' ? '여성' : '남성'}</p>
 									</div>
 								</div>
 							</div>
@@ -819,19 +832,20 @@
 							<div class="AccompanyWebCard__DateWrap-sc-ws5mjw-9 fdRVsr">
 								<div class="AccompanyWebCard__DateHoveredWrap-sc-ws5mjw-10 hWLPgS"></div>
 								<div class="AccompanyWebCard__DateTitleWrap-sc-ws5mjw-11 kdZjQK">
-									<img src="/images/sub/accompany/card/accompany_gray_calendar.png" class="AccompanyWebCard__DateIcon-sc-ws5mjw-12 ilUDog">
+									<img src="${pageContext.request.contextPath}/resources/img/partner/accompany_gray_calendar.png" class="AccompanyWebCard__DateIcon-sc-ws5mjw-12 ilUDog">
 									<p class="AccompanyWebCard__DateTitle-sc-ws5mjw-13 iBlyRM">여행기간</p>
 								</div>
 								<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
-									<p color="#00CE7C" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">${ pn.partnerStartDate } - ${ pn.partnerEndDate }</p>
+									<p color="#00CE7C" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">
+									${pn.partnerStartDate } - ${pn.partnerEndDate }</p>
 								</div>
 							</div>
 	
 						</div>
 	
 						<div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
-							<img src="${pageContext.request.contextPath}/resources/img/partner/img5.jpg" 
-								class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
+						<!-- -------------------------------------------------------------------------------------------------------------------------------------   ${pn.partnerOriginalImg } -->
+							<img src="${pageContext.request.contextPath}/resources/img/partner/${pn.partnerOriginalImg }.jpg" class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
 	
 							<div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
 								<div class="AccompanyWebCard__LocationIcon-sc-ws5mjw-17 lmqiXK">
@@ -849,39 +863,10 @@
 								</div>
 								<p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">${ pn.partnerLocation }</p>
 							</div>
-							<!-- hear -->
-							<div class="AccompanyWebCard__DetailBottomWrap-sc-ws5mjw-19 LuXMO">
-								<div class="AccompanyWebCard__RecruitWrap-sc-ws5mjw-20 jfSGGP">
-									<p class="AccompanyWebCard__RecruitText-sc-ws5mjw-21 YIYAY">${ pn.partnerStatus }</p>
-									<div color="#00CE7C" class="AccompanyWebCard__Circle-sc-ws5mjw-1 hMauwG"></div>
-									<p class="AccompanyWebCard__RecruitText-sc-ws5mjw-21 YIYAY">${ pn.partnerNumber }명</p>
-								</div>
-								<div class="AccompanyWebCard__OptionWrap-sc-ws5mjw-22 jQFFHg">
-									<div class="AccompanyWebCard__OptionIconWrap-sc-ws5mjw-23 lhlIsf">
-										<img
-											src="/images/sub/accompany/card/accompany_white_eye.png"
-											class="AccompanyWebCard__OptionIcon-sc-ws5mjw-24 fbgSqP">
-										<p class="AccompanyWebCard__OptionText-sc-ws5mjw-25 gOZZpD">36</p>
-									</div>
-									<div class="AccompanyWebCard__OptionIconWrap-sc-ws5mjw-23 lhlIsf">
-										<img
-											src="/images/sub/accompany/card/accompany_white_message.png"
-											class="AccompanyWebCard__OptionIcon-sc-ws5mjw-24 fbgSqP">
-										<p class="AccompanyWebCard__OptionText-sc-ws5mjw-25 gOZZpD">0</p>
-									</div>
-									<div class="AccompanyWebCard__OptionIconWrap-sc-ws5mjw-23 ccCSmm">
-										<img
-											src="/images/sub/accompany/card/accompany_white_plane.png"
-											class="AccompanyWebCard__OptionIcon-sc-ws5mjw-24 fbgSqP">
-										<p class="AccompanyWebCard__OptionText-sc-ws5mjw-25 gOZZpD">0</p>
-									</div>
-								</div>
-							</div>
-							<!-- hear -->
 						</div>
 	
 						<div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
-								<p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">${ pn.partnerName }</p>
+								<p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">${ pn.partnerTitle }</p>
 								<p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
 									${ pn.partnerContent }
 								</p>

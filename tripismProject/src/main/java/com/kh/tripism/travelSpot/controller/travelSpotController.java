@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -39,9 +40,8 @@ public class travelSpotController {
 		return "travelSpot/travelSpotListView";
 	}
 	
-	@ResponseBody
 	@RequestMapping(value="detailAPI.sp", produces = "application/json; charset=utf-8")
-	public String selectSpotAPI(int contentId, int contentType) throws IOException {
+	public String selectSpotAPI(int contentId, int contentType, Model model) throws IOException {
 		
 		System.out.println("selectSpotAPI 탐");
 		
@@ -85,9 +85,7 @@ public class travelSpotController {
 //		JsonArray itemArr = bodyObj.getAsJsonArray("items");
 		
 		
-		JsonObject item = items.getAsJsonObject().get("item").getAsJsonArray().get(0).getAsJsonObject();
 		
-		System.out.println(item);
 		
 		
 //		System.out.println(itemArr);
@@ -96,22 +94,42 @@ public class travelSpotController {
 //		System.out.println(items.size());
 		
 		
-//		ArrayList<SpotTour> list = new ArrayList<>();
-//		for(int i = 0; i < items.size(); i++) {
-			
-			
-			
-//			JsonObject item = items.getAsJsonArray().get(i).getAsJsonObject();
-//			
-//			System.out.println(item);
-////			
-////			SpotTour tour = new SpotTour();
-////			
-//////			air.setStationName(item.get("stationName").getAsString());
-////			
-////			list.add(tour);
-//		}
+		ArrayList<SpotTour> apiList = new ArrayList<>();
 		
+		for(int i = 0; i < items.size(); i++) {
+			
+			JsonObject item = items.getAsJsonObject().get("item").getAsJsonArray().get(i).getAsJsonObject();
+			
+			System.out.println(item);
+			
+			SpotTour tour = new SpotTour();
+			
+			
+			
+//			air.setStationName(item.get("stationName").getAsString());
+			
+			tour.setContentid(item.get("contentid").getAsString());
+			tour.setContenttypeid(item.get("contenttypeid").getAsString());
+			tour.setAccomcount(item.get("accomcount").getAsString());
+			tour.setChkbabycarriage(item.get("chkbabycarriage").getAsString());
+			tour.setChkcreditcard(item.get("chkcreditcard").getAsString());
+			tour.setChkpet(item.get("chkpet").getAsString());
+			tour.setExpagerange(item.get("expagerange").getAsString());
+			tour.setExpguide(item.get("expguide").getAsString());
+			tour.setHeritage1(item.get("heritage1").getAsString());
+			tour.setHeritage2(item.get("heritage2").getAsString());
+			tour.setHeritage3(item.get("heritage3").getAsString());
+			tour.setInfocenter(item.get("infocenter").getAsString());
+			tour.setOpendate(item.get("opendate").getAsString());
+			tour.setParking(item.get("parking").getAsString());
+			tour.setRestdate(item.get("restdate").getAsString());
+			tour.setUseseason(item.get("useseason").getAsString());
+			tour.setUsetime(item.get("usetime").getAsString());
+			
+			
+			apiList.add(tour);
+		
+		}
 		
 //		ArrayList<Spot> result = sService.selectSpotAPI(items);
 		
@@ -120,16 +138,29 @@ public class travelSpotController {
 		
 		br.close();
 		urlConnection.disconnect();
+		
+		
+		
+		for(SpotTour a : apiList) {
+			System.out.println(a);
+		}
+		
+		Spot s = sService.selectSpotDetail(contentId);
+		
+		
+		
+		
+		SpotTour al = apiList.get(0);
+		
+		System.out.println("s : " + s);
+		System.out.println("al : " + al);
+		
+		model.addAttribute("s", s);
+		model.addAttribute("al", al);
         
 		return "travelSpot/travelSpotDetailView";
 	}
 	
-	@ResponseBody 
-	@RequestMapping(value="detailView.sp", produces = "application/json; charset=utf-8")
-	public String selectSpotDetail(int contentId) {
-		
-		return "travelSpot/travelSpotDetailView";
-	}
 	
 	@ResponseBody
 	@RequestMapping(value="spotList.sp", produces = "application/json; charset=utf-8")

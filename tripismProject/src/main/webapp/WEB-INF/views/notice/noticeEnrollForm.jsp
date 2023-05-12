@@ -75,42 +75,34 @@
   <div class="innerOuter">
 
       <form id="enrollForm" method="post" action="insertNotice.bo" enctype="multipart/form-data">
-          <table align="center">
-              <tr>
-                  <th><label for="title">제목</label></th>
-                  <td><input type="text" id="title" class="form-control" name="noticeName" required></td>
-              </tr>
-              <tr>
-                  <th><label for="writer">작성자</label></th>
-                  <td><input type="text" id="writer" class="form-control" value="${ loginUser.memId }" name="noticeWriter" readonly></td>
-              </tr>
-              <tr>
-                  <th><label for="upfile">첨부파일</label></th>
-                  <td><input type="file" id="upfile" class="form-control-file border" name="upfile"></td>
-              </tr>
-              <tr>
-                <th><label for="status">공개 여부</label></th>
-                <td>
-                  <label for="Y"><input type="radio" id="Y" name="noticeStatus" checked="checked">공개</label>
-                  <label for="N"><input type="radio" id="N" name="noticeStatus">비공개</label>
-
-                </td>
-              </tr>
-             
-              <tr>
-                  <th colspan="2"><label for="noticeContents">내용</label></th>
-              </tr>
-              <tr>
-                  <th colspan="2">
-                      <textarea class="form-control" required name="noticeContents" id="contents" rows="10" style="resize:none;"></textarea>
-                  </th>
-              </tr>
-          </table>
+                <table align="center">
+                    <tr>
+                        <th><label for="title">제목</label></th>
+                        <td><input type="text" id="title" class="form-control" name="noticeName" required></td>
+                    </tr>
+                    <tr>
+                        <th><label for="writer">작성자</label></th>
+                        <td><input type="text" id="writer" class="form-control" value="${ loginUser.memNo }" name="noticeWriter" readonly></td>
+                    </tr>
+                    <tr>
+                        <th><label for="upfile">첨부파일</label></th>
+                        <td><input type="file" id="upfile" class="form-control-file border" name="upfile"></td>
+                    </tr>
+                    <tr>
+                        <th colspan="2"><label for="noticeContents">내용</label></th>
+                    </tr>
+                    <tr>
+                        <th colspan="2">
+                            <textarea class="form-control" required name="noticeContents" id="content" rows="10" style="resize:none;"></textarea>
+                        </th>
+                    </tr>
+                </table>
           <br>
 
           <div align="center">
               <button type="submit" class="btn btn-primary">등록하기</button>
               <button type="reset" class="btn btn-danger">취소하기</button>
+              <button type="button" class="btn btn-primary" onclick="history.back()">이전으로</button>
           </div>
       </form>
   </div>

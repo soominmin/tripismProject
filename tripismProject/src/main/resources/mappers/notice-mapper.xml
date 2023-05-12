@@ -29,6 +29,7 @@
         , notice_name
         , notice_writer
         , to_char(notice_date, 'YYYY-MM-DD') as "notice_date"
+        , origin_name
     from tb_notice
     where notice_status = 'Y'
     order
@@ -71,6 +72,7 @@
 		select
 				notice_no
 				, notice_name
+				, notice_writer
 				, notice_contents
 				, to_char(notice_date, 'YYYY-MM-DD') as "notice_date"
 				, origin_name
@@ -80,8 +82,23 @@
 			
 	</select>
 	
+	<update id="updateNotice">
+		update
+				tb_notice
+			set notice_name = #{noticeName}
+				, notice_contents = #{noticeContents}
+				, origin_name = #{originName}
+				, change_name = #{changeName}
+			where notice_no = #{noticeNo}
+	</update>	
 
-	
+		<update id="deleteBoard">
+		update
+				tb_notice
+			set notice_status = 'N'
+			where notice_no = #{noticeNo}
+			
+	</update>
 	
 
 </mapper>

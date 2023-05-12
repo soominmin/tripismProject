@@ -55,9 +55,9 @@
       <br>
         <!-- (관리자)로그인후 상태일 경우만 보여지는 글쓰기 버튼-->
 
-
+		 <c:if test="${ not empty loginUser }">
          <a class="btn btn-secondary btn-sm" style="float:right" href="noticeEnrollForm.bo">글쓰기</a>
-
+		</c:if>
       <br></br>
       <table id="boardList" class="table table-hover" align="center">
           <thead>

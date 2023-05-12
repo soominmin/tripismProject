@@ -90,7 +90,13 @@
 			where notice_no = #{noticeNo}
 	</update>	
 
-	
+		<update id="deleteBoard">
+		update
+				tb_notice
+			set notice_status = 'N'
+			where notice_no = #{noticeNo}
+			
+	</update>
 	
 
 </mapper>

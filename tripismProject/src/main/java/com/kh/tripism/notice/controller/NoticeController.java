@@ -181,5 +181,31 @@ public class NoticeController {
 		
 		
 	}
+	
+	@RequestMapping("delete.bo")
+	public String deleteBoard(int bno, String filePath, HttpSession session, Model model) {
+		int result = nService.deleteNotice(bno);
+		
+		
+		
+		if(result > 0) {
+			// 삭제 성공
+			
+			// 첨부파일이 있을 경우 => 파일 삭제
+			if(!filePath.equals("")) { // filePath = "resources/xxx/xxx.jpg"
+				new File(session.getServletContext().getRealPath(filePath)).delete(); // 서버에 업로드된 파일 삭제
+			}
+			
+			// 게시판 리스트 페이지 list.bo url 재요청
+			session.setAttribute("alertMsg", "성공적으로 게시글이 삭제되었습니다.");
+			return "redirect:noticeSelectlist.bo";
+		}else {
+			// 삭제 실패
+			// 에러문구 담아서 에러페이지 포워딩(모델)
+			model.addAttribute("errorMsg", "게시글 삭제 실패!");
+			return "common/errorPage";
+			
+		}
+	}	
 
 }

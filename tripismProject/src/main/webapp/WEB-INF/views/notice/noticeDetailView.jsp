@@ -26,25 +26,15 @@
 
     <!-- FAVICON -->
     <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png"/>
-    <style>
-      table * {
-          widows: 600px;
-      }
-      
-      table {
-      	width: 100%;
-
-      }
-      
-      .content{
-      	margin: 100px;
-      	width: 80%
-      }
-      
-      .innerOuter{
-      	width: 80%
-      }
-  </style>
+<style>
+    #contentArea>table {
+        width: 50%;
+    }
+    
+    #contentArea>table * {
+        margin: 5px;
+    }
+</style>
   
 </head>
 <body>

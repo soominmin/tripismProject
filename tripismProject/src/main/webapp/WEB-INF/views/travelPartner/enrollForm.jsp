@@ -1280,7 +1280,7 @@
 					</div>
 				</div>
 			</label>
-			<input id="fileInput" type="file" accept="image/png, image/jpeg" style="display: none; margin: 0px; padding: 0px;">
+			<input id="fileInput" type="file" accept="image/jpeg" style="display: none; margin: 0px; padding: 0px;">
 			<script>
 				const fileInput = document.getElementById('fileInput');
 				const imageWrapper = document.querySelector('.Image__ItemWrapper-sc-16k9dmh-0');

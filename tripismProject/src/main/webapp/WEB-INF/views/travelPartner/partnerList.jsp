@@ -330,7 +330,7 @@
     height: 15px;
     object-fit: contain;
     z-index: 100;
-    margin-top: 5px;
+    margin-top: 8px;
     margin-left: 10px;
 	}
 	.fdRVsr {
@@ -782,8 +782,8 @@
 			<div class="WebFilterstyle__Wrapper-sc-jkwt5m-0 bFhXDi">
 				<div class="WebFilterstyle__OrderContainer-sc-jkwt5m-1 hKHUvu">
 					<div class="TextFilterTemplate__TextFilterWrap-sc-434wll-0 cJFGWH">
-						<button class="TextFilterTemplate__TextFilterButton-sc-434wll-1 tkvTm">최신 순</button>
-						<button class="TextFilterTemplate__TextFilterButton-sc-434wll-1 tkvTm">모집 중인 순</button>
+						<button class="TextFilterTemplate__TextFilterButton-sc-434wll-1 tkvTm">최신순</button>
+						<button class="TextFilterTemplate__TextFilterButton-sc-434wll-1 tkvTm">조회순</button>
 					</div>
 				</div>
 				<div class="FilterButtonTemplatestyle__Wrapper-sc-1ga095c-0 Swiwe">
@@ -799,8 +799,11 @@
 
 			<!-------------------------------------------------------------------------------------------------------------------------->
 				<c:forEach var="pn" items="${ pnlist }">
+				
 					<div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
-						<a href="detail.pn" style="text-decoration:none;">
+						<input type="hidden" value="${pn.postNo }" class="aaa"/>
+					
+						
 						<div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
 	
 							<div class="AccompanyWebCard__ProfileWrap-sc-ws5mjw-6 gNWBdG"> 
@@ -820,7 +823,15 @@
 									<p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">${pn.member.memNickname }</p>
 									<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
 									<!-- ----------------------------------------------------------------------------------------------------------------------- ${pn.member.mbti } -->
-										<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${pn.member.mbti }</p>
+										<c:choose>
+										<c:when test="${not empty pn.member.mbti }">
+											<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${pn.member.mbti }</p>
+										</c:when>
+										<c:otherwise>
+										<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">미정</p>
+											
+										</c:otherwise>
+										</c:choose>
 										<div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
 										<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${pn.member.gender == 'F' ? '여성' : '남성'}</p>
 									</div>
@@ -833,7 +844,7 @@
 								<div class="AccompanyWebCard__DateHoveredWrap-sc-ws5mjw-10 hWLPgS"></div>
 								<div class="AccompanyWebCard__DateTitleWrap-sc-ws5mjw-11 kdZjQK">
 									<img src="${pageContext.request.contextPath}/resources/img/partner/accompany_gray_calendar.png" class="AccompanyWebCard__DateIcon-sc-ws5mjw-12 ilUDog">
-									<p class="AccompanyWebCard__DateTitle-sc-ws5mjw-13 iBlyRM">여행기간</p>
+									<p class="AccompanyWebCard__DateTitle-sc-ws5mjw-13 iBlyRM">여행기간${pn.postNo }</p>
 								</div>
 								<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
 									<p color="#00CE7C" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">
@@ -870,16 +881,18 @@
 								<p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
 									${ pn.partnerContent }
 								</p>
-						</div>
-						</a>
+						</div>						
 					</div>
+					
+				
 				</c:forEach>
+					
 				<!-------------------------------------------------------------------------------------------------------------------------->
 
 
 
 
-
+	
 
 				<!---------------------------------------------------------------------------------------------------------------------------- -->
 
@@ -895,6 +908,8 @@
 					  $(this).find(".heALwI").css("background", "");
 					  $(this).find(".heALwI, .kPceoN").css("color", "");
 					});
+					
+				
 				  </script>
 				<!-------------------------------------------------------------------------->
 
@@ -905,7 +920,7 @@
 		<section
 			direction="vertical"
 			class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq"
-			style="display: flex; box-sizing: border-box;">
+			style="display: flex; box-sizing: border-box; margin-top: 200px; margin-bottom: 60px;">
 			
 			<div class="ExtendedPaginationTemplate__PaginationWrap-sc-uw2t4b-0 dvaZUI" id="pagingArea">
 				<ul class="pagination">
@@ -937,6 +952,16 @@
 		
 		
 	</div>
+	<script>
+	$(function(){
+		$(".cxduOO").click(()=>{
+			console.log($(this))
+			//location.href = $(this).children(".postNo").val();
+		})
+		console.log($(".cxduOO"))
+	})
+					
+					</script>
 		<!-- 푸터바 포함 -->
 	<jsp:include page="../common/footer.jsp"/>
 </body>

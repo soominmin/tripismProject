@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,31 +66,36 @@
   <br><br>
   <div class="innerOuter">
 
-      <form id="updateForm" method="post" action="" enctype="">
-          <table align="center">
-              <tr>
-                  <th><label for="title">제목</label></th>
-                  <td><input type="text" id="title" class="form-control" name="" value="기존글의 제목" required></td>
-              </tr>
-              <tr>
-                  <th><label for="writer">작성자</label></th>
-                  <td><input type="text" id="writer" class="form-control" name="" value="관리자"  readonly></td>
-              </tr>
-              <tr>
-                  <th><label for="upfile">첨부파일</label></th>
-                  <td>
-                      <input type="file" id="upfile" class="form-control-file border" name="">
-                          현재 업로드된 파일 : 
-                        <a href="" download="">사진.png</a>
-                  </td>
-              </tr>
-              <tr>
-                  <th colspan="2"><label for="content">내용</label></th>
-              </tr>
-              <tr>
-                  <th colspan="2"><textarea class="form-control" required name="" id="content" rows="10" style="resize:none;">기존글의내용</textarea></th>
-              </tr>
-          </table>
+      <form id="updateForm" method="post" action="noticeUpdateForm.bo" enctype="multipart/form-data">
+            <input type="hidden" name="noticeNo" value="${ n.noticeNo }">
+                <table align="center">
+                    <tr>
+                        <th><label for="title">제목</label></th>
+                        <td><input type="text" id="title" class="form-control" name="noticeName" value="${ n.noticeName }" required></td>
+                    </tr>
+                    <tr>
+                        <th><label for="writer">작성자</label></th>
+                        <td><input type="text" id="writer" class="form-control" name="noticeWriter" value="${ n.noticeWriter }"  readonly></td>
+                    </tr>
+                    <tr>
+                        <th><label for="upfile">첨부파일</label></th>
+                        <td>
+                            <input type="file" id="upfile" class="form-control-file border" name="reupfile">
+                               <c:if test="${ not empty n.originName }">
+                                     현재 업로드된 파일 : 
+                                  <a href="${ n.changeName }" download="${ n.originName }">${ n.originName }</a>
+                                  <input type="hidden" name="originName" value="${ n.originName }">
+                                  <input type="hidden" name="changeName" value="${ n.changeName }">
+                               </c:if>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="2"><label for="content">내용</label></th>
+                    </tr>
+                    <tr>
+                        <th colspan="2"><textarea class="form-control" required name="noticeContents" id="content" rows="10" style="resize:none;">${ n.noticeContents }</textarea></th>
+                    </tr>
+                </table>
           <br>
 
           <div align="center">

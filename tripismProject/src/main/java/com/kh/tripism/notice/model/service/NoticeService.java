@@ -2,7 +2,7 @@ package com.kh.tripism.notice.model.service;
 
 import java.util.ArrayList;
 
-import com.kh.tripism.feed.model.vo.PageInfo;
+import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.notice.model.vo.Notice;
 
 public interface NoticeService {

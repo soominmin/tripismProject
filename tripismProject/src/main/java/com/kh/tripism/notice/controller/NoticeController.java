@@ -17,7 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.tripism.common.template.Pagination;
-import com.kh.tripism.feed.model.vo.PageInfo;
+import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.notice.model.service.NoticeServiceImpl;
 import com.kh.tripism.notice.model.vo.Notice;
 
@@ -104,8 +104,10 @@ public class NoticeController {
 	}
 
 	@RequestMapping("noticeUpdateForm.bo")
-	public String noticeUpdateForm() {
-		return "notice/noticeUpdateForm";
+	public String noticeUpdateForm(int noticeNo, Model model) {
+	      model.addAttribute("n", nService.selectNotice(noticeNo));
+	      
+	      return "notice/noticeUpdateForm";
 	}	
 	
 	

@@ -80,6 +80,15 @@
 			
 	</select>
 	
+	<update id="updateNotice">
+		update
+				tb_notice
+			set notice_name = #{noticeName}
+				, notice_contents = #{noticeContents}
+				, origin_name = #{originName}
+				, change_name = #{changeName}
+			where notice_no = #{noticeNo}
+	</update>	
 
 	
 	

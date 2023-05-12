@@ -6,7 +6,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.kh.tripism.feed.model.vo.PageInfo;
+import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.notice.model.vo.Notice;
 
 @Repository
@@ -33,6 +33,7 @@ public class NoticeDao {
 	}
 	
 	public int insertNotice(SqlSessionTemplate sqlSession, Notice n) {
+		
 		return sqlSession.insert("noticeMapper.insertNotice", n);
 	}
 	
@@ -43,6 +44,10 @@ public class NoticeDao {
 	
 	public Notice selectNotice(SqlSessionTemplate sqlSession, int noticeNo) {
 		return sqlSession.selectOne("noticeMapper.selectNotice", noticeNo);
+	}
+	
+	public int updateNotice(SqlSessionTemplate sqlSession, Notice n) {
+		return sqlSession.update("noticeMapper.updateNotice", n);
 	}
 
 }

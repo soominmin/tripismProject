@@ -370,6 +370,59 @@ body * {
   
 </section>
 
+
+    <!-- ====================================
+    ——— MODAL SECTION
+    ===================================== -->
+
+
+    <!-- INQUIRY IN MODAL -->
+    <div class="modal fade" id="packageDetail" tabindex="-1" role="dialog" aria-label="inquiryModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header rounded">
+            <h3 class="modal-title text-uppercase font-weight-bold">여행상품 상세보기</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body pb-3">
+
+            <img class="card-img-top lazyestload" data-src="https://a.cdn-hotels.com/gdcs/production47/d524/cf53813b-845b-42f3-a749-74875dd8bbf1.jpg?impolicy=fcrop&w=800&h=533&q=medium" src="" alt="Card image cap">
+
+            <br><br>
+
+            <h4 style="font-weight: 900;">레일텔(KTX+페어필드부산송도호텔)</h4>
+
+            <hr>
+
+            <h5>하나투어</h5>
+
+            <br>
+
+            <p>송도의 오션뷰 호텔와 함께 인근에 위치한 남포동, 자갈치, 국제시장 등 여행지를 돌아볼 수 있는 철도연계 자유여행 상품.</p>
+
+            <span class="badge bg-info text-dark">예약가능기간</span>
+            2020.11.10 ~ 2023.04.01
+
+            <br>
+
+            <hr>
+
+            <h5 style="font-weight: 900;">이 상품 속 주요 여행지</h5>
+
+            <br>
+
+            <div style="width: 150px; height: 150px; border: 1px solid black;"></div>
+
+            <br>
+            <button class="btn btn-primary" type="button" style="width: 100%; background-color: RGB(112, 217, 223); border: none;">예약하러가기</button>
+            
+
+          </div>
+        </div>
+      </div>
+    </div>
+
 <!-- element wrapper ends -->
 	<!-- ====================================
 ——— FOOTER SECTION

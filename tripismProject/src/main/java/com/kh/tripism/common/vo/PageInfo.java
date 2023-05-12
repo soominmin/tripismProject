@@ -13,6 +13,7 @@ import lombok.ToString;
 @ToString
 public class PageInfo {
 	
+	
 	private int listCount;
 	private int currentPage;
 	private int pageLimit;

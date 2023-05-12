@@ -1,36 +1,36 @@
 package com.kh.tripism.travelSpot.model.vo;
 
 public class SpotHotel {
-	private String accomcountlodging;
-	private String benikia;
-	private String checkintime;
-	private String checkouttime;
-	private String chkcooking;
-	private String foodplace;
-	private String goodstay;
-	private String hanok;
-	private String infocenterlodging;
-	private String parkinglodging;
-	private String pickup;
-	private String roomcount;
-	private String reservationlodging;
-	private String reservationurl;
-	private String roomtype;
-	private String scalelodging;
-	private String subfacility;
-	private String barbecue;
-	private String beauty;
-	private String beverage;
-	private String bicycle;
-	private String campfire;
-	private String fitness;
-	private String karaoke;
-	private String publicbath;
-	private String publicpc;
-	private String sauna;
-	private String seminar;
-	private String sports;
-	private String refundregulation;
+	private String accomcountlodging;	//수용가능인원
+	private String benikia;				//베니키아여부
+	private String checkintime;			//입실시간
+	private String checkouttime;		//퇴실시간
+	private String chkcooking;			//객실내취사여부
+	private String foodplace;			//식음료장
+	private String goodstay;			//굿스테이여부
+	private String hanok;				//한옥여부
+	private String infocenterlodging;	//문의및안내
+	private String parkinglodging;		//주차시설
+	private String pickup;				//픽업서비스
+	private String roomcount;			//객실수
+	private String reservationlodging;	//예약안내
+	private String reservationurl;		//예약안내홈페이지
+	private String roomtype;			//객실유형
+	private String scalelodging;		//규모
+	private String subfacility;			//부대시설
+	private String barbecue;			//바비큐장여부
+	private String beauty;				//뷰티시설정보
+	private String beverage;			//식음료장여부
+	private String bicycle;				//자전거대여여부
+	private String campfire;			//캠프파이어여부
+	private String fitness;				//휘트니스센터여부
+	private String karaoke;				//노래방여부
+	private String publicbath;			//공용샤워실여부
+	private String publicpc;			//공용 PC실여부
+	private String sauna;				//사우나실여부
+	private String seminar;				//세미나실여부
+	private String sports;				//스포츠시설여부
+	private String refundregulation;	//환불규정
 	
 	public SpotHotel() {}
 

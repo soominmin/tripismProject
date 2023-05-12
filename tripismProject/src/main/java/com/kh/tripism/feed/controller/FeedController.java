@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -21,7 +22,7 @@ import com.kh.tripism.common.template.Pagination;
 import com.kh.tripism.feed.model.service.FeedServiceImpl;
 import com.kh.tripism.feed.model.vo.Feed;
 import com.kh.tripism.feed.model.vo.Img;
-import com.kh.tripism.feed.model.vo.PageInfo;
+import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.member.model.vo.Member;
 
 import lombok.AllArgsConstructor;
@@ -46,18 +47,14 @@ public class FeedController {
 			PageInfo pi = Pagination.getPageInfo(listCount, currentPage, 10, 5);
 			
 			ArrayList<Feed> feed = fService.selectFeedList(pi);
-			ArrayList<Member> member = fService.selectMember(pi);
-			ArrayList<Img> img = fService.selectImg(pi);
-				
 			
-			mv.addObject("pi", pi).addObject("feed", feed).addObject("member", member).addObject("img", img).setViewName("feed/feedMain");
-			
+			mv.addObject("pi", pi).addObject("feed", feed).setViewName("feed/feedMain");
+			System.out.println(feed);
 			return mv;
 		
 		
 		// return "feed/feedMain";
 	}
-	
 	
 	@RequestMapping("feedImgAll.fd")
 	public String feedImgAll() {
@@ -69,33 +66,52 @@ public class FeedController {
 		return "feed/feedEnrollForm";
 	}
 	
-	@RequestMapping("updateForm.fd")
-	public String updateForm() {
-		return "feed/feedUpdateForm";
-	}
-	
-	
-	
-	
-	
 	@RequestMapping("insert.fd")
-	public String insertFeed(Feed f, MultipartFile upFile, HttpSession session, Model model) {
+	public String insertFeed(Feed f, MultipartFile upFile1, MultipartFile upFile2, MultipartFile upFile3, MultipartFile upFile4, HttpSession session, Model model) {
 		System.out.println("피드전체 : " + f);
 		System.out.println("제목 : " + f.getFeedTitle());
 		System.out.println("본문 : " + f.getFeedContents());
-		System.out.println("첨부파일 : " + upFile.getOriginalFilename());
 		
-		
-		if(!upFile.getOriginalFilename().equals("")) { // 첨부를 했다.
+		if(!upFile1.getOriginalFilename().equals("")) { // 첨부를 했다.
 			
-			
-			String changeName = saveFile(upFile, session);
-			System.out.println("바뀐이름 : " + changeName);
+			String changeName1 = saveFile1(upFile1, session);
 			
 			// f => field에 담는작업
-			f.setOriginalName(upFile.getOriginalFilename());
-			f.setChangeName("resources/uploadFiles/" + changeName);
 			
+			f.setImgOriginalName1(upFile1.getOriginalFilename());
+			f.setImgChangeName1("resources/uploadFiles/" + changeName1);
+		}
+		
+		if(!upFile2.getOriginalFilename().equals("")) { // 첨부를 했다.
+			
+			String changeName2 = saveFile2(upFile2, session);
+			
+			// f => field에 담는작업
+			
+			f.setImgOriginalName2(upFile2.getOriginalFilename());
+			f.setImgChangeName2("resources/uploadFiles/" + changeName2);
+			
+		}
+		
+		if(!upFile3.getOriginalFilename().equals("")) { // 첨부를 했다.
+			
+			String changeName3 = saveFile3(upFile3, session);
+			
+			// f => field에 담는작업
+			
+			f.setImgOriginalName3(upFile3.getOriginalFilename());
+			f.setImgChangeName3("resources/uploadFiles/" + changeName3);
+			
+		}
+		
+		if(!upFile4.getOriginalFilename().equals("")) { // 첨부를 했다.
+			
+			String changeName4 = saveFile4(upFile4, session);
+			
+			// f => field에 담는작업
+			
+			f.setImgOriginalName4(upFile2.getOriginalFilename());
+			f.setImgChangeName4("resources/uploadFiles/" + changeName4);
 			
 		}
 		
@@ -105,6 +121,11 @@ public class FeedController {
 		
 		int result = fService.insertFeed(f); // 제목/본문 넣을 곳
 		int result2 = fService.insertFeed2(f); // 이미지 넣을 곳 
+		
+		System.out.println("사진 변환이름1 : " + f.getImgChangeName1());
+		System.out.println("사진 변환이름2 : " + f.getImgChangeName2());
+		System.out.println("사진 변환이름3 : " + f.getImgChangeName3());
+		System.out.println("사진 변환이름4 : " + f.getImgChangeName4());
 				
 		if(result > 0) {
 			return "redirect:feed.fd";
@@ -114,9 +135,9 @@ public class FeedController {
 		
 	}
 	
-	public String saveFile(MultipartFile upFile, HttpSession session) {
+	public String saveFile1(MultipartFile upFile1, HttpSession session) {
 		
-		String originName = upFile.getOriginalFilename();
+		String originName = upFile1.getOriginalFilename();
 		
 		String currentTime = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 		
@@ -124,20 +145,105 @@ public class FeedController {
 		
 		String ext = originName.substring(originName.lastIndexOf("."));
 		
-		String changeName = currentTime + ranNum + ext;
+		String changeName1 = currentTime + ranNum + ext;
 		
 		String savePath = session.getServletContext().getRealPath("/resources/uploadFiles/");
 		
 		try {
-			upFile.transferTo(new File(savePath + changeName));
+			upFile1.transferTo(new File(savePath + changeName1));
 		} catch (IllegalStateException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		return changeName;
+		return changeName1;
 	}
+	
+	public String saveFile2(MultipartFile upFile2, HttpSession session) {
+			
+			String originName = upFile2.getOriginalFilename();
+			
+			String currentTime = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+			
+			int ranNum = (int)(Math.random()*90000 + 10000);
+			
+			String ext = originName.substring(originName.lastIndexOf("."));
+			
+			String changeName2 = currentTime + ranNum + ext;
+			
+			String savePath = session.getServletContext().getRealPath("/resources/uploadFiles/");
+			
+			try {
+				upFile2.transferTo(new File(savePath + changeName2));
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			return changeName2;
+		}
+	
+	public String saveFile3(MultipartFile upFile3, HttpSession session) {
+		
+		String originName = upFile3.getOriginalFilename();
+		
+		String currentTime = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+		
+		int ranNum = (int)(Math.random()*90000 + 10000);
+		
+		String ext = originName.substring(originName.lastIndexOf("."));
+		
+		String changeName3 = currentTime + ranNum + ext;
+		
+		String savePath = session.getServletContext().getRealPath("/resources/uploadFiles/");
+		
+		try {
+			upFile3.transferTo(new File(savePath + changeName3));
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return changeName3;
+	}
+	
+	
+	public String saveFile4(MultipartFile upFile4, HttpSession session) {
+			
+			String originName = upFile4.getOriginalFilename();
+			
+			String currentTime = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+			
+			int ranNum = (int)(Math.random()*90000 + 10000);
+			
+			String ext = originName.substring(originName.lastIndexOf("."));
+			
+			String changeName4 = currentTime + ranNum + ext;
+			
+			String savePath = session.getServletContext().getRealPath("/resources/uploadFiles/");
+			
+			try {
+				upFile4.transferTo(new File(savePath + changeName4));
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			return changeName4;
+		}
+	
+	
+	@RequestMapping("updateForm.fd")
+	public String updateForm(int fno, Model model) {
+		model.addAttribute("f", fService.selectFeed(fno));
+		System.out.println("업데이트 탔나? 컨트롤");
+		return "feed/feedUpdateForm";
+	}
+	
 	
 	@RequestMapping("delete.fd")
 	public String deleteFeed(int feedNo, HttpSession session, String filePath, Model model) {
@@ -163,10 +269,13 @@ public class FeedController {
 			if(i.getImgOriginalName() != null) {
 				new File(session.getServletContext().getRealPath(i.getImgChangeName())).delete();
 			}
-			String changeName = saveFile(reupfile, session);
+			String changeName1 = saveFile1(reupfile, session);
+			String changeName2 = saveFile2(reupfile, session);
+			String changeName3 = saveFile3(reupfile, session);
+			String changeName4 = saveFile4(reupfile, session);
 			
 			i.setImgOriginalName(reupfile.getOriginalFilename());
-			i.setImgChangeName("resources/upfiles/" + changeName);
+			i.setImgChangeName("resources/upfiles/" + changeName1);
 		}
 		
 		int result = fService.updateFeed(f);

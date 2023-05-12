@@ -17,7 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.tripism.common.template.Pagination;
-import com.kh.tripism.feed.model.vo.PageInfo;
+import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.notice.model.service.NoticeServiceImpl;
 import com.kh.tripism.notice.model.vo.Notice;
 
@@ -103,10 +103,43 @@ public class NoticeController {
 		
 	}
 
-	@RequestMapping("noticeUpdateForm.bo")
-	public String noticeUpdateForm() {
-		return "notice/noticeUpdateForm";
-	}	
+	@RequestMapping("updateForm.bo")
+	public String noticeUpdateForm(int bno, Model model) {
+	      model.addAttribute("n", nService.selectNotice(bno));
+	      
+	      return "notice/noticeUpdateForm";
+	}
+	
+	   @RequestMapping("update.bo")
+	   public String updateBoard(Notice n, MultipartFile reupfile, HttpSession session, Model model) {
+	      // 새로 넘어온 첨부파일이 있을 경우
+	      if(!reupfile.getOriginalFilename().equals("")) {
+	         // 기존에 첨부파일이 있었을 경우 => 기존의 첨부파일 지우기
+	         if(n.getOriginName() != null) {
+	            new File(session.getServletContext().getRealPath(n.getChangeName())).delete();
+	         }
+	         
+	         // 새로 넘어온 첨부파일 서버 업로드 시키기
+	         String changeName = saveFile(reupfile, session);
+	         
+	         // b에 새로 넘어온 첨부파일에 대한 원본명, 저장 경로 담기
+	         n.setOriginName(reupfile.getOriginalFilename());
+	         n.setChangeName("resources/uploadFiles/" + changeName);
+	      }
+	      
+
+	      int result = nService.updateNotice(n);
+	      
+	      if(result > 0) {
+	         session.setAttribute("alertMsg", "게시글 수정 완료");
+	         
+	         return "redirect:noticeDetailView.bo?bno=" + n.getNoticeNo();
+	      } else {
+	         model.addAttribute("errorMsg", "게시글 수정 실패");
+	         
+	         return "common/errorPage";
+	      }
+	   }	
 	
 	
 	public String saveFile(MultipartFile upfile, HttpSession session) {
@@ -133,5 +166,31 @@ public class NoticeController {
 		
 		
 	}
+	
+	@RequestMapping("delete.bo")
+	public String deleteBoard(int bno, String filePath, HttpSession session, Model model) {
+		int result = nService.deleteNotice(bno);
+		
+		
+		
+		if(result > 0) {
+			// 삭제 성공
+			
+			// 첨부파일이 있을 경우 => 파일 삭제
+			if(!filePath.equals("")) {
+				new File(session.getServletContext().getRealPath(filePath)).delete(); 
+			}
+			
+			
+			session.setAttribute("alertMsg", "성공적으로 게시글이 삭제되었습니다.");
+			return "redirect:noticeSelectlist.bo";
+		}else {
+			// 삭제 실패
+			// 에러문구 담아서 에러페이지 포워딩(모델)
+			model.addAttribute("errorMsg", "게시글 삭제 실패!");
+			return "common/errorPage";
+			
+		}
+	}	
 
 }

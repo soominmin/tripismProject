@@ -41,8 +41,20 @@ public class MemberDao {
 		return sqlSession.update("memberMapper.pwdUpdate", m);
 	}
 	
+	public int nicknameUpdate(SqlSessionTemplate sqlSession, Member m) {
+		return sqlSession.update("memberMapper.nicknameUpdate", m);
+	}
+	
 	public int insertMBTI(SqlSessionTemplate sqlSession,Member m) {
 		return sqlSession.update("memberMapper.insertMBTI",m);
+	}
+	
+	public int emailCheck(SqlSessionTemplate sqlSession, String email) {
+		return sqlSession.selectOne("memberMapper.emailCheck", email);
+	}
+	
+	public int deleteMember(SqlSessionTemplate sqlSession, Member m) {
+		return sqlSession.update("memberMapper.deleteMember", m);
 	}
 	
 

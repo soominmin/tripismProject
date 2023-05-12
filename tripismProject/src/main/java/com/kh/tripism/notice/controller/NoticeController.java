@@ -127,29 +127,14 @@ public class NoticeController {
 	         n.setChangeName("resources/uploadFiles/" + changeName);
 	      }
 	      
-	      /*
-	       * b에 boardNo, boardTitle, boardContent 무조건 담겨있음
-	       * 
-	       * 1. 새로 첨부된 파일X, 기존 첨부파일도 없었을 경우X
-	       *       => originName: null, changeName: null
-	       * 
-	       * 2. 새로 첨부된 파일 x, 기존 첨부 파일 o
-	       *       => originName: 기존 첨부파일 원본명, changeName: 기존 첨부파일 저장 경로
-	       * 
-	       * 3. 새로 첨부된 파일 o, 기존 첨부 파일 x
-	       *     => originName: 새로운 첨부파일 원본명, changeName: 새로운 첨부파일 저장 경로
-	       *  
-	       * 4. 새로 첨부된 파일, 기존 첨부 파일 o
-	       *       => originName: 새로운 첨부파일 원본명, changeName: 새로운 첨부파일 저장 경로
-	       */
-	      
+
 	      int result = nService.updateNotice(n);
 	      
-	      if(result > 0) { // 수정성공 => 상세페이지
+	      if(result > 0) {
 	         session.setAttribute("alertMsg", "게시글 수정 완료");
 	         
 	         return "redirect:noticeDetailView.bo?bno=" + n.getNoticeNo();
-	      } else { // 수정실패 => 에러페이지
+	      } else {
 	         model.addAttribute("errorMsg", "게시글 수정 실패");
 	         
 	         return "common/errorPage";
@@ -192,11 +177,11 @@ public class NoticeController {
 			// 삭제 성공
 			
 			// 첨부파일이 있을 경우 => 파일 삭제
-			if(!filePath.equals("")) { // filePath = "resources/xxx/xxx.jpg"
-				new File(session.getServletContext().getRealPath(filePath)).delete(); // 서버에 업로드된 파일 삭제
+			if(!filePath.equals("")) {
+				new File(session.getServletContext().getRealPath(filePath)).delete(); 
 			}
 			
-			// 게시판 리스트 페이지 list.bo url 재요청
+			
 			session.setAttribute("alertMsg", "성공적으로 게시글이 삭제되었습니다.");
 			return "redirect:noticeSelectlist.bo";
 		}else {

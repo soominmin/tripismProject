@@ -82,7 +82,7 @@
                     </tr>
                     <tr>
                         <th><label for="writer">작성자</label></th>
-                        <td><input type="text" id="writer" class="form-control" value="${ loginUser.memId }" name="noticeWriter" readonly></td>
+                        <td><input type="text" id="writer" class="form-control" value="${ loginUser.memNo }" name="noticeWriter" readonly></td>
                     </tr>
                     <tr>
                         <th><label for="upfile">첨부파일</label></th>
@@ -102,6 +102,7 @@
           <div align="center">
               <button type="submit" class="btn btn-primary">등록하기</button>
               <button type="reset" class="btn btn-danger">취소하기</button>
+              <button type="button" class="btn btn-primary" onclick="history.back()">이전으로</button>
           </div>
       </form>
   </div>

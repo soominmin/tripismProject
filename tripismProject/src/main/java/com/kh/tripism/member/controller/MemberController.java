@@ -41,7 +41,13 @@ public class MemberController {
 	// 로그인 (암호화작업)
 	@RequestMapping("login.do")
 	public ModelAndView loginMember(Member m, HttpSession session, ModelAndView mv) {
+		
+//		 String encPwd = bcryptPasswordEncoder.encode(m.getMemPwd());
+//		//Member 객체에 암호문으로변경 
+//		 m.setMemPwd(encPwd);
+//		 System.out.println(encPwd);
 		Member loginUser = mService.loginMember(m);
+		
 		if(loginUser != null && bcryptPasswordEncoder.matches(m.getMemPwd(), loginUser.getMemPwd())) {
 			session.setAttribute("loginUser", loginUser);
 			mv.setViewName("redirect:/");
@@ -108,6 +114,16 @@ public class MemberController {
 	@RequestMapping("nicknameCheck.do")
 	public String nicknameCheck(String checkNickname) {
 		int count = mService.nicknameCheck(checkNickname);
+		return count > 0? "NNNNN" : "NNNNY";
+	}
+	
+	// 이메일 중복체크
+	@ResponseBody
+	@RequestMapping("emailCheck.do")
+	public String emailCheck(String checkEmail) {
+		// System.out.println(checkEmail);
+		int count = mService.emailCheck(checkEmail);
+		// System.out.println(count);
 		return count > 0? "NNNNN" : "NNNNY";
 	}
 	
@@ -206,6 +222,7 @@ public class MemberController {
 		return mv;
 	}
 	
+	// 마이페이지에서 비밀번호 변경하기
 	@RequestMapping("pwdUpdateMypage.do")
 	public String pwdUpdateMypage(Member m, HttpSession session, Model model) {
 		
@@ -220,17 +237,69 @@ public class MemberController {
 			// System.out.println("pwdUpdate"+pwdUpdate);
 			session.setAttribute("loginUser", pwdUpdate); // loginUser세션에 변경된 값으로 담는다.
 			session.setAttribute("alertMsg", "비밀번호변경성공");
-			return "redirect:mypage.do";
+			return "member/myPage";
 		} else {
-			model.addAttribute("errorMsg", "회원가입 실패");
+			model.addAttribute("errorMsg", "비밀번호변경실패");
 			return "common/errorPage";
 		}
 	}
 	
-
+	// 마이페이지 화면 띄우기
 	@RequestMapping("mypage.do")
 	public String mypage() {
 		return "member/myPage";
+	}
+	
+	// 마이페이지내 정보수정 화면 띄우기
+	@RequestMapping("myInfoUpdate.do")
+	public String myInfo() {
+		return "member/myInfoUpdate";
+	}
+	
+	// 마이페이지에서 닉네임 수정하기
+	@RequestMapping("nicknameUpdate.do")
+	public String nicknameUpdate(Member m, HttpSession session, Model model) {
+		
+		int result = mService.nicknameUpdate(m);
+		
+		if(result>0) {
+			Member nicknameUpdate = mService.loginMember(m); // 변경된 값을 담는다.
+			session.setAttribute("loginUser", nicknameUpdate);
+			session.setAttribute("alertMsg", "닉네임변경성공");
+			return "member/myInfoUpdate";
+		} else {
+			model.addAttribute("errorMsg", "닉네임변경실패");
+			return "common/errorPage";
+		}
+	}
+	
+	// 마이페이지에서 탈퇴시 비밀번호 확인
+	@RequestMapping("deleteCheck.do")
+	public ModelAndView deleteCheck(Member m, ModelAndView mv) {
+		Member loginUser = mService.loginMember(m);
+		if(loginUser != null && bcryptPasswordEncoder.matches(m.getMemPwd(), loginUser.getMemPwd())) {
+			mv.setViewName("member/memberDelete");
+		} else {
+			mv.addObject("errorMsg", "비밀번호 확인 실패");
+			mv.setViewName("common/errorPage");
+		}
+		return mv;
+	}
+	
+	 // 탈퇴하기
+	@RequestMapping("deleteMember.do")
+	public String deleteMember(Member m, HttpSession session, Model model) {
+		int result = mService.deleteMember(m);
+		
+		if(result > 0) {
+			session.removeAttribute("loginUser");
+			session.setAttribute("alertMsg", "성공적으로 탈퇴되었습니다.");
+			
+			return "redirect:/";
+		} else {
+			model.addAttribute("errorMsg", "탈퇴실패");
+			return "common/errorPage";
+		}
 	}
 
 	@RequestMapping("spotLike.do")

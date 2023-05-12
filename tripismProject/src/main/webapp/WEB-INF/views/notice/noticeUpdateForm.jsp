@@ -66,8 +66,8 @@
   <br><br>
   <div class="innerOuter">
 
-      <form id="updateForm" method="post" action="noticeUpdateForm.bo" enctype="multipart/form-data">
-            <input type="hidden" name="noticeNo" value="${ n.noticeNo }">
+      <form id="updateForm" method="post" action="update.bo" enctype="multipart/form-data">
+           <input type="hidden" name="noticeNo" value="${ n.noticeNo }">
                 <table align="center">
                     <tr>
                         <th><label for="title">제목</label></th>
@@ -100,7 +100,7 @@
 
           <div align="center">
               <button type="submit" class="btn btn-primary">수정하기</button>
-              <button type="button" class="btn btn-danger">이전으로</button>
+              <button type="button" class="btn btn-danger" onclick="history.back()">이전으로</button>
           </div>
       </form>
   </div>

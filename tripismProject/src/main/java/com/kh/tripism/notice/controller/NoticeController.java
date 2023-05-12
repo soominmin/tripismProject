@@ -103,12 +103,58 @@ public class NoticeController {
 		
 	}
 
-	@RequestMapping("noticeUpdateForm.bo")
-	public String noticeUpdateForm(int noticeNo, Model model) {
-	      model.addAttribute("n", nService.selectNotice(noticeNo));
+	@RequestMapping("updateForm.bo")
+	public String noticeUpdateForm(int bno, Model model) {
+	      model.addAttribute("n", nService.selectNotice(bno));
 	      
 	      return "notice/noticeUpdateForm";
-	}	
+	}
+	
+	   @RequestMapping("update.bo")
+	   public String updateBoard(Notice n, MultipartFile reupfile, HttpSession session, Model model) {
+	      // 새로 넘어온 첨부파일이 있을 경우
+	      if(!reupfile.getOriginalFilename().equals("")) {
+	         // 기존에 첨부파일이 있었을 경우 => 기존의 첨부파일 지우기
+	         if(n.getOriginName() != null) {
+	            new File(session.getServletContext().getRealPath(n.getChangeName())).delete();
+	         }
+	         
+	         // 새로 넘어온 첨부파일 서버 업로드 시키기
+	         String changeName = saveFile(reupfile, session);
+	         
+	         // b에 새로 넘어온 첨부파일에 대한 원본명, 저장 경로 담기
+	         n.setOriginName(reupfile.getOriginalFilename());
+	         n.setChangeName("resources/uploadFiles/" + changeName);
+	      }
+	      
+	      /*
+	       * b에 boardNo, boardTitle, boardContent 무조건 담겨있음
+	       * 
+	       * 1. 새로 첨부된 파일X, 기존 첨부파일도 없었을 경우X
+	       *       => originName: null, changeName: null
+	       * 
+	       * 2. 새로 첨부된 파일 x, 기존 첨부 파일 o
+	       *       => originName: 기존 첨부파일 원본명, changeName: 기존 첨부파일 저장 경로
+	       * 
+	       * 3. 새로 첨부된 파일 o, 기존 첨부 파일 x
+	       *     => originName: 새로운 첨부파일 원본명, changeName: 새로운 첨부파일 저장 경로
+	       *  
+	       * 4. 새로 첨부된 파일, 기존 첨부 파일 o
+	       *       => originName: 새로운 첨부파일 원본명, changeName: 새로운 첨부파일 저장 경로
+	       */
+	      
+	      int result = nService.updateNotice(n);
+	      
+	      if(result > 0) { // 수정성공 => 상세페이지
+	         session.setAttribute("alertMsg", "게시글 수정 완료");
+	         
+	         return "redirect:noticeDetailView.bo?bno=" + n.getNoticeNo();
+	      } else { // 수정실패 => 에러페이지
+	         model.addAttribute("errorMsg", "게시글 수정 실패");
+	         
+	         return "common/errorPage";
+	      }
+	   }	
 	
 	
 	public String saveFile(MultipartFile upfile, HttpSession session) {

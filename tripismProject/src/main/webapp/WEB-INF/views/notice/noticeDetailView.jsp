@@ -32,8 +32,8 @@
       }
       
       table {
-      	width-left: 20% 
-      	width-right: 20% 
+      	width: 100%;
+
       }
       
       .content{
@@ -127,7 +127,7 @@
       <c:if test="${ not empty loginUser.memNo and n.noticeWriter eq n.noticeWriter }">
       <div align="center">
           <!-- 수정하기, 삭제하기 버튼은 관리자일 경우만 보여져야됨 -->
-            <a class="btn btn-primary" onclick="postFormSubmit(1);" href="noticeUpdateForm.bo">수정하기</a> <!-- 요기에 href="" 를 작성하면 get방식이기 떄문에 노출된다. -->
+            <a class="btn btn-primary" onclick="postFormSubmit(1);">수정하기</a> <!-- 요기에 href="" 를 작성하면 get방식이기 떄문에 노출된다. -->
             <a class="btn btn-danger" onclick="postFormSubmit(2)">삭제하기</a>
       </div><br><br>
       
@@ -139,7 +139,7 @@
                      <script>
                   function postFormSubmit(num){
                      if(num == 1){ // 수정하기 클릭시
-                        $("#postForm").attr("action", "noticeUpdateForm.bo").submit();
+                        $("#postForm").attr("action", "updateForm.bo").submit();
                      }else{ // 삭제하기 클릭시
                         $("#postForm").attr("action", "delete.bo").submit();
                      }

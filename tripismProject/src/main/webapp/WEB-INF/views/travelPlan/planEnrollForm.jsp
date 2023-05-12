@@ -16,7 +16,7 @@
 	.spotTilte:hover{cursor: pointer;}
 	.addSpot,.info img{width: 20%;}
 	.spotTitle{width: 60%;}
-
+	.dotOverlay {position:relative;bottom:10px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;font-size:12px;padding:5px;background:#fff;}
 </style>
 </head>
 <body>

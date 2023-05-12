@@ -4,7 +4,7 @@ public class Spot {
 	private int spotNo; 
 	private String spotContentId;
 	private String spotContentType;
-	private String spotCreateDate;
+	private String spotCreatedDate;
 	private String spotModifiedDate; 
 	private String spotTel;
 	private String spotTitle; 
@@ -26,7 +26,7 @@ public class Spot {
 	
 	public Spot() {}
 
-	public Spot(int spotNo, String spotContentId, String spotContentType, String spotCreateDate,
+	public Spot(int spotNo, String spotContentId, String spotContentType, String spotCreatedDate,
 			String spotModifiedDate, String spotTel, String spotTitle, String spotImgPath, String spotAddress,
 			String spotPostalCode, String spotMapx, String spotMapy, String largeCategoryNo, String middleCategoryNo,
 			String smallCategoryNo, String areaCategoryNo, String cityCategoryNo, int spotCount, int spotLike,
@@ -35,7 +35,7 @@ public class Spot {
 		this.spotNo = spotNo;
 		this.spotContentId = spotContentId;
 		this.spotContentType = spotContentType;
-		this.spotCreateDate = spotCreateDate;
+		this.spotCreatedDate = spotCreatedDate;
 		this.spotModifiedDate = spotModifiedDate;
 		this.spotTel = spotTel;
 		this.spotTitle = spotTitle;
@@ -81,12 +81,12 @@ public class Spot {
 		this.spotContentType = spotContentType;
 	}
 
-	public String getSpotCreateDate() {
-		return spotCreateDate;
+	public String getSpotCreatedDate() {
+		return spotCreatedDate;
 	}
 
-	public void setSpotCreateDate(String spotCreateDate) {
-		this.spotCreateDate = spotCreateDate;
+	public void setSpotCreatedDate(String spotCreatedDate) {
+		this.spotCreatedDate = spotCreatedDate;
 	}
 
 	public String getSpotModifiedDate() {
@@ -228,7 +228,7 @@ public class Spot {
 	@Override
 	public String toString() {
 		return "Spot [spotNo=" + spotNo + ", spotContentId=" + spotContentId + ", spotContentType=" + spotContentType
-				+ ", spotCreateDate=" + spotCreateDate + ", spotModifiedDate=" + spotModifiedDate + ", spotTel="
+				+ ", spotCreatedDate=" + spotCreatedDate + ", spotModifiedDate=" + spotModifiedDate + ", spotTel="
 				+ spotTel + ", spotTitle=" + spotTitle + ", spotImgPath=" + spotImgPath + ", spotAddress=" + spotAddress
 				+ ", spotPostalCode=" + spotPostalCode + ", spotMapx=" + spotMapx + ", spotMapy=" + spotMapy
 				+ ", largeCategoryNo=" + largeCategoryNo + ", middleCategoryNo=" + middleCategoryNo

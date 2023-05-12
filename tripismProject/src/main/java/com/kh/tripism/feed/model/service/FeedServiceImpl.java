@@ -41,6 +41,11 @@ public class FeedServiceImpl implements FeedService {
 	}
 
 	@Override
+	public Feed selectFeed(int feedNo) {
+		return fDao.selectFeed(sqlSession, feedNo);
+	}
+	
+	@Override
 	public int updateFeed(Feed f) {
 		return fDao.updateFeed(sqlSession, f);
 	}
@@ -93,5 +98,7 @@ public class FeedServiceImpl implements FeedService {
 	public ArrayList<Img> selectImg(PageInfo pi) {
 		return fDao.selectImg(sqlSession, pi);
 	}
+
+	
 
 }

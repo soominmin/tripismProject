@@ -49,7 +49,7 @@ public class FeedController {
 			ArrayList<Feed> feed = fService.selectFeedList(pi);
 			
 			mv.addObject("pi", pi).addObject("feed", feed).setViewName("feed/feedMain");
-			
+			System.out.println(feed);
 			return mv;
 		
 		
@@ -64,11 +64,6 @@ public class FeedController {
 	@RequestMapping("enrollForm.fd")
 	public String enrollForm() {
 		return "feed/feedEnrollForm";
-	}
-	
-	@RequestMapping("updateForm.fd")
-	public String updateForm() {
-		return "feed/feedUpdateForm";
 	}
 	
 	@RequestMapping("insert.fd")
@@ -240,6 +235,16 @@ public class FeedController {
 			
 			return changeName4;
 		}
+	
+	
+	@RequestMapping("updateForm.fd")
+	public String updateForm(int fno, Model model) {
+		model.addAttribute("f", fService.selectFeed(fno));
+		System.out.println("업데이트 탔나? 컨트롤");
+		return "feed/feedUpdateForm";
+	}
+	
+	
 	@RequestMapping("delete.fd")
 	public String deleteFeed(int feedNo, HttpSession session, String filePath, Model model) {
 		

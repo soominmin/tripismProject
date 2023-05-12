@@ -35,6 +35,10 @@ public class FeedDao {
 	};
 	
 	// 피드 수정
+	public Feed selectFeed(SqlSessionTemplate sqlSession, int feedNo) {
+		return sqlSession.selectOne("feedMapper.selectFeed", feedNo);
+	}
+	
 	public int updateFeed(SqlSessionTemplate sqlSession, Feed f) {
 		return sqlSession.update("feedMapper.updateFeed", f);
 	};
@@ -47,7 +51,6 @@ public class FeedDao {
 	// 피드 목록 조회 *
 	public ArrayList<Feed> selectFeedList(SqlSessionTemplate sqlSession, PageInfo pi){
 		System.out.println("피드 리스트 나왔나 dao");
-		
 		return (ArrayList)sqlSession.selectList("feedMapper.selectFeedList", null);
 	}
 	

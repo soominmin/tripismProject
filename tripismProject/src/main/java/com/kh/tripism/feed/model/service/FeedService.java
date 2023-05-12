@@ -21,6 +21,7 @@ public interface FeedService {
 	int deleteFeed(int feedNo);
 	
 	// 3. 피드 수정
+	Feed selectFeed(int feedNo);
 	int updateFeed(Feed f);
 	
 	// 4-1. 피드 조회수 조회 << 안쓸것

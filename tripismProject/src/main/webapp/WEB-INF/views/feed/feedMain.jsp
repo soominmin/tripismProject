@@ -168,12 +168,6 @@
                 <p style="margin-top: 10px">전체보기</p>
             </button>
 
-            <!-- 
-            <button style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/hot.png" alt="hot" style="width: 2em;">
-                <p>실시간</p>
-            </button>
-             -->
-
             <br>
 
             <button type="button" class="non-click" style="border: none; border-radius: 25% 10%"" onclick="location.href='feedImgAll.fd'"><img src="${pageContext.request.contextPath}/resources/img/feed/image.png" alt="img" style="width: 2.4em;">
@@ -287,7 +281,7 @@
                 </div>
             </form>
 
-			<!-- 무한스크롤 시작할 자리 **구현중 0510 --> 
+			<!-- 무한스크롤 시작할 자리 **구현해야함 --> 
 			
 			<c:set var="done_loop" value="false"/>
 			
@@ -296,29 +290,34 @@
 			
 			<div class="inner-bar feedPage">
                 <div class="inner-bar-small LrN">
-                
+                		
                     	<img src="${ f.memImg }" alt="회원이미지" style="width: 2.7em;"> 
                     
                     	
                     <b style="margin-left: 13px;" >${ f.memNickname }</b>
                     
-                    <input type="text" style="width: 70px; text-align: center; border: none;" placeholder="${ f.feedDate }" disabled>
+                    <input type="text" style="width: 150px; text-align: center; border: none;" placeholder="${ f.feedDate }" disabled>
 
 					<div style="float: right; margin-top: 5px;">
-						<c:if test="${ not empty loginUser.memId and loginUser.memNo eq f.memNo }">
+						<%-- <c:if test="${ not empty loginUser.memId and loginUser.memNo eq f.memNo }">
 		                    <button type="button" style="border: none;" onclick="location.href='updateForm.fd'">
 		                    	<span>수정하기</span>
 		                    </button>
-		                    
 		                    <span>|</span>
-	                    </c:if>
+	                    </c:if>  --%>
 	                    
+	                    <button type="button" style="border: none;" onclick="postFormSubmit(1);">
+		                    	<span>t수정하기</span>
+		                    </button>
+		                    
+		                    <span>|${f.feedNo}</span>
+		                    
 	                    <button type="button" data-toggle="modal" data-target="#report">
 	                        <span>신고하기</span>
 	                    </button>
                    </div>
                 </div>
-
+                
                 <hr class="inner-bar ">
 			
                 <div class="inner-bar-small LrN ">
@@ -509,9 +508,23 @@
                 </div>
             </div>
             
+            <form class="postForm" action="" method="post">
+               <input type="hidden" name="fno" value="${f.feedNo}">
+            </form>
+            
+            <script>
+	            function postFormSubmit(num){// 수정하기 클릭시
+	            	if(num == 1){
+	                $(".postForm").attr("action", "updateForm.fd").submit();
+	             		console.log("수정하기 버튼 눌림" + fno)
+	            	}
+	          }
+            </script>
+            
 			<!-- 무한스크롤 끝낼 자리 -->
 			
 			<script>
+			
 				$(function(){
 					selectReplyList();
 				})

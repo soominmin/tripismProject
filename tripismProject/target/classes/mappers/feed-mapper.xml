@@ -107,12 +107,34 @@
 	</delete>
 	
 	<!-- 피드 수정용 -->
+	
+	<select id="selectFeed" resultMap="feedResultSet">
+		select 
+			f.feed_no
+            ,mem_nickname 
+			,feed_title
+            ,feed_contents
+			,feed_date
+			,img_original_name1
+            ,img_change_name1
+            ,img_original_name2
+            ,img_change_name2
+            ,img_original_name3
+            ,img_change_name3
+            ,img_original_name4
+            ,img_change_name4
+			from tb_feed f
+            join tb_member m on (f.mem_no = m.mem_no)
+            full outer join tb_feed_img i on (f.feed_no = i.feed_no)
+			where f.feed_no = #{feedNo}
+	</select>
+	
 	<update id="updateFeed">
 		update 
         	tb_feed
         set 
               feed_title = #{feedTitle}
-            , feed_contents = #{feedTitle}
+            , feed_contents = #{feedContents}
             , feed_modify = sysdate
         where feed_no = #{feedNo}
 	</update>
@@ -128,10 +150,11 @@
 	<!-- 피드 목록 조회용 -->
 	<select id="selectFeedList" resultMap="feedResultSet" >
 		select
+			f.feed_no,
 		    f.mem_no,
 		    mem_img, 
 		    mem_nickname, 
-		    feed_date,
+		    to_char(feed_date, 'YYYY-MM-DD') as "feed_date",
 		    feed_title,
 		    feed_contents,
 	        img_original_name1,

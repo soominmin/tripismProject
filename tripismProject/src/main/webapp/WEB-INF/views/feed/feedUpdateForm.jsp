@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -234,6 +235,11 @@
 				font-size: 16px;
 			}
 			
+			.thumbnail {
+				height: 100px;
+				margin: 10px
+			}
+			
     </style>
 
 </head>
@@ -247,51 +253,15 @@
 
         <br><br>
         
-        <!-- feedPage- -->
-        <!-- <div id="left-main"> &nbsp;
-
-            <div class="inner-bar" align="center" style="padding:30% 0%;">
- 
-                <button style="background-color: transparent; border: none;" onclick="location.href='index.jsp'"><img src="${pageContext.request.contextPath}/resources/img/feed/home.png" alt="home" style="width: 2em;">
-                    <p>홈</p>
-                </button>
-
-                <br>
-
-                <button style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/hot.png" alt="hot" style="width: 2em;">
-                    <p>실시간</p>
-                </button>
-
-                <br>
-
-                <hr class="inner-bar">
-                
-                <br>
-
-                <button style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/camera.png" alt="img" style="width: 2em;">
-                    <p>사진</p>
-                </button>
-                
-                <br>
-
-                <button style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/video.png" alt="video" style="width: 2em;">
-                    <p>비디오</p>
-                </button>
-
-
-                
-                더 적어보자
-            </div>            
-        </div> -->
-
         <div id="middle-main" align="center">&nbsp;
 
-            <!-- 글쓰기용 modal -->
-            <form action="#">
+            <!-- 수정하기 -->
+            
+             <form action="update.fd" method="post" enctype="multipart/form-data">
+             	<input type="hidden" name="feedNo" value="${ f.feedNo }">
                 <div>
                     <div>
                         <div>
-                
                             <!-- Enroll Header -->
                             <div>
                                 <h4>피드수정</h4> <br>
@@ -299,7 +269,7 @@
                 
                             <!-- Enroll body -->
                             <div>
-                                <input type="text" name="title" placeholder="작성한 글 제목" maxlength="100" value="">
+                                <input type="text" name="feedTitle" value="${ f.feedTitle }" maxlength="100" required>
                             </div>
 
                             <br>
@@ -309,114 +279,102 @@
                             <div class="WriteWebSectionstyle__HorizontalLine-sc-ixmlq3-1 cGslsG"></div>
 
                             <div>
-                            <textarea class="WriteWebSectionstyle__WriteTextarea-sc-ixmlq3-3 IUMRx desc" name="content" id="desc" placeholder="
-                            작성한 글 내용
-                             " style="height: 400px;"></textarea>
+                            	<textarea class="WriteWebSectionstyle__WriteTextarea-sc-ixmlq3-3 IUMRx desc" name="feedContents" value="" id="desc" 
+                            	style="height: 400px; resize: none" required>${ f.feedContents }</textarea>
                             </div>
                         </div>
                         
                         <div align="left">
                             <table>
                                 <thead>
-                                    <th>
-                                        첨부 &nbsp; <button class="addFile">(더하기+)</button> &nbsp; <button class="deleteFile">(빼기-)</button>
-                                    </th> 
+                                
                                 </thead>
                                 <tbody id="fileHere">
                                     <tr>
-                                        <td><input type="file" accept="image/*"></td>
+                                    	<td> 현재 업로드된 첨부파일 <br>
+	                                    	<c:if test="${ not empty f.imgOriginName1 }">
+		                                        <input type="file" class="files" name="reupFile1" value="${ f.imgChangeName1 }" accept="image/*"> <!-- 2번 -->
+		                                    </c:if>
+		                                    	<input type="file" class="files" name="upFile1" accept="image/*">
+		                                    	
+		                                    <c:if test="${ not empty f.imgOriginName2 }">
+		                                        <input type="file" class="files" name="reupFile2" value="${ f.imgChangeName2 }" accept="image/*"> <br>
+		                                    </c:if>
+		                                       <input type="file" class="files" name="upFile2" accept="image/*"> <br>
+		                                       
+		                                    <c:if test="${ not empty f.imgOriginName3 }">
+		                                        <input type="file" class="files" name="reupFile3" value="${ f.imgChangeName3 }" accept="image/*">
+		                                    </c:if>   
+		                                    	<input type="file" class="files" name="upFile3" accept="image/*">
+		                                    	
+		                                    <c:if test="${ not empty f.imgOriginName4 }"> 
+		                                        <input type="file" class="files" name="reupFile4" value="${ f.imgChangeName4 }" accept="image/*">
+		                                    </c:if>
+		                                    	<input type="file" class="files" name="upFile4" accept="image/*"> 
+	                                    </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         
+                        <div align="left">
+							<div style="width: 672.4px; height: 400px; border: 1px dotted gray; overflow: auto">	
+								<div id="result"></div>
+							</div>
+						</div>
+                        
                         <!-- Enroll footer -->
                         <div class="button__ButtonAreaDiv-sc-1szjplo-6 bGwIdM" style="margin-top: 7px;">
-                            <button
+                            <button type="button"
                                 class="button__ButtonConfirmButton-sc-1szjplo-7 hlWCvk"
                                 style="width: calc(50% - 8px);"
-                                onclick="location.href='feed.fd'">취소</button>
-                            <button
+                                onclick="location.href='feed.fd'">취소
+							</button>
+                            <button type="submit"
                                 class="button__ButtonConfirmButton-sc-1szjplo-7 dcFMHq"
-                                style="width: calc(50% - 8px);">작성완료</button>
+                                style="width: calc(50% - 8px);">작성완료
+							</button>
                         </div>
-                        
-                        </div>
-                    </div>
-                </div>
-            </form>
-
+                 	</div>
+             	</div>
+         	</form>
 
             <script>
-                $(function(){ // 첨부파일 추가버튼
-                    $(".addFile").click(function(){
-                        $("#fileHere").append("<tr><td><input type='file' accept='image/*'></td></tr>");
-                    })
-                })
-                $(function(){ // 첨부파일 제거버튼. 한 개는 남게 만듦
-                    $(".deleteFile").click(function(){
-                        if($("#fileHere>tr").length <2) {
-                            return;
-                        }else{
-                            $("#fileHere>tr:last").remove();
-                        }
-                    })
-                })
+					function handleFileSelect() { // 2번 시도
+					    //Check File API support
+					    if (window.File && window.FileList && window.FileReader) {
+
+					        var files = event.target.files; //FileList object
+					        var output = document.getElementById("result");
+
+					        for (var i = 0; i < files.length; i++) {
+					            var file = files[i];
+					            //Only pics
+					            if (!file.type.match('image')) continue;
+
+					            var picReader = new FileReader();
+					            picReader.addEventListener("load", function (event) {
+					                var picFile = event.target;
+					                var div = document.createElement("div");
+					                div.innerHTML = "<img class='thumbnail' src='" + picFile.result + "'" + "title='" + picFile.name + "'/>";
+					                output.insertBefore(div, null);
+					            });
+					            //Read the image
+					            picReader.readAsDataURL(file);
+					        }
+					    } else {
+					        console.log("Your browser does not support File API");
+					    }
+					}
+	
+					let img = document.getElementsByClassName('files')
+			        for(var i = 0; i<img.length; i++){
+			            img[i].addEventListener('change', handleFileSelect, false)
+			        }
             </script>
-
-        
-            
         </div>
-        <!-- <div id="right-main">
-            <div align="center">
-                <img src="${pageContext.request.contextPath}/resources/img/logo.png" alt="image" style="width: 10em;">
-            </div>
-            <hr class="inner-bar">
-            <div class="inner-bar">
-                <b>#태그</b> <br>
-                <a href="#">#봄</a>
-                <a href="#">#여름</a>
-                <a href="#">#가을</a>
-                <a href="#">#겨울</a>    
-            </div>
-
-            <hr class="inner-bar">
-
-            <div class="inner-bar">
-                <b>추천 피드</b> <a href="#" style="float: right;">더보기&gt;</a>
-            </div>
-
-            <div class="inner-bar" onclick="location.href='#'">
-                <p>
-                    <b>여의도 벚꽃축제</b> <br>
-                    여의도 벚꽃축제 다녀왔어요!
-                </p>
-
-            </div>
-
-            <div class="inner-bar"><hr></div>
             
-            <div class="inner-bar" onclick="location.href='#'">
-                <p>
-                    <b>제주도 얼른 오세요</b> <br>
-                    가족여행으로 제주도를 다녀왔습니다
-                </p>
-
-            </div>
-
-            <div class="inner-bar"><hr></div>
-
-            <div class="inner-bar" onclick="location.href='#'">
-                <p>
-                    <b>서울숲 탐방기</b> <br>
-                    안녕하세요. 서울 도심 속 숲을 찾아 서울숲에 다녀왔습니다.
-                </p>
-
-            </div>
-
-        </div> -->
-
-    </div>
+	</div>
 
     <!-- footer -->
     <jsp:include page="../common/footer.jsp"></jsp:include>

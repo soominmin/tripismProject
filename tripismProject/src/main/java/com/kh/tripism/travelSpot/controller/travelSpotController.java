@@ -153,7 +153,7 @@ public class travelSpotController {
         url2 +="?MobileOS=etc&MobileApp=tripism&_type=json&contentId="+contentId
         		   +"&defaultYN=Y&firstImageYN=N&areacodeYN=N&catcodeYN=N&addrinfoYN=N&mapinfoYN=N&overviewYN=Y&numOfRows=1&pageNo=1&serviceKey="+servicekey;
         
-        System.out.println("url3 : " + url2);
+        System.out.println("url2 : " + url2);
 
 		URL requestUrl2 = new URL(url2);
 		
@@ -217,7 +217,7 @@ public class travelSpotController {
 		
 		//
 		
-		// api 공통정보조회
+		// api 이미지조회
 		String url3 = "http://apis.data.go.kr/B551011/KorService1/detailImage1";
         url3 +="?MobileOS=etc&MobileApp=tripism&_type=json&contentId="+contentId
         		   +"&imageYN=Y&subImageYN=Y&numOfRows=20&pageNo=1&serviceKey="+servicekey;

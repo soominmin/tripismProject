@@ -103,112 +103,23 @@
 	
 	      <div class="col-md-12">
 	        <div id="package-slider" class="owl-carousel owl-theme package-slider">
-	          <div class="item">
-	            <img class="" data-src="" src="${al3.get(0) }" alt="image">
-	          </div>
-	
-	          <div class="item">
-	            <img class="" data-src="" src="${al3.get(1) }" alt="image">
-	          </div>
-	
-	          <div class="item">
-	            <img class="" data-src="" src="${al3.get(2) }" alt="image">
-	          </div>
+			  
+			  <c:forEach var="i" items="${al3 }">
+		          <div class="item">
+		            <img class="" data-src="" src="${i.originimgurl}" alt="image">
+		          </div>
+	          </c:forEach>
+	          
 	        </div>
 	
 	        <div class="mt-8">
 	          <h2 class="text-uppercase mb-5">상세정보</h2>
 	          <hr style="color: black;">
-	          <p class="mb-6"">
+	          <p class="mb-6">
 	          	${al2.overview }
 	          </p>
-				
-			  <!-- 
-	          <div class="mb-5">
-	            <div class="row">
-	              <div class="col-md-6">
-	                <ul class="list-unstyled mb-0">
-	                  <li class="media">
-	                    <div class="text-gray-color me-2">
-	                      <i class="far fa-dot-circle" aria-hidden="true"></i>
-	                    </div>
-	                    <div class="media-body">
-	                      <p>사적 경복궁</p>
-	                    </div>
-	                  </li>
-	
-	                  <li class="media">
-	                    <div class="text-gray-color me-2">
-	                      <i class="far fa-dot-circle" aria-hidden="true"></i>
-	                    </div>
-	                    <div class="media-body">
-	                      <p>국보 경복궁 근정전</p>
-	                    </div>
-	                  </li>
-	
-	                  <li class="media">
-	                    <div class="text-gray-color me-2">
-	                      <i class="far fa-dot-circle" aria-hidden="true"></i>
-	                    </div>
-	                    <div class="media-body">
-	                      <p>국보 경복궁 경회루</p>
-	                    </div>
-	                  </li>
-	
-	                  <li class="media">
-	                    <div class="text-gray-color me-2">
-	                      <i class="far fa-dot-circle" aria-hidden="true"></i>
-	                    </div>
-	                    <div class="media-body">
-	                      <p>보물 경복궁 자경전</p>
-	                    </div>
-	                  </li>
-	
-	                  <li class="media">
-	                    <div class="text-gray-color me-2">
-	                      <i class="far fa-dot-circle" aria-hidden="true"></i>
-	                    </div>
-	                    <div class="media-body">
-	                      <p>보물 경복궁 자경전 십장생 굴뚝</p>
-	                    </div>
-	                  </li>
-	                </ul>
-	              </div>
-	
-	              <div class="col-md-6">
-	                <ul class="list-unstyled mb-0">
-	                  <li class="media">
-	                    <div class="text-gray-color me-2">
-	                      <i class="far fa-dot-circle" aria-hidden="true"></i>
-	                    </div>
-	                    <div class="media-body">
-	                      <p>보물 경복궁 아미산굴뚝</p>
-	                    </div>
-	                  </li>
-	
-	                  <li class="media">
-	                    <div class="text-gray-color me-2">
-	                      <i class="far fa-dot-circle" aria-hidden="true"></i>
-	                    </div>
-	                    <div class="media-body">
-	                      <p> 보물 경복궁 근정문 및 행각</p>
-	                    </div>
-	                  </li>
-	
-	                  <li class="media">
-	                    <div class="text-gray-color me-2">
-	                      <i class="far fa-dot-circle" aria-hidden="true"></i>
-	                    </div>
-	                    <div class="media-body">
-	                      <p>보물 경복궁 풍기대</p>
-	                    </div>
-	                  </li>
-	                </ul>
-	              </div>
-	            </div>
-	          </div>
 	        </div>
-	         -->
+	        
 	
 	
 	        <div class="mb-7">
@@ -244,7 +155,7 @@
 			</script>
 			
 	
-	        <div class="mb-7"">
+	        <div class="mb-7">
 	          <br>
 	          <h2 class="text-uppercase mb-6">상세정보</h2>
 	          <hr>
@@ -756,6 +667,12 @@
 	    </div>
 	  </div>
 	</section>
+	
+    <script>
+      	
+         	        
+      
+    </script>
 	
 	<jsp:include page="../common/footer.jsp"/>
 	

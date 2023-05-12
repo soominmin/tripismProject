@@ -516,7 +516,6 @@
 	            function postFormSubmit(num){// 수정하기 클릭시
 	            	if(num == 1){
 	                $(".postForm").attr("action", "updateForm.fd").submit();
-	             		console.log("수정하기 버튼 눌림" + fno)
 	            	}
 	          }
             </script>

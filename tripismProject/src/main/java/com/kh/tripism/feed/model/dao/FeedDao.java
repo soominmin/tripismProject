@@ -21,71 +21,69 @@ public class FeedDao {
 		System.out.println("dao 탔나?");
 		return sqlSession.insert("feedMapper.insertFeed", f);
 	};
-	
+
 	public int insertFeed2(SqlSession sqlSession, Feed f) { // feed 이미지 넣는 부분
 		System.out.println("dao 이미지편 탔나?");
 		System.out.println("최종 바뀐이름 : " + f.getChangeName());
-		
+
 		return sqlSession.insert("feedMapper.insertFeed2", f);
 	}
-	
+
 	// 피드 삭제
 	public int deleteFeed(SqlSessionTemplate sqlSession, int feedNo) { // feed 지우는 부분
 		return sqlSession.delete("feedMapper.deleteFeed", feedNo);
 	};
-	
+
 	// 피드 수정
 	public Feed selectFeed(SqlSessionTemplate sqlSession, int feedNo) {
 		return sqlSession.selectOne("feedMapper.selectFeed", feedNo);
 	}
-	
+
 	public int updateFeed(SqlSessionTemplate sqlSession, Feed f) {
 		return sqlSession.update("feedMapper.updateFeed", f);
 	};
-	
+
 	// 피드 개수 셈
 	public int selectFeedCount(SqlSessionTemplate sqlSession) {
 		return sqlSession.selectOne("FeedMapper.selectFeedCount");
 	}
-	
+
 	// 피드 목록 조회 *
-	public ArrayList<Feed> selectFeedList(SqlSessionTemplate sqlSession, PageInfo pi){
+	public ArrayList<Feed> selectFeedList(SqlSessionTemplate sqlSession, PageInfo pi) {
 		System.out.println("피드 리스트 나왔나 dao");
-		return (ArrayList)sqlSession.selectList("feedMapper.selectFeedList", null);
+		return (ArrayList) sqlSession.selectList("feedMapper.selectFeedList", null);
 	}
-	
-	
-	public int selectListCount(SqlSession sqlSession) { 
+
+	public int selectListCount(SqlSession sqlSession) {
 		return sqlSession.selectOne("feedMapper.selectFeedCount");
 	}
-	 
-	
+
 	// 댓글 추가
 	public int insertReply(SqlSessionTemplate sqlSession, Reply r) {
 		return sqlSession.insert("feedMapper.insertReply", r);
 	};
-	
+
 	// 댓글 삭제
 	public int deleteReply(SqlSessionTemplate sqlSession, int replyNo) {
 		return sqlSession.delete("feedMapper.deleteReply", replyNo);
 	}
-	
+
 	// 댓글 수정
 	public int updateReply(SqlSessionTemplate sqlSession, int replyNo) {
 		return sqlSession.update("feedMapper.updateReply", replyNo);
 	}
-	
+
 	// 댓글 목록 조회 *
 	public ArrayList<Reply> selectReplyList(SqlSessionTemplate sqlSession, int feedNo) {
-		return (ArrayList)sqlSession.selectList("feedMapper.selectReplyList", feedNo);
+		return (ArrayList) sqlSession.selectList("feedMapper.selectReplyList", feedNo);
 	}
 
 	public ArrayList<Member> selectMember(SqlSessionTemplate sqlSession, PageInfo pi) {
-		return (ArrayList)sqlSession.selectList("feedMapper.selectMember");
+		return (ArrayList) sqlSession.selectList("feedMapper.selectMember");
 	}
-	
+
 	public ArrayList<Img> selectImg(SqlSessionTemplate sqlSession, PageInfo pi) {
-		return (ArrayList)sqlSession.selectList("feedMapper.selectImg");
+		return (ArrayList) sqlSession.selectList("feedMapper.selectImg");
 	}
-	
+
 }

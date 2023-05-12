@@ -126,7 +126,7 @@
 			from tb_feed f
             join tb_member m on (f.mem_no = m.mem_no)
             full outer join tb_feed_img i on (f.feed_no = i.feed_no)
-			where f.feed_no = #{feedNo}
+		where f.feed_no = #{feedNo}
 	</select>
 	
 	<update id="updateFeed">

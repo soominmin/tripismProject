@@ -73,6 +73,14 @@
 		 where mem_nickname = #{checkNickname}
 	</select>
 	
+	<select id="emailCheck" resultType="_int">
+				select
+			   count(*)
+		  from tb_member
+		 where mem_email = #{email}
+		 
+	</select>
+	
 	<select id="idfind2" parameterType="Member" resultMap="memberResultSet">
 		select
 	        mem_no
@@ -120,6 +128,24 @@
 		set mem_mbti = #{mbti}
 		where mem_id = #{memId}
 	</update>
+	
+	<update id="nicknameUpdate">
+		update
+			tb_member
+	    set mem_nickname = #{memNickname}
+	  where mem_id = #{memId}
+	</update>
+	
+	<update id="deleteMember">
+		update
+			tb_member
+		set mem_nickname = null
+		  , mem_status = 'N'
+		  , mem_email = null
+		  where mem_id= #{memId}
+	</update>
+	
+	
 
 	
 

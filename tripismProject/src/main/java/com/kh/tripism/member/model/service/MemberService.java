@@ -15,13 +15,16 @@ public interface MemberService {
 		int updateMember(Member m);
 		
 		// 회원탈퇴 서비스 (update)
-		int deleteMember(String memId);
+		int deleteMember(Member m);
 		
 		// 아이디 중복체크 서비스 (select)
 		int idCheck(String checkId);
 		
 		// 닉네임 중복체크 서비스
 		int nicknameCheck(String checkNickname);
+		
+		// 이메일 중복체크 서비스
+		int emailCheck(String email);
 		
 		// 아이디 찾기 서비스
 		Member idfind2(Member m);
@@ -35,9 +38,14 @@ public interface MemberService {
 		// 마이페이지에서 비밀번호 변경 서비스
 		int pwdUpdateMypage(Member m);
 		
+		// MBTI 결과
 		String resultMBTI(String result);
 		
+		// MBTI 결과 등록하기 (insert)
 		int insertMBTI(Member m);
+		
+		// 닉네임 수정
+		int nicknameUpdate(Member m);
 		
 		
 

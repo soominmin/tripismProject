@@ -1,33 +1,31 @@
 package com.kh.tripism.travelSpot.model.vo;
 
 public class SpotShop {
-	private String chkbabycarriageshopping;
-	private String chkcreditcard;
-	private String shopping;
-	private String chkpetshopping;
-	private String culturecenter;
-	private String fairday;
-	private String infocentershopping;
-	private String opendateshopping;
-	private String opentime;
-	private String parkingshopping;
-	private String restdateshopping;
-	private String restroom;
-	private String saleitem;
-	private String saleitemcost;
-	private String scaleshopping;
-	private String shopguide;
+	private String chkbabycarriageshopping;	//유모차대여정보
+	private String chkcreditcardshopping;	//신용카드가능정보
+	private String chkpetshopping;			//애완동물동반가능정보
+	private String culturecenter;			//문화센터바로가기
+	private String fairday;					//장서는날
+	private String infocentershopping;		//문의및안내
+	private String opendateshopping;		//개장일
+	private String opentime;				//영업시간
+	private String parkingshopping;			//주차시설
+	private String restdateshopping;		//쉬는날
+	private String restroom;				//화장실설명
+	private String saleitem;				//판매품목
+	private String saleitemcost;			//판매품목별가격
+	private String scaleshopping;			//규모
+	private String shopguide;				//매장안내
 	
 	public SpotShop() {}
-	
-	public SpotShop(String chkbabycarriageshopping, String chkcreditcard, String shopping, String chkpetshopping,
+
+	public SpotShop(String chkbabycarriageshopping, String chkcreditcardshopping, String chkpetshopping,
 			String culturecenter, String fairday, String infocentershopping, String opendateshopping, String opentime,
 			String parkingshopping, String restdateshopping, String restroom, String saleitem, String saleitemcost,
 			String scaleshopping, String shopguide) {
 		super();
 		this.chkbabycarriageshopping = chkbabycarriageshopping;
-		this.chkcreditcard = chkcreditcard;
-		this.shopping = shopping;
+		this.chkcreditcardshopping = chkcreditcardshopping;
 		this.chkpetshopping = chkpetshopping;
 		this.culturecenter = culturecenter;
 		this.fairday = fairday;
@@ -51,20 +49,12 @@ public class SpotShop {
 		this.chkbabycarriageshopping = chkbabycarriageshopping;
 	}
 
-	public String getChkcreditcard() {
-		return chkcreditcard;
+	public String getChkcreditcardshopping() {
+		return chkcreditcardshopping;
 	}
 
-	public void setChkcreditcard(String chkcreditcard) {
-		this.chkcreditcard = chkcreditcard;
-	}
-
-	public String getShopping() {
-		return shopping;
-	}
-
-	public void setShopping(String shopping) {
-		this.shopping = shopping;
+	public void setChkcreditcardshopping(String chkcreditcardshopping) {
+		this.chkcreditcardshopping = chkcreditcardshopping;
 	}
 
 	public String getChkpetshopping() {
@@ -173,14 +163,15 @@ public class SpotShop {
 
 	@Override
 	public String toString() {
-		return "SpotShop [chkbabycarriageshopping=" + chkbabycarriageshopping + ", chkcreditcard=" + chkcreditcard
-				+ ", shopping=" + shopping + ", chkpetshopping=" + chkpetshopping + ", culturecenter=" + culturecenter
+		return "SpotShop [chkbabycarriageshopping=" + chkbabycarriageshopping + ", chkcreditcardshopping="
+				+ chkcreditcardshopping + ", chkpetshopping=" + chkpetshopping + ", culturecenter=" + culturecenter
 				+ ", fairday=" + fairday + ", infocentershopping=" + infocentershopping + ", opendateshopping="
 				+ opendateshopping + ", opentime=" + opentime + ", parkingshopping=" + parkingshopping
 				+ ", restdateshopping=" + restdateshopping + ", restroom=" + restroom + ", saleitem=" + saleitem
 				+ ", saleitemcost=" + saleitemcost + ", scaleshopping=" + scaleshopping + ", shopguide=" + shopguide
 				+ "]";
 	}
+	
 	
 	
 

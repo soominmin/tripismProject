@@ -1,24 +1,24 @@
 package com.kh.tripism.travelSpot.model.vo;
 
 public class SpotFestival {
-	private String agelimit;
-	private String bookingplace;
-	private String discountinfofestival;
-	private String eventenddate;
-	private String eventhomepage;
-	private String eventplace;
-	private String eventstartdate;
-	private String festivalgrade;
-	private String placeinfo;
-	private String playtime;
-	private String program;
-	private String spendtimefestival;
-	private String sponsor1;
-	private String sponsor1tel;
-	private String sponsor2;
-	private String sponsor2tel;
-	private String subevent;
-	private String usetimefestival;
+	private String agelimit;				//관람가능연령
+	private String bookingplace;			//예매처
+	private String discountinfofestival;	//할인정보
+	private String eventenddate;			//행사종료일
+	private String eventhomepage;			//행사홈페이지
+	private String eventplace;				//행사장소
+	private String eventstartdate;			//행사시작일
+	private String festivalgrade;			//축제등급
+	private String placeinfo;				//행사장위치안내
+	private String playtime;				//공연시간
+	private String program;					//행사프로그램
+	private String spendtimefestival;		//관람소요시간
+	private String sponsor1;				//주최자정보
+	private String sponsor1tel;				//주최자연락처
+	private String sponsor2;				//주관사정보
+	private String sponsor2tel;				//주관사연락처
+	private String subevent;				//부대행사
+	private String usetimefestival;			//이용요금
 	
 	public SpotFestival() {}
 

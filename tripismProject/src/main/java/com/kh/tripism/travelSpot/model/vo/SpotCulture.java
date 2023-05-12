@@ -1,19 +1,19 @@
 package com.kh.tripism.travelSpot.model.vo;
 
 public class SpotCulture {
-	private String accomcountculture;
-	private String chkbabycarriageculture;
-	private String chkcreditcardculture;
-	private String chkpetculture;
-	private String discountinfo;
-	private String infocenterculture;
-	private String parkingculture;
-	private String parkingfee;
-	private String restdateculture;
-	private String usefee;
-	private String usetimeculture;
-	private String scale;
-	private String spendtime;
+	private String accomcountculture;		//수용인원
+	private String chkbabycarriageculture;	//유모차대여정보
+	private String chkcreditcardculture;	//신용카드가능정보
+	private String chkpetculture;			//애완동물동반가능정보
+	private String discountinfo;			//할인정보
+	private String infocenterculture;		//문의및안내
+	private String parkingculture;			//주차시설
+	private String parkingfee;				//주차요금
+	private String restdateculture;			//쉬는날
+	private String usefee;					//이용요금
+	private String usetimeculture;			//이용시간
+	private String scale;					//규모
+	private String spendtime;				//관람소요시간
 	
 	public SpotCulture() {}
 

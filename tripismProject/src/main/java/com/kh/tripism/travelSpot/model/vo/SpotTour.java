@@ -1,23 +1,23 @@
 package com.kh.tripism.travelSpot.model.vo;
 
 public class SpotTour {
-	private String contentid;
-	private String contenttypeid;
-	private String accomcount;
-	private String chkbabycarriage;
-	private String chkcreditcard;
-	private String chkpet;
-	private String expagerange;
-	private String expguide;
-	private String heritage1;
-	private String heritage2;
-	private String heritage3;
-	private String infocenter;
-	private String opendate;
-	private String parking;
-	private String restdate;
-	private String useseason;
-	private String usetime;
+	private String contentid;			//콘텐츠ID
+	private String contenttypeid;		//콘텐츠타입ID
+	private String accomcount;			//수용인원
+	private String chkbabycarriage;		//유모차대여정보
+	private String chkcreditcard;		//신용카드가능정보
+	private String chkpet;				//애완동물동반가능정보
+	private String expagerange;			//체험가능연령
+	private String expguide;			//체험안내
+	private String heritage1;			//세계문화유산유무
+	private String heritage2;			//세계자연유산유무
+	private String heritage3;			//세계기록유산유무
+	private String infocenter;			//문의및안내
+	private String opendate;			//개장일
+	private String parking;				//주차시설
+	private String restdate;			//쉬는날
+	private String useseason;			//이용시기
+	private String usetime;				//이용시간
 	
 	public SpotTour() {}
 

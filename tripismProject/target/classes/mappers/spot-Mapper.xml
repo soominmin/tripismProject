@@ -51,15 +51,7 @@
 	           and
 	                tvs.spot_img_path is not null
 	           and
-	                spot_title not LIKE '%축제%'
-	           and
-	                spot_title not LIKE '%페스티%'
-	           and
-	                (
-	            	tvs.large_category_no = 'A01'
-	           or
-	                tvs.large_category_no = 'A02'
-	                )
+	           		spot_content_type = 12
 	</select>
 	
 	<!-- 

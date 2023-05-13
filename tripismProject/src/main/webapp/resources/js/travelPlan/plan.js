@@ -89,9 +89,11 @@ let currentAreaLng = 0;
 				
 				let area = code;
 				console.log(area);
+				console.log(currentCode);
 				if(code==currentCode){
-					console.log("asdasd")
+					document.getElementById('placesList'+(currentMapNum+1)).innerHTML="";
 				}
+
 
 				let markerNum = 1;
 				// 지도 중심을 부드럽게 이동시킵니다
@@ -391,7 +393,7 @@ function makeDate(dates){
 		console.log(modal);
 		
 		modalHTML = '<div class="modal-dialog" role="document" style="margin-left:50px; ">'
-          +'<div class="modal-plan" style="width: 1000px ; height: 850px;">'
+          +'<div class="modal-plan" style="width: 1000px ; height: 630px;">'
             +'<div class="modal-header rounded" id="modalTop" style="height: 5%;">'
               +'<h3 class="modal-title text-uppercase font-weight-bold">여행지 검색</h3>'
              +'<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>'

@@ -531,7 +531,7 @@
         <section
             direction="vertical"
             class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq">
-            <img alt="이미지" src="${pageContext.request.contextPath}/resources/img/partner/img5.jpg"></section>
+            <img alt="이미지" src="${pageContext.request.contextPath}/resources/img/partner/originImg2.jpg"></section>
             <div class="accompanyId__BulletinWrapDiv-sc-1up08zu-1 jLghAG">
                 <div class="innerSection__AreaLeftDiv-sc-1ag5fhb-4 birXOP">
                     <div class="AccompanyContainer__Wrap-sc-zoqt5l-0 rgrEj">

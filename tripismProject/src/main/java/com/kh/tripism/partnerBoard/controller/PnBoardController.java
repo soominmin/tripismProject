@@ -45,8 +45,19 @@ public class PnBoardController {
 	
 	// 게시글 상세보기
 	@RequestMapping("detail.pn")
-	public String detailForm() {
-		return "travelPartner/detailForm";
+	public String detailForm(int pno, Model model) {
+		
+		int result = bService.increaseCount(pno);
+		
+		if(result > 0) {
+			PnBoard pb = bService.selectPnBoard(pno);
+			model.addAttribute("pb", pb);
+			return "travelPartner/detailForm";
+			
+		} else {
+			model.addAttribute("errorMsg", "게시글 상세조회 실패!");
+			return "common/errorPage";
+		}
 	}
 
 	
@@ -64,8 +75,8 @@ public class PnBoardController {
 
 	
 	
-	// 
-
+	// 게시글 삭제폼 (장성예정)
+	
 	
 	
 	

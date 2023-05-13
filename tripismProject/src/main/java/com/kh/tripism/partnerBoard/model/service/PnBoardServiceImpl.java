@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.partnerBoard.model.dao.PnBoardDao;
 import com.kh.tripism.partnerBoard.model.vo.PnBoard;
-import com.kh.tripism.partnerBoard.model.vo.PnReply;
+import com.kh.tripism.common.vo.Reply;
 
 @Service
 public class PnBoardServiceImpl implements PnBoardService {
@@ -71,13 +71,13 @@ public class PnBoardServiceImpl implements PnBoardService {
 
 	// 6. 댓글 리스트 조회
 	@Override
-	public ArrayList<PnReply> selectPnReplyList(int pnBoardNo) {
+	public ArrayList<Reply> selectPnReplyList(int pnBoardNo) {
 		return pbDao.selectPnReplyList(sqlSession, pnBoardNo);
 	}
 
 	// 7. 댓글 작성용 서비스(ajax)
 	@Override
-	public int insertPnReply(PnReply pr) {
+	public int insertPnReply(Reply pr) {
 		return pbDao.insertPnReply(sqlSession, pr);
 	}
 

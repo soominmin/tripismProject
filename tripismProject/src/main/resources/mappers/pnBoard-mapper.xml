@@ -38,14 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 
-	<resultMap type="PnReply" id="pnReplyResultSet">
-		<result column="reply_no" property="replyNo"/>
-		<result column="board_no" property="boardNo"/>
-		<result column="mem_no" property="memNo"/>
-		<result column="reply_contents" property="replyContents"/>
-		<result column="reply_date" property="replyDate"/>
-		<result column="reply_distinct" property="replyDistinct"/>
-	</resultMap>
+
 	
 	<select id="selectListCount" resultType="_int">
 		select

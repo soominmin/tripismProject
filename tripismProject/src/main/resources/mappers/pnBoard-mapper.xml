@@ -57,7 +57,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="selectList" resultMap="pnBoardResultSet">
 		select
-				p.partner_type
+			p.post_no
+			,	p.partner_type
 			,	p.partner_original_img
 			,	p.partner_title
 			,	p.partner_content

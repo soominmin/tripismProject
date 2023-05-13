@@ -31,7 +31,7 @@ public class PnBoardServiceImpl implements PnBoardService {
 		return pbDao.selectListCount(sqlSession);
 	}
 
-	// 페이징처리를 위한 전체 개수를 리턴하는 메소드
+	// 페이징처리를 위한 목록을 리턴하는 메소드
 	@Override
 	public ArrayList<PnBoard> selectList(PageInfo pi) {
 		return pbDao.selectList(sqlSession, pi);

@@ -791,7 +791,7 @@
 			</div>
 		</section>
 		<section direction="vertical"
-			class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq"
+			class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq" id="pnlist"
 			style="margin-top: 20px; display: flex;">
 			<!-------------------------------------------------------------------------------------------------------------------------->
 			
@@ -883,13 +883,36 @@
 								</p>
 						</div>						
 					</div>
-					
-				
+
 				</c:forEach>
 					
 				<!-------------------------------------------------------------------------------------------------------------------------->
 
+<!-- 
+				<script>
+					$("#pnlist>ul>.cxduOO").click(function(){
+						location.href='detail.pn?pno=' + ${pn.postNo };
+								
+					})
+				</script>
 
+
+			
+<!-- 				
+				<script>
+				$(function(){
+					$(".cxduOO").click(()=>{
+						$(".cxduOO").each((i,item)=>{
+							$(this).find({
+								location.href = $(this).children(".postNo").val();
+							});
+						})
+					})
+
+					console.log($(".cxduOO"))
+				})
+				</script> 
+-->
 
 
 	
@@ -949,19 +972,11 @@
 			</div>
 			
 		</section>
-		
-		
 	</div>
-	<script>
-	$(function(){
-		$(".cxduOO").click(()=>{
-			console.log($(this))
-			//location.href = $(this).children(".postNo").val();
-		})
-		console.log($(".cxduOO"))
-	})
-					
-					</script>
+
+	
+	
+	
 		<!-- 푸터바 포함 -->
 	<jsp:include page="../common/footer.jsp"/>
 </body>

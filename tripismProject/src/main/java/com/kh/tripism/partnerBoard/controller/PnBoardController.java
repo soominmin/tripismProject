@@ -58,7 +58,6 @@ public class PnBoardController {
 			model.addAttribute("errorMsg", "게시글 상세조회 실패!");
 			return "common/errorPage";
 		}
-		
 	}
 
 	

@@ -77,6 +77,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
+	<update id="increaseCount">
+		update
+			tb_partner
+		set partner_views = partner_views + 1
+		where post_no = #{post_no}
+			and partner_status = 'Y'
+	</update>
+	
+	
+	<select id="selectPnBoard" resultMap="pnBoardResultSet">
+		select
+				p.post_no
+			,	p.partner_type
+			,	p.partner_original_img
+			,	p.partner_date
+			,	p.partner_views
+			,	p.partner_title
+			,	p.partner_content
+			,	p.partner_start_date
+			,	p.partner_end_date
+			,	p.partner_location
+			,	p.partner_number
+            ,   m.gender
+            ,   m.mem_nickname
+            ,	m.mem_mbti
+            ,	m.mem_img
+        from tb_partner p
+        inner join tb_member m
+        on  p.mem_no = m.mem_no
+		where post_no = #{post_no}
+	</select>
 	
 	
 </mapper>

@@ -9,9 +9,14 @@ public class Reply {
 	private String replyDate;
 	private String replyDistinct;
 	
+	// 댓글 작성자
+	private String replyWriter;
+	
 	public Reply() {}
 
-	public Reply(int replyNo, int boardNo, int memNo, String replyContents, String replyDate, String replyDistinct) {
+
+	public Reply(int replyNo, int boardNo, int memNo, String replyContents, String replyDate, String replyDistinct,
+			String replyWriter) {
 		super();
 		this.replyNo = replyNo;
 		this.boardNo = boardNo;
@@ -19,7 +24,10 @@ public class Reply {
 		this.replyContents = replyContents;
 		this.replyDate = replyDate;
 		this.replyDistinct = replyDistinct;
+		this.replyWriter = replyWriter;
 	}
+
+
 
 	public int getReplyNo() {
 		return replyNo;
@@ -68,12 +76,23 @@ public class Reply {
 	public void setReplyDistinct(String replyDistinct) {
 		this.replyDistinct = replyDistinct;
 	}
+	
+	public String getReplyWriter() {
+		return replyWriter;
+	}
+
+	public void setReplyWriter(String replyWriter) {
+		this.replyWriter = replyWriter;
+	}
+
 
 	@Override
 	public String toString() {
 		return "Reply [replyNo=" + replyNo + ", boardNo=" + boardNo + ", memNo=" + memNo + ", replyContents="
-				+ replyContents + ", replyDate=" + replyDate + ", replyDistinct=" + replyDistinct + "]";
+				+ replyContents + ", replyDate=" + replyDate + ", replyDistinct=" + replyDistinct + ", replyWriter="
+				+ replyWriter + "]";
 	}
-	
+
+
 	
 }

@@ -29,7 +29,18 @@
 		<result column="sigungu_title" property="sigunguTitle"/>
 		
 	</resultMap>
-
+	
+	<resultMap type="Reply" id="replyResultSet">
+		<result column="reply_no" property="replyNo"/>
+		<result column="board_no" property="boardNo"/>
+		<result column="mem_no" property="memNo"/>
+		<result column="reply_contents" property="replyContents"/>
+		<result column="reply_date" property="replyDate"/>
+		<result column="reply_distinct" property="replyDistinct"/>
+		<result column="reply_writer" property="replyWriter"/>
+	</resultMap>
+	
+	
 	<select id="selectSpotList" resultMap="spotResult">
 		select
 	            spot_content_id,
@@ -80,7 +91,8 @@
 	
 	<select id="selectSpotDetail" resultMap="spotResult">
 		select
-		        SPOT_CONTENT_ID
+				SPOT_NO
+		     ,  SPOT_CONTENT_ID
 		     ,  SPOT_CONTENT_TYPE
 		     ,  to_char(SPOT_CREATED_DATE, 'YYYY-MM-DD') as "SPOT_CREATED_DATE"
 		     ,  to_char(SPOT_MODIFIED_DATE, 'YYYY-MM-DD') as "SPOT_MODIFIED_DATE"
@@ -110,6 +122,45 @@
                 tvs.area_category_no = tsac.area_category_no
            and
 		 		spot_content_id = #{contentId}
+	</select>
+	
+	<insert id="insertReply">
+	
+		insert
+           into tb_reply
+           (
+		        reply_no
+		      , board_no
+		      , mem_no
+		      , reply_contents
+		      , reply_distinct
+		   )
+        values
+           (
+              seq_replyno.nextval
+          	, #{boardNo}
+           	, #{memNo}
+           	, #{replyContents}
+          	, 'T'
+           )
+	
+	</insert>
+	
+	<select id="selectReplyList" resultMap="replyResultSet">
+	
+		select 
+		       reply_no
+		     , board_no
+		     , mem_no
+		     , reply_contents
+		     , to_char(reply_date, 'YYYY.MM.DD') as "reply_date"
+		     , reply_distinct
+		     , mem_nickname as "reply_writer"
+		  from tb_reply
+		  join tb_member using(mem_no)
+		 where reply_distinct = 'T'
+		   and board_no = #{boardNo}
+	
 	</select>
 
 </mapper>

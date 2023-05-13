@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.google.gson.JsonObject;
+import com.kh.tripism.common.vo.Reply;
+import com.kh.tripism.partnerBoard.model.dao.PnBoardDao;
 import com.kh.tripism.travelSpot.model.dao.SpotDao;
 import com.kh.tripism.travelSpot.model.vo.Spot;
 import com.kh.tripism.travelSpot.model.vo.SpotTour;
@@ -34,6 +36,15 @@ public class SpotServiceImpl implements SpotService {
 		
 		return sDao.selectSpotDetail(sqlSession, contentId);
 		
+	}
+	
+	@Override
+	public int insertReply(Reply r) {
+		return sDao.insertReply(sqlSession, r);
+	}
+
+	public ArrayList<Reply> selectReplyList(int boardNo) {
+		return sDao.selectReplyList(sqlSession, boardNo);
 	}
 	
 

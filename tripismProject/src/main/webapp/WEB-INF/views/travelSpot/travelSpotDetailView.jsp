@@ -130,29 +130,7 @@
 	        </div>
 	        
 
-			<script>
-			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-			    mapOption = { 
-			        center: new kakao.maps.LatLng(${s.spotMapy}, ${s.spotMapx}), // 지도의 중심좌표
-			        level: 5 // 지도의 확대 레벨
-			    };
-			
-			var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-			
-			// 마커가 표시될 위치입니다 
-			var markerPosition  = new kakao.maps.LatLng(${s.spotMapy}, ${s.spotMapx}); 
-			
-			// 마커를 생성합니다
-			var marker = new kakao.maps.Marker({
-			    position: markerPosition
-			});
-			
-			// 마커가 지도 위에 표시되도록 설정합니다
-			marker.setMap(map);
-			
-			// 아래 코드는 지도 위의 마커를 제거하는 코드입니다
-			// marker.setMap(null);    
-			</script>
+
 			
 	
 	        <div class="mb-7">
@@ -363,56 +341,29 @@
 	
 	
 	        <div class="mb-7">
-	
-	          <form class="">
-	            <br>
-	            <h2 class="text-uppercase mb-6">여행톡 (3)</h2>
-	            <hr>
-	            <div class="form-group mb-6">
-	              <textarea class="form-control border-0 bg-smoke" placeholder="댓글을 남겨주세요!" rows="6" style="resize: none; height: 100px;"></textarea>
-	              <br>
-	              <button type="button" style="float: right;" onclick="location.href='javascript:void(0)';"
-	                class="btn btn-hover btn-outline-secondary text-uppercase">
-	                댓글작성
-	              </button>
-	            </div>
+				<table id="replyArea" class="table">
+					<thead>
+			            <br>
+			            <h2 class="text-uppercase mb-6">여행톡 (<span id="rcount">0</span>)</h2>
+			            <hr>
+			            <div class="form-group mb-6">
+			              <textarea id="replyContent" class="form-control border-0 bg-smoke" placeholder="댓글을 남겨주세요!" rows="6" style="resize: none; height: 100px;"></textarea>
+			              <br>
+			              <button type="button" onclick="writeReply();" style="float: right;" class="btn btn-hover btn-outline-secondary text-uppercase">
+			                댓글작성
+			              </button>
+			            </div>
+		            </thead>
 	          
-	          </form>
 	          
-	          <br><br>
-	        
-	          <div class="media mb-6">
-	            <a class="me-6" href="">
-	              <img class="rounded lazyestload" data-src="${pageContext.request.contextPath}/resources/img/user (2).jfif" src="" alt="Generic placeholder image" style="width: 50px; height: 50px;">
-	            </a>
-	        
-	            <div class="media-body">
-	              <h5>배고픈사람</h5>
-	              <p class="mb-0">좋네여</p>
-	            </div>
-	          </div>
-	        
-	          <div class="media mb-6">
-	            <a class="me-6" href="">
-	              <img class="rounded lazyestload" data-src="${pageContext.request.contextPath}/resources/img/user (2).jfif" src="" alt="Generic placeholder image" style="width: 50px; height: 50px;">
-	            </a>
-	        
-	            <div class="media-body">
-	              <h5>아아</h5>
-	              <p class="mb-0">좋아여</p>
-	            </div>
-	          </div>
-	        
-	          <div class="media">
-	            <a class="me-6" href="">
-	              <img class="rounded lazyestload" data-src="${pageContext.request.contextPath}/resources/img/user (2).jfif" src="" alt="Generic placeholder image" style="width: 50px; height: 50px;">
-	            </a>
-	            <div class="media-body">
-	              <h5>우우</h5>
-	              <p class="mb-0">조음</p>
-	            </div>
-	          </div>
-	        </div>
+		          <br><br>
+		        	
+		          <tbody>
+		        
+		          </tbody>
+		          </table>
+		          
+		    </div>
 	
 	
 	      </div>
@@ -668,11 +619,183 @@
 	  </div>
 	</section>
 	
-    <script>
-      	
-         	        
+		<script>
+			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+			    mapOption = { 
+			        center: new kakao.maps.LatLng(${s.spotMapy}, ${s.spotMapx}), // 지도의 중심좌표
+			        level: 5 // 지도의 확대 레벨
+			    };
+			
+			var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+			
+			// 마커가 표시될 위치입니다 
+			var markerPosition  = new kakao.maps.LatLng(${s.spotMapy}, ${s.spotMapx}); 
+			
+			// 마커를 생성합니다
+			var marker = new kakao.maps.Marker({
+			    position: markerPosition
+			});
+			
+			// 마커가 지도 위에 표시되도록 설정합니다
+			marker.setMap(map);
+			
+			// 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+			// marker.setMap(null);
+			
+			$(function(){
+				selectReplyList();
+			})
+			
+			function writeReply() {
+				console.log("ddasdasdasdas23213");
+				if($("#replyContent").val().trim().length != 0) {
+					
+					$.ajax({
+						url:"replyInsert.sp",
+						data:{
+							boardNo:${s.spotNo },
+							replyContents:$("#replyContent").val(),
+							memNo:${loginUser.memNo}
+						}, success:function(status){
+							if(status == "success"){
+								selectReplyList();
+								alert("댓글 등록 완료!")
+								$("#replyContent").val("");
+							}
+						}, error:function(){
+							console.log("댓글 작성용 ajax 통신 실패!");
+						}
+					});
+				}else{
+					alert("댓글 작성 후 등록이 가능합니다.");
+				}
+			}
+			
+			function selectReplyList() { 
+				$.ajax({
+					url:"replylist.sp",
+					data:{boardNo:${s.spotNo}},
+					success:function(list){
+						console.log(list);
+						
+						let value = "";
+						
+						for(let i in list) {
+							value += "<div class='media mb-6'>"
+									+ "<a class='me-6' href='#'>"
+									+ "<img class='rounded lazyestload' data-src='${pageContext.request.contextPath}/resources/img/user (2).jfif' src='${pageContext.request.contextPath}/resources/img/user (2).jfif' alt='Generic placeholder image' style='width: 50px; height: 50px;'>"
+									+ "</a>"
+									+ "<div class='media-body'>"
+									+ "<h5>"+list[i].replyWriter+"</h5>"
+									+ "<p class='mb-0' style='font-size:12pt;'>"+list[i].replyContents+"</p>"
+									+ "<p style='float:right; font-size:10pt; color:black;'>"+list[i].replyDate+"</p>"
+									+ "</div>"
+									+ "</div>"
+						}
+						
+						$("#replyArea tbody").html(value);
+						$("#rcount").text(list.length);
+						
+					}, error:function(){
+						console.log("댓글 리스트 조회용 ajax 통신 실패!");
+					}
+				});
+			}
+			
+			<!--
+			$("#replyButton").on("click", function(){
+				if($("#replyContent").val().trim().length != 0) {
+					
+					$.ajax({
+						url:"replyInsert.sp",
+						data:{
+							boardNo:${s.spotNo },
+							replyContents:$("#replyContent").val(),
+							memNo:${loginUser.memNo}
+						}, success:function(status){
+							if(status == "success"){
+								//selectReplyList();
+								$("#replyContent").val("");
+							}
+						}, error:function(){
+							console.log("댓글 작성용 ajax 통신 실패!");
+						}
+					});
+				}else{
+					alert("댓글 작성 후 등록이 가능합니다.");
+				}
+			});
+			 -->
+			 
+				
+				
+			
+		</script>
+	
+	
+    <!--
+	$(function(){
+		//selectReplyList();
+	})
+	
+					$("#replyButton").on("click", function(){
+					console.log("클릭됌");
+				});
+	-->
+	
+    
+
+		<!-- if($("#replyContent").val().trim().length != 0) {
+			
+			$.ajax({
+				url:"replyInsert.sp",
+				data:{
+					boardNo:${s.spotNo },
+					replyContents:$("#replyContent").val(),
+					memNo:${loginUser.memNo}
+				}, success:function(status){
+					if(status == "success"){
+						//selectReplyList();
+						$("#replyContent").val("");
+					}
+				}, error:function(){
+					console.log("댓글 작성용 ajax 통신 실패!");
+				}
+			});
+		}else{
+			alert("댓글 작성 후 등록이 가능합니다.");
+		}
+		-->
+		
+	
+	<!--
+	function selectReplyList() { 
+		$.ajax({
+			url:"replylist.sp",
+			data:{bno:${b.boardNo}},
+			success:function(list){
+				console.log(list);
+				
+				let value = "";
+				
+				for(let i in list) {
+					value += "<tr>"
+							+ "<th>" + list[i].replyWriter + "</th>"
+							+ "<td>" + list[i].replyContent + "</td>"
+							+ "<td>" + list[i].createDate + "</td>"
+							+ "</tr>";
+				}
+				
+				$("#replyArea tbody").html(value);
+				$("#rcount").text(list.length);
+				
+			}, error:function(){
+				console.log("댓글 리스트 조회용 ajax 통신 실패!");
+			}
+		});
+	}
+	-->
       
-    </script>
 	
 	<jsp:include page="../common/footer.jsp"/>
 	
@@ -688,6 +811,5 @@
     <script src="${pageContext.request.contextPath}/resources/plugins/smoothscroll/SmoothScroll.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/star.js"></script>
     
-
 </body>
 </html>

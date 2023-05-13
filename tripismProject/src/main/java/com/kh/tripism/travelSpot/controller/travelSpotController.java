@@ -19,6 +19,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.kh.tripism.common.vo.Reply;
 import com.kh.tripism.travelSpot.model.service.SpotServiceImpl;
 import com.kh.tripism.travelSpot.model.vo.Spot;
 import com.kh.tripism.travelSpot.model.vo.SpotCommon;
@@ -320,5 +321,23 @@ public class travelSpotController {
 		return new Gson().toJson(list);
 		
 	}
+	
+	@ResponseBody
+	@RequestMapping("replyInsert.sp")
+	public String ajaxInsertReply(Reply r) {
+		int result = sService.insertReply(r);
+		
+		return result > 0 ? "success" : "fail";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "replylist.sp", produces = "application/json; charset=utf-8")
+	public String ajaxSelectReplyList(int boardNo) {
+		
+		ArrayList<Reply> list = sService.selectReplyList(boardNo);
+		
+		return new Gson().toJson(list);
+	}
+	
 
 }

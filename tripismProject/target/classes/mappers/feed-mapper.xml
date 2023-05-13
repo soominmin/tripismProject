@@ -47,6 +47,32 @@
 			where feed_status = 'Y'
 	</select>
 	
+	<!-- 피드 목록 조회용 -->
+	<select id="selectFeedList" resultMap="feedResultSet" >
+		select
+			f.feed_no,
+		    f.mem_no,
+		    mem_img, 
+		    mem_nickname, 
+		    to_char(feed_date, 'YYYY-MM-DD') as "feed_date",
+		    feed_title,
+		    feed_contents,
+	        img_original_name1,
+            img_change_name1,
+            img_original_name2,
+            img_change_name2,
+            img_original_name3,
+            img_change_name3,
+            img_original_name4,
+            img_change_name4
+	        from tb_feed f
+	        join tb_member m
+	        on f.mem_no = m.mem_no
+	        full outer join tb_feed_img i
+	        on f.feed_no = i.feed_no
+	        order by f.feed_no desc
+	</select>
+	
 	<!-- 피드 작성용 -->
 	<insert id="insertFeed" >
 		insert
@@ -59,7 +85,7 @@
 				)
 				values (
 					 seq_feedno.nextval
-					, '1'
+					, #{memNo}
 					, #{feedTitle}
 					, #{feedContents}
 					)
@@ -145,32 +171,6 @@
 			count(*)
 		from tb_like 
 		where feed_no = #{feedNo}
-	</select>
-	
-	<!-- 피드 목록 조회용 -->
-	<select id="selectFeedList" resultMap="feedResultSet" >
-		select
-			f.feed_no,
-		    f.mem_no,
-		    mem_img, 
-		    mem_nickname, 
-		    to_char(feed_date, 'YYYY-MM-DD') as "feed_date",
-		    feed_title,
-		    feed_contents,
-	        img_original_name1,
-            img_change_name1,
-            img_original_name2,
-            img_change_name2,
-            img_original_name3,
-            img_change_name3,
-            img_original_name4,
-            img_change_name4
-	        from tb_feed f
-	        join tb_member m
-	        on f.mem_no = m.mem_no
-	        full outer join tb_feed_img i
-	        on f.feed_no = i.feed_no
-	        order by f.feed_no desc
 	</select>
 	
 	<!-- 댓글 작성용 -->

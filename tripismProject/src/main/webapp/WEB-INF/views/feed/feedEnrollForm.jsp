@@ -261,8 +261,9 @@
                 <div>
                     <div>
                         <div>
-                
+                			
                             <!-- Enroll Header -->
+                            <input type='hidden' name='memNo' value='${ loginUser.memNo }'>
                             <div>
                                 <h4>피드작성</h4> <br>
                             </div>

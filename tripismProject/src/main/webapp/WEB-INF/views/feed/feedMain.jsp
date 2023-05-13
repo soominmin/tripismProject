@@ -283,8 +283,6 @@
 
 			<!-- 무한스크롤 시작할 자리 **구현해야함 --> 
 			
-			<c:set var="done_loop" value="false"/>
-			
 			<!-- 여기부터 반복문 시작 -->
 			<c:forEach var="f" items="${feed}">
 			

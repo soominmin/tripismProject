@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,16 +14,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.*;
 
 import com.kh.tripism.common.template.Pagination;
+import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.feed.model.service.FeedServiceImpl;
 import com.kh.tripism.feed.model.vo.Feed;
 import com.kh.tripism.feed.model.vo.Img;
-import com.kh.tripism.common.vo.PageInfo;
-import com.kh.tripism.member.model.vo.Member;
-
-import lombok.AllArgsConstructor;
 
 @Controller
 public class FeedController {
@@ -34,13 +28,13 @@ public class FeedController {
 	private FeedServiceImpl fService;
 
 	@RequestMapping("feed.fd")
-	public ModelAndView feedMain(Integer currentPage, ModelAndView mv) {
+	public ModelAndView feedMain(ModelAndView mv) {
 		
 		// 전체 피드 조회
 			
 			System.out.println("피드 나왔나?");
 			
-			currentPage = 1;
+			int currentPage = 1;
 			
 			int listCount = fService.selectListCount();
 			 
@@ -49,11 +43,8 @@ public class FeedController {
 			ArrayList<Feed> feed = fService.selectFeedList(pi);
 			
 			mv.addObject("pi", pi).addObject("feed", feed).setViewName("feed/feedMain");
-			System.out.println(feed);
+			System.out.println(feed + "이게 안나오는건가?");
 			return mv;
-		
-		
-		// return "feed/feedMain";
 	}
 	
 	@RequestMapping("feedImgAll.fd")

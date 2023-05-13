@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.partnerBoard.model.vo.PnBoard;
-import com.kh.tripism.partnerBoard.model.vo.PnReply;
+import com.kh.tripism.common.vo.Reply;
 
 public interface PnBoardService {
 	
@@ -28,9 +28,9 @@ public interface PnBoardService {
 	int updatePnBoard(PnBoard pb);
 	
 	// 6. 댓글 리스트 조회
-	ArrayList<PnReply> selectPnReplyList(int PnBoardNo);
+	ArrayList<Reply> selectPnReplyList(int PnBoardNo);
 	
 	// 7. 댓글 작성용 서비스(ajax)
-	int insertPnReply(PnReply pr);
+	int insertPnReply(Reply pr);
 	
 }

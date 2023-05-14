@@ -61,5 +61,8 @@ public class SpotDao {
 
 		return (ArrayList)sqlSession.selectList("spotMapper.searchSpotList", selectList, rowBounds);
 	}
+
+
+
 	
 }

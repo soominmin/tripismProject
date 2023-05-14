@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -113,7 +113,8 @@
 			
 		<form action="searchSpotList.sp">
 			<input type="hidden" name="currentPage" value="1">
-	      <div>
+
+	      	<div>
 			
 			<h4>카테고리</h4>
 			
@@ -255,32 +256,71 @@
 
 			<button type="submit" class="test_btn" style="border-radius: 30px; float: right; width: 100%;">검색</button>
 			
-	      <div>
-		</form>
-
-
-
-	      </div>
+			<div>
+			</form>
 	
-	      <br><br><br><br>
-	      <hr>
-	      <br>
-		  
-		  <select name="" id="" style="border: none; float: right;">
+	
+	
+			</div>
+	
+			<br><br><br><br>
+			<hr>
+			<br>
+			
+			<select name="" id="" style="border: none; float: right;">
 			<option value="">이름순</option>
 			<option value="">좋아요순</option>
 			<option value="">조회순</option>
-		  </select>
+			</select>
 
-		  <br><br><br><br>
+			<br><br><br><br>
 
 
-	      <div>
+			<div>
 			
-	      </div>
+			</div>
 	
-	      </div>
+			</div>
+
+		  <c:forEach var="i" items="${sl }">
+			<div class="col-md-6 col-lg-4 mb-5">
+			<form class="postForm" action="detailAPI.sp" method="post">
+			<input type="hidden" name="contentId" value="${i.spotContentId}">
+			<input type="hidden" name="contentType" value="${i.spotContentType}">
+			</form>
+			<div class="card card-hover">
+			<a href="javascript:void(0)" class="position-relative">
+			<img class="card-img-top" data-src="${i.spotImgPath}" src="${i.spotImgPath}" alt="Card image cap"></img>;
+			<div onclick="selectSpotAPI('${i.spotContentId}', '${i.spotContentType}');" class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">
+			</div>
+			</a>
+			<div class="card-body px-4" style="background-color: rgba(112, 217, 223, 0.01)">
+			<p style="color: gray; font-size: 9;">
+			<img src="resources/img/icons/map.png" style="width: 16px; height: 16px;" alt="">
+			${i.areaTitle} ${i.sigunguTitle}
+			</p>
+			<h5>
+			<a href="javascript:selectSpotAPI('+list[i].spotContentId+', '+list[i].spotContentType+');" class="card-title text-uppercase">${i.spotTitle}</a>
+			<h5>
+			<div class="post_area" style="float: right;">
+			<span class="num_like">
+			<img src="resources/img/icons/after-like.png" style="width: 18px; height: 18px;" alt="">
+			<span class="num" id="conRead" style="font-size: 10pt">${i.spotLike} &nbsp</span>
+			</span>
+			<span class="num_view">
+			<img src="resources/img/icons/view.png" style="width: 18px; height: 18px;" alt="">
+			<span class="num" id="conRead" style="font-size: 10pt">${i.spotCount}</span>
+			</span>
+			</div>
+			</div>
+			</div>
+			</div>
+		</c:forEach>
+
+
 	
+	      
+		  </div>
 	
 
 	      
@@ -297,10 +337,93 @@
 	
 	</section>
 
-	<script src="resources/js/travelSpot/travelSpot.js"></script>
 
 
 
+	<script>
+
+		let currentPage = 1;
+
+		let isUpdateList = true;
+		window.onscroll = function(e) {
+		//   console.log(document.body.clientHeight ,  window.innerHeight, window.scrollY , document.body.scrollHeight)
+			if((window.innerHeight + window.scrollY) >= (document.body.offsetHeight)) { 
+				if(isUpdateList){
+
+					
+					isUpdateList = false;
+					
+					searchSpotList(++currentPage, '${slo.spotContentType}', '${slo.areaCategoryNo}');
+					
+					isUpdateList = true;
+				}
+
+			}
+		}
+
+		function searchSpotList(currentPage, spotContentType, areaCategoryNo) {
+			let value = "";
+			$.ajax({
+				url:"searchSpotListTwo.sp",
+				data:{
+						currentPage:currentPage,
+						spotContentType:spotContentType,
+						areaCategoryNo:areaCategoryNo
+					},
+				success:function(list){
+					for(let i=0; i<list.length; i++){
+						value += '<div class="col-md-6 col-lg-4 mb-5">'
+								+ '<form class="postForm" action="detailAPI.sp" method="post">'
+								+ '<input type="hidden" name="contentId" value="'+list[i].spotContentId+'">'
+								+ '<input type="hidden" name="contentType" value="'+list[i].spotContentType+'">'
+								+ '</form>'
+								+ '<div class="card card-hover">'
+								+ '<a href="javascript:void(0)" class="position-relative">'
+								if(list[i].spotImgPath == null){
+									//value += '<img class="card-img-top lazyestload" data-src="resources/img/logo.png" src="" alt="Card image cap"></img>';
+									
+								}else{
+									value += '<img class="card-img-top" data-src="'+list[i].spotImgPath+'" src="'+list[i].spotImgPath+'" alt="Card image cap"></img>';
+								}
+								value += '<div onclick="selectSpotAPI('+list[i].spotContentId+', '+list[i].spotContentType+');" class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">'
+								+ '</div>'
+								+ '</a>'
+								+ '<div class="card-body px-4" style="background-color: rgba(112, 217, 223, 0.01)">'
+								+ '<p style="color: gray; font-size: 9;">'
+								+ '<img src="resources/img/icons/map.png" style="width: 16px; height: 16px;" alt="">'
+								+ list[i].areaTitle + " " + list[i].sigunguTitle
+								+ '</p>'
+								+ '<h5>'
+								+ '<a href="javascript:selectSpotAPI('+list[i].spotContentId+', '+list[i].spotContentType+');" class="card-title text-uppercase">'+list[i].spotTitle+'</a>'
+								+ '<h5>'
+								+ '<div class="post_area" style="float: right;">'
+								+ '<span class="num_like">'
+								+ '<img src="resources/img/icons/after-like.png" style="width: 18px; height: 18px;" alt="">'
+								+ '<span class="num" id="conRead" style="font-size: 10pt">&nbsp&nbsp'+list[i].spotLike+'&nbsp&nbsp&nbsp</span>'
+								+ '</span>'
+								+ '<span class="num_view">'
+								+ '<img src="resources/img/icons/view.png" style="width: 18px; height: 18px;" alt="">'
+								+ '<span class="num" id="conRead" style="font-size: 10pt">&nbsp&nbsp'+list[i].spotCount+'</span>'
+								+ '</span>'
+								+ '</div>'
+								+ '</div>'
+								+ '</div>'
+								+ '</div>'
+
+							
+					}
+					$("#spotList").append(value);
+					console.log(currentPage);
+					console.log(list);
+				},
+				error:function(){
+					console.log("실패");
+				}
+			})
+		}
+
+
+	</script>
 
 
 	

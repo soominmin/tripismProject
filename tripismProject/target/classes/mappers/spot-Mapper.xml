@@ -183,7 +183,10 @@
                 area_category_title,
                 sigungu_title,
                 spot_count,
-                spot_like
+                spot_like,
+                tvs.area_category_no,
+                tvs.city_category_no
+                
 	      from
 	            tb_travel_spot tvs, tb_spot_city_category tscc, tb_spot_area_category tsac
 	      where
@@ -198,6 +201,6 @@
 	           		tvs.spot_content_type = #{spotContentType}
 	           and
 	           		tvs.area_category_no = #{areaCategoryNo}
-	</select>
+		</select>
 
 </mapper>

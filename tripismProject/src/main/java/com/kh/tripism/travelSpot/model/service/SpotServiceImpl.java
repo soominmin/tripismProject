@@ -52,11 +52,13 @@ public class SpotServiceImpl implements SpotService {
 	public int increaseCount(int contentId) {
 		return sDao.increaseCount(sqlSession, contentId);
 	}
-
+	
+	@Override
 	public ArrayList<Spot> searchSpotList(int currentPage, int spotContentType, int areaCategoryNo) {
 		ArrayList<Spot> list = sDao.searchSpotList(sqlSession, currentPage, spotContentType, areaCategoryNo);
 		return list;
 	}
+
 	
 
 	

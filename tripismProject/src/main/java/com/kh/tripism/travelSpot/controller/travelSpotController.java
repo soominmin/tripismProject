@@ -349,7 +349,6 @@ public class travelSpotController {
 		return new Gson().toJson(list);
 	}
 	
-	@ResponseBody
 	@RequestMapping(value="searchSpotList.sp", produces = "application/json; charset=utf-8")
 	public String searchSpotList(int currentPage, int spotContentType, int areaCategoryNo, Model model) {
 		
@@ -361,12 +360,38 @@ public class travelSpotController {
 		
 		System.out.println(list);
 		
-		model.addAttribute("list", list);
+		ArrayList<Spot> sl = list;
 		
-//		return "travelSpot/searchSpotList";
-		return null;
+		System.out.println(sl);
+		
+		Spot slo = sl.get(0);
+		
+		System.out.println(slo);
+		
+		model.addAttribute("slo", slo);
+		model.addAttribute("sl", sl);
+		
+		return "travelSpot/searchSpotList";
 		
 	}
+	
+	@ResponseBody
+	@RequestMapping(value="searchSpotListTwo.sp", produces = "application/json; charset=utf-8")
+	public String searchSpotListTwo(int currentPage, int spotContentType, int areaCategoryNo) {
+		
+
+		System.out.println("currentPage : " + currentPage);
+		System.out.println("spotContentType : " + spotContentType);
+		System.out.println("areaCategoryNo : " + areaCategoryNo);
+		
+		ArrayList<Spot> list = sService.searchSpotList(currentPage, spotContentType, areaCategoryNo);
+		
+		System.out.println("list : " + list);
+		
+		return new Gson().toJson(list);
+		
+	}
+	
 	
 
 }

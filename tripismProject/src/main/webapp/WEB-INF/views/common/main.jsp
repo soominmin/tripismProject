@@ -7,8 +7,80 @@
 <title>Insert title here</title>
 
 <style>
-body * {
-	font-family: 'Montserrat';
+  body * {
+      font-family: 'TheJamsil';
+  }
+a {
+    text-decoration: none;
+    color: inherit;
+}
+#main {
+    padding-bottom: 16rem;
+    overflow-x: hidden;
+}
+#main .map-wrapper {
+    height: 700px;
+    position: relative;
+    background: url("${pageContext.request.contextPath}/resources/img/partner/backImg1.jpg") no-repeat center;
+}
+/*공지사항*/
+#main .map_notice {
+    z-index: 10!important;
+}
+#main .map_notice {
+    width: 1280px;
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    transform: translate(-50%);
+}
+#main .map_notice>.notice_text {
+    display: flex;
+    height: 40px;
+    line-height: 4rem;
+    color: #fff;
+    font-size: 1.6rem;
+    letter-spacing: -.048rem;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+#main .notice_text>dt {
+    flex-shrink: 0;
+    padding-left: 4rem;
+    padding-right: 1.5rem;
+    background: url(https://s3.ap-northeast-2.amazonaws.com/contents.ollepass.org/static/homepage/trail/img/ico_notice.png) no-repeat left 1.6rem center;
+    background-color: #eb5f52;
+    background-size: 1.6rem auto;
+}
+/*공지사항 바*/
+#main .notice_text>dd {
+    background-color: #666;
+    padding-left: 3rem;
+    padding-right: 4.6rem;
+    flex-grow: 1;
+    width: 100%;
+}
+.vue3-marquee>.transparent-overlay {
+    position: absolute;
+    width: 100%;
+    height: 40px;
+}
+.vue3-marquee>.marquee {
+    flex: 0 0 auto;
+    min-width: var(--min-width);
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    animation: scroll var(--duration) linear var(--delay) var(--loops);
+    animation-direction: var(--direction);
+}
+.vue3-marquee {
+    overflow-x: hidden!important;
+    display: flex!important;
+    flex-direction: row!important;
+    position: relative;
+    width: 100%;
 }
 </style>
 
@@ -20,138 +92,60 @@ body * {
 	<jsp:include page="header.jsp"/>
 	
 	<body id="body" class="up-scroll">
-
-
-<!-- ====================================
-———	BANNER SECTION
-===================================== -->
-
-
-
-<!-- ====================================
-———	SEARCH SECTION
-===================================== -->
-<section class="bg-dark-light py-7">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-xl-3">
-        <div class="section-title-bg mb-1 mb-lg-3 mb-xl-0">
-          <h1 class="text-white text-uppercase mb-0">일정 검색</h1>
-          <h2 class="text-white text-uppercase font-weight-bold mb-0">나의 <span class="text-primary">여행일정</span></h2>
-        </div>
-      </div>
-    
-      <div class="col-xl-9">
-        <form class="" action="index.html" method="GET">
-          <div class="row">
-            <div class="col-lg-10">
-              <div class="row">
-                <div class="col-md-6 col-lg-3">
-                  <div class="select-dropdown">
-                    <div class="mb-3 mb-lg-0">
-                      <div class="select-default select-search-box">
-                        <select class="select-option">
-                          <option>경기도</option>
-                          <option>충청도</option>
-                          <option>경상도</option>
-                          <option>제주도</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-    
-                <div class="col-md-6 col-lg-3">
-                  <div class="mb-3 form-group-icon mb-lg-0">
-                    <i class="far fa-calendar-alt" aria-hidden="true"></i>
-                    <input type="text" class="form-control daterange-picker" autocomplete="off" name="dateRange" value=""
-                      placeholder="MM/DD/YYYY" />
-                  </div>
-                </div>
-    
-                <div class="col-md-6 col-lg-3">
-                  <div class="mb-3 form-group-icon mb-lg-0">
-                    <i class="far fa-calendar-alt" aria-hidden="true"></i>
-                    <input type="text" class="form-control daterange-picker" autocomplete="off" name="dateRange" value=""
-                      placeholder="MM/DD/YYYY" />
-                  </div>
-                </div>
-    
-                <div class="col-md-6 col-lg-3">
-                  <div class="select-dropdown">
-                    <div class="mb-3 mb-lg-0">
-                      <div class="select-default select-search-box">
-                        <select class="select-option">
-                          <option>100만원 - 120만원</option>
-                          <option>120만원 - 140만원</option>
-                          <option>140만원 - 160만원</option>
-                          <option>160만원 - 180만원</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col-lg-2">
-              <button class="btn btn-primary text-uppercase" type="button" onclick="location.href='javascript:void(0)';">
-                검색
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-
+    <section id="main">
 
 <!-- ====================================
 ———	COUNTER SECTION
 ===================================== -->
-<section class="counter-up dzsparallaxer auto-init use-loading counterup-paralax">
-  <div class="divimage dzsparallaxer--target" style="height: 700px;" data-src="${pageContext.request.contextPath}/resources/img/home/promotion/promotion-2.jpg">
-  </div>
-  
-  <div class="container paralax-container">
-    <div class="row align-items-center text-center" id="counter">
-      <div class="col-6 col-md-3 mb-5 mb-md-0">
-        <div class="icon icon-lg rounded-circle mx-auto bg-primary mb-3">
-          <i class="fas fa-map-marker-alt text-white" aria-hidden="true"></i>
+<div class="map-wrapper">
+    <div class="map_notice">
+        <dl class="notice_text">
+            <dt>긴급알림</dt>
+            <dd>
+                <div
+                    class="vue3-marquee"
+                    style="--duration: 15s; --delay: 0s; --direction: normal; --pauseOnHover: running; --pauseOnClick: running; --loops: infinite; --gradient-color: rgba(255, 255, 255, 1), rgba(255, 255, 255, 0); --gradient-width: 200px; --min-width: 100%;">
+                    <div class="transparent-overlay"></div>
+                    <!---->
+                    <div class="marquee">
+                        <a href="#/community/board/6/1" class="marquee-text">올레길 안전수칙 안내</a>
+                    </div>
+                    <div class="marquee">
+                        <a href="#/community/board/6/1" class="marquee-text">올레길 안전수칙 안내</a>
+                    </div>
+                </div>
+            </dd>
+        </dl>
+        <button class="notice-btn">
+            <img
+                class="full-img"
+                src="https://s3.ap-northeast-2.amazonaws.com/contents.ollepass.org/static/homepage/trail/img/ico_close02.png"
+                alt=""></button>
         </div>
-        <h1 class="counter-value mb-2" data-count="179">0</h1>
-        <h6 class="">Destinations</h6>
-      </div>
+        <div class="pc-wrapper">
+            <div class="map_area">
+                <dl class="map_text">
+                    <dd>꼬닥꼬닥 걸어, 함께 만든 제주올레 길</dd>
+                    <dt>437km 27코스</dt>
+                </dl>
+                <section>
+                    <a href="javascript:;">
+                        <div id="route_img1" class="route_img">
+                            <div class="route_label">1코스</div>
+                            <!---->
+                        </div>
+                    </a>
+                    <div id="route_line_1" class="route_1"></div>
+                    <div id="route_txt_area1" class="route_text">
+                        <div class="route_txt01">
+                            <p>시흥-광치기 올레<br>난이도: 중<br>총 길이: 15.1km, 4~5시간</p>
+                                </div>
+                            </div>
+                        </section>
 
-      <div class="col-6 col-md-3 mb-5 mb-md-0">
-        <div class="icon icon-lg rounded-circle mx-auto bg-primary mb-3">
-          <i class="fa fa-gift text-white" aria-hidden="true"></i>
-        </div>
-        <h1 class="counter-value mb-2" data-count="48">0</h1>
-        <h6 class="">Tour pack</h6>
-      </div>
-
-      <div class="col-6 col-md-3">
-        <div class="icon icon-lg rounded-circle mx-auto bg-primary mb-3">
-          <i class="far fa-smile text-white" aria-hidden="true"></i>
-        </div>
-        <h1 class="counter-value mb-2" data-count="4562">0</h1>
-        <h6 class="">Happy clients</h6>
-      </div>
-
-      <div class="col-6 col-md-3">
-        <div class="icon icon-lg rounded-circle mx-auto bg-primary mb-3">
-          <i class="fa fa-life-ring text-white" aria-hidden="true"></i>
-        </div>
-        <h1 class="counter-value mb-2" data-count="24">0</h1>
-        <h6 class="">Hours support</h6>
-      </div>
-    </div>
-  </div>
-</section>
-
+                    </div>
+                </div>
+                <div class="mo-wrapper inner"></div>                                                                                                                                                                                                                                                                                      </div>
 <!-- ====================================
 ———	PACKAGES SECTION
 ===================================== -->
@@ -364,7 +358,6 @@ body * {
 
     </div>
     
-  <a href="mbtiStart.do" type="button" class="btn-sm">mbti(클릭ㄴ)</button>  
   </div>
   
   
@@ -427,6 +420,7 @@ body * {
 	<!-- ====================================
 ——— FOOTER SECTION
 ===================================== -->
+</section>
 	<jsp:include page="footer.jsp"/>
 </body>
 </html>

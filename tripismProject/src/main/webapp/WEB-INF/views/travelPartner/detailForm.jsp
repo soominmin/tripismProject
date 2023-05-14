@@ -542,7 +542,7 @@
                             <div class="AccompanyContainer__FlexBox-sc-zoqt5l-4 kosINv">
                                 <div class="AccompanyContainer__FlexBox-sc-zoqt5l-4 kosINv">
                                     <p>지역</p>
-                                    <span>${pb.partnerLocation }</span>
+                                    <span>${pb.spot.areaTitle }</span>
                                 </div>
                                 <div class="AccompanyContainer__FlexMarginBox-sc-zoqt5l-5 eBgxXA">
                                     <p>모집인원</p>
@@ -592,19 +592,20 @@
                             <div>
                                 <div class="badge__HashTagArrayWrapper-sc-1ju2uee-1 cdLLix">
                                     <div>
-                                        <div
-                                            font-size="13px"
-                                            font-weight="500"
-                                            class="badge__HashTagWrapper-sc-1ju2uee-0 cFzGDF">
+                                        <div font-size="13px" font-weight="500" class="badge__HashTagWrapper-sc-1ju2uee-0 cFzGDF">
                                             <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">#</p>
-                                            <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">남성</p>
+                                            <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">${pb.member.gender == 'F' ? '여성' : '남성'}</p>
                                         </div>
-                                        <div
-                                            font-size="13px"
-                                            font-weight="500"
-                                            class="badge__HashTagWrapper-sc-1ju2uee-0 cFzGDF">
+                                        <div font-size="13px" font-weight="500" class="badge__HashTagWrapper-sc-1ju2uee-0 cFzGDF">
                                             <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">#</p>
-                                            <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">ENFJ</p>
+                                            <c:choose>
+	                                            <c:when test="${not empty pb.member.mbti }">
+	                                            	<p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">${pb.member.mbti }</p>
+	                                            </c:when>
+	                                            <c:otherwise>
+	                                            	<p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">미정</p>
+	                                            </c:otherwise>
+                                            </c:choose>
                                         </div>
                                         <div
                                             font-size="13px"
@@ -633,17 +634,30 @@
                 <div class="innerSection__AreaRightDiv-sc-1ag5fhb-5 bdoziM">
                     <div class="Layout__LayoutEqualDistanceDiv-sc-1w3ggn5-1 hAClzB profile_section">
                         <div class="area_top" style="margin: 0; margin-bottom: 15px;">
-                            <a href="mypage.bo" style="text-decoration:none;">
+
                                 <img src="${pageContext.request.contextPath}/resources/img/partner/ner.jpg" style="width: 55px; height: 55px; padding: 4px; margin-top: 10px;">
-                            </a>
+                      
                                 <div class="profile_info_wrap">
                                     <div class="area_flex" style="display: flex;">
                                         <p class="profile_nickname" style="font-size: 16px">${pb.member.memNickname }</p>
                                     </div>
                                     <div class="profile_taste gray_text" style="display: flex;">
-                                        <p class="ProfileCompanion eOlhBT">ENFJ · 남성</p>
+                                      <c:choose>
+                                         <c:when test="${not empty pb.member.mbti }">
+                                         	<p class="ProfileCompanion eOlhBT">${pb.member.mbti } · ${pb.member.gender == 'F' ? '여성' : '남성'}</p>
+                                         </c:when>
+                                         <c:otherwise>
+                                         	<p class="ProfileCompanion eOlhBT">미정 ·  ${pb.member.gender == 'F' ? '여성' : '남성'}</p>
+                                         </c:otherwise>
+                                       </c:choose>
+                                    
+                                    
+                                    
+                                    
+                                    <a href="mypage.do" style="text-decoration:none;">
                                         <button class="AccompanyContainer__ReportButton-sc-zoqt5l-12 laOqNb" style="font-size: 14px; color: rgb(154, 154, 154); line-height: 21px; font-weight: 400; margin-bottom: 15px; margin-left: 66px;">
-                                        쪽지보내기</button>
+                                        정보 보러가기</button>
+                                    </a>
                                         
                                     </div>
                                 </div>

@@ -3,6 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="pnBoardMapper">
+
 	<resultMap type="PnBoard" id="pnBoardResultSet">
 		<result column="post_no" property="postNo"/>
 		<result column="mem_no" property="memNo"/>
@@ -16,10 +17,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="partner_content" property="partnerContent"/>
 		<result column="partner_start_date" property="partnerStartDate"/>
 		<result column="partner_end_date" property="partnerEndDate"/>
-		<result column="partner_location" property="partnerLocation"/>
+		<result column="area_category_no" property="areaCategoryNo"/>
 		<result column="partner_number" property="partnerNumber"/>
 		<result column="partner_status" property="partnerStatus"/>
 		<collection property="member" resultMap="memberResultSet"/>
+		<collection property="spot" resultMap="spotResult"></collection>
 	</resultMap>
 
 
@@ -37,7 +39,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="MEM_IMG" property="img"/>
 	</resultMap>
 	
-
+	
+	<resultMap type="Spot" id="spotResult">
+		<result column="SPOT_NO" property="spotNo"/>
+		<result column="SPOT_CONTENT_ID" property="spotContentId"/>
+		<result column="SPOT_CONTENT_TYPE" property="spotContentType"/>
+		<result column="SPOT_CREATED_DATE" property="spotCreatedDate"/>
+		<result column="SPOT_MODIFIED_DATE" property="spotModifiedDate"/>
+		<result column="SPOT_TEL" property="spotTel"/>
+		<result column="SPOT_TITLE" property="spotTitle"/>
+		<result column="SPOT_IMG_PATH" property="spotImgPath"/>
+		<result column="SPOT_ADDRESS" property="spotAddress"/>
+		<result column="SPOT_POSTAL_CODE" property="spotPostalCode"/>
+		<result column="SPOT_MAPX" property="spotMapx"/>
+		<result column="SPOT_MAPY" property="spotMapy"/>
+		<result column="LARGE_CATEGORY_NO" property="largeCategoryNo"/>
+		<result column="MIDDLE_CATEGORY_NO" property="middleCategoryNo"/>
+		<result column="SMALL_CATEGORY_NO" property="smallCategoryNo"/>
+		<result column="AREA_CATEGORY_NO" property="areaCategoryNo"/>
+		<result column="CITY_CATEGORY_NO" property="cityCategoryNo"/>
+		<result column="SPOT_COUNT" property="spotCount"/>
+		<result column="SPOT_LIKE" property="spotLike"/>
+		
+		<result column="area_category_title" property="areaTitle"/>
+		<result column="sigungu_title" property="sigunguTitle"/>
+	</resultMap>
+	
 
 	
 	<select id="selectListCount" resultType="_int">
@@ -57,7 +84,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			,	p.partner_content
 			,	p.partner_start_date
 			,	p.partner_end_date
-			,	p.partner_location
+			,	s.area_category_title
             ,   m.gender
             ,   m.mem_nickname
             ,	m.mem_mbti
@@ -65,6 +92,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from tb_partner p
         inner join tb_member m
         on  p.mem_no = m.mem_no
+        inner join tb_spot_area_category s
+        on p.area_category_no = s.area_category_no
 		where partner_status = 'Y'
 		order by post_no desc
 	</select>
@@ -80,29 +109,68 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	<select id="selectPnBoard" resultMap="pnBoardResultSet">
-		select
-				p.post_no
-			,	p.partner_type
-			,	p.partner_original_img
-			,	p.partner_date
-			,	p.partner_views
-			,	p.partner_title
-			,	p.partner_content
-			,	p.partner_start_date
-			,	p.partner_end_date
-			,	p.partner_location
-			,	p.partner_number
-            ,   m.gender
-            ,   m.mem_nickname
-            ,	m.mem_mbti
-            ,	m.mem_img
-        from tb_partner p
-        inner join tb_member m
-        on  p.mem_no = m.mem_no
-		where post_no = #{post_no}
+	    select
+					p.post_no
+				,	p.partner_type
+				,	p.partner_original_img
+				,	p.partner_date
+				,	p.partner_views
+				,	p.partner_title
+				,	p.partner_content
+				,	p.partner_start_date
+				,	p.partner_end_date
+				,	s.area_category_title
+				,	p.partner_number
+	            ,   m.gender
+	            ,   m.mem_nickname
+	            ,	m.mem_mbti
+	            ,	m.mem_img
+	        from tb_partner p
+	        inner join tb_member m
+	        on  p.mem_no = m.mem_no
+	         inner join tb_spot_area_category s
+	        on p.area_category_no = s.area_category_no
+			where post_no = #{post_no}
 	</select>
 	
 	
+	<insert id="inserPnBoard">
+		insert
+	        into tb_partner
+	         (
+	              POST_NO
+	            , MEM_NO
+	            , PARTNER_TYPE
+	            , PARTNER_ORIGINAL_IMG
+	            , PARTNER_CHANGE_IMG
+	            , PARTNER_DATE
+	            , PARTNER_VIEWS
+	            , PARTNER_TITLE
+	            , PARTNER_CONTENT
+	            , PARTNER_START_DATE
+	            , PARTNER_END_DATE
+	            , AREA_CATEGORY_NO
+	            , PARTNER_NUMBER
+	            , PARTNER_STATUS
+	         )
+	        values
+	        (
+	           SEQ_POST_NO.NEXTVAL
+	          , #{memNo}
+	          , #{partnerType }
+	          , #{partnerOriginalImg }
+	          , #{partnerChangeImg }
+	          , sysdate
+	          , 1
+	          , #{partnerTitle }
+	          , #{partnerContent }
+	          , #{partnerStartDate }
+	          , #{partnerEndDate }
+	          , #{areaCategoryNo }
+	          , #{partnerNumber }
+	          , 'Y'
+	        );
+	</insert>
 </mapper>
 
 

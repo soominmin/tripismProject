@@ -872,7 +872,7 @@
 										<ellipse cx="6.50063" cy="6.40462" rx="2.81106" ry="2.81106" fill="#fff"></ellipse>
 									</svg>
 								</div>
-								<p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">${ pn.partnerLocation }</p>
+								<p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">${pn.spot.areaTitle }</p>
 							</div>
 						</div>
 	

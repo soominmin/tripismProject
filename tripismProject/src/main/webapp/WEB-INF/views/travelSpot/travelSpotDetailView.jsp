@@ -659,7 +659,6 @@
 						}, success:function(status){
 							if(status == "success"){
 								selectReplyList();
-								alert("댓글 등록 완료!")
 								$("#replyContent").val("");
 							}
 						}, error:function(){
@@ -683,7 +682,7 @@
 						for(let i in list) {
 							value += "<div class='media mb-6'>"
 									+ "<a class='me-6' href='#'>"
-									+ "<img class='rounded lazyestload' data-src='${pageContext.request.contextPath}/resources/img/user (2).jfif' src='${pageContext.request.contextPath}/resources/img/user (2).jfif' alt='Generic placeholder image' style='width: 50px; height: 50px;'>"
+									+ "<img class='rounded' data-src='${pageContext.request.contextPath}/resources/img/user (2).jfif' src='${pageContext.request.contextPath}/resources/img/user (2).jfif' alt='Generic placeholder image' style='width: 50px; height: 50px;'>"
 									+ "</a>"
 									+ "<div class='media-body'>"
 									+ "<h5>"+list[i].replyWriter+"</h5>"

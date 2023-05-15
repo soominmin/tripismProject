@@ -3,6 +3,7 @@ package com.kh.tripism.partnerBoard.model.service;
 import java.util.ArrayList;
 
 import com.kh.tripism.common.vo.PageInfo;
+import com.kh.tripism.partnerBoard.model.vo.PnApply;
 import com.kh.tripism.partnerBoard.model.vo.PnBoard;
 import com.kh.tripism.common.vo.Reply;
 
@@ -34,5 +35,6 @@ public interface PnBoardService {
 	int insertPnReply(Reply pr);
 	
 	// 8. 동행 신청
+	ArrayList<PnApply> selectPnAppyList(int pnBoardNo);
 	
 }

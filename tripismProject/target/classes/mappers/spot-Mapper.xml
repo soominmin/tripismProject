@@ -289,5 +289,16 @@
 		
 		</select>
 		
+		<update id="increaseLike">
+		
+		update
+				tb_travel_spot
+		   set
+				SPOT_LIKE = SPOT_LIKE + 1
+		 where
+				SPOT_CONTENT_ID = #{contentId}
+		
+		</update>
+		
 
 </mapper>

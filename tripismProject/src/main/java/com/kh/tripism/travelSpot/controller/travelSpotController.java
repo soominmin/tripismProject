@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -389,6 +390,21 @@ public class travelSpotController {
 		System.out.println("list : " + list);
 		
 		return new Gson().toJson(list);
+		
+	}
+	
+	@RequestMapping(value="increaseLike.sp", produces = "application/json; charset=utf-8")
+	public String increaseLike(int contentId, Model model) {
+		System.out.println("1112312123");
+		int result = sService.increaseLike(contentId);
+		System.out.println("444444444444");
+		if (result > 0) {
+			System.out.println("asdasdasd");
+			return null;
+		}else {
+			model.addAttribute("errorMsg","상세조회 실패");
+			return "common/errorPage";
+		}
 		
 	}
 	

@@ -78,7 +78,7 @@
 	    </div>
 	
 	    <div class="post_area">
-				<button type="button" style="border: none; background-color: white;" onclick="setLike();">
+				<button type="button" style="border: none; background-color: white;" onclick="increaseLike('${s.spotContentId}');">
 					<img src="${pageContext.request.contextPath}/resources/img/icons/after-like.png" style="width: 25px; height: 25px;" alt="">
 					<span class="num" id="conLike">${s.spotLike }</span>
 				</button>
@@ -106,7 +106,7 @@
 			  
 			  <c:forEach var="i" items="${al3 }">
 		          <div class="item">
-		            <img class="" data-src="" src="${i.originimgurl}" alt="image">
+		            <img class="" data-src="" src="${i.originimgurl}" alt="image" style="height: 512px;">
 		          </div>
 	          </c:forEach>
 	          
@@ -379,241 +379,28 @@
 	    <div class="text-uppercase mb-4">
 	      <h2 class="mb-0">어떤 여행지를 찾으시나요?</h2>
 	    </div>
-	    <div class="row">
+		<div class="row" id="spotList">
+			
+			<input type="hidden" name="currentPage" value="1">
+			  <div>
+				
+
+			  <div>
 	
-	      	<div class="col-md-6 col-lg-4 mb-5">
-	        <div class="card card-hover">
-	          <a href="javascript:void(0)" class="position-relative">
-	            <img class="card-img-top lazyestload" data-src="http://tong.visitkorea.or.kr/cms/resource/81/1075281_image2_1.jpg" src="" alt="Card image cap">
-	            <div class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">
-	              <div style="margin-left: 90%;">
-	                <button style="border-radius: 50%; background-color:rgba(255, 255, 255, 0); border: none;">
-	                  <img src="${pageContext.request.contextPath}/resources/img/icons/before-like.png" style="width: 25px; height: 25px;" alt="">
-	                </button>
-	              </div>
-	        
-	            </div>
-	          </a>
-	        
-	          <div class="card-body px-4" style="background-color: rgba(112, 217, 223, 0.01)">
-	            <p style="color: gray; font-size: 9;">
-	              <img src="${pageContext.request.contextPath}/resources/img/icons/map.png" style="width: 16px; height: 16px;" alt="">
-	              서울특별시 중구
-	            </p>
-	            <h5>
-	              <a href="detail.sp" class="card-title text-uppercase">광화문</a>
-	            </h5>
+
 	
-	            <div class="post_area" style="float: right;">
-	              <span class="num_like">
-	                <img src="${pageContext.request.contextPath}/resources/img/icons/after-like.png" style="width: 15px; height: 15px;" alt="">
-	                <span class="num" id="conRead" style="font-size: 10pt">37</span>
-	              </span>
-	              <span class="num_view">
-	                <img src="${pageContext.request.contextPath}/resources/img/icons/view.png" style="width: 15px; height: 15px;" alt="">
-	                <span class="num" id="conRead" style="font-size: 10pt">562</span>
-	              </span>
-	            </div>
+			  </div>
+		
+
 	
-	          </div>
-	
-	        </div>
-	      </div>
-	
-	      <div class="col-md-6 col-lg-4 mb-5">
-	        <div class="card card-hover">
-	          <a href="javascript:void(0)" class="position-relative">
-	            <img class="card-img-top lazyestload" data-src="http://tong.visitkorea.or.kr/cms/resource/61/1946561_image2_1.jpg" src="" alt="Card image cap">
-	            <div class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">
-	              <div style="margin-left: 90%;">
-	                <button style="border-radius: 50%; background-color:rgba(255, 255, 255, 0); border: none;">
-	                  <img src="${pageContext.request.contextPath}/resources/img/icons/before-like.png" style="width: 25px; height: 25px;" alt="">
-	                </button>
-	              </div>
-	        
-	            </div>
-	          </a>
-	        
-	          <div class="card-body px-4" style="background-color: rgba(112, 217, 223, 0.01)">
-	            <p style="color: gray; font-size: 9;">
-	              <img src="${pageContext.request.contextPath}/resources/img/icons/map.png" style="width: 16px; height: 16px;" alt="">
-	              서울특별시 중구
-	            </p>
-	            <h5>
-	              <a href="detail.sp" class="card-title text-uppercase">남산 케이블카</a>
-	            </h5>
-	
-	            <div class="post_area" style="float: right;">
-	              <span class="num_like">
-	                <img src="${pageContext.request.contextPath}/resources/img/icons/after-like.png" style="width: 15px; height: 15px;" alt="">
-	                <span class="num" id="conRead" style="font-size: 10pt">25</span>
-	              </span>
-	              <span class="num_view">
-	                <img src="${pageContext.request.contextPath}/resources/img/icons/view.png" style="width: 15px; height: 15px;" alt="">
-	                <span class="num" id="conRead" style="font-size: 10pt">377</span>
-	              </span>
-	            </div>
-	
-	          </div>
-	
-	        </div>
-	      </div>
-	
-	      <div class="col-md-6 col-lg-4 mb-5">
-	        <div class="card card-hover">
-	          <a href="javascript:void(0)" class="position-relative">
-	            <img class="card-img-top lazyestload" data-src="http://tong.visitkorea.or.kr/cms/resource/15/2659815_image2_1.jpg" src="" alt="Card image cap">
-	            <div class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">
-	              <div style="margin-left: 90%;">
-	                <button style="border-radius: 50%; background-color:rgba(255, 255, 255, 0); border: none;">
-	                  <img src="${pageContext.request.contextPath}/resources/img/icons/before-like.png" style="width: 25px; height: 25px;" alt="">
-	                </button>
-	              </div>
-	        
-	            </div>
-	          </a>
-	        
-	          <div class="card-body px-4" style="background-color: rgba(112, 217, 223, 0.01)">
-	            <p style="color: gray; font-size: 9;">
-	              <img src="${pageContext.request.contextPath}/resources/img/icons/map.png" style="width: 16px; height: 16px;" alt="">
-	              서울특별시 마포구
-	            </p>
-	            <h5>
-	              <a href="detail.sp" class="card-title text-uppercase">난지한강공원</a>
-	            </h5>
-	
-	            <div class="post_area" style="float: right;">
-	              <span class="num_like">
-	                <img src="${pageContext.request.contextPath}/resources/img/icons/after-like.png" style="width: 15px; height: 15px;" alt="">
-	                <span class="num" id="conRead" style="font-size: 10pt">17</span>
-	              </span>
-	              <span class="num_view">
-	                <img src="${pageContext.request.contextPath}/resources/img/icons/view.png" style="width: 15px; height: 15px;" alt="">
-	                <span class="num" id="conRead" style="font-size: 10pt">406</span>
-	              </span>
-	            </div>
-	
-	          </div>
-	
-	        </div>
-	      </div>
-	
-	      <div class="col-md-6 col-lg-4 mb-5">
-	        <div class="card card-hover">
-	          <a href="javascript:void(0)" class="position-relative">
-	            <img class="card-img-top lazyestload" data-src="http://tong.visitkorea.or.kr/cms/resource/80/687680_image2_1.jpg" src="" alt="Card image cap">
-	            <div class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">
-	              <div style="margin-left: 90%;">
-	                <button style="border-radius: 50%; background-color:rgba(255, 255, 255, 0); border: none;">
-	                  <img src="${pageContext.request.contextPath}/resources/img/icons/before-like.png" style="width: 25px; height: 25px;" alt="">
-	                </button>
-	              </div>
-	        
-	            </div>
-	          </a>
-	        
-	          <div class="card-body px-4" style="background-color: rgba(112, 217, 223, 0.01)">
-	            <p style="color: gray; font-size: 9;">
-	              <img src="${pageContext.request.contextPath}/resources/img/icons/map.png" style="width: 16px; height: 16px;" alt="">
-	              서울특별시 종로구
-	            </p>
-	            <h5>
-	              <a href="detail.sp" class="card-title text-uppercase">남대문 갈치조림골목</a>
-	            </h5>
-	
-	            <div class="post_area" style="float: right;">
-	              <span class="num_like">
-	                <img src="${pageContext.request.contextPath}/resources/img/icons/after-like.png" style="width: 15px; height: 15px;" alt="">
-	                <span class="num" id="conRead" style="font-size: 10pt">11</span>
-	              </span>
-	              <span class="num_view">
-	                <img src="${pageContext.request.contextPath}/resources/img/icons/view.png" style="width: 15px; height: 15px;" alt="">
-	                <span class="num" id="conRead" style="font-size: 10pt">292</span>
-	              </span>
-	            </div>
-	
-	          </div>
-	
-	        </div>
-	      </div>
-	
-	      <div class="col-md-6 col-lg-4 mb-5">
-	        <div class="card card-hover">
-	          <a href="javascript:void(0)" class="position-relative">
-	            <img class="card-img-top lazyestload" data-src="http://tong.visitkorea.or.kr/cms/resource/82/1567782_image2_1.jpg" src="" alt="Card image cap">
-	            <div class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">
-	              <div style="margin-left: 90%;">
-	                <button style="border-radius: 50%; background-color:rgba(255, 255, 255, 0); border: none;">
-	                  <img src="${pageContext.request.contextPath}/resources/img/icons/before-like.png" style="width: 25px; height: 25px;" alt="">
-	                </button>
-	              </div>
-	        
-	            </div>
-	          </a>
-	        
-	          <div class="card-body px-4" style="background-color: rgba(112, 217, 223, 0.01)">
-	            <p style="color: gray; font-size: 9;">
-	              <img src="${pageContext.request.contextPath}/resources/img/icons/map.png" style="width: 16px; height: 16px;" alt="">
-	              서울특별시 강동구
-	            </p>
-	            <h5>
-	              <a href="detail.sp" class="card-title text-uppercase">길동생태공원</a>
-	            </h5>
-	
-	            <div class="post_area" style="float: right;">
-	              <span class="num_like">
-	                <img src="${pageContext.request.contextPath}/resources/img/icons/after-like.png" style="width: 15px; height: 15px;" alt="">
-	                <span class="num" id="conRead" style="font-size: 10pt">9</span>
-	              </span>
-	              <span class="num_view">
-	                <img src="${pageContext.request.contextPath}/resources/img/icons/view.png" style="width: 15px; height: 15px;" alt="">
-	                <span class="num" id="conRead" style="font-size: 10pt">221</span>
-	              </span>
-	            </div>
-	
-	          </div>
-	
-	        </div>
-	      </div>
-	
-	      <div class="col-md-6 col-lg-4 mb-5">
-	        <div class="card card-hover">
-	          <a href="javascript:void(0)" class="position-relative">
-	            <img class="card-img-top lazyestload" data-src="http://tong.visitkorea.or.kr/cms/resource/01/1567801_image2_1.jpg" src="" alt="Card image cap">
-	            <div class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">
-	              <div style="margin-left: 90%;">
-	                <button style="border-radius: 50%; background-color:rgba(255, 255, 255, 0); border: none;">
-	                  <img src="${pageContext.request.contextPath}/resources/img/icons/before-like.png" style="width: 25px; height: 25px;" alt="">
-	                </button>
-	              </div>
-	        
-	            </div>
-	          </a>
-	        
-	          <div class="card-body px-4" style="background-color: rgba(112, 217, 223, 0.01)">
-	            <p style="color: gray; font-size: 9;">
-	              <img src="${pageContext.request.contextPath}/resources/img/icons/map.png" style="width: 16px; height: 16px;" alt="">
-	              서울특별시 광진구
-	            </p>
-	            <h5>
-	              <a href="detail.sp" class="card-title text-uppercase">광나루한강공원</a>
-	            </h5>
-	
-	            <div class="post_area" style="float: right;">
-	              <span class="num_like">
-	                <img src="${pageContext.request.contextPath}/resources/img/icons/after-like.png" style="width: 15px; height: 15px;" alt="">
-	                <span class="num" id="conRead" style="font-size: 10pt">8</span>
-	              </span>
-	              <span class="num_view">
-	                <img src="${pageContext.request.contextPath}/resources/img/icons/view.png" style="width: 15px; height: 15px;" alt="">
-	                <span class="num" id="conRead" style="font-size: 10pt">109</span>
-	              </span>
-	            </div>
-	
-	          </div>
-	
-	        </div>
-	      </div>
+			  <div>
+				
+			  </div>
+		
+			  </div>
+		
+		
+		</div>
 	
 	    </div>
 	  </div>
@@ -642,8 +429,11 @@
 			// 아래 코드는 지도 위의 마커를 제거하는 코드입니다
 			// marker.setMap(null);
 			
+			let currentPage = 1;
+
 			$(function(){
 				selectReplyList();
+				selectSpotList(currentPage);
 			})
 			
 			function writeReply() {
@@ -656,8 +446,9 @@
 							boardNo:${s.spotNo },
 							replyContents:$("#replyContent").val(),
 							memNo:${loginUser.memNo}
-						}, success:function(status){
-							if(status == "success"){
+						},
+								success:function(status){
+								if(status == "success"){
 								selectReplyList();
 								$("#replyContent").val("");
 							}
@@ -701,99 +492,105 @@
 				});
 			}
 			
-			<!--
-			$("#replyButton").on("click", function(){
-				if($("#replyContent").val().trim().length != 0) {
-					
-					$.ajax({
-						url:"replyInsert.sp",
-						data:{
-							boardNo:${s.spotNo },
-							replyContents:$("#replyContent").val(),
-							memNo:${loginUser.memNo}
-						}, success:function(status){
-							if(status == "success"){
-								//selectReplyList();
-								$("#replyContent").val("");
-							}
-						}, error:function(){
-							console.log("댓글 작성용 ajax 통신 실패!");
-						}
-					});
-				}else{
-					alert("댓글 작성 후 등록이 가능합니다.");
+
+			function increaseLike(contentId) {
+
+				location.href="increaseLike.sp?contentId="+contentId;
+
+			}
+
+
+			let isUpdateList = true;
+			window.onscroll = function(e) {
+			//   console.log(document.body.clientHeight ,  window.innerHeight, window.scrollY , document.body.scrollHeight)
+				if((window.innerHeight + window.scrollY) >= (document.body.offsetHeight)) { 
+					if(isUpdateList){
+
+						console.log("111");
+						
+						isUpdateList = false;
+						
+						selectSpotList(++currentPage);
+						
+						isUpdateList = true;
+					}
+
 				}
-			});
-			 -->
-			 
+			}
+
+			function selectSpotList(currentPage) {
+				let value = "";
+				console.log("asasdasdasdasdas22");
+				$.ajax({
+					url:"spotList.sp",
+					data:{
+							currentPage:currentPage
+						},
+					success:function(list){
+						for(let i=0; i<list.length; i++){
+							value += '<div class="col-md-6 col-lg-4 mb-5">'
+									+ '<form class="postForm" action="detailAPI.sp" method="post">'
+									+ '<input type="hidden" name="contentId" value="'+list[i].spotContentId+'">'
+									+ '<input type="hidden" name="contentType" value="'+list[i].spotContentType+'">'
+									+ '</form>'
+									+ '<div class="card card-hover">'
+									+ '<a href="javascript:void(0)" class="position-relative">'
+									if(list[i].spotImgPath == null){
+										//value += '<img class="card-img-top lazyestload" data-src="resources/img/logo.png" src="" alt="Card image cap"></img>';
+										
+									}else{
+										value += '<img class="card-img-top" data-src="'+list[i].spotImgPath+'" src="'+list[i].spotImgPath+'" alt="Card image cap" style="height: 232px;"></img>';
+									}
+									value += '<div onclick="selectSpotAPI('+list[i].spotContentId+', '+list[i].spotContentType+');" class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">'
+									+ '</div>'
+									+ '</a>'
+									+ '<div class="card-body px-4" style="background-color: rgba(112, 217, 223, 0.01)">'
+									+ '<p style="color: gray; font-size: 9;">'
+									+ '<img src="resources/img/icons/map.png" style="width: 16px; height: 16px;" alt="">'
+									+ list[i].areaTitle + " " + list[i].sigunguTitle
+									+ '</p>'
+									+ '<h5>'
+									+ '<a href="javascript:selectSpotAPI('+list[i].spotContentId+', '+list[i].spotContentType+');" class="card-title text-uppercase">'+list[i].spotTitle+'</a>'
+									+ '<h5>'
+									+ '<div class="post_area" style="float: right;">'
+									+ '<span class="num_like">'
+									+ '<img src="resources/img/icons/after-like.png" style="width: 18px; height: 18px;" alt="">'
+									+ '<span class="num" id="conRead" style="font-size: 10pt">&nbsp&nbsp'+list[i].spotLike+'&nbsp&nbsp&nbsp</span>'
+									+ '</span>'
+									+ '<span class="num_view">'
+									+ '<img src="resources/img/icons/view.png" style="width: 18px; height: 18px;" alt="">'
+									+ '<span class="num" id="conRead" style="font-size: 10pt">&nbsp&nbsp'+list[i].spotCount+'</span>'
+									+ '</span>'
+									+ '</div>'
+									+ '</div>'
+									+ '</div>'
+									+ '</div>'
+
+								
+						}
+						console.log(currentPage);
+						console.log(list);
+						$("#spotList").append(value);
+					},
+					error:function(){
+						console.log("실패");
+					}
+				})
+			}
+
+		function selectSpotAPI(contentId, contentType) {
+
+			location.href="detailAPI.sp?contentId="+contentId+"&contentType="+contentType;
+
+			location.reload();
+
+		}
 				
 				
 			
 		</script>
 	
-	
-    <!--
-	$(function(){
-		//selectReplyList();
-	})
-	
-					$("#replyButton").on("click", function(){
-					console.log("클릭됌");
-				});
-	-->
-	
-    
 
-		<!-- if($("#replyContent").val().trim().length != 0) {
-			
-			$.ajax({
-				url:"replyInsert.sp",
-				data:{
-					boardNo:${s.spotNo },
-					replyContents:$("#replyContent").val(),
-					memNo:${loginUser.memNo}
-				}, success:function(status){
-					if(status == "success"){
-						//selectReplyList();
-						$("#replyContent").val("");
-					}
-				}, error:function(){
-					console.log("댓글 작성용 ajax 통신 실패!");
-				}
-			});
-		}else{
-			alert("댓글 작성 후 등록이 가능합니다.");
-		}
-		-->
-		
-	
-	<!--
-	function selectReplyList() { 
-		$.ajax({
-			url:"replylist.sp",
-			data:{bno:${b.boardNo}},
-			success:function(list){
-				console.log(list);
-				
-				let value = "";
-				
-				for(let i in list) {
-					value += "<tr>"
-							+ "<th>" + list[i].replyWriter + "</th>"
-							+ "<td>" + list[i].replyContent + "</td>"
-							+ "<td>" + list[i].createDate + "</td>"
-							+ "</tr>";
-				}
-				
-				$("#replyArea tbody").html(value);
-				$("#rcount").text(list.length);
-				
-			}, error:function(){
-				console.log("댓글 리스트 조회용 ajax 통신 실패!");
-			}
-		});
-	}
-	-->
       
 	
 	<jsp:include page="../common/footer.jsp"/>

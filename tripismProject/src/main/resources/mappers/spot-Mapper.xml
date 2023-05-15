@@ -62,7 +62,7 @@
 	           and
 	                tvs.spot_img_path is not null
 	           and
-	           		spot_content_type = 12
+	           		spot_content_type != 28
 	</select>
 	
 	<!-- 
@@ -162,5 +162,132 @@
 		   and board_no = #{boardNo}
 	
 	</select>
+	
+	<update id="increaseCount">
+		
+		update
+				tb_travel_spot
+		   set
+				SPOT_COUNT = SPOT_COUNT + 1
+		 where
+				SPOT_CONTENT_ID = #{contentId}
+		
+	</update>
+	
+		<select id="searchSpotList" resultMap="spotResult">
+		select
+	            spot_content_id,
+	            spot_content_type,
+	            spot_title,
+	            spot_img_path,
+                area_category_title,
+                sigungu_title,
+                spot_count,
+                spot_like,
+                tvs.area_category_no,
+                tvs.city_category_no
+                
+	      from
+	            tb_travel_spot tvs, tb_spot_city_category tscc, tb_spot_area_category tsac
+	      where
+	                tvs.area_category_no = tscc.area_category_no
+	           and
+	                tvs.city_category_no = tscc.sigungu_no
+	           and
+	                tvs.area_category_no = tsac.area_category_no
+	           and
+	                tvs.spot_img_path is not null
+	           and
+	           		tvs.spot_content_type = #{spotContentType}
+	           and
+	           		tvs.area_category_no = #{areaCategoryNo}
+		</select>
+		
+		<select id="searchSpotListAll" resultMap="spotResult">
+		
+		 select
+		            spot_content_id,
+		            spot_content_type,
+		            spot_title,
+		            spot_img_path,
+	                area_category_title,
+	                sigungu_title,
+	                spot_count,
+	                spot_like,
+	                tvs.area_category_no,
+	                tvs.city_category_no
+	      from
+		            tb_travel_spot tvs, tb_spot_city_category tscc, tb_spot_area_category tsac
+	      where
+	                tvs.area_category_no = tscc.area_category_no
+	           and
+	                tvs.city_category_no = tscc.sigungu_no
+	           and
+	                tvs.area_category_no = tsac.area_category_no
+	           and
+	                tvs.spot_img_path is not null
+	           and
+	           		spot_content_type != 28
+		
+		</select>
+		
+		<select id="searchSpotListType" resultMap="spotResult">
+		
+					select
+	            spot_content_id,
+	            spot_content_type,
+	            spot_title,
+	            spot_img_path,
+                area_category_title,
+                sigungu_title,
+                spot_count,
+                spot_like,
+                tvs.area_category_no,
+                tvs.city_category_no
+                
+	      from
+	            tb_travel_spot tvs, tb_spot_city_category tscc, tb_spot_area_category tsac
+	      where
+	                tvs.area_category_no = tscc.area_category_no
+	           and
+	                tvs.city_category_no = tscc.sigungu_no
+	           and
+	                tvs.area_category_no = tsac.area_category_no
+	           and
+	                tvs.spot_img_path is not null
+	           and
+	           		tvs.spot_content_type = #{spotContentType}
+		
+		</select>
+		
+		<select id="searchSpotListArea" resultMap="spotResult">
+		
+		select
+	            spot_content_id,
+	            spot_content_type,
+	            spot_title,
+	            spot_img_path,
+                area_category_title,
+                sigungu_title,
+                spot_count,
+                spot_like,
+                tvs.area_category_no,
+                tvs.city_category_no
+                
+	      from
+	            tb_travel_spot tvs, tb_spot_city_category tscc, tb_spot_area_category tsac
+	      where
+	                tvs.area_category_no = tscc.area_category_no
+	           and
+	                tvs.city_category_no = tscc.sigungu_no
+	           and
+	                tvs.area_category_no = tsac.area_category_no
+	           and
+	                tvs.spot_img_path is not null
+	           and
+	           		tvs.area_category_no = #{areaCategoryNo}
+		
+		</select>
+		
 
 </mapper>

@@ -15,6 +15,12 @@ public interface SpotService {
 	Spot selectSpotDetail(int contentId);
 
 	int insertReply(Reply r);
+
+	ArrayList<Reply> selectReplyList(int boardNo);
+
+	int increaseCount(int contentId);
+
+	ArrayList<Spot> searchSpotList(int currentPage, int spotContentType, int areaCategoryNo);
 	
 	
 }

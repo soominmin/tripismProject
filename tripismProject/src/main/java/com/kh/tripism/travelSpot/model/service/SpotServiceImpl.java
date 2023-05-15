@@ -42,10 +42,23 @@ public class SpotServiceImpl implements SpotService {
 	public int insertReply(Reply r) {
 		return sDao.insertReply(sqlSession, r);
 	}
-
+	
+	@Override
 	public ArrayList<Reply> selectReplyList(int boardNo) {
 		return sDao.selectReplyList(sqlSession, boardNo);
 	}
+	
+	@Override
+	public int increaseCount(int contentId) {
+		return sDao.increaseCount(sqlSession, contentId);
+	}
+	
+	@Override
+	public ArrayList<Spot> searchSpotList(int currentPage, int spotContentType, int areaCategoryNo) {
+		ArrayList<Spot> list = sDao.searchSpotList(sqlSession, currentPage, spotContentType, areaCategoryNo);
+		return list;
+	}
+
 	
 
 	

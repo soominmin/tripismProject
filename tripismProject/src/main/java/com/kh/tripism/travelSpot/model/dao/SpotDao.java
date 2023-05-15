@@ -39,5 +39,43 @@ public class SpotDao {
 	public ArrayList<Reply> selectReplyList(SqlSessionTemplate sqlSession, int boardNo) {
 		return (ArrayList)sqlSession.selectList("spotMapper.selectReplyList", boardNo);
 	}
+
+
+
+	public int increaseCount(SqlSessionTemplate sqlSession, int contentId) {
+		return sqlSession.update("spotMapper.increaseCount", contentId);
+	}
+
+
+
+	public ArrayList<Spot> searchSpotList(SqlSessionTemplate sqlSession, int currentPage, int spotContentType,
+			int areaCategoryNo) {
+		
+		HashMap<String, Object> selectList = new HashMap<String, Object>();
+		
+		RowBounds rowBounds = new RowBounds((currentPage-1)*10,9);
+		
+		selectList.put("rowBounds", rowBounds);
+		selectList.put("spotContentType", spotContentType);
+		selectList.put("areaCategoryNo", areaCategoryNo);
+		
+		if(spotContentType == 0 && areaCategoryNo != 0) {
+			return (ArrayList)sqlSession.selectList("spotMapper.searchSpotListType", selectList, rowBounds);
+		}
+		else if(areaCategoryNo == 0 && spotContentType != 0) {
+			return (ArrayList)sqlSession.selectList("spotMapper.searchSpotListArea", selectList, rowBounds);
+		}
+		else if(areaCategoryNo == 0 && spotContentType == 0) {
+			return (ArrayList)sqlSession.selectList("spotMapper.searchSpotListAll", selectList, rowBounds);
+		}
+		else {
+			return (ArrayList)sqlSession.selectList("spotMapper.searchSpotList", selectList, rowBounds);
+		}
+
+		
+	}
+
+
+
 	
 }

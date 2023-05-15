@@ -8,7 +8,7 @@
 <title>Tripism Feed</title>
 
     <style>
-        /* div{ border: 1px solid gray; } */
+        /*  div{ border: 1px solid gray; }  */
         
         #wrap{ height: 1200px;  position: relative; margin-left: 15%;}
         /* #header{ height: 10% ; box-sizing: border-box; } */
@@ -106,11 +106,12 @@
         	background-color: rgb(112, 217, 223);
         }
         
-        .img-wrap{}
+        .img-wrap{box-sizing: border-box;}
         .img-wrap>img{
-        	display: inline-block;
-        	
         	box-sizing: border-box;
+        	width: 49.71%;
+        	margin: 1.2px 0px
+        	
         }
     </style>
 
@@ -304,14 +305,17 @@
 		                    <span>|</span>
 	                    </c:if>  --%>
 	                    
-	                    <button type="button" style="border: none;" onclick="postFormSubmit(1);">
-		                    	<span>t수정하기</span>
+	                    <form action="updateForm.fd" method="post" enctype="multipart/form-data">
+		                    <input type="hidden" name="fno" value="${f.feedNo}">
+		                    <button type="submit" style="border: none;">
+			                    	<span>t수정하기(구현중)</span>
 		                    </button>
+	                    </form>
 		                    
-		                    <span>|${f.feedNo}</span>
+		                    <span></span>
 		                    
 	                    <button type="button" data-toggle="modal" data-target="#report">
-	                        <span>신고하기</span>
+	                        <span>신고하기(미완성)</span>
 	                    </button>
                    </div>
                 </div>
@@ -331,16 +335,16 @@
                 </div>
             	<div class="img-wrap">	 
                 	<c:if test="${ not empty f.imgOriginalName1 }">
-                		<img src="${ f.imgChangeName1 }" alt="첨부사진" style="width: 50%; height: 50%;">
+                		<img src="${ f.imgChangeName1 }" alt="첨부사진">
 	                </c:if>	
 	                <c:if test="${ not empty f.imgOriginalName2 }">
-                		<img src="${ f.imgChangeName2 }" alt="첨부사진" style="width: 50%; height: 50%;">
+                		<img src="${ f.imgChangeName2 }" alt="첨부사진">
 	                </c:if>	
 	                <c:if test="${ not empty f.imgOriginalName3 }">
-                		<img src="${ f.imgChangeName3 }" alt="첨부사진" style="width: 50%; height: 50%;">
+                		<img src="${ f.imgChangeName3 }" alt="첨부사진">
 	                </c:if>	
 	                <c:if test="${ not empty f.imgOriginalName4 }">
-                		<img src="${ f.imgChangeName4 }" alt="첨부사진" style="width: 50%; height: 50%;">
+                		<img src="${ f.imgChangeName4 }" alt="첨부사진">
 	                </c:if>	
 				</div>
                 <div class="inner-bar-small LrN">
@@ -506,17 +510,9 @@
                 </div>
             </div>
             
-            <form class="postForm" action="" method="post">
-               <input type="hidden" name="fno" value="${f.feedNo}">
+            <form class="postForm" action="updateForm.fd" method="post">
+               <input type="hidden" name="f" value="${f}">
             </form>
-            
-            <script>
-	            function postFormSubmit(num){// 수정하기 클릭시
-	            	if(num == 1){
-	                $(".postForm").attr("action", "updateForm.fd").submit();
-	            	}
-	          }
-            </script>
             
 			<!-- 무한스크롤 끝낼 자리 -->
 			

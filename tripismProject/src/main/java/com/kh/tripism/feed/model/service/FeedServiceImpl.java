@@ -54,9 +54,15 @@ public class FeedServiceImpl implements FeedService {
 	public int selectFeedCount() {
 		return fDao.selectFeedCount(sqlSession);
 	}
+	
+	@Override
+	public int selectImgCount() {
+		return fDao.selectImgCount(sqlSession);
+	}
 
 	
-	@Override public int selectListCount() { 
+	@Override 
+	public int selectListCount() { 
 		 return fDao.selectListCount(sqlSession); 
 	}
 	 
@@ -65,6 +71,12 @@ public class FeedServiceImpl implements FeedService {
 	public ArrayList<Feed> selectFeedList(PageInfo pi) {
 		System.out.println("피드리스트 나왔나? service");
 		return fDao.selectFeedList(sqlSession, pi);
+	}
+	
+	@Override
+	public ArrayList<Feed> selectImgList(PageInfo pi) {
+		System.out.println("피드 이미지 나왔나?");
+		return fDao.selectImgList(sqlSession, pi);
 	}
 
 	@Override
@@ -98,6 +110,8 @@ public class FeedServiceImpl implements FeedService {
 	public ArrayList<Img> selectImg(PageInfo pi) {
 		return fDao.selectImg(sqlSession, pi);
 	}
+
+	
 
 	
 

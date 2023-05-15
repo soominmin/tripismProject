@@ -48,8 +48,22 @@ public class FeedController {
 	}
 	
 	@RequestMapping("feedImgAll.fd")
-	public String feedImgAll() {
-		return "feed/feedImgAll";
+	public ModelAndView feedImgAll(ModelAndView mv) {
+		
+		System.out.println("이미지 탔나?");
+		
+		int currentPage = 1;
+		
+		int listCount = fService.selectImgCount();
+		System.out.println("listCount : " + listCount);
+		
+		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, 1, 1);
+		
+		ArrayList<Feed> feed = fService.selectImgList(pi);
+		
+		mv.addObject("pi", pi).addObject("feed", feed).setViewName("feed/feedImgAll");
+		
+		return mv;
 	}
 	
 	@RequestMapping("enrollForm.fd")
@@ -242,6 +256,7 @@ public class FeedController {
 		int result = fService.deleteFeed(feedNo);
 		
 		if(result > 0) {
+			System.out.println("filePath : " +  filePath);
 			if(!filePath.equals("")) {
 				new File(session.getServletContext().getRealPath(filePath)).delete();
 			}
@@ -254,19 +269,19 @@ public class FeedController {
 		}
 	}
 	
-	@RequestMapping("update.fd")
-	public String updateFeed(Feed f, Img i, MultipartFile reupfile, HttpSession session, Model model) {
-		if(!reupfile.getOriginalFilename().equals("")) {
-			if(i.getImgOriginalName() != null) {
-				new File(session.getServletContext().getRealPath(i.getImgChangeName())).delete();
+	@RequestMapping("update.fd") // 구현중 0515
+	public String updateFeed(Feed f, MultipartFile reupfile1, MultipartFile reupfile2, MultipartFile reupfile3, MultipartFile reupfile4, HttpSession session, Model model) {
+		if(!reupfile1.getOriginalFilename().equals("")) {
+			if(f.getImgOriginalName1() != null) {
+				new File(session.getServletContext().getRealPath(f.getImgChangeName1())).delete();
 			}
-			String changeName1 = saveFile1(reupfile, session);
-			String changeName2 = saveFile2(reupfile, session);
-			String changeName3 = saveFile3(reupfile, session);
-			String changeName4 = saveFile4(reupfile, session);
+			String changeName1 = saveFile1(reupfile1, session);
+			String changeName2 = saveFile2(reupfile2, session);
+			String changeName3 = saveFile3(reupfile3, session);
+			String changeName4 = saveFile4(reupfile4, session);
 			
-			i.setImgOriginalName(reupfile.getOriginalFilename());
-			i.setImgChangeName("resources/upfiles/" + changeName1);
+			f.setImgOriginalName1(reupfile1.getOriginalFilename());
+			f.setImgChangeName1("resources/upfiles/" + changeName1);
 		}
 		
 		int result = fService.updateFeed(f);

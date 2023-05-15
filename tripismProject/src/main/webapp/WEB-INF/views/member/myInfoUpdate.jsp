@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>마이페이지</title>
 <style>
       #userName>img{
         width: 50px;
@@ -103,13 +103,19 @@
      #nicknameUpdate{
      	border: none;
      }
+     
+     #profile{
+    	 background-color: RGB(112, 217, 223);
+    	 border: RGB(112, 217, 223);
+    	 display: none;
+    	 padding-top:10px;
+	}	
 
 
 </style>
 </head>
 
 <body>
-
 
 <jsp:include page="../common/header.jsp"/>
 <!-- 마이페이지 감싸는 Form -->
@@ -121,12 +127,12 @@
               <div>
                 <div class="row align-items-xl-center">
                   <div class="container">
-                    <div>
                       <div class="row">
                         <div class="col-12">
-                          <div class="row" style="width: 1500px;">
+                          <div class="row" style="width: 1670px; padding:0px; margin:0px;">
                             <div class="col-lg-6" style="border: solid 3px rgba(199, 198, 198, 0.37); padding: 35px; border-radius: 15px 15px 15px 15px;">
-                           
+                           <div class="Layout__PageContentWrap-sc-1w3ggn5-0 bgfeYQ">
+                           	<section>
                            		<!-- 정보수정 시작 -->   
                               <div class="WebHeader__SignBtnBox-sc-12ctfsg-1 eluuNw" style="float: right; margin-bottom: 0px; height: 55px;">
                                 <button class="WebHeader__HeaderButton-sc-12ctfsg-2 jmaRWD"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pwdCheck" class="media d-inline-flex align-items-center">비밀번호변경하기</a></button>
@@ -135,23 +141,34 @@
                                 <h3 class="text-uppercase mb-3" style="padding-left: 15px;">나의 정보 수정하기</h3>
                               </div>
                               <hr>
-                              <c:choose>
-                              <c:when test="${ empty loginUser.img }">
-	                              <div align="center" style="padding-top: 25px;">
-	                              <label for="file-upload"></label>
-	                              <input id="file-upload" type="file" style="display:none">
-	                              	<img src="${pageContext.request.contextPath}/resources/img/user (2).jfif" id="preview-img" style="width:65px; height:65px; cursor: pointer;" onclick="document.getElementById('file-upload').click();" />
-	                              </div>
-                              </c:when>
-                              <c:otherwise>
-	                              <div align="center" style="padding-top: 25px;">
-	                              <label for="file-upload"></label>
-	                              <input id="file-upload" type="file" style="display:none">
-	                              	<img src="${pageContext.request.contextPath}${loginUser.img}" id="preview-img" style="width:65px; height:65px; cursor: pointer;" onclick="document.getElementById('file-upload').click();" />
-	                              </div>
-                              </c:otherwise>
-                              </c:choose>
-                              
+                              <form action="profile.do" id="insertProfile" method="post" enctype="multipart/form-data">
+	                              <c:choose>
+	                              <c:when test="${ empty loginUser.img }">
+		                              <div align="center" style="padding-top: 25px;">
+		                              <label for="upfile"></label>
+		                              <input id="upfile" type="file" name="upfile" style="display:none">
+		                              	<img id="preview-img" src="${pageContext.request.contextPath}/resources/img/user (2).jfif" id="preview-img" style="width:65px; height:65px; cursor: pointer; border-radius: 50%;" onclick="document.getElementById('upfile').click();" />
+		                              </div>
+										<input type="hidden" value="${loginUser.memNo }" name="memNo">
+										<input type="hidden" value="${loginUser.memId }" name="memId">
+										<div align="center">
+										<button type="submit" class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6" id="profile">프로필사진 변경 하기</button>		
+										</div>                              
+	                              </c:when>
+	                              <c:otherwise>
+		                              <div align="center" style="padding-top: 25px;">
+		                              <label for="upfile"></label>
+		                              <input id="upfile" type="file" name="upfile" style="display:none">
+		                              	<img id="preview-img" src="${loginUser.img}" id="preview-img" style="width:65px; height:65px; cursor: pointer; border-radius: 50%;" onclick="document.getElementById('upfile').click();" />
+		                              </div>
+		                              	<input type="hidden" value="${loginUser.memNo }" name="memNo">
+		                              	<input type="hidden" value="${loginUser.memId }" name="memId">
+										<div align="center">
+										<button type="submit" class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6" id="profile">프로필사진 변경 하기</button>		
+										</div>                              			                              
+	                              </c:otherwise>
+	                              </c:choose>
+                              </form>
                               <div style="padding-top: 15px;">
                               <c:choose>
                               	<c:when test="${ not empty loginUser.mbti }">
@@ -191,11 +208,6 @@
 
                               <div id="ulli" style="width: 100%; margin-top: 20px;">
                                 <ul class="list-unstyled list-group list-group-flush">
-								  <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                                      <span id="likePost"><a href="spotLike.do">ℹ️ 내정보수정하기</a></span>
-                                  </li>
-                                                    
-                                
                                   <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
                                       <span id="likePost"><a href="spotLike.do">❤️ 찜목록</a></span>
                                   </li>
@@ -212,7 +224,9 @@
                                       <span id="bookMark"><a href="bookMarkList.do">⭐ 즐겨찾기 </a></span>
                                   </li>
                                   
-                                  
+                                  <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
+	                				  <span id="bookMark"><a href="following.do">👯 내 친구목록 </a></span>
+	          					  </li>
                     
                                   <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
                                     <span id="bookMark"><a href="following.do"> 💭 MBTI 유형검사 </a></span>
@@ -314,7 +328,19 @@
                                 </div>
                               </div>
                               
-                              <script>
+                              
+                              </section>
+                        </div>
+                        <!-- 정보수정끝 -->
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+              <script>
 	                              $(function(){
 	      							
 	                  				const $nicknameInput = $("#nicknameUpdateForm input[name=memNickname]");
@@ -350,17 +376,73 @@
 	                  					}
 	                  					})
 	                  			})
+	                  			
+	                  			<!-- 프로필사진 관련 script -->
+								    function readURL(input) {
+								        if (input.files && input.files[0]) {
+								            var reader = new FileReader();
+								            reader.onload = function (e) {
+								                $('#preview-img').attr('src', e.target.result);
+								            }
+								            reader.readAsDataURL(input.files[0]);
+								        }
+								    }
+								    $("#upfile").change(function(){
+								        readURL(this);
+								        $('#profile').show();
+								    });
+                              </script><script>
+	                              $(function(){
+	      							
+	                  				const $nicknameInput = $("#nicknameUpdateForm input[name=memNickname]");
+	                  				
+	                  				$nicknameInput.keyup(function(){
+	                  					console.log($nicknameInput.val());
+	                  					
+	                  					if($nicknameInput.val().length >= 1) {
+	                  						
+	                  						$.ajax({
+	                  	    					url:"nicknameCheck.do",
+	                  	    					data:{checkNickname:$nicknameInput.val()},
+	                  	    					success:function(count){
+	                  	    						
+	                  	    						if(count == "NNNNN") { // 사용불가능
+	                  	    							
+	                  	    							// => 빨간색 메시지 (사용불가능)
+	                  	    							$("#nicknameResult").show();
+	                  	    							$("#nicknameResult").css("color", "red").text("중복된 닉네임입니다.");
+	                  	    							
+	                  	    							
+	                  	    						} else {	// 사용가능
+	                  	    							
+	                  	    							// => 초록색 메시지(사용가능) 출력
+	                  	    							$("#nicknameResult").show();
+	                  	    							$("#nicknameResult").css("color", "green").text("사용가능한 닉네임입니다.");
+	                  	    							
+	                  	    						}
+	                  							}, error : function(){	
+	                  										console.log("ajax 통신 실패");
+	                  							}
+	                  						});
+	                  					}
+	                  					})
+	                  			})
+	                  			
+	                  			<!-- 프로필사진 관련 script -->
+								    function readURL(input) {
+								        if (input.files && input.files[0]) {
+								            var reader = new FileReader();
+								            reader.onload = function (e) {
+								                $('#preview-img').attr('src', e.target.result);
+								            }
+								            reader.readAsDataURL(input.files[0]);
+								        }
+								    }
+								    $("#upfile").change(function(){
+								        readURL(this);
+								        $('#profile').show();
+								    });
                               </script>
-                        </div>
-                        <!-- 정보수정끝 -->
-                      </div>
-                    </div>
-                  </div>
-                  </div>
-                  </div>
-                </div>
-                </div>
-              </div>
           <jsp:include page="../member/mypageSidebar.jsp"/>
             </div>
             <!-- 계정설정 끝 -->

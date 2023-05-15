@@ -18,7 +18,7 @@ public class PnBoard {
 	
 	private int postNo;						// 게시글번호
 	private int memNo; 						// 회원번호
-	private String partnerName;	 			// 글제목	
+	private String partnerName;	 			// 회원이름	
 	private String partnerType;	 			// 여행타입
 	private String partnerOriginalImg; 		// 대표이미지 원본이름
 	private String partnerChangeImg; 		// 대표이미지 변경이름 "resources/uploadFiles/xxx.jpg" 이렇게 넣을거임 

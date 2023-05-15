@@ -2,6 +2,7 @@ package com.kh.tripism.member.model.service;
 
 import org.springframework.ui.Model;
 
+import com.kh.tripism.member.model.vo.Folder;
 import com.kh.tripism.member.model.vo.Member;
 
 public interface MemberService {
@@ -10,9 +11,6 @@ public interface MemberService {
 		
 		// 회원가입 서비스 (insert)
 		int insertMember(Member m);
-		
-		// 정보수정 서비스 (update)
-		int updateMember(Member m);
 		
 		// 회원탈퇴 서비스 (update)
 		int deleteMember(Member m);
@@ -46,6 +44,12 @@ public interface MemberService {
 		
 		// 닉네임 수정
 		int nicknameUpdate(Member m);
+		
+		// 마이페이지 사진넣기
+		int profile(Member m);
+		
+		// 폴더추가하기
+		int insertFolder(Folder f);
 		
 		
 

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.tripism.member.model.dao.MemberDao;
+import com.kh.tripism.member.model.vo.Folder;
 import com.kh.tripism.member.model.vo.Member;
 
 @Service
@@ -88,11 +89,20 @@ public class MemberServiceImpl implements MemberService {
 		return result;
 	}
 	
+	// 마이페이지 사진변경
 	@Override
-	public int updateMember(Member m) {
-		return 0;
-	}
+	public int profile(Member m) {
+		int result = mDao.profile(sqlSession, m);
+		return result;
+		}
 	
+	// 즐겨찾기 폴더추가 (insert)
+	@Override
+	public int insertFolder(Folder f) {
+		int result = mDao.insertFolder(sqlSession, f);
+		return result;
+	}
+
 
 
 
@@ -124,6 +134,8 @@ public class MemberServiceImpl implements MemberService {
 		}
 		return count;
 	}
+
+
 
 
 

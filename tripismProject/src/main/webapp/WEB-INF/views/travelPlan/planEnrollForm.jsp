@@ -167,6 +167,10 @@
 
 		 }
 		</script>
+		
+		<jsp:include page="../common/chatting.jsp"/>
+		
+		
     
     
 

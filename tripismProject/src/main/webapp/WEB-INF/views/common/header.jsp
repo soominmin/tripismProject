@@ -400,13 +400,14 @@
                       <img src="${pageContext.request.contextPath}/resources/img/header/icons5.png" class="Button_pa hXhSDh">
                       여행지 둘러보기</a>
                   </li>
-  
+  					
+  				<!-- 
                   <li class="">
                     <a href="list.pk">
                       <img src="${pageContext.request.contextPath}/resources/img/header/icons6.png" class="Button_pa hXhSDh">
                       여행 상품</a>
                   </li>
-                  
+                 -->
                <li class="">
                     <a href="plan.tr">
                       <img src="${pageContext.request.contextPath}/resources/img/header/icons4.png" class="Button_pa hXhSDh">

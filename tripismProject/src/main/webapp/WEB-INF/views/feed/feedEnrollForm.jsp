@@ -303,10 +303,25 @@
                                 </thead>
                                 <tbody id="fileHere">
                                     <tr>
-                                        <input type="file" class="files" name="upFile1" accept="image/*"> <!-- 2번 -->
-                                        <input type="file" class="files" name="upFile2" accept="image/*"> <br>
-                                        <input type="file" class="files" name="upFile3" accept="image/*"> 
-                                        <input type="file" class="files" name="upFile4" accept="image/*"> 
+	                                    <td>
+	                                    	파일은 4개까지 첨부할 수 있습니다.
+	                                    </td>
+                                    </tr>
+	                                <tr>
+	                                    <td>
+	                                    	<div>
+	                                        <input type="file" class="files" name="upFile1" id="upFile1" accept="image/*"> <a href='#this' class='file-delete' onclick="deleteFile(1)">삭제</a> <!-- 2번 -->
+	                                        </div>
+	                                    	<div>
+	                                        <input type="file" class="files" name="upFile2" id="upFile2" accept="image/*"> <a href='#this' class='file-delete' onclick="deleteFile(2)">삭제</a><br>
+	                                        </div>
+	                                    	<div>
+	                                        <input type="file" class="files" name="upFile3" id="upFile3" accept="image/*"> <a href='#this' class='file-delete' onclick="deleteFile(3)">삭제</a>
+	                                        </div>
+	                                    	<div>
+	                                        <input type="file" class="files" name="upFile4" id="upFile4" accept="image/*"> <a href='#this' class='file-delete' onclick="deleteFile(4)">삭제</a>
+	                                        </div>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -336,6 +351,33 @@
             
 
             <script>
+            	function deleteFile(num) {
+            		if(num == 1){
+		            $(".file-delete")
+		            	$('#upFile1').val("");
+		                deleteFile($(this));
+		            	console.log("1번 파일 삭제 됨?")
+            		};
+	            	if(num == 2){
+		            $(".file-delete")
+		            	$('#upFile2').val("");
+		                deleteFile($(this));
+		            	console.log("2번 파일 삭제 됨?")
+	            	};
+	            	if(num == 3){
+		            $(".file-delete")
+		            	$('#upFile3').val("");
+		                deleteFile($(this));
+		            	console.log("3번 파일 삭제 됨?")
+	            	};
+	            	if(num == 4){
+		            $(".file-delete")
+		            	$('#upFile4').val("");
+		                deleteFile($(this));
+		            	console.log("4번 파일 삭제 됨?")
+	            	};
+            	}
+		            
 					function handleFileSelect() { // 2번 시도
 					    //Check File API support
 					    if (window.File && window.FileList && window.FileReader) {

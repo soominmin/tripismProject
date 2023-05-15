@@ -116,7 +116,7 @@
                     <div>
                       <div class="row">
                         <div class="col-12">
-                          <div class="row" style="width: 1500px;">
+                          <div class="row" style="width: 1670px;">
                             <div class="col-lg-6" style="margin-left: 160px; border: solid 3px rgba(199, 198, 198, 0.37); padding: 35px; border-radius: 15px 15px 15px 15px;">
                               <div class="WebHeader__SignBtnBox-sc-12ctfsg-1 eluuNw" style="float: right; margin-bottom: 0px; height: 55px;">
                                 <button class="WebHeader__HeaderButton-sc-12ctfsg-2 jmaRWD"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pwdCheck" class="media d-inline-flex align-items-center">비밀번호변경하기</a></button>
@@ -128,16 +128,12 @@
                               <c:choose>
                               <c:when test="${ empty loginUser.img }">
 	                              <div align="center" style="padding-top: 25px;">
-	                              <label for="file-upload"></label>
-	                              <input id="file-upload" type="file" style="display:none">
-	                              	<img src="${pageContext.request.contextPath}/resources/img/user (2).jfif" id="preview-img" style="width:65px; height:65px; cursor: pointer;" onclick="document.getElementById('file-upload').click();" />
+	                              	<img src="${pageContext.request.contextPath}/resources/img/user (2).jfif" id="preview-img" style="width:65px; height:65px; border-radius: 50%;" />
 	                              </div>
                               </c:when>
                               <c:otherwise>
 	                              <div align="center" style="padding-top: 25px;">
-	                              <label for="file-upload"></label>
-	                              <input id="file-upload" type="file" style="display:none">
-	                              	<img src="${pageContext.request.contextPath}${loginUser.img}" id="preview-img" style="width:65px; height:65px; cursor: pointer;" onclick="document.getElementById('file-upload').click();" />
+	                              	<img src="${loginUser.img}" id="preview-img" style="width:65px; height:65px; border-radius: 50%;"/>
 	                              </div>
                               </c:otherwise>
                               </c:choose>
@@ -218,6 +214,10 @@
                                   
                                   <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
                                     <span id="bookMark"><a href="otherPage.do"> 💭 다른사람마페(잠깐) </a></span>
+                                  </li>
+                                  
+                                  <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
+                                    <span id="bookMark"><a href="modal.do"> 모달창확인 </a></span>
                                   </li>
                                   
                                 </ul>

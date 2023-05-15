@@ -485,7 +485,7 @@
     }
     .cMnydo {
         box-sizing: border-box;
-        width: 49%;
+        width: 80%;
         height: 100%;
         background: rgb(112, 217, 223);
         color: rgb(255, 255, 255);
@@ -494,23 +494,11 @@
         border: none;
         cursor: pointer;
         margin: 0px;
+        margin-left: 2rem;
         font-size: 15px;
         font-weight: 400;
     }
-    .hOSFcy {
-        box-sizing: border-box;
-        width: 49%;
-        height: 100%;
-        background: rgb(248, 248, 248);
-        color: rgb(0, 0, 0);
-        border-radius: 10px;
-        transition: background-color 0.3s ease-out 0s;
-        border: none;
-        cursor: pointer;
-        margin: 0px;
-        font-size: 15px;
-        font-weight: 400;
-    }
+
     .btn-ono {
         margin-left: 5px;
         border: 1px solid rgb(233, 233, 233);
@@ -520,6 +508,28 @@
         color: rgb(106, 106, 106);
         background-color: rgb(255, 255, 255);
         border-radius: 5px;
+    }
+    #go {
+    position: relative;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: rgb(112, 217, 223);
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    outline: auto;
+    margin-left: auto;
+    }
+    #no {
+    position: relative;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    font-size: 14px;
+    color: rgb(112, 217, 223);
+    box-sizing: border-box;
+    outline: auto;
+    margin-left: 5px;
     }
     </style>
 </head>
@@ -658,7 +668,7 @@
                                         <button class="AccompanyContainer__ReportButton-sc-zoqt5l-12 laOqNb" style="font-size: 14px; color: rgb(154, 154, 154); line-height: 21px; font-weight: 400; margin-bottom: 15px; margin-left: 66px;">
                                         정보 보러가기</button>
                                     </a>
-                                        
+                    
                                     </div>
                                 </div>
                             </div>
@@ -676,6 +686,36 @@
                             </div>
 
                         </div>
+                        <c:choose>
+                        	<c:when test="${not empty applyList }">
+		                        
+		                        <div class="Layout__LayoutEqualDistanceDiv-sc-1w3ggn5-1 hAClzB profile_section" style="margin-top: 20px;" >
+		                            <p style="font-weight: 700; font-size: medium; margin-top: 10px; margin-bottom: 30px;">받은 신청 목록</p>
+		                            
+		                            
+		                            <div style="display: flex; align-items: center; justify-content: flex-start; margin-top: 12px;">
+		                                <span>수바니 · type · 여성 </span>
+		                                <button value="memNo" id="go">수락</button>
+		                                <button value="memNo" id="no">거절</button>
+		                                
+		                            </div>
+		                        </div>
+                        
+                        	</c:when>
+                        	<c:otherwise>
+                        	<div class="Layout__LayoutEqualDistanceDiv-sc-1w3ggn5-1 hAClzB profile_section" style="margin-top: 20px;" >
+		                            <p style="font-weight: 700; font-size: medium; margin-top: 10px; margin-bottom: 30px;">받은 신청 목록</p>
+		                            
+		                            
+		                            <div style="display: flex; align-items: center; justify-content: flex-start; margin-top: 12px;">
+		                               <span> 신청인이 없습니다 </span>
+		                            </div>
+		                            
+		                        </div>
+                        		 
+                        	</c:otherwise>
+                        	<c:if test="${applyList ==null }"></c:if>
+                        </c:choose>
                     </div>
                 </div>
             </main>
@@ -687,10 +727,9 @@
                     <div class="ModalContainer dompyb">
                         <div width="375px" class="ModalContainer bgZZfo">
                             <div class="ModalConfirm bJjRJT">
-                                <p class="ModalConfirm gpnsLj">동행 신청을 하시겠습니까? <br> 동행신청 누를시 신청하시는 분의 정보가 전달 됩니다.</p>
-                                <div class="ModalConfirm bcDKTX">
-                                    <button width="49%" height="100%" color="#fff" class="ButtonTemplate hOSFcy">취소</button>
-                                    <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo">동행신청</button>
+                                <p class="ModalConfirm gpnsLj"> 로그인 회원만 이용하실 수 있는 페이지 입니다. <br> 로그인을 해주세요</p>
+                                <div class="ModalConfirm bcDKTX" >
+                                    <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo">확인</button>
                                 </div>
                             </div>
                         </div>
@@ -715,17 +754,11 @@
                 modal.style.display = "block";
                 });
 
-                // 모달창 닫기 버튼 클릭 시 모달창 닫기
-                var closeBtn = document.querySelector('.ButtonTemplate.hOSFcy');
-                closeBtn.addEventListener('click', function() {
-                var modal = document.querySelector('#ModalController');
-                modal.style.display = "none";
-                });
-
                 // 동행신청 버튼 클릭 시 신청 정보 전송
                 var applyConfirmBtn = document.querySelector('.ButtonTemplate.cMnydo');
                 applyConfirmBtn.addEventListener('click', function() {
-                // 신청 정보 전송 코드 작성
+                var modal = document.querySelector('#ModalController');
+                modal.style.display = "none";
                 });
             </script>
             

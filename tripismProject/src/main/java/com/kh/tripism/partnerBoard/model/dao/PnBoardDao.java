@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.partnerBoard.model.vo.PnBoard;
-import com.kh.tripism.partnerBoard.model.vo.PnReply;
+import com.kh.tripism.common.vo.Reply;
 
 @Repository
 public class PnBoardDao {
@@ -63,13 +63,13 @@ public class PnBoardDao {
 	
 	
 	// 동행 관련 댓글
-	public ArrayList<PnReply> selectPnReplyList(SqlSessionTemplate sqlSession, int pnBoardNo) {
-		return (ArrayList)sqlSession.selectList("pnBoardMapper.selectPnReplyList", pnBoardNo);
+	public ArrayList<Reply> selectReplyList(SqlSessionTemplate sqlSession, int pnBoardNo) {
+		return (ArrayList)sqlSession.selectList("pnBoardMapper.selectReplyList", pnBoardNo);
 	}
 	
 	// 동행 관련 댓글 추가
-	public int insertPnReply(SqlSessionTemplate sqlSession, PnReply pr) {
-		return sqlSession.insert("pnBoardMapper.insertPnReply", pr);
+	public int insertReply(SqlSessionTemplate sqlSession, Reply pr) {
+		return sqlSession.insert("pnBoardMapper.insertReply", pr);
 	}
 
 }

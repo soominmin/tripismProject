@@ -491,8 +491,8 @@
 	            <button class="WebHeader__HeaderButton-sc-12ctfsg-2 cQcIDu"><a href="enrollForm.do"> 회원가입</a></button>
 	            </c:when>
 	            <c:otherwise>
-		       		            <button class="WebHeader__HeaderButton-sc-12ctfsg-2 cQcIDu"><a href="mypage.do"> 마이페이지 (잠깐)</a></button>
-		       		            <button class="WebHeader__HeaderButton-sc-12ctfsg-2 cQcIDu"><a href="logout.do"> 로그아웃</a></button>
+		       		            <button class="WebHeader__HeaderButton-sc-12ctfsg-2 cQcIDu" style="font-size: 14px"><a href="mypage.do"> 마이페이지</a></button>
+		       		            <button class="WebHeader__HeaderButton-sc-12ctfsg-2 cQcIDu" style="font-size: 14px"><a href="logout.do"> 로그아웃</a></button>
 		      	</c:otherwise>
 	            </c:choose>
           </div>

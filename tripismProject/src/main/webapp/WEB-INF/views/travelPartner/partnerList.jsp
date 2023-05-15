@@ -801,7 +801,7 @@
 				<c:forEach var="pn" items="${ pnlist }">
 				
 					<div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
-						<input type="hidden" value="${pn.postNo }" class="aaa"/>
+						<input type="hidden" value="${pn.postNo }" class="postNo"/>
 					
 						
 						<div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
@@ -844,7 +844,7 @@
 								<div class="AccompanyWebCard__DateHoveredWrap-sc-ws5mjw-10 hWLPgS"></div>
 								<div class="AccompanyWebCard__DateTitleWrap-sc-ws5mjw-11 kdZjQK">
 									<img src="${pageContext.request.contextPath}/resources/img/partner/accompany_gray_calendar.png" class="AccompanyWebCard__DateIcon-sc-ws5mjw-12 ilUDog">
-									<p class="AccompanyWebCard__DateTitle-sc-ws5mjw-13 iBlyRM">여행기간${pn.postNo }</p>
+									<p class="AccompanyWebCard__DateTitle-sc-ws5mjw-13 iBlyRM">여행기간</p>
 								</div>
 								<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
 									<p color="#00CE7C" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">
@@ -872,7 +872,7 @@
 										<ellipse cx="6.50063" cy="6.40462" rx="2.81106" ry="2.81106" fill="#fff"></ellipse>
 									</svg>
 								</div>
-								<p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">${ pn.partnerLocation }</p>
+								<p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">${pn.spot.areaTitle }</p>
 							</div>
 						</div>
 	
@@ -888,31 +888,19 @@
 					
 				<!-------------------------------------------------------------------------------------------------------------------------->
 
-<!-- 
+ 
 				<script>
-					$("#pnlist>ul>.cxduOO").click(function(){
-						location.href='detail.pn?pno=' + ${pn.postNo };
-								
-					})
+				
+				$("#pnlist>ul>.cxduOO").click(function(){
+	                  // location.href='detail.pn?pno=' + ${pn.postNo };
+	                  console.log("asdasdsad");
+	                  location.href = "detail.pn?pno="+$(this).children(".postNo").val();
+	                        
+	               })
 				</script>
 
 
 			
-<!-- 				
-				<script>
-				$(function(){
-					$(".cxduOO").click(()=>{
-						$(".cxduOO").each((i,item)=>{
-							$(this).find({
-								location.href = $(this).children(".postNo").val();
-							});
-						})
-					})
-
-					console.log($(".cxduOO"))
-				})
-				</script> 
--->
 
 
 	

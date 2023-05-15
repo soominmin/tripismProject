@@ -357,7 +357,7 @@
     /*닉네임*/
     .profile_section .profile_nickname {
         display: inline-block;
-        width: 80px;
+        width: 140px;
         margin-right: 15px;
         font-size: 16px;
         font-weight: bold;
@@ -531,22 +531,22 @@
         <section
             direction="vertical"
             class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq">
-            <img alt="이미지" src="${pageContext.request.contextPath}/resources/img/partner/originImg2.jpg"></section>
+            <img alt="이미지" src="${pageContext.request.contextPath}/resources/img/partner/${pb.partnerOriginalImg }.jpg"></section>
             <div class="accompanyId__BulletinWrapDiv-sc-1up08zu-1 jLghAG">
                 <div class="innerSection__AreaLeftDiv-sc-1ag5fhb-4 birXOP">
                     <div class="AccompanyContainer__Wrap-sc-zoqt5l-0 rgrEj">
                         <div class="AccompanyContainer__TitleBox-sc-zoqt5l-1 gMhobB">
-                            <p>5월 막주 갬성 동행하실 분 구해요~~</p>
+                            <p>${ pb.partnerTitle }</p>
                         </div>
                         <div class="AccompanyContainer__TopInfoBox-sc-zoqt5l-3 ihbYE">
                             <div class="AccompanyContainer__FlexBox-sc-zoqt5l-4 kosINv">
                                 <div class="AccompanyContainer__FlexBox-sc-zoqt5l-4 kosINv">
                                     <p>지역</p>
-                                    <span>제주도</span>
+                                    <span>${pb.spot.areaTitle }</span>
                                 </div>
                                 <div class="AccompanyContainer__FlexMarginBox-sc-zoqt5l-5 eBgxXA">
                                     <p>모집인원</p>
-                                    <span>4명</span>
+                                    <span>${pb.partnerNumber }명</span>
                                 </div>
                             </div>
                             <div class="AccompanyContainer__MarginBox-sc-zoqt5l-6 fVZoIM">
@@ -569,7 +569,7 @@
                                             fill="#9A9A9A"></path>
                                         <path d="M14 5.57568H0.117188V6.82461H14V5.57568Z" fill="white"></path>
                                     </svg>
-                                    <span>2023.05.22 ~ 2023.05.31</span>
+                                    <span>${pb.partnerStartDate } ~ ${pb.partnerEndDate }</span>
                                 </div>
                             </div>
                         </div>
@@ -583,44 +583,43 @@
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1 6.65217L5.58333 11L12 1" stroke="#00CE7C" stroke-width="1.5"></path>
                                 </svg>
-                                <p>함께
-                                    <span>맛집/카페 탐방, 핫플레이스 탐방</span>
-                                    여행을 떠나려고 해요.</p>
+                                <p>함께 <span>${pb.partnerType }</span> 여행을 떠나려고 해요.</p>
                             </div>
 
                         </div>
-                        <p class="AccompanyContainer__ContentBox-sc-zoqt5l-9 jbdwEb">맛집과 감성장소가서 커피마시는 것을 좋아합니다! 저는 막주 한주 가있을 건데, 혼자보단 같이 놀면 재밌을 것 같아요! 커피 산책 사진 음주 등 전부 좋고 부분 동행도 좋아요 남녀노소 함께 합시다!</p>
+                        <p class="AccompanyContainer__ContentBox-sc-zoqt5l-9 jbdwEb">${pb.partnerContent }</p>
                         <div class="badge__HashTagArrayWrapper-sc-1ju2uee-1 Ewzzt">
                             <div>
                                 <div class="badge__HashTagArrayWrapper-sc-1ju2uee-1 cdLLix">
                                     <div>
-                                        <div
-                                            font-size="13px"
-                                            font-weight="500"
-                                            class="badge__HashTagWrapper-sc-1ju2uee-0 cFzGDF">
+                                        <div font-size="13px" font-weight="500" class="badge__HashTagWrapper-sc-1ju2uee-0 cFzGDF">
                                             <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">#</p>
-                                            <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">남성</p>
+                                            <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">${pb.member.gender == 'F' ? '여성' : '남성'}</p>
+                                        </div>
+                                        <div font-size="13px" font-weight="500" class="badge__HashTagWrapper-sc-1ju2uee-0 cFzGDF">
+                                            <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">#</p>
+                                            <c:choose>
+	                                            <c:when test="${not empty pb.member.mbti }">
+	                                            	<p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">${pb.member.mbti }</p>
+	                                            </c:when>
+	                                            <c:otherwise>
+	                                            	<p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">미정</p>
+	                                            </c:otherwise>
+                                            </c:choose>
                                         </div>
                                         <div
                                             font-size="13px"
                                             font-weight="500"
                                             class="badge__HashTagWrapper-sc-1ju2uee-0 cFzGDF">
                                             <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">#</p>
-                                            <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">ENFJ</p>
-                                        </div>
-                                        <div
-                                            font-size="13px"
-                                            font-weight="500"
-                                            class="badge__HashTagWrapper-sc-1ju2uee-0 cFzGDF">
-                                            <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">#</p>
-                                            <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">아무나다좋아</p>
+                                            <p class="hashtag__PreventDragP-sc-8lpzsm-0 ekdtxk">${pb.partnerType }</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="AccompanyContainer__BottomBox-sc-zoqt5l-11 xqeY">
-                            <p class="AccompanyContainer__PreventDragP-sc-zoqt5l-10 iLlzSN">2023.04.13 19:54 · 조회수 14 · 메시지 0</p>
+                            <p class="AccompanyContainer__PreventDragP-sc-zoqt5l-10 iLlzSN">${pb.partnerDate }· 조회수 ${pb.partnerViews }</p>
                             <button class="AccompanyContainer__ReportButton-sc-zoqt5l-12 laOqNb">신고하기</button>
                         </div>
                         <div class="AccompanyCommentInputBox__CommentContainer-sc-1t3w1p4-0 eGJmXC">
@@ -635,24 +634,35 @@
                 <div class="innerSection__AreaRightDiv-sc-1ag5fhb-5 bdoziM">
                     <div class="Layout__LayoutEqualDistanceDiv-sc-1w3ggn5-1 hAClzB profile_section">
                         <div class="area_top" style="margin: 0; margin-bottom: 15px;">
-                            <a href="mypage.bo" style="text-decoration:none;">
+
                                 <img src="${pageContext.request.contextPath}/resources/img/partner/ner.jpg" style="width: 55px; height: 55px; padding: 4px; margin-top: 10px;">
-                            </a>
+                      
                                 <div class="profile_info_wrap">
                                     <div class="area_flex" style="display: flex;">
-                                        <p class="profile_nickname">밍구</p>
+                                        <p class="profile_nickname" style="font-size: 16px">${pb.member.memNickname }</p>
                                     </div>
-                                    <div class="profile_taste gray_text">
-                                        <p class="ProfileCompanion eOlhBT">ENFJ · 남성 · 대한민국</p>
+                                    <div class="profile_taste gray_text" style="display: flex;">
+                                      <c:choose>
+                                         <c:when test="${not empty pb.member.mbti }">
+                                         	<p class="ProfileCompanion eOlhBT">${pb.member.mbti } · ${pb.member.gender == 'F' ? '여성' : '남성'}</p>
+                                         </c:when>
+                                         <c:otherwise>
+                                         	<p class="ProfileCompanion eOlhBT">미정 ·  ${pb.member.gender == 'F' ? '여성' : '남성'}</p>
+                                         </c:otherwise>
+                                       </c:choose>
+                                    
+                                    
+                                    
+                                    
+                                    <a href="mypage.do" style="text-decoration:none;">
+                                        <button class="AccompanyContainer__ReportButton-sc-zoqt5l-12 laOqNb" style="font-size: 14px; color: rgb(154, 154, 154); line-height: 21px; font-weight: 400; margin-bottom: 15px; margin-left: 66px;">
+                                        정보 보러가기</button>
+                                    </a>
+                                        
                                     </div>
                                 </div>
                             </div>
-                            <div style="display: flex; justify-content: flex-start; margin-top: 0px; margin-bottom: 20px;">
-                                <button style="width: 100px; height: 35px; margin-right: 0;" type="button" class="btn-ono">
-                                    신고하기</button>
-                                <button style="width: 100px; height: 35px;" type="button" class="btn-ono">
-                                    쪽지보내기</button>
-                            </div>
+           
 
                             <div class="area_middle">
                                 <div class="profile_click">

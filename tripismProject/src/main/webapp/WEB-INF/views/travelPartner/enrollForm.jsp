@@ -760,11 +760,13 @@
 		</div>
 	</section>
 	
+	<form id="enrollForm" method="post" action="insert.pn" enctype="multipart/form-data" onsubmit="setPartnerType();">
 	<main class="LayoutWrapper__ItemWrapper-sc-14edszd-0 gBZHir">
 		
 	<section direction="vertical" class="WebSection__SectionWrapper-sc-1hzt8o9-0 fIxQSV">
-		<form id="enrollForm" method="post" action="insert.pn" enctype="multipart/form-data">
-		<input type="hidden" id = "areaCategoryNo" name = "areaCategoryNo" value=""/>
+			<input type="hidden" id = "areaCategoryNo" name = "areaCategoryNo" value=""/>
+			<input type="hidden" id="partnerType" name="partnerType" value=""/>
+		
 			<section direction="vertical" class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq">
 					<div class="WebSection__AreaWebFilterWrapper-sc-1hzt8o9-1 eMbJju">
 						<!-- 지역 선택 ------------------------------------------------------------------------------------------------------------------------->
@@ -1086,11 +1088,11 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 				<button type="button" onclick="location.href='list.pn'"
 					class="button__ButtonConfirmButton-sc-1szjplo-7 hlWCvk"
 					style="width: calc(50% - 8px);">취소</button>
-				<button type="submit"
+				<button type="button"
 					class="button__ButtonConfirmButton-sc-1szjplo-7 dcFMHq"
 					style="width: calc(50% - 8px);">작성완료</button>
 			</div>
-		</form>  
+	<!-- 	</form>   -->
 	</section>
 </main>
 
@@ -1210,7 +1212,7 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 													<button width="244px" height="68px" color="#fff" font-size="16px" type="button"
 														class="ModalButton__ButtonWrap-sc-1q3a6l3-0 hpRpYH">뒤로가기</button>
 													<button width="244px" height="68px" color="#fff" font-size="16px" type="submit"
-														class="ModalButton__ButtonWrap-sc-1q3a6l3-0 hbQEgR">작성완료</button>
+														 class="ModalButton__ButtonWrap-sc-1q3a6l3-0 hbQEgR">작성완료</button>
 												</div>
 											</div>
 										</div>
@@ -1281,10 +1283,41 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 				);
 			});
 		</script>
+		
+		<script>
+			/* let btn2 = $("");
+			let partnerType="";
+			console.log(btn2);
+			btn2.on("click",function(){
+				partnerType += $(this).val(); 
+				console.log(partnerType);
+				$("#partnerType").val(partnerType);
+				
+			}) */
+			/* $(function(){
+				let partnerType="";
+				$('.eWrVZP').each(function(i,item){
+					
+				})
+			}) */
+			function setPartnerType() {
+				
+				let partnerType = "";
+				$('.eWrVZP').each(function(i,item){
+					partnerType += $(item).val();
+					if(i!=2){
+						partnerType+=","
+					}
+				})
+				console.log(partnerType)
+				$("#partnerType").val(partnerType);
+				
+			}
+		</script>
 
-<!-- </form> -->
+
 	
-	
+	</form>
 	
 			<!-- 푸터바 포함 -->
 	<jsp:include page="../common/footer.jsp"/>

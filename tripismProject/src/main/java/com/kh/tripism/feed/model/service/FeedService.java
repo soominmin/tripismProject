@@ -43,4 +43,9 @@ public interface FeedService {
 	// 8. 댓글 리스트 조회(ajax)
 	ArrayList<Reply> selectReplyList(int FeedNo);
 	
+	// 9. 피드 이미지 조회
+	int selectImgCount();
+	ArrayList<Feed> selectImgList(PageInfo pi);
+
+	
 }

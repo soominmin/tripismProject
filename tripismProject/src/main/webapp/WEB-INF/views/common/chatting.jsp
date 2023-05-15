@@ -6,6 +6,7 @@
 <head>
     <!-- 부트스트랩에서 제공하고 있는 스타일 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
     <!-- 부트스트랩에서 제공하고 있는 스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <meta charset="UTF-8">
@@ -316,20 +317,21 @@
 
         <div class="sc-e355bb8d-0 jkTMmI" style="height: 680px; width: 403px; display: none;">
 
-            <div class="sc-7888b13b-3 eIBKpS">
+            <div class="sc-7888b13b-3 eIBKpS" style="width: 100%; height: 100%;">
 
                 <div class="sc-7888b13b-4 bbIQog">
                     <button class="sc-7888b13b-5 kphGtz">그룹대화</button>
                     <button class="sc-7888b13b-5 kheUIe">1:1 대화</button>
                     <div class="sc-7888b13b-6 boNAgO"></div>
                 </div>
-
+				<c:choose>
+				<c:when test="${not empty loginUser }">
                 <ul class="sc-7888b13b-7 eqxbAv">
 
                     <div class="sc-2b24a48b-0 duxSFr">
                         <div class="sc-be1fc4d6-0 iCTgJa">
                             <img alt="프로필" src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/member/1683006319089-1" class="sc-be1fc4d6-1 jxPOyi"></div>
-                            <div class="sc-2b24a48b-1 jRuymm">
+                            <div class="sc-2b24a48b-1 jRuymm" id="chatRoom1">
                                 <div class="sc-2b24a48b-2 dMfoDF" style="width: 100%;">
                                     <div class="sc-2b24a48b-3 fxllNx" style="max-width: 90%;">
                                         <p class="sc-2b24a48b-4 gFbPQg" style="line-height: 22px; max-width: 80%; font-size: 15px; font-weight: 500; color: black;">[동행] 내일 5월 3일 소노벨 천안 오션어드벤처 놀러가실 분 구해여ㅠㅠ</p>
@@ -365,6 +367,25 @@
                             </div>
 
                         </ul>
+                        </c:when>
+                        <c:otherwise>
+                        	 <div class="sc-2b24a48b-0 duxSFr">
+                            <div class="sc-be1fc4d6-0 iCTgJa">
+                                <img alt="프로필" src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/member/1683006319089-1" class="sc-be1fc4d6-1 jxPOyi"></div>
+                                <div class="sc-2b24a48b-1 jRuymm">
+                                    <div class="sc-2b24a48b-2 dMfoDF" style="width: 100%;">
+                                        <div class="sc-2b24a48b-3 fxllNx" style="max-width: 90%;">
+                                            <p class="sc-2b24a48b-4 gFbPQg" style="line-height: 22px; max-width: 80%; font-size: 15px; font-weight: 500; color: black;">채팅은 로그인 후 이용가능합니다</p>
+                                            <span class="sc-2b24a48b-5 LSLIK" style="margin-left: 4px; font-size: 14px; font-weight: 500;">1</span>
+                                        </div>
+                                        <div class="sc-2b24a48b-6 eOtkJC">0</div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        
+                        </c:otherwise>
+                        </c:choose>
                     </div>
 
                 </div>
@@ -382,6 +403,73 @@
                         isOpen = true;
                       }
                     });
+                  </script>
+                  
+                  <script>
+                    const chatRoom = document.getElementById('chatRoom1');
+                    const roomList = document.getElementsByClassName('sc-2b24a48b-0 duxSFr');
+                    const room = document.querySelector('.eqxbAv');
+                  	
+                    
+
+                    const memId = '${loginUser.memId}';
+
+
+                    chatRoom.addEventListener('click',event=>{
+                        console.log("채팅방선택");
+                        
+                        // roomList.setAttribute('style','display:none');
+                        for(let i=0; i<roomList.length;i++){
+                            roomList[i].setAttribute('style','display:none');
+                        }
+                        let roomContainer = '<div id="messages" style="height:80%">asdsadsadlksajlksadlksajdlksajdkl</div>'
+                                            +'<div  style="height">'
+                                             + '<input type="text" id="sendMessage"/>'
+                                             +'<button type="button" id="send">전송</button>'
+                                             +'</div>';
+                        room.innerHTML=roomContainer;
+
+
+                        createWebSocket();
+
+                    })
+
+                    function createWebSocket(){
+                        const webSocket = new WebSocket('ws://localhost:8007/tripism/ws/chat');
+                        console.log(memId); 
+                        webSocket.onopen = function(event){
+                            
+                        }
+
+                        const sendBtn = document.getElementById('send');
+                        const message = document.getElementById('sendMessage');
+                        sendBtn.addEventListener('click',event=>{
+                        
+                            if(message.value==""){
+                                message.placeholder = "메세지를 입력해주세요";
+                            }else{
+                                let messageInfo ={
+                                    messageNo : '0',
+                                    chatroomNo :"1",
+                                    messageText:message.value,
+                                    memNo:'${loginUser.memNo}',
+                                    messageDate:'sysdate'
+
+                                }
+                                console.log(message.value);
+                                webSocket.send(JSON.stringify(messageInfo));
+                            }
+                        })
+
+                        webSocket.onmessage = function(msg){
+                            console.log(msg);
+                        }
+                    }
+                    
+                    
+
+                    
+                  
                   </script>
                   
             </body>

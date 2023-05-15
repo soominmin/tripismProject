@@ -58,8 +58,21 @@ public class SpotDao {
 		selectList.put("rowBounds", rowBounds);
 		selectList.put("spotContentType", spotContentType);
 		selectList.put("areaCategoryNo", areaCategoryNo);
+		
+		if(spotContentType == 0 && areaCategoryNo != 0) {
+			return (ArrayList)sqlSession.selectList("spotMapper.searchSpotListType", selectList, rowBounds);
+		}
+		else if(areaCategoryNo == 0 && spotContentType != 0) {
+			return (ArrayList)sqlSession.selectList("spotMapper.searchSpotListArea", selectList, rowBounds);
+		}
+		else if(areaCategoryNo == 0 && spotContentType == 0) {
+			return (ArrayList)sqlSession.selectList("spotMapper.searchSpotListAll", selectList, rowBounds);
+		}
+		else {
+			return (ArrayList)sqlSession.selectList("spotMapper.searchSpotList", selectList, rowBounds);
+		}
 
-		return (ArrayList)sqlSession.selectList("spotMapper.searchSpotList", selectList, rowBounds);
+		
 	}
 
 

@@ -1,28 +1,33 @@
 package com.kh.tripism.member.controller;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.Random;
+import java.net.http.HttpHeaders;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import javax.mail.internet.MimeMessage;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.MailSender;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kh.tripism.member.model.service.KakaoService;
 import com.kh.tripism.member.model.service.MailSendService;
 import com.kh.tripism.member.model.service.MemberServiceImpl;
+import com.kh.tripism.member.model.vo.Folder;
 import com.kh.tripism.member.model.vo.Member;
 
 
@@ -91,6 +96,7 @@ public class MemberController {
 			return "common/errorPage";
 		}
 	}
+	
 	
 	// 아이디 중복체크
 	@ResponseBody
@@ -301,6 +307,87 @@ public class MemberController {
 			return "common/errorPage";
 		}
 	}
+	
+	// 마이페이지에서 프로필 이미지 넣기
+	@RequestMapping("profile.do")
+	public String profile(Member m, MultipartFile upfile, HttpSession session, Model model ) {
+		
+		// 전달된 파일 있다는 뜻
+		if(!upfile.getOriginalFilename().equals("")) {
+			
+			String changeName = saveFile(upfile, session);
+			m.setImg("resources/uploadFiles/" + changeName);
+		}
+		
+		int result = mService.profile(m);
+		
+		if(result > 0) {
+			Member profileUpdate = mService.loginMember(m); // 변경된 값을 담는다.
+			session.setAttribute("loginUser", profileUpdate);
+			session.setAttribute("alertMsg", "성공적으로 프로필 사진이 변경되었습니다.");
+			// System.out.println(m);
+			return "member/myPage";
+		} else {
+			model.addAttribute("errorMsg", "프로필변경실패다이자식아다시해");
+			return "common/errorPage";
+		}
+		
+	}
+
+	// 현재 넘어온 첨부파일 그 자체를 서버의 폴더에 저장시키는 역할
+	private String saveFile(MultipartFile upfile, HttpSession session) {
+
+		// 파일명 수정 작업 후 서버에 업로드 시키기("flower.png" => "2023033110185545678.png" )
+				String originName = upfile.getOriginalFilename(); // flower.png
+				
+				// "20230331101855" (년월일시분초)
+				String currentTime = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+				
+				// 랜덤한 숫자 5자리
+				int ranNum = (int)(Math.random() * 90000 + 10000); // 23152 10000~99999
+				
+				// 확장자
+				String ext = originName.substring(originName.lastIndexOf("."));
+				
+				// 최종 수정명
+				String changeName = currentTime + ranNum + ext;
+			
+				// 업로드 시키고자 하는 폴더의 물리적인 경로를 알아내기
+				String savePath = session.getServletContext().getRealPath("/resources/uploadFiles/"); //   "/" : webapp을 가리킨다.
+			
+				// 서버에 파일을 업로드
+				try {
+					upfile.transferTo(new File(savePath + changeName));
+				} catch (IllegalStateException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				
+				return changeName;
+	}
+	
+	//즐겨찾기 모달창
+	@RequestMapping("modal.do")
+	public String modal() {
+		return "member/bookMarkModal";
+	}
+	
+	// 즐겨찾기 폴더추가
+	@RequestMapping("insertFolder.do")
+	public String insertFolder(Folder f, HttpSession session, Model model) {
+		int result = mService.insertFolder(f);
+		
+		if(result > 0) {
+				session.setAttribute("alertMsg", "폴더추가성공");
+				return "member/bookMarkList";
+			} else {
+				model.addAttribute("errorMsg", "회원가입 실패");
+				return "common/errorPage";
+			}
+		}
+		
+	
 
 	@RequestMapping("spotLike.do")
 	public String spotLike() {
@@ -371,9 +458,10 @@ public class MemberController {
 			session.setAttribute("loginUser",m); ;
 		}
 		
-		return "redirect:/";
+		return "member/myPage";
 	}
 	
+
 	
 	
 

@@ -108,8 +108,8 @@
             <div class="question-main">
                 <div class="txt">나의 여행 MBTI는?</div>
                 <div class="title">${mbti}</div>
-                <a href="mbtiInsert.do?mbti=${mbti}" class="btn">결정하기</a>
-                <a href="mbtiTest.do" class="btn">다시하기</a>
+                <a href="mbtiInsert.do?mbti=${mbti}" class="btn"> <b>${mbti}</b> <br> 로 결정하기</a>
+                <!-- <a href="mbtiTest.do" class="btn">검사 다시하기</a>-->
             </div>
         </div>
 

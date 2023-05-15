@@ -295,7 +295,7 @@
 			</form>
 			<div class="card card-hover">
 			<a href="javascript:void(0)" class="position-relative">
-			<img class="card-img-top" data-src="${i.spotImgPath}" src="${i.spotImgPath}" alt="Card image cap"></img>;
+			<img class="card-img-top" data-src="${i.spotImgPath}" src="${i.spotImgPath}" alt="Card image cap" style="height: 232px;"></img>
 			<div onclick="selectSpotAPI('${i.spotContentId}', '${i.spotContentType}');" class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">
 			</div>
 			</a>
@@ -305,7 +305,7 @@
 			${i.areaTitle} ${i.sigunguTitle}
 			</p>
 			<h5>
-			<a href="javascript:selectSpotAPI('+list[i].spotContentId+', '+list[i].spotContentType+');" class="card-title text-uppercase">${i.spotTitle}</a>
+			<a href="javascript:selectSpotAPI('${i.spotContentId}', '${i.spotContentType}');" class="card-title text-uppercase">${i.spotTitle}</a>
 			<h5>
 			<div class="post_area" style="float: right;">
 			<span class="num_like">
@@ -393,7 +393,7 @@
 									//value += '<img class="card-img-top lazyestload" data-src="resources/img/logo.png" src="" alt="Card image cap"></img>';
 									
 								}else{
-									value += '<img class="card-img-top" data-src="'+list[i].spotImgPath+'" src="'+list[i].spotImgPath+'" alt="Card image cap"></img>';
+									value += '<img class="card-img-top" data-src="'+list[i].spotImgPath+'" src="'+list[i].spotImgPath+'" alt="Card image cap" style="height: 232px;"></img>';
 								}
 								value += '<div onclick="selectSpotAPI('+list[i].spotContentId+', '+list[i].spotContentType+');" class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">'
 								+ '</div>'
@@ -431,6 +431,12 @@
 				}
 			})
 		}
+
+	function selectSpotAPI(contentId, contentType) {
+
+    	location.href="detailAPI.sp?contentId="+contentId+"&contentType="+contentType;
+
+	}
 
 
 	</script>

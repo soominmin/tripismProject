@@ -78,5 +78,11 @@ public class SpotDao {
 
 
 
+	public int increaseLike(SqlSessionTemplate sqlSession, int contentId) {
+		return sqlSession.update("spotMapper.increaseLike", contentId);
+	}
+
+
+
 	
 }

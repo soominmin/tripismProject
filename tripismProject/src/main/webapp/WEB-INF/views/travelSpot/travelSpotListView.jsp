@@ -323,5 +323,8 @@
     <script src="${pageContext.request.contextPath}/resources/plugins/lazyestload/lazyestload.js"></script>
     <script src="${pageContext.request.contextPath}/resources/plugins/smoothscroll/SmoothScroll.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/star.js"></script>
+
+
+	
 </body>
 </html>

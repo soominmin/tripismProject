@@ -33,4 +33,6 @@ public interface PnBoardService {
 	// 7. 댓글 작성용 서비스(ajax)
 	int insertPnReply(Reply pr);
 	
+	// 8. 동행 신청
+	
 }

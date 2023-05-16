@@ -628,10 +628,35 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="AccompanyContainer__BottomBox-sc-zoqt5l-11 xqeY">
+                        
+                        
+                        <div class="AccompanyContainer__BottomBox-sc-zoqt5l-11 xqeY" >
                             <p class="AccompanyContainer__PreventDragP-sc-zoqt5l-10 iLlzSN">${pb.partnerDate }· 조회수 ${pb.partnerViews }</p>
                             <button class="AccompanyContainer__ReportButton-sc-zoqt5l-12 laOqNb">신고하기</button>
+                            
+                            <c:if test="${ not empty loginUser.memId and loginUser.memNo eq pb.memNo}">
+                                <button class="AccompanyContainer__ReportButton-sc-zoqt5l-12 laOqNb" onclick="postFormSubmit(1);">수정</button>
+                                <button class="AccompanyContainer__ReportButton-sc-zoqt5l-12 laOqNb"  onclick="postFormSubmit(2);">삭제</button>
+                                
+                                <form action="" id="postForm" method="post">
+                                	<input type="hidden" name="pnBoardNo" value="${ pb.postNo }">
+                                	<input type="hidden" name="filePath" value="${ pb.partnerChangeImg }">
+                                </form>
+                                <script>
+                                	function postFormSubmit(num) {
+                                		if(num == 1){
+                                			${"#postForm"}.attr("action","updateForm.pn").submit();
+                                		}else{
+                                			${"#postForm"}.attr("action","delete.pn").submit();
+                                			consol.log("이거 되쥬?");
+                                		}
+                                	}
+                                </script>
+                            </c:if>
                         </div>
+                        
+                        
+                        
                         <div class="AccompanyCommentInputBox__CommentContainer-sc-1t3w1p4-0 eGJmXC">
                             <div class="CommentInputBox__InputContainer-sc-kzgy2k-0 goDHMI">
                                 <textarea rows="1" placeholder="댓글을 입력해주세요." class="CommentInputBox__Input-sc-kzgy2k-1 dMqEYk" id="pnComment" style="height: 40px;"></textarea>

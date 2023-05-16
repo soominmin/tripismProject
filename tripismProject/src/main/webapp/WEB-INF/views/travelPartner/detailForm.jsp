@@ -541,7 +541,7 @@
         <section
             direction="vertical"
             class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq">
-            <img alt="이미지" src="${pageContext.request.contextPath}/resources/img/partner/${pb.partnerOriginalImg }.jpg"></section>
+            <img alt="이미지" src="${pageContext.request.contextPath}/resources/img/partner/${pb.partnerOriginalImg }"></section>
             <div class="accompanyId__BulletinWrapDiv-sc-1up08zu-1 jLghAG">
                 <div class="innerSection__AreaLeftDiv-sc-1ag5fhb-4 birXOP">
                     <div class="AccompanyContainer__Wrap-sc-zoqt5l-0 rgrEj">
@@ -679,14 +679,25 @@
                                     <p class="ProfileCompanion_desc" style="margin-bottom: 0rem;">프로필 사진을 클릭해보세요!</p>
                                 </div>
                                 <div class="Button cmgUBW">
-                                    <button width="268px" height="55px" font-style="" type="button" class="Button iNZmaX" id="applyBtn">
-                                        <a>동행 신청하기</a>
-                                    </button>
+          <c:choose>
+            <c:when test="${ empty loginUser }">
+		       <button width="268px" height="55px" font-style="" type="button" class="Button iNZmaX" id="applyBtn">
+		    		<a>동행 신청하기</a>
+				</button>
+            </c:when>
+            <c:otherwise>
+            	<button width="268px" height="55px" font-style="" type="button" class="Button iNZmaX">
+		    		<a>동행 신청하기</a>
+				</button>
+            </c:otherwise>
+            </c:choose>
+      
                                 </div>
                             </div>
 
                         </div>
-                        <c:choose>
+                        
+                       <%--  <c:choose>
                         	<c:when test="${not empty applyList }">
 		                        
 		                        <div class="Layout__LayoutEqualDistanceDiv-sc-1w3ggn5-1 hAClzB profile_section" style="margin-top: 20px;" >
@@ -715,7 +726,7 @@
                         		 
                         	</c:otherwise>
                         	<c:if test="${applyList ==null }"></c:if>
-                        </c:choose>
+                        </c:choose> --%>
                     </div>
                 </div>
             </main>

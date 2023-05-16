@@ -347,6 +347,7 @@
                         </div> -->
 
                         </ul>
+
                        
                         <div id="chatting" style="display: none;">
                             <div id="messages" style="height:80%">asdsadsadlksajlksadlksajdlksajdkl</div>
@@ -355,6 +356,7 @@
                                 <button type="button" id="send">전송</button>
                             </div>;
                         </div>
+
                     </div>
 
                 </div>

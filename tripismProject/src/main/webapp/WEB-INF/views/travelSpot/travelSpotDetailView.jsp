@@ -88,7 +88,7 @@
 	      		</span>
 				<span class="rline" style="float: right;">
 						<button type="button" style="border: none; background-color: white;" onclick="setFavoContentDetail();">
-	            <img src="${pageContext.request.contextPath}/resources/img/icons/after-wishlist.png" style="width: 25px; height: 25px;" alt="">
+	            <img src="${pageContext.request.contextPath}/resources/img/icons/after-wishlist.png" style="width: 25px; height: 25px;" alt="" data-bs-toggle="modal" data-bs-target="#bookMark">
 	          </button>
 	          <button type="button" style="border: none; background-color: white;" onclick="openShare();">
 	            <img src="${pageContext.request.contextPath}/resources/img/icons/share.png" style="width: 25px; height: 25px;" alt="">
@@ -1219,6 +1219,42 @@
 				
 			
 		</script>
+		
+		<!-- 북마크모달창 -->
+		<div class="modal fade" id="bookMark" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+     <div class="modal-subin">
+      <div class="modal-content" style="width:360px;">
+        <div class="modal-header rounded" id="modalTop">
+          <h3 class="modal-title text-uppercase font-weight-bold">⭐ 즐겨찾기하기</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+            <!-- 반복 -->
+            <c:forEach var="f" items="${folderList }">
+            <div id="folderWrap" style="padding-top:10px; padding-left:50px; width:300px; padding-bottom:10px; cursor: pointer;">
+			  <div class="mb-3" id="bookMarkImg" style="float: left; height: 40px;">
+			    <img src="${pageContext.request.contextPath}/resources/img/bookMark.png" style="width: 35x; height: 35px; border-radius: 50%;">
+			  </div>
+			  <div class="folderInfo" style="padding-top:5px;">
+			    <div class="folderName">
+			      <h5 style="padding-left: 45px;">${f.folderName }</h5>
+			    </div>
+				<!--     <div class="place">
+			      <p style="padding-left: 40px; margin-top: 15px;">📍n(개)</p>
+			    </div> -->
+			  </div>
+			  <div style="height: 1px; padding-top:3px;">
+			    <hr>
+			  </div>
+			</div>
+			</c:forEach>
+			<!-- 반복끝 -->
+
+      </div>
+    </div>
+  </div>
+  </div>
 	
 
       

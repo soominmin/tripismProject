@@ -206,7 +206,7 @@
 	
 	<insert id="insertFolder">
 		insert
-			into tb_member
+			into tb_bookmark_folder
 			(
 			    folder_no
 			  ,	mem_no
@@ -244,6 +244,15 @@
 		where partner_status = 'Y'
 		  and m.mem_no = #{memNo}
 		order by post_no desc
+	</select>
+	
+	<select id="folderSelectList" resultMap="folderResultSet">
+	select
+        folder_no
+      , mem_no
+      , folder_name
+  from tb_bookmark_folder
+ where mem_no = #{memNo}
 	</select>
 
 

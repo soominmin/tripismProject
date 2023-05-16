@@ -57,6 +57,9 @@ public interface MemberService {
 		
 		// 나의 동행 게시글
 		ArrayList<PnBoard> writtenSelectList(PageInfo pi, int memNo);
+		
+		// 나의 즐겨찾기폴더 목록조회
+		ArrayList<Folder> folderSelectList(int memNo);
 
 		
 }

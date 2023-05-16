@@ -82,6 +82,11 @@ public class MemberDao {
 		return (ArrayList)sqlSession.selectList("memberMapper.writtenSelectList", memNo, rowBounds);	
 	}
 	
+	// 마이페이지 즐겨찾기 폴더 List조회
+	public ArrayList<Folder> folderSelectList(SqlSessionTemplate sqlSession, int memNo){
+		return (ArrayList)sqlSession.selectList("memberMapper.folderSelectList", memNo);
+	}
+	
 
 	
 

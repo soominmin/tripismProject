@@ -143,7 +143,7 @@
                               	<c:when test="${ not empty loginUser.mbti }">
 	                              <table align="center">
 	                                <tr style="width: 30px;">
-	                                  <td id="mbti" align="center">${loginUser.mbti }</td>
+	                                  <td id="mbti" align="center" style="width:200px;">${loginUser.mbti }</td>
 	                                </tr>
 	                              </table>
                               </c:when>
@@ -255,6 +255,7 @@
                 </div>
               </div>
             </div>
+
           
             <!-- 계정설정 끝 -->
             </div>
@@ -323,8 +324,6 @@
 		
 </script>
       
-
-
 
 
 <jsp:include page="../common/footer.jsp"/>

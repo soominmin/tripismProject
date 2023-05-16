@@ -112,6 +112,13 @@ public class MemberServiceImpl implements MemberService {
 	public ArrayList<PnBoard> writtenSelectList(PageInfo pi, int memNo) {
 		return mDao.writtenSelectList(sqlSession, pi, memNo);
 	}
+	
+	// 나의 즐겨찾기 폴더리스트
+	@Override
+	public ArrayList<Folder> folderSelectList(int memNo) {
+		return mDao.folderSelectList(sqlSession, memNo);
+	}
+
 
 	
 	
@@ -218,6 +225,7 @@ public class MemberServiceImpl implements MemberService {
 		}
 		return count;
 	}
+
 
 
 

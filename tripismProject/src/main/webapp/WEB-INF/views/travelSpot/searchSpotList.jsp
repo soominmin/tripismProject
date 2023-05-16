@@ -70,6 +70,11 @@
     color: #ffffff;
     border: 1px solid #dfdfdf;
   	}
+
+	.test_obj {
+		padding-right: 20px;
+		padding-bottom: 10px;
+	}
      
 
     </style>
@@ -116,143 +121,143 @@
 
 	      	<div>
 			
-			<h4>카테고리</h4>
+				<h3>카테고리</h3>
 			
-			<label class="test_obj">
-				<input type="radio" name="spotContentType" value="0" class="label_que" checked>
-				<span>전체</span>
-			</label>
+				<label class="test_obj typeNo">
+					<input type="radio" name="spotContentType" value="0" class="label_que">
+					<span>#전체</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="spotContentType" value="12" class="label_que">
-				<span>관광지</span>
-			</label>
+				<label class="test_obj typeNo">
+					<input type="radio" name="spotContentType" value="12" class="label_que">
+					<span>#관광지</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="spotContentType" value="14" class="label_que">
-				<span>문화시설</span>
-			</label>
+				<label class="test_obj typeNo">
+					<input type="radio" name="spotContentType" value="14" class="label_que">
+					<span>#문화시설</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="spotContentType" value="15" class="label_que">
-				<span>행사/공연/축제</span>
-			</label>
+				<label class="test_obj typeNo">
+					<input type="radio" name="spotContentType" value="15" class="label_que">
+					<span>#행사/공연/축제</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="spotContentType" value="28" class="label_que">
-				<span>레포츠</span>
-			</label>
+				<label class="test_obj typeNo">
+					<input type="radio" name="spotContentType" value="28" class="label_que">
+					<span>#레포츠</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="spotContentType" value="32" class="label_que">
-				<span>숙박</span>
-			</label>
+				<label class="test_obj typeNo">
+					<input type="radio" name="spotContentType" value="32" class="label_que">
+					<span>#숙박</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="spotContentType" value="38" class="label_que">
-				<span>쇼핑몰</span>
-			</label>
+				<label class="test_obj typeNo">
+					<input type="radio" name="spotContentType" value="38" class="label_que">
+					<span>#쇼핑</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="spotContentType" value="38" class="label_que">
-				<span>식당</span>
-			</label>
+				<label class="test_obj typeNo">
+					<input type="radio" name="spotContentType" value="39" class="label_que">
+					<span>#식당</span>
+				</label>
 
-			<br><br>
+				<br><br><br>
 
-			<h4>지역</h4>
+				<h3>지역</h3>
 
-			<label class="test_obj">
-				<input type="radio" name="areaCategoryNo" value="0" class="label_que" checked>
-				<span>전체</span>
-			</label>
+				<label class="test_obj areaNo">
+					<input type="radio" name="areaCategoryNo" value="0" class="label_que">
+					<span>#전체</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="areaCategoryNo" value="1" class="label_que">
-				<span>서울</span>
-			</label>
+				<label class="test_obj areaNo">
+					<input type="radio" name="areaCategoryNo" value="1" class="label_que">
+					<span>#서울</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="areaCategoryNo" value="2" class="label_que">
-				<span>인천</span>
-			</label>
+				<label class="test_obj areaNo">
+					<input type="radio" name="areaCategoryNo" value="2" class="label_que">
+					<span>#인천</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="areaCategoryNo" value="3" class="label_que">
-				<span>대전</span>
-			</label>
+				<label class="test_obj areaNo">
+					<input type="radio" name="areaCategoryNo" value="3" class="label_que">
+					<span>#대전</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="areaCategoryNo" value="4" class="label_que">
-				<span>대구</span>
-			</label>
+				<label class="test_obj areaNo">
+					<input type="radio" name="areaCategoryNo" value="4" class="label_que">
+					<span>#대구</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="areaCategoryNo" value="5" class="label_que">
-				<span>광주</span>
-			</label>
+				<label class="test_obj areaNo">
+					<input type="radio" name="areaCategoryNo" value="5" class="label_que">
+					<span>#광주</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="areaCategoryNo" value="6" class="label_que">
-				<span>부산</span>
-			</label>
+				<label class="test_obj areaNo">
+					<input type="radio" name="areaCategoryNo" value="6" class="label_que">
+					<span>#부산</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="areaCategoryNo" value="7" class="label_que">
-				<span>울산</span>
-			</label>
+				<label class="test_obj areaNo">
+					<input type="radio" name="areaCategoryNo" value="7" class="label_que">
+					<span>#울산</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="areaCategoryNo" value="8" class="label_que">
-				<span>세종</span>
-			</label>
+				<label class="test_obj areaNo">
+					<input type="radio" name="areaCategoryNo" value="8" class="label_que">
+					<span>#세종</span>
+				</label>
+				<br>
+				<label class="test_obj areaNo">
+					<input type="radio" name="areaCategoryNo" value="31" class="label_que">
+					<span>#경기</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="areaCategoryNo" value="31" class="label_que">
-				<span>경기</span>
-			</label>
+				<label class="test_obj areaNo">
+					<input type="radio" name="areaCategoryNo" value="32" class="label_que">
+					<span>#강원</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="areaCategoryNo" value="32" class="label_que">
-				<span>강원</span>
-			</label>
+				<label class="test_obj areaNo">
+					<input type="radio" name="areaCategoryNo" value="33" class="label_que">
+					<span>#충북</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="areaCategoryNo" value="33" class="label_que">
-				<span>충북</span>
-			</label>
+				<label class="test_obj areaNo">
+					<input type="radio" name="areaCategoryNo" value="34" class="label_que">
+					<span>#충남</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="areaCategoryNo" value="34" class="label_que">
-				<span>충남</span>
-			</label>
+				<label class="test_obj areaNo">
+					<input type="radio" name="areaCategoryNo" value="35" class="label_que">
+					<span>#경북</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="areaCategoryNo" value="35" class="label_que">
-				<span>경북</span>
-			</label>
+				<label class="test_obj areaNo">
+					<input type="radio" name="areaCategoryNo" value="36" class="label_que">
+					<span>#경남</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="areaCategoryNo" value="36" class="label_que">
-				<span>경남</span>
-			</label>
+				<label class="test_obj areaNo">
+					<input type="radio" name="areaCategoryNo" value="37" class="label_que">
+					<span>#전북</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="areaCategoryNo" value="37" class="label_que">
-				<span>전북</span>
-			</label>
+				<label class="test_obj areaNo">
+					<input type="radio" name="areaCategoryNo" value="38" class="label_que">
+					<span>#전남</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="areaCategoryNo" value="38" class="label_que">
-				<span>전남</span>
-			</label>
+				<label class="test_obj areaNo">
+					<input type="radio" name="areaCategoryNo" value="39" class="label_que">
+					<span>#제주</span>
+				</label>
 
-			<label class="test_obj">
-				<input type="radio" name="areaCategoryNo" value="39" class="label_que">
-				<span>제주</span>
-			</label>
-
-			<br><br><br>
+				<br><br><br>
 
 			<button type="submit" class="test_btn" style="border-radius: 30px; float: right; width: 100%;">검색</button>
 			
@@ -290,7 +295,7 @@
 			</form>
 			<div class="card card-hover">
 			<a href="javascript:void(0)" class="position-relative">
-			<img class="card-img-top" data-src="${i.spotImgPath}" src="${i.spotImgPath}" alt="Card image cap"></img>;
+			<img class="card-img-top" data-src="${i.spotImgPath}" src="${i.spotImgPath}" alt="Card image cap" style="height: 232px;"></img>
 			<div onclick="selectSpotAPI('${i.spotContentId}', '${i.spotContentType}');" class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">
 			</div>
 			</a>
@@ -300,7 +305,7 @@
 			${i.areaTitle} ${i.sigunguTitle}
 			</p>
 			<h5>
-			<a href="javascript:selectSpotAPI('+list[i].spotContentId+', '+list[i].spotContentType+');" class="card-title text-uppercase">${i.spotTitle}</a>
+			<a href="javascript:selectSpotAPI('${i.spotContentId}', '${i.spotContentType}');" class="card-title text-uppercase">${i.spotTitle}</a>
 			<h5>
 			<div class="post_area" style="float: right;">
 			<span class="num_like">
@@ -341,6 +346,11 @@
 
 
 	<script>
+
+		$(function(){
+			$('.typeNo input[value=${slo.spotContentType}]').attr("checked", true);
+			$('.areaNo input[value=${slo.areaCategoryNo}]').attr("checked", true);
+		})
 
 		let currentPage = 1;
 
@@ -383,7 +393,7 @@
 									//value += '<img class="card-img-top lazyestload" data-src="resources/img/logo.png" src="" alt="Card image cap"></img>';
 									
 								}else{
-									value += '<img class="card-img-top" data-src="'+list[i].spotImgPath+'" src="'+list[i].spotImgPath+'" alt="Card image cap"></img>';
+									value += '<img class="card-img-top" data-src="'+list[i].spotImgPath+'" src="'+list[i].spotImgPath+'" alt="Card image cap" style="height: 232px;"></img>';
 								}
 								value += '<div onclick="selectSpotAPI('+list[i].spotContentId+', '+list[i].spotContentType+');" class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">'
 								+ '</div>'
@@ -421,6 +431,12 @@
 				}
 			})
 		}
+
+	function selectSpotAPI(contentId, contentType) {
+
+    	location.href="detailAPI.sp?contentId="+contentId+"&contentType="+contentType;
+
+	}
 
 
 	</script>

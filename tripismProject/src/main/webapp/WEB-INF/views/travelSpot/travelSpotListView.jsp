@@ -70,6 +70,14 @@
     color: #ffffff;
     border: 1px solid #dfdfdf;
   	}
+
+	.test_obj {
+		padding-right: 20px;
+		padding-bottom: 10px;
+	}
+
+
+
      
 
     </style>
@@ -115,140 +123,140 @@
 			<input type="hidden" name="currentPage" value="1">
 	      <div>
 			
-			<h4>카테고리</h4>
+			<h3>카테고리</h3>
 			
 			<label class="test_obj">
 				<input type="radio" name="spotContentType" value="0" class="label_que" checked>
-				<span>전체</span>
+				<span>#전체</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="spotContentType" value="12" class="label_que">
-				<span>관광지</span>
+				<span>#관광지</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="spotContentType" value="14" class="label_que">
-				<span>문화시설</span>
+				<span>#문화시설</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="spotContentType" value="15" class="label_que">
-				<span>행사/공연/축제</span>
+				<span>#행사/공연/축제</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="spotContentType" value="28" class="label_que">
-				<span>레포츠</span>
+				<span>#레포츠</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="spotContentType" value="32" class="label_que">
-				<span>숙박</span>
+				<span>#숙박</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="spotContentType" value="38" class="label_que">
-				<span>쇼핑몰</span>
+				<span>#쇼핑</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="spotContentType" value="38" class="label_que">
-				<span>식당</span>
+				<span>#식당</span>
 			</label>
 
-			<br><br>
+			<br><br><br>
 
-			<h4>지역</h4>
+			<h3>지역</h3>
 
 			<label class="test_obj">
 				<input type="radio" name="areaCategoryNo" value="0" class="label_que" checked>
-				<span>전체</span>
+				<span>#전체</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="areaCategoryNo" value="1" class="label_que">
-				<span>서울</span>
+				<span>#서울</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="areaCategoryNo" value="2" class="label_que">
-				<span>인천</span>
+				<span>#인천</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="areaCategoryNo" value="3" class="label_que">
-				<span>대전</span>
+				<span>#대전</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="areaCategoryNo" value="4" class="label_que">
-				<span>대구</span>
+				<span>#대구</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="areaCategoryNo" value="5" class="label_que">
-				<span>광주</span>
+				<span>#광주</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="areaCategoryNo" value="6" class="label_que">
-				<span>부산</span>
+				<span>#부산</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="areaCategoryNo" value="7" class="label_que">
-				<span>울산</span>
+				<span>#울산</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="areaCategoryNo" value="8" class="label_que">
-				<span>세종</span>
+				<span>#세종</span>
 			</label>
-
+			<br>
 			<label class="test_obj">
 				<input type="radio" name="areaCategoryNo" value="31" class="label_que">
-				<span>경기</span>
+				<span>#경기</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="areaCategoryNo" value="32" class="label_que">
-				<span>강원</span>
+				<span>#강원</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="areaCategoryNo" value="33" class="label_que">
-				<span>충북</span>
+				<span>#충북</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="areaCategoryNo" value="34" class="label_que">
-				<span>충남</span>
+				<span>#충남</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="areaCategoryNo" value="35" class="label_que">
-				<span>경북</span>
+				<span>#경북</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="areaCategoryNo" value="36" class="label_que">
-				<span>경남</span>
+				<span>#경남</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="areaCategoryNo" value="37" class="label_que">
-				<span>전북</span>
+				<span>#전북</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="areaCategoryNo" value="38" class="label_que">
-				<span>전남</span>
+				<span>#전남</span>
 			</label>
 
 			<label class="test_obj">
 				<input type="radio" name="areaCategoryNo" value="39" class="label_que">
-				<span>제주</span>
+				<span>#제주</span>
 			</label>
 
 			<br><br><br>
@@ -315,5 +323,8 @@
     <script src="${pageContext.request.contextPath}/resources/plugins/lazyestload/lazyestload.js"></script>
     <script src="${pageContext.request.contextPath}/resources/plugins/smoothscroll/SmoothScroll.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/star.js"></script>
+
+
+	
 </body>
 </html>

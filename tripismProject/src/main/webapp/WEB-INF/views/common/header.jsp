@@ -212,7 +212,7 @@
             color: rgb(106, 106, 106);
         }
         .eluuNw {
-            width: 124px;
+            width: 130px;
             height: 24px;
             display: flex;
             -webkit-box-align: center;
@@ -400,13 +400,14 @@
                       <img src="${pageContext.request.contextPath}/resources/img/header/icons5.png" class="Button_pa hXhSDh">
                       여행지 둘러보기</a>
                   </li>
-  
+  					
+  				<!-- 
                   <li class="">
                     <a href="list.pk">
                       <img src="${pageContext.request.contextPath}/resources/img/header/icons6.png" class="Button_pa hXhSDh">
                       여행 상품</a>
                   </li>
-                  
+                 -->
                <li class="">
                     <a href="plan.tr">
                       <img src="${pageContext.request.contextPath}/resources/img/header/icons4.png" class="Button_pa hXhSDh">
@@ -485,27 +486,48 @@
             
           
           <div class="WebHeader__SignBtnBox-sc-12ctfsg-1 eluuNw">
-          	<c:choose>
-				<c:when test="${ empty loginUser }">
-	            <button class="WebHeader__HeaderButton-sc-12ctfsg-2 jmaRWD"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#login" class="media d-inline-flex align-items-center">로그인</a></button>
-	            <button class="WebHeader__HeaderButton-sc-12ctfsg-2 cQcIDu"><a href="enrollForm.do"> 회원가입</a></button>
-	            </c:when>
-	            <c:otherwise>
-		       		            <button class="WebHeader__HeaderButton-sc-12ctfsg-2 cQcIDu" style="font-size: 14px"><a href="mypage.do"> 마이페이지</a></button>
-		       		            <button class="WebHeader__HeaderButton-sc-12ctfsg-2 cQcIDu" style="font-size: 14px"><a href="logout.do"> 로그아웃</a></button>
-		      	</c:otherwise>
-	            </c:choose>
+
+          <c:choose>
+            <c:when test="${ empty loginUser }">
+                <button class="WebHeader__HeaderButton-sc-12ctfsg-2 jmaRWD"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#login" class="media d-inline-flex align-items-center">로그인</a></button>
+                <span>|</span>
+                <button class="WebHeader__HeaderButton-sc-12ctfsg-2 cQcIDu"><a href="enrollForm.do"> 회원가입</a></button>
+            </c:when>
+
+            <c:otherwise>
+              <c:choose>
+                <c:when test="${ loginUser.memId eq 'admin'}">
+                  <button class="WebHeader__HeaderButton-sc-12ctfsg-2 cQcIDu" style="font-size: 14px"><a href="mypage.do"> 회원관리</a></button>
+                  <button class="WebHeader__HeaderButton-sc-12ctfsg-2 cQcIDu" style="font-size: 14px"><a href="logout.do"> 게시물관리</a></button>
+                </c:when>
+
+                <c:otherwise>
+                  <button class="WebHeader__HeaderButton-sc-12ctfsg-2 cQcIDu" style="font-size: 14px"><a href="mypage.do"> 마이페이지</a></button>
+                  <button class="WebHeader__HeaderButton-sc-12ctfsg-2 cQcIDu" style="font-size: 14px"><a href="logout.do"> 로그아웃</a></button>
+                </c:otherwise>
+              </c:choose>
+            </c:otherwise>
+          </c:choose>
+
           </div>
           
-          <div class="Button__ButtonWrapper-sc-1m85upr-0 cmgUBW">
-            <button width="134px" height="44px" font-style="" type="button" class="btnButtonStyle-sc-1m85upr-1 iJuLkw">
-              <a href="enrollForm.pn" style="color: rgb(255, 255, 255); display: inherit; font-weight: bold;">동행 찾기</a>
-            </button>
-              
-            
-          </div>
-          <div class="Popups__HeaderWritePopupDiv-sc-1hc7iv8-0 hbEFUq">
 
+          <div class="Button__ButtonWrapper-sc-1m85upr-0 cmgUBW">
+            <c:choose>
+              <c:when test="${ empty loginUser }">
+
+              </c:when>
+              
+              <c:otherwise>
+                <button width="134px" height="44px" font-style="" type="button" class="btnButtonStyle-sc-1m85upr-1 iJuLkw">
+                  <a href="enrollForm.pn" style="color: rgb(255, 255, 255); display: inherit; font-weight: bold;">동행 찾기</a>
+                </button>
+              </c:otherwise>
+
+            </c:choose>
+          </div>
+
+          <div class="Popups__HeaderWritePopupDiv-sc-1hc7iv8-0 hbEFUq">
           </div>
         </div>
       </div>

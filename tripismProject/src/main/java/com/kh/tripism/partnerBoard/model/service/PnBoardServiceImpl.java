@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.partnerBoard.model.dao.PnBoardDao;
+import com.kh.tripism.partnerBoard.model.vo.PnApply;
 import com.kh.tripism.partnerBoard.model.vo.PnBoard;
 import com.kh.tripism.common.vo.Reply;
 
@@ -79,6 +80,13 @@ public class PnBoardServiceImpl implements PnBoardService {
 	@Override
 	public int insertPnReply(Reply pr) {
 		return pbDao.insertReply(sqlSession, pr);
+
+	}
+
+	@Override
+	public ArrayList<PnApply> selectPnAppyList(int pnBoardNo) {
+		return pbDao.selectApplyList(sqlSession,pnBoardNo);
+		
 	}
 
 	

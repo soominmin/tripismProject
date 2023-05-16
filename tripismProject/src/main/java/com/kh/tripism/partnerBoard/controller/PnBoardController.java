@@ -13,12 +13,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.tripism.common.template.Pagination;
 import com.kh.tripism.common.vo.PageInfo;
+import com.kh.tripism.member.model.vo.Member;
 import com.kh.tripism.partnerBoard.model.service.PnBoardServiceImpl;
+import com.kh.tripism.partnerBoard.model.vo.PnApply;
 import com.kh.tripism.partnerBoard.model.vo.PnBoard;
 
 @Controller
@@ -49,13 +52,22 @@ public class PnBoardController {
 	
 	// 게시글 상세보기
 	@RequestMapping("detail.pn")
-	public String detailForm(int pno, Model model) {
+	public String detailForm(int pno, Model model,HttpSession session) {
 		
 		int result = bService.increaseCount(pno);
-		
+		Member loginUser = (Member)session.getAttribute("loginUser");
 		if(result > 0) {
 			PnBoard pb = bService.selectPnBoard(pno);
-			model.addAttribute("pb", pb);
+			 System.out.println(pb);
+			model.addAttribute("pb", pb);	
+			if(loginUser!=null && pb.getMemNo()==loginUser.getMemNo()) {
+				ArrayList<PnApply> applyList = bService.selectPnAppyList(pno);
+				System.out.println(applyList);
+				
+				model.addAttribute("applyList",applyList);
+				
+			}
+			
 			return "travelPartner/detailForm";
 			
 		} else {
@@ -77,12 +89,17 @@ public class PnBoardController {
 	@RequestMapping("insert.pn")
 	public String insertPnBoard(PnBoard pb, MultipartFile upfile, HttpSession session, Model model) {
 		
+		 System.out.println("pb:" + pb);
+		 System.out.println("upfile:" + upfile);
+		
+		
 		if(!upfile.getOriginalFilename().equals("")) {
 			String partnerChangeImg = saveFile(upfile,session);
 			
 			pb.setPartnerOriginalImg(upfile.getOriginalFilename());
 			pb.setPartnerChangeImg("resources/uploadFiles/" + partnerChangeImg);
 		}
+		
 		int result = bService.insertPnBoard(pb);
 		
 		if(result > 0) {
@@ -92,6 +109,7 @@ public class PnBoardController {
 			model.addAttribute("errorMsg", "게시글 등록 실패");
 			return "common/errorPage";
 		}
+		
 	}
 	
 
@@ -134,6 +152,22 @@ public class PnBoardController {
 	
 	
 	// 게시글 삭제폼 (장성예정)
+	
+	
+	//동행신청 수락
+	/*
+	 * @RequestMapping("accept.pn")
+	 * 
+	 * public String partnerAccept(int memNo, String accept) {
+	 * if(accept.equals("Y")) {
+	 * 
+	 * }else {
+	 * 
+	 * } return }
+	 */
+	
+	
+	//동행신청 거절
 	
 	
 	

@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.kh.tripism.common.vo.PageInfo;
+import com.kh.tripism.partnerBoard.model.vo.PnApply;
 import com.kh.tripism.partnerBoard.model.vo.PnBoard;
 import com.kh.tripism.common.vo.Reply;
 
@@ -70,6 +71,10 @@ public class PnBoardDao {
 	// 동행 관련 댓글 추가
 	public int insertReply(SqlSessionTemplate sqlSession, Reply pr) {
 		return sqlSession.insert("pnBoardMapper.insertReply", pr);
+	}
+	
+	public ArrayList<PnApply> selectApplyList(SqlSessionTemplate sqlSession,int pnBoardNo){
+		return (ArrayList)sqlSession.selectList("pnBoardMapper.selectPnApply",pnBoardNo);
 	}
 
 }

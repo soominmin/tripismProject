@@ -59,6 +59,10 @@ public class SpotServiceImpl implements SpotService {
 		return list;
 	}
 
+	public int increaseLike(int contentId) {
+		return sDao.increaseLike(sqlSession, contentId);
+	}
+
 	
 
 	

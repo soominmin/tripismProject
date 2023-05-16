@@ -135,6 +135,77 @@ public class MemberServiceImpl implements MemberService {
 		mbti += (countStr(result,'T')>countStr(result, 'F'))?"T":"F";
 		mbti += (countStr(result,'J')>countStr(result, 'P'))?"J":"P";
 		System.out.println(mbti);
+		
+        switch (mbti) {
+		case "ISTP":
+			mbti = "고독한 탐험가";
+			break;
+		
+		case "ISFP":
+			mbti = "차분한 여행자";
+			break;
+		
+		case "INFP":
+			mbti = "자유로운 방랑가";
+			break;
+		
+		case "INTP":
+			mbti = "능동적인 유랑자";
+			break;
+		
+		case "ISTJ":
+			mbti = "꼼꼼한 계획가";
+			break;
+		
+		case "ISFJ":
+			mbti = "사려있는 탐구자";
+			break;
+		
+		case "INFJ":
+			mbti = "계획적인 힐링러";
+			break;
+		
+		case "INTJ":
+			mbti = "전략적인 여행가";
+			break;
+		
+		case "ESTJ":
+			mbti = "꼼꼼한 여행자";
+			break;
+		
+		case "ESFJ":
+			mbti = "동행지향 여행러";
+			break;
+		
+		case "ENFJ":
+			mbti = "준비철저 여행자";
+			break;
+		
+		case "ENTJ":
+			mbti = "돌발상황 해결사";
+			break;
+		
+		case "ESTP":
+			mbti = "호기심많은 탐험가";
+			break;
+		
+		case "ESFP":
+			mbti = "동행지향 힐링러";
+			break;
+		
+		case "ENTP":
+			mbti = "직관적인 탐험가";
+			break;
+		
+		case "ENFP":
+			mbti = "힐링지향 여행가";
+			break;
+
+		default:
+			break;
+		
+		}
+		
 		return mbti;
 	}
 	

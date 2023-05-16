@@ -65,6 +65,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="sigungu_title" property="sigunguTitle"/>
 	</resultMap>
 	
+	<resultMap type="PnApply" id="PnApplyResult">
+		<result column="apply_no" property="applyNo"/>
+		<result column="post_no" property="postNo"/>
+		<result column="mem_nickname" property="memNickname"/>
+		<result column="apply_status" property="applyStatus"/>
+		<result column="mem_mbti" property="memMbti"/>
+		<result column="gender" property="gender"/>
+	</resultMap>
+	
+	<select id="selectPnApply" resultMap="PnApplyResult">
+		 select
+            a.apply_no
+            , a.post_no
+            , a.apply_status
+            , m.mem_nickname
+            , m.mem_mbti
+            , m.gender
+           from tb_partner_apply a
+            inner join tb_member m
+            on m.mem_no = a.mem_no
+         where post_no = #{pnBoardNo}
+	
+	</select>
 
 	
 	<select id="selectListCount" resultType="_int">
@@ -78,6 +101,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectList" resultMap="pnBoardResultSet">
 		select
 			p.post_no
+			,	p.mem_no
 			,	p.partner_type
 			,	p.partner_original_img
 			,	p.partner_title
@@ -111,6 +135,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectPnBoard" resultMap="pnBoardResultSet">
 	    select
 					p.post_no
+				,   p.mem_no
 				,	p.partner_type
 				,	p.partner_original_img
 				,	p.partner_date
@@ -134,7 +159,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
-	<insert id="inserPnBoard">
+	<insert id="insertPnBoard">
 		insert
 	        into tb_partner
 	         (
@@ -169,7 +194,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	          , #{areaCategoryNo }
 	          , #{partnerNumber }
 	          , 'Y'
-	        );
+	        )
 	</insert>
 </mapper>
 

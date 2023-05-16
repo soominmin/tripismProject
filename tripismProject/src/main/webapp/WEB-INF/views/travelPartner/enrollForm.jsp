@@ -760,10 +760,14 @@
 		</div>
 	</section>
 	
+	<form id="enrollForm" method="post" action="insert.pn" enctype="multipart/form-data" onsubmit="setPartnerType();">
 	<main class="LayoutWrapper__ItemWrapper-sc-14edszd-0 gBZHir">
 		
 	<section direction="vertical" class="WebSection__SectionWrapper-sc-1hzt8o9-0 fIxQSV">
-		<form id="enrollForm" method="post" action="insert.pn" enctype="multipart/form-data">
+			<input type="hidden" id = "areaCategoryNo" name = "areaCategoryNo" value=""/>
+			<input type="hidden" id="partnerType" name="partnerType" value=""/>
+			<input type="hidden" id="memNo" name="memNo" value="${ loginUser.memNo }">
+		
 			<section direction="vertical" class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq">
 					<div class="WebSection__AreaWebFilterWrapper-sc-1hzt8o9-1 eMbJju">
 						<!-- 지역 선택 ------------------------------------------------------------------------------------------------------------------------->
@@ -788,18 +792,18 @@
 										<div>
 											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
 												<button width="auto" font-size="15px" font-weight="400" type="button"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
+													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB" name="areaCategoryNo"
 													style="width: fit-content; justify-content: flex-start;" value="1">
 													서울</button>
 											</div>
 											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
 												<button width="auto" font-size="15px" font-weight="400" type="button"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
+													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB" name="areaCategoryNo"
 													style="width: fit-content; justify-content: flex-start;" value="31">경기도</button>
 											</div>
 											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
 												<button width="auto" font-size="15px" font-weight="400" type="button"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
+													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB" name="areaCategoryNo"
 													style="width: fit-content; justify-content: flex-start;" value="2">인천</button>
 											</div>
 
@@ -809,34 +813,34 @@
 								<div class="filter__WebCountryItemWrapper-sc-1055oli-5 fTvelu">
 									<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
 										<button width="auto" font-size="15px" font-weight="500" type="button"
-											class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 bKQVyS"
+											class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 bKQVyS" 
 											style="width: 144px; justify-content: flex-start;">경상도</button>
 									</div>
 									<div>
 										<div>
 											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
 												<button width="auto" font-size="15px" font-weight="400" type="button"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
+													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB" name="areaCategoryNo"
 													style="width: fit-content; justify-content: flex-start;" value="6">부산</button>
 											</div>
 											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
 												<button width="auto"font-size="15px" font-weight="400" type="button"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
+													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB" name="areaCategoryNo"
 													style="width: fit-content; justify-content: flex-start;" value="7">울산</button>
 											</div>
 											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
 												<button width="auto" font-size="15px" font-weight="400" type="button"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
+													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB" name="areaCategoryNo"
 													style="width: fit-content; justify-content: flex-start;" value="4">대구</button>
 											</div>
 											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
 												<button width="auto" font-size="15px" font-weight="400" type="button"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
+													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB" name="areaCategoryNo"
 													style="width: fit-content; justify-content: flex-start;" value="36">경상남도</button>
 											</div>
 											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
 												<button width="auto" font-size="15px" font-weight="400" type="button"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
+													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB" name="areaCategoryNo"
 													style="width: fit-content; justify-content: flex-start;" value="33">경상북도</button>
 											</div>
 
@@ -853,17 +857,17 @@
 										<div>
 											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
 												<button width="auto" font-size="15px" font-weight="400" type="button"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
+													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB" name="areaCategoryNo"
 													style="width: fit-content; justify-content: flex-start;" value="5">광주</button>
 											</div>
 											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
 												<button width="auto" font-size="15px" font-weight="400" type="button"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
+													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB" name="areaCategoryNo"
 													style="width: fit-content; justify-content: flex-start;"  value="38">전라남도</button>
 											</div>
 											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
 												<button width="auto" font-size="15px" font-weight="400" type="button"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
+													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB" name="areaCategoryNo"
 													style="width: fit-content; justify-content: flex-start;"  value="37">전라북도</button>
 											</div>
 										</div>
@@ -879,22 +883,22 @@
 										<div>
 											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
 												<button width="auto" font-size="15px" font-weight="400" type="button"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
+													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB" name="areaCategoryNo"
 													style="width: fit-content; justify-content: flex-start;" value="3">대전</button>
 											</div>
 											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
 												<button width="auto" font-size="15px" font-weight="400" type="button"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
+													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB" name="areaCategoryNo"
 													style="width: fit-content; justify-content: flex-start;"  value="8">세종</button>
 											</div>
 											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
 												<button width="auto" font-size="15px" font-weight="400" type="button"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
+													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB" name="areaCategoryNo"
 													style="width: fit-content; justify-content: flex-start;" value="33">충청북도</button>
 											</div>
 											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
 												<button width="auto" font-size="15px" font-weight="400" type="button"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
+													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB" name="areaCategoryNo"
 													style="width: fit-content; justify-content: flex-start;"  value="34">충청남도</button>
 											</div>
 										</div>
@@ -910,7 +914,7 @@
 										<div>
 											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
 												<button width="auto" font-size="15px" font-weight="400" type="button"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
+													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB" name="areaCategoryNo"
 													style="width: fit-content; justify-content: flex-start;" value="32">강원도</button>
 											</div>
 										</div>
@@ -926,7 +930,7 @@
 										<div>
 											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
 												<button width="auto" font-size="15px" font-weight="400" type="button"
-													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB"
+													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB" name="areaCategoryNo"
 													style="width: fit-content; justify-content: flex-start;" value="39">제주도</button>
 											</div>
 										</div>
@@ -962,6 +966,16 @@
 										});
 									});
 								</script>
+								
+								<script>
+									let btn = $("button[name='areaCategoryNo']");
+									btn.on("click",function(){
+										let areaCategoryNo = $(this).val(); // 1
+										$("#areaCategoryNo").val(areaCategoryNo);
+										
+									})
+								</script>
+
 							</div>
 						</div>
 						<!-- 지역 선택 end------------------------------------------------------------------------------------------------------------------------->
@@ -970,7 +984,7 @@
 							<div class="InfoSection__SectionWrapper-sc-kxxjuz-0 QhPLj">
 								<p class="InfoSection__PreventDragP-sc-kxxjuz-1 jZopBj">모집인원</p>
 								<div class="Number__ItemWrapper-sc-chlyb5-0 QMYJI">
-									<input type="range" min="1" max="20" value="1" class="rc-slider" style="width: 100%;" onchange="updateRecruitNo(this.value)">
+									<input type="range" name="partnerNumber" min="1" max="20" value="1" class="rc-slider" style="width: 100%;" onchange="updateRecruitNo(this.value)">
 									<div class="area_flex">
 									<p class="Number__PreventDragP-sc-chlyb5-1 drqLrs recruit_no">1</p>
 									<p class="Number__PreventDragP-sc-chlyb5-1 drqLrs" style="margin-left: 4px;">명</p>
@@ -992,18 +1006,15 @@
 										<div class="DatepickerRange__DatePickerWrapper-sc-xqwwp5-1 djQkqt">
 											<div class="react-datepicker-wrapper">
 												<div class="react-datepicker__input-container">
-													<input
-													type="text"
-													name="calPrev"
+													<input type="text" name="partnerStartDate"
 													placeholder= "날짜 선택"
-													autocomplete="off"
-													class="datepicker"
+													autocomplete="off" class="datepicker"
 													value=""></div>  
 											</div>
 											<span class="DatepickerRange__PreventDragSpan-sc-xqwwp5-2 eiMlOY">-</span>
 											<div class="react-datepicker-wrapper">
 												<div class="react-datepicker__input-container">
-													<input type="text" id="datepicker" name="datepicker"
+													<input type="text" id="datepicker" name="partnerEndDate"
 													placeholder="날짜 선택" autocomplete="off" class="datepicker"  value=""></div>
 											</div>
 										</div>
@@ -1012,13 +1023,13 @@
 								
 								<script>
 									// 첫 번째 input 엘리먼트에서 선택한 날짜
-									var startDate = $("input[name='calPrev']").val();
+									var startDate = $("input[name='partnerStartDate']").val();
 									// 두 번째 input 엘리먼트에서 선택한 날짜
-									var endDate = $("input[name='datepicker']").val();
+									var endDate = $("input[name='partnerEndDate']").val();
 	
 									// 각각의 input 엘리먼트의 value에 선택한 날짜 할당
-									$("input[name='calPrev']").val(startDate);
-									$("input[name='datepicker']").val(endDate);
+									$("input[name='partnerStartDate']").val(startDate);
+									$("input[name='partnerEndDate']").val(endDate);
 
 								</script>
 							<!-- 날짜 선택 end------------------------------------------------------------------------------------------------------------------------->
@@ -1039,7 +1050,7 @@
 				</div>
 			</label>
 
-			<input id="fileInput" type="file" accept="image/jpeg" style="display: none; margin: 0px; padding: 0px;">
+			<input id="fileInput" type="file" name="upfile" accept="image/jpg" style="display: none; margin: 0px; padding: 0px;">
 			<script>
 				// 파일 미리보기
 				const fileInput = document.getElementById('fileInput');
@@ -1058,11 +1069,11 @@
 			</script>
 
 				<div>
-					<input type="text" name="title" name="pnBoardTitle" id="form-control" placeholder="ex) 12월 3박4일 제주 바다 보러갈 동행 3명 구해요" maxlength="100" required>
+					<input type="text" name="partnerTitle" id="form-control" placeholder="ex) 12월 3박4일 제주 바다 보러갈 동행 3명 구해요" maxlength="100" required>
 				</div>
 				<div class="WriteWebSectionstyle__HorizontalLine-sc-ixmlq3-1 cGslsG"></div>
 				<div>
-				<textarea style="resize: none; font-size: smaller;" class="WriteWebSectionstyle__WriteTextarea-sc-ixmlq3-3 IUMRx desc" name="content" id="content" required
+				<textarea style="resize: none; font-size: smaller;" class="WriteWebSectionstyle__WriteTextarea-sc-ixmlq3-3 IUMRx desc" name="partnerContent" id="content" required
 				placeholder="1. 현재 동행이 있나요? 
 ex) 혼자에요 / 동행 1명이 있어요 
 				
@@ -1082,12 +1093,12 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 					class="button__ButtonConfirmButton-sc-1szjplo-7 dcFMHq"
 					style="width: calc(50% - 8px);">작성완료</button>
 			</div>
-	<!--	</form>  -->
+	<!-- 	</form>   -->
 	</section>
 </main>
 
 
-
+<!-- ---------------------------------------------------------------------------------------------------------- -->
 
 
 	<div class="WriteSelectionModal__StyledModalWrap-sc-1cknulk-0 kxfRvG">
@@ -1099,7 +1110,7 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 			<span>* 최소 1개~ 최대 3개</span>의 키워드를 선택해주세요.</p>
 	</div>
 	<div class="WriteSelectionModal__StyledContentBox-sc-1cknulk-6 dBcUhY">
-		<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button">
+		<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button" name="partnerType" value="무계획">
 			<div>
 				<img
 					src="${pageContext.request.contextPath}/resources/img/partner/answer1_img01.png"
@@ -1108,35 +1119,35 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 					<span>무계획</span>
 				</div>
 			</button>
-			<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button">
+			<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button" name="partnerType" value="관광">
 				<div>
 					<img src="${pageContext.request.contextPath}/resources/img/partner/2.png" alt="이모지"
 						class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
 						<span>관광</span>
 					</div>
 				</button>
-				<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button">
+				<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button" name="partnerType" value="바다">
 					<div>
 						<img src="${pageContext.request.contextPath}/resources/img/partner/3.png" alt="이모지"
 							class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
 							<span>바다</span>
 						</div>
 					</button>
-					<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button">
+					<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button" name="partnerType" value="등산">
 						<div>
 							<img src="${pageContext.request.contextPath}/resources/img/partner/4.png" alt="이모지"
 								class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
 								<span>등산</span>
 							</div>
 						</button>
-						<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button">
+						<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button" name="partnerType" value="맛집/카페 탐방">
 							<div>
 								<img src="${pageContext.request.contextPath}/resources/img/partner/5.png" alt="이모지"
 									class="WriteSelectionModal__StyledImg-sc-1cknulk-8 djivRF">
 									<span>맛집/카페 탐방</span>
 								</div>
 							</button>
-							<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button">
+							<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button" name="partnerType" value="핫플레이스 탐방">
 								<div>
 									<img
 										src="${pageContext.request.contextPath}/resources/img/partner/6.png"
@@ -1145,7 +1156,7 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 										<span>핫플레이스 탐방</span>
 									</div>
 								</button>
-								<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button">
+								<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button" name="partnerType" value="쇼핑">
 									<div>
 										<img
 											src="${pageContext.request.contextPath}/resources/img/partner/7.png"
@@ -1154,7 +1165,7 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 											<span>쇼핑</span>
 										</div>
 									</button>
-									<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button">
+									<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button" name="partnerType" value="드라이브">
 										<div>
 											<img
 												src="${pageContext.request.contextPath}/resources/img/partner/8.png"
@@ -1163,7 +1174,7 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 												<span>드라이브</span>
 											</div>
 										</button>
-										<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button">
+										<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button" name="partnerType" value="전시회/공연 관람">
 											<div>
 												<img
 													src="${pageContext.request.contextPath}/resources/img/partner/9.png"
@@ -1172,7 +1183,7 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 													<span>전시회/공연 관람</span>
 												</div>
 											</button>
-											<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button">
+											<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button" name="partnerType" value="스포츠 경기 직관">
 												<div>
 													<img
 														src="${pageContext.request.contextPath}/resources/img/partner/10.png"
@@ -1181,7 +1192,7 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 														<span>스포츠 경기 직관</span>
 													</div>
 												</button>
-												<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button">
+												<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button" name="partnerType" value="글램핑">
 													<div>
 														<img
 															src="${pageContext.request.contextPath}/resources/img/partner/11.png"
@@ -1190,7 +1201,7 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 															<span>글램핑</span>
 														</div>
 												</button>
-												<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button">
+												<button class="WriteSelectionModal__StyledAnswer-sc-1cknulk-7 ckUMfu" type="button" name="partnerType" value="서핑">
 													<div>
 														<img src="${pageContext.request.contextPath}/resources/img/partner/12.png"
 															alt="이모지"
@@ -1202,7 +1213,7 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 													<button width="244px" height="68px" color="#fff" font-size="16px" type="button"
 														class="ModalButton__ButtonWrap-sc-1q3a6l3-0 hpRpYH">뒤로가기</button>
 													<button width="244px" height="68px" color="#fff" font-size="16px" type="submit"
-														class="ModalButton__ButtonWrap-sc-1q3a6l3-0 hbQEgR">작성완료</button>
+														 class="ModalButton__ButtonWrap-sc-1q3a6l3-0 hbQEgR">작성완료</button>
 												</div>
 											</div>
 										</div>
@@ -1273,10 +1284,41 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 				);
 			});
 		</script>
+		
+		<script>
+			/* let btn2 = $("");
+			let partnerType="";
+			console.log(btn2);
+			btn2.on("click",function(){
+				partnerType += $(this).val(); 
+				console.log(partnerType);
+				$("#partnerType").val(partnerType);
+				
+			}) */
+			/* $(function(){
+				let partnerType="";
+				$('.eWrVZP').each(function(i,item){
+					
+				})
+			}) */
+			function setPartnerType() {
+				
+				let partnerType = "";
+				$('.eWrVZP').each(function(i,item){
+					partnerType += $(item).val();
+					if(i!=1){
+						partnerType+=","
+					}
+				})
+				console.log(partnerType)
+				$("#partnerType").val(partnerType);
+				
+			}
+		</script>
 
-<!-- </form> -->
+
 	
-	
+	</form>
 	
 			<!-- 푸터바 포함 -->
 	<jsp:include page="../common/footer.jsp"/>
@@ -1286,7 +1328,7 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 		$(function() {
 			$.datepicker.setDefaults({
 			minDate: 0, 
-			dateFormat: 'yy-mm-dd',	
+			dateFormat: 'mm/dd',	
 			prevText: '이전 달',	
 			nextText: '다음 달',	
 			closeText: '닫기',      

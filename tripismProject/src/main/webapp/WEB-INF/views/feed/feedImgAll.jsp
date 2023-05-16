@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -225,221 +227,20 @@
         <div id="middle-main">&nbsp;
 
 			<!-- 이미지 모아서 보여줄 공간 시작 -->
+			
             <div class="inner-bar" id="feedPage">
                 <div align="center"> 
-                	<div class="imgT">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
+	                <c:forEach var="f" items="${ feed }">
+	                	<div class="imgT">
+	                		<div style="height: 80%; padding: 5px">
+	                			<img alt="이미지 자리" src="${ f.imgChangeName2 }" style="width: 100% ">
+	                		</div>
+	                		<div style="height: 20%; padding: 5px">
+	                			<span>${ f.feedTitle }</span>
+	                		</div>
+	                	</div>
+	                </c:forEach>
                 	
-                	<br>
-                	
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
-                	
-                	<br>
-                
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
-                	
-                	<br>
-                
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
-                	
-                	<br>
-                
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
-                	
-                	<br>
-                
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
-                	
-                	<br>
-                
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
-                	
-                	<br>
-                
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
-                	<div class="imgT" align="center">
-                		<div style="height: 80%; padding: 5px">
-                			<img alt="이미지 자리" src="">
-                		</div>
-                		<div style="height: 20%; padding: 5px">
-                			<span>제목</span>
-                		</div>
-                	</div>
                 </div>
             </div>
 			<!-- 이미지 모아서 보여줄 공간 종료 -->

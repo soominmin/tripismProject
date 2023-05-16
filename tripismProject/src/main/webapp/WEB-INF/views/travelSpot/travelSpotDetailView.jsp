@@ -139,12 +139,13 @@
 	          <hr>
 	          <div class="inr">
 	            <ul>
-	              <!-- 공통정보 (주소까지) -->
+	              <!-- 공통정보 -->
+
 	              <li>
-	                <strong>문의 및 안내</strong>
+	                <strong>주소</strong>
 	                <br>
-	                <span class="pc">
-	                    ${al.infocenter }
+	                <span>
+	                	${s.spotAddress }
 	                </span>
 	                <br><br>
 	              </li>
@@ -156,16 +157,24 @@
 	                </span>
 	                <br><br>
 	              </li>
+	              
+	              <!-- 관광지(타입:12) -->
+	              
+	              
+	              <c:if test="${s.spotContentType eq '12' }">
 	              <li>
-	                <strong>주소</strong>
+	                <strong>문의 및 안내</strong>
 	                <br>
-	                <span>
-	                	${s.spotAddress }
+	                <span class="pc">
+	                    	<c:when test="${al.infocenter eq ''}">
+								등록된 정보가 없습니다.
+							</c:when>
+							<c:otherwise>
+	                    		${al.infocenter }
+							</c:otherwise>
 	                </span>
 	                <br><br>
 	              </li>
-	              
-	              <!-- 관광지(타입:12) -->
 	              <li>
 	                <strong>수용인원</strong>
 	                <br>
@@ -331,6 +340,424 @@
 	                </span>
 	                <br><br>
 	              </li>
+	              </c:if>
+	              
+	              <!-- 문화시설(타입:14) -->
+
+	              <c:if test="${s.spotContentType eq '14' }">
+	              
+	              <li>
+	                <strong>문의 및 안내</strong>
+	                <br>
+	                <span class="pc">
+						<c:choose>
+							<c:when test="${al.infocenterculture eq '' or al.infocenterculture eq null}">
+								등록된 정보가 없습니다.
+							</c:when>
+							<c:otherwise>
+	                    		${al.infocenterculture }
+							</c:otherwise>
+						</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>수용인원</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.accomcountculture eq '' or al.accomcountculture eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.accomcountculture }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>유모차대여정보</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.chkbabycarriageculture eq '' or al.chkbabycarriageculture eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.chkbabycarriageculture }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>신용카드가능정보</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.chkcreditcardculture eq '' or al.chkcreditcardculture eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.chkcreditcardculture }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>애완동물동반가능정보</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.chkpetculture eq '' or al.chkpetculture eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.chkpetculture }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>할인정보</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.discountinfo eq '' or al.discountinfo eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.discountinfo }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>주차시설</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.parkingculture eq '' or al.parkingculture eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.parkingculture }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>주차요금</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.parkingfee eq '' or al.parkingfee eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.parkingfee }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>쉬는날</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.restdateculture eq '' or al.restdateculture eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.restdateculture }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>이용요금</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.usefee eq '' or al.usefee eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.usefee }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>규모</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.scale eq '' or al.scale eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.scale }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>관람소요시간</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.spendtime eq '' or al.spendtime eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.spendtime }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              </c:if>
+	              
+	              <!-- 행사/공연/축제(타입:15) -->
+
+	              <c:if test="${s.spotContentType eq '15' }">
+	              
+	              <li>
+	                <strong>관람가능연령</strong>
+	                <br>
+	                <span class="pc">
+						<c:choose>
+							<c:when test="${al.agelimit eq '' or al.agelimit eq null}">
+								등록된 정보가 없습니다.
+							</c:when>
+							<c:otherwise>
+	                    		${al.agelimit }
+							</c:otherwise>
+						</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>예매처</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.bookingplace eq '' or al.bookingplace eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.bookingplace }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>할인정보</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.discountinfofestival eq '' or al.discountinfofestival eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.discountinfofestival }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>행사종료일</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.eventenddate eq '' or al.eventenddate eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.eventenddate }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>행사홈페이지</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.eventhomepage eq '' or al.eventhomepage eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.eventhomepage }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>행사장소</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.eventplace eq '' or al.eventplace eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.eventplace }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>행사시작일</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.eventstartdate eq '' or al.eventstartdate eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.eventstartdate }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>축제등급</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.festivalgrade eq '' or al.festivalgrade eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.festivalgrade }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>행사장위치안내</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.placeinfo eq '' or al.placeinfo eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.placeinfo }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>공연시간</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.playtime eq '' or al.playtime eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.playtime }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>행사프로그램</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.program eq '' or al.program eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.program }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>관람소요시간</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.spendtimefestival eq '' or al.spendtimefestival eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.spendtimefestival }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>주관사정보</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.sponsor2 eq '' or al.sponsor2 eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.sponsor2 }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>주관사연락처</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.sponsor2tel eq '' or al.sponsor2tel eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.sponsor2tel }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>이용요금</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.usetimefestival eq '' or al.usetimefestival eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.usetimefestival }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              </c:if>
 
 	            </ul>
 	          </div>
@@ -544,7 +971,7 @@
 									value += '<div onclick="selectSpotAPI('+list[i].spotContentId+', '+list[i].spotContentType+');" class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">'
 									+ '</div>'
 									+ '</a>'
-									+ '<div class="card-body px-4" style="background-color: rgba(112, 217, 223, 0.01)">'
+									+ '<div class="card-body px-4" style="background-color: rgba(112, 217, 223, 0.01) height:150px;">'
 									+ '<p style="color: gray; font-size: 9;">'
 									+ '<img src="resources/img/icons/map.png" style="width: 16px; height: 16px;" alt="">'
 									+ list[i].areaTitle + " " + list[i].sigunguTitle

@@ -299,7 +299,7 @@
 			<div onclick="selectSpotAPI('${i.spotContentId}', '${i.spotContentType}');" class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">
 			</div>
 			</a>
-			<div class="card-body px-4" style="background-color: rgba(112, 217, 223, 0.01)">
+			<div class="card-body px-4" style="background-color: rgba(112, 217, 223, 0.01); height:150px;">
 			<p style="color: gray; font-size: 9;">
 			<img src="resources/img/icons/map.png" style="width: 16px; height: 16px;" alt="">
 			${i.areaTitle} ${i.sigunguTitle}
@@ -346,13 +346,15 @@
 
 
 	<script>
+		
+		let currentPage = 1;
 
 		$(function(){
 			$('.typeNo input[value=${slo.spotContentType}]').attr("checked", true);
 			$('.areaNo input[value=${slo.areaCategoryNo}]').attr("checked", true);
+			// searchSpotList(currentPage, spotContentType, areaCategoryNo);
 		})
 
-		let currentPage = 1;
 
 		let isUpdateList = true;
 		window.onscroll = function(e) {

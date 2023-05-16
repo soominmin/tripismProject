@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 
 <mapper namespace="memberMapper">
 	<resultMap type="Member" id="memberResultSet">
@@ -20,6 +23,12 @@
 		<result column="FOLDER_NO" property="folderNo"/>
 		<result column="MEM_NO" property="memNo"/>
 		<result column="FOLDER_NAME" property="folderName"/>
+	</resultMap>
+	
+	<resultMap type="BookMark" id="bookMarkResultSet">
+		<result column="BOOKMARK_NO" property="folderNo"/>
+		<result column="SPOT_NO" property="memNo"/>
+		<result column="FOLDER_NO" property="folderName"/>
 	</resultMap>
 	
 	<resultMap type="PnBoard" id="pnBoardResultSet">
@@ -44,27 +53,7 @@
 	
 	<resultMap type="Spot" id="spotResult">
 		<result column="SPOT_NO" property="spotNo"/>
-		<result column="SPOT_CONTENT_ID" property="spotContentId"/>
-		<result column="SPOT_CONTENT_TYPE" property="spotContentType"/>
-		<result column="SPOT_CREATED_DATE" property="spotCreatedDate"/>
-		<result column="SPOT_MODIFIED_DATE" property="spotModifiedDate"/>
-		<result column="SPOT_TEL" property="spotTel"/>
-		<result column="SPOT_TITLE" property="spotTitle"/>
-		<result column="SPOT_IMG_PATH" property="spotImgPath"/>
-		<result column="SPOT_ADDRESS" property="spotAddress"/>
-		<result column="SPOT_POSTAL_CODE" property="spotPostalCode"/>
-		<result column="SPOT_MAPX" property="spotMapx"/>
-		<result column="SPOT_MAPY" property="spotMapy"/>
-		<result column="LARGE_CATEGORY_NO" property="largeCategoryNo"/>
-		<result column="MIDDLE_CATEGORY_NO" property="middleCategoryNo"/>
-		<result column="SMALL_CATEGORY_NO" property="smallCategoryNo"/>
-		<result column="AREA_CATEGORY_NO" property="areaCategoryNo"/>
-		<result column="CITY_CATEGORY_NO" property="cityCategoryNo"/>
-		<result column="SPOT_COUNT" property="spotCount"/>
 		<result column="SPOT_LIKE" property="spotLike"/>
-		
-		<result column="area_category_title" property="areaTitle"/>
-		<result column="sigungu_title" property="sigunguTitle"/>
 	</resultMap>
 
 
@@ -247,13 +236,45 @@
 	</select>
 	
 	<select id="folderSelectList" resultMap="folderResultSet">
-	select
-        folder_no
-      , mem_no
-      , folder_name
-  from tb_bookmark_folder
- where mem_no = #{memNo}
+	 select
+	        folder_no
+	      , mem_no
+	      , folder_name
+          , mem_nickname
+	   from tb_bookmark_folder
+	   join tb_member using (mem_no)
+	  where mem_no = #{memNo}
 	</select>
-
+	
+	
+	<select id="otherPage" resultMap="memberResultSet">
+	 select
+	        mem_no
+	      , mem_id
+	      , mem_name
+	      , mem_nickname
+	      , gender
+	      , mem_mbti
+	      , mem_email
+	      , mem_img
+  	  from tb_member
+     where mem_no = #{memNo}
+	</select>
+	
+	<insert id="insertBookMark">
+	insert
+			into tb_bookmark
+			(
+			    bookmark_no
+			  ,	spot_no
+			  , folder_no
+			)
+			values
+			(
+			   seq_bookmarkrno.nextval
+			 , #{spotNo}
+			 , #{folderNo}
+			)
+	</insert>
 
 </mapper>

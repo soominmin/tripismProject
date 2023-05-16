@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.ui.Model;
 
 import com.kh.tripism.common.vo.PageInfo;
+import com.kh.tripism.member.model.vo.BookMark;
 import com.kh.tripism.member.model.vo.Folder;
 import com.kh.tripism.member.model.vo.Member;
 import com.kh.tripism.partnerBoard.model.vo.PnBoard;
@@ -55,11 +56,23 @@ public interface MemberService {
 		// 폴더추가하기
 		int insertFolder(Folder f);
 		
-		// 나의 동행 게시글
+		// 나의 동행 게시글조회
 		ArrayList<PnBoard> writtenSelectList(PageInfo pi, int memNo);
 		
 		// 나의 즐겨찾기폴더 목록조회
 		ArrayList<Folder> folderSelectList(int memNo);
+		
+		// 폴더안에 있는 여행지 추가 조회
+		ArrayList<BookMark> insertBookMarkList(int memNo);
+		
+		// 폴더안에 여행지 추가
+		int insertBookMarkList(BookMark bm);
+		
+		// 다른사람 마이페이지 조회
+		Member otherPage(int memNo);
+		
+		
+		
 
 		
 }

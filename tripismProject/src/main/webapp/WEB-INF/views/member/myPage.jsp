@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>마이페이지</title>
 <style>
       #userName>img{
         width: 50px;
@@ -208,10 +208,6 @@
 	                                  </li>
                                   </c:otherwise>
                                  </c:choose>
-                                  
-                                  <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                                    <span id="bookMark"><a href="otherPage.do"> 💭 다른사람마페(잠깐) </a></span>
-                                  </li>
                                   
                                   <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
                                     <span id="bookMark"><a href="modal.do"> 모달창확인 </a></span>

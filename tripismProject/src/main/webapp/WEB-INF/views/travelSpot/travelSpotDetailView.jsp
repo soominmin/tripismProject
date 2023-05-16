@@ -1850,22 +1850,28 @@
 
             <!-- 반복 -->
             <c:forEach var="f" items="${folderList }">
-            <div id="folderWrap" style="padding-top:10px; padding-left:50px; width:300px; padding-bottom:10px; cursor: pointer;">
-			  <div class="mb-3" id="bookMarkImg" style="float: left; height: 40px;">
-			    <img src="${pageContext.request.contextPath}/resources/img/bookMark.png" style="width: 35x; height: 35px; border-radius: 50%;">
-			  </div>
-			  <div class="folderInfo" style="padding-top:5px;">
-			    <div class="folderName">
-			      <h5 style="padding-left: 45px;">${f.folderName }</h5>
-			    </div>
-				<!--     <div class="place">
-			      <p style="padding-left: 40px; margin-top: 15px;">📍n(개)</p>
-			    </div> -->
-			  </div>
-			  <div style="height: 1px; padding-top:3px;">
-			    <hr>
-			  </div>
-			</div>
+            <form action="insertBookMark.do" id="insertBookMark">
+              <input type="hidden" value="${s.spotNo }" name="spotNo" id="spotNo">
+              <input type="hidden" value="${f.folderNo }" name="folderNo" id="folderNo">
+	            <button>
+		            <div id="folderWrap" style="padding-top:10px; padding-left:50px; width:300px; padding-bottom:10px; cursor: pointer;">
+					  <div class="mb-3" id="bookMarkImg" style="float: left; height: 40px;">
+					    <img src="${pageContext.request.contextPath}/resources/img/bookMark.png" style="width: 35x; height: 35px; border-radius: 50%;">
+					  </div>
+					  <div class="folderInfo" style="padding-top:5px;">
+					    <div class="folderName">
+					      <h5 style="padding-left: 45px;">${f.folderName }</h5>
+					    </div>
+						<!--     <div class="place">
+					      <p style="padding-left: 40px; margin-top: 15px;">📍n(개)</p>
+					    </div> -->
+					  </div>
+					  <div style="height: 1px; padding-top:3px;">
+					    <hr>
+					  </div>
+					</div>
+				</button>
+			</form>
 			</c:forEach>
 			<!-- 반복끝 -->
 
@@ -1873,6 +1879,31 @@
     </div>
   </div>
   </div>
+
+  <!-- 북마크 insert script -->
+  <script>
+	  $(function(){
+			$("okBtn").click(function(){
+				const $folderNameInput = $("#insertFolder input[name=spotNo]");
+				const $folderNoInput = $("#insertBookMark input[name=folderNo]");
+				$.ajax({
+					url:"insertBookMark.do",
+					data:{sponNo:$folderNameInput.val(),
+						  folderNo:$memNoInput.val()
+						},
+					succss:function(count){
+						console.log(count);
+						alert("추가성공");
+				 }, error : function(){	
+						console.log("ajax 통신 실패");
+					}
+				})
+				
+			})
+		 
+			})
+  
+  </script>
 	
 
       

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="chatMapper">
+	<resultMap type="chatRoom" id="chatRoomResult">
+		<result column="chatroom_no" property="chatRoomNo"/>
+		<result column="chatroom_name" property="chatRoomName"/>
+		<result column="mem_nickname" property="memNickname"/>
+	
+	</resultMap>
+
+
+	<select id="chatList" resultMap="chatRoomResult">
+		select
+		    chatroom_no,
+		    chatroom_name,
+		    mem_nickname
+		from
+		    tb_chatmember
+		join 
+		    tb_member using(mem_no)
+		join 
+		    tb_chatroom using(chatroom_no)
+		where
+		    mem_no=#{memNo}
+			
+	</select>
+
+
+
+</mapper>

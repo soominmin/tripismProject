@@ -1,4 +1,4 @@
-package com.kh.tripism.travelPlan.chat;
+package com.kh.tripism.chat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kh.tripism.travelPlan.chat.model.vo.ChatMessege;
+import com.kh.tripism.chat.model.vo.ChatMessege;
 
 import lombok.extern.slf4j.Slf4j;
 

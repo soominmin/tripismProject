@@ -1,6 +1,6 @@
-package com.kh.tripism.travelPlan.chat.model.vo;
+package com.kh.tripism.chat.model.vo;
 
-import java.sql.Date;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

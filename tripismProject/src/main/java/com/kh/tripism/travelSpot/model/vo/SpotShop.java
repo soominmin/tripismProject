@@ -1,6 +1,9 @@
 package com.kh.tripism.travelSpot.model.vo;
 
 public class SpotShop {
+	
+	private String contentid;				//콘텐츠ID
+	private String contenttypeid;			//콘텐츠타입ID
 	private String chkbabycarriageshopping;	//유모차대여정보
 	private String chkcreditcardshopping;	//신용카드가능정보
 	private String chkpetshopping;			//애완동물동반가능정보
@@ -19,11 +22,14 @@ public class SpotShop {
 	
 	public SpotShop() {}
 
-	public SpotShop(String chkbabycarriageshopping, String chkcreditcardshopping, String chkpetshopping,
-			String culturecenter, String fairday, String infocentershopping, String opendateshopping, String opentime,
-			String parkingshopping, String restdateshopping, String restroom, String saleitem, String saleitemcost,
-			String scaleshopping, String shopguide) {
+	public SpotShop(String contentid, String contenttypeid, String chkbabycarriageshopping,
+			String chkcreditcardshopping, String chkpetshopping, String culturecenter, String fairday,
+			String infocentershopping, String opendateshopping, String opentime, String parkingshopping,
+			String restdateshopping, String restroom, String saleitem, String saleitemcost, String scaleshopping,
+			String shopguide) {
 		super();
+		this.contentid = contentid;
+		this.contenttypeid = contenttypeid;
 		this.chkbabycarriageshopping = chkbabycarriageshopping;
 		this.chkcreditcardshopping = chkcreditcardshopping;
 		this.chkpetshopping = chkpetshopping;
@@ -39,6 +45,22 @@ public class SpotShop {
 		this.saleitemcost = saleitemcost;
 		this.scaleshopping = scaleshopping;
 		this.shopguide = shopguide;
+	}
+
+	public String getContentid() {
+		return contentid;
+	}
+
+	public void setContentid(String contentid) {
+		this.contentid = contentid;
+	}
+
+	public String getContenttypeid() {
+		return contenttypeid;
+	}
+
+	public void setContenttypeid(String contenttypeid) {
+		this.contenttypeid = contenttypeid;
 	}
 
 	public String getChkbabycarriageshopping() {
@@ -163,14 +185,15 @@ public class SpotShop {
 
 	@Override
 	public String toString() {
-		return "SpotShop [chkbabycarriageshopping=" + chkbabycarriageshopping + ", chkcreditcardshopping="
-				+ chkcreditcardshopping + ", chkpetshopping=" + chkpetshopping + ", culturecenter=" + culturecenter
-				+ ", fairday=" + fairday + ", infocentershopping=" + infocentershopping + ", opendateshopping="
-				+ opendateshopping + ", opentime=" + opentime + ", parkingshopping=" + parkingshopping
-				+ ", restdateshopping=" + restdateshopping + ", restroom=" + restroom + ", saleitem=" + saleitem
-				+ ", saleitemcost=" + saleitemcost + ", scaleshopping=" + scaleshopping + ", shopguide=" + shopguide
-				+ "]";
+		return "SpotShop [contentid=" + contentid + ", contenttypeid=" + contenttypeid + ", chkbabycarriageshopping="
+				+ chkbabycarriageshopping + ", chkcreditcardshopping=" + chkcreditcardshopping + ", chkpetshopping="
+				+ chkpetshopping + ", culturecenter=" + culturecenter + ", fairday=" + fairday + ", infocentershopping="
+				+ infocentershopping + ", opendateshopping=" + opendateshopping + ", opentime=" + opentime
+				+ ", parkingshopping=" + parkingshopping + ", restdateshopping=" + restdateshopping + ", restroom="
+				+ restroom + ", saleitem=" + saleitem + ", saleitemcost=" + saleitemcost + ", scaleshopping="
+				+ scaleshopping + ", shopguide=" + shopguide + "]";
 	}
+
 	
 	
 	

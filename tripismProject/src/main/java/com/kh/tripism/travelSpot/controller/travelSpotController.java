@@ -27,6 +27,7 @@ import com.kh.tripism.travelSpot.model.vo.SpotCommon;
 import com.kh.tripism.travelSpot.model.vo.SpotCulture;
 import com.kh.tripism.travelSpot.model.vo.SpotFestival;
 import com.kh.tripism.travelSpot.model.vo.SpotImage;
+import com.kh.tripism.travelSpot.model.vo.SpotLeports;
 import com.kh.tripism.travelSpot.model.vo.SpotTour;
 
 
@@ -107,6 +108,7 @@ public class travelSpotController {
 			ArrayList<SpotTour> apiList = new ArrayList<>();
 			ArrayList<SpotCulture> apiListC = new ArrayList<>();
 			ArrayList<SpotFestival> apiListF = new ArrayList<>();
+			ArrayList<SpotLeports> apiListL = new ArrayList<>();
 			
 			if(contentType == 12) {
 				for(int i = 0; i < items.size(); i++) {
@@ -198,6 +200,38 @@ public class travelSpotController {
 					festival.setUsetimefestival(item.get("usetimefestival").getAsString());
 					
 					apiListF.add(festival);
+				
+				}
+			}
+			else if(contentType == 28) {
+				for(int i = 0; i < items.size(); i++) {
+					
+					JsonObject item = items.getAsJsonObject().get("item").getAsJsonArray().get(i).getAsJsonObject();
+					
+					System.out.println(item);
+					
+					SpotLeports leports = new SpotLeports();
+					
+					
+					
+					leports.setContentid(item.get("contentid").getAsString());
+					leports.setContenttypeid(item.get("contenttypeid").getAsString());
+					leports.setAccomcountleports(item.get("accomcountleports").getAsString());
+					leports.setChkbabycarriageleports(item.get("chkcreditcardleports").getAsString());
+					leports.setChkcreditcardleports(item.get("expagerangeleports").getAsString());
+					leports.setChkpetleports(item.get("chkpetleports").getAsString());
+					leports.setExpagerangeleports(item.get("expagerangeleports").getAsString());
+					leports.setInfocenterleports(item.get("parkingfeeleports").getAsString());
+					leports.setOpenperiod(item.get("openperiod").getAsString());
+					leports.setParkingfeeleports(item.get("parkingfeeleports").getAsString());
+					leports.setParkingleports(item.get("parkingleports").getAsString());
+					leports.setReservation(item.get("reservation").getAsString());
+					leports.setRestdateleports(item.get("restdateleports").getAsString());
+					leports.setScaleleports(item.get("scaleleports").getAsString());
+					leports.setUsefeeleports(item.get("usefeeleports").getAsString());
+					leports.setUsetimeleports(item.get("usetimeleports").getAsString());
+					
+					apiListL.add(leports);
 				
 				}
 			}
@@ -389,6 +423,13 @@ public class travelSpotController {
 				model.addAttribute("al", alf);
 				
 				break;
+				
+			case 28:
+				SpotLeports all = apiListL.get(0);
+				model.addAttribute("al", all);
+				
+				break;
+				
 			default:
 				break;
 			}

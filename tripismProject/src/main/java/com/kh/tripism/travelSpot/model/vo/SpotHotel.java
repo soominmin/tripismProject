@@ -1,6 +1,9 @@
 package com.kh.tripism.travelSpot.model.vo;
 
 public class SpotHotel {
+	
+	private String contentid;				//콘텐츠ID
+	private String contenttypeid;			//콘텐츠타입ID
 	private String accomcountlodging;	//수용가능인원
 	private String benikia;				//베니키아여부
 	private String checkintime;			//입실시간
@@ -34,13 +37,15 @@ public class SpotHotel {
 	
 	public SpotHotel() {}
 
-	public SpotHotel(String accomcountlodging, String benikia, String checkintime, String checkouttime,
-			String chkcooking, String foodplace, String goodstay, String hanok, String infocenterlodging,
-			String parkinglodging, String pickup, String roomcount, String reservationlodging, String reservationurl,
-			String roomtype, String scalelodging, String subfacility, String barbecue, String beauty, String beverage,
-			String bicycle, String campfire, String fitness, String karaoke, String publicbath, String publicpc,
-			String sauna, String seminar, String sports, String refundregulation) {
+	public SpotHotel(String contentid, String contenttypeid, String accomcountlodging, String benikia,
+			String checkintime, String checkouttime, String chkcooking, String foodplace, String goodstay, String hanok,
+			String infocenterlodging, String parkinglodging, String pickup, String roomcount, String reservationlodging,
+			String reservationurl, String roomtype, String scalelodging, String subfacility, String barbecue,
+			String beauty, String beverage, String bicycle, String campfire, String fitness, String karaoke,
+			String publicbath, String publicpc, String sauna, String seminar, String sports, String refundregulation) {
 		super();
+		this.contentid = contentid;
+		this.contenttypeid = contenttypeid;
 		this.accomcountlodging = accomcountlodging;
 		this.benikia = benikia;
 		this.checkintime = checkintime;
@@ -71,6 +76,22 @@ public class SpotHotel {
 		this.seminar = seminar;
 		this.sports = sports;
 		this.refundregulation = refundregulation;
+	}
+
+	public String getContentid() {
+		return contentid;
+	}
+
+	public void setContentid(String contentid) {
+		this.contentid = contentid;
+	}
+
+	public String getContenttypeid() {
+		return contenttypeid;
+	}
+
+	public void setContenttypeid(String contenttypeid) {
+		this.contenttypeid = contenttypeid;
 	}
 
 	public String getAccomcountlodging() {
@@ -315,17 +336,19 @@ public class SpotHotel {
 
 	@Override
 	public String toString() {
-		return "SpotHotel [accomcountlodging=" + accomcountlodging + ", benikia=" + benikia + ", checkintime="
-				+ checkintime + ", checkouttime=" + checkouttime + ", chkcooking=" + chkcooking + ", foodplace="
-				+ foodplace + ", goodstay=" + goodstay + ", hanok=" + hanok + ", infocenterlodging=" + infocenterlodging
-				+ ", parkinglodging=" + parkinglodging + ", pickup=" + pickup + ", roomcount=" + roomcount
-				+ ", reservationlodging=" + reservationlodging + ", reservationurl=" + reservationurl + ", roomtype="
-				+ roomtype + ", scalelodging=" + scalelodging + ", subfacility=" + subfacility + ", barbecue="
-				+ barbecue + ", beauty=" + beauty + ", beverage=" + beverage + ", bicycle=" + bicycle + ", campfire="
-				+ campfire + ", fitness=" + fitness + ", karaoke=" + karaoke + ", publicbath=" + publicbath
-				+ ", publicpc=" + publicpc + ", sauna=" + sauna + ", seminar=" + seminar + ", sports=" + sports
-				+ ", refundregulation=" + refundregulation + "]";
+		return "SpotHotel [contentid=" + contentid + ", contenttypeid=" + contenttypeid + ", accomcountlodging="
+				+ accomcountlodging + ", benikia=" + benikia + ", checkintime=" + checkintime + ", checkouttime="
+				+ checkouttime + ", chkcooking=" + chkcooking + ", foodplace=" + foodplace + ", goodstay=" + goodstay
+				+ ", hanok=" + hanok + ", infocenterlodging=" + infocenterlodging + ", parkinglodging=" + parkinglodging
+				+ ", pickup=" + pickup + ", roomcount=" + roomcount + ", reservationlodging=" + reservationlodging
+				+ ", reservationurl=" + reservationurl + ", roomtype=" + roomtype + ", scalelodging=" + scalelodging
+				+ ", subfacility=" + subfacility + ", barbecue=" + barbecue + ", beauty=" + beauty + ", beverage="
+				+ beverage + ", bicycle=" + bicycle + ", campfire=" + campfire + ", fitness=" + fitness + ", karaoke="
+				+ karaoke + ", publicbath=" + publicbath + ", publicpc=" + publicpc + ", sauna=" + sauna + ", seminar="
+				+ seminar + ", sports=" + sports + ", refundregulation=" + refundregulation + "]";
 	}
+	
+	
 	
 
 }

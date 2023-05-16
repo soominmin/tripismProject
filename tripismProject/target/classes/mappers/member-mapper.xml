@@ -21,6 +21,51 @@
 		<result column="MEM_NO" property="memNo"/>
 		<result column="FOLDER_NAME" property="folderName"/>
 	</resultMap>
+	
+	<resultMap type="PnBoard" id="pnBoardResultSet">
+		<result column="post_no" property="postNo"/>
+		<result column="mem_no" property="memNo"/>
+		<result column="partner_name" property="partnerName"/>
+		<result column="partner_type" property="partnerType"/>
+		<result column="partner_original_img" property="partnerOriginalImg"/>
+		<result column="partner_change_img" property="partnerChangeImg"/>
+		<result column="partner_date" property="partnerDate"/>
+		<result column="partner_views" property="partnerViews"/>
+		<result column="partner_title" property="partnerTitle"/>
+		<result column="partner_content" property="partnerContent"/>
+		<result column="partner_start_date" property="partnerStartDate"/>
+		<result column="partner_end_date" property="partnerEndDate"/>
+		<result column="area_category_no" property="areaCategoryNo"/>
+		<result column="partner_number" property="partnerNumber"/>
+		<result column="partner_status" property="partnerStatus"/>
+		<collection property="member" resultMap="memberResultSet"/>
+		<collection property="spot" resultMap="spotResult"></collection>
+	</resultMap>
+	
+	<resultMap type="Spot" id="spotResult">
+		<result column="SPOT_NO" property="spotNo"/>
+		<result column="SPOT_CONTENT_ID" property="spotContentId"/>
+		<result column="SPOT_CONTENT_TYPE" property="spotContentType"/>
+		<result column="SPOT_CREATED_DATE" property="spotCreatedDate"/>
+		<result column="SPOT_MODIFIED_DATE" property="spotModifiedDate"/>
+		<result column="SPOT_TEL" property="spotTel"/>
+		<result column="SPOT_TITLE" property="spotTitle"/>
+		<result column="SPOT_IMG_PATH" property="spotImgPath"/>
+		<result column="SPOT_ADDRESS" property="spotAddress"/>
+		<result column="SPOT_POSTAL_CODE" property="spotPostalCode"/>
+		<result column="SPOT_MAPX" property="spotMapx"/>
+		<result column="SPOT_MAPY" property="spotMapy"/>
+		<result column="LARGE_CATEGORY_NO" property="largeCategoryNo"/>
+		<result column="MIDDLE_CATEGORY_NO" property="middleCategoryNo"/>
+		<result column="SMALL_CATEGORY_NO" property="smallCategoryNo"/>
+		<result column="AREA_CATEGORY_NO" property="areaCategoryNo"/>
+		<result column="CITY_CATEGORY_NO" property="cityCategoryNo"/>
+		<result column="SPOT_COUNT" property="spotCount"/>
+		<result column="SPOT_LIKE" property="spotLike"/>
+		
+		<result column="area_category_title" property="areaTitle"/>
+		<result column="sigungu_title" property="sigunguTitle"/>
+	</resultMap>
 
 
 	<select id="loginMember" parameterType="Member" resultMap="memberResultSet">
@@ -175,9 +220,31 @@
 			)
 	</insert>
 	
-	
-
-	
+	<select id="writtenSelectList" resultMap="pnBoardResultSet">
+		select
+			p.post_no
+			,	p.partner_type
+			,	p.partner_original_img
+			,	p.partner_title
+			,	p.partner_content
+			,	p.partner_start_date
+			,	p.partner_end_date
+			,	s.area_category_title
+            ,   m.gender
+            ,   m.mem_nickname
+            ,	m.mem_mbti
+            ,	m.mem_img
+            ,   m.mem_no
+            ,   m.mem_id
+		from tb_partner p
+        inner join tb_member m
+        on  p.mem_no = m.mem_no
+        inner join tb_spot_area_category s
+        on p.area_category_no = s.area_category_no
+		where partner_status = 'Y'
+		  and m.mem_no = #{memNo}
+		order by post_no desc
+	</select>
 
 
 </mapper>

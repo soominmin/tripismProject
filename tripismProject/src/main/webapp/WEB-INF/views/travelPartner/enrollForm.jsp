@@ -766,6 +766,7 @@
 	<section direction="vertical" class="WebSection__SectionWrapper-sc-1hzt8o9-0 fIxQSV">
 			<input type="hidden" id = "areaCategoryNo" name = "areaCategoryNo" value=""/>
 			<input type="hidden" id="partnerType" name="partnerType" value=""/>
+			<input type="hidden" id="memNo" name="memNo" value="${ loginUser.memNo }">
 		
 			<section direction="vertical" class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq">
 					<div class="WebSection__AreaWebFilterWrapper-sc-1hzt8o9-1 eMbJju">
@@ -1305,7 +1306,7 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 				let partnerType = "";
 				$('.eWrVZP').each(function(i,item){
 					partnerType += $(item).val();
-					if(i!=2){
+					if(i!=1){
 						partnerType+=","
 					}
 				})
@@ -1327,7 +1328,7 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 		$(function() {
 			$.datepicker.setDefaults({
 			minDate: 0, 
-			dateFormat: 'yy-mm-dd',	
+			dateFormat: 'mm/dd',	
 			prevText: '이전 달',	
 			nextText: '다음 달',	
 			closeText: '닫기',      

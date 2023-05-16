@@ -40,8 +40,9 @@ public class PnBoardController {
 		int listCount = bService.selectListCount();
 		System.out.println("리스트조회 결과: " +listCount);
 		
-		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, 10, 5);
+		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, 20, 10);
 		ArrayList<PnBoard> pnList = bService.selectList(pi);
+		System.out.println("pnList : " + pnList);
 		
 		mv.addObject("pi", pi).addObject("pnlist", pnList).setViewName("travelPartner/partnerList");
 		
@@ -86,25 +87,29 @@ public class PnBoardController {
 	
 	// 게시글 작성 값 전달하기
 	@RequestMapping("insert.pn")
-	public void insertPnBoard(PnBoard pb, MultipartFile upfile, HttpSession session, Model model) {
+	public String insertPnBoard(PnBoard pb, MultipartFile upfile, HttpSession session, Model model) {
 		
-		System.out.println("pb:" + pb);
-		System.out.println("upfile:" + upfile);
-//		if(!upfile.getOriginalFilename().equals("")) {
-//			String partnerChangeImg = saveFile(upfile,session);
-//			
-//			pb.setPartnerOriginalImg(upfile.getOriginalFilename());
-//			pb.setPartnerChangeImg("resources/uploadFiles/" + partnerChangeImg);
-//		}
-//		int result = bService.insertPnBoard(pb);
-//		
-//		if(result > 0) {
-//			session.setAttribute("alertMsg", "성공적으로 게시글 등록 되었습니다!");
-//			return "redirect:list.pn";
-//		} else {
-//			model.addAttribute("errorMsg", "게시글 등록 실패");
-//			return "common/errorPage";
-//		}
+		 System.out.println("pb:" + pb);
+		 System.out.println("upfile:" + upfile);
+		
+		
+		if(!upfile.getOriginalFilename().equals("")) {
+			String partnerChangeImg = saveFile(upfile,session);
+			
+			pb.setPartnerOriginalImg(upfile.getOriginalFilename());
+			pb.setPartnerChangeImg("resources/uploadFiles/" + partnerChangeImg);
+		}
+		
+		int result = bService.insertPnBoard(pb);
+		
+		if(result > 0) {
+			session.setAttribute("alertMsg", "성공적으로 게시글 등록 되었습니다!");
+			return "redirect:list.pn";
+		} else {
+			model.addAttribute("errorMsg", "게시글 등록 실패");
+			return "common/errorPage";
+		}
+		
 	}
 	
 

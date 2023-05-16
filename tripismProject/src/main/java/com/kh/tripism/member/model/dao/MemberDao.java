@@ -1,11 +1,16 @@
 package com.kh.tripism.member.model.dao;
 
+import java.util.ArrayList;
+
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.member.model.vo.Folder;
 import com.kh.tripism.member.model.vo.Member;
+import com.kh.tripism.partnerBoard.model.vo.PnBoard;
 
 @Repository
 public class MemberDao {
@@ -64,6 +69,17 @@ public class MemberDao {
 	
 	public int insertFolder(SqlSessionTemplate sqlSession, Folder f) {
 		return sqlSession.insert("memberMapper.insertFolder", f);
+	}
+	
+	// 동행관련 리스트 조회
+	public ArrayList<PnBoard> writtenSelectList(SqlSessionTemplate sqlSession, PageInfo pi, int memNo) {
+			//System.out.println("selectListDao");
+		int offset = (pi.getCurrentPage()-1) * pi.getBoardLimit();	// 몇개 건너 뛸 건지
+		int limit = pi.getBoardLimit();	// 총 몇개를 조회할건지
+			
+		RowBounds rowBounds = new RowBounds(offset, limit);
+			
+		return (ArrayList)sqlSession.selectList("memberMapper.writtenSelectList", memNo, rowBounds);	
 	}
 	
 

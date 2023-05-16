@@ -2,6 +2,8 @@ package com.kh.tripism.travelSpot.model.vo;
 
 public class SpotLeports {
 	
+	private String contentid;				//콘텐츠ID
+	private String contenttypeid;			//콘텐츠타입ID
 	private String accomcountleports;		//수용인원
 	private String chkbabycarriageleports;	//유모차대여정보
 	private String chkcreditcardleports;	//신용카드가능정보
@@ -19,11 +21,13 @@ public class SpotLeports {
 	
 	public SpotLeports() {}
 
-	public SpotLeports(String accomcountleports, String chkbabycarriageleports, String chkcreditcardleports,
-			String chkpetleports, String expagerangeleports, String infocenterleports, String openperiod,
-			String parkingfeeleports, String parkingleports, String reservation, String restdateleports,
-			String scaleleports, String usefeeleports, String usetimeleports) {
+	public SpotLeports(String contentid, String contenttypeid, String accomcountleports, String chkbabycarriageleports,
+			String chkcreditcardleports, String chkpetleports, String expagerangeleports, String infocenterleports,
+			String openperiod, String parkingfeeleports, String parkingleports, String reservation,
+			String restdateleports, String scaleleports, String usefeeleports, String usetimeleports) {
 		super();
+		this.contentid = contentid;
+		this.contenttypeid = contenttypeid;
 		this.accomcountleports = accomcountleports;
 		this.chkbabycarriageleports = chkbabycarriageleports;
 		this.chkcreditcardleports = chkcreditcardleports;
@@ -38,6 +42,22 @@ public class SpotLeports {
 		this.scaleleports = scaleleports;
 		this.usefeeleports = usefeeleports;
 		this.usetimeleports = usetimeleports;
+	}
+
+	public String getContentid() {
+		return contentid;
+	}
+
+	public void setContentid(String contentid) {
+		this.contentid = contentid;
+	}
+
+	public String getContenttypeid() {
+		return contenttypeid;
+	}
+
+	public void setContenttypeid(String contenttypeid) {
+		this.contenttypeid = contenttypeid;
 	}
 
 	public String getAccomcountleports() {
@@ -154,13 +174,13 @@ public class SpotLeports {
 
 	@Override
 	public String toString() {
-		return "SpotLeports [accomcountleports=" + accomcountleports + ", chkbabycarriageleports="
-				+ chkbabycarriageleports + ", chkcreditcardleports=" + chkcreditcardleports + ", chkpetleports="
-				+ chkpetleports + ", expagerangeleports=" + expagerangeleports + ", infocenterleports="
-				+ infocenterleports + ", openperiod=" + openperiod + ", parkingfeeleports=" + parkingfeeleports
-				+ ", parkingleports=" + parkingleports + ", reservation=" + reservation + ", restdateleports="
-				+ restdateleports + ", scaleleports=" + scaleleports + ", usefeeleports=" + usefeeleports
-				+ ", usetimeleports=" + usetimeleports + "]";
+		return "SpotLeports [contentid=" + contentid + ", contenttypeid=" + contenttypeid + ", accomcountleports="
+				+ accomcountleports + ", chkbabycarriageleports=" + chkbabycarriageleports + ", chkcreditcardleports="
+				+ chkcreditcardleports + ", chkpetleports=" + chkpetleports + ", expagerangeleports="
+				+ expagerangeleports + ", infocenterleports=" + infocenterleports + ", openperiod=" + openperiod
+				+ ", parkingfeeleports=" + parkingfeeleports + ", parkingleports=" + parkingleports + ", reservation="
+				+ reservation + ", restdateleports=" + restdateleports + ", scaleleports=" + scaleleports
+				+ ", usefeeleports=" + usefeeleports + ", usetimeleports=" + usetimeleports + "]";
 	}
 	
 	

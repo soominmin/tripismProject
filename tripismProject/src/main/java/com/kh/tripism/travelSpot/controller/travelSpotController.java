@@ -24,7 +24,10 @@ import com.kh.tripism.common.vo.Reply;
 import com.kh.tripism.travelSpot.model.service.SpotServiceImpl;
 import com.kh.tripism.travelSpot.model.vo.Spot;
 import com.kh.tripism.travelSpot.model.vo.SpotCommon;
+import com.kh.tripism.travelSpot.model.vo.SpotCulture;
+import com.kh.tripism.travelSpot.model.vo.SpotFestival;
 import com.kh.tripism.travelSpot.model.vo.SpotImage;
+import com.kh.tripism.travelSpot.model.vo.SpotLeports;
 import com.kh.tripism.travelSpot.model.vo.SpotTour;
 
 
@@ -96,7 +99,6 @@ public class travelSpotController {
 //			JsonArray itemArr = bodyObj.getAsJsonArray("items");
 			
 			
-			
 //			System.out.println(itemArr);
 //			System.out.println(itemArr.size());
 //			System.out.println((String)items.getAsJsonObject().get("item").getAsJsonArray().get(0).getAsJsonObject().get("contentid").getAsString());
@@ -104,45 +106,138 @@ public class travelSpotController {
 			
 			
 			ArrayList<SpotTour> apiList = new ArrayList<>();
+			ArrayList<SpotCulture> apiListC = new ArrayList<>();
+			ArrayList<SpotFestival> apiListF = new ArrayList<>();
+			ArrayList<SpotLeports> apiListL = new ArrayList<>();
 			
-			for(int i = 0; i < items.size(); i++) {
+			if(contentType == 12) {
+				for(int i = 0; i < items.size(); i++) {
+					
+					JsonObject item = items.getAsJsonObject().get("item").getAsJsonArray().get(i).getAsJsonObject();
+					
+					System.out.println(item);
+					
+					SpotTour tour = new SpotTour();
+					
+					tour.setContentid(item.get("contentid").getAsString());
+					tour.setContenttypeid(item.get("contenttypeid").getAsString());
+					tour.setAccomcount(item.get("accomcount").getAsString());
+					tour.setChkbabycarriage(item.get("chkbabycarriage").getAsString());
+					tour.setChkcreditcard(item.get("chkcreditcard").getAsString());
+					tour.setChkpet(item.get("chkpet").getAsString());
+					tour.setExpagerange(item.get("expagerange").getAsString());
+					tour.setExpguide(item.get("expguide").getAsString());
+					tour.setHeritage1(item.get("heritage1").getAsString());
+					tour.setHeritage2(item.get("heritage2").getAsString());
+					tour.setHeritage3(item.get("heritage3").getAsString());
+					tour.setInfocenter(item.get("infocenter").getAsString());
+					tour.setOpendate(item.get("opendate").getAsString());
+					tour.setParking(item.get("parking").getAsString());
+					tour.setRestdate(item.get("restdate").getAsString());
+					tour.setUseseason(item.get("useseason").getAsString());
+					tour.setUsetime(item.get("usetime").getAsString());
+					
+					apiList.add(tour);
 				
-				JsonObject item = items.getAsJsonObject().get("item").getAsJsonArray().get(i).getAsJsonObject();
+				}
+			}
+			else if(contentType == 14) {
+				for(int i = 0; i < items.size(); i++) {
+					
+					JsonObject item = items.getAsJsonObject().get("item").getAsJsonArray().get(i).getAsJsonObject();
+					
+					System.out.println(item);
+					
+					SpotCulture culture = new SpotCulture();
+					
+					culture.setContentid(item.get("contentid").getAsString());
+					culture.setContenttypeid(item.get("contenttypeid").getAsString());
+					culture.setAccomcountculture(item.get("accomcountculture").getAsString());
+					culture.setChkbabycarriageculture(item.get("chkbabycarriageculture").getAsString());
+					culture.setChkcreditcardculture(item.get("chkcreditcardculture").getAsString());
+					culture.setDiscountinfo(item.get("chkpetculture").getAsString());
+					culture.setInfocenterculture(item.get("discountinfo").getAsString());
+					culture.setParkingculture(item.get("infocenterculture").getAsString());
+					culture.setParkingfee(item.get("parkingfee").getAsString());
+					culture.setRestdateculture(item.get("restdateculture").getAsString());
+					culture.setUsefee(item.get("usefee").getAsString());
+					culture.setUsetimeculture(item.get("usetimeculture").getAsString());
+					culture.setScale(item.get("scale").getAsString());
+					culture.setSpendtime(item.get("spendtime").getAsString());
+					
+					apiListC.add(culture);
 				
-				System.out.println(item);
+				}
+			}
+			else if(contentType == 15) {
+				for(int i = 0; i < items.size(); i++) {
+					
+					JsonObject item = items.getAsJsonObject().get("item").getAsJsonArray().get(i).getAsJsonObject();
+					
+					System.out.println(item);
+					
+					SpotFestival festival = new SpotFestival();
+					
+					festival.setContentid(item.get("contentid").getAsString());
+					festival.setContenttypeid(item.get("contenttypeid").getAsString());
+					festival.setAgelimit(item.get("agelimit").getAsString());
+					festival.setBookingplace(item.get("bookingplace").getAsString());
+					festival.setDiscountinfofestival(item.get("discountinfofestival").getAsString());
+					festival.setEventenddate(item.get("eventenddate").getAsString());
+					festival.setEventhomepage(item.get("eventhomepage").getAsString());
+					festival.setEventplace(item.get("eventplace").getAsString());
+					festival.setEventstartdate(item.get("eventstartdate").getAsString());
+					festival.setFestivalgrade(item.get("festivalgrade").getAsString());
+					festival.setPlaceinfo(item.get("placeinfo").getAsString());
+					festival.setPlaytime(item.get("playtime").getAsString());
+					festival.setProgram(item.get("program").getAsString());
+					festival.setSpendtimefestival(item.get("spendtimefestival").getAsString());
+					festival.setSponsor1(item.get("sponsor1").getAsString());
+					festival.setSponsor1tel(item.get("sponsor1tel").getAsString());
+					festival.setSponsor2(item.get("sponsor2").getAsString());
+					festival.setSponsor2tel(item.get("sponsor2tel").getAsString());
+					festival.setSubevent(item.get("subevent").getAsString());
+					festival.setUsetimefestival(item.get("usetimefestival").getAsString());
+					
+					apiListF.add(festival);
 				
-				SpotTour tour = new SpotTour();
+				}
+			}
+			else if(contentType == 28) {
+				for(int i = 0; i < items.size(); i++) {
+					
+					JsonObject item = items.getAsJsonObject().get("item").getAsJsonArray().get(i).getAsJsonObject();
+					
+					System.out.println(item);
+					
+					SpotLeports leports = new SpotLeports();
+					
+					
+					
+					leports.setContentid(item.get("contentid").getAsString());
+					leports.setContenttypeid(item.get("contenttypeid").getAsString());
+					leports.setAccomcountleports(item.get("accomcountleports").getAsString());
+					leports.setChkbabycarriageleports(item.get("chkcreditcardleports").getAsString());
+					leports.setChkcreditcardleports(item.get("expagerangeleports").getAsString());
+					leports.setChkpetleports(item.get("chkpetleports").getAsString());
+					leports.setExpagerangeleports(item.get("expagerangeleports").getAsString());
+					leports.setInfocenterleports(item.get("parkingfeeleports").getAsString());
+					leports.setOpenperiod(item.get("openperiod").getAsString());
+					leports.setParkingfeeleports(item.get("parkingfeeleports").getAsString());
+					leports.setParkingleports(item.get("parkingleports").getAsString());
+					leports.setReservation(item.get("reservation").getAsString());
+					leports.setRestdateleports(item.get("restdateleports").getAsString());
+					leports.setScaleleports(item.get("scaleleports").getAsString());
+					leports.setUsefeeleports(item.get("usefeeleports").getAsString());
+					leports.setUsetimeleports(item.get("usetimeleports").getAsString());
+					
+					apiListL.add(leports);
 				
-				
-				
-//				air.setStationName(item.get("stationName").getAsString());
-				
-				tour.setContentid(item.get("contentid").getAsString());
-				tour.setContenttypeid(item.get("contenttypeid").getAsString());
-				tour.setAccomcount(item.get("accomcount").getAsString());
-				tour.setChkbabycarriage(item.get("chkbabycarriage").getAsString());
-				tour.setChkcreditcard(item.get("chkcreditcard").getAsString());
-				tour.setChkpet(item.get("chkpet").getAsString());
-				tour.setExpagerange(item.get("expagerange").getAsString());
-				tour.setExpguide(item.get("expguide").getAsString());
-				tour.setHeritage1(item.get("heritage1").getAsString());
-				tour.setHeritage2(item.get("heritage2").getAsString());
-				tour.setHeritage3(item.get("heritage3").getAsString());
-				tour.setInfocenter(item.get("infocenter").getAsString());
-				tour.setOpendate(item.get("opendate").getAsString());
-				tour.setParking(item.get("parking").getAsString());
-				tour.setRestdate(item.get("restdate").getAsString());
-				tour.setUseseason(item.get("useseason").getAsString());
-				tour.setUsetime(item.get("usetime").getAsString());
-				
-				
-				apiList.add(tour);
-			
+				}
 			}
 			
-//			ArrayList<Spot> result = sService.selectSpotAPI(items);
+
 			
-//			System.out.println(result);
 			
 			
 			br.close();
@@ -295,21 +390,51 @@ public class travelSpotController {
 					
 			// db 기본정보 담기
 			Spot s = sService.selectSpotDetail(contentId);
-			
-			SpotTour al = apiList.get(0);
+
 			SpotCommon al2 = apiList2.get(0);
 //			SpotImage al3 = apiList3.get(0);
 			ArrayList<SpotImage> al3 = apiList3;
 			
 			System.out.println("s : " + s);
-			System.out.println("al : " + al);
 			System.out.println("al2 : " + al2);
 			System.out.println("al3 : " + al3);
 			
+			
+			
 			model.addAttribute("s", s);
-			model.addAttribute("al", al);
+			
 			model.addAttribute("al2", al2);
 			model.addAttribute("al3", al3);
+			
+			switch (contentType) {
+			case 12:
+				SpotTour al = apiList.get(0);
+				model.addAttribute("al", al);
+				break;
+				
+			case 14:
+				SpotCulture alc = apiListC.get(0);
+				model.addAttribute("al", alc);
+				System.out.println("alc : " + alc);
+				break;
+			
+			case 15:
+				SpotFestival alf = apiListF.get(0);
+				model.addAttribute("al", alf);
+				
+				break;
+				
+			case 28:
+				SpotLeports all = apiListL.get(0);
+				model.addAttribute("al", all);
+				
+				break;
+				
+			default:
+				break;
+			}
+			
+			
 	        
 			return "travelSpot/travelSpotDetailView";
 		}else {
@@ -369,7 +494,19 @@ public class travelSpotController {
 		
 		System.out.println(slo);
 		
+		if(spotContentType == 0 && areaCategoryNo != 0) {
+			slo.setSpotContentType("0");
+		}
+		else if(spotContentType != 0 && areaCategoryNo == 0) {
+			slo.setAreaCategoryNo("0");
+		}
+		else if(spotContentType == 0 && areaCategoryNo == 0) {
+			slo.setSpotContentType("0");
+			slo.setAreaCategoryNo("0");
+		}
+		
 		model.addAttribute("slo", slo);
+
 		model.addAttribute("sl", sl);
 		
 		return "travelSpot/searchSpotList";

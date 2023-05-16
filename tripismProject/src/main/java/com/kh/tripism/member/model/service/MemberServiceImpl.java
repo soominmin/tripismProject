@@ -1,12 +1,16 @@
 package com.kh.tripism.member.model.service;
 
+import java.util.ArrayList;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.member.model.dao.MemberDao;
 import com.kh.tripism.member.model.vo.Folder;
 import com.kh.tripism.member.model.vo.Member;
+import com.kh.tripism.partnerBoard.model.vo.PnBoard;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -102,6 +106,15 @@ public class MemberServiceImpl implements MemberService {
 		int result = mDao.insertFolder(sqlSession, f);
 		return result;
 	}
+	
+	// 나의 동행 게시글 목록 조회
+	@Override
+	public ArrayList<PnBoard> writtenSelectList(PageInfo pi, int memNo) {
+		return mDao.writtenSelectList(sqlSession, pi, memNo);
+	}
+
+	
+	
 
 
 
@@ -205,6 +218,7 @@ public class MemberServiceImpl implements MemberService {
 		}
 		return count;
 	}
+
 
 
 

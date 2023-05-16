@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.http.HttpHeaders;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.http.HttpSession;
@@ -18,17 +19,22 @@ import org.springframework.ui.Model;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kh.tripism.common.template.Pagination;
+import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.member.model.service.KakaoService;
 import com.kh.tripism.member.model.service.MailSendService;
 import com.kh.tripism.member.model.service.MemberServiceImpl;
 import com.kh.tripism.member.model.vo.Folder;
 import com.kh.tripism.member.model.vo.Member;
+import com.kh.tripism.partnerBoard.model.service.PnBoardServiceImpl;
+import com.kh.tripism.partnerBoard.model.vo.PnBoard;
 
 
 @Controller
@@ -42,6 +48,9 @@ public class MemberController {
 	
 	@Autowired
 	private MailSendService mailService;
+	
+	@Autowired
+	private PnBoardServiceImpl bService;
 	
 	// 로그인 (암호화작업)
 	@RequestMapping("login.do")
@@ -386,7 +395,29 @@ public class MemberController {
 				return "common/errorPage";
 			}
 		}
+	
+	// 내가 작성한 동행 게시글
+	@RequestMapping("partnerPostList.do")
+	public ModelAndView selectList(@RequestParam(value = "cpage",defaultValue = "1") int currentPage, ModelAndView mv, HttpSession session) {
+		// jsp 에서 cPage가 날라오면 int CurrentPage에 셋팅
+		// defaultValue=아무것도 하지않으면 1
+		// System.out.println("controllerasdsadasdasdasd");
+		int listCount = bService.selectListCount();
+		System.out.println("리스트조회 결과: " +listCount); // 4
 		
+		// 세션에서 memNo 가져오기
+		Member loginUser = (Member)session.getAttribute("loginUser");
+		int memNo = loginUser.getMemNo();
+		
+		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, 10, 5);
+		ArrayList<PnBoard> pnList = mService.writtenSelectList(pi, memNo);
+		System.out.println(pnList);
+		
+		mv.addObject("pi", pi).addObject("pnlist", pnList).setViewName("member/partnerPostList");
+		
+		return mv;
+		
+	}
 	
 
 	@RequestMapping("spotLike.do")
@@ -399,10 +430,6 @@ public class MemberController {
 		return "member/usersetting";
 	}
 
-	@RequestMapping("partnerPostList.do")
-	public String partnerPostList() {
-		return "member/partnerPostList";
-	}
 
 	@RequestMapping("bookMarkList.do")
 	public String bookMarkList() {

@@ -54,14 +54,16 @@ public class SpotServiceImpl implements SpotService {
 	}
 	
 	@Override
-	public ArrayList<Spot> searchSpotList(int currentPage, int spotContentType, int areaCategoryNo) {
-		ArrayList<Spot> list = sDao.searchSpotList(sqlSession, currentPage, spotContentType, areaCategoryNo);
+	public ArrayList<Spot> searchSpotList(int currentPage, int spotContentType, int areaCategoryNo, int detail) {
+		ArrayList<Spot> list = sDao.searchSpotList(sqlSession, currentPage, spotContentType, areaCategoryNo, detail);
 		return list;
 	}
-
+	
+	@Override
 	public int increaseLike(int contentId) {
 		return sDao.increaseLike(sqlSession, contentId);
 	}
+
 
 	
 

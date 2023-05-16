@@ -1627,7 +1627,7 @@
 	<section class="pb-10">
 	  <div class="container">
 	    <div class="text-uppercase mb-4">
-	      <h2 class="mb-0">어떤 여행지를 찾으시나요?</h2>
+	      <h2 class="mb-0">어떤 여행지를 찾으시나요? <span style="color: darkgray;">(${s.areaTitle }지역의 다른 여행지)</span></h2>
 	    </div>
 		<div class="row" id="spotList">
 			
@@ -1683,7 +1683,7 @@
 
 			$(function(){
 				selectReplyList();
-				selectSpotList(currentPage);
+				selectSpotList(currentPage, ${s.spotContentType}, ${s.areaCategoryNo});
 			})
 			
 			function writeReply() {
@@ -1760,7 +1760,7 @@
 						
 						isUpdateList = false;
 						
-						selectSpotList(++currentPage);
+						selectSpotList(++currentPage, ${s.spotContentType}, ${s.areaCategoryNo});
 						
 						isUpdateList = true;
 					}
@@ -1768,13 +1768,15 @@
 				}
 			}
 
-			function selectSpotList(currentPage) {
+			function selectSpotList(currentPage, spotContentType, areaCategoryNo) {
 				let value = "";
 				console.log("asasdasdasdasdas22");
 				$.ajax({
-					url:"spotList.sp",
+					url:"searchSpotListTwo.sp",
 					data:{
-							currentPage:currentPage
+							currentPage:currentPage,
+							spotContentType:spotContentType,
+							areaCategoryNo:areaCategoryNo
 						},
 					success:function(list){
 						for(let i=0; i<list.length; i++){

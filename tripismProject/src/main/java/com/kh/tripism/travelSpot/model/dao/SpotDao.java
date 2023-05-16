@@ -49,7 +49,7 @@ public class SpotDao {
 
 
 	public ArrayList<Spot> searchSpotList(SqlSessionTemplate sqlSession, int currentPage, int spotContentType,
-			int areaCategoryNo) {
+			int areaCategoryNo, int detail) {
 		
 		HashMap<String, Object> selectList = new HashMap<String, Object>();
 		
@@ -70,7 +70,11 @@ public class SpotDao {
 			return (ArrayList)sqlSession.selectList("spotMapper.searchSpotListAll", selectList, rowBounds);
 		}
 		else {
-			return (ArrayList)sqlSession.selectList("spotMapper.searchSpotList", selectList, rowBounds);
+			if(detail == 1) {
+				return (ArrayList)sqlSession.selectList("spotMapper.searchSpotListArea", selectList, rowBounds);
+			}else {
+				return (ArrayList)sqlSession.selectList("spotMapper.searchSpotList", selectList, rowBounds);
+			}
 		}
 
 		

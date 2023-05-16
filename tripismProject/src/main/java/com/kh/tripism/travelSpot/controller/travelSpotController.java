@@ -606,7 +606,9 @@ public class travelSpotController {
 		System.out.println("spotContentType : " + spotContentType);
 		System.out.println("areaCategoryNo : " + areaCategoryNo);
 		
-		ArrayList<Spot> list = sService.searchSpotList(currentPage, spotContentType, areaCategoryNo);
+		int detail = 0;
+		
+		ArrayList<Spot> list = sService.searchSpotList(currentPage, spotContentType, areaCategoryNo, detail);
 		
 		System.out.println(list);
 		
@@ -646,7 +648,9 @@ public class travelSpotController {
 		System.out.println("spotContentType : " + spotContentType);
 		System.out.println("areaCategoryNo : " + areaCategoryNo);
 		
-		ArrayList<Spot> list = sService.searchSpotList(currentPage, spotContentType, areaCategoryNo);
+		int detail = 1;
+		
+		ArrayList<Spot> list = sService.searchSpotList(currentPage, spotContentType, areaCategoryNo, detail);
 		
 		System.out.println("list : " + list);
 		

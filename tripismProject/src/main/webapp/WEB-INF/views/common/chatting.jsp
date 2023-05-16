@@ -320,12 +320,12 @@
             <div class="sc-7888b13b-3 eIBKpS" style="width: 100%; height: 100%;">
 
                 <div class="sc-7888b13b-4 bbIQog">
+                    <button class="sc-7888b13b-5 kheUIe" onclick="back();">뒤로가기</button>
                     <button class="sc-7888b13b-5 kphGtz">그룹대화</button>
                     <button class="sc-7888b13b-5 kheUIe">1:1 대화</button>
-                    <div class="sc-7888b13b-6 boNAgO"></div>
                 </div>
 				
-                <ul class="sc-7888b13b-7 eqxbAv">
+                <div id="chatRoomList" class="sc-7888b13b-7 eqxbAv">
 
                     <!-- <div class="sc-2b24a48b-0 duxSFr">
                         <div class="sc-be1fc4d6-0 iCTgJa">
@@ -346,10 +346,10 @@
                             </div>
                         </div> -->
 
-                        </ul>
+                        </div>
 
                        
-                        <div id="chatting" style="display: none;">
+                        <div id="chatting" style="display: none; width: 100%; height: 100%;">
                             <div id="messages" style="height:80%">asdsadsadlksajlksadlksajdlksajdkl</div>
                             <div style="height:20%">
                                 <input type="text" id="sendMessage"/>
@@ -361,6 +361,7 @@
 
                 </div>
                 <script>
+                    let currentchatRoom = 0;
                     const svgElement = document.querySelector('svg[cursor="pointer"]');
                     const targetElement = document.querySelector('.sc-e355bb8d-0.jkTMmI');
                     let isOpen = false;
@@ -417,13 +418,14 @@
                                     }
                                 }
 
-                                let chatList=document.querySelector('.eqxbAv');
+                                let chatList=document.getElementById('chatRoomList');
                                 chatList.innerHTML=value;
                                 
                                 let chatRoom = document.getElementsByClassName('chatRoom');
 
                                 for(let j=0; j<chatRoom.length;j++){
                                     chatRoom[j].addEventListener('click',()=>{
+                                        chatList.style.display="none";
                                         document.getElementById('chatting').style.display="block";
                                         createWebSocket();
 
@@ -446,13 +448,13 @@
                   </script>
                   
                   <script>
-                    const chatRoom = document.getElementById('chatRoom1');
-                    const roomList = document.getElementsByClassName('sc-2b24a48b-0 duxSFr');
-                    const room = document.querySelector('.eqxbAv');
+                    // const chatRoom = document.getElementById('chatRoom1');
+                    // const roomList = document.getElementsByClassName('sc-2b24a48b-0 duxSFr');
+                    // const room = document.querySelector('.eqxbAv');
                   	
                     
 
-                    const memId = '${loginUser.memId}';
+                    // const memId = '${loginUser.memId}';
 
 
                     // chatRoom.addEventListener('click',event=>{
@@ -475,8 +477,13 @@
                     // })
 
                     function createWebSocket(){
+                        // let chatRoom = document.getElementsByClassName('chatRoom');
+
+                        // for(let j=0; j<chatRoom.length;j++){
+                        //     chatRoom[j].style.display='none';    
+                        // }
                         const webSocket = new WebSocket('ws://localhost:8007/tripism/ws/chat');
-                        console.log(memId); 
+                        // console.log(memId); 
                         webSocket.onopen = function(event){
                             
                         }
@@ -507,7 +514,10 @@
                     }
                     
                     
-
+                    function back(){
+                        document.getElementById('chatting').style.display="none";
+                        document.getElementById('chatRoomList').style.display="block"
+                    }
                     
                   
                   </script>

@@ -20,7 +20,10 @@ public interface SpotService {
 
 	int increaseCount(int contentId);
 
-	ArrayList<Spot> searchSpotList(int currentPage, int spotContentType, int areaCategoryNo);
+
+	ArrayList<Spot> searchSpotList(int currentPage, int spotContentType, int areaCategoryNo, int detail);
+
+	int increaseLike(int contentId);
 	
 	
 }

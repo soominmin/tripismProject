@@ -100,15 +100,24 @@
 	    <br>
 	
 	    <div class="row">
-	
 	      <div class="col-md-12">
 	        <div id="package-slider" class="owl-carousel owl-theme package-slider">
 			  
-			  <c:forEach var="i" items="${al3 }">
-		          <div class="item">
-		            <img class="" data-src="" src="${i.originimgurl}" alt="image" style="height: 512px;">
-		          </div>
-	          </c:forEach>
+			  <c:choose>
+				  <c:when test="${checkImg eq 0 }">
+					  <div>
+					  	<img class="" data-src="" src="${s.spotImgPath}" alt="image" style="height: 512px;">
+					  </div>
+				  </c:when>
+				  <c:otherwise>
+					  <c:forEach var="i" items="${al3 }">
+				          <div class="item">
+				            <img class="" data-src="" src="${i.originimgurl}" alt="image" style="height: 512px;">
+				          </div>
+			          </c:forEach>
+		          </c:otherwise>
+	          
+	          </c:choose>
 	          
 	        </div>
 	
@@ -153,8 +162,16 @@
 	                <strong>홈페이지</strong>
 	                <br>
 	                <span>
-	                  	${al2.homepage }
+	                  	<c:choose>
+	                    	<c:when test="${al2.homepage eq ''}">
+								등록된 정보가 없습니다.
+							</c:when>
+							<c:otherwise>
+	                    		${al2.homepage }
+							</c:otherwise>
+						</c:choose>
 	                </span>
+
 	                <br><br>
 	              </li>
 	              
@@ -1171,6 +1188,392 @@
 		                  	</c:when>
 		                  	<c:otherwise>
 		                  		${al.refundregulation }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              </c:if>
+	              
+	              <!-- 음식점(타입:39) -->
+
+	              <c:if test="${s.spotContentType eq '39' }">
+	              
+	              <li>
+	                <strong>신용카드가능정보</strong>
+	                <br>
+	                <span class="pc">
+						<c:choose>
+							<c:when test="${al.chkcreditcardfood eq '' or al.chkcreditcardfood eq null}">
+								등록된 정보가 없습니다.
+							</c:when>
+							<c:otherwise>
+	                    		${al.chkcreditcardfood }
+							</c:otherwise>
+						</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>할인정보</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.discountinfofood eq '' or al.discountinfofood eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.discountinfofood }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>대표메뉴</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.firstmenu eq '' or al.firstmenu eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.firstmenu }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>메뉴</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.treatmenu eq '' or al.treatmenu eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.treatmenu }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>문의및안내</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.infocenterfood eq '' or al.infocenterfood eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.infocenterfood }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>어린이놀이방여부</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.kidsfacility eq '' or al.kidsfacility eq null or al.kidsfacility eq 0}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.kidsfacility }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>영업시간</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.opentimefood eq '' or al.opentimefood eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.opentimefood }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>포장가능</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.packing eq '' or al.packing eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.packing }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>주차시설</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.parkingfood eq '' or al.parkingfood eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.parkingfood }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>예약안내</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.reservationfood eq '' or al.reservationfood eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.reservationfood }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>휴무일</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.restdatefood eq '' or al.restdatefood eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.restdatefood }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>규모</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.scalefood eq '' or al.scalefood eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.scalefood }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>좌석수</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.seat eq '' or al.seat eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.seat }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              </c:if>
+	              	              <!-- 쇼핑(타입:38) -->
+
+	              <c:if test="${s.spotContentType eq '38' }">
+	              
+	              <li>
+	                <strong>유모차대여정보</strong>
+	                <br>
+	                <span class="pc">
+						<c:choose>
+							<c:when test="${al.chkbabycarriageshopping eq '' or al.chkbabycarriageshopping eq null}">
+								등록된 정보가 없습니다.
+							</c:when>
+							<c:otherwise>
+	                    		${al.chkbabycarriageshopping }
+							</c:otherwise>
+						</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>신용카드가능정보</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.chkcreditcardshopping eq '' or al.chkcreditcardshopping eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.chkcreditcardshopping }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>애완동물동반가능정보</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.chkpetshopping eq '' or al.chkpetshopping eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.chkpetshopping }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>문의및안내</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.infocentershopping eq '' or al.infocentershopping eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.infocentershopping }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>개장일</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.opendateshopping eq '' or al.opendateshopping eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.opendateshopping }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>영업시간</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.opentime eq '' or al.opentime eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.opentime }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>주차시설</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.parkingshopping eq '' or al.parkingshopping eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.parkingshopping }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>휴무일</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.restdateshopping eq '' or al.restdateshopping eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.restdateshopping }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>판매품목</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.saleitem eq '' or al.saleitem eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.saleitem }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>판매품목별가격</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.saleitemcost eq '' or al.saleitemcost eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.saleitemcost }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>규모</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.scaleshopping eq '' or al.roomtype eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.scaleshopping }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>매장안내</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.shopguide eq '' or al.shopguide eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.shopguide }
 		                  	</c:otherwise>
 	                  	</c:choose>
 	                </span>

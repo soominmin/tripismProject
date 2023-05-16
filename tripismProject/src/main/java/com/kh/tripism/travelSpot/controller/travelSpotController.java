@@ -28,6 +28,8 @@ import com.kh.tripism.travelSpot.model.vo.SpotFestival;
 import com.kh.tripism.travelSpot.model.vo.SpotHotel;
 import com.kh.tripism.travelSpot.model.vo.SpotImage;
 import com.kh.tripism.travelSpot.model.vo.SpotLeports;
+import com.kh.tripism.travelSpot.model.vo.SpotRestaurant;
+import com.kh.tripism.travelSpot.model.vo.SpotShop;
 import com.kh.tripism.travelSpot.model.vo.SpotTour;
 
 
@@ -110,6 +112,8 @@ public class travelSpotController {
 			ArrayList<SpotFestival> apiListF = new ArrayList<>();
 			ArrayList<SpotLeports> apiListL = new ArrayList<>();
 			ArrayList<SpotHotel> apiListH = new ArrayList<>();
+			ArrayList<SpotShop> apiListS = new ArrayList<>();
+			ArrayList<SpotRestaurant> apiListR = new ArrayList<>();
 			
 			if(contentType == 12) {
 				for(int i = 0; i < items.size(); i++) {
@@ -213,8 +217,6 @@ public class travelSpotController {
 					
 					SpotLeports leports = new SpotLeports();
 					
-					
-					
 					leports.setContentid(item.get("contentid").getAsString());
 					leports.setContenttypeid(item.get("contenttypeid").getAsString());
 					leports.setAccomcountleports(item.get("accomcountleports").getAsString());
@@ -269,7 +271,71 @@ public class travelSpotController {
 				
 				}
 			}
+			else if(contentType == 38) {
+				for(int i = 0; i < items.size(); i++) {
+					
+					JsonObject item = items.getAsJsonObject().get("item").getAsJsonArray().get(i).getAsJsonObject();
+					
+					System.out.println(item);
+					
+					
+					SpotShop shop = new SpotShop();
+					
+					
+					shop.setContentid(item.get("contentid").getAsString());
+					shop.setContenttypeid(item.get("contenttypeid").getAsString());
+					shop.setChkbabycarriageshopping(item.get("chkbabycarriageshopping").getAsString());
+					shop.setChkcreditcardshopping(item.get("chkcreditcardshopping").getAsString());
+					shop.setChkpetshopping(item.get("chkpetshopping").getAsString());
+					shop.setInfocentershopping(item.get("infocentershopping").getAsString());
+					shop.setOpendateshopping(item.get("opendateshopping").getAsString());
+					shop.setOpentime(item.get("opentime").getAsString());
+					shop.setParkingshopping(item.get("parkingshopping").getAsString());
+					shop.setRestdateshopping(item.get("restdateshopping").getAsString());
+					shop.setRestroom(item.get("restroom").getAsString());
+					shop.setSaleitem(item.get("saleitem").getAsString());
+					shop.setSaleitemcost(item.get("saleitemcost").getAsString());
+					shop.setScaleshopping(item.get("scaleshopping").getAsString());
+					shop.setShopguide(item.get("shopguide").getAsString());
+					
+					apiListS.add(shop);
+				
+				}
+			}
 			
+			else if(contentType == 39) {
+				for(int i = 0; i < items.size(); i++) {
+					
+					JsonObject item = items.getAsJsonObject().get("item").getAsJsonArray().get(i).getAsJsonObject();
+					
+					System.out.println(item);
+					
+					
+					SpotRestaurant restaurant = new SpotRestaurant();
+					
+					
+					
+					
+					restaurant.setContentid(item.get("contentid").getAsString());
+					restaurant.setContenttypeid(item.get("contenttypeid").getAsString());
+					restaurant.setChkcreditcardfood(item.get("chkcreditcardfood").getAsString());
+					restaurant.setDiscountinfofood(item.get("discountinfofood").getAsString());
+					restaurant.setFirstmenu(item.get("firstmenu").getAsString());
+					restaurant.setInfocenterfood(item.get("infocenterfood").getAsString());
+					restaurant.setKidsfacility(item.get("kidsfacility").getAsString());
+					restaurant.setOpentimefood(item.get("opentimefood").getAsString());
+					restaurant.setPacking(item.get("packing").getAsString());
+					restaurant.setParkingfood(item.get("parkingfood").getAsString());
+					restaurant.setReservationfood(item.get("reservationfood").getAsString());
+					restaurant.setRestdatefood(item.get("restdatefood").getAsString());
+					restaurant.setScalefood(item.get("scalefood").getAsString());
+					restaurant.setSeat(item.get("seat").getAsString());
+					restaurant.setTreatmenu(item.get("treatmenu").getAsString());
+					
+					apiListR.add(restaurant);
+				
+				}
+			}
 
 			
 			
@@ -382,63 +448,58 @@ public class travelSpotController {
 			JsonElement element3 = parser3.parse(responseText3);
 			JsonObject responseObj3 = element3.getAsJsonObject().get("response").getAsJsonObject();
 			JsonObject bodyObj3 = responseObj3.getAsJsonObject().get("body").getAsJsonObject();
-			JsonObject items3 = bodyObj3.getAsJsonObject().get("items").getAsJsonObject();
 			
-			System.out.println(responseObj3);
-			System.out.println(bodyObj3);
-			System.out.println(items3);
+			System.out.println("bodyObj3 :"+bodyObj3);
+			
+			int totalCount = bodyObj3.getAsJsonObject().get("totalCount").getAsInt();
+			
+			if(totalCount == 0) {
+				
+				model.addAttribute("checkImg", 0);
+				
+			}else {
+			
+			JsonObject items3 = bodyObj3.getAsJsonObject().get("items").getAsJsonObject();
 			
 			JsonArray itemsArray3 = items3.getAsJsonObject().get("item").getAsJsonArray();
 			
-			System.out.println(itemsArray3.size());
-			
 			ArrayList<SpotImage> apiList3 = new ArrayList<>();
 			
-			for(int i = 0; i < itemsArray3.size(); i++) {
-				
-				JsonObject item3 = items3.getAsJsonObject().get("item").getAsJsonArray().get(i).getAsJsonObject();
-				
-				
-				SpotImage image = new SpotImage();
-				
-				image.setContentid(item3.get("contentid").getAsString());
-				image.setImgname(item3.get("imgname").getAsString());
-				image.setOriginimgurl(item3.get("originimgurl").getAsString());
-				image.setSerialnum(item3.get("serialnum").getAsString());
-				image.setCpyrhtDivCd(item3.get("cpyrhtDivCd").getAsString());
-				image.setSmallimageurl(item3.get("smallimageurl").getAsString());
-				
-				apiList3.add(image);
+				for(int i = 0; i < itemsArray3.size(); i++) {
+					
+					JsonObject item3 = items3.getAsJsonObject().get("item").getAsJsonArray().get(i).getAsJsonObject();
+					
+					
+					SpotImage image = new SpotImage();
+					
+					image.setContentid(item3.get("contentid").getAsString());
+					image.setImgname(item3.get("imgname").getAsString());
+					image.setOriginimgurl(item3.get("originimgurl").getAsString());
+					image.setSerialnum(item3.get("serialnum").getAsString());
+					image.setCpyrhtDivCd(item3.get("cpyrhtDivCd").getAsString());
+					image.setSmallimageurl(item3.get("smallimageurl").getAsString());
+					
+					apiList3.add(image);
+					
+					ArrayList<SpotImage> al3 = apiList3;
+					
+					model.addAttribute("al3", al3);
+				}
 			
 			}
 			
-			
-			br2.close();
-			urlConnection2.disconnect();
-			
-			System.out.println(apiList3);
-			
-			for(SpotImage al3 : apiList3) {
-				System.out.println(al3);
-			}
+			br3.close();
+			urlConnection3.disconnect();
 					
 			// db 기본정보 담기
 			Spot s = sService.selectSpotDetail(contentId);
 
 			SpotCommon al2 = apiList2.get(0);
-//			SpotImage al3 = apiList3.get(0);
-			ArrayList<SpotImage> al3 = apiList3;
-			
-			System.out.println("s : " + s);
-			System.out.println("al2 : " + al2);
-			System.out.println("al3 : " + al3);
-			
-			
 			
 			model.addAttribute("s", s);
 			
 			model.addAttribute("al2", al2);
-			model.addAttribute("al3", al3);
+			
 			
 			switch (contentType) {
 			case 12:
@@ -468,12 +529,23 @@ public class travelSpotController {
 				SpotHotel alh = apiListH.get(0);
 				model.addAttribute("al", alh);
 				
+				break;
+				
+			case 38:
+				SpotShop als = apiListS.get(0);
+				model.addAttribute("al", als);
+				
+				break;
+			case 39:
+				SpotRestaurant alr = apiListR.get(0);
+				model.addAttribute("al", alr);
+				
+				break;
+				
 			default:
 				break;
 			}
 			
-			
-	        
 			return "travelSpot/travelSpotDetailView";
 		}else {
 			model.addAttribute("errorMsg","상세조회 실패");
@@ -582,7 +654,6 @@ public class travelSpotController {
 		}
 		
 	}
-	
 	
 
 }

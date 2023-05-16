@@ -18,18 +18,18 @@ public interface PnBoardService {
 	
 	// 3. 게시글 상세 조회용 서비스
 	// - 카운트 올리기
-	int increaseCount(int PnBoardNo);	// where 절에 그것만 조회수 올리기 해야함
+	int increaseCount(int pnBoardNo);	// where 절에 그것만 조회수 올리기 해야함
 	// - 게시글 조회
-	PnBoard selectPnBoard(int PnBoardNo);
+	PnBoard selectPnBoard(int pnBoardNo);
 	
 	// 4. 게시글 삭제용 서비스
-	int deletePnBoard(int PnBoardNo);	
+	int deletePnBoard(int pnBoardNo);	
 	
 	// 5. 게시글 수정용 서비스
 	int updatePnBoard(PnBoard pb);
 	
 	// 6. 댓글 리스트 조회
-	ArrayList<Reply> selectPnReplyList(int PnBoardNo);
+	ArrayList<Reply> selectPnReplyList(int pnBoardNo);
 	
 	// 7. 댓글 작성용 서비스(ajax)
 	int insertPnReply(Reply pr);

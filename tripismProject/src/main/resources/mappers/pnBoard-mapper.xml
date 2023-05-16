@@ -159,7 +159,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
-	<insert id="inserPnBoard">
+	<insert id="insertPnBoard">
 		insert
 	        into tb_partner
 	         (
@@ -194,7 +194,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	          , #{areaCategoryNo }
 	          , #{partnerNumber }
 	          , 'Y'
-	        );
+	        )
 	</insert>
 </mapper>
 

@@ -1,6 +1,8 @@
 package com.kh.tripism.travelSpot.model.vo;
 
 public class SpotFestival {
+	private String contentid;				//콘텐츠ID
+	private String contenttypeid;			//콘텐츠타입ID
 	private String agelimit;				//관람가능연령
 	private String bookingplace;			//예매처
 	private String discountinfofestival;	//할인정보
@@ -22,11 +24,14 @@ public class SpotFestival {
 	
 	public SpotFestival() {}
 
-	public SpotFestival(String agelimit, String bookingplace, String discountinfofestival, String eventenddate,
-			String eventhomepage, String eventplace, String eventstartdate, String festivalgrade, String placeinfo,
-			String playtime, String program, String spendtimefestival, String sponsor1, String sponsor1tel,
-			String sponsor2, String sponsor2tel, String subevent, String usetimefestival) {
+	public SpotFestival(String contentid, String contenttypeid, String agelimit, String bookingplace,
+			String discountinfofestival, String eventenddate, String eventhomepage, String eventplace,
+			String eventstartdate, String festivalgrade, String placeinfo, String playtime, String program,
+			String spendtimefestival, String sponsor1, String sponsor1tel, String sponsor2, String sponsor2tel,
+			String subevent, String usetimefestival) {
 		super();
+		this.contentid = contentid;
+		this.contenttypeid = contenttypeid;
 		this.agelimit = agelimit;
 		this.bookingplace = bookingplace;
 		this.discountinfofestival = discountinfofestival;
@@ -45,6 +50,22 @@ public class SpotFestival {
 		this.sponsor2tel = sponsor2tel;
 		this.subevent = subevent;
 		this.usetimefestival = usetimefestival;
+	}
+
+	public String getContentid() {
+		return contentid;
+	}
+
+	public void setContentid(String contentid) {
+		this.contentid = contentid;
+	}
+
+	public String getContenttypeid() {
+		return contenttypeid;
+	}
+
+	public void setContenttypeid(String contenttypeid) {
+		this.contenttypeid = contenttypeid;
 	}
 
 	public String getAgelimit() {
@@ -193,14 +214,16 @@ public class SpotFestival {
 
 	@Override
 	public String toString() {
-		return "SpotFestival [agelimit=" + agelimit + ", bookingplace=" + bookingplace + ", discountinfofestival="
-				+ discountinfofestival + ", eventenddate=" + eventenddate + ", eventhomepage=" + eventhomepage
-				+ ", eventplace=" + eventplace + ", eventstartdate=" + eventstartdate + ", festivalgrade="
-				+ festivalgrade + ", placeinfo=" + placeinfo + ", playtime=" + playtime + ", program=" + program
-				+ ", spendtimefestival=" + spendtimefestival + ", sponsor1=" + sponsor1 + ", sponsor1tel=" + sponsor1tel
-				+ ", sponsor2=" + sponsor2 + ", sponsor2tel=" + sponsor2tel + ", subevent=" + subevent
-				+ ", usetimefestival=" + usetimefestival + "]";
+		return "SpotFestival [contentid=" + contentid + ", contenttypeid=" + contenttypeid + ", agelimit=" + agelimit
+				+ ", bookingplace=" + bookingplace + ", discountinfofestival=" + discountinfofestival
+				+ ", eventenddate=" + eventenddate + ", eventhomepage=" + eventhomepage + ", eventplace=" + eventplace
+				+ ", eventstartdate=" + eventstartdate + ", festivalgrade=" + festivalgrade + ", placeinfo=" + placeinfo
+				+ ", playtime=" + playtime + ", program=" + program + ", spendtimefestival=" + spendtimefestival
+				+ ", sponsor1=" + sponsor1 + ", sponsor1tel=" + sponsor1tel + ", sponsor2=" + sponsor2
+				+ ", sponsor2tel=" + sponsor2tel + ", subevent=" + subevent + ", usetimefestival=" + usetimefestival
+				+ "]";
 	}
+	
 	
 	
 

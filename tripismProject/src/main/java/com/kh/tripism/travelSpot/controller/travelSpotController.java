@@ -25,6 +25,7 @@ import com.kh.tripism.travelSpot.model.service.SpotServiceImpl;
 import com.kh.tripism.travelSpot.model.vo.Spot;
 import com.kh.tripism.travelSpot.model.vo.SpotCommon;
 import com.kh.tripism.travelSpot.model.vo.SpotCulture;
+import com.kh.tripism.travelSpot.model.vo.SpotFestival;
 import com.kh.tripism.travelSpot.model.vo.SpotImage;
 import com.kh.tripism.travelSpot.model.vo.SpotTour;
 
@@ -105,6 +106,7 @@ public class travelSpotController {
 			
 			ArrayList<SpotTour> apiList = new ArrayList<>();
 			ArrayList<SpotCulture> apiListC = new ArrayList<>();
+			ArrayList<SpotFestival> apiListF = new ArrayList<>();
 			
 			if(contentType == 12) {
 				for(int i = 0; i < items.size(); i++) {
@@ -162,6 +164,40 @@ public class travelSpotController {
 					culture.setSpendtime(item.get("spendtime").getAsString());
 					
 					apiListC.add(culture);
+				
+				}
+			}
+			else if(contentType == 15) {
+				for(int i = 0; i < items.size(); i++) {
+					
+					JsonObject item = items.getAsJsonObject().get("item").getAsJsonArray().get(i).getAsJsonObject();
+					
+					System.out.println(item);
+					
+					SpotFestival festival = new SpotFestival();
+					
+					festival.setContentid(item.get("contentid").getAsString());
+					festival.setContenttypeid(item.get("contenttypeid").getAsString());
+					festival.setAgelimit(item.get("agelimit").getAsString());
+					festival.setBookingplace(item.get("bookingplace").getAsString());
+					festival.setDiscountinfofestival(item.get("discountinfofestival").getAsString());
+					festival.setEventenddate(item.get("eventenddate").getAsString());
+					festival.setEventhomepage(item.get("eventhomepage").getAsString());
+					festival.setEventplace(item.get("eventplace").getAsString());
+					festival.setEventstartdate(item.get("eventstartdate").getAsString());
+					festival.setFestivalgrade(item.get("festivalgrade").getAsString());
+					festival.setPlaceinfo(item.get("placeinfo").getAsString());
+					festival.setPlaytime(item.get("playtime").getAsString());
+					festival.setProgram(item.get("program").getAsString());
+					festival.setSpendtimefestival(item.get("spendtimefestival").getAsString());
+					festival.setSponsor1(item.get("sponsor1").getAsString());
+					festival.setSponsor1tel(item.get("sponsor1tel").getAsString());
+					festival.setSponsor2(item.get("sponsor2").getAsString());
+					festival.setSponsor2tel(item.get("sponsor2tel").getAsString());
+					festival.setSubevent(item.get("subevent").getAsString());
+					festival.setUsetimefestival(item.get("usetimefestival").getAsString());
+					
+					apiListF.add(festival);
 				
 				}
 			}
@@ -347,7 +383,12 @@ public class travelSpotController {
 				model.addAttribute("al", alc);
 				System.out.println("alc : " + alc);
 				break;
-
+			
+			case 15:
+				SpotFestival alf = apiListF.get(0);
+				model.addAttribute("al", alf);
+				
+				break;
 			default:
 				break;
 			}

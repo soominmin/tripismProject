@@ -26,6 +26,15 @@ public class FeedDao {
 		System.out.println("피드 이미지 리스트 나왔나? Dao");
 		return (ArrayList) sqlSession.selectList("feedMapper.selectImgList", null);
 	}
+	
+	public ArrayList<Feed> searchFeed(SqlSessionTemplate sqlSession, PageInfo pi, String keyword) {
+		System.out.println("피드 검색 잘 하고있나? dao");
+		
+		ArrayList<Feed> feeds = (ArrayList) sqlSession.selectList("feedMapper.searchFeed", keyword);
+		System.out.println(feeds);
+		return feeds;
+//		return (ArrayList) sqlSession.selectList("feedMapper.searchFeed", null);
+	}
 
 	// 피드 추가
 	public int insertFeed(SqlSessionTemplate sqlSession, Feed f) { // feed 제목/본문 넣어주는 부분
@@ -64,6 +73,10 @@ public class FeedDao {
 
 	public int selectImgCount(SqlSessionTemplate sqlSession) {
 		return sqlSession.selectOne("feedMapper.selectImgCount");
+	}
+	
+	public int selectFeedSearchCount(SqlSessionTemplate sqlSession) {
+		return sqlSession.selectOne("feedMapper.selectFeedSearchCount");
 	}
 	
 	// 댓글 추가

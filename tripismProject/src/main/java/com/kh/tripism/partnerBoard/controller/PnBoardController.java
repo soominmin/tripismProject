@@ -39,6 +39,7 @@ public class PnBoardController {
 		
 		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, 10, 5);
 		ArrayList<PnBoard> pnList = bService.selectList(pi);
+		System.out.println("pnList : " + pnList);
 		
 		mv.addObject("pi", pi).addObject("pnlist", pnList).setViewName("travelPartner/partnerList");
 		

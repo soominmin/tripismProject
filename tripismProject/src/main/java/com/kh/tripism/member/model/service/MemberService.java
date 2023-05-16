@@ -1,9 +1,13 @@
 package com.kh.tripism.member.model.service;
 
+import java.util.ArrayList;
+
 import org.springframework.ui.Model;
 
+import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.member.model.vo.Folder;
 import com.kh.tripism.member.model.vo.Member;
+import com.kh.tripism.partnerBoard.model.vo.PnBoard;
 
 public interface MemberService {
 		// 로그인 서비스 (select)
@@ -51,7 +55,8 @@ public interface MemberService {
 		// 폴더추가하기
 		int insertFolder(Folder f);
 		
-		
+		// 나의 동행 게시글
+		ArrayList<PnBoard> writtenSelectList(PageInfo pi, int memNo);
 
 		
 }

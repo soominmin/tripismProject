@@ -186,9 +186,6 @@
                                       <span id="likePost"><a href="spotLike.do">❤️ 찜목록</a></span>
                                   </li>
                     
-                                  <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                                    <span id="likePost"><a href="spotLike.do">📱 내가 작성한 목록</a></span>
-                                  </li>
                           
                                   <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
                                       <span id="tripartner"><a href="partnerPostList.do">🔎 내 동행 게시글</a></span>
@@ -239,7 +236,7 @@
                                       <form action="pwdCheck.do" method="post">
                                         <div class="form-group mb-4">
                                           <input type="password" name="memPwd" id="memPwd" class="form-control bg-smoke" required placeholder="현재 비밀번호">
-                                          <input type="hidden" name="memId" id="memNo" value="${loginUser.memId }">
+                                          <input type="hidden" name="memId" id="memId" value="${loginUser.memId }">
                                         </div>
                                         <div class="pt-2" style="text-align: center;">
                                           <button type="submit" class="btn btn-primary text-uppercase font-size-15 px-6 px-md-7" id="btn_pwd">확인</button>

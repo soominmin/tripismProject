@@ -40,7 +40,7 @@ public class PnBoardController {
 		int listCount = bService.selectListCount();
 		System.out.println("리스트조회 결과: " +listCount);
 		
-		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, 10, 5);
+		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, 20, 10);
 		ArrayList<PnBoard> pnList = bService.selectList(pi);
 		System.out.println("pnList : " + pnList);
 		

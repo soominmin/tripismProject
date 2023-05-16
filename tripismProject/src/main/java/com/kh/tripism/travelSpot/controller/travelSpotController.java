@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,6 +25,7 @@ import com.kh.tripism.travelSpot.model.vo.Spot;
 import com.kh.tripism.travelSpot.model.vo.SpotCommon;
 import com.kh.tripism.travelSpot.model.vo.SpotCulture;
 import com.kh.tripism.travelSpot.model.vo.SpotFestival;
+import com.kh.tripism.travelSpot.model.vo.SpotHotel;
 import com.kh.tripism.travelSpot.model.vo.SpotImage;
 import com.kh.tripism.travelSpot.model.vo.SpotLeports;
 import com.kh.tripism.travelSpot.model.vo.SpotTour;
@@ -109,6 +109,7 @@ public class travelSpotController {
 			ArrayList<SpotCulture> apiListC = new ArrayList<>();
 			ArrayList<SpotFestival> apiListF = new ArrayList<>();
 			ArrayList<SpotLeports> apiListL = new ArrayList<>();
+			ArrayList<SpotHotel> apiListH = new ArrayList<>();
 			
 			if(contentType == 12) {
 				for(int i = 0; i < items.size(); i++) {
@@ -232,6 +233,39 @@ public class travelSpotController {
 					leports.setUsetimeleports(item.get("usetimeleports").getAsString());
 					
 					apiListL.add(leports);
+				
+				}
+			}
+			else if(contentType == 32) {
+				for(int i = 0; i < items.size(); i++) {
+					
+					JsonObject item = items.getAsJsonObject().get("item").getAsJsonArray().get(i).getAsJsonObject();
+					
+					System.out.println(item);
+					
+					
+					SpotHotel hotel = new SpotHotel();
+					
+					
+					hotel.setContentid(item.get("contentid").getAsString());
+					hotel.setContenttypeid(item.get("contenttypeid").getAsString());
+					hotel.setAccomcountlodging(item.get("accomcountlodging").getAsString());
+					hotel.setCheckintime(item.get("checkintime").getAsString());
+					hotel.setCheckouttime(item.get("checkouttime").getAsString());
+					hotel.setChkcooking(item.get("chkcooking").getAsString());
+					hotel.setInfocenterlodging(item.get("infocenterlodging").getAsString());
+					hotel.setParkinglodging(item.get("parkinglodging").getAsString());
+					hotel.setPickup(item.get("pickup").getAsString());
+					hotel.setRoomcount(item.get("roomcount").getAsString());
+					hotel.setReservationlodging(item.get("reservationlodging").getAsString());
+					hotel.setReservationurl(item.get("reservationurl").getAsString());
+					hotel.setRoomtype(item.get("roomtype").getAsString());
+					hotel.setScalelodging(item.get("scalelodging").getAsString());
+					hotel.setSubfacility(item.get("subfacility").getAsString());
+					hotel.setRefundregulation(item.get("refundregulation").getAsString());
+					
+					
+					apiListH.add(hotel);
 				
 				}
 			}
@@ -429,6 +463,10 @@ public class travelSpotController {
 				model.addAttribute("al", all);
 				
 				break;
+				
+			case 32:
+				SpotHotel alh = apiListH.get(0);
+				model.addAttribute("al", alh);
 				
 			default:
 				break;

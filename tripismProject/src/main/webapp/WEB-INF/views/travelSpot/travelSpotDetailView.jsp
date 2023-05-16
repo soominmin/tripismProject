@@ -961,6 +961,223 @@
 	                <br><br>
 	              </li>
 	              </c:if>
+	              
+	              <!-- 숙박(타입:32) -->
+
+	              <c:if test="${s.spotContentType eq '32' }">
+	              
+	              <li>
+	                <strong>수용가능인원</strong>
+	                <br>
+	                <span class="pc">
+						<c:choose>
+							<c:when test="${al.accomcountlodging eq '' or al.accomcountlodging eq null}">
+								등록된 정보가 없습니다.
+							</c:when>
+							<c:otherwise>
+	                    		${al.accomcountlodging }
+							</c:otherwise>
+						</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>입실시간</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.checkintime eq '' or al.checkintime eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.checkintime }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>퇴실시간</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.checkouttime eq '' or al.checkouttime eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.checkouttime }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>객실내취사여부</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.chkcooking eq '' or al.chkcooking eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.chkcooking }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>문의및안내</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.infocenterlodging eq '' or al.infocenterlodging eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.infocenterlodging }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>주차시설</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.parkinglodging eq '' or al.parkinglodging eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.parkinglodging }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>픽업서비스</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.pickup eq '' or al.pickup eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.pickup }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>객실수</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.roomcount eq '' or al.roomcount eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.roomcount }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>예약안내</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.reservationlodging eq '' or al.reservationlodging eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.reservationlodging }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>예약안내홈페이지</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.reservationurl eq '' or al.reservationurl eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.reservationurl }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>객실유형</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.roomtype eq '' or al.roomtype eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.roomtype }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>규모</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.scalelodging eq '' or al.scalelodging eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.scalelodging }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>부대시설</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.subfacility eq '' or al.subfacility eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.subfacility }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              <li>
+	                <strong>환불규정</strong>
+	                <br>
+	                <span>
+	                	<c:choose>
+		                	<c:when test="${al.refundregulation eq '' or al.refundregulation eq null}">
+		                  		등록된 정보가 없습니다.
+		                  	</c:when>
+		                  	<c:otherwise>
+		                  		${al.refundregulation }
+		                  	</c:otherwise>
+	                  	</c:choose>
+	                </span>
+	                <br><br>
+	              </li>
+	              </c:if>
+	              
 
 	            </ul>
 	          </div>
@@ -1212,8 +1429,6 @@
 
 			location.href="detailAPI.sp?contentId="+contentId+"&contentType="+contentType;
 
-			location.reload();
-
 		}
 				
 				
@@ -1227,6 +1442,7 @@
 	
 	
 	<!-- Javascript -->
+	 
     <script src="${pageContext.request.contextPath}/resources/plugins/jquery/jquery-3.4.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/plugins/menuzord/js/menuzord.js"></script>

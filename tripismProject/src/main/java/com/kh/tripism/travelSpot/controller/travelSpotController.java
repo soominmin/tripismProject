@@ -7,6 +7,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.kh.tripism.common.vo.Reply;
+import com.kh.tripism.member.model.service.MemberServiceImpl;
+import com.kh.tripism.member.model.vo.Folder;
+import com.kh.tripism.member.model.vo.Member;
 import com.kh.tripism.travelSpot.model.service.SpotServiceImpl;
 import com.kh.tripism.travelSpot.model.vo.Spot;
 import com.kh.tripism.travelSpot.model.vo.SpotCommon;
@@ -44,16 +49,25 @@ public class travelSpotController {
 	@Autowired
 	private SpotServiceImpl sService;
 	
+	@Autowired
+	private MemberServiceImpl mService;
+	
 	@RequestMapping("list.sp")
 	public String selectList() {
 		return "travelSpot/travelSpotListView";
 	}
 	
 	@RequestMapping(value="detailAPI.sp", produces = "application/json; charset=utf-8")
-	public String selectSpotAPI(int contentId, int contentType, Model model) throws IOException {
+	public String selectSpotAPI(int contentId, int contentType, Model model, HttpSession session) throws IOException {
+		
+		// 즐겨찾기 목록조회*(모달사용)
+		Member loginUser = (Member)session.getAttribute("loginUser");
+		int memNo = loginUser.getMemNo();
+		ArrayList<Folder> folderList = mService.folderSelectList(memNo);
+		model.addAttribute("folderList", folderList);
+		
 		
 		// 조회수 증가
-		
 		int result = sService.increaseCount(contentId);
 		
 		if(result > 0) {

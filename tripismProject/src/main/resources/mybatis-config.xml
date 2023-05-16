@@ -20,6 +20,7 @@
 		<typeAlias type="com.kh.tripism.member.model.vo.Folder" alias="Folder"/>
 		<typeAlias type="com.kh.tripism.partnerBoard.model.vo.PnApply" alias="PnApply"/>
 		<typeAlias type="com.kh.tripism.chat.model.vo.ChatRoom" alias="ChatRoom"/>
+		<typeAlias type="com.kh.tripism.member.model.vo.BookMark" alias="BookMark"/>
 	</typeAliases>
 
 	<mappers>

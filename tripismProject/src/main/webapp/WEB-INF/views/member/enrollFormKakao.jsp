@@ -145,7 +145,7 @@
 				  const $idInput = $("#enrollForm input[name=memId]");
 				  const $checkResult = $("#checkResult");
 
-				  $idInput.keyup(function() {
+				  $idInput.ready(function() {
 				    const id = $idInput.val();
 				    if (id.length >= 5) {
 				      $.ajax({
@@ -244,7 +244,7 @@
 				const $nicknameInput = $("#enrollForm input[name=memNickname]");
 				const $nicknameResult = $("#nicknameResult");
 					
-				$nicknameInput.keyup(function(){
+				$nicknameInput.ready(function(){
 				if($nicknameInput.val().length >= 1) {
 						
 						$.ajax({
@@ -280,7 +280,7 @@
 				const $emailInput = $("#enrollForm input[name=email]");
 				const $emailResult = $("emailResult");
 				
-					$emailInput.keyup(function(){
+					$emailInput.ready(function(){
 						if($emailInput.val().length >= 13) {
 							
 							$.ajax({

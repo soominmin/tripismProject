@@ -174,7 +174,7 @@
                               	<c:when test="${ not empty loginUser.mbti }">
 	                              <table align="center">
 	                                <tr style="width: 30px;">
-	                                  <td id="mbti" align="center">${loginUser.mbti }</td>
+	                                  <td id="mbti" align="center" style="width:200px;">${loginUser.mbti }</td>
 	                                </tr>
 	                              </table>
                               </c:when>

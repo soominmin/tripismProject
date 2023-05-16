@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>다른사람 마이페이지</title>
 <style>
       #userName>img{
         width: 50px;
@@ -84,6 +85,10 @@
       #tripartner>a:hover, #likePost>a:hover, #userSetting>a:hover, #bookMark>a:hover {
         color: RGB(112, 217, 223);
       }
+      
+      #memNickname{
+        text-align: center;
+      }
 
 
 
@@ -107,29 +112,37 @@
                     <div>
                       <div class="row">
                         <div class="col-12">
-                          <div class="row" style="width: 1500px;">
+                          <div class="row" style="width: 1670px;">
                             <div class="col-lg-6" style="margin-left: 160px; border: solid 3px rgba(199, 198, 198, 0.37); padding: 35px; border-radius:  15px 15px 15px 15px;">
                               <div>
-                                <h3 class="text-uppercase mb-3" align="center">지수의꽃 님의 프로필</h3>
+                                <h3 class="text-uppercase mb-3" align="center">${otherInfo.memNickname } 님의 프로필</h3>
                               </div>
                               <hr>
-                              <div align="center" style="padding-top: 25px;">
-                              <label for="file-upload"></label>
-                              <input id="file-upload" type="file" style="display:none">
-                              	<img src="${pageContext.request.contextPath}/resources/img/user (2).jfif" id="preview-img" style="width:65px; height:65px; cursor: pointer;" onclick="document.getElementById('file-upload').click();" />
-                              </div>
+                              <c:choose>
+                              <c:when test="${ empty otherInfo.img }">
+	                              <div align="center" style="padding-top: 25px;">
+	                              	<img src="${pageContext.request.contextPath}/resources/img/user (2).jfif" id="preview-img" style="width:65px; height:65px; border-radius: 50%;" />
+	                              </div>
+                              </c:when>
+                              <c:otherwise>
+	                              <div align="center" style="padding-top: 25px;">
+	                              	<img src="${otherInfo.img}" id="preview-img" style="width:65px; height:65px; border-radius: 50%;"/>
+	                              </div>
+                              </c:otherwise>
+                              </c:choose>
                               
-                              <div style="padding-top: 15px;">
-                              <table align="center"">
-                                <tr style="width: 30px;">
-                                  <td id="mbti" align="center">ENFP</td>
-                                  <td id="mbti-char" align="center">#활동적인활동가</td>
-                                </tr>
-                              </table>
-                              </div>
-
+                              <c:if test="${not empty otherInfo.mbti }">
+	                              <div style="padding-top: 15px;">
+	                              <table align="center"">
+	                                <tr style="width: 30px;">
+	                                  <td id="mbti" align="center" style="width:200px;">${otherInfo.mbti }</td>
+	                                </tr>
+	                              </table>
+	                              </div>
+							 </c:if>
+							 
                               <div class="mb-3" align="center" style="padding-top: 20px; padding-bottom: 25px;">
-                                <input type="text" class="form-control bg-smoke" placeholder="flower[닉네임]" style="width:200px; border: none;" readonly>
+                                <input type="text" id="memNickname" class="form-control bg-smoke" style="width:200px; border: none;" value="${otherInfo.memNickname }" readonly>
                               </div>
                               <hr>
 
@@ -151,27 +164,16 @@
                                   <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
                                       <span id="likePost"><a href="spotLike.do">❤️ 찜목록</a></span>
                                   </li>
-                    
+                
+                          
                                   <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                                    <span id="likePost"><a href="spotLike.do">📱 내가 작성한 목록</a></span>
+                                      <span id="tripartner"><a href="otherPartnerPostList.do?memNo=${otherInfo.memNo }">🔎 ${otherInfo.memNickname }님의 동행 게시글</a></span>
                                   </li>
                           
                                   <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                                      <span id="tripartner"><a href="partnerPostList.do">🔎 내 동행 게시글</a></span>
-                                  </li>
-                          
-                                  <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                                      <span id="bookMark"><a href="bookMarkList.do">⭐ 즐겨찾기 </a></span>
+                                      <span id="bookMark"><a href="otherBookMarkList.do?memNo=${otherInfo.memNo }">⭐ ${otherInfo.memNickname }님의 즐겨찾기 </a></span>
                                   </li>
                                   
-                                  </li>
-                    
-                                  <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                                    <span id="bookMark"><a href="following.do"> 💭 MBTI 유형검사 </a></span>
-                                  </li>
-                                  
-                                  <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                                    <span id="bookMark"><a href="otherPage.do"> 💭 다른사람마페(잠깐) </a></span>
                                   </li>
                                   
                                 </ul>

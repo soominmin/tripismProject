@@ -689,7 +689,7 @@
                                     
                                     
                                     
-                                    <a href="mypage.do" style="text-decoration:none;">
+                                    <a href="otherPage.do?memNo=${pb.member.memNo }" style="text-decoration:none;">
                                         <button class="AccompanyContainer__ReportButton-sc-zoqt5l-12 laOqNb" style="font-size: 14px; color: rgb(154, 154, 154); line-height: 21px; font-weight: 400; margin-bottom: 15px; margin-left: 66px;">
                                         정보 보러가기</button>
                                     </a>

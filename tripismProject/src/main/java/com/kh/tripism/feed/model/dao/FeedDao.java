@@ -30,7 +30,7 @@ public class FeedDao {
 	public ArrayList<Feed> searchFeed(SqlSessionTemplate sqlSession, PageInfo pi, String keyword) {
 		System.out.println("피드 검색 잘 하고있나? dao");
 		
-		ArrayList<Feed> feeds = (ArrayList) sqlSession.selectList("feedMapper.searchFeed",keyword);
+		ArrayList<Feed> feeds = (ArrayList) sqlSession.selectList("feedMapper.searchFeed", keyword);
 		System.out.println(feeds);
 		return feeds;
 //		return (ArrayList) sqlSession.selectList("feedMapper.searchFeed", null);

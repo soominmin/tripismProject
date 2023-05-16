@@ -558,11 +558,13 @@ public class travelSpotController {
 	
 	@ResponseBody
 	@RequestMapping(value="spotList.sp", produces = "application/json; charset=utf-8")
-	public String selectSpotList(int currentPage) {
+	public String selectSpotList(int currentPage, String sortVal) {
 		
 		System.out.println("ddddd");
 		
-		ArrayList<Spot> list = sService.selectSpotList(currentPage);
+		ArrayList<Spot> list = sService.selectSpotList(currentPage, sortVal);
+		
+		System.out.println(list);
 		
 		return new Gson().toJson(list);
 		
@@ -627,16 +629,17 @@ public class travelSpotController {
 	
 	@ResponseBody
 	@RequestMapping(value="searchSpotListTwo.sp", produces = "application/json; charset=utf-8")
-	public String searchSpotListTwo(int currentPage, int spotContentType, int areaCategoryNo) {
+	public String searchSpotListTwo(int currentPage, int spotContentType, int areaCategoryNo, String sortVal) {
 		
 
 		System.out.println("currentPage : " + currentPage);
 		System.out.println("spotContentType : " + spotContentType);
 		System.out.println("areaCategoryNo : " + areaCategoryNo);
+		System.out.println("sortVal : " + sortVal);
 		
 		int detail = 1;
 		
-		ArrayList<Spot> list = sService.searchSpotList(currentPage, spotContentType, areaCategoryNo, detail);
+		ArrayList<Spot> list = sService.searchSpotList(currentPage, spotContentType, areaCategoryNo, detail, sortVal);
 		
 		System.out.println("list : " + list);
 		

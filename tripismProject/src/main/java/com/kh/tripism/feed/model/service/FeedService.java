@@ -46,6 +46,11 @@ public interface FeedService {
 	// 9. 피드 이미지 조회
 	int selectImgCount();
 	ArrayList<Feed> selectImgList(PageInfo pi);
-
+	
+	// 10. 피드 검색
+	ArrayList<Feed> searchFeed(PageInfo pi, String keyword);
+	
+	// 11. 피드 검색수 조회
+	int selectFeedSearchCount();
 	
 }

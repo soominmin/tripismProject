@@ -9,7 +9,7 @@
 <title>Tripism Feed</title>
 
     <style>
-        /* div{ border: 1px solid gray; } */
+         /* div{ border: 1px solid gray; }  */
         
         #wrap{ height: 1200px;  position: relative; margin-left: 15%;}
         /* #header{ height: 10% ; box-sizing: border-box; } */
@@ -103,8 +103,9 @@
         .non-click{ background-color: none;}
         .click{ background-color: rgb(112, 217, 223);}
         
-        .imgT{margin: 16px; border: 1px solid rgb(112, 217, 223); width: 200px; height:200px; box-sizing: border-box; display: inline-block;}
+        .imgT{margin: 16px; border: 1px solid rgb(112, 217, 223); width: 225px; height:225px; box-sizing: border-box; display: inline-block;}
         
+        .imgT img{background-size: contain;}
         .non-click:hover{
         	background-color: rgb(112, 217, 223);
         }
@@ -228,17 +229,54 @@
 
 			<!-- 이미지 모아서 보여줄 공간 시작 -->
 			
-            <div class="inner-bar" id="feedPage">
-                <div align="center"> 
+            <div class="inner-bar" id="feedPage" align="center">
+                <div> 
 	                <c:forEach var="f" items="${ feed }">
-	                	<div class="imgT">
-	                		<div style="height: 80%; padding: 5px">
-	                			<img alt="이미지 자리" src="${ f.imgChangeName2 }" style="width: 100% ">
-	                		</div>
-	                		<div style="height: 20%; padding: 5px">
-	                			<span>${ f.feedTitle }</span>
-	                		</div>
-	                	</div>
+	                	<c:if test="${ not empty f.imgOriginalName1 || not empty f.imgOriginalName2 || not empty f.imgOriginalName3 || not empty f.imgOriginalName4 }">
+		                	<c:if test="${not empty f.imgOriginalName1 }">
+		                		<div class="imgT" onclick="goFeed();">
+			                		<div style="height: 80%; padding: 5px">
+			                			<img alt="이미지 자리" src="${ f.imgChangeName1 }" style="width: 80%; ">
+			                		</div>
+			                		<div style="height: 20%; padding: 5px">
+			                			<span>${ f.feedTitle }</span>
+			                		</div>
+			                	</div>
+		                	</c:if>
+		                	
+		                	<c:if test="${not empty f.imgOriginalName2 }">
+		                		<div class="imgT" onclick="goFeed();">
+			                		<div style="height: 80%; padding: 5px">
+			                			<img alt="이미지 자리" src="${ f.imgChangeName2 }" style="width: 80%; ">
+			                		</div>
+			                		<div style="height: 20%; padding: 5px">
+			                			<span>${ f.feedTitle }</span>
+			                		</div>
+			                	</div>
+		                	</c:if>
+		                	
+		                	<c:if test="${not empty f.imgOriginalName3 }">
+		                		<div class="imgT" onclick="goFeed();">
+			                		<div style="height: 80%; padding: 5px">
+			                			<img alt="이미지 자리" src="${ f.imgChangeName3 }" style="width: 80%; ">
+			                		</div>
+			                		<div style="height: 20%; padding: 5px">
+			                			<span>${ f.feedTitle }</span>
+			                		</div>
+			                	</div>
+		                	</c:if>
+		                	
+		                	<c:if test="${not empty f.imgOriginalName4 }">
+		                		<div class="imgT" onclick="goFeed();">
+			                		<div style="height: 80%; padding: 5px">
+			                			<img alt="이미지 자리" src="${ f.imgChangeName4 }" style="width: 80%; ">
+			                		</div>
+			                		<div style="height: 20%; padding: 5px">
+			                			<span>${ f.feedTitle }</span>
+			                		</div>
+			                	</div>
+		                	</c:if>
+		                </c:if>
 	                </c:forEach>
                 	
                 </div>
@@ -259,7 +297,32 @@
                 	nonClick.forEach((e) => {
                 	  e.addEventListener("click", handleClick);
                 	});
+                	
+                function goFeed() {
+                	/* let clientH = $('.feedPage');
+                	let heightSum = 0;
+                	
+                	console.log($('.feedPage'));
+                	
+                	for(let i = 0; i<$('.feedPage').length; i++){
+                		heightSum += clientH[i].clientHeight
+                		console.log(clientH)
+                	} */
+                	
+                	$(window).scroll(function(){
+                		/* scrollHeight = $(document).clientHeight*/
+                		location.href = "feed.fd"; 
+                		scrollHeight = 1083;
+                	})
+                	/* const clientH = $('.feedPage')
+                	location.href = "feed.fd"; */
+                }
 
+                
+               
+            	
+            
+           
                 
             </script>
 

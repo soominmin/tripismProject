@@ -678,55 +678,65 @@
                                 <div class="profile_click">
                                     <p class="ProfileCompanion_desc" style="margin-bottom: 0rem;">프로필 사진을 클릭해보세요!</p>
                                 </div>
-                                <div class="Button cmgUBW">
-          <c:choose>
-            <c:when test="${ empty loginUser }">
-		       <button width="268px" height="55px" font-style="" type="button" class="Button iNZmaX" id="applyBtn">
-		    		<a>동행 신청하기</a>
-				</button>
-            </c:when>
-            <c:otherwise>
-            	<button width="268px" height="55px" font-style="" type="button" class="Button iNZmaX">
-		    		<a>동행 신청하기</a>
-				</button>
-            </c:otherwise>
-            </c:choose>
+                                <c:choose>
+						          <c:when test="${ not empty loginUser and loginUser.memNo ne pb.memNo }">
+                                		<div class="Button cmgUBW">
+                                
+                                
+						          
+								       <button width="268px" height="55px" font-style="" type="button" class="Button iNZmaX" id="applyBtn">
+								    		<a>동행 신청하기</a>
+										</button>
+										</div>
+						            </c:when>
+						            <c:otherwise>
+						            <div class="Button cmgUBW">
+						            	<button width="268px" height="55px" font-style="" type="button" class="Button iNZmaX" id="applyBtn">
+								    		<a>동행 신청하기</a>
+										</button>
+										</div>
+						            </c:otherwise>
+						            
+						          </c:choose>
+                                
       
-                                </div>
+                                
                             </div>
 
                         </div>
                         
-                       <%--  <c:choose>
-                        	<c:when test="${not empty applyList }">
-		                        
-		                        <div class="Layout__LayoutEqualDistanceDiv-sc-1w3ggn5-1 hAClzB profile_section" style="margin-top: 20px;" >
-		                            <p style="font-weight: 700; font-size: medium; margin-top: 10px; margin-bottom: 30px;">받은 신청 목록</p>
-		                            
-		                            
-		                            <div style="display: flex; align-items: center; justify-content: flex-start; margin-top: 12px;">
-		                                <span>수바니 · type · 여성 </span>
-		                                <button value="memNo" id="go">수락</button>
-		                                <button value="memNo" id="no">거절</button>
-		                                
-		                            </div>
-		                        </div>
-                        
-                        	</c:when>
-                        	<c:otherwise>
-                        	<div class="Layout__LayoutEqualDistanceDiv-sc-1w3ggn5-1 hAClzB profile_section" style="margin-top: 20px;" >
-		                            <p style="font-weight: 700; font-size: medium; margin-top: 10px; margin-bottom: 30px;">받은 신청 목록</p>
-		                            
-		                            
-		                            <div style="display: flex; align-items: center; justify-content: flex-start; margin-top: 12px;">
-		                               <span> 신청인이 없습니다 </span>
-		                            </div>
-		                            
-		                        </div>
-                        		 
-                        	</c:otherwise>
-                        	<c:if test="${applyList ==null }"></c:if>
-                        </c:choose> --%>
+                        <c:if test="${not empty loginUser and loginUser.memNo eq pb.memNo}">
+	                      <c:choose>
+	                        	<c:when test="${not empty applyList }">
+			                        
+			                        <div class="Layout__LayoutEqualDistanceDiv-sc-1w3ggn5-1 hAClzB profile_section" style="margin-top: 20px;" >
+			                            <p style="font-weight: 700; font-size: medium; margin-top: 10px; margin-bottom: 30px;">받은 신청 목록</p>
+			                            
+			                            
+			                            <div style="display: flex; align-items: center; justify-content: flex-start; margin-top: 12px;">
+			                                <span>수바니 · type · 여성 </span>
+			                                <button value="memNo" id="go">수락</button>
+			                                <button value="memNo" id="no">거절</button>
+			                                
+			                            </div>
+			                        </div>
+	                        
+	                        	</c:when>
+	                        	<c:otherwise>
+	                        	<div class="Layout__LayoutEqualDistanceDiv-sc-1w3ggn5-1 hAClzB profile_section" style="margin-top: 20px;" >
+			                            <p style="font-weight: 700; font-size: medium; margin-top: 10px; margin-bottom: 30px;">받은 신청 목록</p>
+			                            
+			                            
+			                            <div style="display: flex; align-items: center; justify-content: flex-start; margin-top: 12px;">
+			                               <span> 신청인이 없습니다 </span>
+			                            </div>
+			                            
+			                        </div>
+	                        		 
+	                        	</c:otherwise>
+	                        	
+	                        </c:choose>
+                        </c:if>
                     </div>
                 </div>
             </main>
@@ -738,9 +748,20 @@
                     <div class="ModalContainer dompyb">
                         <div width="375px" class="ModalContainer bgZZfo">
                             <div class="ModalConfirm bJjRJT">
-                                <p class="ModalConfirm gpnsLj"> 로그인 회원만 이용하실 수 있는 페이지 입니다. <br> 로그인을 해주세요</p>
-                                <div class="ModalConfirm bcDKTX" >
-                                    <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo">확인</button>
+                                <c:choose>
+                                    <c:when test="${ empty loginUser }">
+                                        <p class="ModalConfirm gpnsLj"> 로그인 회원만 이용하실 수 있는 페이지 입니다. <br> 로그인을 해주세요</p>
+                                        <div class="ModalConfirm bcDKTX" >
+                                            <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo">확인</button>
+                                    </c:when>
+                                    <c:otherwise>
+                                    	<p class="ModalConfirm gpnsLj"> 동행을 신청하시겠습니까? <br> </p>
+                                        <div class="ModalConfirm bcDKTX" >
+                                            <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo">확인</button>
+                                            <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo">취소</button>
+                                    
+                                    </c:otherwise>
+                                    </c:choose>
                                 </div>
                             </div>
                         </div>

@@ -464,45 +464,64 @@
                   </script>
                   
                   <script>
-                    
-
-                    function createWebSocket(){
-                        
-                        const webSocket = new WebSocket('ws://localhost:8007/tripism/ws/chat');
-                        
-                        webSocket.onopen = function(event){
-                            
-                        }
-
-                        const sendBtn = document.getElementById('send');
-                        const message = document.getElementById('sendMessage');
-                        sendBtn.addEventListener('click',event=>{
-                        
-                            if(message.value==""){
-                                message.placeholder = "메세지를 입력해주세요";
-                            }else{
-                                let messageInfo ={
-                                    messageNo : '0',
+                    const message = document.getElementById('sendMessage');
+                    const sendBtn = document.getElementById('send');
+                    let messageInfo = null;
+                    send.addEventListener('click',()=>{
+                        messageInfo ={
+                                    messageNo : '1',
                                     chatroomNo :"1",
+                                    memNickname:'${loginUser.memNo}',
                                     messageText:message.value,
-                                    memNo:'${loginUser.memNo}',
                                     messageDate:'sysdate'
 
                                 }
-                                console.log(message.value);
                                 webSocket.send(JSON.stringify(messageInfo));
-                            }
-                        })
-
-                        webSocket.onmessage = function(msg){
-                            console.log(msg);
-                        }
-                        function closeSocket(){
-                            webSocket.onclose() = function(){
-
-                            }
-                        }
+                    })
+                    
+                    webSocket.onmessage = function(messageInfo){
+                        console.log(messageInfo);
                     }
+                    
+                    
+
+                    // function createWebSocket(){
+                        
+                    //     const webSocket = new WebSocket('ws://localhost:8007/tripism/ws/chat');
+                        
+                    //     webSocket.onopen = function(event){
+                            
+                    //     }
+
+                    //     const sendBtn = document.getElementById('send');
+                    //     const message = document.getElementById('sendMessage');
+                    //     sendBtn.addEventListener('click',event=>{
+                        
+                    //         if(message.value==""){
+                    //             message.placeholder = "메세지를 입력해주세요";
+                    //         }else{
+                    //             let messageInfo ={
+                    //                 messageNo : '0',
+                    //                 chatroomNo :"1",
+                    //                 messageText:message.value,
+                    //                 memNo:'${loginUser.memNo}',
+                    //                 messageDate:'sysdate'
+
+                    //             }
+                    //             console.log(message.value);
+                    //             webSocket.send(JSON.stringify(messageInfo));
+                    //         }
+                    //     })
+
+                    //     webSocket.onmessage = function(msg){
+                    //         console.log(msg);
+                    //     }
+                    //     function closeSocket(){
+                    //         webSocket.onclose() = function(){
+
+                    //         }
+                    //     }
+                    // }
                     
                     
 

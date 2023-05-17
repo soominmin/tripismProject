@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+<c:set var="baseURL" value="${fn:replace(req.requestURL, fn:substring(req.requestURI, 0, fn:length(req.requestURI)), req.contextPath)}" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -655,12 +658,15 @@
       // if('${loginUser}'!=""){
       //   isLogin = true;
       // }
-      // console.log('${loginUser}')
+      //console.log('${pageContext.request.requestURL}')
       let login = '${loginUser}';
-      console.log(login);
+      let domain = '<%=request.getServerName()%>';
+      let socketUrl = 'ws://'+domain+":8007/tripism/ws/chat";
+      console.log(socketUrl);
       let webSocket = null
       if(login!=''){
-        webSocket = new WebSocket("<c:url value="/echo-ws"/>");
+        islogin = true;
+        webSocket = new WebSocket(socketUrl);
         console.log("로그인")
         webSocket.onopen = function(event){
           console.log("로그인,웹소켓오픈")

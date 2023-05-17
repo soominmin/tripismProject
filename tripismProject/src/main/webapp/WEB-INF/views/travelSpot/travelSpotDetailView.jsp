@@ -78,16 +78,27 @@
 	    </div>
 	
 	    <div class="post_area">
-				<button type="button" style="border: none; background-color: white;" onclick="increaseLike('${s.spotContentId}');">
+	    	<c:choose>
+	    		<c:when test="${empty loginUser}">
+	    			<button type="button" style="border: none; background-color: white;" onclick="#">
 					<img src="${pageContext.request.contextPath}/resources/img/icons/after-like.png" style="width: 25px; height: 25px;" alt="">
 					<span class="num" id="conLike">${s.spotLike }</span>
-				</button>
+					</button>
+	    		</c:when>
+	    		<c:otherwise>
+	    			<button type="button" style="border: none; background-color: white;" onclick="increaseLike('${s.spotContentId}','${s.spotNo}','${loginUser.memNo}');">
+					<img src="${pageContext.request.contextPath}/resources/img/icons/after-like.png" style="width: 25px; height: 25px;" alt="">
+					<span class="num" id="conLike">${s.spotLike }</span>
+					</button>
+	    		</c:otherwise>
+	    	</c:choose>
+
 				<span class="num_view">
 	        <img src="${pageContext.request.contextPath}/resources/img/icons/view.png" style="width: 25px; height: 25px;" alt="">
 	        <span class="num" id="conRead">${s.spotCount }</span>
 	      		</span>
 				<span class="rline" style="float: right;">
-						<button type="button" style="border: none; background-color: white;" onclick="setFavoContentDetail();">
+			  <button type="button" style="border: none; background-color: white;" onclick="setFavoContentDetail();">
 	            <img src="${pageContext.request.contextPath}/resources/img/icons/after-wishlist.png" style="width: 25px; height: 25px;" alt="" data-bs-toggle="modal" data-bs-target="#bookMark">
 	          </button>
 	          <button type="button" style="border: none; background-color: white;" onclick="openShare();">
@@ -1695,7 +1706,7 @@
 						data:{
 							boardNo:${s.spotNo },
 							replyContents:$("#replyContent").val(),
-							memNo:${loginUser.memNo}
+							memNo:${ not empty loginUser ? loginUser.memNo : 0 }
 						},
 								success:function(status){
 								if(status == "success"){
@@ -1743,9 +1754,27 @@
 			}
 			
 
-			function increaseLike(contentId) {
+			function increaseLike(contentId, spotNo, memNo) {
 
-				location.href="increaseLike.sp?contentId="+contentId;
+				$.ajax({
+						url:"increaseLike.sp",
+						dataType: "String",
+						data:{
+							contentId:contentId,
+							spotNo:spotNo,
+							memNo:memNo
+						},
+								success:function(status){
+									if(status == "success"){
+										alert("좋아요 성공!");
+									}
+						}, error:function(){
+							alert("[${s.spotTitle}]을 좋아요 누르셨습니다!"); //개 가라로 함;; 수정하자 나중에
+							console.log("좋아요 ajax 통신 실패!");
+							location.reload();
+						}
+					});
+
 
 			}
 
@@ -1759,8 +1788,10 @@
 						console.log("111");
 						
 						isUpdateList = false;
+
+						var sortVal = $('#sortSelect').val();
 						
-						selectSpotList(++currentPage, ${s.spotContentType}, ${s.areaCategoryNo});
+						selectSpotList(++currentPage, ${s.spotContentType}, ${s.areaCategoryNo}, sortVal);
 						
 						isUpdateList = true;
 					}
@@ -1768,7 +1799,7 @@
 				}
 			}
 
-			function selectSpotList(currentPage, spotContentType, areaCategoryNo) {
+			function selectSpotList(currentPage, spotContentType, areaCategoryNo, sortVal) {
 				let value = "";
 				console.log("asasdasdasdasdas22");
 				$.ajax({
@@ -1776,7 +1807,8 @@
 					data:{
 							currentPage:currentPage,
 							spotContentType:spotContentType,
-							areaCategoryNo:areaCategoryNo
+							areaCategoryNo:areaCategoryNo,
+							sortVal:sortVal
 						},
 					success:function(list){
 						for(let i=0; i<list.length; i++){

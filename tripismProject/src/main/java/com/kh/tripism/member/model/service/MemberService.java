@@ -9,6 +9,7 @@ import com.kh.tripism.member.model.vo.BookMark;
 import com.kh.tripism.member.model.vo.Folder;
 import com.kh.tripism.member.model.vo.Member;
 import com.kh.tripism.partnerBoard.model.vo.PnBoard;
+import com.kh.tripism.travelSpot.model.vo.Spot;
 
 public interface MemberService {
 		// 로그인 서비스 (select)
@@ -70,6 +71,10 @@ public interface MemberService {
 		
 		// 다른사람 마이페이지 조회
 		Member otherPage(int memNo);
+		
+		// 여행지조회
+		ArrayList<Spot> selectSpotList(int folderNo);
+		
 		
 		
 		

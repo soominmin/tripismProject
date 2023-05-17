@@ -26,6 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import com.kh.tripism.common.template.Pagination;
 import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.member.model.service.KakaoService;
@@ -36,6 +37,8 @@ import com.kh.tripism.member.model.vo.Folder;
 import com.kh.tripism.member.model.vo.Member;
 import com.kh.tripism.partnerBoard.model.service.PnBoardServiceImpl;
 import com.kh.tripism.partnerBoard.model.vo.PnBoard;
+import com.kh.tripism.travelSpot.model.service.SpotServiceImpl;
+import com.kh.tripism.travelSpot.model.vo.Spot;
 
 
 @Controller
@@ -52,6 +55,7 @@ public class MemberController {
 	
 	@Autowired
 	private PnBoardServiceImpl bService;
+	
 	
 	// 로그인 (암호화작업)
 	@RequestMapping("login.do")
@@ -403,10 +407,32 @@ public class MemberController {
 	
 	// 나의 즐겨찾기 폴더에 insert 하기
 	@RequestMapping("insertBookMark.do")
-	public String insertBookMark(BookMark bm, HttpSession session) {
+	public String insertBookMark(BookMark bm) {
 		int result = mService.insertBookMarkList(bm);
-		return "redirect:travelDetailView";
+		return "travelSpot/travelSpotListView";
 	}
+	
+	// 나의 즐겨찾기폴더 List 띄우기
+	@RequestMapping("bookMarkList.do")
+	public ModelAndView bookMarkList(HttpSession session, ModelAndView mv) {
+		Member loginUser = (Member)session.getAttribute("loginUser");
+		int memNo = loginUser.getMemNo();
+		
+		ArrayList<Folder> folderList = mService.folderSelectList(memNo);
+		// System.out.println(folderList);
+		mv.addObject("folderList", folderList).setViewName("member/bookMarkList");
+		return mv;
+	}
+	
+	// 나의 즐겨찾기폴더 속 여행지 목록 조회
+	@RequestMapping("bookMarkInnerList.do")
+	public String bookMarkInnerList(Model model, @RequestParam("folderNo") int folderNo) {
+		ArrayList<Spot> list = mService.selectSpotList(folderNo);
+		// System.out.println("list : " + list);
+		model.addAttribute("list", list);
+		return "member/bookMarkInnerList";
+	}
+		
 	
 	// 내가 작성한 동행 게시글
 	@RequestMapping("partnerPostList.do")
@@ -431,17 +457,6 @@ public class MemberController {
 		
 	}
 	
-	// 나의 즐겨찾기폴더 List 띄우기
-	@RequestMapping("bookMarkList.do")
-	public ModelAndView bookMarkList(HttpSession session, ModelAndView mv) {
-		Member loginUser = (Member)session.getAttribute("loginUser");
-		int memNo = loginUser.getMemNo();
-		
-		ArrayList<Folder> folderList = mService.folderSelectList(memNo);
-		System.out.println(folderList);
-		mv.addObject("folderList", folderList).setViewName("member/bookMarkList");
-		return mv;
-	}
 	
 	// 다른사람 마이페이지 조회
 	@RequestMapping("otherPage.do")
@@ -479,27 +494,13 @@ public class MemberController {
 		return mv;
 	}
 	
-	
-
-	
-	@RequestMapping("spotLike.do")
-	public String spotLike() {
-		return "member/myPageTripLikeItems";
-	}
-
-	@RequestMapping("userSetting.do")
-	public String userSetting() {
-		return "member/usersetting";
-	}
-
-
+	// 팔로잉기능 loginUser가 다른 사람한테 친구추가하는거
+	@ResponseBody
 	@RequestMapping("following.do")
 	public String following() {
-		return "member/following";
+		
+		return "member/othersInfoPage";
 	}
-	
-
-
 	
 
 

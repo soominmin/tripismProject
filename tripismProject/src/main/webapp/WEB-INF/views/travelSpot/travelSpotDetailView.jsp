@@ -1653,7 +1653,6 @@
 		</div>
 	
 	    </div>
-	  </div>
 	</section>
 	
 		<script>
@@ -1906,7 +1905,6 @@
 			})
   
   </script>
-	
 
       
 	

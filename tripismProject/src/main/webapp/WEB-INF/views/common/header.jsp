@@ -341,6 +341,12 @@
     #menuzord{
       font-weight: 700;
     }
+    
+    #kakaoEnroll>img{
+      border-radius: 70%;
+      width: 60px;
+      height: 60px;
+    }
 
         </style>
 
@@ -597,7 +603,8 @@
                   <div id="naver" style="text-align: center; background-color: #03C75A;"><img src="${pageContext.request.contextPath}/resources/img/naver_login.png" style="width: 60%; height: 60%; object-fit:cover; margin-top: 10px;"></div>
                   <button type="submit" id="kakao" style="text-align: center; background-color: #FEE500;" onclick="location.href='https://kauth.kakao.com/oauth/authorize?client_id=acce547533917e39df39803a17ee07fb&redirect_uri=http://localhost:8007/tripism/oauth/kakao&response_type=code&scope=account_email,gender,profile_nickname,profile_image'"><img src="${pageContext.request.contextPath}/resources/img/kakao_login_medium_narrow.png" style="width: 60%; height: 60%; object-fit:cover; margin-top: 10px;"></a></button>
                   <button type="button" class="btn btn-facebook text-uppercase text-white" id="enroll" style="color: black;" ><a href="enrollForm.do">회원가입하기</a></button>
-                 <button type="submit" id="kakao" style="text-align: center; background-color: #FEE500;" onclick="location.href='https://kauth.kakao.com/oauth/authorize?client_id=acce547533917e39df39803a17ee07fb&redirect_uri=http://localhost:8007/tripism/oauth/kakaoinsert&response_type=code&scope=account_email,gender,profile_nickname,profile_image'"><img src="${pageContext.request.contextPath}/resources/img/kakao_login_medium_narrow.png" style="width: 60%; height: 60%; object-fit:cover; margin-top: 10px;"></a></button>
+                 
+                 <button type="submit" id="kakaoEnroll" style="text-align: center;" onclick="location.href='https://kauth.kakao.com/oauth/authorize?client_id=acce547533917e39df39803a17ee07fb&redirect_uri=http://localhost:8007/tripism/oauth/kakaoinsert&response_type=code&scope=account_email,gender,profile_nickname,profile_image'"><img src="resources/img/kakao.png" style=" object-fit:cover; padding-top: 10px; "></a></button>
                  </div>
               
 

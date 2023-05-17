@@ -23,12 +23,13 @@ public interface SpotService {
 
 	ArrayList<Spot> searchSpotList(int currentPage, int spotContentType, int areaCategoryNo, int detail);
 
-	int increaseLike(int contentId);
-
 	ArrayList<Spot> selectSpotList(int currentPage, String sortVal);
 
 	ArrayList<Spot> searchSpotList(int currentPage, int spotContentType, int areaCategoryNo, int detail,
 			String sortVal);
+
+	int increaseLike(int contentId, int spotNo, int memNo);
+
 	
 	
 }

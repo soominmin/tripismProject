@@ -1,11 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>동행수정</title>
-    <style >
+    <title>수정하기</title>
+   
+		<style >
 		body * {
           font-family: 'TheJamsil';
          }
@@ -750,17 +754,18 @@
 	<section class="WriteWebSectionstyle__WebSectionImgWrapper-sc-ixmlq3-0 kSLJBy">
 		<div class="FullSection__TopSectionWrapper-sc-1szrt90-1 AxzSO">
 			<p class="TopSection__PreventDragP-sc-1sc5grx-0 krJNwE" style="margin-top: 0; margin-bottom: 0;">나와 맞는 여행동행과 이야기를 나누어 보아요!</p>
-			<p class="TopSection__PreventDragP-sc-1sc5grx-0 krJNwE" style="margin-top: 0; margin-bottom: 0;">여행친구찾기</p>
+			<p class="TopSection__PreventDragP-sc-1sc5grx-0 krJNwE" style="margin-top: 0; margin-bottom: 0;">수정하기</p>
 		</div>
 	</section>
 	
-	<form id="enrollForm" method="post" action="insert.pn" enctype="multipart/form-data" onsubmit="setPartnerType();">
+	<form id="enrollForm" method="post" action="update.pn" enctype="multipart/form-data" onsubmit="setPartnerType();">
 	<main class="LayoutWrapper__ItemWrapper-sc-14edszd-0 gBZHir">
 		
 	<section direction="vertical" class="WebSection__SectionWrapper-sc-1hzt8o9-0 fIxQSV">
 			<input type="hidden" id = "areaCategoryNo" name = "areaCategoryNo" value=""/>
 			<input type="hidden" id="partnerType" name="partnerType" value=""/>
 			<input type="hidden" id="memNo" name="memNo" value="${ loginUser.memNo }">
+			<input type="hidden" id="postNo" name="postNo" value="${ pb.postNo}">
 		
 			<section direction="vertical" class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq">
 					<div class="WebSection__AreaWebFilterWrapper-sc-1hzt8o9-1 eMbJju">
@@ -835,7 +840,7 @@
 											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
 												<button width="auto" font-size="15px" font-weight="400" type="button"
 													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB" name="areaCategoryNo"
-													style="width: fit-content; justify-content: flex-start;" value="33">경상북도</button>
+													style="width: fit-content; justify-content: flex-start;" value="35">경상북도</button>
 											</div>
 
 										</div>
@@ -934,8 +939,13 @@
 								<script>
 									// 지역 클릭시 클래스명 변경
 									var $j = jQuery.noConflict();
+									console.log("${pb.areaCategoryNo}");
+									var areaVal = "${pb.areaCategoryNo}"
+									console.log($('button[value='+ areaVal +']'));
+									/* $('button[value='+ areaVal +']').removeClass("jNSMIB").addClass("bnbVGW"); */
 									$j(document).ready(function() {
-									var prevBtn = null;
+										
+									var prevBtn = $('button[value='+ areaVal +']').removeClass("jNSMIB").addClass("bnbVGW");
 									$j(document).on("click", ".ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2.jNSMIB", function() {
 										$j(this).removeClass("jNSMIB").addClass("bnbVGW");
 										if (prevBtn !== null) {
@@ -966,7 +976,6 @@
 									btn.on("click",function(){
 										let areaCategoryNo = $(this).val(); // 1
 										$("#areaCategoryNo").val(areaCategoryNo);
-										
 									})
 								</script>
 
@@ -1003,13 +1012,13 @@
 													<input type="text" name="partnerStartDate"
 													placeholder= "날짜 선택"
 													autocomplete="off" class="datepicker"
-													value="${pn.partnerStartDate}"></div>  
+													value=""></div>  
 											</div>
 											<span class="DatepickerRange__PreventDragSpan-sc-xqwwp5-2 eiMlOY">-</span>
 											<div class="react-datepicker-wrapper">
 												<div class="react-datepicker__input-container">
 													<input type="text" id="datepicker" name="partnerEndDate"
-													placeholder="날짜 선택" autocomplete="off" class="datepicker"  value="${pn.partnerEndDate}"></div>
+													placeholder="날짜 선택" autocomplete="off" class="datepicker"  value=""></div>
 											</div>
 										</div>
 									</div>
@@ -1017,13 +1026,14 @@
 								
 								<script>
 									// 첫 번째 input 엘리먼트에서 선택한 날짜
-									var startDate = $("input[name='partnerStartDate']").val();
+									var startDate =$("input[name='partnerStartDate']").val("${pb.partnerStartDate }");
 									// 두 번째 input 엘리먼트에서 선택한 날짜
-									var endDate = $("input[name='partnerEndDate']").val();
+									var endDate = $("input[name='partnerEndDate']").val("${pb.partnerEndDate}");
+
 	
 									// 각각의 input 엘리먼트의 value에 선택한 날짜 할당
-									$("input[name='partnerStartDate']").val(startDate);
-									$("input[name='partnerEndDate']").val(endDate);
+									$("input[name='partnerStartDate']").val();
+									$("input[name='partnerEndDate']").val();
 
 								</script>
 							<!-- 날짜 선택 end------------------------------------------------------------------------------------------------------------------------->
@@ -1033,7 +1043,7 @@
 
 		<div class="WriteWebSectionstyle__TitleContentImgWrap-sc-ixmlq3-2 gegbdD">
 			<label for="fileInput">
-				<div class="Image__ItemWrapper-sc-16k9dmh-0 iRoMKW">
+				<div class="Image__ItemWrapper-sc-16k9dmh-0 iRoMKW" style="background-image: url('${pb.partnerOriginalImg }')">
 					<svg width="50" height="50"viewbox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block;">
 						<path fill-rule="evenodd" clip-rule="evenodd" d="M0 6.54397C0 2.92984 2.93584 0 6.55738 0H43.4426C47.0642 0 50 2.92983 50 6.54397V43.456C50 47.0702 47.0642 50 43.4426 50H6.55738C2.93584 50 0 47.0702 0 43.456V6.54397ZM6.55738 2.86299C4.52026 2.86299 2.86885 4.51102 2.86885 6.54397V43.456C2.86885 45.489 4.52026 47.137 6.55738 47.137H9.23315L32.1003 23.5656C34.6482 20.9392 38.8581 20.9052 41.4483 23.4901L47.1311 29.1613V6.54397C47.1311 4.51102 45.4797 2.86299 43.4426 2.86299H6.55738ZM43.4426 47.137H13.2262L34.1615 25.557C35.5947 24.0796 37.9627 24.0605 39.4197 25.5145L47.1311 33.2102V43.456C47.1311 45.489 45.4797 47.137 43.4426 47.137ZM11.5779 17.1268C11.5779 14.1056 14.032 11.6564 17.0594 11.6564C20.0868 11.6564 22.541 14.1056 22.541 17.1268C22.541 20.148 20.0868 22.5971 17.0594 22.5971C14.032 22.5971 11.5779 20.148 11.5779 17.1268ZM17.0594 8.79346C12.4476 8.79346 8.70902 12.5244 8.70902 17.1268C8.70902 21.7292 12.4476 25.4601 17.0594 25.4601C21.6712 25.4601 25.4098 21.7292 25.4098 17.1268C25.4098 12.5244 21.6712 8.79346 17.0594 8.79346Z"fill="#DBDBDB"></path>
 					</svg>
@@ -1044,38 +1054,42 @@
 				</div>
 			</label>
 
-			<input id="fileInput" type="file" name="upfile" accept="image/jpg" style="display: none; margin: 0px; padding: 0px;">
+			<input id="fileInput" type="file" name="reupfile" accept="image/jpg" style="display: none; margin: 0px; padding: 0px;">
+	
 			<script>
-				// 파일 미리보기
-				const fileInput = document.getElementById('fileInput');
-				const imageWrapper = document.querySelector('.Image__ItemWrapper-sc-16k9dmh-0');
-
-				fileInput.addEventListener('change', (event) => {
-				const file = event.target.files[0];
-				const reader = new FileReader();
-
-				reader.onload = (event) => {
-					const imageUrl = event.target.result;
-					imageWrapper.style.backgroundImage = 'url('+imageUrl+')';
-				}
-				reader.readAsDataURL(file);
-				});
+			    // 파일 미리보기
+			    const fileInput = document.getElementById('fileInput');
+			    const imageWrapper = document.querySelector('.Image__ItemWrapper-sc-16k9dmh-0');
+			
+			    // 이미지 URL 설정 함수
+			    function setImageUrl(url) {
+			    	console.log(url)
+			        imageWrapper.style.backgroundImage = 'url(' + url + ')';
+			    }
+			
+			    // 파일 선택 시 이벤트 리스너
+			    fileInput.addEventListener('change', (event) => {
+			        const file = event.target.files[0];
+			        const reader = new FileReader();
+			
+			        reader.onload = (event) => {
+			            const imageUrl = event.target.result;
+			            setImageUrl(imageUrl);
+			        }
+			        reader.readAsDataURL(file);
+			    });
+			
+				
 			</script>
 
+
+
 				<div>
-					<input type="text" name="partnerTitle" id="form-control" placeholder="ex) 12월 3박4일 제주 바다 보러갈 동행 3명 구해요" maxlength="100" value="${partnerTitle }" required>
+					<input type="text" name="partnerTitle" id="form-control" maxlength="100" value="${ pb.partnerTitle }" required>
 				</div>
 				<div class="WriteWebSectionstyle__HorizontalLine-sc-ixmlq3-1 cGslsG"></div>
 				<div>
-				<textarea style="resize: none; font-size: smaller;" class="WriteWebSectionstyle__WriteTextarea-sc-ixmlq3-3 IUMRx desc" name="partnerContent" id="content" required
-				placeholder="1. 현재 동행이 있나요? 
-ex) 혼자에요 / 동행 1명이 있어요 
-				
-2.어떤 동행을 찾고 있나요? 
-ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요! 
-
-3. 원하는 여행 코스가 있다면 알려주세요! 
-(1000자 이내) ">${partnerContent }</textarea>
+				<textarea style="resize: none; font-size: smaller;" class="WriteWebSectionstyle__WriteTextarea-sc-ixmlq3-3 IUMRx desc" name="partnerContent" id="content" required>${ pb.partnerContent }</textarea>
 				</div>
 			</div>
 
@@ -1300,12 +1314,13 @@ ex) 맛집 탐방을 좋아하는 20대 여성 동행을 찾아요!
 				let partnerType = "";
 				$('.eWrVZP').each(function(i,item){
 					partnerType += $(item).val();
-					if(i!=1){
+					//if(i!=1){
 						partnerType+=","
-					}
+					//}
 				})
-				console.log(partnerType)
-				$("#partnerType").val(partnerType);
+				let partnerTypeS = partnerType.slice(0, -1);
+				console.log(partnerTypeS);
+				$("#partnerType").val(partnerTypeS);
 				
 			}
 		</script>

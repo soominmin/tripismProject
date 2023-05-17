@@ -8,7 +8,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.kh.tripism.common.vo.PageInfo;
-import com.kh.tripism.common.vo.Reply;
 import com.kh.tripism.feed.model.vo.Feed;
 import com.kh.tripism.feed.model.vo.Img;
 
@@ -62,10 +61,6 @@ public class FeedDao {
 	public int updateFeed(SqlSessionTemplate sqlSession, Feed f) {
 		return sqlSession.update("feedMapper.updateFeed", f);
 	};
-	
-	public int updateFeed2(SqlSessionTemplate sqlSession, Feed f) {
-		return sqlSession.update("feedMapper.updateFeed2", f);
-	}
 
 	// 피드 개수 셈
 	public int selectFeedCount(SqlSessionTemplate sqlSession) {
@@ -84,16 +79,12 @@ public class FeedDao {
 		return sqlSession.selectOne("feedMapper.selectFeedSearchCount");
 	}
 	
-	// 댓글 목록 조회 *
-	public ArrayList<Reply> selectReplyList(SqlSessionTemplate sqlSession, int feedNo) {
-		return (ArrayList) sqlSession.selectList("feedMapper.selectReplyList", feedNo);
-	}
-	
 	// 댓글 추가
+	/*
 	public int insertReply(SqlSessionTemplate sqlSession, Reply r) {
 		return sqlSession.insert("feedMapper.insertReply", r);
 	};
-	
+	*/
 	
 	// 댓글 삭제
 	/*
@@ -108,6 +99,14 @@ public class FeedDao {
 		return sqlSession.update("feedMapper.updateReply", replyNo);
 	}
 	*/
+	
+	// 댓글 목록 조회 *
+	/*
+	public ArrayList<Reply> selectReplyList(SqlSessionTemplate sqlSession, int feedNo) {
+		return (ArrayList) sqlSession.selectList("feedMapper.selectReplyList", feedNo);
+	}
+	*/
+	
 	
 	public ArrayList<Member> selectMember(SqlSessionTemplate sqlSession, PageInfo pi) {
 		return (ArrayList) sqlSession.selectList("feedMapper.selectMember");

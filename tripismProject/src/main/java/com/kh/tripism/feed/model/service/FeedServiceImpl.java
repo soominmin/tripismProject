@@ -49,12 +49,6 @@ public class FeedServiceImpl implements FeedService {
 	public int updateFeed(Feed f) {
 		return fDao.updateFeed(sqlSession, f);
 	}
-	
-	@Override
-	public int updateFeed2(Feed f) {
-		System.out.println("update 이미지 탔나?");
-		return fDao.updateFeed2(sqlSession, f);
-	}
 
 	@Override
 	public int selectFeedCount() {
@@ -100,7 +94,8 @@ public class FeedServiceImpl implements FeedService {
 
 	@Override
 	public int insertReply(Reply r) {
-		return fDao.insertReply(sqlSession, r);
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	@Override
@@ -117,7 +112,8 @@ public class FeedServiceImpl implements FeedService {
 
 	@Override
 	public ArrayList<Reply> selectReplyList(int FeedNo) {
-		return fDao.selectReplyList(sqlSession, FeedNo);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	public ArrayList<Member> selectMember(PageInfo pi) {
@@ -127,8 +123,6 @@ public class FeedServiceImpl implements FeedService {
 	public ArrayList<Img> selectImg(PageInfo pi) {
 		return fDao.selectImg(sqlSession, pi);
 	}
-
-	
 
 	
 

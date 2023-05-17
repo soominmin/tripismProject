@@ -15,10 +15,10 @@ import lombok.ToString;
 @Setter
 @ToString
 @Builder
-public class ChatMessege {
+public class ChatMessage {
 	private int messageNo; 
 	private int chatroomNo;
-	private int memNo;
+	private String memNickname;
 	private String messageText;
 	private String messageDate;
 

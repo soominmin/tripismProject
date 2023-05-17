@@ -289,6 +289,10 @@
                 color: rgb(255, 255, 255);
                 border-radius: 50%;
             }
+            #messages *{
+                font-size: 17px;
+                font-weight: bold;
+            }
         </style>
     </head>
     <body>
@@ -350,12 +354,14 @@
 
                        
                         <div id="chatting" style="display: none; width: 100%; height: 100%;">
-                            <div id="messages" style="height:80%">asdsadsadlksajlksadlksajdlksajdkl</div>
+                            <div id="messages" style="height:80%; overflow: auto;">
+                                
+                            </div>
                             <div style="height:20%">
                                 <input type="text" id="sendMessage"/>
                                 <button type="button" id="send">전송</button>
-                            </div>;
-                        </div>
+                            </div>
+                        
 
                     </div>
 
@@ -373,10 +379,10 @@
                       } else {
                         $.ajax({
                             url : 'chatList.ch',
-                            success : (data)=>{
-                                console.log(data);
+                            success : (chatRooms)=>{
+                                console.log(chatRooms);
                                 let value="";
-                                if(data=='noLogin'){
+                                if(chatRooms=='noLogin'){
                                     value+='<div class="sc-2b24a48b-0 duxSFr">'
                                                 +'<div class="sc-be1fc4d6-0 iCTgJa">'
                                                     +'<img alt="프로필" src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/member/1683006319089-1" class="sc-be1fc4d6-1 jxPOyi"></div>'
@@ -396,14 +402,14 @@
                                                 +'</div>'
                                             +'</div>'
                                 }else{
-                                    for(let i=0;i<data.length;i++){
+                                    for(let i=0;i<chatRooms.length;i++){
                                         value+='<div class="sc-2b24a48b-0 duxSFr chatRoom">'
                                                 +'<div class="sc-be1fc4d6-0 iCTgJa">'
                                                     +'<img alt="프로필" src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/member/1683006319089-1" class="sc-be1fc4d6-1 jxPOyi"></div>'
                                                     +'<div class="sc-2b24a48b-1 jRuymm" id="chatRoom1">'
                                                         +'<div class="sc-2b24a48b-2 dMfoDF" style="width: 100%;">'
                                                         + '<div class="sc-2b24a48b-3 fxllNx" style="max-width: 90%;">'
-                                                                +'<p class="sc-2b24a48b-4 gFbPQg" style="line-height: 22px; max-width: 80%; font-size: 15px; font-weight: 500; color: black;">'+data[i].chatRoomName+'</p>'
+                                                                +'<p class="sc-2b24a48b-4 gFbPQg" style="line-height: 22px; max-width: 80%; font-size: 15px; font-weight: 500; color: black;">'+chatRooms[i].chatRoomName+'</p>'
                                                                 +'<span class="sc-2b24a48b-5 LSLIK"  style="margin-left: 4px; font-size: 14px; font-weight: 500;">3</span>'
                                                             +'</div>'
                                                             +'<div class="sc-2b24a48b-6 eOtkJC">0</div>'
@@ -427,7 +433,36 @@
                                     chatRoom[j].addEventListener('click',()=>{
                                         chatList.style.display="none";
                                         document.getElementById('chatting').style.display="block";
-                                        createWebSocket();
+                                        console.log(chatRooms[j].chatRoomNo);
+                                        $.ajax({
+                                            url:"messageList.ch",
+                                            data:{chatRoomNo : chatRooms[j].chatRoomNo},
+                                            success:(messages)=>{
+                                                console.log(messages)
+                                                let value = "";
+
+                                                for(let i=0;i<messages.length;i++){
+
+                                                    if("${loginUser.memNickname}"==messages[i].memNickname){
+                                                        value+='<div style="height: 30px;">'
+                                                             +  '<div style="float: right; background-color:rgb(112, 217, 223) ;">'+messages[i].messageText+'</div>'
+                                                           + '</div>'
+                                                    }else{
+                                                        value+='<div style="height: 30px;">'
+                                                             +  '<div>'+messages[i].memNickname+' : '+messages[i].messageText+'</div>'
+                                                           + '</div>'
+                                                    }
+                                                   
+                                                }
+                                                document.getElementById('messages').innerHTML=value;
+
+                                            },
+                                            error:()=>{
+
+                                            }
+
+                                        })
+                                        // createWebSocket();
 
                                     })
 
@@ -516,7 +551,8 @@
                     
                     function back(){
                         document.getElementById('chatting').style.display="none";
-                        document.getElementById('chatRoomList').style.display="block"
+                        document.getElementById('chatRoomList').style.display="block";
+                        document.getElementById('messages').innerHTML="";
                     }
                     
                   

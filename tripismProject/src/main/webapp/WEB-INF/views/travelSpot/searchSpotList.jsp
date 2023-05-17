@@ -262,7 +262,7 @@
 			<button type="submit" class="test_btn" style="border-radius: 30px; float: right; width: 100%;">검색</button>
 			
 			<div>
-			</form>
+
 	
 	
 	
@@ -272,12 +272,12 @@
 			<hr>
 			<br>
 			
-			<select id="sortSelect" style="border: none; float: right;">
+			<select id="sortSelect" name="sortVal" style="border: none; float: right;">
 				<option value="name">이름순</option>
 				<option value="like">좋아요순</option>
 				<option value="view">조회순</option>
 			</select>
-
+		</form>
 			<br><br><br><br>
 
 
@@ -354,8 +354,16 @@
 			$('.areaNo input[value=${slo.areaCategoryNo}]').attr("checked", true);
 
 			var sortVal = $('#sortSelect').val();
+
+			var spotContentType = $('.typeNo input[value=${slo.spotContentType}]').val();
+			var areaCategoryNo = $('.areaNo input[value=${slo.areaCategoryNo}]').val();
+
+			$('#sortSelect').change(function() {
+				var sortVal = $(this).val();
+				$("#spotList .col-md-6").remove();
+				searchSpotList(1, spotContentType, areaCategoryNo, sortVal);
 			
-			searchSpotList(currentPage, spotContentType, areaCategoryNo, sortVal);
+			})
 		})
 
 
@@ -367,8 +375,10 @@
 
 					
 					isUpdateList = false;
+
+					var sortVal = $('#sortSelect').val();
 					
-					searchSpotList(++currentPage, '${slo.spotContentType}', '${slo.areaCategoryNo}');
+					searchSpotList(++currentPage, '${slo.spotContentType}', '${slo.areaCategoryNo}', sortVal);
 					
 					isUpdateList = true;
 				}

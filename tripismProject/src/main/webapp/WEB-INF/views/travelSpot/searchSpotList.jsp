@@ -272,10 +272,10 @@
 			<hr>
 			<br>
 			
-			<select name="" id="" style="border: none; float: right;">
-			<option value="">이름순</option>
-			<option value="">좋아요순</option>
-			<option value="">조회순</option>
+			<select id="sortSelect" style="border: none; float: right;">
+				<option value="name">이름순</option>
+				<option value="like">좋아요순</option>
+				<option value="view">조회순</option>
 			</select>
 
 			<br><br><br><br>
@@ -352,7 +352,10 @@
 		$(function(){
 			$('.typeNo input[value=${slo.spotContentType}]').attr("checked", true);
 			$('.areaNo input[value=${slo.areaCategoryNo}]').attr("checked", true);
-			// searchSpotList(currentPage, spotContentType, areaCategoryNo);
+
+			var sortVal = $('#sortSelect').val();
+			
+			searchSpotList(currentPage, spotContentType, areaCategoryNo, sortVal);
 		})
 
 
@@ -373,14 +376,15 @@
 			}
 		}
 
-		function searchSpotList(currentPage, spotContentType, areaCategoryNo) {
+		function searchSpotList(currentPage, spotContentType, areaCategoryNo, sortVal) {
 			let value = "";
 			$.ajax({
 				url:"searchSpotListTwo.sp",
 				data:{
 						currentPage:currentPage,
 						spotContentType:spotContentType,
-						areaCategoryNo:areaCategoryNo
+						areaCategoryNo:areaCategoryNo,
+						sortVal:sortVal
 					},
 				success:function(list){
 					for(let i=0; i<list.length; i++){

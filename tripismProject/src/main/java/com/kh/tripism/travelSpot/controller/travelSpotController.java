@@ -7,6 +7,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.kh.tripism.common.vo.Reply;
+import com.kh.tripism.member.model.service.MemberServiceImpl;
+import com.kh.tripism.member.model.vo.Folder;
+import com.kh.tripism.member.model.vo.Member;
 import com.kh.tripism.travelSpot.model.service.SpotServiceImpl;
 import com.kh.tripism.travelSpot.model.vo.Spot;
 import com.kh.tripism.travelSpot.model.vo.SpotCommon;
@@ -44,16 +49,25 @@ public class travelSpotController {
 	@Autowired
 	private SpotServiceImpl sService;
 	
+	@Autowired
+	private MemberServiceImpl mService;
+	
 	@RequestMapping("list.sp")
 	public String selectList() {
 		return "travelSpot/travelSpotListView";
 	}
 	
 	@RequestMapping(value="detailAPI.sp", produces = "application/json; charset=utf-8")
-	public String selectSpotAPI(int contentId, int contentType, Model model) throws IOException {
+	public String selectSpotAPI(int contentId, int contentType, Model model, HttpSession session) throws IOException {
+		
+		// 즐겨찾기 목록조회*(모달사용)
+		Member loginUser = (Member)session.getAttribute("loginUser");
+		int memNo = loginUser.getMemNo();
+		ArrayList<Folder> folderList = mService.folderSelectList(memNo);
+		model.addAttribute("folderList", folderList);
+		
 		
 		// 조회수 증가
-		
 		int result = sService.increaseCount(contentId);
 		
 		if(result > 0) {
@@ -558,11 +572,13 @@ public class travelSpotController {
 	
 	@ResponseBody
 	@RequestMapping(value="spotList.sp", produces = "application/json; charset=utf-8")
-	public String selectSpotList(int currentPage) {
+	public String selectSpotList(int currentPage, String sortVal) {
 		
 		System.out.println("ddddd");
 		
-		ArrayList<Spot> list = sService.selectSpotList(currentPage);
+		ArrayList<Spot> list = sService.selectSpotList(currentPage, sortVal);
+		
+		System.out.println(list);
 		
 		return new Gson().toJson(list);
 		
@@ -627,16 +643,17 @@ public class travelSpotController {
 	
 	@ResponseBody
 	@RequestMapping(value="searchSpotListTwo.sp", produces = "application/json; charset=utf-8")
-	public String searchSpotListTwo(int currentPage, int spotContentType, int areaCategoryNo) {
+	public String searchSpotListTwo(int currentPage, int spotContentType, int areaCategoryNo, String sortVal) {
 		
 
 		System.out.println("currentPage : " + currentPage);
 		System.out.println("spotContentType : " + spotContentType);
 		System.out.println("areaCategoryNo : " + areaCategoryNo);
+		System.out.println("sortVal : " + sortVal);
 		
 		int detail = 1;
 		
-		ArrayList<Spot> list = sService.searchSpotList(currentPage, spotContentType, areaCategoryNo, detail);
+		ArrayList<Spot> list = sService.searchSpotList(currentPage, spotContentType, areaCategoryNo, detail, sortVal);
 		
 		System.out.println("list : " + list);
 		

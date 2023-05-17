@@ -56,6 +56,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
+		<form action="insertFolder.do">
         <div class="modal-body">
             <h4 style="font-weight: bold;">전체폴더 N</h4>
 
@@ -65,7 +66,9 @@
               <hr>
             </div>
               </div>
+            <button type="submit" class="btn btn-facebook text-uppercase text-white">폴더 추가 완료</button>
         </div>
+        </form>
       </div>
     </div>
   </div>
@@ -119,6 +122,36 @@
 	  // 새로운 폴더를 폴더 컨테이너에 추가
 	  const folderContainer = document.getElementById("folderContainer");
 	  folderContainer.appendChild(newFolder);
+	  
+	  											
+	// folderName을 서버로 보내기 위한 AJAX 요청
+	  const xhr = new XMLHttpRequest();
+	  xhr.open("POST", "/insertFolder.do", true);
+	  xhr.setRequestHeader("Content-Type", "application/json");
+
+	  // folderName 데이터를 포함한 객체 생성
+	  const data = {	
+	    folderName: folderName
+	  };
+
+	  // 데이터를 JSON 형식으로 변환
+		  const jsonData = JSON.stringify(data);
+	
+		  xhr.onreadystatechange = function() {
+		    if (xhr.readyState === XMLHttpRequest.DONE) {
+		      if (xhr.status === 200) {
+		        // 요청이 성공적으로 처리됨
+		        console.log("폴더가 성공적으로 추가되었습니다.");
+		      } else {
+		        // 오류가 발생함
+		        console.error("폴더 추가 중 오류가 발생했습니다.");
+		      }
+		    }
+		  };
+	
+		  // JSON 데이터를 포함한 AJAX 요청 보내기
+		  xhr.send(jsonData);
+
 	});
 </script>
 <jsp:include page="../common/footer.jsp"/>

@@ -31,6 +31,7 @@ import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.member.model.service.KakaoService;
 import com.kh.tripism.member.model.service.MailSendService;
 import com.kh.tripism.member.model.service.MemberServiceImpl;
+import com.kh.tripism.member.model.vo.BookMark;
 import com.kh.tripism.member.model.vo.Folder;
 import com.kh.tripism.member.model.vo.Member;
 import com.kh.tripism.partnerBoard.model.service.PnBoardServiceImpl;
@@ -384,17 +385,28 @@ public class MemberController {
 	
 	// 즐겨찾기 폴더추가
 	@RequestMapping("insertFolder.do")
-	public String insertFolder(Folder f, HttpSession session, Model model) {
+	public String insertFolder(Folder f, HttpSession session) {
+		System.out.println(f);
 		int result = mService.insertFolder(f);
+		return "redirect:bookMarkList.do";
 		
-		if(result > 0) {
-				session.setAttribute("alertMsg", "폴더추가성공");
-				return "member/bookMarkList";
-			} else {
-				model.addAttribute("errorMsg", "회원가입 실패");
-				return "common/errorPage";
-			}
+//		if(result > 0) {
+//				session.setAttribute("alertMsg", "폴더추가성공");
+//				mv.setViewName("member/bookMarkList");
+//				return mv;
+//			} else {
+//				mv.addObject("errorMsg", "폴더 insert 실패");
+//				mv.setViewName("common/errorPage");
+//				return mv;
+//			}
 		}
+	
+	// 나의 즐겨찾기 폴더에 insert 하기
+	@RequestMapping("insertBookMark.do")
+	public String insertBookMark(BookMark bm, HttpSession session) {
+		int result = mService.insertBookMarkList(bm);
+		return "redirect:travelDetailView";
+	}
 	
 	// 내가 작성한 동행 게시글
 	@RequestMapping("partnerPostList.do")
@@ -411,7 +423,7 @@ public class MemberController {
 		
 		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, 10, 5);
 		ArrayList<PnBoard> pnList = mService.writtenSelectList(pi, memNo);
-		System.out.println(pnList);
+		// System.out.println(pnList);
 		
 		mv.addObject("pi", pi).addObject("pnlist", pnList).setViewName("member/partnerPostList");
 		
@@ -419,7 +431,57 @@ public class MemberController {
 		
 	}
 	
+	// 나의 즐겨찾기폴더 List 띄우기
+	@RequestMapping("bookMarkList.do")
+	public ModelAndView bookMarkList(HttpSession session, ModelAndView mv) {
+		Member loginUser = (Member)session.getAttribute("loginUser");
+		int memNo = loginUser.getMemNo();
+		
+		ArrayList<Folder> folderList = mService.folderSelectList(memNo);
+		System.out.println(folderList);
+		mv.addObject("folderList", folderList).setViewName("member/bookMarkList");
+		return mv;
+	}
+	
+	// 다른사람 마이페이지 조회
+	@RequestMapping("otherPage.do")
+	public String otherPage(@RequestParam("memNo") int memNo, Member m, Model model) {
+		Member otherInfo = mService.otherPage(memNo);
+		model.addAttribute("otherInfo", otherInfo);
+		return "member/othersInfoPage";
+	}
+	
+	// 다른사람 마이페이지 동행게시글 리스트
+	@RequestMapping("otherPartnerPostList.do")
+	public ModelAndView otherPartnerPostList(@RequestParam(value = "cpage",defaultValue = "1") int currentPage, ModelAndView mv, @RequestParam("memNo") int memNo) {
+		// jsp 에서 cPage가 날라오면 int CurrentPage에 셋팅
+		// defaultValue=아무것도 하지않으면 1
+		// System.out.println("controllerasdsadasdasdasd");
+		int listCount = bService.selectListCount();
+		System.out.println("리스트조회 결과: " +listCount); // 4
+		
+		
+		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, 10, 5);
+		ArrayList<PnBoard> pnList = mService.writtenSelectList(pi, memNo);
+		// System.out.println(pnList);
+		
+		mv.addObject("pi", pi).addObject("pnlist", pnList).setViewName("member/otherPartnerPostList");
+		
+		return mv;
+	}
+	
+	// 다른사람 마이페이지 즐겨찾기 리스트bookMarkList.do
+	@RequestMapping("otherBookMarkList.do")
+	public ModelAndView bookMarkList(@RequestParam("memNo") int memNo, ModelAndView mv) {
+		
+		ArrayList<Folder> folderList = mService.folderSelectList(memNo);
+		mv.addObject("folderList", folderList).setViewName("member/otherBookMarkList");
+		return mv;
+	}
+	
+	
 
+	
 	@RequestMapping("spotLike.do")
 	public String spotLike() {
 		return "member/myPageTripLikeItems";
@@ -431,19 +493,9 @@ public class MemberController {
 	}
 
 
-	@RequestMapping("bookMarkList.do")
-	public String bookMarkList() {
-		return "member/bookMarkList";
-	}
-
 	@RequestMapping("following.do")
 	public String following() {
 		return "member/following";
-	}
-
-	@RequestMapping("otherPage.do")
-	public String otherPage() {
-		return "member/othersInfoPage";
 	}
 	
 

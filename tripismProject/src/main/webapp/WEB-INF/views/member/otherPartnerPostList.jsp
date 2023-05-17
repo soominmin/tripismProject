@@ -4,34 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>동행리스트</title>
-	
+<meta charset="UTF-8">
+<title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<style >
-	a:link {
-		color: rgb(44, 44, 44);
-		text-decoration: none;
-	}
-	a:visited {
-		color: rgb(44, 44, 44);
-		text-decoration: none;
-	}
-	a:hover {
-		color: rgb(44, 44, 44);
-		text-decoration: none;
-	}
-	a:active {
-		color: rgb(44, 44, 44);
-		text-decoration: none;
-	}
-	body * {
-		font-family: 'TheJamsil';
-	}
-			
+<style >			
 	element.style {
 		display: flex;
 		box-sizing: border-box;
@@ -49,7 +26,7 @@
 	.cxduOO {
 		display: flex;
 		flex-direction: column;
-		width: 282px;
+		width: 238px;
 		height: 350px;
 		background: rgb(255, 255, 255);
 		box-shadow: rgba(25, 25, 25, 0.2) 0 6px 10px;
@@ -223,10 +200,11 @@
 	/*게시글정렬*/
 	.dkymTH {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: repeat(3, 1fr);
 		gap: 24px;
 		box-sizing: border-box;
 		margin-top: 1rem;
+		padding: 0;
 	}
 	/*윗단*/
 	.cxduOO > * {
@@ -288,8 +266,8 @@
 		display: flex;
 		flex-wrap: nowrap;
 		flex-shrink: 0;
-		width: 40px;
-		height: 40px;
+		width: 30px;
+		height: 30px;
 		object-fit: cover;
 		border-radius: 50%;
 	}
@@ -297,7 +275,7 @@
 		display: flex;
 		-webkit-box-align: center;
 		align-items: center;
-		width: 60%;
+		width: 50%;
 		height: 100%;
 	}
 	/*닉네임*/
@@ -326,22 +304,20 @@
 	/*여행기간*/
 	.ilUDog {
 		margin-right: 2px;
-    width: 15px;
-    height: 15px;
-    object-fit: contain;
-    z-index: 100;
-    margin-top: 8px;
-    margin-left: 10px;
+		width: 14px;
+		height: 14px;
+		object-fit: contain;
+		z-index: 100;
 	}
 	.fdRVsr {
-		padding-left: 3px;
+		padding-left: 10px;
 		display: flex;
 		flex-shrink: 0;
 		flex-direction: column;
 		-webkit-box-pack: center;
 		justify-content: center;
 		justify-self: center;
-		width: 40%;
+		width: 50%;
 		height: 100%;
 		box-sizing: border-box;
 	}
@@ -411,7 +387,6 @@
 		z-index: 100;
 		margin-top: 0.3rem;
 		margin-bottom: 1rem;
-		margin-left: 10px;
 	}
 	/*5일 . */
 	.mKoaj {
@@ -559,11 +534,10 @@
 	/*<!-- hear -->*/
 	/*아래단 제목*/
 	.kVTEEb {
-		font-weight: 500;
+		font-weight: 700;
 		font-size: 16px;
 		line-height: 24px;
 		color: rgb(0, 0, 0);
-		display: -webkit-box;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		overflow-wrap: break-word;
@@ -732,74 +706,34 @@
 
 </style>
 </head>
-
-
 <body>
-	<!-- 헤더바 포함 -->
 	<jsp:include page="../common/header.jsp"/>
-	
-
-	<section class="FullSection__SectionWrapper-sc-1szrt90-0 fqcgyB">
-		<div class="FullSection__TopSectionWrapper-sc-1szrt90-1 AxzSO test">
-			<p class="TopSection__PreventDragP-sc-1sc5grx-0 krJNwE" style="color:rgb(255, 255, 255)">나와 맞는 여행동행과 이야기를 나누어 보아요!</p>
-			<p class="TopSection__PreventDragP-sc-1sc5grx-0 krJNwE" style="color:rgb(255, 255, 255);">여행친구찾기</p>
-		</div>
-	</section>
-	
-
+  <section class="py-9 py-md-10">
+    <div class="container">
+      <div class="row">
+		<div class="col-lg-8 col-xl-9 order-1 order-lg-0">
+			<div>
+			  <div class="row align-items-xl-center">
+			  <div class="container">
+				<div>
+				<div class="row">
+					<div class="col-12">
+						<div class="row" style="width: 1670px;">
+						  <div class="col-lg-6" style="border: solid 3px rgba(199, 198, 198, 0.37); padding: 35px; border-radius:  15px 15px 15px 15px; margin-left: 160px;">
+               			<div class="mb-4">
+               			<c:forEach var="pn" items="${ pnlist }">
+			             <h3 class="text-uppercase mb-3" align="center">동행 게시글</h3>
+			            </c:forEach>
+           	   </div>
 	<div class="Layout__PageContentWrap-sc-1w3ggn5-0 bgfeYQ">
-		<section
-			direction="vertical"
-			class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq"
-			style="margin-top: 24px; display: flex; box-sizing: border-box;">
-			<div
-				class="AccompanyWebSection__SearchWrap-sc-lvz8r6-1 wxYuf"
-				style="margin-right: 24px;">
-				<div class="SearchInputTemplate__Wrapper-sc-1p1wt1d-0 jbRhXc">
-					<div class="SearchInputTemplate__InputContainer-sc-1p1wt1d-1 jjezfq">
-						<div class="SearchInputTemplate__IconMagnifierContainer-sc-1p1wt1d-2 fELxes">
-							<svg
-								width="16"
-								height="16"
-								viewbox="0 0 16 17"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg">
-								<path
-									d="M7.45301 14.7689C11.0169 14.7689 13.906 11.7023 13.906 7.91942C13.906 4.13656 11.0169 1.06995 7.45301 1.06995C3.88911 1.06995 1 4.13656 1 7.91942C1 11.7023 3.88911 14.7689 7.45301 14.7689Z"
-									stroke="#9A9A9A"
-									stroke-miterlimit="10"></path>
-								<path
-									d="M12.1982 12.9564L14.9999 15.9301"
-									stroke="#9A9A9A"
-									stroke-miterlimit="10"
-									stroke-linecap="round"></path>
-							</svg>
-						</div>
-						<input placeholder="동행을 찾아보세요!"
-							class="SearchInputTemplate__Input-sc-1p1wt1d-3 dABHVy"
-							value="" style="font-size: 12px;">
-					</div>
-				</div>
-			</div>
-			<div class="WebFilterstyle__Wrapper-sc-jkwt5m-0 bFhXDi">
-				<div class="WebFilterstyle__OrderContainer-sc-jkwt5m-1 hKHUvu">
-					<div class="TextFilterTemplate__TextFilterWrap-sc-434wll-0 cJFGWH">
-						<button class="TextFilterTemplate__TextFilterButton-sc-434wll-1 tkvTm">최신순</button>
-						<button class="TextFilterTemplate__TextFilterButton-sc-434wll-1 tkvTm">조회순</button>
-					</div>
-				</div>
-				<div class="FilterButtonTemplatestyle__Wrapper-sc-1ga095c-0 Swiwe">
-				</div>
-			</div>
-		</section>
+		
 		<section direction="vertical"
 			class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq" id="pnlist"
 			style="margin-top: 20px; display: flex;">
 			<!-------------------------------------------------------------------------------------------------------------------------->
+
 			
 			<ul type="portrait" class="AccompanyWebSection__AccompanyList-sc-lvz8r6-0 dkymTH">
-
-			<!-------------------------------------------------------------------------------------------------------------------------->
 				<c:forEach var="pn" items="${ pnlist }">
 				
 					<div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
@@ -812,7 +746,7 @@
 							<!--  ---------------------------------------------------------------------------------------------------------------------- 여기가 member ${pn.member.img }-->
 								<c:choose>
 								<c:when test="${not empty pn.member.img }">
-									<img src="${pn.member.img }"
+									<img src="${pageContext.request.contextPath}/resources/img/partner/${pn.member.img }.jpg"
 										class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
 								</c:when>
 								<c:otherwise>
@@ -858,7 +792,7 @@
 	
 						<div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
 						<!-- -------------------------------------------------------------------------------------------------------------------------------------   ${pn.partnerOriginalImg } -->
-							<img src="${pageContext.request.contextPath}/resources/img/partner/${pn.partnerOriginalImg }" class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
+							<img src="${pageContext.request.contextPath}/resources/img/partner/${pn.partnerOriginalImg }.jpg" class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
 	
 							<div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
 								<div class="AccompanyWebCard__LocationIcon-sc-ws5mjw-17 lmqiXK">
@@ -885,28 +819,19 @@
 								</p>
 						</div>						
 					</div>
-
 				</c:forEach>
-					
-				<!-------------------------------------------------------------------------------------------------------------------------->
-
- 
-				<script>
 				
-				$("#pnlist>ul>.cxduOO").click(function(){
-	                  // location.href='detail.pn?pno=' + ${pn.postNo };
-	                  console.log("asdasdsad");
-	                  location.href = "detail.pn?pno="+$(this).children(".postNo").val();
-	                        
-	               })
+				<!-- -------------------------- -->
+				<script>
+					$("#pnlist>ul>.cxduOO").click(function(){
+					  // location.href='detail.pn?pno=' + ${pn.postNo };
+					  console.log("asdasdsad");
+					  location.href = "detail.pn?pno="+$(this).children(".postNo").val();
+							
+				   })
 				</script>
-
-
-			
-
-
 	
-
+					<!---------------------------------------------------------------------------------------------------------------------------- -->
 				<!---------------------------------------------------------------------------------------------------------------------------- -->
 
 				<script>
@@ -925,53 +850,57 @@
 				
 				  </script>
 				<!-------------------------------------------------------------------------->
-
-			</ul>
-
-		</section>
-		
-		<section
-			direction="vertical"
-			class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq"
-			style="display: flex; box-sizing: border-box; margin-top: 200px; margin-bottom: 60px;">
-			
-			<div class="ExtendedPaginationTemplate__PaginationWrap-sc-uw2t4b-0 dvaZUI" id="pagingArea">
-				<ul class="pagination">
+					</ul>
+				</section>
 				
-					<c:choose>
-              			<c:when test="${ pi.currentPage eq 1}">
-                       	 	<li class="page-item disabled"><a class="page-link" href="">◁</a></li>
-                        </c:when>
-                        <c:otherwise>
-                        <li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage -1 }">◁</a></li>
-                        </c:otherwise>
-                   	</c:choose>
-                    <c:forEach var="p" begin="${ pi.startPage }" end="${ pi.endPage }">
-                        <li class="page-item"><a class="page-link" href="list.bo?cpage=${ p }">${ p }</a></li>
-        			</c:forEach>
-                    <c:choose>
-                    	<c:when test="${ pi.currentPage eq pi.maxPage }">
-                            <li class="page-item disabled"><a class="page-link" href="">▷</a></li>
-                         </c:when>
-                         <c:otherwise>
-                            <li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage +1 }">▷</a></li>
-                          </c:otherwise>
-                      </c:choose>
+				<section
+				direction="vertical"
+				class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq"
+				style="display: flex; box-sizing: border-box; margin-top: 200px; margin-bottom: 60px;">
 				
-				</ul>
-			</div>
-			
-		</section>
-
-		
+				<div class="ExtendedPaginationTemplate__PaginationWrap-sc-uw2t4b-0 dvaZUI" id="pagingArea">
+					<ul class="pagination">
+					
+						<c:choose>
+							  <c:when test="${ pi.currentPage eq 1}">
+									<li class="page-item disabled"><a class="page-link" href="">Previous</a></li>
+							</c:when>
+							<c:otherwise>
+							<li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage -1 }">Previous</a></li>
+							</c:otherwise>
+						   </c:choose>
+						<c:forEach var="p" begin="${ pi.startPage }" end="${ pi.endPage }">
+							<li class="page-item"><a class="page-link" href="list.bo?cpage=${ p }">${ p }</a></li>
+						</c:forEach>
+						<c:choose>
+							<c:when test="${ pi.currentPage eq pi.maxPage }">
+								<li class="page-item disabled"><a class="page-link" href="">Next</a></li>
+							 </c:when>
+							 <c:otherwise>
+								<li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage +1 }">Next</a></li>
+							  </c:otherwise>
+						  </c:choose>
+					</ul>
+				</div>
+			</section>
+				</div>
+				
+				
+				
 	</div>
-
-	
-	
+</div>
+	</div>
+	</div>
+	</div>
+	</div>
+</div>
+	</div>
+	    </div>		
+  	</div>
+	</section>
+  	</div><!-- element wrapper ends -->
 	
 		<!-- 푸터바 포함 -->
 	<jsp:include page="../common/footer.jsp"/>
-	
 </body>
-
 </html>

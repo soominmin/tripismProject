@@ -745,7 +745,7 @@
 							<!--  ---------------------------------------------------------------------------------------------------------------------- 여기가 member ${pn.member.img }-->
 								<c:choose>
 								<c:when test="${not empty pn.member.img }">
-									<img src="${pageContext.request.contextPath}/resources/img/partner/${pn.member.img }.jpg"
+									<img src="${pn.member.img }"
 										class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
 								</c:when>
 								<c:otherwise>
@@ -791,7 +791,7 @@
 	
 						<div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
 						<!-- -------------------------------------------------------------------------------------------------------------------------------------   ${pn.partnerOriginalImg } -->
-							<img src="${pageContext.request.contextPath}/resources/img/partner/${pn.partnerOriginalImg }.jpg" class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
+							<img src="${pageContext.request.contextPath}/resources/img/partner/${pn.partnerOriginalImg }" class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
 	
 							<div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
 								<div class="AccompanyWebCard__LocationIcon-sc-ws5mjw-17 lmqiXK">
@@ -818,6 +818,7 @@
 								</p>
 						</div>						
 					</div>
+
 				</c:forEach>
 				
 				<!-- -------------------------- -->

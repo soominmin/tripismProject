@@ -12,7 +12,7 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kh.tripism.chat.model.vo.ChatMessege;
+import com.kh.tripism.chat.model.vo.ChatMessage;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -27,7 +27,7 @@ public class WebSocketHandler extends TextWebSocketHandler{
 		String payload = message.getPayload();
 		log.info("payload:" + payload);
 		
-		ChatMessege chatMessage = mapper.readValue(payload, ChatMessege.class);
+		ChatMessage chatMessage = mapper.readValue(payload, ChatMessage.class);
 		
 		log.info(chatMessage.toString());
 		
@@ -42,8 +42,9 @@ public class WebSocketHandler extends TextWebSocketHandler{
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
 
         sessionList.add(session);
-
+        
         log.info(session + " 클라이언트 접속");
+        log.info(sessionList.toString());
     }
 	@Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {

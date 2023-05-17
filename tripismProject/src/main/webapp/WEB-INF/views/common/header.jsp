@@ -20,6 +20,7 @@
 	
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
     <!-- SITE TITTLE -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -649,6 +650,42 @@
       </div>
     </div>
   </div>
+    <script>
+      let isLogin = false;
+      // if('${loginUser}'!=""){
+      //   isLogin = true;
+      // }
+      // console.log('${loginUser}')
+      let login = '${loginUser}';
+      console.log(login);
+      let webSocket = null
+      if(login!=''){
+        webSocket = new WebSocket("<c:url value="/echo-ws"/>");
+        console.log("로그인")
+        webSocket.onopen = function(event){
+          console.log("로그인,웹소켓오픈")
+          
+        }
+      }
+      
+      
+      // function openSocket(isLogin){
+      //   const webSocket = new WebSocket('ws://localhost:8007/tripism/ws/chat');
+      //   if(isLogin){
+      //     webSocket.onclose = function(event){
+      //     console.log("로그아웃,웹소켓클로즈")
+
+      //     }
+      //   }else{
+      //     webSocket.onopen=function(event){
+      //       console.log("로그아웃,웹소켓클로즈")
+
+      //     }
+      //   }
+      // }
+
+        
+    </script>
   
     
     <!-- Javascript -->

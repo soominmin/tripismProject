@@ -6,7 +6,7 @@
 <head>
     <!-- 부트스트랩에서 제공하고 있는 스타일 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    
     <!-- 부트스트랩에서 제공하고 있는 스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <meta charset="UTF-8">
@@ -330,42 +330,22 @@
                 </div>
 				
                 <div id="chatRoomList" class="sc-7888b13b-7 eqxbAv">
-
-                    <!-- <div class="sc-2b24a48b-0 duxSFr">
-                        <div class="sc-be1fc4d6-0 iCTgJa">
-                            <img alt="프로필" src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/member/1683006319089-1" class="sc-be1fc4d6-1 jxPOyi"></div>
-                            <div class="sc-2b24a48b-1 jRuymm" id="chatRoom1">
-                                <div class="sc-2b24a48b-2 dMfoDF" style="width: 100%;">
-                                    <div class="sc-2b24a48b-3 fxllNx" style="max-width: 90%;">
-                                        <p class="sc-2b24a48b-4 gFbPQg" style="line-height: 22px; max-width: 80%; font-size: 15px; font-weight: 500; color: black;">[동행] 내일 5월 3일 소노벨 천안 오션어드벤처 놀러가실 분 구해여ㅠㅠ</p>
-                                        <span class="sc-2b24a48b-5 LSLIK"  style="margin-left: 4px; font-size: 14px; font-weight: 500;">3</span>
-                                    </div>
-                                    <div class="sc-2b24a48b-6 eOtkJC">0</div>
-                                </div>
-                                <p class="sc-2b24a48b-4 gFbPQg" style="max-width: 90%; margin: 2px 0px 6px; height: 19px;">qpalzm510님으로 방장이 위임되었습니다.</p>
-                                <div class="sc-2b24a48b-2 dMfoDF">
-                                    <div></div>
-                                    <span class="sc-2b24a48b-5 LSLIK">4시간전</span>
-                                </div>
-                            </div>
-                        </div> -->
-
-                        </div>
+                </div>
 
                        
-                        <div id="chatting" style="display: none; width: 100%; height: 100%;">
-                            <div id="messages" style="height:80%; overflow: auto;">
+                <div id="chatting" style="display: none; width: 100%; height: 100%;">
+                    <div id="messages" style="height:80%; overflow: auto;">
                                 
-                            </div>
-                            <div style="height:20%">
-                                <input type="text" id="sendMessage"/>
-                                <button type="button" id="send">전송</button>
-                            </div>
+                    </div>
+                    <div style="height:20%">
+                        <input type="text" id="sendMessage"/>
+                        <button type="button" id="send">전송</button>
+                    </div>
                         
 
-                    </div>
-
                 </div>
+
+            </div>
                 <script>
                     let currentchatRoom = 0;
                     const svgElement = document.querySelector('svg[cursor="pointer"]');
@@ -373,6 +353,7 @@
                     let isOpen = false;
                   
                     svgElement.addEventListener('click', () => {
+                    
                       if (isOpen) {
                         targetElement.style.display = 'none';
                         isOpen = false;
@@ -462,7 +443,7 @@
                                             }
 
                                         })
-                                        // createWebSocket();
+                                        
 
                                     })
 
@@ -483,42 +464,12 @@
                   </script>
                   
                   <script>
-                    // const chatRoom = document.getElementById('chatRoom1');
-                    // const roomList = document.getElementsByClassName('sc-2b24a48b-0 duxSFr');
-                    // const room = document.querySelector('.eqxbAv');
-                  	
                     
 
-                    // const memId = '${loginUser.memId}';
-
-
-                    // chatRoom.addEventListener('click',event=>{
-                    //     console.log("채팅방선택");
-                        
-                    //     // roomList.setAttribute('style','display:none');
-                    //     for(let i=0; i<roomList.length;i++){
-                    //         roomList[i].setAttribute('style','display:none');
-                    //     }
-                    //     let roomContainer = '<div id="messages" style="height:80%">asdsadsadlksajlksadlksajdlksajdkl</div>'
-                    //                         +'<div  style="height">'
-                    //                          + '<input type="text" id="sendMessage"/>'
-                    //                          +'<button type="button" id="send">전송</button>'
-                    //                          +'</div>';
-                    //     room.innerHTML=roomContainer;
-
-
-                    //     // createWebSocket();
-
-                    // })
-
                     function createWebSocket(){
-                        // let chatRoom = document.getElementsByClassName('chatRoom');
-
-                        // for(let j=0; j<chatRoom.length;j++){
-                        //     chatRoom[j].style.display='none';    
-                        // }
+                        
                         const webSocket = new WebSocket('ws://localhost:8007/tripism/ws/chat');
-                        // console.log(memId); 
+                        
                         webSocket.onopen = function(event){
                             
                         }
@@ -546,9 +497,17 @@
                         webSocket.onmessage = function(msg){
                             console.log(msg);
                         }
+                        function closeSocket(){
+                            webSocket.onclose() = function(){
+
+                            }
+                        }
                     }
                     
                     
+
+
+
                     function back(){
                         document.getElementById('chatting').style.display="none";
                         document.getElementById('chatRoomList').style.display="block";

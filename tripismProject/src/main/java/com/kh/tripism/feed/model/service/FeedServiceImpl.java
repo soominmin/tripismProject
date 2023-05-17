@@ -100,8 +100,7 @@ public class FeedServiceImpl implements FeedService {
 
 	@Override
 	public int insertReply(Reply r) {
-		// TODO Auto-generated method stub
-		return 0;
+		return fDao.insertReply(sqlSession, r);
 	}
 
 	@Override
@@ -118,8 +117,7 @@ public class FeedServiceImpl implements FeedService {
 
 	@Override
 	public ArrayList<Reply> selectReplyList(int FeedNo) {
-		// TODO Auto-generated method stub
-		return null;
+		return fDao.selectReplyList(sqlSession, FeedNo);
 	}
 
 	public ArrayList<Member> selectMember(PageInfo pi) {

@@ -27,6 +27,7 @@
 		<result column="reply_no" property="replyNo" />
 		<result column="board_no" property="boardNo" />
 		<result column="mem_no" property="memNo" />
+		<result column="mem_nickname" property="memNickname"/>
 		<result column="reply_contents" property="replyContents" />
 		<result column="reply_date" property="replyDate" />
 		<result column="reply_distinct" property="replyDistict" />
@@ -267,9 +268,41 @@
 		where feed_no = #{feedNo}
 	</select>
 	
+	<!-- 댓글 리스트 조회용 -->
+	<select id="selectReplyList" resultMap="">
+		select
+			  reply_no
+			, board_no
+			, m.mem_no
+			, mem_nickname
+			, reply_contents 
+			, reply_date
+			, reply_distinct
+		from tb_reply r
+		join tb_member m on (r.mem_no = m.mem_no);
+	</select>
+	
 	<!-- 댓글 작성용 -->
 	<insert id="insertReply">
-		
+		insert
+			into tb_reply
+			(
+				  reply_no
+				, board_no
+				, mem_no
+				, reply_contents
+				, reply_date
+				, reply_distinct
+			)
+			values
+			(
+				  seq_replyno.nextval
+				, #{feedNo}
+				, #{memNo}
+				, #{replyContent}
+				, sysdate
+				, 'F'
+			)
 	</insert>
 	
 	<!-- 댓글 삭제용 -->

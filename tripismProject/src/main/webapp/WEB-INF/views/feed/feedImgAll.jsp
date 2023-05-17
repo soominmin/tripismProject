@@ -125,28 +125,6 @@
         <!-- feedPage- -->
         <div id="left-main"> &nbsp;
 
-            <%-- <div align="center">
-                <img src="${pageContext.request.contextPath}/resources/img/logo.png" alt="image" style="width: 10em;">
-            </div> --%>
-            <!--<hr class="inner-bar">
-             <div class="inner-bar">
-                <b>#태그</b> <br>
-                <a href="#">#봄</a>
-                <a href="#">#여름</a>
-                <a href="#">#가을</a>
-                <a href="#">#겨울</a>    
-            </div> -->
-
-            
-
-            <!-- <div style="height: 50px;" align="center">
-                <button type="button" class="bBc" style="width: 80%; font-size: large;" onclick="location.href='enrollForm.fd'">글쓰기</button>
-            </div>  -->
-
-            <!-- <br>
-
-            <hr class="inner-bar"> -->
-
             <div class="inner-bar" align="center" style="padding:10% 0%; display: inline-block; margin-top: 50%"  >
             
             <form action="search.fd">
@@ -176,11 +154,6 @@
                     <input type="text" name="keyword" value="" placeholder="검색 내용을 입력해주세요" style=" border: 0.5px solid gray; height: 2.5em; width: 100%; border-radius: 10px; text-align: center; position: relative;"> <br><br>
                     <button type="submit" class="bBc">검색</button>
                 </div>
-                
-                <!-- <div>
-                    <input type="text" name="keyword" value="" placeholder="검색 내용을 입력해주세요" style=" border: 0.5px solid gray; height: 2.5em; width: 100%; border-radius: 10px; text-align: center;"> <br><br>
-                    <button type="submit" class="bBc">검색</button>
-                </div> -->
             </form>
 
             <br>
@@ -217,10 +190,6 @@
             <button type="button" class="non-click" style="border: none;" onclick="location.href='enrollForm.fd'"><img src="${pageContext.request.contextPath}/resources/img/feed/plus.png" alt="write" style="width: 2.4em;">
             	<p style="margin-top: 10px">글쓰기</p>
             </button>
-
-            <%-- <button type="button" style="background-color: transparent; border: none;"><img src="${pageContext.request.contextPath}/resources/img/feed/video.png" alt="video" style="width: 2.4em;">
-                <p>동영상</p>
-            </button> --%>
 
             </div>            
         </div>
@@ -299,6 +268,7 @@
                 	});
                 	
                 function goFeed() {
+                	location.href = "feed.fd"; 
                 	window.scrollTo(0, 1000); 
                 	/* let clientH = $('.feedPage');
                 	let heightSum = 0;
@@ -312,7 +282,7 @@
                 	
                 	$(window).scroll(function(){
                 		/* scrollHeight = $(document).clientHeight*/
-                		// location.href = "feed.fd"; 
+                		// 
                 		
                 	})
                 	/* const clientH = $('.feedPage')

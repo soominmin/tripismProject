@@ -1,19 +1,19 @@
 package com.kh.tripism.common.vo;
 
 public class Reply {
-	
+
 	private int replyNo;
 	private int boardNo;
 	private int memNo;
 	private String replyContents;
 	private String replyDate;
 	private String replyDistinct;
-	
+
 	// 댓글 작성자
 	private String replyWriter;
-	
-	public Reply() {}
 
+	public Reply() {
+	}
 
 	public Reply(int replyNo, int boardNo, int memNo, String replyContents, String replyDate, String replyDistinct,
 			String replyWriter) {
@@ -26,8 +26,6 @@ public class Reply {
 		this.replyDistinct = replyDistinct;
 		this.replyWriter = replyWriter;
 	}
-
-
 
 	public int getReplyNo() {
 		return replyNo;
@@ -76,7 +74,7 @@ public class Reply {
 	public void setReplyDistinct(String replyDistinct) {
 		this.replyDistinct = replyDistinct;
 	}
-	
+
 	public String getReplyWriter() {
 		return replyWriter;
 	}
@@ -85,7 +83,6 @@ public class Reply {
 		this.replyWriter = replyWriter;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Reply [replyNo=" + replyNo + ", boardNo=" + boardNo + ", memNo=" + memNo + ", replyContents="
@@ -93,6 +90,4 @@ public class Reply {
 				+ replyWriter + "]";
 	}
 
-
-	
 }

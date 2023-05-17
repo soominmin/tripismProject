@@ -271,7 +271,7 @@
 
                                 <div style="margin-top: 30px;">
                                     <span onclick="copyTheURL(this)">
-                                        <input type="text" value="여기에 피드주소 넣으려함" style="text-align: center; width: 280px;" readonly>
+                                        <input type="text" value="http://localhost:8007/tripism/index.pg" style="text-align: center; width: 280px;" readonly>
                                     </span> &nbsp; &lt;&lt; &nbsp; 클릭 시 복사
                                 </div>
                             </div>
@@ -303,21 +303,17 @@
                     <input type="text" style="width: 150px; text-align: center; border: none;" placeholder="${ f.feedDate }" disabled>
 
 					<div style="float: right; margin-top: 5px;">
-						<%-- <c:if test="${ not empty loginUser.memId and loginUser.memNo eq f.memNo }">
-		                    <button type="button" style="border: none;" onclick="location.href='updateForm.fd'">
-		                    	<span>수정하기</span>
-		                    </button>
-		                    <span>|</span>
-	                    </c:if>  --%>
-	                    
-	                    <form action="updateForm.fd" method="post" enctype="multipart/form-data">
+						 <c:if test="${ not empty loginUser.memId and loginUser.memNo eq f.memNo }">
+		                    <form action="updateForm.fd" method="post" enctype="multipart/form-data" style="display: inline;">
 		                    <input type="hidden" name="fno" value="${f.feedNo}">
 		                    <button type="submit" style="border: none;">
-			                    	<span>t수정하기(구현중)</span>
+			                    	<span>수정하기</span>
 		                    </button>
 	                    </form>
-		                    
-		                    <span></span>
+		                    <span>|</span>
+	                    </c:if>  
+	                    
+		               
 		                    
 	                    <button type="button" data-toggle="modal" data-target="#report">
 	                        <span>신고하기(미완성)</span>
@@ -378,31 +374,36 @@
                 <div class="inner-bar-small LrN" id="reply-input"> &nbsp;
                 	<c:choose>
                 		<c:when test="${ empty loginUser }">
-                			<form action="#">
+                			
 	                       		<img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="loginUser-img" style="width: 2em;"> &nbsp;
 		                        <input type="text" placeholder="로그인한 사용자만 댓글작성 가능합니다." style="border-radius: 5px; width: 80%; padding: 5px" readonly>
 		
 		                        <div class="inner-bar-small" align="center" style="margin-top: 10px;">
 		                            <button type="submit" class="bBc" style="width: 10em;" disabled>완료</button>
 		                        </div>
-		                    </form>
+		                   
                 		</c:when>
                 		
                 		<c:otherwise>
-		                    <form action="#">
+		                    
 		                        <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="loginUser-img" style="width: 2em;"> &nbsp;
-		                        <input type="text" id="replyContent" placeholder="댓글을 입력하세요" style="border-radius: 5px; width: 80%; padding-left: 10px">
-		
+		                        <!-- <img src="${loginUser.img }" alt="loginUser-img" style="width: 2em;"> &nbsp; -->
+		                        
+		                        <input type="text" class="replyContent" placeholder="댓글을 입력하세요" style="border-radius: 5px; width: 80%; padding-left: 10px">
 		                        <div class="inner-bar-small" align="center" style="margin-top: 10px;">
-		                            <button type="submit" class="bBc" style="width: 10em;" onclick="addReply();">완료</button>
+		                            <button type="button" class="bBc" style="width: 10em;" onclick="addReply()">완료</button>
 		                        </div>
-		                    </form>
+		                        
+		                        
+				
+				                <br>
+		                    
                 		</c:otherwise>
                 	</c:choose>
                 </div>
                 <!-- 댓글 작성 종료 -->
                 
-                <div class="LrN" id="replyArea">
+                <div class="LrN" class="replyArea">
                    
                 </div>
                 
@@ -528,19 +529,19 @@
 				})
 				
 				function addReply(){
-					if($("#replyContent").val().trim().length != 0) {
-						
+					if($(".replyContent").val().trim().length != 0) {
+						console.log(".replyContent")
 						$.ajax({
-							url:"",
+							url:"rinsert.fd",
 							data:{
-								refBoardNo:'${f.feedNo}',
-								replyContent:${"#replyContent"}.val(),
+								refBoardNo:${f.feedNo},
+								replyContent:${".replyContent"}.val(),
 								replyWriter:'${loginUser.memId}',
 							},
 							success:function(status){
 								if(status == "success"){
 									selectReplyList();
-									$("#replyContent").val("");
+									$(".replyContent").val("");
 								}
 							},
 							error:function(){
@@ -555,7 +556,7 @@
 				
 				function selectReplyList(){ // 해당 게시글에 딸린 댓글리스트 조회용 ajax
 		    		$.ajax({
-		    			url:"rlist.bo",
+		    			url:"rlist.fd",
 		    			data:{
 		    				fno:${f.feedNo}
 		    			},
@@ -566,20 +567,20 @@
 		    				
 		    				for(let i in list){
 		    					value += 
-					                    "<div class='inner-bar-small' style='float: left; box-sizing: border-box; margin-bottom: 0px;'>"
-					                      + "<div style='box-sizing: border-box;'>"
-				                          + "<img src=" + list[i].img + "alt='reply-user' style='width: 1.6em; display: inline;'>"
-					                      + "</div>"
+		    							 "<div class='inner-bar-small' style='float: left; box-sizing: border-box; margin-bottom: 0px;'>"
+		    							+ "<div style='box-sizing: border-box;'>"
+				                        	+ "<img src=" + list[i].img + "alt='loginUser-img' style='width: 1.6em; display: inline;'> &nbsp;"
+					                    + "</div>"
 					                    + "</div>"
 					                    + "<div style='display: inline-block; background-color: #ebebeb; margin-left: 10px; border-radius: 9px; padding: 5px 10px;'>"
 						                + "<span style='display: inline;'>" + list[i].replyDate + "</span> <br>"
 					                    + "<b style='margin-bottom: 5px;'>" + list[i].memNo + "</b>"
 					                    + "<p style='margin-bottom: 0px; color: black;'>" + list[i].replyContents + "</p>"
 					                    + "</div>" 
-				                        
+					                    
 		    				}
 		    				
-		    				$("#replyArea").html(value);
+		    				$(".replyArea").html(value);
 		    			},
 		    			error:function(){
 		    				console.log("댓글리스트 조회용 ajax 통신 실패!")
@@ -656,8 +657,8 @@
             Kakao.Share.sendDefault({ // 건드렸으니 확인요망
                 objectType: 'feed',
                 content: {
-                title: '${f.feedTitle}',
-                description: '${f.feedContents}',
+                	title: 'Tripism에서 여행을 준비하세요',
+                    description:'트리피즘은 여행입니다',
                 imageUrl:
                     '${pageContext.request.contextPath}/resources/img/logo.png',
                 link: {
@@ -667,9 +668,9 @@
                 },
                 },
                 social: {
-                likeCount: 286,
-                commentCount: 45,
-                sharedCount: 845,
+                likeCount: 0,
+                commentCount: 0,
+                sharedCount: 0,
                 },
                 buttons: [
                 {

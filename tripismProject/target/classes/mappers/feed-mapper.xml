@@ -27,6 +27,7 @@
 		<result column="reply_no" property="replyNo" />
 		<result column="board_no" property="boardNo" />
 		<result column="mem_no" property="memNo" />
+		<result column="mem_nickname" property="replyWriter"/>
 		<result column="reply_contents" property="replyContents" />
 		<result column="reply_date" property="replyDate" />
 		<result column="reply_distinct" property="replyDistict" />
@@ -231,6 +232,7 @@
 		where f.feed_no = #{feedNo}
 	</select>
 	
+	<!-- 피드 수정하기 -->
 	<update id="updateFeed">
 		update 
         	tb_feed
@@ -241,14 +243,20 @@
         where feed_no = #{feedNo}
 	</update>
 	
-	<insert id="reupFiles">
-		insert
-			 into tb_feed_img
-			 values
-			 (
-			 	
-			 )
-	</insert>
+	<update id="updateFeed2">
+		update 
+	        tb_feed_img
+	    set
+	            img_original_name1 = #{imgOriginalName1}
+	            , img_change_name1 = #{imgChangeName1}
+	            , img_original_name2 = #{imgOriginalName2}
+	            , img_change_name2 = #{imgChangeName2}
+	            , img_original_name3 = #{imgOriginalName3}
+	            , img_change_name3 = #{imgChangeName3}
+	            , img_original_name4 = #{imgOriginalName4}
+	            , img_change_name4 = #{imgChangeName4}
+	    where feed_no = #{feedNo}
+	</update>
 	
 	<!-- 좋아요 수 조회용 -->
 	<select id="countLike">
@@ -258,8 +266,63 @@
 		where feed_no = #{feedNo}
 	</select>
 	
+	<select id="replyCount" resultType="_int">
+		select 
+			count(*)
+		from tb_reply
+		where reply_distinct = 'F'
+	</select>
+	
+	<!-- 댓글 리스트 조회(2차시도) -->
+	<select id="replyList" resultMap="replyResultSet">
+		select
+			  reply_no
+			, board_no
+			, m.mem_no
+			, mem_nickname
+			, reply_contents 
+			, reply_date
+			, reply_distinct
+		from tb_reply r
+		join tb_member m on (r.mem_no = m.mem_no)
+		where reply_distinct = 'F'
+	</select>
+	
+	<!-- 댓글 리스트 조회용 -->
+	<select id="selectReplyList" resultMap="replyResultSet">
+		select
+			  reply_no
+			, board_no
+			, m.mem_no
+			, mem_nickname
+			, reply_contents 
+			, reply_date
+			, reply_distinct
+		from tb_reply r
+		join tb_member m on (r.mem_no = m.mem_no)
+		where reply_distinct = 'F'
+	</select>
+	
 	<!-- 댓글 작성용 -->
 	<insert id="insertReply">
+		insert
+			into tb_reply
+			(
+				  reply_no
+				, board_no
+				, mem_no
+				, reply_contents
+				, reply_distinct
+			)
+			values
+			(
+				  seq_replyno.nextval
+				, #{feedNo}
+				, #{memNo}
+				, #{replyContent}
+				, sysdate
+				, 'F'
+			)
 		
 	</insert>
 	
@@ -271,10 +334,31 @@
 		where reply_no = #{replyNo}
 	</delete>
 	
-	<!-- 댓글 수정용 -->
-	<select id="selectReplyList">
-	
+	<!-- 좋아요 조회  -->
+	<select id="feedLike" resultType="_int">
+		select 
+			count(*) 
+		from tb_like
+		where feed_no = #{feedNo}
+		and mem_no = #{memNo}
 	</select>
-
+	
+	<!-- 좋아요 입력용 -->
+	<insert id="likeUp">
+		insert 
+		 into tb_reply
+		(
+			  reply_no
+			, feed_no
+			, mem_no
+		)
+		values
+		(
+			  seq_likeno.nextval
+			, #{feedNo}
+			, #{memNo}
+		)
+	
+	</insert>
 
 </mapper>

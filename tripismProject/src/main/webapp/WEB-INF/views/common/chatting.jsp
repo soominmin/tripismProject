@@ -347,7 +347,7 @@
 
             </div>
                 <script>
-                    let currentchatRoom = 0;
+                    let currentChatRoom = 0;
                     const svgElement = document.querySelector('svg[cursor="pointer"]');
                     const targetElement = document.querySelector('.sc-e355bb8d-0.jkTMmI');
                     let isOpen = false;
@@ -412,6 +412,9 @@
 
                                 for(let j=0; j<chatRoom.length;j++){
                                     chatRoom[j].addEventListener('click',()=>{
+                                        currentChatRoom = chatRooms[j].chatRoomNo;
+                                        webSocket.send(currentChatRoom);
+                                        
                                         chatList.style.display="none";
                                         document.getElementById('chatting').style.display="block";
                                         console.log(chatRooms[j].chatRoomNo);
@@ -469,11 +472,11 @@
                     let messageInfo = null;
                     send.addEventListener('click',()=>{
                         messageInfo ={
-                                    messageNo : '1',
-                                    chatroomNo :"1",
+                                    messageNo : 'seq_messageno.nextval',
+                                    chatroomNo :currentChatRoom,
                                     memNickname:'${loginUser.memNo}',
                                     messageText:message.value,
-                                    messageDate:'sysdate'
+                                    messageDate:'to_char(sysdate,"YYYY-MM-DD HH24:MI")'
 
                                 }
                                 webSocket.send(JSON.stringify(messageInfo));

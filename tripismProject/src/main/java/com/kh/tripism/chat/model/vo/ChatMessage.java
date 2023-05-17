@@ -21,5 +21,6 @@ public class ChatMessage {
 	private String memNickname;
 	private String messageText;
 	private String messageDate;
+	private int memNo;
 
 }

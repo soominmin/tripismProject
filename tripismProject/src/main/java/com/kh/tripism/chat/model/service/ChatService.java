@@ -10,5 +10,7 @@ public interface ChatService {
 	public ArrayList<ChatRoom> selectChatList(int memNo);
 	
 	public ArrayList<ChatMessage> selectMessageList(int chatRoomNo);
+	
+	public int insertMessage(ChatMessage chatMessage);
 
 }

@@ -1,7 +1,10 @@
 package com.kh.tripism.chat;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,22 +27,41 @@ import lombok.extern.slf4j.Slf4j;
 public class WebSocketHandler extends TextWebSocketHandler{
 	
 	private static List<WebSocketSession> sessionList = new ArrayList<WebSocketSession>();
+	private static HashMap<String, Integer> chatRoomSessionList = new HashMap<String, Integer>();
 	@Autowired
 	private ObjectMapper mapper;
 	@Autowired
 	private ChatServiceImpl chService;
 	@Override
 	protected void handleTextMessage(WebSocketSession session,TextMessage message) throws Exception {
+//		log.info(message.getPayload());
 		String payload = message.getPayload();
-		log.info("payload:" + payload);
+		if(payload.getClass().getSimpleName().equals("String")) {
+			log.info(payload);
+			chatRoomSessionList.replace(session.getId(), Integer.parseInt(payload));
+		}else {
+			
+			log.info("payload:" + payload);
+			
+			
+			ChatMessage chatMessage = mapper.readValue(payload, ChatMessage.class);
+			
+			
+			
+			log.info(chatMessage.toString());
+			
+			
+			
+			for(WebSocketSession sess: sessionList) {
+				if(chatRoomSessionList.get(sess.getId())==chatMessage.getChatroomNo()){
+					
+					sess.sendMessage(new TextMessage(new Gson().toJson(chatMessage)));
+				}
+			}
+		}
 		
-		ChatMessage chatMessage = mapper.readValue(payload, ChatMessage.class);
 		
-		log.info(chatMessage.toString());
 		
-		for(WebSocketSession sess: sessionList) {
-            sess.sendMessage(new TextMessage(new Gson().toJson(chatMessage)));
-        }
 		
 		
 	}
@@ -48,7 +70,8 @@ public class WebSocketHandler extends TextWebSocketHandler{
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
 
         sessionList.add(session);
-        
+        chatRoomSessionList.put(session.getId(), 0);
+        log.info(session.getId() + " 웹소켓 세션아이디");
         log.info(session + " 클라이언트 접속");
         log.info(sessionList.toString());
     }
@@ -59,5 +82,8 @@ public class WebSocketHandler extends TextWebSocketHandler{
         sessionList.remove(session);
         log.info(sessionList.toString());
     }
+	
+	
+	
 
 }

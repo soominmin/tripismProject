@@ -841,7 +841,7 @@
 											<div class="ButtonWithToggle__RelativeBox-sc-b2wh5i-0 StvrC">
 												<button width="auto" font-size="15px" font-weight="400" type="button"
 													class="ButtonWithToggle__ButtonWrapper-sc-b2wh5i-2 jNSMIB" name="areaCategoryNo"
-													style="width: fit-content; justify-content: flex-start;" value="33">경상북도</button>
+													style="width: fit-content; justify-content: flex-start;" value="35">경상북도</button>
 											</div>
 
 										</div>

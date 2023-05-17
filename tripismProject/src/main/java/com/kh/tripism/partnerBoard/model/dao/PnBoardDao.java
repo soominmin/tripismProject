@@ -53,12 +53,13 @@ public class PnBoardDao {
 	
 	// 동행 관련 동행 삭제
 	public int deletePnBoard(SqlSessionTemplate sqlSession, int pnBoardNo) {
-		return sqlSession.selectOne("pnBoardMapper.deletePnBoard", pnBoardNo);
+		return sqlSession.update("pnBoardMapper.deletePnBoard", pnBoardNo);
 	}
 	
 	
 	// 동행 관련 동행 수정
 	public int updatePnBoard(SqlSessionTemplate sqlSession, PnBoard pb) {
+		System.out.println("쿼리타기 전");
 		return sqlSession.update("pnBoardMapper.updatePnBoard", pb);
 	}
 	

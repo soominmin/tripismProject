@@ -161,6 +161,8 @@
     <!-- ====================================
     ——— FOOTER SECTION
     ===================================== -->
+
+
     <footer class="footer" style="height: 10%;">
     <hr>
       <div class="Footer__FooterInner-sc-19vhdob-1 gxaxWV">
@@ -337,5 +339,7 @@
       </div>
     </div>
     
+    
+
   </body>
 </html>

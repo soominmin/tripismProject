@@ -541,7 +541,7 @@
         <section
             direction="vertical"
             class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq">
-            <img alt="이미지" src="${pageContext.request.contextPath}/resources/img/partner/${pb.partnerOriginalImg }.jpg"></section>
+            <img alt="이미지" src="${pageContext.request.contextPath}/resources/img/partner/${pb.partnerOriginalImg }"></section>
             <div class="accompanyId__BulletinWrapDiv-sc-1up08zu-1 jLghAG">
                 <div class="innerSection__AreaLeftDiv-sc-1ag5fhb-4 birXOP">
                     <div class="AccompanyContainer__Wrap-sc-zoqt5l-0 rgrEj">
@@ -628,10 +628,35 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="AccompanyContainer__BottomBox-sc-zoqt5l-11 xqeY">
+                        
+                        
+                        <div class="AccompanyContainer__BottomBox-sc-zoqt5l-11 xqeY" >
                             <p class="AccompanyContainer__PreventDragP-sc-zoqt5l-10 iLlzSN">${pb.partnerDate }· 조회수 ${pb.partnerViews }</p>
                             <button class="AccompanyContainer__ReportButton-sc-zoqt5l-12 laOqNb">신고하기</button>
+                            
+                            <c:if test="${ not empty loginUser.memId and loginUser.memNo eq pb.memNo}">
+                                <button class="AccompanyContainer__ReportButton-sc-zoqt5l-12 laOqNb" onclick="postFormSubmit(1);">수정</button>
+                                <button class="AccompanyContainer__ReportButton-sc-zoqt5l-12 laOqNb"  onclick="postFormSubmit(2);">삭제</button>
+                                
+                                <form action="" id="postForm" method="post">
+                                	<input type="hidden" name="pnBoardNo" value="${ pb.postNo }">
+                                	<input type="hidden" name="filePath" value="${ pb.partnerChangeImg }">
+                                </form>
+                                <script>
+                                	function postFormSubmit(num) {
+                                		if(num == 1){
+                                			${"#postForm"}.attr("action","updateForm.pn").submit();
+                                		}else{
+                                			${"#postForm"}.attr("action","delete.pn").submit();
+                                			consol.log("이거 되쥬?");
+                                		}
+                                	}
+                                </script>
+                            </c:if>
                         </div>
+                        
+                        
+                        
                         <div class="AccompanyCommentInputBox__CommentContainer-sc-1t3w1p4-0 eGJmXC">
                             <div class="CommentInputBox__InputContainer-sc-kzgy2k-0 goDHMI">
                                 <textarea rows="1" placeholder="댓글을 입력해주세요." class="CommentInputBox__Input-sc-kzgy2k-1 dMqEYk" id="pnComment" style="height: 40px;"></textarea>
@@ -664,7 +689,7 @@
                                     
                                     
                                     
-                                    <a href="mypage.do" style="text-decoration:none;">
+                                    <a href="otherPage.do?memNo=${pb.member.memNo }" style="text-decoration:none;">
                                         <button class="AccompanyContainer__ReportButton-sc-zoqt5l-12 laOqNb" style="font-size: 14px; color: rgb(154, 154, 154); line-height: 21px; font-weight: 400; margin-bottom: 15px; margin-left: 66px;">
                                         정보 보러가기</button>
                                     </a>
@@ -678,44 +703,65 @@
                                 <div class="profile_click">
                                     <p class="ProfileCompanion_desc" style="margin-bottom: 0rem;">프로필 사진을 클릭해보세요!</p>
                                 </div>
-                                <div class="Button cmgUBW">
-                                    <button width="268px" height="55px" font-style="" type="button" class="Button iNZmaX" id="applyBtn">
-                                        <a>동행 신청하기</a>
-                                    </button>
-                                </div>
+                                <c:choose>
+						          <c:when test="${ not empty loginUser and loginUser.memNo ne pb.memNo }">
+                                		<div class="Button cmgUBW">
+                                
+                                
+						          
+								       <button width="268px" height="55px" font-style="" type="button" class="Button iNZmaX" id="applyBtn">
+								    		<a>동행 신청하기</a>
+										</button>
+										</div>
+						            </c:when>
+						            <c:otherwise>
+						            <div class="Button cmgUBW">
+						            	<button width="268px" height="55px" font-style="" type="button" class="Button iNZmaX" id="applyBtn">
+								    		<a>동행 신청하기</a>
+										</button>
+										</div>
+						            </c:otherwise>
+						            
+						          </c:choose>
+                                
+      
+                                
                             </div>
 
                         </div>
-                        <c:choose>
-                        	<c:when test="${not empty applyList }">
-		                        
-		                        <div class="Layout__LayoutEqualDistanceDiv-sc-1w3ggn5-1 hAClzB profile_section" style="margin-top: 20px;" >
-		                            <p style="font-weight: 700; font-size: medium; margin-top: 10px; margin-bottom: 30px;">받은 신청 목록</p>
-		                            
-		                            
-		                            <div style="display: flex; align-items: center; justify-content: flex-start; margin-top: 12px;">
-		                                <span>수바니 · type · 여성 </span>
-		                                <button value="memNo" id="go">수락</button>
-		                                <button value="memNo" id="no">거절</button>
-		                                
-		                            </div>
-		                        </div>
                         
-                        	</c:when>
-                        	<c:otherwise>
-                        	<div class="Layout__LayoutEqualDistanceDiv-sc-1w3ggn5-1 hAClzB profile_section" style="margin-top: 20px;" >
-		                            <p style="font-weight: 700; font-size: medium; margin-top: 10px; margin-bottom: 30px;">받은 신청 목록</p>
-		                            
-		                            
-		                            <div style="display: flex; align-items: center; justify-content: flex-start; margin-top: 12px;">
-		                               <span> 신청인이 없습니다 </span>
-		                            </div>
-		                            
-		                        </div>
-                        		 
-                        	</c:otherwise>
-                        	<c:if test="${applyList ==null }"></c:if>
-                        </c:choose>
+                        <c:if test="${not empty loginUser and loginUser.memNo eq pb.memNo}">
+	                      <c:choose>
+	                        	<c:when test="${not empty applyList }">
+			                        
+			                        <div class="Layout__LayoutEqualDistanceDiv-sc-1w3ggn5-1 hAClzB profile_section" style="margin-top: 20px;" >
+			                            <p style="font-weight: 700; font-size: medium; margin-top: 10px; margin-bottom: 30px;">받은 신청 목록</p>
+			                            
+			                            
+			                            <div style="display: flex; align-items: center; justify-content: flex-start; margin-top: 12px;">
+			                                <span>수바니 · type · 여성 </span>
+			                                <button value="memNo" id="go">수락</button>
+			                                <button value="memNo" id="no">거절</button>
+			                                
+			                            </div>
+			                        </div>
+	                        
+	                        	</c:when>
+	                        	<c:otherwise>
+	                        	<div class="Layout__LayoutEqualDistanceDiv-sc-1w3ggn5-1 hAClzB profile_section" style="margin-top: 20px;" >
+			                            <p style="font-weight: 700; font-size: medium; margin-top: 10px; margin-bottom: 30px;">받은 신청 목록</p>
+			                            
+			                            
+			                            <div style="display: flex; align-items: center; justify-content: flex-start; margin-top: 12px;">
+			                               <span> 신청인이 없습니다 </span>
+			                            </div>
+			                            
+			                        </div>
+	                        		 
+	                        	</c:otherwise>
+	                        	
+	                        </c:choose>
+                        </c:if>
                     </div>
                 </div>
             </main>
@@ -727,9 +773,20 @@
                     <div class="ModalContainer dompyb">
                         <div width="375px" class="ModalContainer bgZZfo">
                             <div class="ModalConfirm bJjRJT">
-                                <p class="ModalConfirm gpnsLj"> 로그인 회원만 이용하실 수 있는 페이지 입니다. <br> 로그인을 해주세요</p>
-                                <div class="ModalConfirm bcDKTX" >
-                                    <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo">확인</button>
+                                <c:choose>
+                                    <c:when test="${ empty loginUser }">
+                                        <p class="ModalConfirm gpnsLj"> 로그인 회원만 이용하실 수 있는 페이지 입니다. <br> 로그인을 해주세요</p>
+                                        <div class="ModalConfirm bcDKTX" >
+                                            <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo">확인</button>
+                                    </c:when>
+                                    <c:otherwise>
+                                    	<p class="ModalConfirm gpnsLj"> 동행을 신청하시겠습니까? <br> </p>
+                                        <div class="ModalConfirm bcDKTX" >
+                                            <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo">확인</button>
+                                            <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo">취소</button>
+                                    
+                                    </c:otherwise>
+                                    </c:choose>
                                 </div>
                             </div>
                         </div>

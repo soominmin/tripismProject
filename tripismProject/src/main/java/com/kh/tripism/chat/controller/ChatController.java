@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.kh.tripism.chat.model.service.ChatService;
 import com.kh.tripism.chat.model.service.ChatServiceImpl;
+import com.kh.tripism.chat.model.vo.ChatMessage;
 import com.kh.tripism.chat.model.vo.ChatRoom;
 import com.kh.tripism.member.model.vo.Member;
 
@@ -36,5 +37,14 @@ public class ChatController {
 		ArrayList<ChatRoom> list = chService.selectChatList(memNo);
 		
 		return new Gson().toJson(list);
+	}
+	
+	@RequestMapping(value = "messageList.ch",produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public String selectMessageList(int chatRoomNo) {
+		System.out.println(chatRoomNo);
+		ArrayList<ChatMessage> messageList = chService.selectMessageList(chatRoomNo);
+		System.out.println(messageList);
+		return new Gson().toJson(messageList);
 	}
 }

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>마이페이지</title>
 <style>
       #userName>img{
         width: 50px;
@@ -143,7 +143,7 @@
                               	<c:when test="${ not empty loginUser.mbti }">
 	                              <table align="center">
 	                                <tr style="width: 30px;">
-	                                  <td id="mbti" align="center">${loginUser.mbti }</td>
+	                                  <td id="mbti" align="center" style="width:200px;">${loginUser.mbti }</td>
 	                                </tr>
 	                              </table>
                               </c:when>
@@ -186,9 +186,6 @@
                                       <span id="likePost"><a href="spotLike.do">❤️ 찜목록</a></span>
                                   </li>
                     
-                                  <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                                    <span id="likePost"><a href="spotLike.do">📱 내가 작성한 목록</a></span>
-                                  </li>
                           
                                   <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
                                       <span id="tripartner"><a href="partnerPostList.do">🔎 내 동행 게시글</a></span>
@@ -213,10 +210,6 @@
                                  </c:choose>
                                   
                                   <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                                    <span id="bookMark"><a href="otherPage.do"> 💭 다른사람마페(잠깐) </a></span>
-                                  </li>
-                                  
-                                  <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
                                     <span id="bookMark"><a href="modal.do"> 모달창확인 </a></span>
                                   </li>
                                   
@@ -239,7 +232,7 @@
                                       <form action="pwdCheck.do" method="post">
                                         <div class="form-group mb-4">
                                           <input type="password" name="memPwd" id="memPwd" class="form-control bg-smoke" required placeholder="현재 비밀번호">
-                                          <input type="hidden" name="memId" id="memNo" value="${loginUser.memId }">
+                                          <input type="hidden" name="memId" id="memId" value="${loginUser.memId }">
                                         </div>
                                         <div class="pt-2" style="text-align: center;">
                                           <button type="submit" class="btn btn-primary text-uppercase font-size-15 px-6 px-md-7" id="btn_pwd">확인</button>
@@ -258,6 +251,7 @@
                 </div>
               </div>
             </div>
+
           
             <!-- 계정설정 끝 -->
             </div>
@@ -326,8 +320,6 @@
 		
 </script>
       
-
-
 
 
 <jsp:include page="../common/footer.jsp"/>

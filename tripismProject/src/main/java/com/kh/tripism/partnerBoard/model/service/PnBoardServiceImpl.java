@@ -80,6 +80,7 @@ public class PnBoardServiceImpl implements PnBoardService {
 	@Override
 	public int insertPnReply(Reply pr) {
 		return pbDao.insertReply(sqlSession, pr);
+
 	}
 
 	@Override

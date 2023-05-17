@@ -40,8 +40,9 @@ public class PnBoardController {
 		int listCount = bService.selectListCount();
 		System.out.println("리스트조회 결과: " +listCount);
 		
-		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, 10, 5);
+		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, 20, 10);
 		ArrayList<PnBoard> pnList = bService.selectList(pi);
+		System.out.println("pnList : " + pnList);
 		
 		mv.addObject("pi", pi).addObject("pnlist", pnList).setViewName("travelPartner/partnerList");
 		
@@ -144,13 +145,67 @@ public class PnBoardController {
 	
 	
 	// 게시글 수정폼 (작성예정)
+	@RequestMapping("updateForm.pn")
+	public String updateForm(int pnBoardNo, Model model) {
+		model.addAttribute("pb", bService.selectPnBoard(pnBoardNo));
+		
+		return "travelPartner/pnBoardUpdateForm";	// 수정 폼 만들어야 됨..
+	}
 	
+	
+	
+	// 게시글 수정폼 (작성예정)
+	@RequestMapping("update.pn")
+	public String updatePnBoard(PnBoard pb, MultipartFile reupfile, HttpSession session, Model model) {
+		
+		if(!reupfile.getOriginalFilename().equals("")) {
+			if(pb.getPartnerOriginalImg() != null) {
+				new File(session.getServletContext().getRealPath(pb.getPartnerChangeImg())).delete();
+			}
+			
+			String changeName = saveFile(reupfile, session);
+			
+			pb.setPartnerOriginalImg(reupfile.getOriginalFilename());
+			pb.setPartnerChangeImg("resources/uploadFiles/" + changeName);
+		}
+		
+		int result = bService.updatePnBoard(pb);
+		
+		if(result > 0) {
+			session.setAttribute("alertMsg", "성공적으로 게시글이 수정되었습니다!");
+			
+			return "redirect:detail.pn?pno=" + pb.getPostNo();
+		} else {
+			model.addAttribute("errorMsg","게시글 수정 실패");
+			
+			return "/common/errorPage";
+		}
+	}
 	
 	
 
 	
 	
-	// 게시글 삭제폼 (장성예정)
+	// 게시글 삭제폼 (작성예정)
+	@RequestMapping("delete.pn")
+	public String selectPnBoard(int pnBoardNo, String filePath, HttpSession session, Model model) {
+		int result = bService.deletePnBoard(pnBoardNo);
+		
+		if(result > 0) {
+			if(!filePath.equals("")) {
+				new File(session.getServletContext().getRealPath(filePath)).delete();
+			}
+		session.setAttribute("alertMsg", "성공적으로 게시글이 삭제 되었습니다!");
+		return "redirect:list.pn";
+		} else {
+			model.addAttribute("errorMsg", "게시글 삭제 실패!");
+			return "common/errorPage";
+		}
+	}
+	
+	
+	
+	
 	
 	
 	//동행신청 수락

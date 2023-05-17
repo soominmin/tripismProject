@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 
 <mapper namespace="memberMapper">
 	<resultMap type="Member" id="memberResultSet">
@@ -20,6 +23,37 @@
 		<result column="FOLDER_NO" property="folderNo"/>
 		<result column="MEM_NO" property="memNo"/>
 		<result column="FOLDER_NAME" property="folderName"/>
+	</resultMap>
+	
+	<resultMap type="BookMark" id="bookMarkResultSet">
+		<result column="BOOKMARK_NO" property="folderNo"/>
+		<result column="SPOT_NO" property="memNo"/>
+		<result column="FOLDER_NO" property="folderName"/>
+	</resultMap>
+	
+	<resultMap type="PnBoard" id="pnBoardResultSet">
+		<result column="post_no" property="postNo"/>
+		<result column="mem_no" property="memNo"/>
+		<result column="partner_name" property="partnerName"/>
+		<result column="partner_type" property="partnerType"/>
+		<result column="partner_original_img" property="partnerOriginalImg"/>
+		<result column="partner_change_img" property="partnerChangeImg"/>
+		<result column="partner_date" property="partnerDate"/>
+		<result column="partner_views" property="partnerViews"/>
+		<result column="partner_title" property="partnerTitle"/>
+		<result column="partner_content" property="partnerContent"/>
+		<result column="partner_start_date" property="partnerStartDate"/>
+		<result column="partner_end_date" property="partnerEndDate"/>
+		<result column="area_category_no" property="areaCategoryNo"/>
+		<result column="partner_number" property="partnerNumber"/>
+		<result column="partner_status" property="partnerStatus"/>
+		<collection property="member" resultMap="memberResultSet"/>
+		<collection property="spot" resultMap="spotResult"></collection>
+	</resultMap>
+	
+	<resultMap type="Spot" id="spotResult">
+		<result column="SPOT_NO" property="spotNo"/>
+		<result column="SPOT_LIKE" property="spotLike"/>
 	</resultMap>
 
 
@@ -161,7 +195,7 @@
 	
 	<insert id="insertFolder">
 		insert
-			into tb_member
+			into tb_bookmark_folder
 			(
 			    folder_no
 			  ,	mem_no
@@ -175,9 +209,72 @@
 			)
 	</insert>
 	
+	<select id="writtenSelectList" resultMap="pnBoardResultSet">
+		select
+			p.post_no
+			,	p.partner_type
+			,	p.partner_original_img
+			,	p.partner_title
+			,	p.partner_content
+			,	p.partner_start_date
+			,	p.partner_end_date
+			,	s.area_category_title
+            ,   m.gender
+            ,   m.mem_nickname
+            ,	m.mem_mbti
+            ,	m.mem_img
+            ,   m.mem_no
+            ,   m.mem_id
+		from tb_partner p
+        inner join tb_member m
+        on  p.mem_no = m.mem_no
+        inner join tb_spot_area_category s
+        on p.area_category_no = s.area_category_no
+		where partner_status = 'Y'
+		  and m.mem_no = #{memNo}
+		order by post_no desc
+	</select>
 	
-
+	<select id="folderSelectList" resultMap="folderResultSet">
+	 select
+	        folder_no
+	      , mem_no
+	      , folder_name
+          , mem_nickname
+	   from tb_bookmark_folder
+	   join tb_member using (mem_no)
+	  where mem_no = #{memNo}
+	</select>
 	
-
+	
+	<select id="otherPage" resultMap="memberResultSet">
+	 select
+	        mem_no
+	      , mem_id
+	      , mem_name
+	      , mem_nickname
+	      , gender
+	      , mem_mbti
+	      , mem_email
+	      , mem_img
+  	  from tb_member
+     where mem_no = #{memNo}
+	</select>
+	
+	<insert id="insertBookMark">
+	insert
+			into tb_bookmark
+			(
+			    bookmark_no
+			  ,	spot_no
+			  , folder_no
+			)
+			values
+			(
+			   seq_bookmarkrno.nextval
+			 , #{spotNo}
+			 , #{folderNo}
+			)
+	</insert>
 
 </mapper>

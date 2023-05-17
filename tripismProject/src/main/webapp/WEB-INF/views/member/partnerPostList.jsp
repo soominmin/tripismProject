@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -725,568 +726,113 @@
            	   </div>
 	<div class="Layout__PageContentWrap-sc-1w3ggn5-0 bgfeYQ">
 		
-		<section
-			direction="vertical"
-			class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq"
+		<section direction="vertical"
+			class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq" id="pnlist"
 			style="margin-top: 20px; display: flex;">
 			<!-------------------------------------------------------------------------------------------------------------------------->
 
-			<ul
-				type="portrait"
-				class="AccompanyWebSection__AccompanyList-sc-lvz8r6-0 dkymTH">
-				<div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
-
-					<div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
-
-						<div class="AccompanyWebCard__ProfileWrap-sc-ws5mjw-6 gNWBdG">
-							<img
-								src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/member/1681209401892-1"
-								class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
-							<div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
-								<p
-									color="#000000"
-									class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">여행뿌수자</p>
-								<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
-									<p
-										color="#008ff6"
-										class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">20대</p>
-									<div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
-									<p
-										color="#008ff6"
-										class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">남성</p>
-								</div>
-							</div>
-						</div>
-
-						<div class="AccompanyWebCard__GrayLine-sc-ws5mjw-2 fAUDUm"></div>
-
-						<div class="AccompanyWebCard__DateWrap-sc-ws5mjw-9 fdRVsr">
-							<div class="AccompanyWebCard__DateHoveredWrap-sc-ws5mjw-10 hWLPgS"></div>
-							<div class="AccompanyWebCard__DateTitleWrap-sc-ws5mjw-11 kdZjQK">
-								<img
-									src="/images/sub/accompany/card/accompany_gray_calendar.png"
-									class="AccompanyWebCard__DateIcon-sc-ws5mjw-12 ilUDog">
-								<p class="AccompanyWebCard__DateTitle-sc-ws5mjw-13 iBlyRM">여행기간</p>
-							</div>
-							<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
-								<p
-									color="#00CE7C"
-									class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 iVfuBW">4일</p>
-								<div color="#00CE7C" class="AccompanyWebCard__Circle-sc-ws5mjw-1 mKoaj"></div>
-								<p
-									color="#00CE7C"
-									class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">04/14 - 04/17</p>
-							</div>
-						</div>
-
-					</div>
-
-					<div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
-						<img
-							src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/accompany/1681209598075-2"
-							class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
-
-						<div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
-							<div class="AccompanyWebCard__LocationIcon-sc-ws5mjw-17 lmqiXK">
-								<svg
-									width="13"
-									height="17"
-									viewbox="0 0 13 17"
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg">
-									<path
-										d="M12.7244 7.11371C12.7244 10.6866 6.49995 16.3557 6.49995 16.3557C6.49995 16.3557 0.275513 10.6866 0.275513 7.11371C0.275513 3.54077 3.06229 0.644341 6.49995 0.644341C9.93761 0.644341 12.7244 3.54077 12.7244 7.11371Z"
-										fill="#008FF6"></path>
-									<ellipse cx="6.50063" cy="6.40462" rx="2.81106" ry="2.81106" fill="#fff"></ellipse>
-								</svg>
-							</div>
-							<p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">제주도</p>
-						</div>
-						<!-- hear -->
-						<div class="AccompanyWebCard__DetailBottomWrap-sc-ws5mjw-19 LuXMO">
-							<div class="AccompanyWebCard__RecruitWrap-sc-ws5mjw-20 jfSGGP">
-								<p class="AccompanyWebCard__RecruitText-sc-ws5mjw-21 YIYAY">모집중</p>
-								<div color="#00CE7C" class="AccompanyWebCard__Circle-sc-ws5mjw-1 hMauwG"></div>
-								<p class="AccompanyWebCard__RecruitText-sc-ws5mjw-21 YIYAY">2명</p>
-							</div>
-							<div class="AccompanyWebCard__OptionWrap-sc-ws5mjw-22 jQFFHg">
-								<div class="AccompanyWebCard__OptionIconWrap-sc-ws5mjw-23 lhlIsf">
-									<img
-										src="/images/sub/accompany/card/accompany_white_eye.png"
-										class="AccompanyWebCard__OptionIcon-sc-ws5mjw-24 fbgSqP">
-									<p class="AccompanyWebCard__OptionText-sc-ws5mjw-25 gOZZpD">36</p>
-								</div>
-								<div class="AccompanyWebCard__OptionIconWrap-sc-ws5mjw-23 lhlIsf">
-									<img
-										src="/images/sub/accompany/card/accompany_white_message.png"
-										class="AccompanyWebCard__OptionIcon-sc-ws5mjw-24 fbgSqP">
-									<p class="AccompanyWebCard__OptionText-sc-ws5mjw-25 gOZZpD">0</p>
-								</div>
-								<div class="AccompanyWebCard__OptionIconWrap-sc-ws5mjw-23 ccCSmm">
-									<img
-										src="/images/sub/accompany/card/accompany_white_plane.png"
-										class="AccompanyWebCard__OptionIcon-sc-ws5mjw-24 fbgSqP">
-									<p class="AccompanyWebCard__OptionText-sc-ws5mjw-25 gOZZpD">0</p>
-								</div>
-							</div>
-						</div>
-						<!-- hear -->
-					</div>
-
-					<div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
-						<p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">재밌게 여행 뿌술분 있나요?</p>
-						<p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
-							렌트 완료고, 제주 프리패스 48시간이나 72시간 구입해서 여행 다닐 예정입니다. 요트, 낚시, 카페, 베이커리, 수목원, 민속촌, 서커스 등
-							하루는 성산 일출봉 일출 보러 올라 갈 거에요! (강제 등반 안 함) 티키타카 좋고, 에너지 활동 뿜뿜하신 분 모십니다~ 저녁식사 대접, 인생
-							샷 영접 해드려요~
-						</p>
-					</div>
-
-				</div>
+			
+			<ul type="portrait" class="AccompanyWebSection__AccompanyList-sc-lvz8r6-0 dkymTH">
+				<c:forEach var="pn" items="${ pnlist }">
 				
-
-
-
-				<!-------------------------------------------------------------------------------------------------------------------------->
-				<div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
-
-					<div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
-
-						<div class="AccompanyWebCard__ProfileWrap-sc-ws5mjw-6 gNWBdG">
-							<img
-								src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/member/1681209401892-1"
-								class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
-							<div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
-								<p
-									color="#000000"
-									class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">여행뿌수자</p>
-								<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
-									<p
-										color="#008ff6"
-										class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">20대</p>
-									<div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
-									<p
-										color="#008ff6"
-										class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">남성</p>
+					<div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
+						<input type="hidden" value="${pn.postNo }" class="postNo"/>
+					
+						
+						<div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
+	
+							<div class="AccompanyWebCard__ProfileWrap-sc-ws5mjw-6 gNWBdG"> 
+							<!--  ---------------------------------------------------------------------------------------------------------------------- 여기가 member ${pn.member.img }-->
+								<c:choose>
+								<c:when test="${not empty pn.member.img }">
+									<img src="${pn.member.img }"
+										class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
+								</c:when>
+								<c:otherwise>
+									<img src="${pageContext.request.contextPath}/resources/img/partner/ner.jpg"
+										class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
+								</c:otherwise>
+								</c:choose>
+									
+								<div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
+									<p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">${pn.member.memNickname }</p>
+									<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
+									<!-- ----------------------------------------------------------------------------------------------------------------------- ${pn.member.mbti } -->
+										<c:choose>
+										<c:when test="${not empty pn.member.mbti }">
+											<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${pn.member.mbti }</p>
+										</c:when>
+										<c:otherwise>
+										<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">미정</p>
+											
+										</c:otherwise>
+										</c:choose>
+										<div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
+										<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${pn.member.gender == 'F' ? '여성' : '남성'}</p>
+									</div>
 								</div>
 							</div>
-						</div>
-
-						<div class="AccompanyWebCard__GrayLine-sc-ws5mjw-2 fAUDUm"></div>
-
-						<div class="AccompanyWebCard__DateWrap-sc-ws5mjw-9 fdRVsr">
-							<div class="AccompanyWebCard__DateHoveredWrap-sc-ws5mjw-10 hWLPgS"></div>
-							<div class="AccompanyWebCard__DateTitleWrap-sc-ws5mjw-11 kdZjQK">
-								<img
-									src="/images/sub/accompany/card/accompany_gray_calendar.png"
-									class="AccompanyWebCard__DateIcon-sc-ws5mjw-12 ilUDog">
-								<p class="AccompanyWebCard__DateTitle-sc-ws5mjw-13 iBlyRM">여행기간</p>
+	
+							<div class="AccompanyWebCard__GrayLine-sc-ws5mjw-2 fAUDUm"></div>
+	
+							<div class="AccompanyWebCard__DateWrap-sc-ws5mjw-9 fdRVsr">
+								<div class="AccompanyWebCard__DateHoveredWrap-sc-ws5mjw-10 hWLPgS"></div>
+								<div class="AccompanyWebCard__DateTitleWrap-sc-ws5mjw-11 kdZjQK">
+									<img src="${pageContext.request.contextPath}/resources/img/partner/accompany_gray_calendar.png" class="AccompanyWebCard__DateIcon-sc-ws5mjw-12 ilUDog">
+									<p class="AccompanyWebCard__DateTitle-sc-ws5mjw-13 iBlyRM">여행기간</p>
+								</div>
+								<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
+									<p color="#00CE7C" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">
+									${pn.partnerStartDate } - ${pn.partnerEndDate }</p>
+								</div>
 							</div>
-							<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
-								<p
-									color="#00CE7C"
-									class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 iVfuBW">4일</p>
-								<div color="#00CE7C" class="AccompanyWebCard__Circle-sc-ws5mjw-1 mKoaj"></div>
-								<p
-									color="#00CE7C"
-									class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">04/14 - 04/17</p>
+	
+						</div>
+	
+						<div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
+						<!-- -------------------------------------------------------------------------------------------------------------------------------------   ${pn.partnerOriginalImg } -->
+							<img src="${pageContext.request.contextPath}/resources/img/partner/${pn.partnerOriginalImg }" class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
+	
+							<div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
+								<div class="AccompanyWebCard__LocationIcon-sc-ws5mjw-17 lmqiXK">
+									<svg
+										width="13"
+										height="17"
+										viewbox="0 0 13 17"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M12.7244 7.11371C12.7244 10.6866 6.49995 16.3557 6.49995 16.3557C6.49995 16.3557 0.275513 10.6866 0.275513 7.11371C0.275513 3.54077 3.06229 0.644341 6.49995 0.644341C9.93761 0.644341 12.7244 3.54077 12.7244 7.11371Z"
+											fill="#008FF6"></path>
+										<ellipse cx="6.50063" cy="6.40462" rx="2.81106" ry="2.81106" fill="#fff"></ellipse>
+									</svg>
+								</div>
+								<p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">${pn.spot.areaTitle }</p>
 							</div>
 						</div>
-
+	
+						<div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
+								<p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">${ pn.partnerTitle }</p>
+								<p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
+									${ pn.partnerContent }
+								</p>
+						</div>						
 					</div>
 
-					<div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
-						<img
-							src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/accompany/1681209598075-2"
-							class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
-
-						<div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
-							<div class="AccompanyWebCard__LocationIcon-sc-ws5mjw-17 lmqiXK">
-								<svg
-									width="13"
-									height="17"
-									viewbox="0 0 13 17"
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg">
-									<path
-										d="M12.7244 7.11371C12.7244 10.6866 6.49995 16.3557 6.49995 16.3557C6.49995 16.3557 0.275513 10.6866 0.275513 7.11371C0.275513 3.54077 3.06229 0.644341 6.49995 0.644341C9.93761 0.644341 12.7244 3.54077 12.7244 7.11371Z"
-										fill="#008FF6"></path>
-									<ellipse cx="6.50063" cy="6.40462" rx="2.81106" ry="2.81106" fill="#fff"></ellipse>
-								</svg>
-							</div>
-							<p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">제주도</p>
-						</div>
-
-						<div class="AccompanyWebCard__DetailBottomWrap-sc-ws5mjw-19 LuXMO">
-							<div class="AccompanyWebCard__RecruitWrap-sc-ws5mjw-20 jfSGGP">
-								<p class="AccompanyWebCard__RecruitText-sc-ws5mjw-21 YIYAY">모집중</p>
-								<div color="#00CE7C" class="AccompanyWebCard__Circle-sc-ws5mjw-1 hMauwG"></div>
-								<p class="AccompanyWebCard__RecruitText-sc-ws5mjw-21 YIYAY">2명</p>
-							</div>
-							<div class="AccompanyWebCard__OptionWrap-sc-ws5mjw-22 jQFFHg">
-								<div class="AccompanyWebCard__OptionIconWrap-sc-ws5mjw-23 lhlIsf">
-									<img
-										src="/images/sub/accompany/card/accompany_white_eye.png"
-										class="AccompanyWebCard__OptionIcon-sc-ws5mjw-24 fbgSqP">
-									<p class="AccompanyWebCard__OptionText-sc-ws5mjw-25 gOZZpD">36</p>
-								</div>
-								<div class="AccompanyWebCard__OptionIconWrap-sc-ws5mjw-23 lhlIsf">
-									<img
-										src="/images/sub/accompany/card/accompany_white_message.png"
-										class="AccompanyWebCard__OptionIcon-sc-ws5mjw-24 fbgSqP">
-									<p class="AccompanyWebCard__OptionText-sc-ws5mjw-25 gOZZpD">0</p>
-								</div>
-								<div class="AccompanyWebCard__OptionIconWrap-sc-ws5mjw-23 ccCSmm">
-									<img
-										src="/images/sub/accompany/card/accompany_white_plane.png"
-										class="AccompanyWebCard__OptionIcon-sc-ws5mjw-24 fbgSqP">
-									<p class="AccompanyWebCard__OptionText-sc-ws5mjw-25 gOZZpD">0</p>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
-						<p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">수정완료 이거 먹나?</p>
-						<p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
-							렌트 완료고, 제주 프리패스 48시간이나 72시간 구입해서 여행 다닐 예정입니다. 요트, 낚시, 카페, 베이커리, 수목원, 민속촌, 서커스 등
-							하루는 성산 일출봉 일출 보러 올라 갈 거에요! (강제 등반 안 함) 티키타카 좋고, 에너지 활동 뿜뿜하신 분 모십니다~ 저녁식사 대접, 인생
-							샷 영접 해드려요~
-						</p>
-					</div>
-
-				</div>
-
-				<!-------------------------------------------------------------------------->
-				<!-------------------------------------------------------------------------------------------------------------------------->
-				<div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
-
-					<div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
-
-						<div class="AccompanyWebCard__ProfileWrap-sc-ws5mjw-6 gNWBdG">
-							<img
-								src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/member/1681209401892-1"
-								class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
-							<div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
-								<p
-									color="#000000"
-									class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">여행뿌수자</p>
-								<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
-									<p
-										color="#008ff6"
-										class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">20대</p>
-									<div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
-									<p
-										color="#008ff6"
-										class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">남성</p>
-								</div>
-							</div>
-						</div>
-
-						<div class="AccompanyWebCard__GrayLine-sc-ws5mjw-2 fAUDUm"></div>
-
-						<div class="AccompanyWebCard__DateWrap-sc-ws5mjw-9 fdRVsr">
-							<div class="AccompanyWebCard__DateHoveredWrap-sc-ws5mjw-10 hWLPgS"></div>
-							<div class="AccompanyWebCard__DateTitleWrap-sc-ws5mjw-11 kdZjQK">
-								<img
-									src="/images/sub/accompany/card/accompany_gray_calendar.png"
-									class="AccompanyWebCard__DateIcon-sc-ws5mjw-12 ilUDog">
-								<p class="AccompanyWebCard__DateTitle-sc-ws5mjw-13 iBlyRM">여행기간</p>
-							</div>
-							<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
-								<p
-									color="#00CE7C"
-									class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 iVfuBW">4일</p>
-								<div color="#00CE7C" class="AccompanyWebCard__Circle-sc-ws5mjw-1 mKoaj"></div>
-								<p
-									color="#00CE7C"
-									class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">04/14 - 04/17</p>
-							</div>
-						</div>
-
-					</div>
-
-					<div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
-						<img
-							src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/accompany/1681209598075-2"
-							class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
-
-						<div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
-							<div class="AccompanyWebCard__LocationIcon-sc-ws5mjw-17 lmqiXK">
-								<svg
-									width="13"
-									height="17"
-									viewbox="0 0 13 17"
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg">
-									<path
-										d="M12.7244 7.11371C12.7244 10.6866 6.49995 16.3557 6.49995 16.3557C6.49995 16.3557 0.275513 10.6866 0.275513 7.11371C0.275513 3.54077 3.06229 0.644341 6.49995 0.644341C9.93761 0.644341 12.7244 3.54077 12.7244 7.11371Z"
-										fill="#008FF6"></path>
-									<ellipse cx="6.50063" cy="6.40462" rx="2.81106" ry="2.81106" fill="#fff"></ellipse>
-								</svg>
-							</div>
-							<p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">제주도</p>
-						</div>
-
-						<div class="AccompanyWebCard__DetailBottomWrap-sc-ws5mjw-19 LuXMO">
-							<div class="AccompanyWebCard__RecruitWrap-sc-ws5mjw-20 jfSGGP">
-								<p class="AccompanyWebCard__RecruitText-sc-ws5mjw-21 YIYAY">모집중</p>
-								<div color="#00CE7C" class="AccompanyWebCard__Circle-sc-ws5mjw-1 hMauwG"></div>
-								<p class="AccompanyWebCard__RecruitText-sc-ws5mjw-21 YIYAY">2명</p>
-							</div>
-							<div class="AccompanyWebCard__OptionWrap-sc-ws5mjw-22 jQFFHg">
-								<div class="AccompanyWebCard__OptionIconWrap-sc-ws5mjw-23 lhlIsf">
-									<img
-										src="/images/sub/accompany/card/accompany_white_eye.png"
-										class="AccompanyWebCard__OptionIcon-sc-ws5mjw-24 fbgSqP">
-									<p class="AccompanyWebCard__OptionText-sc-ws5mjw-25 gOZZpD">36</p>
-								</div>
-								<div class="AccompanyWebCard__OptionIconWrap-sc-ws5mjw-23 lhlIsf">
-									<img
-										src="/images/sub/accompany/card/accompany_white_message.png"
-										class="AccompanyWebCard__OptionIcon-sc-ws5mjw-24 fbgSqP">
-									<p class="AccompanyWebCard__OptionText-sc-ws5mjw-25 gOZZpD">0</p>
-								</div>
-								<div class="AccompanyWebCard__OptionIconWrap-sc-ws5mjw-23 ccCSmm">
-									<img
-										src="/images/sub/accompany/card/accompany_white_plane.png"
-										class="AccompanyWebCard__OptionIcon-sc-ws5mjw-24 fbgSqP">
-									<p class="AccompanyWebCard__OptionText-sc-ws5mjw-25 gOZZpD">0</p>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
-						<p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">재밌게 여행 뿌술분 있나요?</p>
-						<p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
-							렌트 완료고, 제주 프리패스 48시간이나 72시간 구입해서 여행 다닐 예정입니다. 요트, 낚시, 카페, 베이커리, 수목원, 민속촌, 서커스 등
-							하루는 성산 일출봉 일출 보러 올라 갈 거에요! (강제 등반 안 함) 티키타카 좋고, 에너지 활동 뿜뿜하신 분 모십니다~ 저녁식사 대접, 인생
-							샷 영접 해드려요~
-						</p>
-					</div>
-
-				</div>
-
-				<!-------------------------------------------------------------------------------------------------------------------------->
-				<div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
-
-					<div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
-
-						<div class="AccompanyWebCard__ProfileWrap-sc-ws5mjw-6 gNWBdG">
-							<img
-								src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/member/1681209401892-1"
-								class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
-							<div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
-								<p
-									color="#000000"
-									class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">여행뿌수자</p>
-								<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
-									<p
-										color="#008ff6"
-										class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">20대</p>
-									<div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
-									<p
-										color="#008ff6"
-										class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">남성</p>
-								</div>
-							</div>
-						</div>
-
-						<div class="AccompanyWebCard__GrayLine-sc-ws5mjw-2 fAUDUm"></div>
-
-						<div class="AccompanyWebCard__DateWrap-sc-ws5mjw-9 fdRVsr">
-							<div class="AccompanyWebCard__DateHoveredWrap-sc-ws5mjw-10 hWLPgS"></div>
-							<div class="AccompanyWebCard__DateTitleWrap-sc-ws5mjw-11 kdZjQK">
-								<img
-									src="/images/sub/accompany/card/accompany_gray_calendar.png"
-									class="AccompanyWebCard__DateIcon-sc-ws5mjw-12 ilUDog">
-								<p class="AccompanyWebCard__DateTitle-sc-ws5mjw-13 iBlyRM">여행기간</p>
-							</div>
-							<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
-								<p
-									color="#00CE7C"
-									class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 iVfuBW">4일</p>
-								<div color="#00CE7C" class="AccompanyWebCard__Circle-sc-ws5mjw-1 mKoaj"></div>
-								<p
-									color="#00CE7C"
-									class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">04/14 - 04/17</p>
-							</div>
-						</div>
-
-					</div>
-
-					<div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
-						<img
-							src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/accompany/1681209598075-2"
-							class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
-
-						<div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
-							<div class="AccompanyWebCard__LocationIcon-sc-ws5mjw-17 lmqiXK">
-								<svg
-									width="13"
-									height="17"
-									viewbox="0 0 13 17"
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg">
-									<path
-										d="M12.7244 7.11371C12.7244 10.6866 6.49995 16.3557 6.49995 16.3557C6.49995 16.3557 0.275513 10.6866 0.275513 7.11371C0.275513 3.54077 3.06229 0.644341 6.49995 0.644341C9.93761 0.644341 12.7244 3.54077 12.7244 7.11371Z"
-										fill="#008FF6"></path>
-									<ellipse cx="6.50063" cy="6.40462" rx="2.81106" ry="2.81106" fill="#fff"></ellipse>
-								</svg>
-							</div>
-							<p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">제주도</p>
-						</div>
-
-						<div class="AccompanyWebCard__DetailBottomWrap-sc-ws5mjw-19 LuXMO">
-							<div class="AccompanyWebCard__RecruitWrap-sc-ws5mjw-20 jfSGGP">
-								<p class="AccompanyWebCard__RecruitText-sc-ws5mjw-21 YIYAY">모집중</p>
-								<div color="#00CE7C" class="AccompanyWebCard__Circle-sc-ws5mjw-1 hMauwG"></div>
-								<p class="AccompanyWebCard__RecruitText-sc-ws5mjw-21 YIYAY">2명</p>
-							</div>
-							<div class="AccompanyWebCard__OptionWrap-sc-ws5mjw-22 jQFFHg">
-								<div class="AccompanyWebCard__OptionIconWrap-sc-ws5mjw-23 lhlIsf">
-									<img
-										src="/images/sub/accompany/card/accompany_white_eye.png"
-										class="AccompanyWebCard__OptionIcon-sc-ws5mjw-24 fbgSqP">
-									<p class="AccompanyWebCard__OptionText-sc-ws5mjw-25 gOZZpD">36</p>
-								</div>
-								<div class="AccompanyWebCard__OptionIconWrap-sc-ws5mjw-23 lhlIsf">
-									<img
-										src="/images/sub/accompany/card/accompany_white_message.png"
-										class="AccompanyWebCard__OptionIcon-sc-ws5mjw-24 fbgSqP">
-									<p class="AccompanyWebCard__OptionText-sc-ws5mjw-25 gOZZpD">0</p>
-								</div>
-								<div class="AccompanyWebCard__OptionIconWrap-sc-ws5mjw-23 ccCSmm">
-									<img
-										src="/images/sub/accompany/card/accompany_white_plane.png"
-										class="AccompanyWebCard__OptionIcon-sc-ws5mjw-24 fbgSqP">
-									<p class="AccompanyWebCard__OptionText-sc-ws5mjw-25 gOZZpD">0</p>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
-						<p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">재밌게 여행 뿌술분 있나요?</p>
-						<p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
-							렌트 완료고, 제주 프리패스 48시간이나 72시간 구입해서 여행 다닐 예정입니다. 요트, 낚시, 카페, 베이커리, 수목원, 민속촌, 서커스 등
-							하루는 성산 일출봉 일출 보러 올라 갈 거에요! (강제 등반 안 함) 티키타카 좋고, 에너지 활동 뿜뿜하신 분 모십니다~ 저녁식사 대접, 인생
-							샷 영접 해드려요~
-						</p>
-					</div>
-
-				</div>
-				<!-------------------------------------------------------------------------------------------------------------------------->
-				<div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
-
-					<div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
-
-						<div class="AccompanyWebCard__ProfileWrap-sc-ws5mjw-6 gNWBdG">
-							<img
-								src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/member/1681209401892-1"
-								class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
-							<div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
-								<p
-									color="#000000"
-									class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">여행뿌수자</p>
-								<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
-									<p
-										color="#008ff6"
-										class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">20대</p>
-									<div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
-									<p
-										color="#008ff6"
-										class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">남성</p>
-								</div>
-							</div>
-						</div>
-
-						<div class="AccompanyWebCard__GrayLine-sc-ws5mjw-2 fAUDUm"></div>
-
-						<div class="AccompanyWebCard__DateWrap-sc-ws5mjw-9 fdRVsr">
-							<div class="AccompanyWebCard__DateHoveredWrap-sc-ws5mjw-10 hWLPgS"></div>
-							<div class="AccompanyWebCard__DateTitleWrap-sc-ws5mjw-11 kdZjQK">
-								<img
-									src="/images/sub/accompany/card/accompany_gray_calendar.png"
-									class="AccompanyWebCard__DateIcon-sc-ws5mjw-12 ilUDog">
-								<p class="AccompanyWebCard__DateTitle-sc-ws5mjw-13 iBlyRM">여행기간</p>
-							</div>
-							<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
-								<p
-									color="#00CE7C"
-									class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 iVfuBW">4일</p>
-								<div color="#00CE7C" class="AccompanyWebCard__Circle-sc-ws5mjw-1 mKoaj"></div>
-								<p
-									color="#00CE7C"
-									class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">04/14 - 04/17</p>
-							</div>
-						</div>
-
-					</div>
-
-					<div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
-						<img
-							src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/accompany/1681209598075-2"
-							class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
-
-						<div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
-							<div class="AccompanyWebCard__LocationIcon-sc-ws5mjw-17 lmqiXK">
-								<svg
-									width="13"
-									height="17"
-									viewbox="0 0 13 17"
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg">
-									<path
-										d="M12.7244 7.11371C12.7244 10.6866 6.49995 16.3557 6.49995 16.3557C6.49995 16.3557 0.275513 10.6866 0.275513 7.11371C0.275513 3.54077 3.06229 0.644341 6.49995 0.644341C9.93761 0.644341 12.7244 3.54077 12.7244 7.11371Z"
-										fill="#008FF6"></path>
-									<ellipse cx="6.50063" cy="6.40462" rx="2.81106" ry="2.81106" fill="#fff"></ellipse>
-								</svg>
-							</div>
-							<p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">제주도</p>
-						</div>
-
-						<div class="AccompanyWebCard__DetailBottomWrap-sc-ws5mjw-19 LuXMO">
-							<div class="AccompanyWebCard__RecruitWrap-sc-ws5mjw-20 jfSGGP">
-								<p class="AccompanyWebCard__RecruitText-sc-ws5mjw-21 YIYAY">모집중</p>
-								<div color="#00CE7C" class="AccompanyWebCard__Circle-sc-ws5mjw-1 hMauwG"></div>
-								<p class="AccompanyWebCard__RecruitText-sc-ws5mjw-21 YIYAY">2명</p>
-							</div>
-							<div class="AccompanyWebCard__OptionWrap-sc-ws5mjw-22 jQFFHg">
-								<div class="AccompanyWebCard__OptionIconWrap-sc-ws5mjw-23 lhlIsf">
-									<img
-										src="/images/sub/accompany/card/accompany_white_eye.png"
-										class="AccompanyWebCard__OptionIcon-sc-ws5mjw-24 fbgSqP">
-									<p class="AccompanyWebCard__OptionText-sc-ws5mjw-25 gOZZpD">36</p>
-								</div>
-								<div class="AccompanyWebCard__OptionIconWrap-sc-ws5mjw-23 lhlIsf">
-									<img
-										src="/images/sub/accompany/card/accompany_white_message.png"
-										class="AccompanyWebCard__OptionIcon-sc-ws5mjw-24 fbgSqP">
-									<p class="AccompanyWebCard__OptionText-sc-ws5mjw-25 gOZZpD">0</p>
-								</div>
-								<div class="AccompanyWebCard__OptionIconWrap-sc-ws5mjw-23 ccCSmm">
-									<img
-										src="/images/sub/accompany/card/accompany_white_plane.png"
-										class="AccompanyWebCard__OptionIcon-sc-ws5mjw-24 fbgSqP">
-									<p class="AccompanyWebCard__OptionText-sc-ws5mjw-25 gOZZpD">0</p>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
-						<p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">재밌게 여행 뿌술분 있나요?</p>
-						<p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI" >
-							렌트 완료고, 제주 프리패스 48시간이나 72시간 구입해서 여행 다닐 예정입니다. 요트, 낚시, 카페, 베이커리, 수목원, 민속촌, 서커스 등
-							하루는 성산 일출봉 일출 보러 올라 갈 거에요! (강제 등반 안 함) 티키타카 좋고, 에너지 활동 뿜뿜하신 분 모십니다~ 저녁식사 대접, 인생
-							샷 영접 해드려요~
-						</p>
-					</div>
-
-				</div>
-				<!-- -------------------------------------------------------------------------------------------------------------------------- -->
+				</c:forEach>
+				
+				<!-- -------------------------- -->
+				<script>
+					$("#pnlist>ul>.cxduOO").click(function(){
+					  // location.href='detail.pn?pno=' + ${pn.postNo };
+					  console.log("asdasdsad");
+					  location.href = "detail.pn?pno="+$(this).children(".postNo").val();
+							
+				   })
+				</script>
+	
+					<!---------------------------------------------------------------------------------------------------------------------------- -->
+				<!---------------------------------------------------------------------------------------------------------------------------- -->
 
 				<script>
 					$(".cxduOO").hover(function() {
@@ -1300,18 +846,50 @@
 					  $(this).find(".heALwI").css("background", "");
 					  $(this).find(".heALwI, .kPceoN").css("color", "");
 					});
+					
+				
 				  </script>
 				<!-------------------------------------------------------------------------->
-
-			</ul>
-
-		</section>
-		
-
-		
+					</ul>
+				</section>
+				
+				<section
+				direction="vertical"
+				class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq"
+				style="display: flex; box-sizing: border-box; margin-top: 200px; margin-bottom: 60px;">
+				
+				<div class="ExtendedPaginationTemplate__PaginationWrap-sc-uw2t4b-0 dvaZUI" id="pagingArea">
+					<ul class="pagination">
+					
+						<c:choose>
+							  <c:when test="${ pi.currentPage eq 1}">
+									<li class="page-item disabled"><a class="page-link" href="">Previous</a></li>
+							</c:when>
+							<c:otherwise>
+							<li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage -1 }">Previous</a></li>
+							</c:otherwise>
+						   </c:choose>
+						<c:forEach var="p" begin="${ pi.startPage }" end="${ pi.endPage }">
+							<li class="page-item"><a class="page-link" href="list.bo?cpage=${ p }">${ p }</a></li>
+						</c:forEach>
+						<c:choose>
+							<c:when test="${ pi.currentPage eq pi.maxPage }">
+								<li class="page-item disabled"><a class="page-link" href="">Next</a></li>
+							 </c:when>
+							 <c:otherwise>
+								<li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage +1 }">Next</a></li>
+							  </c:otherwise>
+						  </c:choose>
+					</ul>
+				</div>
+			</section>
+				</div>
+				
+				
+				
 	</div>
-</div>
 <jsp:include page="../member/mypageSidebar.jsp"/>
+</div>
 	</div>
 	</div>
 	</div>

@@ -272,10 +272,10 @@
 			<hr>
 			<br>
 			
-			<select name="" id="" style="border: none; float: right;">
-			<option value="">이름순</option>
-			<option value="">좋아요순</option>
-			<option value="">조회순</option>
+			<select id="sortSelect" style="border: none; float: right;">
+				<option value="name">이름순</option>
+				<option value="like">좋아요순</option>
+				<option value="view">조회순</option>
 			</select>
 
 			<br><br><br><br>
@@ -299,7 +299,7 @@
 			<div onclick="selectSpotAPI('${i.spotContentId}', '${i.spotContentType}');" class="card-img-overlay card-hover-overlay rounded-top d-flex flex-column">
 			</div>
 			</a>
-			<div class="card-body px-4" style="background-color: rgba(112, 217, 223, 0.01)">
+			<div class="card-body px-4" style="background-color: rgba(112, 217, 223, 0.01); height:150px;">
 			<p style="color: gray; font-size: 9;">
 			<img src="resources/img/icons/map.png" style="width: 16px; height: 16px;" alt="">
 			${i.areaTitle} ${i.sigunguTitle}
@@ -346,13 +346,18 @@
 
 
 	<script>
+		
+		let currentPage = 1;
 
 		$(function(){
 			$('.typeNo input[value=${slo.spotContentType}]').attr("checked", true);
 			$('.areaNo input[value=${slo.areaCategoryNo}]').attr("checked", true);
+
+			var sortVal = $('#sortSelect').val();
+			
+			searchSpotList(currentPage, spotContentType, areaCategoryNo, sortVal);
 		})
 
-		let currentPage = 1;
 
 		let isUpdateList = true;
 		window.onscroll = function(e) {
@@ -371,14 +376,15 @@
 			}
 		}
 
-		function searchSpotList(currentPage, spotContentType, areaCategoryNo) {
+		function searchSpotList(currentPage, spotContentType, areaCategoryNo, sortVal) {
 			let value = "";
 			$.ajax({
 				url:"searchSpotListTwo.sp",
 				data:{
 						currentPage:currentPage,
 						spotContentType:spotContentType,
-						areaCategoryNo:areaCategoryNo
+						areaCategoryNo:areaCategoryNo,
+						sortVal:sortVal
 					},
 				success:function(list){
 					for(let i=0; i<list.length; i++){

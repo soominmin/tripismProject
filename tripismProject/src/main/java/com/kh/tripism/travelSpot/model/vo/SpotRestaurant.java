@@ -1,6 +1,9 @@
 package com.kh.tripism.travelSpot.model.vo;
 
 public class SpotRestaurant {
+	
+	private String contentid;			//콘텐츠ID
+	private String contenttypeid;		//콘텐츠타입ID
 	private String chkcreditcardfood;	//신용카드가능정보
 	private String discountinfofood;	//할인정보
 	private String firstmenu;			//대표메뉴
@@ -20,11 +23,13 @@ public class SpotRestaurant {
 	
 	public SpotRestaurant() {}
 
-	public SpotRestaurant(String chkcreditcardfood, String discountinfofood, String firstmenu, String infocenterfood,
-			String kidsfacility, String opendatefood, String opentimefood, String packing, String parkingfood,
-			String reservationfood, String restdatefood, String scalefood, String seat, String smoking,
-			String treatmenu, String lcnsno) {
+	public SpotRestaurant(String contentid, String contenttypeid, String chkcreditcardfood, String discountinfofood,
+			String firstmenu, String infocenterfood, String kidsfacility, String opendatefood, String opentimefood,
+			String packing, String parkingfood, String reservationfood, String restdatefood, String scalefood,
+			String seat, String smoking, String treatmenu, String lcnsno) {
 		super();
+		this.contentid = contentid;
+		this.contenttypeid = contenttypeid;
 		this.chkcreditcardfood = chkcreditcardfood;
 		this.discountinfofood = discountinfofood;
 		this.firstmenu = firstmenu;
@@ -41,6 +46,22 @@ public class SpotRestaurant {
 		this.smoking = smoking;
 		this.treatmenu = treatmenu;
 		this.lcnsno = lcnsno;
+	}
+
+	public String getContentid() {
+		return contentid;
+	}
+
+	public void setContentid(String contentid) {
+		this.contentid = contentid;
+	}
+
+	public String getContenttypeid() {
+		return contenttypeid;
+	}
+
+	public void setContenttypeid(String contenttypeid) {
+		this.contenttypeid = contenttypeid;
 	}
 
 	public String getChkcreditcardfood() {
@@ -173,13 +194,15 @@ public class SpotRestaurant {
 
 	@Override
 	public String toString() {
-		return "SpotRestaurant [chkcreditcardfood=" + chkcreditcardfood + ", discountinfofood=" + discountinfofood
-				+ ", firstmenu=" + firstmenu + ", infocenterfood=" + infocenterfood + ", kidsfacility=" + kidsfacility
-				+ ", opendatefood=" + opendatefood + ", opentimefood=" + opentimefood + ", packing=" + packing
-				+ ", parkingfood=" + parkingfood + ", reservationfood=" + reservationfood + ", restdatefood="
-				+ restdatefood + ", scalefood=" + scalefood + ", seat=" + seat + ", smoking=" + smoking + ", treatmenu="
-				+ treatmenu + ", lcnsno=" + lcnsno + "]";
+		return "SpotRestaurant [contentid=" + contentid + ", contenttypeid=" + contenttypeid + ", chkcreditcardfood="
+				+ chkcreditcardfood + ", discountinfofood=" + discountinfofood + ", firstmenu=" + firstmenu
+				+ ", infocenterfood=" + infocenterfood + ", kidsfacility=" + kidsfacility + ", opendatefood="
+				+ opendatefood + ", opentimefood=" + opentimefood + ", packing=" + packing + ", parkingfood="
+				+ parkingfood + ", reservationfood=" + reservationfood + ", restdatefood=" + restdatefood
+				+ ", scalefood=" + scalefood + ", seat=" + seat + ", smoking=" + smoking + ", treatmenu=" + treatmenu
+				+ ", lcnsno=" + lcnsno + "]";
 	}
+	
 	
 	
 

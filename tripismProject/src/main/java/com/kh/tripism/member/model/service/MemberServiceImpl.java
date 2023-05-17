@@ -1,12 +1,17 @@
 package com.kh.tripism.member.model.service;
 
+import java.util.ArrayList;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.member.model.dao.MemberDao;
+import com.kh.tripism.member.model.vo.BookMark;
 import com.kh.tripism.member.model.vo.Folder;
 import com.kh.tripism.member.model.vo.Member;
+import com.kh.tripism.partnerBoard.model.vo.PnBoard;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -102,6 +107,36 @@ public class MemberServiceImpl implements MemberService {
 		int result = mDao.insertFolder(sqlSession, f);
 		return result;
 	}
+	
+	// 나의 동행 게시글 목록 조회
+	@Override
+	public ArrayList<PnBoard> writtenSelectList(PageInfo pi, int memNo) {
+		return mDao.writtenSelectList(sqlSession, pi, memNo);
+	}
+	
+	// 나의 즐겨찾기 폴더리스트
+	@Override
+	public ArrayList<Folder> folderSelectList(int memNo) {
+		return mDao.folderSelectList(sqlSession, memNo);
+	}
+	
+	// 나의 즐겨찾기 안에있는 여행지 insert
+	@Override
+	public int insertBookMarkList(BookMark bm) {
+		int result = mDao.insertBookMarkList(sqlSession, bm);
+		return result;
+	}
+	
+	// 다른사람 마이페이지 조회
+	@Override
+	public Member otherPage(int memNo) {
+		return mDao.otherPage(sqlSession, memNo);
+	}
+
+
+
+	
+	
 
 
 
@@ -205,6 +240,17 @@ public class MemberServiceImpl implements MemberService {
 		}
 		return count;
 	}
+
+	@Override
+	public ArrayList<BookMark> insertBookMarkList(int memNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+
+
 
 
 

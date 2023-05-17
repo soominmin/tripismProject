@@ -737,6 +737,7 @@
 <body>
 	<!-- 헤더바 포함 -->
 	<jsp:include page="../common/header.jsp"/>
+	
 
 	<section class="FullSection__SectionWrapper-sc-1szrt90-0 fqcgyB">
 		<div class="FullSection__TopSectionWrapper-sc-1szrt90-1 AxzSO test">
@@ -744,6 +745,7 @@
 			<p class="TopSection__PreventDragP-sc-1sc5grx-0 krJNwE" style="color:rgb(255, 255, 255);">여행친구찾기</p>
 		</div>
 	</section>
+	
 
 	<div class="Layout__PageContentWrap-sc-1w3ggn5-0 bgfeYQ">
 		<section
@@ -810,7 +812,7 @@
 							<!--  ---------------------------------------------------------------------------------------------------------------------- 여기가 member ${pn.member.img }-->
 								<c:choose>
 								<c:when test="${not empty pn.member.img }">
-									<img src="${pageContext.request.contextPath}/resources/img/partner/${pn.member.img }.jpg"
+									<img src="${pn.member.img }"
 										class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
 								</c:when>
 								<c:otherwise>
@@ -960,6 +962,8 @@
 			</div>
 			
 		</section>
+
+		
 	</div>
 
 	
@@ -967,5 +971,7 @@
 	
 		<!-- 푸터바 포함 -->
 	<jsp:include page="../common/footer.jsp"/>
+	
 </body>
+
 </html>

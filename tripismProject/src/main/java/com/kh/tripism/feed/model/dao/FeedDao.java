@@ -61,6 +61,10 @@ public class FeedDao {
 	public int updateFeed(SqlSessionTemplate sqlSession, Feed f) {
 		return sqlSession.update("feedMapper.updateFeed", f);
 	};
+	
+	public int updateFeed2(SqlSessionTemplate sqlSession, Feed f) {
+		return sqlSession.update("feedMapper.updateFeed2", f);
+	}
 
 	// 피드 개수 셈
 	public int selectFeedCount(SqlSessionTemplate sqlSession) {

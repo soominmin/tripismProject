@@ -289,29 +289,69 @@ public class FeedController {
 	}
 	
 	@RequestMapping("update.fd") // 구현중 0515
-	public String updateFeed(Feed f, MultipartFile reupfile1, MultipartFile reupfile2, MultipartFile reupfile3, MultipartFile reupfile4, HttpSession session, Model model) {
-		if(!reupfile1.getOriginalFilename().equals("")) {
-			if(f.getImgOriginalName1() != null) {
-				new File(session.getServletContext().getRealPath(f.getImgChangeName1())).delete();
-			}
-			String changeName1 = saveFile1(reupfile1, session);
-			String changeName2 = saveFile2(reupfile2, session);
-			String changeName3 = saveFile3(reupfile3, session);
-			String changeName4 = saveFile4(reupfile4, session);
+	public String updateFeed(Feed f, MultipartFile upFile1, MultipartFile upFile2, MultipartFile upFile3, MultipartFile upFile4, HttpSession session, Model model) {
+		
+if(!upFile1.getOriginalFilename().equals("")) { // 첨부를 했다.
 			
-			f.setImgOriginalName1(reupfile1.getOriginalFilename());
-			f.setImgChangeName1("resources/upfiles/" + changeName1);
+			String changeName1 = saveFile1(upFile1, session);
+			
+			// f => field에 담는작업
+			
+			f.setImgOriginalName1(upFile1.getOriginalFilename());
+			f.setImgChangeName1("resources/uploadFiles/" + changeName1);
 		}
 		
-		int result = fService.updateFeed(f);
+		if(!upFile2.getOriginalFilename().equals("")) { // 첨부를 했다.
+			
+			String changeName2 = saveFile2(upFile2, session);
+			
+			// f => field에 담는작업
+			
+			f.setImgOriginalName2(upFile2.getOriginalFilename());
+			f.setImgChangeName2("resources/uploadFiles/" + changeName2);
+			
+		}
 		
+		if(!upFile3.getOriginalFilename().equals("")) { // 첨부를 했다.
+			
+			String changeName3 = saveFile3(upFile3, session);
+			
+			// f => field에 담는작업
+			
+			f.setImgOriginalName3(upFile3.getOriginalFilename());
+			f.setImgChangeName3("resources/uploadFiles/" + changeName3);
+			
+		}
+		
+		if(!upFile4.getOriginalFilename().equals("")) { // 첨부를 했다.
+			
+			String changeName4 = saveFile4(upFile4, session);
+			
+			// f => field에 담는작업
+			
+			f.setImgOriginalName4(upFile2.getOriginalFilename());
+			f.setImgChangeName4("resources/uploadFiles/" + changeName4);
+			
+		}
+		
+		
+		System.out.println("컨트롤러 탔나?");
+		//System.out.println("이미지 : " + i);
+		
+		int result = fService.updateFeed(f); // 제목/본문 넣을 곳
+		int result2 = fService.updateFeed2(f); // 이미지 넣을 곳 
+		
+		System.out.println("사진 변환이름1 : " + f.getImgChangeName1());
+		System.out.println("사진 변환이름2 : " + f.getImgChangeName2());
+		System.out.println("사진 변환이름3 : " + f.getImgChangeName3());
+		System.out.println("사진 변환이름4 : " + f.getImgChangeName4());
+				
 		if(result > 0) {
-			session.setAttribute("alertMsg", "성공적으로 피드가 수정되었습니다.");
-			return "redirect:feed.fd"; // 수정예정
+			return "redirect:feed.fd";
 		} else {
-			model.addAttribute("errorMsg", "피드 수정 실패");
-			return "common/errorPage"; // 수정예정
+			return "redirect:feed.fd";
 		}
+		
 	}
 	
 	

@@ -271,7 +271,7 @@
 
                                 <div style="margin-top: 30px;">
                                     <span onclick="copyTheURL(this)">
-                                        <input type="text" value="여기에 피드주소 넣으려함" style="text-align: center; width: 280px;" readonly>
+                                        <input type="text" value="http://localhost:8007/tripism/index.pg" style="text-align: center; width: 280px;" readonly>
                                     </span> &nbsp; &lt;&lt; &nbsp; 클릭 시 복사
                                 </div>
                             </div>
@@ -303,24 +303,18 @@
                     <input type="text" style="width: 150px; text-align: center; border: none;" placeholder="${ f.feedDate }" disabled>
 
 					<div style="float: right; margin-top: 5px;">
-						<%-- <c:if test="${ not empty loginUser.memId and loginUser.memNo eq f.memNo }">
-		                    <button type="button" style="border: none;" onclick="location.href='updateForm.fd'">
-		                    	<span>수정하기</span>
-		                    </button>
+						 <c:if test="${ not empty loginUser.memId and loginUser.memNo eq f.memNo }">
+		                    <form action="updateForm.fd" method="post" enctype="multipart/form-data" style="display: inline;">
+			                    <input type="hidden" name="fno" value="${f.feedNo}">
+			                    <button type="submit" style="border: none;">
+				                    	<span>수정하기</span>
+			                    </button>
+		                    </form>
 		                    <span>|</span>
-	                    </c:if>  --%>
+	                    </c:if>  
 	                    
-	                    <form action="updateForm.fd" method="post" enctype="multipart/form-data">
-		                    <input type="hidden" name="fno" value="${f.feedNo}">
-		                    <button type="submit" style="border: none;">
-			                    	<span>t수정하기(구현중)</span>
-		                    </button>
-	                    </form>
-		                    
-		                    <span></span>
-		                    
 	                    <button type="button" data-toggle="modal" data-target="#report">
-	                        <span>신고하기(미완성)</span>
+	                        <span>신고하기(?)</span>
 	                    </button>
                    </div>
                 </div>
@@ -656,8 +650,8 @@
             Kakao.Share.sendDefault({ // 건드렸으니 확인요망
                 objectType: 'feed',
                 content: {
-                title: '${f.feedTitle}',
-                description: '${f.feedContents}',
+                title: 'Tripism에서 여행을 준비하세요',
+                description:'트리피즘은 여행입니다',
                 imageUrl:
                     '${pageContext.request.contextPath}/resources/img/logo.png',
                 link: {
@@ -667,9 +661,9 @@
                 },
                 },
                 social: {
-                likeCount: 286,
-                commentCount: 45,
-                sharedCount: 845,
+                likeCount: 0,
+                commentCount: 0,
+                sharedCount: 0,
                 },
                 buttons: [
                 {

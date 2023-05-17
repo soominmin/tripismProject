@@ -101,7 +101,7 @@
 			  <button type="button" style="border: none; background-color: white;" onclick="setFavoContentDetail();">
 	            <img src="${pageContext.request.contextPath}/resources/img/icons/after-wishlist.png" style="width: 25px; height: 25px;" alt="" data-bs-toggle="modal" data-bs-target="#bookMark">
 	          </button>
-	          <button type="button" style="border: none; background-color: white;" onclick="openShare();">
+	          <button type="button" style="border: none; background-color: white;" onclick="urlCopy();">
 	            <img src="${pageContext.request.contextPath}/resources/img/icons/share.png" style="width: 25px; height: 25px;" alt="">
 	          </button>
 				</span>
@@ -1866,6 +1866,18 @@
 
 			location.href="detailAPI.sp?contentId="+contentId+"&contentType="+contentType;
 
+		}
+
+		function urlCopy() {
+			var url = '';
+			var textarea = document.createElement("textarea");
+			document.body.appendChild(textarea);
+			url = window.location.href;
+			textarea.value = url;
+			textarea.select();
+			document.execCommand("copy");
+			document.body.removeChild(textarea);
+			alert("주소가 복사되었습니다.");
 		}
 				
 				

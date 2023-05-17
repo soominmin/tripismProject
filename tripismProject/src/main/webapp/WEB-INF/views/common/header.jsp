@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+<c:set var="baseURL" value="${fn:replace(req.requestURL, fn:substring(req.requestURI, 0, fn:length(req.requestURI)), req.contextPath)}" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +23,7 @@
 	
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
     <!-- SITE TITTLE -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -656,6 +660,45 @@
       </div>
     </div>
   </div>
+    <script>
+      let isLogin = false;
+      // if('${loginUser}'!=""){
+      //   isLogin = true;
+      // }
+      //console.log('${pageContext.request.requestURL}')
+      let login = '${loginUser}';
+      let domain = '<%=request.getServerName()%>';
+      let socketUrl = 'ws://'+domain+":8007/tripism/ws/chat";
+      console.log(socketUrl);
+      let webSocket = null
+      if(login!=''){
+        islogin = true;
+        webSocket = new WebSocket(socketUrl);
+        console.log("로그인")
+        webSocket.onopen = function(event){
+          console.log("로그인,웹소켓오픈")
+          
+        }
+      }
+      
+      
+      // function openSocket(isLogin){
+      //   const webSocket = new WebSocket('ws://localhost:8007/tripism/ws/chat');
+      //   if(isLogin){
+      //     webSocket.onclose = function(event){
+      //     console.log("로그아웃,웹소켓클로즈")
+
+      //     }
+      //   }else{
+      //     webSocket.onopen=function(event){
+      //       console.log("로그아웃,웹소켓클로즈")
+
+      //     }
+      //   }
+      // }
+
+        
+    </script>
   
     
     <!-- Javascript -->

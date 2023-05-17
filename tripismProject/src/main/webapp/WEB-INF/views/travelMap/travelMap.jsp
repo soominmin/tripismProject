@@ -60,7 +60,7 @@
 				#pagination a {display:inline-block;margin-right:10px;}
 				#pagination .on {font-weight: bold; cursor: default;color:#777;}
 				
-        		/*오버레이*/
+				/* 커스텀오버레이 */
 			    .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
 			    .wrap * {padding: 0;margin: 0;}
 			    .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
@@ -76,6 +76,7 @@
 			    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
 			    .info .link {color: #5085BB;}
 				
+
 			</style>
 		</head>
 	<body>
@@ -216,6 +217,14 @@
 	            itemEl.onmouseout =  function () {
 	                infowindow.close();
 	            };
+	            
+	            kakao.maps.event.addListener(marker, 'click', function() {
+	                alert("눌림");
+	            });
+	            
+	            itemEl.onclick =  function () {
+	            	alert("요소눌림");
+	            };
 	        })(marker, places[i].place_name);
 	
 	        fragment.appendChild(itemEl);
@@ -340,13 +349,10 @@
 	var zoomControl = new kakao.maps.ZoomControl();
 	map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 	
-	
-	
-	
 	// 커스텀 오버레이에 표시할 컨텐츠 입니다
 	// 커스텀 오버레이는 아래와 같이 사용자가 자유롭게 컨텐츠를 구성하고 이벤트를 제어할 수 있기 때문에
 	// 별도의 이벤트 메소드를 제공하지 않습니다 
-	var overlayContent = '<div class="wrap">' + 
+	var content = '<div class="wrap">' + 
 	            '    <div class="info">' + 
 	            '        <div class="title">' + 
 	            '            카카오 스페이스닷원' + 
@@ -368,13 +374,13 @@
 	// 마커 위에 커스텀오버레이를 표시합니다
 	// 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
 	var overlay = new kakao.maps.CustomOverlay({
-	    content: overlayContent,
+	    content: content,
 	    map: map,
 	    position: marker.getPosition()       
 	});
 
 	// 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-	kakao.maps.event.addListener(markers, 'click', function() {
+	kakao.maps.event.addListener(marker, 'click', function() {
 	    overlay.setMap(map);
 	});
 
@@ -382,7 +388,8 @@
 	function closeOverlay() {
 	    overlay.setMap(null);     
 	}
-	 
+	
+	
 	</script>
 	
 	

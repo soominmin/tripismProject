@@ -264,7 +264,7 @@
 			<button type="submit" class="test_btn" style="border-radius: 30px; float: right; width: 100%;">검색</button>
 			
 	      <div>
-		</form>
+
 		  
 
 
@@ -274,12 +274,12 @@
 	      <hr>
 	      <br>
 		  
-		  <select id="sortSelect" style="border: none; float: right;">
+		  <select id="sortSelect" name="sortVal" style="border: none; float: right;">
 			<option value="name">이름순</option>
 			<option value="like">좋아요순</option>
 			<option value="view">조회순</option>
 		  </select>
-
+		</form>
 		  <br><br><br><br>
 
 

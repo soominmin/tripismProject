@@ -60,20 +60,22 @@ public class SpotServiceImpl implements SpotService {
 	}
 	
 	@Override
-	public int increaseLike(int contentId) {
-		return sDao.increaseLike(sqlSession, contentId);
+	public int increaseLike(int contentId, int spotNo, int memNo) {
+		return sDao.increaseLike(sqlSession, contentId, spotNo, memNo);
 	}
 
 	@Override
 	public ArrayList<Spot> selectSpotList(int currentPage) {
-		return null;
+		ArrayList<Spot> list = sDao.selectSpotList(sqlSession, currentPage, null);
+		return list;
 	}
 
 	@Override
 	public ArrayList<Spot> searchSpotList(int currentPage, int spotContentType, int areaCategoryNo, int detail) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Spot> list = sDao.searchSpotList(sqlSession, currentPage, spotContentType, areaCategoryNo, detail, null);
+		return list;
 	}
+
 
 
 

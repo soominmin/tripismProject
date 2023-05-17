@@ -531,6 +531,105 @@
     outline: auto;
     margin-left: 5px;
     }
+    /*댓글폼*/
+    .kyboXs {
+    display: flex;
+    position: relative;
+    flex-flow: column;
+    align-items: flex-start;
+    height: max-content;
+    width: 100%;
+    padding-bottom: 30px;
+    margin-top: 15px;
+}
+.fSAwyp {
+    width: 100%;
+    height: 100%;
+}
+.ebxbKL {
+    display: flex;
+    position: relative;
+    flex-flow: column;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px 20px 15px 15px;
+    margin-top: 5px;
+    border: 1px solid rgb(220, 220, 220); 
+    border-radius: 10px;
+}
+/*1번줄*/
+.hMsBcZ {
+    display: flex;
+    position: relative;
+    flex-flow: row;
+    height: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+/*이미지*/
+.inoGb {
+    display: flex;
+    position: relative;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.fiJRaz {
+    width: 100%;
+    height: 100%;
+}
+.gthqDr {
+    overflow: auto;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    border-radius: 0px;
+    position: relative !important;
+}
+.gthqDr > div, .gthqDr img {
+    width: -webkit-fill-available !important;
+    height: -webkit-fill-available !important;
+    position: relative !important;
+}
+/*아이디*/
+.kVIFFJ {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width: auto;
+    height: auto;
+    margin-left: 10px;
+}
+.bOTHJz {
+    display: flex;
+    position: relative;
+    font-size: 14px;
+    color: rgb(37, 37, 37);
+    font-weight: 400;
+}
+/*날짜*/
+.bELrMo {
+    display: -webkit-box;
+    font-size: 12px;
+    font-weight: 400;
+    color: rgb(154, 154, 154);
+}
+/*내용*/
+.cXVLtq {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.24px;
+    color: rgb(37, 37, 37);
+    margin-top: 16px;
+    white-space: pre-line;
+    word-break: break-all;
+}
+.cXVLtq > span:first-child {
+    color: rgb(106, 106, 106);
+}
     </style>
 </head>
 <body>
@@ -642,28 +741,83 @@
                                 	<input type="hidden" name="pnBoardNo" value="${ pb.postNo }">
                                 	<input type="hidden" name="filePath" value="${ pb.partnerChangeImg }">
                                 </form>
-                                <script>
-                                	function postFormSubmit(num) {
-                                		if(num == 1){
-                                			${"#postForm"}.attr("action","updateForm.pn").submit();
-                                		}else{
-                                			${"#postForm"}.attr("action","delete.pn").submit();
-                                			consol.log("이거 되쥬?");
-                                		}
-                                	}
-                                </script>
+                                
+					           <script>
+						           function postFormSubmit(num){
+						        	   if(num == 1){//수정하기 클릭시
+						        		   $("#postForm").attr("action", "updateForm.pn").submit();
+						        	   }else{ //삭제하기 클릭했다
+						        		   $("#postForm").attr("action","delete.pn").submit();
+						        	   }
+						        	   
+						           }
+						           </script>
                             </c:if>
                         </div>
                         
                         
+
+                        	
+
                         
+                <table id="replyArea" class="table" align="center">
+                    <thead>
+
                         <div class="AccompanyCommentInputBox__CommentContainer-sc-1t3w1p4-0 eGJmXC">
-                            <div class="CommentInputBox__InputContainer-sc-kzgy2k-0 goDHMI">
-                                <textarea rows="1" placeholder="댓글을 입력해주세요." class="CommentInputBox__Input-sc-kzgy2k-1 dMqEYk" id="pnComment" style="height: 40px;"></textarea>
-                                <button class="CommentInputBox__SubmitText-sc-kzgy2k-2 hnSauy">게시</button>
+                            <c:choose>
+                                <c:when test="${ empty loginUser }">
+                                    <div class="CommentInputBox__InputContainer-sc-kzgy2k-0 goDHMI">
+                                        <textarea rows="1" placeholder="댓글을 입력해주세요." class="CommentInputBox__Input-sc-kzgy2k-1 dMqEYk" id="replyContents" 
+                                        style="height: 40px;" readonly="readonly">로그인한 사용자만 이용가능한 서비스입니다. 로그인 후 이용바랍니다.</textarea>
+                                        <button class="CommentInputBox__SubmitText-sc-kzgy2k-2 hnSauy" disabled="disabled">게시</button>
+                                    </div>
+                                </c:when>
+                                <c:otherwise>
+                                    <div class="CommentInputBox__InputContainer-sc-kzgy2k-0 goDHMI">
+                                        <textarea  rows="1" placeholder="댓글을 입력해주세요." class="CommentInputBox__Input-sc-kzgy2k-1 dMqEYk"
+                                            id="replyContents" style="height: 40px;"></textarea>
+                                        <button class="CommentInputBox__SubmitText-sc-kzgy2k-2 hnSauy" onclick="addReply();">게시</button>
+                                    </div>
+                                </c:otherwise>
+                            </c:choose>
+                        </div>
+                    </thead>
+
+                    <div class="sc-b3f8f555-13 kyboXs">
+                        <div class="sc-b3f8f555-14 fSAwyp">
+
+                            <tbody>
+                                
+                            </tbody>
+
+                            <!-- 여기서 부터-->
+                            <div class="sc-3686333a-0 ebxbKL">
+                                <div class="sc-3686333a-1 hMsBcZ">
+
+                                    <div class="sc-3686333a-2 inoGb">
+                                        <div class="sc-c9e981f7-0 fiJRaz">
+                                            <div class="sc-c9e981f7-1 gthqDr">
+                                                <img  alt="detail page img" src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/test/image/1670226400577-1"
+                                                    class="sc-c9e981f7-2 gWFsPR">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="sc-3686333a-3 kVIFFJ">
+                                            <span class="sc-3686333a-4 bOTHJz">ak4975a1</span>
+                                            <span class="sc-3686333a-5 bELrMo">2023/04/14 21:46:31</span>
+                                        </div>
+                                    </div>
+                                    <p class="sc-3686333a-6 cXVLtq">강원도 어디로가시는지요</p>
+                                </div>
+                                <!-- 여기까지 -->
+                                
+
                             </div>
                         </div>
-                        <div class="AccompanyContainer__CommentContainer-sc-zoqt5l-13 kEMgcA"></div>
+                    </table>
+
+
                     </div>
                 </div>
                 <div class="innerSection__AreaRightDiv-sc-1ag5fhb-5 bdoziM">
@@ -793,6 +947,33 @@
                     </div>
                 </div>
             </div>
+
+            <script>
+                $(function(){
+                    selectReplyList();
+                })
+
+                function addReply() {
+                    if($("#replyContents").val().trim().length != 0){
+                        $.ajax({
+                            url:"rinsert.pn",
+                            data:{
+                                refPnBoardNo:${pn.postNo},
+                                replyContents:$("#replyContents").val(),
+                                replyWriter:'${loginUser.memId}'
+                                
+                            }, success:function(status){
+
+                                if(status == "succes"){
+                                    selectReplyList
+                                }
+
+                            }
+                        })
+                    }
+                }
+
+            </script>
 
             <script>
                 const textarea = document.querySelector('#pnComment');

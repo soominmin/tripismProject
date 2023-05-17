@@ -40,11 +40,11 @@ public class PnBoardController {
 		int listCount = bService.selectListCount();
 		System.out.println("리스트조회 결과: " +listCount);
 		
-		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, 20, 10);
+		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, 30, 25);
 		ArrayList<PnBoard> pnList = bService.selectList(pi);
 		System.out.println("pnList : " + pnList);
 		
-		mv.addObject("pi", pi).addObject("pnlist", pnList).setViewName("travelPartner/partnerList");
+		mv.addObject("pi", pi).addObject("pnlist", pnList).setViewName("travelPartner/partnerList"); 
 		
 		return mv;
 	}
@@ -147,7 +147,11 @@ public class PnBoardController {
 	// 게시글 수정폼 (작성예정)
 	@RequestMapping("updateForm.pn")
 	public String updateForm(int pnBoardNo, Model model) {
-		model.addAttribute("pb", bService.selectPnBoard(pnBoardNo));
+		String path = System.getProperty("resources");
+        System.out.println("현재 작업 경로: " + path);
+        PnBoard pb =  bService.selectPnBoard(pnBoardNo);
+        pb.setPartnerOriginalImg("resources/img/partner/"+pb.getPartnerOriginalImg());
+		model.addAttribute("pb",pb);
 		
 		return "travelPartner/pnBoardUpdateForm";	// 수정 폼 만들어야 됨..
 	}
@@ -158,7 +162,11 @@ public class PnBoardController {
 	@RequestMapping("update.pn")
 	public String updatePnBoard(PnBoard pb, MultipartFile reupfile, HttpSession session, Model model) {
 		
-		if(!reupfile.getOriginalFilename().equals("")) {
+		System.out.println(reupfile);
+		
+		System.out.println("파일명 : " + reupfile.getOriginalFilename());
+		
+		if(reupfile.getOriginalFilename() != null) {
 			if(pb.getPartnerOriginalImg() != null) {
 				new File(session.getServletContext().getRealPath(pb.getPartnerChangeImg())).delete();
 			}
@@ -169,7 +177,13 @@ public class PnBoardController {
 			pb.setPartnerChangeImg("resources/uploadFiles/" + changeName);
 		}
 		
+		System.out.println("서비스 타기 전");
+		
+		System.out.println(pb);
+		
 		int result = bService.updatePnBoard(pb);
+		
+		System.out.println("result : " + result);
 		
 		if(result > 0) {
 			session.setAttribute("alertMsg", "성공적으로 게시글이 수정되었습니다!");
@@ -195,8 +209,9 @@ public class PnBoardController {
 			if(!filePath.equals("")) {
 				new File(session.getServletContext().getRealPath(filePath)).delete();
 			}
-		session.setAttribute("alertMsg", "성공적으로 게시글이 삭제 되었습니다!");
-		return "redirect:list.pn";
+			session.setAttribute("alertMsg", "게시글이 삭제 되었습니다.");
+			return "redirect:list.pn";
+		
 		} else {
 			model.addAttribute("errorMsg", "게시글 삭제 실패!");
 			return "common/errorPage";

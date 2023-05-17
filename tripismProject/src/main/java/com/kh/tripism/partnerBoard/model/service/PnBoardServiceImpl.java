@@ -67,6 +67,7 @@ public class PnBoardServiceImpl implements PnBoardService {
 	// 5. 게시글 수정용 서비스
 	@Override
 	public int updatePnBoard(PnBoard pb) {
+		System.out.println("다오 타기전");
 		return pbDao.updatePnBoard(sqlSession, pb);
 	}
 

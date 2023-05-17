@@ -144,6 +144,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				,	p.partner_content
 				,	p.partner_start_date
 				,	p.partner_end_date
+				,	p.area_category_no
 				,	s.area_category_title
 				,	p.partner_number
 	            ,   m.gender
@@ -209,15 +210,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updatePnBoard">
 		update
 			tb_partner
-		set PARTNER_TYPE = #{pb.partnerType}
-			, PARTNER_ORIGINAL_IMG	= #{ partnerOriginalImg}
-			, PARTNER_CHANGE_IMG	= #{ partnerChangeImg}
-			, PARTNER_TITLE			= #{ partnerTitle}
-			, PARTNER_CONTENT		= #{ partnerContent}
-			, PARTNER_START_DATE	= #{ partnerStartDate}
-			, PARTNER_END_DATE		= #{ partnerEndDate}
-			, AREA_CATEGORY_NO		= #{ areaCategoryNo}
-			, PARTNER_NUMBER		= #{ partnerNumber}
+		set PARTNER_TYPE = #{partnerType }
+			, PARTNER_ORIGINAL_IMG	= #{ partnerOriginalImg }
+			, PARTNER_CHANGE_IMG	= #{ partnerChangeImg }
+			, PARTNER_TITLE			= #{ partnerTitle }
+			, PARTNER_CONTENT		= #{ partnerContent }
+			, PARTNER_START_DATE	= #{ partnerStartDate }
+			, PARTNER_END_DATE		= #{ partnerEndDate }
+			, AREA_CATEGORY_NO		= #{ areaCategoryNo }
+			, PARTNER_NUMBER		= #{ partnerNumber }
 		where POST_NO = #{ postNo}
 	</update>
 	

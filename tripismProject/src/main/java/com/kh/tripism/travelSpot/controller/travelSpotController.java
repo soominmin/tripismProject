@@ -61,10 +61,12 @@ public class travelSpotController {
 	public String selectSpotAPI(int contentId, int contentType, Model model, HttpSession session) throws IOException {
 		
 		// 즐겨찾기 목록조회*(모달사용)
-		Member loginUser = (Member)session.getAttribute("loginUser");
-		int memNo = loginUser.getMemNo();
-		ArrayList<Folder> folderList = mService.folderSelectList(memNo);
-		model.addAttribute("folderList", folderList);
+		if(session.getAttribute("loginUser") != null) {
+			Member loginUser = (Member)session.getAttribute("loginUser");
+			int memNo = loginUser.getMemNo();
+			ArrayList<Folder> folderList = mService.folderSelectList(memNo);
+			model.addAttribute("folderList", folderList);
+		}
 		
 		
 		// 조회수 증가
@@ -602,15 +604,16 @@ public class travelSpotController {
 	}
 	
 	@RequestMapping(value="searchSpotList.sp", produces = "application/json; charset=utf-8")
-	public String searchSpotList(int currentPage, int spotContentType, int areaCategoryNo, Model model) {
+	public String searchSpotList(int currentPage, int spotContentType, int areaCategoryNo, String sortVal, Model model) {
 		
 		System.out.println("currentPage : " + currentPage);
 		System.out.println("spotContentType : " + spotContentType);
 		System.out.println("areaCategoryNo : " + areaCategoryNo);
+		System.out.println("sortVal : " + sortVal);
 		
 		int detail = 0;
 		
-		ArrayList<Spot> list = sService.searchSpotList(currentPage, spotContentType, areaCategoryNo, detail);
+		ArrayList<Spot> list = sService.searchSpotList(currentPage, spotContentType, areaCategoryNo, detail, sortVal);
 		
 		System.out.println(list);
 		
@@ -661,20 +664,18 @@ public class travelSpotController {
 		
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="increaseLike.sp", produces = "application/json; charset=utf-8")
-	public String increaseLike(int contentId, Model model) {
-		System.out.println("1112312123");
-		int result = sService.increaseLike(contentId);
-		System.out.println("444444444444");
-		if (result > 0) {
-			System.out.println("asdasdasd");
-			return null;
-		}else {
-			model.addAttribute("errorMsg","상세조회 실패");
-			return "common/errorPage";
-		}
+	public String increaseLike(int contentId, int spotNo, int memNo, Model model) {
+		int result = sService.increaseLike(contentId, spotNo, memNo);
+		
+		return result > 0 ? "success" : "fail";
 		
 	}
+	
+	
+	
+	
 	
 
 }

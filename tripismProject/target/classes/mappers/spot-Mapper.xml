@@ -300,7 +300,49 @@
 		
 		</update>
 		
-		<select id="spotListByView" resultMap="spotResult">
+		<insert id="increaseLikeMember">
+		
+        INSERT INTO TB_TRAVEL_SPOT_LIKE
+                  (
+                  SPOT_LIKE_NO,
+                  SPOT_NO,
+                  MEM_NO
+                  )
+                  VALUES
+                  (seq_spotlikeno.nextval,
+                  #{spotNo},
+                  #{memNo}
+                  )
+		
+		</insert>
+		
+		<select id="selectSpotListByLike" resultMap="spotResult">
+		 select
+	            spot_content_id,
+	            spot_content_type,
+	            spot_title,
+	            spot_img_path,
+                area_category_title,
+                sigungu_title,
+                spot_count,
+                spot_like
+	      from
+	            tb_travel_spot tvs, tb_spot_city_category tscc, tb_spot_area_category tsac
+	     where
+                tvs.area_category_no = tscc.area_category_no
+           and
+                tvs.city_category_no = tscc.sigungu_no
+           and
+                tvs.area_category_no = tsac.area_category_no
+           and 
+                tvs.spot_img_path is not null
+           and
+           		spot_content_type != 28
+         order
+            by  spot_Like desc
+		</select>
+		
+		<select id="selectSpotListByView" resultMap="spotResult">
 		 select
 	            spot_content_id,
 	            spot_content_type,
@@ -326,34 +368,9 @@
             by  spot_count desc
 		</select>
 		
+		
+		<!-- 둘다 있을 경우 좋아요순 -->
 		<select id="spotListByLike" resultMap="spotResult">
-		 select
-	            spot_content_id,
-	            spot_content_type,
-	            spot_title,
-	            spot_img_path,
-                area_category_title,
-                sigungu_title,
-                spot_count,
-                spot_like
-	      from
-	            tb_travel_spot tvs, tb_spot_city_category tscc, tb_spot_area_category tsac
-	     where
-                tvs.area_category_no = tscc.area_category_no
-           and
-                tvs.city_category_no = tscc.sigungu_no
-           and
-                tvs.area_category_no = tsac.area_category_no
-           and 
-                tvs.spot_img_path is not null
-           and
-           		spot_content_type != 28
-         order
-            by  spot_like desc
-		</select>
-		
-		<!-- 
-		<select id=""> // 둘다 있을 경우 좋아요순
 		
 		 select
 	            spot_content_id,
@@ -385,10 +402,9 @@
             by  spot_like desc
 		
 		</select>
-		 -->
 		 
-		 		<!-- 
-		<select id=""> // 둘다 있을 경우 조회수순
+		 <!-- // 둘다 있을 경우 조회수순  -->
+		<select id="spotListByView" resultMap="spotResult">
 		
 		 select
 	            spot_content_id,
@@ -420,10 +436,9 @@
             by  spot_count desc
 		
 		</select>
-		 -->
 		 
-				<!-- 
-		<select id=""> // spotContentType만 있을 경우 좋아요순
+		 <!--  // spotContentType만 있을 경우 좋아요순 -->
+		<select id="spotListTypeByLike" resultMap="spotResult">
 		
 		 select
 	            spot_content_id,
@@ -453,10 +468,9 @@
             by  spot_like desc
 		
 		</select>
-		 -->
 		 
-		 				<!-- 
-		<select id=""> // spotContentType만 있을 경우 조회수순
+		 <!--  // spotContentType만 있을 경우 조회수순 -->
+		<select id="spotListTypeByView" resultMap="spotResult">
 		
 		 select
 	            spot_content_id,
@@ -486,10 +500,9 @@
             by  spot_count desc
 		
 		</select>
-		 -->
 		 
-		 				<!-- 
-		<select id=""> // areaCategoryNo만 있을 경우 좋아요순
+		 <!-- // areaCategoryNo만 있을 경우 좋아요순 -->
+		<select id="spotListAreaByLike" resultMap="spotResult"> 
 		
 		 select
 	            spot_content_id,
@@ -519,10 +532,9 @@
             by  spot_like desc
 		
 		</select>
-		 -->
 		 
-		 		 				<!-- 
-		<select id=""> // areaCategoryNo만 있을 경우 조회수순
+		 <!-- // areaCategoryNo만 있을 경우 조회수순 -->
+		<select id="spotListAreaByView" resultMap="spotResult"> 
 		
 		 select
 	            spot_content_id,
@@ -552,7 +564,68 @@
             by  spot_count desc
 		
 		</select>
-		 -->
+		 
+		 <!-- 둘다 없을 경우 좋아요순 -->
+		 <select id="spotListAllByLike" resultMap="spotResult">
+		
+		 select
+		            spot_content_id,
+		            spot_content_type,
+		            spot_title,
+		            spot_img_path,
+	                area_category_title,
+	                sigungu_title,
+	                spot_count,
+	                spot_like,
+	                tvs.area_category_no,
+	                tvs.city_category_no
+	      from
+		            tb_travel_spot tvs, tb_spot_city_category tscc, tb_spot_area_category tsac
+	      where
+	                tvs.area_category_no = tscc.area_category_no
+	           and
+	                tvs.city_category_no = tscc.sigungu_no
+	           and
+	                tvs.area_category_no = tsac.area_category_no
+	           and
+	                tvs.spot_img_path is not null
+	           and
+	           		spot_content_type != 28
+	         order
+                by  spot_count desc
+		
+		</select>
+		
+				 <!-- 둘다 없을 경우 조회수순 -->
+		 <select id="spotListAllByView" resultMap="spotResult">
+		
+		 select
+		            spot_content_id,
+		            spot_content_type,
+		            spot_title,
+		            spot_img_path,
+	                area_category_title,
+	                sigungu_title,
+	                spot_count,
+	                spot_like,
+	                tvs.area_category_no,
+	                tvs.city_category_no
+	      from
+		            tb_travel_spot tvs, tb_spot_city_category tscc, tb_spot_area_category tsac
+	      where
+	                tvs.area_category_no = tscc.area_category_no
+	           and
+	                tvs.city_category_no = tscc.sigungu_no
+	           and
+	                tvs.area_category_no = tsac.area_category_no
+	           and
+	                tvs.spot_img_path is not null
+	           and
+	           		spot_content_type != 28
+	         order
+                by  spot_count desc
+		
+		</select>
 		
 
 </mapper>

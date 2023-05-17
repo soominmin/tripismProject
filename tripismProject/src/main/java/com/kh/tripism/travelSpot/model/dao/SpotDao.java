@@ -24,9 +24,9 @@ public class SpotDao {
 		if(sortVal == null || sortVal.equals("name")) {
 			return (ArrayList)sqlSession.selectList("spotMapper.selectSpotList", selectList, rowBounds);
 		}else if(sortVal.equals("like")) {
-			return (ArrayList)sqlSession.selectList("spotMapper.spotListByLike", selectList, rowBounds);
+			return (ArrayList)sqlSession.selectList("spotMapper.selectSpotListByLike", selectList, rowBounds);
 		}else {
-			return (ArrayList)sqlSession.selectList("spotMapper.spotListByView", selectList, rowBounds);
+			return (ArrayList)sqlSession.selectList("spotMapper.selectSpotListByView", selectList, rowBounds);
 		}
 	}
 	
@@ -67,40 +67,77 @@ public class SpotDao {
 		selectList.put("spotContentType", spotContentType);
 		selectList.put("areaCategoryNo", areaCategoryNo);
 		
+		if(sortVal == null) {
+			sortVal = "name";
+		}
+		
 		switch (sortVal) {
+			
+//		case "null":
 			
 		case "name":
 			
-			break;
+			if(spotContentType == 0 && areaCategoryNo != 0) {
+				return (ArrayList)sqlSession.selectList("spotMapper.searchSpotListArea", selectList, rowBounds);
+			}
+			else if(areaCategoryNo == 0 && spotContentType != 0) {
+
+				return (ArrayList)sqlSession.selectList("spotMapper.searchSpotListType", selectList, rowBounds);
+			}
+			else if(areaCategoryNo == 0 && spotContentType == 0) {
+				return (ArrayList)sqlSession.selectList("spotMapper.searchSpotListAll", selectList, rowBounds);
+			}
+			else {
+				if(detail == 1) {
+					return (ArrayList)sqlSession.selectList("spotMapper.searchSpotListArea", selectList, rowBounds);
+				}else {
+					return (ArrayList)sqlSession.selectList("spotMapper.searchSpotList", selectList, rowBounds);
+				}
+			}
 			
 		case "like":
 			
-			break;
+			if(spotContentType == 0 && areaCategoryNo != 0) {
+				return (ArrayList)sqlSession.selectList("spotMapper.spotListAreaByLike", selectList, rowBounds);
+			}
+			else if(areaCategoryNo == 0 && spotContentType != 0) {
+
+				return (ArrayList)sqlSession.selectList("spotMapper.spotListTypeByLike", selectList, rowBounds);
+			}
+			else if(areaCategoryNo == 0 && spotContentType == 0) {
+				return (ArrayList)sqlSession.selectList("spotMapper.spotListAllByLike", selectList, rowBounds);
+			}
+			else {
+				if(detail == 1) {
+					return (ArrayList)sqlSession.selectList("spotMapper.spotListAreaByLike", selectList, rowBounds);
+				}else {
+					return (ArrayList)sqlSession.selectList("spotMapper.spotListByLike", selectList, rowBounds);
+				}
+			}
 			
 		case "view":
 			
-			break;
-
-		default:
-			break;
-		}
-		
-		if(spotContentType == 0 && areaCategoryNo != 0) {
-			return (ArrayList)sqlSession.selectList("spotMapper.searchSpotListArea", selectList, rowBounds);
-		}
-		else if(areaCategoryNo == 0 && spotContentType != 0) {
-
-			return (ArrayList)sqlSession.selectList("spotMapper.searchSpotListType", selectList, rowBounds);
-		}
-		else if(areaCategoryNo == 0 && spotContentType == 0) {
-			return (ArrayList)sqlSession.selectList("spotMapper.searchSpotListAll", selectList, rowBounds);
-		}
-		else {
-			if(detail == 1) {
-				return (ArrayList)sqlSession.selectList("spotMapper.searchSpotListArea", selectList, rowBounds);
-			}else {
-				return (ArrayList)sqlSession.selectList("spotMapper.searchSpotList", selectList, rowBounds);
+			if(spotContentType == 0 && areaCategoryNo != 0) {
+				return (ArrayList)sqlSession.selectList("spotMapper.spotListAreaByView", selectList, rowBounds);
 			}
+			else if(areaCategoryNo == 0 && spotContentType != 0) {
+
+				return (ArrayList)sqlSession.selectList("spotMapper.spotListTypeByView", selectList, rowBounds);
+			}
+			else if(areaCategoryNo == 0 && spotContentType == 0) {
+				return (ArrayList)sqlSession.selectList("spotMapper.spotListAllByView", selectList, rowBounds);
+			}
+			else {
+				if(detail == 1) {
+					return (ArrayList)sqlSession.selectList("spotMapper.spotListAreaByView", selectList, rowBounds);
+				}else {
+					return (ArrayList)sqlSession.selectList("spotMapper.spotListByView", selectList, rowBounds);
+				}
+			}
+		
+		default:
+			return null;
+		
 		}
 
 		
@@ -108,9 +145,26 @@ public class SpotDao {
 
 
 
-	public int increaseLike(SqlSessionTemplate sqlSession, int contentId) {
-		return sqlSession.update("spotMapper.increaseLike", contentId);
+	public int increaseLike(SqlSessionTemplate sqlSession, int contentId, int spotNo, int memNo) {
+		
+		HashMap<String, Object> updateList = new HashMap<String, Object>();
+		
+		updateList.put("contentId", contentId);
+		updateList.put("spotNo", spotNo);
+		updateList.put("memNo", memNo);
+		
+		int result = 0;
+		
+		result = sqlSession.update("spotMapper.increaseLike", updateList);
+		
+		result = sqlSession.insert("spotMapper.increaseLikeMember", updateList);
+		
+		return result;
+		
 	}
+
+
+
 
 
 

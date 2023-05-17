@@ -27,6 +27,7 @@
 		<result column="reply_no" property="replyNo" />
 		<result column="board_no" property="boardNo" />
 		<result column="mem_no" property="memNo" />
+		<result column="mem_nickname" property="memNickname"/>
 		<result column="reply_contents" property="replyContents" />
 		<result column="reply_date" property="replyDate" />
 		<result column="reply_distinct" property="replyDistict" />
@@ -231,6 +232,8 @@
 		where f.feed_no = #{feedNo}
 	</select>
 	
+	
+	<!-- 피드 수정하기 -->
 	<update id="updateFeed">
 		update 
         	tb_feed
@@ -241,14 +244,21 @@
         where feed_no = #{feedNo}
 	</update>
 	
-	<insert id="reupFiles">
-		insert
-			 into tb_feed_img
-			 values
-			 (
-			 	
-			 )
-	</insert>
+	
+	<update id="updateFeed2">
+		update 
+	        tb_feed_img
+	    set
+	            img_original_name1 = #{imgOriginalName1}
+	            , img_change_name1 = #{imgChangeName1}
+	            , img_original_name2 = #{imgOriginalName2}
+	            , img_change_name2 = #{imgChangeName2}
+	            , img_original_name3 = #{imgOriginalName3}
+	            , img_change_name3 = #{imgChangeName3}
+	            , img_original_name4 = #{imgOriginalName4}
+	            , img_change_name4 = #{imgChangeName4}
+	    where feed_no = #{feedNo}
+	</update>
 	
 	<!-- 좋아요 수 조회용 -->
 	<select id="countLike">
@@ -258,9 +268,41 @@
 		where feed_no = #{feedNo}
 	</select>
 	
+	<!-- 댓글 리스트 조회용 -->
+	<select id="selectReplyList" resultMap="">
+		select
+			  reply_no
+			, board_no
+			, m.mem_no
+			, mem_nickname
+			, reply_contents 
+			, reply_date
+			, reply_distinct
+		from tb_reply r
+		join tb_member m on (r.mem_no = m.mem_no);
+	</select>
+	
 	<!-- 댓글 작성용 -->
 	<insert id="insertReply">
-		
+		insert
+			into tb_reply
+			(
+				  reply_no
+				, board_no
+				, mem_no
+				, reply_contents
+				, reply_date
+				, reply_distinct
+			)
+			values
+			(
+				  seq_replyno.nextval
+				, #{feedNo}
+				, #{memNo}
+				, #{replyContent}
+				, sysdate
+				, 'F'
+			)
 	</insert>
 	
 	<!-- 댓글 삭제용 -->

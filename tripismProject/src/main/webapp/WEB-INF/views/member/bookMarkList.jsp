@@ -76,31 +76,35 @@
         <div class="modal-body">
 
             <button class="btn btn-facebook text-uppercase text-white" id="folderAdd" data-bs-toggle="modal" data-bs-target="#addFolder">새폴더추가</button>
-            <div id="folderContainer">
+            <div id="folderContainer"  style="magin-right:700px;">
             <div style="height: 1px;">
               <hr>
             </div>
-            
             <!-- 반복 -->
             <c:forEach var="f" items="${folderList }">
+            <form action="bookMarkInnerList.do" >
+            	<button type="submit" style="height:45px;">
+            <input type="hidden" value="${f.folderNo }" name="folderNo" id="folderNo">
             <div id="folderWrap">
 			  <div class="mb-3" id="bookMarkImg" style="float: left; height: 40px;">
 			    <img src="${pageContext.request.contextPath}/resources/img/bookMark.png" style="width: 35x; height: 35px; border-radius: 50%;">
 			  </div>
 			  <div class="folderInfo">
-			    <div class="folderName">
+			    <div class="folderName" >
 			      <h5 style="padding-left: 45px; margin-top: 15px;">${f.folderName }</h5>
 			    </div>
 				<!--     <div class="place">
 			      <p style="padding-left: 40px; margin-top: 15px;">📍n(개)</p>
 			    </div> -->
 			  </div>
+			</div>
+				</button>
 			  <div style="height: 1px;">
 			    <hr>
-			  </div>
-			</div>
-			<!-- 반복끝 -->
+				</div>
+			</form>
 			</c:forEach>
+			<!-- 반복끝 -->
 			
 			
 			  
@@ -159,44 +163,11 @@
 </div>
 </section>
 </div>
-
+<!-- 폴더 추가 script -->
 <script>
-
-	  // document.getElementById("folderAdd").addEventListener("click", function() {
-	  // 새로운 폴더를 위한 템플릿 엘리먼트 복제
-	  // const folderTemplate = document.getElementById("folderTemplate");
-	  // const newFolder = folderTemplate.content.cloneNode(true);
-	
-	  // 폴더명을 입력받는 프롬프트 창 표시
-	  // const folderName = prompt("폴더명을 입력하세요.");
-	  // newFolder.querySelector(".folderName h5").textContent = folderName;
-	
-	  // 새로운 폴더를 폴더 컨테이너에 추가
-	  // const folderContainer = document.getElementById("folderContainer");
-	  // folderContainer.appendChild(newFolder);
-	  
-	  // const memNo = document.getElementById("memNo").value;
-	  
-	  
-	  
-	  	//	 $.ajax({
-	  	//	url : // "insertFolder.do",
-	  	//	data : {folderName, memNo}
-	  	//	console.log(folderName),
-	  	//	success:function(result){
-	  			 // 새로운 폴더를 폴더 컨테이너에 추가
-	  	//	  const folderContainer = document.getElementById("folderContainer");
-	  	//	  folderContainer.appendChild(newFolder);
-	  	//	}, error : function(){
-	  	//		console.log("ajax 통신 실패");
-	  	//	}
-	  		
-	  	// })
-		// });
-	  
 		$(function(){
-			$("okBtn").click(function(){
-				const $folderNameInput = $("#insertFolder input[name=folderName]");
+			$("#okBtn").click(function(){
+				const $folderNoInput = $("#insertFolder input[name=folderName]");
 				const $memNoInput = $("#memNo input[name=memNo]");
 				$.ajax({
 					url:"insertFolder.do",
@@ -213,13 +184,10 @@
 			})
 		 
 			})
-			
-			
-
-	
-	
-	
 </script>
+
+
+
 <jsp:include page="../common/footer.jsp"/>
 </body>
 </html>

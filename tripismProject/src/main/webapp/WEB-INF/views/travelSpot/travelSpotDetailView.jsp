@@ -79,16 +79,17 @@
 	
 	    <div class="post_area">
 	    	<c:choose>
-	    		<c:when test="${loginUser empty }">
+	    		<c:when test="${empty loginUser}">
 	    			<button type="button" style="border: none; background-color: white;" onclick="#">
 					<img src="${pageContext.request.contextPath}/resources/img/icons/after-like.png" style="width: 25px; height: 25px;" alt="">
 					<span class="num" id="conLike">${s.spotLike }</span>
+					</button>
 	    		</c:when>
 	    		<c:otherwise>
 	    			<button type="button" style="border: none; background-color: white;" onclick="increaseLike('${s.spotContentId}','${s.spotNo}','${loginUser.memNo}');">
 					<img src="${pageContext.request.contextPath}/resources/img/icons/after-like.png" style="width: 25px; height: 25px;" alt="">
 					<span class="num" id="conLike">${s.spotLike }</span>
-				</button>
+					</button>
 	    		</c:otherwise>
 	    	</c:choose>
 
@@ -97,7 +98,7 @@
 	        <span class="num" id="conRead">${s.spotCount }</span>
 	      		</span>
 				<span class="rline" style="float: right;">
-						<button type="button" style="border: none; background-color: white;" onclick="setFavoContentDetail();">
+			  <button type="button" style="border: none; background-color: white;" onclick="setFavoContentDetail();">
 	            <img src="${pageContext.request.contextPath}/resources/img/icons/after-wishlist.png" style="width: 25px; height: 25px;" alt="" data-bs-toggle="modal" data-bs-target="#bookMark">
 	          </button>
 	          <button type="button" style="border: none; background-color: white;" onclick="openShare();">
@@ -1705,7 +1706,7 @@
 						data:{
 							boardNo:${s.spotNo },
 							replyContents:$("#replyContent").val(),
-							memNo:${loginUser.memNo}
+							memNo:${ not empty loginUser ? loginUser.memNo : 0 }
 						},
 								success:function(status){
 								if(status == "success"){

@@ -265,7 +265,7 @@
 			
 	      <div>
 		</form>
-
+		  
 
 
 	      </div>
@@ -274,10 +274,10 @@
 	      <hr>
 	      <br>
 		  
-		  <select name="" id="" style="border: none; float: right;">
-			<option value="">이름순</option>
-			<option value="">좋아요순</option>
-			<option value="">조회순</option>
+		  <select id="sortSelect" style="border: none; float: right;">
+			<option value="name">이름순</option>
+			<option value="like">좋아요순</option>
+			<option value="view">조회순</option>
 		  </select>
 
 		  <br><br><br><br>
@@ -288,7 +288,6 @@
 	      </div>
 	
 	      </div>
-	
 	
 
 	      

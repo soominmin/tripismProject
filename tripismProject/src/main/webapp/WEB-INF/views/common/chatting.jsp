@@ -289,6 +289,10 @@
                 color: rgb(255, 255, 255);
                 border-radius: 50%;
             }
+            #messages *{
+                font-size: 17px;
+                font-weight: bold;
+            }
         </style>
     </head>
     <body>
@@ -320,15 +324,14 @@
             <div class="sc-7888b13b-3 eIBKpS" style="width: 100%; height: 100%;">
 
                 <div class="sc-7888b13b-4 bbIQog">
+                    <button class="sc-7888b13b-5 kheUIe" onclick="back();">뒤로가기</button>
                     <button class="sc-7888b13b-5 kphGtz">그룹대화</button>
                     <button class="sc-7888b13b-5 kheUIe">1:1 대화</button>
-                    <div class="sc-7888b13b-6 boNAgO"></div>
                 </div>
-				<c:choose>
-				<c:when test="${not empty loginUser }">
-                <ul class="sc-7888b13b-7 eqxbAv">
+				
+                <div id="chatRoomList" class="sc-7888b13b-7 eqxbAv">
 
-                    <div class="sc-2b24a48b-0 duxSFr">
+                    <!-- <div class="sc-2b24a48b-0 duxSFr">
                         <div class="sc-be1fc4d6-0 iCTgJa">
                             <img alt="프로필" src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/member/1683006319089-1" class="sc-be1fc4d6-1 jxPOyi"></div>
                             <div class="sc-2b24a48b-1 jRuymm" id="chatRoom1">
@@ -345,51 +348,26 @@
                                     <span class="sc-2b24a48b-5 LSLIK">4시간전</span>
                                 </div>
                             </div>
+                        </div> -->
+
                         </div>
 
-                        <div class="sc-2b24a48b-0 duxSFr">
-                            <div class="sc-be1fc4d6-0 iCTgJa">
-                                <img alt="프로필" src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/member/1683006319089-1" class="sc-be1fc4d6-1 jxPOyi"></div>
-                                <div class="sc-2b24a48b-1 jRuymm">
-                                    <div class="sc-2b24a48b-2 dMfoDF" style="width: 100%;">
-                                        <div class="sc-2b24a48b-3 fxllNx" style="max-width: 90%;">
-                                            <p class="sc-2b24a48b-4 gFbPQg" style="line-height: 22px; max-width: 80%; font-size: 15px; font-weight: 500; color: black;">[동행] 동행 구합니다</p>
-                                            <span class="sc-2b24a48b-5 LSLIK" style="margin-left: 4px; font-size: 14px; font-weight: 500;">1</span>
-                                        </div>
-                                        <div class="sc-2b24a48b-6 eOtkJC">0</div>
-                                    </div>
-                                    <p class="sc-2b24a48b-4 gFbPQg" style="max-width: 90%; margin: 2px 0px 6px; height: 19px;">qpalzm510님이 들어왔습니다.</p>
-                                    <div class="sc-2b24a48b-2 dMfoDF">
-                                        <div></div>
-                                        <span class="sc-2b24a48b-5 LSLIK">8시간전</span>
-                                    </div>
-                                </div>
+                       
+                        <div id="chatting" style="display: none; width: 100%; height: 100%;">
+                            <div id="messages" style="height:80%; overflow: auto;">
+                                
                             </div>
-
-                        </ul>
-                        </c:when>
-                        <c:otherwise>
-                        	 <div class="sc-2b24a48b-0 duxSFr">
-                            <div class="sc-be1fc4d6-0 iCTgJa">
-                                <img alt="프로필" src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/member/1683006319089-1" class="sc-be1fc4d6-1 jxPOyi"></div>
-                                <div class="sc-2b24a48b-1 jRuymm">
-                                    <div class="sc-2b24a48b-2 dMfoDF" style="width: 100%;">
-                                        <div class="sc-2b24a48b-3 fxllNx" style="max-width: 90%;">
-                                            <p class="sc-2b24a48b-4 gFbPQg" style="line-height: 22px; max-width: 80%; font-size: 15px; font-weight: 500; color: black;">채팅은 로그인 후 이용가능합니다</p>
-                                            <span class="sc-2b24a48b-5 LSLIK" style="margin-left: 4px; font-size: 14px; font-weight: 500;">1</span>
-                                        </div>
-                                        <div class="sc-2b24a48b-6 eOtkJC">0</div>
-                                    </div>
-                                    1
-                                </div>
+                            <div style="height:20%">
+                                <input type="text" id="sendMessage"/>
+                                <button type="button" id="send">전송</button>
                             </div>
                         
-                        </c:otherwise>
-                        </c:choose>
+
                     </div>
 
                 </div>
                 <script>
+                    let currentchatRoom = 0;
                     const svgElement = document.querySelector('svg[cursor="pointer"]');
                     const targetElement = document.querySelector('.sc-e355bb8d-0.jkTMmI');
                     let isOpen = false;
@@ -399,6 +377,105 @@
                         targetElement.style.display = 'none';
                         isOpen = false;
                       } else {
+                        $.ajax({
+                            url : 'chatList.ch',
+                            success : (chatRooms)=>{
+                                console.log(chatRooms);
+                                let value="";
+                                if(chatRooms=='noLogin'){
+                                    value+='<div class="sc-2b24a48b-0 duxSFr">'
+                                                +'<div class="sc-be1fc4d6-0 iCTgJa">'
+                                                    +'<img alt="프로필" src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/member/1683006319089-1" class="sc-be1fc4d6-1 jxPOyi"></div>'
+                                                    +'<div class="sc-2b24a48b-1 jRuymm" id="chatRoom1">'
+                                                        +'<div class="sc-2b24a48b-2 dMfoDF" style="width: 100%;">'
+                                                        + '<div class="sc-2b24a48b-3 fxllNx" style="max-width: 90%;">'
+                                                                +'<p class="sc-2b24a48b-4 gFbPQg" style="line-height: 22px; max-width: 80%; font-size: 15px; font-weight: 500; color: black;">채팅은 로그인 후 이용가능 합니다</p>'
+                                                                +'<span class="sc-2b24a48b-5 LSLIK"  style="margin-left: 4px; font-size: 14px; font-weight: 500;">3</span>'
+                                                            +'</div>'
+                                                            +'<div class="sc-2b24a48b-6 eOtkJC">0</div>'
+                                                    + '</div>'
+                                                        
+                                                        +'<div class="sc-2b24a48b-2 dMfoDF">'
+                                                            
+                                                            +'<span class="sc-2b24a48b-5 LSLIK">4시간전</span>'
+                                                    +'</div>'
+                                                +'</div>'
+                                            +'</div>'
+                                }else{
+                                    for(let i=0;i<chatRooms.length;i++){
+                                        value+='<div class="sc-2b24a48b-0 duxSFr chatRoom">'
+                                                +'<div class="sc-be1fc4d6-0 iCTgJa">'
+                                                    +'<img alt="프로필" src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/member/1683006319089-1" class="sc-be1fc4d6-1 jxPOyi"></div>'
+                                                    +'<div class="sc-2b24a48b-1 jRuymm" id="chatRoom1">'
+                                                        +'<div class="sc-2b24a48b-2 dMfoDF" style="width: 100%;">'
+                                                        + '<div class="sc-2b24a48b-3 fxllNx" style="max-width: 90%;">'
+                                                                +'<p class="sc-2b24a48b-4 gFbPQg" style="line-height: 22px; max-width: 80%; font-size: 15px; font-weight: 500; color: black;">'+chatRooms[i].chatRoomName+'</p>'
+                                                                +'<span class="sc-2b24a48b-5 LSLIK"  style="margin-left: 4px; font-size: 14px; font-weight: 500;">3</span>'
+                                                            +'</div>'
+                                                            +'<div class="sc-2b24a48b-6 eOtkJC">0</div>'
+                                                    + '</div>'
+                                                        
+                                                        +'<div class="sc-2b24a48b-2 dMfoDF">'
+                                                            
+                                                            +'<span class="sc-2b24a48b-5 LSLIK">4시간전</span>'
+                                                    +'</div>'
+                                                +'</div>'
+                                            +'</div>'
+                                    }
+                                }
+
+                                let chatList=document.getElementById('chatRoomList');
+                                chatList.innerHTML=value;
+                                
+                                let chatRoom = document.getElementsByClassName('chatRoom');
+
+                                for(let j=0; j<chatRoom.length;j++){
+                                    chatRoom[j].addEventListener('click',()=>{
+                                        chatList.style.display="none";
+                                        document.getElementById('chatting').style.display="block";
+                                        console.log(chatRooms[j].chatRoomNo);
+                                        $.ajax({
+                                            url:"messageList.ch",
+                                            data:{chatRoomNo : chatRooms[j].chatRoomNo},
+                                            success:(messages)=>{
+                                                console.log(messages)
+                                                let value = "";
+
+                                                for(let i=0;i<messages.length;i++){
+
+                                                    if("${loginUser.memNickname}"==messages[i].memNickname){
+                                                        value+='<div style="height: 30px;">'
+                                                             +  '<div style="float: right; background-color:rgb(112, 217, 223) ;">'+messages[i].messageText+'</div>'
+                                                           + '</div>'
+                                                    }else{
+                                                        value+='<div style="height: 30px;">'
+                                                             +  '<div>'+messages[i].memNickname+' : '+messages[i].messageText+'</div>'
+                                                           + '</div>'
+                                                    }
+                                                   
+                                                }
+                                                document.getElementById('messages').innerHTML=value;
+
+                                            },
+                                            error:()=>{
+
+                                            }
+
+                                        })
+                                        // createWebSocket();
+
+                                    })
+
+                                }
+
+                            },
+                            error : () =>{
+                                console.log("통신실패")  
+
+                            }
+
+
+                        })
                         targetElement.style.display = 'block';
                         isOpen = true;
                       }
@@ -406,37 +483,42 @@
                   </script>
                   
                   <script>
-                    const chatRoom = document.getElementById('chatRoom1');
-                    const roomList = document.getElementsByClassName('sc-2b24a48b-0 duxSFr');
-                    const room = document.querySelector('.eqxbAv');
+                    // const chatRoom = document.getElementById('chatRoom1');
+                    // const roomList = document.getElementsByClassName('sc-2b24a48b-0 duxSFr');
+                    // const room = document.querySelector('.eqxbAv');
                   	
                     
 
-                    const memId = '${loginUser.memId}';
+                    // const memId = '${loginUser.memId}';
 
 
-                    chatRoom.addEventListener('click',event=>{
-                        console.log("채팅방선택");
+                    // chatRoom.addEventListener('click',event=>{
+                    //     console.log("채팅방선택");
                         
-                        // roomList.setAttribute('style','display:none');
-                        for(let i=0; i<roomList.length;i++){
-                            roomList[i].setAttribute('style','display:none');
-                        }
-                        let roomContainer = '<div id="messages" style="height:80%">asdsadsadlksajlksadlksajdlksajdkl</div>'
-                                            +'<div  style="height">'
-                                             + '<input type="text" id="sendMessage"/>'
-                                             +'<button type="button" id="send">전송</button>'
-                                             +'</div>';
-                        room.innerHTML=roomContainer;
+                    //     // roomList.setAttribute('style','display:none');
+                    //     for(let i=0; i<roomList.length;i++){
+                    //         roomList[i].setAttribute('style','display:none');
+                    //     }
+                    //     let roomContainer = '<div id="messages" style="height:80%">asdsadsadlksajlksadlksajdlksajdkl</div>'
+                    //                         +'<div  style="height">'
+                    //                          + '<input type="text" id="sendMessage"/>'
+                    //                          +'<button type="button" id="send">전송</button>'
+                    //                          +'</div>';
+                    //     room.innerHTML=roomContainer;
 
 
-                        createWebSocket();
+                    //     // createWebSocket();
 
-                    })
+                    // })
 
                     function createWebSocket(){
+                        // let chatRoom = document.getElementsByClassName('chatRoom');
+
+                        // for(let j=0; j<chatRoom.length;j++){
+                        //     chatRoom[j].style.display='none';    
+                        // }
                         const webSocket = new WebSocket('ws://localhost:8007/tripism/ws/chat');
-                        console.log(memId); 
+                        // console.log(memId); 
                         webSocket.onopen = function(event){
                             
                         }
@@ -467,7 +549,11 @@
                     }
                     
                     
-
+                    function back(){
+                        document.getElementById('chatting').style.display="none";
+                        document.getElementById('chatRoomList').style.display="block";
+                        document.getElementById('messages').innerHTML="";
+                    }
                     
                   
                   </script>

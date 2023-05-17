@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kh.tripism.common.vo.PageInfo;
+import com.kh.tripism.member.model.vo.BookMark;
 import com.kh.tripism.member.model.vo.Folder;
 import com.kh.tripism.member.model.vo.Member;
 import com.kh.tripism.partnerBoard.model.vo.PnBoard;
@@ -82,6 +83,20 @@ public class MemberDao {
 		return (ArrayList)sqlSession.selectList("memberMapper.writtenSelectList", memNo, rowBounds);	
 	}
 	
+	// 마이페이지 즐겨찾기 폴더 List조회
+	public ArrayList<Folder> folderSelectList(SqlSessionTemplate sqlSession, int memNo){
+		return (ArrayList)sqlSession.selectList("memberMapper.folderSelectList", memNo);
+	}
+	
+	// 폴더안에 여행지 추가
+	public int insertBookMarkList(SqlSessionTemplate sqlSession, BookMark bm){
+		return sqlSession.insert("memberMapper.insertBookMarkList", bm);
+	}
+	
+	// 다른사람 마이페이지 조회
+	public Member otherPage(SqlSessionTemplate sqlSession,int memNo) {
+		return sqlSession.selectOne("memberMapper.otherPage", memNo);
+	}
 
 	
 

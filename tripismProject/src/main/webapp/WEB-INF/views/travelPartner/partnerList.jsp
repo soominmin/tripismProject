@@ -812,7 +812,7 @@
 							<!--  ---------------------------------------------------------------------------------------------------------------------- 여기가 member ${pn.member.img }-->
 								<c:choose>
 								<c:when test="${not empty pn.member.img }">
-									<img src="${pageContext.request.contextPath}/resources/img/partner/${pn.member.img }.jpg"
+									<img src="${pn.member.img }"
 										class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
 								</c:when>
 								<c:otherwise>

@@ -1,6 +1,6 @@
-package com.kh.tripism.travelPlan.chat.model.vo;
+package com.kh.tripism.chat.model.vo;
 
-import java.sql.Date;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,10 +15,10 @@ import lombok.ToString;
 @Setter
 @ToString
 @Builder
-public class ChatMessege {
+public class ChatMessage {
 	private int messageNo; 
 	private int chatroomNo;
-	private int memNo;
+	private String memNickname;
 	private String messageText;
 	private String messageDate;
 

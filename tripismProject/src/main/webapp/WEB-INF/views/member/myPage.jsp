@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>마이페이지</title>
 <style>
       #userName>img{
         width: 50px;
@@ -143,7 +143,7 @@
                               	<c:when test="${ not empty loginUser.mbti }">
 	                              <table align="center">
 	                                <tr style="width: 30px;">
-	                                  <td id="mbti" align="center">${loginUser.mbti }</td>
+	                                  <td id="mbti" align="center" style="width:200px;">${loginUser.mbti }</td>
 	                                </tr>
 	                              </table>
                               </c:when>
@@ -210,10 +210,6 @@
                                  </c:choose>
                                   
                                   <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                                    <span id="bookMark"><a href="otherPage.do"> 💭 다른사람마페(잠깐) </a></span>
-                                  </li>
-                                  
-                                  <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
                                     <span id="bookMark"><a href="modal.do"> 모달창확인 </a></span>
                                   </li>
                                   
@@ -255,6 +251,7 @@
                 </div>
               </div>
             </div>
+
           
             <!-- 계정설정 끝 -->
             </div>
@@ -323,8 +320,6 @@
 		
 </script>
       
-
-
 
 
 <jsp:include page="../common/footer.jsp"/>

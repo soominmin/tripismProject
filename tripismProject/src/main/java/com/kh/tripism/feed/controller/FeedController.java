@@ -55,7 +55,7 @@ public class FeedController {
 		int currentPage = 1;
 		
 		int listCount = fService.selectImgCount();
-		System.out.println("listCount : " + listCount);
+		// System.out.println("listCount : " + listCount);
 		
 		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, 1, 1);
 		
@@ -63,6 +63,25 @@ public class FeedController {
 		
 		mv.addObject("pi", pi).addObject("feed", feed).setViewName("feed/feedImgAll");
 		
+		return mv;
+	}
+	
+	@RequestMapping("search.fd")
+	public ModelAndView searchFeed(ModelAndView mv, String keyword) {
+		
+		System.out.println("피드 검색 시작함. controller");
+		System.out.println("keyword : " + keyword);
+		
+		int currentPage = 1;
+
+		int listCount = fService.selectFeedSearchCount();
+		
+		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, 1, 1);
+		
+		ArrayList<Feed> feed = fService.searchFeed(pi, keyword);
+		System.out.println(feed);
+		mv.addObject("pi", pi).addObject("feed", feed).setViewName("feed/feedSearch");
+
 		return mv;
 	}
 	

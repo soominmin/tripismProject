@@ -14,12 +14,20 @@ import com.kh.tripism.travelSpot.model.vo.SpotTour;
 @Repository
 public class SpotDao {
 	
-	public ArrayList<Spot> selectSpotList(SqlSessionTemplate sqlSession, int currentPage){
+	public ArrayList<Spot> selectSpotList(SqlSessionTemplate sqlSession, int currentPage, String sortVal){
 		HashMap<String, Object> selectList = new HashMap<String, Object>();
 		
 		RowBounds rowBounds = new RowBounds((currentPage-1)*10,9);
 		
-		return (ArrayList)sqlSession.selectList("spotMapper.selectSpotList", selectList, rowBounds);
+		System.out.println(sortVal);
+		
+		if(sortVal == null || sortVal.equals("name")) {
+			return (ArrayList)sqlSession.selectList("spotMapper.selectSpotList", selectList, rowBounds);
+		}else if(sortVal.equals("like")) {
+			return (ArrayList)sqlSession.selectList("spotMapper.spotListByLike", selectList, rowBounds);
+		}else {
+			return (ArrayList)sqlSession.selectList("spotMapper.spotListByView", selectList, rowBounds);
+		}
 	}
 	
 	
@@ -49,7 +57,7 @@ public class SpotDao {
 
 
 	public ArrayList<Spot> searchSpotList(SqlSessionTemplate sqlSession, int currentPage, int spotContentType,
-			int areaCategoryNo) {
+			int areaCategoryNo, int detail, String sortVal) {
 		
 		HashMap<String, Object> selectList = new HashMap<String, Object>();
 		
@@ -58,6 +66,24 @@ public class SpotDao {
 		selectList.put("rowBounds", rowBounds);
 		selectList.put("spotContentType", spotContentType);
 		selectList.put("areaCategoryNo", areaCategoryNo);
+		
+		switch (sortVal) {
+			
+		case "name":
+			
+			break;
+			
+		case "like":
+			
+			break;
+			
+		case "view":
+			
+			break;
+
+		default:
+			break;
+		}
 		
 		if(spotContentType == 0 && areaCategoryNo != 0) {
 			return (ArrayList)sqlSession.selectList("spotMapper.searchSpotListArea", selectList, rowBounds);
@@ -70,7 +96,11 @@ public class SpotDao {
 			return (ArrayList)sqlSession.selectList("spotMapper.searchSpotListAll", selectList, rowBounds);
 		}
 		else {
-			return (ArrayList)sqlSession.selectList("spotMapper.searchSpotList", selectList, rowBounds);
+			if(detail == 1) {
+				return (ArrayList)sqlSession.selectList("spotMapper.searchSpotListArea", selectList, rowBounds);
+			}else {
+				return (ArrayList)sqlSession.selectList("spotMapper.searchSpotList", selectList, rowBounds);
+			}
 		}
 
 		

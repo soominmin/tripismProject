@@ -20,8 +20,8 @@ public class SpotServiceImpl implements SpotService {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	@Override
-	public ArrayList<Spot> selectSpotList(int currentPage) {
-		ArrayList<Spot> list = sDao.selectSpotList(sqlSession, currentPage);
+	public ArrayList<Spot> selectSpotList(int currentPage, String sortVal) {
+		ArrayList<Spot> list = sDao.selectSpotList(sqlSession, currentPage, sortVal);
 		return list;
 	}
 	
@@ -54,14 +54,29 @@ public class SpotServiceImpl implements SpotService {
 	}
 	
 	@Override
-	public ArrayList<Spot> searchSpotList(int currentPage, int spotContentType, int areaCategoryNo) {
-		ArrayList<Spot> list = sDao.searchSpotList(sqlSession, currentPage, spotContentType, areaCategoryNo);
+	public ArrayList<Spot> searchSpotList(int currentPage, int spotContentType, int areaCategoryNo, int detail, String sortVal) {
+		ArrayList<Spot> list = sDao.searchSpotList(sqlSession, currentPage, spotContentType, areaCategoryNo, detail, sortVal);
 		return list;
 	}
-
+	
+	@Override
 	public int increaseLike(int contentId) {
 		return sDao.increaseLike(sqlSession, contentId);
 	}
+
+	@Override
+	public ArrayList<Spot> selectSpotList(int currentPage) {
+		return null;
+	}
+
+	@Override
+	public ArrayList<Spot> searchSpotList(int currentPage, int spotContentType, int areaCategoryNo, int detail) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
 
 	
 

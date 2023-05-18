@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.google.gson.JsonObject;
 import com.kh.tripism.common.vo.Reply;
+import com.kh.tripism.travelPlan.model.vo.Tour;
 import com.kh.tripism.travelSpot.model.vo.Spot;
 import com.kh.tripism.travelSpot.model.vo.SpotTour;
 
@@ -29,6 +30,8 @@ public interface SpotService {
 			String sortVal);
 
 	int increaseLike(int contentId, int spotNo, int memNo);
+
+	ArrayList<Tour> mapSearchList(int currentPage, String keyword);
 
 	
 	

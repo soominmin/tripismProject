@@ -65,6 +65,8 @@
 	           		spot_content_type != 28
 	</select>
 	
+
+	
 	<!-- 
 	<resultMap type="Spot" id="spotResult">
 		<result column="SPOT_CONTENT_ID" property="contentid"/>
@@ -625,6 +627,38 @@
 	         order
                 by  spot_count desc
 		
+		</select>
+		
+		
+		<select id="mapSelectList" resultMap="spotResult">
+
+			select  DISTINCT
+	                   spot_no,
+	                   spot_title,
+	                   spot_address,
+	                   large_category_no,
+	                   middle_category_no,
+	                   small_category_no,
+	                   spot_img_path,
+	                   spot_mapx,
+	                   spot_mapy,
+	                   area_category_title,
+	                   sigungu_title,
+	                   spot_like,
+	                   spot_count
+	           from 
+	                   tb_travel_spot tvs, tb_spot_city_category tscc, tb_spot_area_category tsac
+	          where  
+	                   tvs.area_category_no = tscc.area_category_no
+	            and
+	                   tvs.city_category_no = tscc.sigungu_no
+	            and
+	                   tvs.area_category_no = tsac.area_category_no
+	            and
+	                   tvs.spot_img_path is not null
+	            and
+	                   spot_title like '${keyword}'
+
 		</select>
 		
 

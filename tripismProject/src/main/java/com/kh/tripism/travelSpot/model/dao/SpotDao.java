@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.kh.tripism.common.vo.Reply;
+import com.kh.tripism.travelPlan.model.vo.Tour;
 import com.kh.tripism.travelSpot.model.vo.Spot;
 import com.kh.tripism.travelSpot.model.vo.SpotTour;
 
@@ -160,6 +161,25 @@ public class SpotDao {
 		result = sqlSession.insert("spotMapper.increaseLikeMember", updateList);
 		
 		return result;
+		
+	}
+
+
+
+	public ArrayList<Tour> mapSearchList(SqlSessionTemplate sqlSession, int currentPage, String keyword) {
+		
+		HashMap<String, Object> selectList = new HashMap<String, Object>();
+		if(keyword==null) {
+			selectList.put("keyword", null);
+		}else {
+			selectList.put("keyword", "%"+keyword+"%");
+		}
+		RowBounds rowBouns = new RowBounds(currentPage,15);
+		
+		System.out.println("keyword:"+ keyword);
+		System.out.println("sl:"+selectList.get("keyword"));
+		
+		return (ArrayList)sqlSession.selectList("spotMapper.mapSelectList", selectList,  rowBouns);
 		
 	}
 

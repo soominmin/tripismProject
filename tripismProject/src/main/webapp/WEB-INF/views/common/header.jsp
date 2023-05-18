@@ -411,13 +411,13 @@
                       여행지 둘러보기</a>
                   </li>
   					
-  				<!-- 
+  				
                   <li class="">
-                    <a href="list.pk">
+                    <a href="plan.tr">
                       <img src="${pageContext.request.contextPath}/resources/img/header/icons6.png" class="Button_pa hXhSDh">
-                      여행 상품</a>
+                      일정 짜기</a>
                   </li>
-                 -->
+                
                <li class="">
                     <a href="plan.tr">
                       <img src="${pageContext.request.contextPath}/resources/img/header/icons4.png" class="Button_pa hXhSDh">
@@ -439,7 +439,7 @@
            
 
 
-              <li class="">
+              <!-- <li class="">
                 <a>관리자 페이지(잠깐)</a>
                 <ul class="dropdown drop-up" >
                         
@@ -460,7 +460,7 @@
    
                </ul>              
                  
-               </li>              
+               </li>               -->
          
             </ul>
 
@@ -521,16 +521,18 @@
 
           </div>
           
-
+          <c:if test="${ not empty loginUser}">
           <div class="Button__ButtonWrapper-sc-1m85upr-0 cmgUBW">
             
-            <c:if test="${ not empty loginUser}">
+            
               <button width="134px" height="44px" font-style="" type="button" class="btnButtonStyle-sc-1m85upr-1 iJuLkw">
                 <a href="enrollForm.pn" style="color: rgb(255, 255, 255); display: inherit; font-weight: bold;">동행 찾기</a>
               </button>
-            </c:if>
+              
+            
           </div>
-
+          
+        </c:if>
           <div class="Popups__HeaderWritePopupDiv-sc-1hc7iv8-0 hbEFUq">
           </div>
         </div>

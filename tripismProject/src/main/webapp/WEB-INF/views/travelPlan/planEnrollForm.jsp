@@ -25,70 +25,21 @@
 	<div>
 		<input type="button" onclick="tourInsert();" value="관광지 데이터 insert">
 	</div>
-    <input type="text" name="dates">
+    <input type="text" name="dates" style="margin-left: 350px; width: 500px; height: 50px;">
 	
 	
 	<div id="content">
 		
 	</div>
-    <!-- <div class="modal fade" id="plan" tabindex="-1" role="dialog" aria-label="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document" style="margin-left:50px; ">
-          <div class="modal-plan" style="width: 1000px ; height: 850px;">
-            <div class="modal-header rounded" id="modalTop" style="height: 5%;">
-              <h3 class="modal-title text-uppercase font-weight-bold">여행지 검색</h3>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div style="width: 100%; height: 70%; display:flex; ">
-	            <div id="map" class="modal-body" style="width: 50%; height: 100%;">
-	            </div>
-	            <div style="width: 50%; height: 100%; background-color:white;">
-	            	<div class="option" style="height: 10%;">
-	                	
-	                    <div id="search" style="display: none;">
-							<input type="text" id="searchVal">
-							<button type="button" onclick="searchTour();">검색</button>
-						</div>
-	                 </div>
-                  	 <div id="placesDiv" style="overflow: auto; height: 90%;">
-	                 	<ul id="placesList">
-	                  	</ul>
-                  	</div>
-	            </div>
-				
-            </div>
-			
-			<div id="spotList" style="width: 100%; height: 20%; ">
-				<h3 style="width: 10%;">여행지 목록</h3>
-				<div id="addedList" style="width: 100%; height: 80%; overflow: auto;">
-
-				</div>
-				
-
-			</div>
-			
-			<div style="height: 5%;">
-				<button id="btnCom" class="btnButtonStyle-sc-1m85upr-1 iJuLkw" type="button" data-bs-dismiss="modal" aria-label="Close">완료</button>
-			</div>
-  
-            
-          </div>
-        </div>
-      </div> -->
-	  <div id="modalDiv"></div>
+	<div id="btnSub" style="display: none;">
+	<button onclick="enrollSub()" class="btnButtonStyle-sc-1m85upr-1 iJuLkw" type="button">등록하기</button>
+	</div>
+	<div id="modalDiv"></div>
     
     <script src="resources/js/travelPlan/plan.js"></script>
 
     <script>
-    //   const mapModal = document.getElementById("plan");
-	//   const mapModal = document.getElementsByClassName('modal');
-	  
-	//   for(let i=0;i<mapModal.length;i++){
-	// 	mapModal[i].addEventListener('shown.bs.modal',function(event){
-	// 		console.log(mapModal[i]);
-	// 		createMap(i);
-        
-    //   	})
-	//   }
+    
 
 	$(function(){
 
@@ -98,54 +49,20 @@
 	  
     </script>
 	<script>
+		function enrollSub(){
+			// console.log($(document).find('id=^resultList'));
+			let content = document.getElementById('content');
+			console.log(content.children);
+			let planList = content.children;
+			let date = [];
+			for(let i =0; i<planList.length; i++){
+				console.log(planList[i].getElementsByClassName('addedSpot'))
+			}
 
-		// const placesList = document.getElementById("placesList");
-		// placesList.addEventListener("click",e=>{
-		// 	const targetEl = e.target;
-		// 	if(!targetEl.classList.contains('addSpot'))return;
-			
-		// 	const spotList = document.getElementById('addedList');
-		// 	const spot = document.createElement('div');
+		}
 
-		// 	spot.className='addedSpot';
-		// 	spot.innerText=e.target.previousElementSibling.innerText;
-		// 	spotList.appendChild(spot);
-		// 	spotList.scrollTop = spotList.scrollHeight;
-		// })
-		
-
-		// const placesList = document.getElementsByClassName('placesList');
-		// const btnCom = document.getElementsByClassName('btnCom');
-
-		// for(let i=0;i<placesList.length;i++){
-		// 	placesList[i].addEventListener('click',e=>{
-		// 		const targetEl = e.target;
-		// 		if(!targetEl.classList.contains('addSpot'))return;
-				
-		// 		const spotList = document.getElementById('addedList');
-		// 		const spot = document.createElement('div');
-
-		// 		spot.className='addedSpot';
-		// 		spot.innerText=e.target.previousElementSibling.innerText;
-		// 		spotList.appendChild(spot);
-		// 		spotList.scrollTop = spotList.scrollHeight;
-		// 	})
-		// }
-		
-		// for(let i=0;i<btnCom.length;i++){
-		// 	btnCom[i].addEventListener('click',()=>{
-			
-		// 		const addedSpot = document.getElementsByClassName('addedSpot');
-		// 		console.log(addedSpot);
-		// 		for(let i=0;i<addedSpot.length;i++){
-		// 			console.log(addedSpot[i].innerText);
-		// 		}
-		
-
-		// 	})
-		// }
-		
 	</script>
+	
     <script>
 		let j =1;
 		

@@ -140,6 +140,14 @@ public class MemberServiceImpl implements MemberService {
 		ArrayList<Spot> list = mDao.selectSpotList(sqlSession, folderNo);
 		return list;
 	}
+	
+	// 좋아요한 여행지 조회
+	@Override
+	public ArrayList<Spot> spotLike(int memNo) {
+		ArrayList<Spot> list = mDao.spotLike(sqlSession, memNo);
+		return list;
+	}
+
 
 
 
@@ -250,11 +258,7 @@ public class MemberServiceImpl implements MemberService {
 		return count;
 	}
 
-	@Override
-	public ArrayList<BookMark> insertBookMarkList(int memNo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 
 

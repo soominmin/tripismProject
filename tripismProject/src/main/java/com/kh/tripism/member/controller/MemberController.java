@@ -432,6 +432,17 @@ public class MemberController {
 		model.addAttribute("list", list);
 		return "member/bookMarkInnerList";
 	}
+	
+	// 나의 좋아요 여행지 목록 조회
+	@RequestMapping("spotLike.do")
+	public String spotLike(Model model, HttpSession session ) {
+		Member loginUser = (Member)session.getAttribute("loginUser");
+		int memNo = loginUser.getMemNo();
+		System.out.println(memNo);
+		ArrayList<Spot> list = mService.spotLike(memNo);
+		model.addAttribute("list", list);
+		return "member/myPageSpotLike";
+	}
 		
 	
 	// 내가 작성한 동행 게시글
@@ -460,10 +471,17 @@ public class MemberController {
 	
 	// 다른사람 마이페이지 조회
 	@RequestMapping("otherPage.do")
-	public String otherPage(@RequestParam("memNo") int memNo, Member m, Model model) {
+	public String otherPage(@RequestParam("memNo") int memNo, Member m, Model model, HttpSession session) {
 		Member otherInfo = mService.otherPage(memNo);
 		model.addAttribute("otherInfo", otherInfo);
-		return "member/othersInfoPage";
+		
+		Member loginUser = (Member)session.getAttribute("loginUser");
+		
+		if(otherInfo.getMemNo() != loginUser.getMemNo()) {
+			return "member/othersInfoPage";
+		} else {
+			return "member/myPage";
+		}
 	}
 	
 	// 다른사람 마이페이지 동행게시글 리스트
@@ -502,6 +520,22 @@ public class MemberController {
 		return "member/othersInfoPage";
 	}
 	
+	// 다른사람 마이페이지 북마크한 여행지 조회하기
+	@RequestMapping("otherbookMarkInner.do")
+	public String otherbookMarkInner(Model model, @RequestParam("folderNo") int folderNo) {
+		ArrayList<Spot> list = mService.selectSpotList(folderNo);
+		// System.out.println("list : " + list);
+		model.addAttribute("list", list);
+		return "member/otherbookMarkInner";
+	}
+	
+	// 다른사람 마이페이지 좋아요한 여행지 조회하기
+	@RequestMapping("otherSpotLike.do")
+	public String otherSpotLike(@RequestParam("memNo") int memNo, Model model) {
+		ArrayList<Spot> list = mService.spotLike(memNo);
+		model.addAttribute("list", list);
+		return "member/otherSpotLike";
+	}
 
 
 	@RequestMapping("mbtiStart.do")

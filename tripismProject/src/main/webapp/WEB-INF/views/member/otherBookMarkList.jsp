@@ -80,29 +80,27 @@
             
             <!-- 반복 -->
             <c:forEach var="f" items="${folderList }">
-	            <c:choose>
-	            	<c:when test="${not empty f }">
-		            <div id="folderWrap">
-					  <div class="mb-3" id="bookMarkImg" style="float: left; height: 40px;">
-					    <img src="${pageContext.request.contextPath}/resources/img/bookMark.png" style="width: 35x; height: 35px; border-radius: 50%; ">
-					  </div>
-					  <div class="folderInfo">
-					    <div class="folderName">
-					      <h5 style="padding-left: 45px; margin-top: 15px;">${f.folderName }</h5>
-					    </div>
-						<!--     <div class="place">
-					      <p style="padding-left: 40px; margin-top: 15px;">📍n(개)</p>
-					    </div> -->
-					  </div>
-					  <div style="height: 1px;">
-					    <hr>
-					  </div>
-					</div>
-					</c:when>
-					<c:otherwise>
-						<h5>아직 ${f.memNickname }님의 즐겨찾기가 존재하지 않습니다.</h5>
-					</c:otherwise>
-				</c:choose>
+            <form action="otherbookMarkInner.do" >
+            	<button type="submit" style="height:45px;">
+            <input type="hidden" value="${f.folderNo }" name="folderNo" id="folderNo">
+            <div id="folderWrap">
+			  <div class="mb-3" id="bookMarkImg" style="float: left; height: 40px;">
+			    <img src="${pageContext.request.contextPath}/resources/img/bookMark.png" style="width: 35x; height: 35px; border-radius: 50%;">
+			  </div>
+			  <div class="folderInfo">
+			    <div class="folderName" >
+			      <h5 style="padding-left: 45px; margin-top: 15px;">${f.folderName }</h5>
+			    </div>
+				<!--     <div class="place">
+			      <p style="padding-left: 40px; margin-top: 15px;">📍n(개)</p>
+			    </div> -->
+			  </div>
+			</div>
+				</button>
+			  <div style="height: 1px;">
+			    <hr>
+				</div>
+			</form>
 			</c:forEach>
 			<!-- 반복끝 -->
 			

@@ -318,8 +318,11 @@
 		
 		#enroll{
 		    background-color:  RGB(112, 217, 223);
-		    border:none;
+		    border:RGB(112, 217, 223);
 		    font-size: 16px;
+		    border-radius: 50%;
+		    margin-top:10px;.
+		    
 		}
 		
 		#enroll>a{
@@ -338,7 +341,7 @@
 
 		#enrollBtn{
 		  background-color: RGB(112, 217, 223);
-		  border: none;
+		  
 		}
 
     /*header font-weight*/
@@ -348,9 +351,29 @@
     
     #kakaoEnroll>img{
       border-radius: 70%;
-      width: 60px;
-      height: 60px;
+      width: 55px;
+      height: 55px;
     }
+    
+    #kakaoBtn{
+    	width: 170px;
+    	height: 35px;
+    	object-fit:cover;
+    }
+    
+    #naverEnroll>img{
+      border-radius: 70%;
+      width: 55px;
+      height: 55px;
+    }
+    
+	#tripismBtn{
+	   	width: 55px;
+      	height: 55px;
+	   	border: RGB(112, 217, 223) soild 1.5px;
+	   	border-radius: 50%;
+	    	
+		}
 
         </style>
 
@@ -592,6 +615,10 @@
                   <input type="checkbox" class="form-check-input" id="exampleCheck5">
                   <label class="form-check-label text-gray-color mb-3" for="exampleCheck5">
                     아이디 기억하기
+                    <span style="margin-left:90px;">
+                <a href="idfind.do" align="center" style="color: black; font-size:15px;">ID 찾기</a> | 
+                <a href="pwdFindForm.do" align="center" style="color: black; font-size:15px;">비밀번호 찾기</a>
+                </span>
                   </label> <br>
                 
                </div>
@@ -600,26 +627,35 @@
                 <button type="submit" class="btn btn-primary text-uppercase" style="font-size: 16px; background-color: RGB(112, 217, 223); border: none;">확인</button>
                </div>
                </form>
-  
-                <div class="text-uppercase text-center py-3">Or</div>
+  				<div class="d-grid" style="margin-top:10px; margin-bottom:10px; ">
+  					<img src="resources/img/로그인or.png">
+               	</div>
   
                 <div class="d-grid" >
                   <div id="naver" style="text-align: center; background-color: #03C75A;"><img src="${pageContext.request.contextPath}/resources/img/naver_login.png" style="width: 60%; height: 60%; object-fit:cover; margin-top: 10px;"></div>
-                  <button type="submit" id="kakao" style="text-align: center; background-color: #FEE500;" onclick="location.href='https://kauth.kakao.com/oauth/authorize?client_id=acce547533917e39df39803a17ee07fb&redirect_uri=http://localhost:8007/tripism/oauth/kakao&response_type=code&scope=account_email,gender,profile_nickname,profile_image'"><img src="${pageContext.request.contextPath}/resources/img/kakao_login_medium_narrow.png" style="width: 60%; height: 60%; object-fit:cover; margin-top: 10px;"></a></button>
-                  <button type="button" class="btn btn-facebook text-uppercase text-white" id="enroll" style="color: black;" ><a href="enrollForm.do">회원가입하기</a></button>
-                 
-                 <button type="submit" id="kakaoEnroll" style="text-align: center;" onclick="location.href='https://kauth.kakao.com/oauth/authorize?client_id=acce547533917e39df39803a17ee07fb&redirect_uri=http://localhost:8007/tripism/oauth/kakaoinsert&response_type=code&scope=account_email,gender,profile_nickname,profile_image'"><img src="resources/img/kakao.png" style=" object-fit:cover; padding-top: 10px; "></a></button>
+                  <button type="submit" id="kakao" style="text-align: center; background-color: #FEE500;" onclick="location.href='https://kauth.kakao.com/oauth/authorize?client_id=acce547533917e39df39803a17ee07fb&redirect_uri=http://localhost:8007/tripism/oauth/kakao&response_type=code&scope=account_email,gender,profile_nickname,profile_image'"><img id="kakaoBtn" src="resources/img/kakao_login_medium_narrow.png" ></a></button>
                  </div>
+                 </div>
+
+                  <div class="d-grid">
+                 	<span>
+                 		<img src="resources/img/수평선.png" style="width:120px; float:left; margin-left:15px; margin-top:5px; margin-right:18px;">
+                 		<span style="margin-bottom:10px;">회원가입하기</span>
+                 		<img src="resources/img/수평선.png" style="width:120px; float:right; margin-top:5px; margin-right:20px;">
+                 	</span>
+                 </div>
+                 
+                 <div class="d-grid" style="padding-bottom:40px;">
+                 <span>
+                  <button type="button" id="enroll" style="margin-left: 70px; margin-right:40px;" ><a href="enrollForm.do"><img src="resources/img/logo.png" id="tripismBtn" style="border: 1.5px solid rgb(112, 217, 223);"></a></button>
+                  <button type="submit" id="kakaoEnroll" style="text-align: center; margin-right:40px;" onclick="location.href='https://kauth.kakao.com/oauth/authorize?client_id=acce547533917e39df39803a17ee07fb&redirect_uri=http://localhost:8007/tripism/oauth/kakaoinsert&response_type=code&scope=account_email,gender,profile_nickname,profile_image'"><img src="resources/img/kakao.png" style="object-fit:cover; margin-top: 10px;"></button>
+                  <button type="submit" id="naverEnroll" style="text-align: center;" onclick=""><img src="resources/img/naverLogo.png" style="object-fit:cover; margin-top: 10px;"></button>
+                 </span>
+                </div>
+
               
 
-              <div align="center" style="padding-top: 15px;">
-                <a href="idfind.do" align="center" style="color: black;">ID 찾기</a> | 
-                <a href="pwdFindForm.do" align="center" style="color: black;">비밀번호 찾기</a>
-              </div>
-              
             </div>
-  
-            
           </div>
         </div>
       </div>

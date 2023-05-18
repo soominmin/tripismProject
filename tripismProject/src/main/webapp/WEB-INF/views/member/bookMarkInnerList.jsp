@@ -735,22 +735,13 @@
 			
 			<ul type="portrait" class="AccompanyWebSection__AccompanyList-sc-lvz8r6-0 dkymTH">
 				<c:forEach var="sp" items="${ list }">
-				
 					<div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
 						<input type="hidden" value="${sp.spotNo }" class="spotNo"/>
-					
-						
 						<div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
-	
-	
 							<div class="AccompanyWebCard__GrayLine-sc-ws5mjw-2 fAUDUm"></div>
-	
 							<div class="AccompanyWebCard__DateWrap-sc-ws5mjw-9 fdRVsr">
 								<div class="AccompanyWebCard__DateHoveredWrap-sc-ws5mjw-10 hWLPgS"></div>
-
-
 							</div>
-	
 						</div>
 	
 						<div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">

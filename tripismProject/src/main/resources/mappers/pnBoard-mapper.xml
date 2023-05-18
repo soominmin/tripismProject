@@ -119,6 +119,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         inner join tb_spot_area_category s
         on p.area_category_no = s.area_category_no
 		where partner_status = 'Y'
+		  and mem_status = 'Y'
 		order by post_no desc
 	</select>
 	

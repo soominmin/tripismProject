@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>내가 좋아요한 여행지</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <style >			
@@ -27,7 +27,7 @@
 		display: flex;
 		flex-direction: column;
 		width: 238px;
-		height: 350px;
+		height: 260px;
 		background: rgb(255, 255, 255);
 		box-shadow: rgba(25, 25, 25, 0.2) 0 6px 10px;
 		border-radius: 14px;
@@ -708,6 +708,7 @@
 </head>
 <body>
 	<jsp:include page="../common/header.jsp"/>
+<div class="main-wrapper blog-list-right-sidebar">
   <section class="py-9 py-md-10">
     <div class="container">
       <div class="row">
@@ -719,12 +720,11 @@
 				<div class="row">
 					<div class="col-12">
 						<div class="row" style="width: 1670px;">
-						  <div class="col-lg-6" style="border: solid 3px rgba(199, 198, 198, 0.37); padding: 35px; border-radius:  15px 15px 15px 15px; margin-left: 160px;">
-               			<div class="mb-4">
-               			<c:forEach var="pn" items="${ pnlist }">
-			             <h3 class="text-uppercase mb-3" align="center">동행 게시글</h3>
-			            </c:forEach>
+						  <div class="col-lg-6" style="border: solid 3px rgba(199, 198, 198, 0.37); padding: 35px; border-radius:  15px 15px 15px 15px; margin-left:160px;">
+			<div class="mb-4" align="center">
+			<h5> 닉네임이 좋아한 여행지 </h5>
            	   </div>
+
 	<div class="Layout__PageContentWrap-sc-1w3ggn5-0 bgfeYQ">
 		
 		<section direction="vertical"
@@ -734,91 +734,35 @@
 
 			
 			<ul type="portrait" class="AccompanyWebSection__AccompanyList-sc-lvz8r6-0 dkymTH">
-				<c:forEach var="pn" items="${ pnlist }">
+				<c:forEach var="sp" items="${ list }">
 				
 					<div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
-						<input type="hidden" value="${pn.postNo }" class="postNo"/>
-					
+						<input type="hidden" value="${sp.spotNo }" class="spotNo"/>
+						<input type="hidden" value="${sp.spotContentType }" class="spotContentType">
+						<input type="hidden" value="${sp.spotContentId }" class="spotContentId">
 						
 						<div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
 	
-							<div class="AccompanyWebCard__ProfileWrap-sc-ws5mjw-6 gNWBdG"> 
-							<!--  ---------------------------------------------------------------------------------------------------------------------- 여기가 member ${pn.member.img }-->
-								<c:choose>
-								<c:when test="${not empty pn.member.img }">
-									<img src="resources/img/partner/${pn.member.img }.jpg"
-										class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
-								</c:when>
-								<c:otherwise>
-									<img src="resources/img/partner/ner.jpg"
-										class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
-								</c:otherwise>
-								</c:choose>
-									
-								<div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
-									<p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">${pn.member.memNickname }</p>
-									<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
-									<!-- ----------------------------------------------------------------------------------------------------------------------- ${pn.member.mbti } -->
-										<c:choose>
-										<c:when test="${not empty pn.member.mbti }">
-											<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${pn.member.mbti }</p>
-										</c:when>
-										<c:otherwise>
-										<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">미정</p>
-											
-										</c:otherwise>
-										</c:choose>
-										<div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
-										<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${pn.member.gender == 'F' ? '여성' : '남성'}</p>
-									</div>
-								</div>
-							</div>
 	
 							<div class="AccompanyWebCard__GrayLine-sc-ws5mjw-2 fAUDUm"></div>
-	
-							<div class="AccompanyWebCard__DateWrap-sc-ws5mjw-9 fdRVsr">
-								<div class="AccompanyWebCard__DateHoveredWrap-sc-ws5mjw-10 hWLPgS"></div>
-								<div class="AccompanyWebCard__DateTitleWrap-sc-ws5mjw-11 kdZjQK">
-									<img src="resources/img/partner/accompany_gray_calendar.png" class="AccompanyWebCard__DateIcon-sc-ws5mjw-12 ilUDog">
-									<p class="AccompanyWebCard__DateTitle-sc-ws5mjw-13 iBlyRM">여행기간</p>
-								</div>
-								<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
-									<p color="#00CE7C" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">
-									${pn.partnerStartDate } - ${pn.partnerEndDate }</p>
-								</div>
-							</div>
 	
 						</div>
 	
 						<div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
 						<!-- -------------------------------------------------------------------------------------------------------------------------------------   ${pn.partnerOriginalImg } -->
-							<img src="resources/img/partner/${pn.partnerOriginalImg }" class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
+							<img src="${sp.spotImgPath }" class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
 	
-							<div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
-								<div class="AccompanyWebCard__LocationIcon-sc-ws5mjw-17 lmqiXK">
-									<svg
-										width="13"
-										height="17"
-										viewbox="0 0 13 17"
-										fill="none"
-										xmlns="http://www.w3.org/2000/svg">
-										<path
-											d="M12.7244 7.11371C12.7244 10.6866 6.49995 16.3557 6.49995 16.3557C6.49995 16.3557 0.275513 10.6866 0.275513 7.11371C0.275513 3.54077 3.06229 0.644341 6.49995 0.644341C9.93761 0.644341 12.7244 3.54077 12.7244 7.11371Z"
-											fill="#008FF6"></path>
-										<ellipse cx="6.50063" cy="6.40462" rx="2.81106" ry="2.81106" fill="#fff"></ellipse>
-									</svg>
-								</div>
-								<p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">${pn.spot.areaTitle }</p>
-							</div>
+
 						</div>
 	
 						<div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
-								<p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">${ pn.partnerTitle }</p>
+								<p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">${ sp.spotTitle }</p>
 								<p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
-									${ pn.partnerContent }
+									${ sp.spotAddress }
 								</p>
 						</div>						
 					</div>
+
 				</c:forEach>
 				
 				<!-- -------------------------- -->
@@ -826,7 +770,7 @@
 					$("#pnlist>ul>.cxduOO").click(function(){
 					  // location.href='detail.pn?pno=' + ${pn.postNo };
 					  console.log("asdasdsad");
-					  location.href = "detail.pn?pno="+$(this).children(".postNo").val();
+					  location.href = "detailAPI.sp?contentId="+$(this).children(".spotContentId").val()+"&contentType="+$(this).children(".spotContentType").val();
 							
 				   })
 				</script>
@@ -894,7 +838,7 @@
 	</div>
 	</div>
 </div>
-	</div>
+	
 	    </div>		
   	</div>
 	</section>
@@ -903,4 +847,3 @@
 		<!-- 푸터바 포함 -->
 	<jsp:include page="../common/footer.jsp"/>
 </body>
-</html>

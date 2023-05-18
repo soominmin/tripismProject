@@ -368,8 +368,8 @@
   ===================================== -->
   <header class="header" id="pageTop" style="height: auto;" >
     <!-- Menu Zord -->
-    <nav class="nav-menuzord navbar-sticky" class="sc-584527a1-1 cHBTwe" style="height: 150px;">
-      <div id="header" class="sc-2cf0ad3b-0 iwFWzK">
+    <nav class="nav-menuzord navbar-sticky" class="sc-584527a1-1 cHBTwe" style="height: 150px; margin: auto;">
+      <div id="header" class="sc-2cf0ad3b-0 iwFWzK" style="margin:auto">
 
        <div class="Headersstyle__HeaderTopWrapDiv-sc-6xu8td-2 jolKUF">
         <div class="Headersstyle__HeaderTopInnerDiv-sc-6xu8td-3 cUxSoB">
@@ -523,18 +523,12 @@
           
 
           <div class="Button__ButtonWrapper-sc-1m85upr-0 cmgUBW">
-            <c:choose>
-              <c:when test="${ empty loginUser }">
-
-              </c:when>
-              
-              <c:otherwise>
-                <button width="134px" height="44px" font-style="" type="button" class="btnButtonStyle-sc-1m85upr-1 iJuLkw">
-                  <a href="enrollForm.pn" style="color: rgb(255, 255, 255); display: inherit; font-weight: bold;">동행 찾기</a>
-                </button>
-              </c:otherwise>
-
-            </c:choose>
+            
+            <c:if test="${ not empty loginUser}">
+              <button width="134px" height="44px" font-style="" type="button" class="btnButtonStyle-sc-1m85upr-1 iJuLkw">
+                <a href="enrollForm.pn" style="color: rgb(255, 255, 255); display: inherit; font-weight: bold;">동행 찾기</a>
+              </button>
+            </c:if>
           </div>
 
           <div class="Popups__HeaderWritePopupDiv-sc-1hc7iv8-0 hbEFUq">

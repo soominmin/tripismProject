@@ -29,7 +29,7 @@ public class TravelPlanController {
 	@RequestMapping("plan.tr")
 	public String planEnrollForm() {
 		
-		return "travelPlan/planEnrollForm";
+		return "travelPlan/planEnrollFormTest";
 	}
 	
 	@RequestMapping(value = "tourInsert.do",produces = "application/json; charset=utf-8")

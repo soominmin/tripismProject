@@ -481,6 +481,9 @@
                                     memNickname:'${loginUser.memNickname}'
                                 }
                                 webSocket.send(JSON.stringify(messageInfo));
+                                document.getElementById('messages').scrollTop=document.getElementById('messages').scrollHeight-document.getElementById('messages').offsetHeight;
+                                
+
                     })
                     
                     webSocket.onmessage = function(messageInfo){
@@ -498,7 +501,9 @@
                                                              +  '<div>'+message.memNickname+' : '+message.messageText+'</div>'
                                                            + '</div>')
                         }
-                        document.getElementById('messages').append($value);
+                        $('#messages').append($value);
+                       
+                        document.getElementById('messages').scrollTop=document.getElementById('messages').scrollHeight-document.getElementById('messages').offsetHeight;
 
                     }
                     

@@ -5,14 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="resources/json/sido.json"></script>
+<script src="resources/json/sido2.json"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d01b5e344f19b98d9ce3f465ded0b304"></script>  
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <style type="text/css">
-
+	/* .daterangepicker{
+		height: 590px;
+		margin-left: 950px;
+		top: 200px;
+	} */
 	.spotTilte:hover{cursor: pointer;}
 	.addSpot,.info img{width: 20%;}
 	.spotTitle{width: 60%;}
@@ -25,12 +29,23 @@
 	<div>
 		<input type="button" onclick="tourInsert();" value="관광지 데이터 insert">
 	</div>
-    <input type="text" name="dates">
+	<div>
+    
 	
-	
-	<div id="content">
-		
+	<div Style="width:80%;margin: auto;">
+		<div style="display: flex;">
+			<div id="map" style="width:40%;height:590px; border-radius: 10px; border: 2px solid gray;"></div>
+			<div id="datePosition">
+				<input type="text" name="dates" id="datePicker" style="width: 500px; height: 50px;" placeholder="언제 떠나시나세요?"></div>
+		</div>
+		<div id="content">
+			<div class="accordion accordion-flush" id="accordionFlushExample" style="margin:auto">
+			
+			
+			</div>
+		</div>
 	</div>
+</div>
     <!-- <div class="modal fade" id="plan" tabindex="-1" role="dialog" aria-label="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document" style="margin-left:50px; ">
           <div class="modal-plan" style="width: 1000px ; height: 850px;">
@@ -75,8 +90,8 @@
         </div>
       </div> -->
 	  <div id="modalDiv"></div>
+	  
     
-    <script src="resources/js/travelPlan/plan.js"></script>
 
     <script>
     //   const mapModal = document.getElementById("plan");
@@ -89,12 +104,12 @@
         
     //   	})
 	//   }
+	
+	// $(function(){
 
-	$(function(){
+	// 	$("input[name=dates]").trigger('click');
 
-		$("input[name=dates]").trigger('click');
-
-	})
+	// })
 	  
     </script>
 	<script>
@@ -145,6 +160,10 @@
 		// 	})
 		// }
 		
+	</script>
+	<script src="resources/js/travelPlan/plan2.js"></script>
+	<script>
+		createMap();
 	</script>
     <script>
 		let j =1;

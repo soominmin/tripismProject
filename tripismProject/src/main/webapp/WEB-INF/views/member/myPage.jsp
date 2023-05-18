@@ -183,7 +183,7 @@
                                                     
                                 
                                   <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                                      <span id="likePost"><a href="spotLike.do">❤️ 찜목록</a></span>
+                                      <span id="likePost"><a href="spotLike.do">❤️ 좋아요한 여행지</a></span>
                                   </li>
                     
                           
@@ -195,7 +195,10 @@
                                       <span id="bookMark"><a href="bookMarkList.do">⭐ 즐겨찾기 </a></span>
                                   </li>
                                   
-                                  </li>
+                                  <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
+	                				  <span id="bookMark"><a href="following.do">👯 내 친구목록 </a></span>
+	          					  </li>
+                                  
                    			 	<c:choose>
                    			 	  <c:when test="${empty loginUser.mbti }">
 	                                  <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
@@ -208,11 +211,6 @@
 	                                  </li>
                                   </c:otherwise>
                                  </c:choose>
-                                  
-                                  <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                                    <span id="bookMark"><a href="modal.do"> 모달창확인 </a></span>
-                                  </li>
-                                  
                                 </ul>
                             </div>
                             

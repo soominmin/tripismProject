@@ -90,7 +90,7 @@
         text-align: center;
       }
       
-      #following{
+      #follow{
 	    background-color: rgba(240, 248, 255, 0.199);
 	    border: 1px solid black;
 	    border-radius: 7px 7px 7px 7px;
@@ -177,7 +177,7 @@
                                 <ul class="list-unstyled list-group list-group-flush">
                           
                                   <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                                      <span id="likePost"><a href="spotLike.do">❤️ 찜목록</a></span>
+                                      <span id="likePost"><a href="otherSpotLike.do?memNo=${otherInfo.memNo }">❤️ ${otherInfo.memNickname }님의 좋아요한 여행지</a></span>
                                   </li>
                 
                           

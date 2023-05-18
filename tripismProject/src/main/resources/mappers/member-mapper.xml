@@ -81,6 +81,12 @@
 		<result column="FOLLOWING_NO" property="followingNo"/>
 		<result column="FOLLOWER_NO" property="followerNo"/>
 	</resultMap>
+	
+	<resultMap type="SpotLike" id="SpotLikeResultSet">
+		<result column="SPOT_LIKE_NO" property="spotLikeNo"/>
+		<result column="SPOT_NO" property="spotNo"/>
+		<result column="MEM_NO" property="memNo"/>
+	</resultMap>
 
 
 	<select id="loginMember" parameterType="Member" resultMap="memberResultSet">
@@ -305,9 +311,16 @@
 	
 	<select id="selectSpotList" resultMap="spotResult">
 		select * 
-  from tb_bookmark
-  join tb_travel_spot using (spot_no)
-  where folder_no = #{folderNo}
+		  from tb_bookmark
+		  join tb_travel_spot using (spot_no)
+		 where folder_no = #{folderNo}
+	</select>
+	
+	<select id="spotLike" resultMap="spotResult">
+	select * 
+	  from tb_travel_spot
+	  join tb_travel_spot_like using(spot_no)
+  	 where mem_no = #{memNo}
 	</select>
 
 </mapper>

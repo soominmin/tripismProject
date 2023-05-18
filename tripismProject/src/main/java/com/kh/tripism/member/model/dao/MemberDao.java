@@ -100,8 +100,14 @@ public class MemberDao {
 		return sqlSession.selectOne("memberMapper.otherPage", memNo);
 	}
 	
+	// 폴더안에 여행지 조회
 	public ArrayList<Spot> selectSpotList(SqlSessionTemplate sqlSession, int folderNo){
 		return (ArrayList)sqlSession.selectList("memberMapper.selectSpotList", folderNo);
+	}
+	
+	// 좋아요한 여행지 조회
+	public ArrayList<Spot> spotLike(SqlSessionTemplate sqlSession, int memNo){
+		return (ArrayList)sqlSession.selectList("memberMapper.spotLike", memNo);
 	}
 
 	

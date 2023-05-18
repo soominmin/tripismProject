@@ -162,7 +162,7 @@
 		  join tb_member using(mem_no)
 		 where reply_distinct = 'T'
 		   and board_no = #{boardNo}
-	
+		   
 	</select>
 	
 	<update id="increaseCount">

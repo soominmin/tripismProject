@@ -642,6 +642,7 @@
             class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq">
             <img alt="이미지" src="${pageContext.request.contextPath}/resources/img/partner/${pb.partnerOriginalImg }"></section>
             <div class="accompanyId__BulletinWrapDiv-sc-1up08zu-1 jLghAG">
+                <input type="hidden" value="${pn.postNo }" class="postNo"/>
                 <div class="innerSection__AreaLeftDiv-sc-1ag5fhb-4 birXOP">
                     <div class="AccompanyContainer__Wrap-sc-zoqt5l-0 rgrEj">
                         <div class="AccompanyContainer__TitleBox-sc-zoqt5l-1 gMhobB">
@@ -790,27 +791,7 @@
                                 
                             </tbody>
 
-                            <!-- 여기서 부터-->
-                            <div class="sc-3686333a-0 ebxbKL">
-                                <div class="sc-3686333a-1 hMsBcZ">
-
-                                    <div class="sc-3686333a-2 inoGb">
-                                        <div class="sc-c9e981f7-0 fiJRaz">
-                                            <div class="sc-c9e981f7-1 gthqDr">
-                                                <img  alt="detail page img" src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/test/image/1670226400577-1"
-                                                    class="sc-c9e981f7-2 gWFsPR">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="sc-3686333a-3 kVIFFJ">
-                                            <span class="sc-3686333a-4 bOTHJz">ak4975a1</span>
-                                            <span class="sc-3686333a-5 bELrMo">2023/04/14 21:46:31</span>
-                                        </div>
-                                    </div>
-                                    <p class="sc-3686333a-6 cXVLtq">강원도 어디로가시는지요</p>
-                                </div>
-                                <!-- 여기까지 -->
+        
                                 
 
                             </div>
@@ -824,19 +805,27 @@
                     <div class="Layout__LayoutEqualDistanceDiv-sc-1w3ggn5-1 hAClzB profile_section">
                         <div class="area_top" style="margin: 0; margin-bottom: 15px;">
 
-                                <img src="${pageContext.request.contextPath}/resources/img/partner/ner.jpg" style="width: 55px; height: 55px; padding: 4px; margin-top: 10px;">
-                      
+
+                            <c:choose>
+								<c:when test="${not empty pn.member.img }">
+									<img src="${pn.member.img }" style="width: 55px; height: 55px; padding: 4px; margin-top: 10px;">
+								</c:when>
+								<c:otherwise>
+                                    <img src="${pageContext.request.contextPath}/resources/img/partner/ner.jpg" style="width: 55px; height: 55px; padding: 4px; margin-top: 10px;">
+                                </c:otherwise>
+                            </c:choose>
+
                                 <div class="profile_info_wrap">
                                     <div class="area_flex" style="display: flex;">
-                                        <p class="profile_nickname" style="font-size: 16px">${pb.member.memNickname }</p>
+                                        <p class="profile_nickname" style="font-size: 16px">${pb.member.memNickname } · ${pb.member.gender == 'F' ? '여성' : '남성'}</p>
                                     </div>
                                     <div class="profile_taste gray_text" style="display: flex;">
                                       <c:choose>
                                          <c:when test="${not empty pb.member.mbti }">
-                                         	<p class="ProfileCompanion eOlhBT">${pb.member.mbti } · ${pb.member.gender == 'F' ? '여성' : '남성'}</p>
+                                         	<p class="ProfileCompanion eOlhBT">${pb.member.mbti } </p>
                                          </c:when>
                                          <c:otherwise>
-                                         	<p class="ProfileCompanion eOlhBT">미정 ·  ${pb.member.gender == 'F' ? '여성' : '남성'}</p>
+                                         	<p class="ProfileCompanion eOlhBT">미정</p>
                                          </c:otherwise>
                                        </c:choose>
                                     
@@ -844,8 +833,8 @@
                                     
                                     
                                     <a href="otherPage.do?memNo=${pb.member.memNo }" style="text-decoration:none;">
-                                        <button class="AccompanyContainer__ReportButton-sc-zoqt5l-12 laOqNb" style="font-size: 14px; color: rgb(154, 154, 154); line-height: 21px; font-weight: 400; margin-bottom: 15px; margin-left: 66px;">
-                                        정보 보러가기</button>
+                                        <button class="AccompanyContainer__ReportButton-sc-zoqt5l-12 laOqNb" style="font-size: 14px; color: rgb(154, 154, 154); line-height: 21px; font-weight: 400; margin-bottom: 15px; margin-left: 50px;">
+                                        정보 보기</button>
                                     </a>
                     
                                     </div>
@@ -931,13 +920,13 @@
                                     <c:when test="${ empty loginUser }">
                                         <p class="ModalConfirm gpnsLj"> 로그인 회원만 이용하실 수 있는 페이지 입니다. <br> 로그인을 해주세요</p>
                                         <div class="ModalConfirm bcDKTX" >
-                                            <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo">확인</button>
+                                            <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo" >확인</button>
                                     </c:when>
                                     <c:otherwise>
                                     	<p class="ModalConfirm gpnsLj"> 동행을 신청하시겠습니까? <br> </p>
                                         <div class="ModalConfirm bcDKTX" >
-                                            <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo">확인</button>
-                                            <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo">취소</button>
+                                            <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo" style="margin-left: 0px;">확인</button>
+                                            <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo" style="margin-left: 10px;">취소</button>
                                     
                                     </c:otherwise>
                                     </c:choose>
@@ -949,32 +938,82 @@
             </div>
 
             <script>
-                $(function(){
-                    selectReplyList();
-                })
+            $(function(){
+            	selectPnReplyList();
+            })
+                
 
                 function addReply() {
-                    if($("#replyContents").val().trim().length != 0){
+            	console.log("이거아어ㅏ러아너랑ㄴ");
+                    if($("#replyContents").val().trim().length != 0) {
                         $.ajax({
                             url:"rinsert.pn",
                             data:{
-                                refPnBoardNo:${pn.postNo},
-                                replyContents:$("#replyContents").val(),
-                                replyWriter:'${loginUser.memId}'
+                        		boardNo:${pb.postNo},
+                        		replyContents:$("#replyContents").val(),
+                        		memNo:${ not empty loginUser ? loginUser.memNo : 0 }
                                 
                             }, success:function(status){
 
-                                if(status == "succes"){
-                                    selectReplyList
+                                if(status == "success"){
+                                	/* alert("댓글성공!"); */
+                                	selectPnReplyList();
+                                	$("#replyContent").val("");
                                 }
 
+                            }, error:function() {
+                            	console.log("댓글 작성용 ajax 통신 실패!");
                             }
-                        })
+                        });
+                    }else {
+                    	alertify.alert("댓글 작성 후 등록이 가능합니다.");
                     }
+                }
+                
+                
+                
+                
+                function selectPnReplyList() {
+                	$.ajax({
+                		url: "rlist.pn",
+                		data:{postNo:${pb.postNo}},
+                		success:function(list){
+                			console.log(list);
+                			
+                			let value ="";
+                			
+                			for(let i in list) {
+                				value += "<div class='sc-3686333a-0 ebxbKL'>"
+			                          +    "<div class='sc-3686333a-1 hMsBcZ'>"
+			                          +       "<div class='sc-3686333a-2 inoGb'>"
+			                          +			"<div class='sc-c9e981f7-0 fiJRaz'>"
+			                          +			"<div class='sc-c9e981f7-1 gthqDr'>"
+			                          +			"<img  alt='detail page img' src='https://tripsoda.s3.ap-northeast-2.amazonaws.com/test/image/1670226400577-1' class='sc-c9e981f7-2 gWFsPR'>"
+			                          + "</div>"
+			                          + "</div>"
+			                          + "</div>"
+			                          + "<div class='sc-3686333a-3 kVIFFJ'>"
+			                          + "<span class='sc-3686333a-4 bOTHJz'>" + list[i].replyWriter + "</span>"
+			                          + "<span class='sc-3686333a-5 bELrMo'>" + list[i].replyDate + "</span>"
+			                          + "</div>"
+			                          + "</div>"
+			                          + "<p class='sc-3686333a-6 cXVLtq'>" +list[i].replyContents+ "</p>"
+			                          + "</div>"
+			                               
+                			}
+                			
+                			$("#replyArea tbody").html(value);
+                			$("#rcount").text(list.length);
+                		}, error: function() {
+                			console.log()
+                		}
+                	})
                 }
 
             </script>
-
+            
+            
+<!-- 
             <script>
                 const textarea = document.querySelector('#pnComment');
 
@@ -984,6 +1023,8 @@
                 }
                 textarea.addEventListener('input', autoResizeTextArea);
             </script>
+ -->
+            
             <script>
                 // 동행신청하기 버튼 클릭 시 모달창 띄우기
                 var applyBtn = document.querySelector('#applyBtn');

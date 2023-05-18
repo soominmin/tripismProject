@@ -65,13 +65,13 @@ public class PnBoardDao {
 	
 	
 	// 동행 관련 댓글
-	public ArrayList<Reply> selectReplyList(SqlSessionTemplate sqlSession, int pnBoardNo) {
-		return (ArrayList)sqlSession.selectList("pnBoardMapper.selectReplyList", pnBoardNo);
+	public ArrayList<Reply> selectPnReplyList(SqlSessionTemplate sqlSession, int postNo) {
+		return (ArrayList)sqlSession.selectList("pnBoardMapper.selectPnReplyList", postNo);
 	}
 	
 	// 동행 관련 댓글 추가
-	public int insertReply(SqlSessionTemplate sqlSession, Reply pr) {
-		return sqlSession.insert("pnBoardMapper.insertReply", pr);
+	public int insertPnReply(SqlSessionTemplate sqlSession, Reply pr) {
+		return sqlSession.insert("pnBoardMapper.insertPnReply", pr);
 	}
 	
 	public ArrayList<PnApply> selectApplyList(SqlSessionTemplate sqlSession,int pnBoardNo){

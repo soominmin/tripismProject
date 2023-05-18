@@ -721,8 +721,8 @@
 					<div class="col-12">
 						<div class="row" style="width: 1670px;">
 						  <div class="col-lg-6" style="border: solid 3px rgba(199, 198, 198, 0.37); padding: 35px; border-radius:  15px 15px 15px 15px;">
-			<div class="mb-4">
-			<h5> 닉네임의 즐겨찾기 </h5>
+			<div class="mb-4" align="center">
+			<h3> 닉네임의 즐겨찾기 </h3>
            	   </div>
 
 	<div class="Layout__PageContentWrap-sc-1w3ggn5-0 bgfeYQ">

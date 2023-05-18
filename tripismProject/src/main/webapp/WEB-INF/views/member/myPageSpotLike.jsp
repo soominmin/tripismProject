@@ -722,7 +722,7 @@
 						<div class="row" style="width: 1670px;">
 						  <div class="col-lg-6" style="border: solid 3px rgba(199, 198, 198, 0.37); padding: 35px; border-radius:  15px 15px 15px 15px;">
 			<div class="mb-4" align="center">
-			<h5> 내가 좋아한 여행지 </h5>
+			<h3> 내가 좋아한 여행지 </h5>
            	   </div>
 
 	<div class="Layout__PageContentWrap-sc-1w3ggn5-0 bgfeYQ">
@@ -738,6 +738,8 @@
 				
 					<div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
 						<input type="hidden" value="${sp.spotNo }" class="spotNo"/>
+						<input type="hidden" value="${sp.spotContentType }" class="spotContentType">
+						<input type="hidden" value="${sp.spotContentId }" class="spotContentId">
 					
 						
 						<div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
@@ -769,7 +771,7 @@
 					$("#pnlist>ul>.cxduOO").click(function(){
 					  // location.href='detail.pn?pno=' + ${pn.postNo };
 					  console.log("asdasdsad");
-					  location.href = "detail.pn?pno="+$(this).children(".postNo").val();
+					  location.href = "detailAPI.sp?contentId="+$(this).children(".spotContentId").val()+"&contentType="+$(this).children(".spotContentType").val();
 							
 				   })
 				</script>

@@ -66,7 +66,7 @@
 					<div class="col-12">
 						<div class="row" style="width: 1670px; height:670px;">
 						  <div class="col-lg-6" style="border: solid 3px rgba(199, 198, 198, 0.37); padding: 35px; border-radius:  15px 15px 15px 15px;  margin-left: 160px;">
-               			<div class="mb-4" style="padding-bottom:30px;">
+               			<div class="mb-4" style="padding-bottom:30px;" align="center">
              				<h3 class="text-uppercase mb-3" align="center">즐겨찾기 목록</h3>
            	   			</div>
            	   			

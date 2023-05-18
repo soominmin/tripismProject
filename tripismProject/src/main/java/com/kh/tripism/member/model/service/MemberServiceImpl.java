@@ -10,6 +10,7 @@ import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.member.model.dao.MemberDao;
 import com.kh.tripism.member.model.vo.BookMark;
 import com.kh.tripism.member.model.vo.Folder;
+import com.kh.tripism.member.model.vo.Follow;
 import com.kh.tripism.member.model.vo.Member;
 import com.kh.tripism.partnerBoard.model.vo.PnBoard;
 import com.kh.tripism.travelSpot.model.vo.Spot;
@@ -58,8 +59,8 @@ public class MemberServiceImpl implements MemberService {
 	
 	// 이메일 중복확인
 	@Override
-	public int emailCheck(String email) {
-		return mDao.emailCheck(sqlSession, email);
+	public int emailCheck(String checkEmail) {
+		return mDao.emailCheck(sqlSession, checkEmail);
 	}
 
 	// 아이디 찾기
@@ -147,6 +148,39 @@ public class MemberServiceImpl implements MemberService {
 		ArrayList<Spot> list = mDao.spotLike(sqlSession, memNo);
 		return list;
 	}
+	
+	// 팔로잉하기
+	@Override
+	public int following(Follow f) {
+		int result = mDao.following(sqlSession, f);
+		return result;
+	}
+	
+	// 팔로잉 목록조회
+	@Override
+	public ArrayList<Follow> followingList(int loginUserNo) {
+		ArrayList<Follow> list = mDao.followingList(sqlSession, loginUserNo);
+		return list;
+	}
+	
+	// 팔로워 목록조회
+	@Override
+	public ArrayList<Follow> followerList(int loginUserNo) {
+		ArrayList<Follow> list = mDao.followerList(sqlSession, loginUserNo);
+		return list;
+	}
+
+	@Override
+	public int followerCount(int loginUserNo) {
+		return mDao.followerCount(sqlSession, loginUserNo);
+	}
+
+
+
+
+
+	
+	
 
 
 
@@ -257,6 +291,8 @@ public class MemberServiceImpl implements MemberService {
 		}
 		return count;
 	}
+
+
 
 
 

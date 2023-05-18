@@ -396,7 +396,7 @@
 
        <div class="Headersstyle__HeaderTopWrapDiv-sc-6xu8td-2 jolKUF">
         <div class="Headersstyle__HeaderTopInnerDiv-sc-6xu8td-3 cUxSoB">
-        <a href="index.pg">
+        <a href="${pageContext.request.contextPath}/index.pg">
         <img src="${pageContext.request.contextPath}/resources/img/header/LOGO2.png"
               alt="logo"
               class="WebHeader__LogoImg-sc-12ctfsg-0 dlkFOB"
@@ -632,8 +632,8 @@
                	</div>
   
                 <div class="d-grid" >
-                  <div id="naver" style="text-align: center; background-color: #03C75A;"><img src="${pageContext.request.contextPath}/resources/img/naver_login.png" style="width: 60%; height: 60%; object-fit:cover; margin-top: 10px;"></div>
-                  <button type="submit" id="kakao" style="text-align: center; background-color: #FEE500;" onclick="location.href='https://kauth.kakao.com/oauth/authorize?client_id=acce547533917e39df39803a17ee07fb&redirect_uri=http://localhost:8007/tripism/oauth/kakao&response_type=code&scope=account_email,gender,profile_nickname,profile_image'"><img id="kakaoBtn" src="resources/img/kakao_login_medium_narrow.png" ></a></button>
+                  <button type="submit" id="naver" style="text-align: center; background-color: #03C75A;" onclick="location.href='https://nid.naver.com/oauth2.0/authorize?client_id=s2qG1k_Km1cRMEHgEiDy&client_secret=WJQg8h4nhK&response_type=code&redirect_uri=http://localhost:8007/tripism/naverLogin'"><img src="resources/img/naver_login.png" style="width: 60%; height: 60%; object-fit:cover; margin-top: 10px;"></button>
+                  <button type="submit" id="kakao" style="text-align: center; background-color: #FEE500;" onclick="location.href='https://kauth.kakao.com/oauth/authorize?client_id=acce547533917e39df39803a17ee07fb&redirect_uri=http://localhost:8007/tripism/oauth/kakao&response_type=code&scope=account_email,gender,profile_nickname,profile_image'"><img id="kakaoBtn" src="resources/img/kakao_login_medium_narrow.png" ></button>
                  </div>
                  </div>
 

@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.member.model.vo.BookMark;
 import com.kh.tripism.member.model.vo.Folder;
+import com.kh.tripism.member.model.vo.Follow;
 import com.kh.tripism.member.model.vo.Member;
 import com.kh.tripism.partnerBoard.model.vo.PnBoard;
 import com.kh.tripism.travelSpot.model.vo.Spot;
@@ -75,6 +76,16 @@ public interface MemberService {
 		// 좋아요한거 조회
 		ArrayList<Spot> spotLike(int memNo);
 		
+		// 팔로잉 (insert) (loginUser가 다른사람 마페에서 팔로잉버튼누름)
+		int following(Follow f);
+		
+		// 팔로잉 목록
+		ArrayList<Follow> followingList(int loginUserNo);
+		
+		// 팔로워 목록
+		ArrayList<Follow> followerList(int loginUserNo);
+		
+		int followerCount(int loginUserNo);
 		
 		
 		

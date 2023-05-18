@@ -168,6 +168,34 @@
 				      $checkResult.hide();
 				    }
 				  });
+				  
+				  $idInput.keyup(function() {
+					    const id = $idInput.val();
+					    if (id.length >= 5) {
+					      $.ajax({
+					        url: "idCheck.do",
+					        data: { checkId: id },
+					        success: function(count) {
+					          if (count === "NNNNN") {
+					            // 사용불가능
+					            $checkResult.show().css("color", "red").text("중복되었거나 탈퇴된 아이디입니다.");
+					          } else {
+					            // 사용가능
+					            $checkResult.show().css("color", "green").text("멋진 아이디네요!");
+					          }
+					        },
+					        error: function() {
+					          console.log("ajax 통신 실패");
+					        }
+					      });
+					    } else {
+					      $checkResult.hide();
+					    }
+					  });
+				  
+				  
+				  
+				  
 				});
 			
 			
@@ -272,6 +300,35 @@
 						});
 					}
 				})
+				
+				$nicknameInput.keyup(function(){
+				if($nicknameInput.val().length >= 1) {
+						
+						$.ajax({
+	    					url:"nicknameCheck.do",
+	    					data:{checkNickname:$nicknameInput.val()},
+	    					success:function(count){
+	    						
+	    						if(count == "NNNNN") { // 사용불가능
+	    							
+	    							// => 빨간색 메시지 (사용불가능)
+	    							$("#nicknameResult").show();
+	    							$("#nicknameResult").css("color", "red").text("중복된 닉네임입니다.");
+	    							
+	    							
+	    						} else {	// 사용가능
+	    							
+	    							// => 초록색 메시지(사용가능) 출력
+	    							$("#nicknameResult").show();
+	    							$("#nicknameResult").css("color", "green").text("사용가능한 닉네임입니다.");
+	    							
+	    						}
+							}, error : function(){	
+										console.log("ajax 통신 실패");
+							}
+						});
+					}
+				})
 					
 			})
 			
@@ -283,6 +340,35 @@
 				const $emailResult = $("emailResult");
 				
 					$emailInput.ready(function(){
+						if($emailInput.val().length >= 13) {
+							
+							$.ajax({
+		    					url:"emailCheck.do",
+		    					data:{checkEmail:$emailInput.val()},
+		    					success:function(count){
+		    						
+		    						if(count == "NNNNN") { // 사용불가능
+		    							
+		    							// => 빨간색 메시지 (사용불가능)
+		    							$("#emailResult").show();
+		    							$("#emailResult").css("color", "red").text("중복된 이메일입니다.");
+		    							
+		    							
+		    						} else {	// 사용가능
+		    							
+		    							// => 초록색 메시지(사용가능) 출력
+		    							$("#emailResult").show();
+		    							$("#emailResult").css("color", "green").text("사용가능한 이메일입니다.");
+		    							
+		    						}
+								}, error : function(){	
+											console.log("ajax 통신 실패");
+								}
+							});
+						}
+					})
+					
+					$emailInput.keyup(function(){
 						if($emailInput.val().length >= 13) {
 							
 							$.ajax({

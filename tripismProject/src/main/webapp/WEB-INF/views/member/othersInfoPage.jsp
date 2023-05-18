@@ -127,7 +127,7 @@
                           <div class="row" style="width: 1670px;">
                             <div class="col-lg-6" style="margin-left: 160px; border: solid 3px rgba(199, 198, 198, 0.37); padding: 35px; border-radius:  15px 15px 15px 15px;">
                               <div id="followingWrap">
-                              	<button id="follow" name="follow">팔로우</button>
+                              	<button id="follow" name="follow" class="follow">팔로우</button>
                               </div>
                               <div style="padding-left:260px;">
                                 <h3 class="text-uppercase mb-3">${otherInfo.memNickname } 님의 프로필</h3>
@@ -216,7 +216,7 @@
       
       
       
-      <input type="hidden" value="${otherInfo.memNo }" name="followerNo" id="followerNo">
+      <input type="hidden" value="${otherInfo.memNo }" name="followingNo" id="followingNo">
       </section>
       
       
@@ -224,41 +224,39 @@
         </div><!-- element wrapper ends -->
       
       <script>
+      
       $("#follow").click(function() {
-    	    
-    	    $.ajax({
-    	        url: "follow.do", // 팔로우 작업을 처리하는 서버의 URL
-    	        method: "POST", // 요청 메서드 (POST 또는 GET)
-    	        data: { followerNo: $("#followerNo").val() }, // 서버에 전달할 데이터
-    	        
-    	        success: function(response) {
-    	            // 서버 응답이 성공적으로 도착했을 때 실행되는 콜백 함수
-    	            if (response.success) {
-    	                // 팔로우 작업이 성공한 경우
-    	                
-    	                // 팔로우 버튼의 상태를 토글 (팔로우/언팔로우)
-    	                var followButton = $("#follow");
-    	                if (followButton.hasClass("following")) {
-    	                    followButton.removeClass("follow");
-    	                    followButton.text("팔로잉");
-    	                    followButton.css("backgroundcolor", "blue");
-    	                } else {
-    	                    followButton.addClass("following");
-    	                    followButton.text("Unfollow");
-    	                }
-    	                
-    	            } else {
-    	                // 팔로우 작업이 실패한 경우
-    	                console.log("팔로우 작업 실패");
-    	            }
-    	        },
-    	        
-    	        error: function() {
-    	            // AJAX 요청이 실패한 경우
-    	            console.log("AJAX 요청 실패");
-    	        }
-    	    });
-    	});
+  	    $.ajax({
+  	        url: "following.do", // 팔로우 작업을 처리하는 서버의 URL
+  	        method: "POST", // 요청 메서드 (POST 또는 GET)
+  	        data: { followingNo: $("#followingNo").val() }, // 서버에 전달할 데이터
+  	        
+  	        success: function(response) {
+  	            // 서버 응답이 성공적으로 도착했을 때 실행되는 콜백 함수
+  	            if (response.success) {
+  	                
+  	                var followButton = $("#follow");
+  	                if (followButton.hasClass("follow")) {
+  	                    followButton.removeClass("follow");
+  	                    followButton.text("팔로잉");
+  	                    followButton.css("backgroundcolor", "blue");
+  	                } else {
+  	                    followButton.addClass("following");
+  	                    followButton.text("Unfollow");
+  	                }
+  	            } else {
+  	                // 팔로우 작업이 실패한 경우
+  	                console.log("팔로우 작업 실패");
+  	            }
+  	        },
+  	        
+  	        error: function() {
+  	            // AJAX 요청이 실패한 경우
+  	            console.log("AJAX 요청 실패");
+  	        }
+  	    });
+  	});
+
       </script>
 
 

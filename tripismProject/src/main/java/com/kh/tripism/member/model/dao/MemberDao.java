@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.kh.tripism.common.vo.PageInfo;
 import com.kh.tripism.member.model.vo.BookMark;
 import com.kh.tripism.member.model.vo.Folder;
+import com.kh.tripism.member.model.vo.Follow;
 import com.kh.tripism.member.model.vo.Member;
 import com.kh.tripism.partnerBoard.model.vo.PnBoard;
 import com.kh.tripism.travelSpot.model.vo.Spot;
@@ -58,8 +59,8 @@ public class MemberDao {
 		return sqlSession.update("memberMapper.insertMBTI",m);
 	}
 	
-	public int emailCheck(SqlSessionTemplate sqlSession, String email) {
-		return sqlSession.selectOne("memberMapper.emailCheck", email);
+	public int emailCheck(SqlSessionTemplate sqlSession, String checkEmail) {
+		return sqlSession.selectOne("memberMapper.emailCheck", checkEmail);
 	}
 	
 	public int deleteMember(SqlSessionTemplate sqlSession, Member m) {
@@ -108,6 +109,25 @@ public class MemberDao {
 	// 좋아요한 여행지 조회
 	public ArrayList<Spot> spotLike(SqlSessionTemplate sqlSession, int memNo){
 		return (ArrayList)sqlSession.selectList("memberMapper.spotLike", memNo);
+	}
+	
+	// 팔로잉 하는거
+	public int following(SqlSessionTemplate sqlSession, Follow f) {
+		return sqlSession.insert("memberMapper.following", f);
+	}
+	
+	// 팔로잉목록
+	public ArrayList<Follow> followingList(SqlSessionTemplate sqlSession, int loginUserNo){
+		return (ArrayList)sqlSession.selectList("memberMapper.followingList", loginUserNo);
+	}
+	
+	// 팔로워목록
+	public ArrayList<Follow> followerList(SqlSessionTemplate sqlSession, int loginUserNo) {
+		return (ArrayList)sqlSession.selectList("memberMapper.followerList", loginUserNo);
+	}
+	
+	public int followerCount(SqlSessionTemplate sqlSession, int loginUserNo) {
+		return sqlSession.selectOne("memberMapper.followerCount", loginUserNo);
 	}
 
 	

@@ -321,7 +321,7 @@
 		    border:RGB(112, 217, 223);
 		    font-size: 16px;
 		    border-radius: 50%;
-		    margin-top:10px;.
+		    margin-top:10px;x
 		    
 		}
 		
@@ -459,6 +459,12 @@
                   여행지도</a>
               </li>
               
+              <c:if test="${ not empty loginUser}">
+              <li class="">
+                <a href="chatPage.ch">
+                  채팅하기</a>
+              </li>
+              </c:if>
            
 
 

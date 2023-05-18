@@ -857,13 +857,13 @@
 										</button>
 										</div>
 						            </c:when>
-						            <c:otherwise>
-						            <div class="Button cmgUBW">
+						           <%-- <c:otherwise>
+						             <div class="Button cmgUBW">
 						            	<button width="268px" height="55px" font-style="" type="button" class="Button iNZmaX" id="applyBtn">
 								    		<a>동행 신청하기</a>
 										</button>
 										</div>
-						            </c:otherwise>
+						            </c:otherwise> --%>
 						            
 						          </c:choose>
                                 
@@ -873,6 +873,7 @@
 
                         </div>
                         
+                        
                         <c:if test="${not empty loginUser and loginUser.memNo eq pb.memNo}">
 	                      <c:choose>
 	                        	<c:when test="${not empty applyList }">
@@ -880,13 +881,35 @@
 			                        <div class="Layout__LayoutEqualDistanceDiv-sc-1w3ggn5-1 hAClzB profile_section" style="margin-top: 20px;" >
 			                            <p style="font-weight: 700; font-size: medium; margin-top: 10px; margin-bottom: 30px;">받은 신청 목록</p>
 			                            
-			                            
+			                            <c:forEach var="apply" items="${applyList }">
+			                            <c:if test="${apply.applyStatus eq 'N'}">
 			                            <div style="display: flex; align-items: center; justify-content: flex-start; margin-top: 12px;">
-			                                <span>수바니 · type · 여성 </span>
-			                                <button value="memNo" id="go">수락</button>
-			                                <button value="memNo" id="no">거절</button>
+			                                
+			                                <span>신청인 : '${ apply.memNickname }'</span>
+			                                <button value="memNo" id="go" onclick="partnerAcc(${apply.memNo})">수락</button>
+			                                <button value="memNo" id="no" onclick="partnerDel(${apply.memNo})">거절</button>
 			                                
 			                            </div>
+			                            </c:if>
+			                            </c:forEach>
+			                        </div>
+                                    <div class="Layout__LayoutEqualDistanceDiv-sc-1w3ggn5-1 hAClzB profile_section" style="margin-top: 20px;" >
+			                            <p style="font-weight: 700; font-size: medium; margin-top: 10px; margin-bottom: 30px;">수락된사람</p>
+			                            
+			                            <c:forEach var="apply" items="${applyList }">
+                                            <c:if test="${apply.applyStatus eq 'Y'}">
+			                            <div style="display: flex; align-items: center; justify-content: flex-start; margin-top: 12px;">
+			                                
+			                                <span>'${ apply.memNickname }'</span>
+			                                <input type="hidden" class="chatMembers" value='${apply.memNo }'>
+			                                
+			                                
+			                            </div>
+			                            </c:if>
+			                            </c:forEach>
+			                            <button width="268px" height="55px" id="openChat" font-style="" type="button" class="Button iNZmaX" >
+								    		채팅방 열기
+										</button>
 			                        </div>
 	                        
 	                        	</c:when>
@@ -908,6 +931,124 @@
                     </div>
                 </div>
             </main>
+            <script>
+                document.getElementById('openChat').addEventListener('click',function(){
+
+                    openChat();
+                })
+            
+            	function openChat() {
+            		console.log($('.chatMembers'));
+					let chatMem = $('.chatMembers');	
+					$.ajax({
+                        url:'openRoom.pn',
+                        data:{
+                            memNickname:'${pb.member.memNickname}',
+                            postNo:${pb.postNo}
+                            
+                        },
+                        success:function(result){
+                            console.log("성공")
+                        },
+                        error:function(){
+                            console.log("실패")
+                        }
+                        
+                    })
+					
+					
+					for(let i=0;i<chatMem.length;i++){
+						$.ajax({
+	                        url:'openChat.pn',
+	                        data:{
+	                            memNo:chatMem[i].value,
+	                            postNo:${pb.postNo}
+	                            
+	                        },
+	                        success:function(result){
+	                            console.log("성공")
+	                        },
+	                        error:function(){
+	                            console.log("실패")
+	                        }
+	                        
+	                    })
+						
+					}
+					$.ajax({
+                        url:'openChat.pn',
+                        data:{
+                            memNo:${pb.member.memNo},
+                            postNo:${pb.postNo}
+                            
+                        },
+                        success:function(result){
+                            console.log("성공")
+                        },
+                        error:function(){
+                            console.log("실패")
+                        }
+                        
+                    })
+					
+					
+					
+				}
+            	function partnerReq(){
+                    $.ajax({
+                        url:'partnerReq.pn',
+                        data:{
+                            memNo:${loginUser.memNo},
+                            postNo:${pb.postNo}
+                        },
+                        success:function(result){
+                            console.log("성공")
+                        },
+                        error:function(){
+                            console.log("실패")
+                        }
+                        
+                    })
+                    var modal = document.querySelector('#ModalController');
+                    modal.style.display = "none";
+                    alert("신청을 완료하였습니다")
+
+                }
+            	function partnerAcc(memNo) {
+            		$.ajax({
+                        url:'partnerAcc.pn',
+                        data:{
+                            memNo:memNo,
+                           
+                        },
+                        success:function(result){
+                            console.log("성공")
+                        },
+                        error:function(){
+                            console.log("실패")
+                        }
+                        
+                    })
+					location.reload()
+				}
+            	function partnerDel(memNo) {
+            		$.ajax({
+                        url:'partnerDel.pn',
+                        data:{
+                            memNo:memNo,
+                           
+                        },
+                        success:function(result){
+                            console.log("성공")
+                        },
+                        error:function(){
+                            console.log("실패")
+                        }
+                        
+                    })
+					location.reload()
+				}
+            </script>
 
 
             <!-- 동행신청 모달창 -->
@@ -925,8 +1066,8 @@
                                     <c:otherwise>
                                     	<p class="ModalConfirm gpnsLj"> 동행을 신청하시겠습니까? <br> </p>
                                         <div class="ModalConfirm bcDKTX" >
-                                            <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo" style="margin-left: 0px;">확인</button>
-                                            <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo" style="margin-left: 10px;">취소</button>
+                                            <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo" onclick="partnerReq()" style="margin-left: 0px;">확인</button>
+                                            <button width="49%" height="100%"color="#fff" class="ButtonTemplate cMnydo" onclick="cansel()"style="margin-left: 10px;">취소</button>
                                     
                                     </c:otherwise>
                                     </c:choose>
@@ -1024,7 +1165,8 @@
                 textarea.addEventListener('input', autoResizeTextArea);
             </script>
  -->
-            
+            <c:choose>
+						          <c:when test="${ not empty loginUser and loginUser.memNo ne pb.memNo }">
             <script>
                 // 동행신청하기 버튼 클릭 시 모달창 띄우기
                 var applyBtn = document.querySelector('#applyBtn');
@@ -1032,15 +1174,18 @@
                 var modal = document.querySelector('#ModalController');
                 modal.style.display = "block";
                 });
-
-                // 동행신청 버튼 클릭 시 신청 정보 전송
-                var applyConfirmBtn = document.querySelector('.ButtonTemplate.cMnydo');
-                applyConfirmBtn.addEventListener('click', function() {
-                var modal = document.querySelector('#ModalController');
+                function cansel(){
+                    var modal = document.querySelector('#ModalController');
                 modal.style.display = "none";
-                });
+                }
+                // 동행신청 버튼 클릭 시 신청 정보 전송
+                // var applyConfirmBtn = document.querySelector('.ButtonTemplate.cMnydo');
+                // applyConfirmBtn.addEventListener('click', function() {
+                
+                // });
             </script>
-            
+            </c:when>
+            </c:choose>
             
             <!-- 푸터바 포함 -->
 			<jsp:include page="../common/footer.jsp"/>

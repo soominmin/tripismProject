@@ -79,5 +79,10 @@ public class TravelPlanController {
 		ArrayList<Tour> list = pService.selectTourList(areaCode,currentPage,searchValue);
 		return new Gson().toJson(list);
 	}
+	
+	@RequestMapping("chatPage.ch")
+	public String chatPage() {
+		return "common/chatting";
+	}
 
 }

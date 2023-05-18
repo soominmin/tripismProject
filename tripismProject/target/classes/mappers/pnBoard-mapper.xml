@@ -72,6 +72,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="apply_status" property="applyStatus"/>
 		<result column="mem_mbti" property="memMbti"/>
 		<result column="gender" property="gender"/>
+		<result column="mem_no" property="memNo"/>
 	</resultMap>
 	
 	<resultMap type="Reply" id="replyResultSet">
@@ -92,6 +93,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             , m.mem_nickname
             , m.mem_mbti
             , m.gender
+            , m.mem_no
            from tb_partner_apply a
             inner join tb_member m
             on m.mem_no = a.mem_no
@@ -269,8 +271,67 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where reply_distinct = 'P'
 		  and board_no = #{postNo}
 	</select>
+	<insert id="insertPnApply">
+		insert
+            into tb_partner_apply
+            (
+              apply_no
+            , post_no
+            , mem_no
+            , apply_status
+            )
+            values
+            (
+              seq_applyno.nextval
+            , #{postNo}
+            , #{memNo}
+            , 'N'
+            )
+	</insert>
+	<update id="updatePnApply">
+	update 
+                tb_partner_apply
+            set
+                apply_status = 'Y'
+            where
+                mem_no=#{memNo}
 	
-	
+	</update>
+	<delete id="deletePnApply">
+		delete from 
+                tb_partner_apply
+            where
+                mem_no=#{memNo}
+	</delete>
+	<insert id="openRoom">
+	insert
+                    into tb_chatroom
+                    (
+                      chatroom_no
+                    , chatroom_name
+                    , chatroom_date
+                    )
+                    values
+                    (
+                     #{postNo}
+                    ,#{memNickname}
+                    ,sysdate
+                    )
+	</insert>
+	<insert id="openChat">
+	 insert
+                        into tb_chatmember
+                        (
+                         chatroom_no
+                        ,mem_no
+                        )
+                        values
+                        (
+                        #{postNo}
+                        ,#{memNo}
+                        )
+	</insert>
+
 	
 </mapper>
 

@@ -77,7 +77,25 @@ public class PnBoardDao {
 	public ArrayList<PnApply> selectApplyList(SqlSessionTemplate sqlSession,int pnBoardNo){
 		return (ArrayList)sqlSession.selectList("pnBoardMapper.selectPnApply",pnBoardNo);
 	}
-
+	public int insertPnApply(SqlSessionTemplate sqlSession,PnApply pa) {
+		return sqlSession.insert("pnBoardMapper.insertPnApply",pa);
+	}
+	
+	public int updatePnApply(SqlSessionTemplate sqlSession,int memNo) {
+		return sqlSession.update("pnBoardMapper.updatePnApply",memNo);
+	}
+	public int deletePnApply(SqlSessionTemplate sqlSession,int memNo) {
+		return sqlSession.update("pnBoardMapper.deletePnApply",memNo);
+	}
+	
+	public int openRoom(SqlSessionTemplate sqlSession,PnApply pa) {
+		pa.setMemNickname(pa.getMemNickname()+"님의 방");
+		return sqlSession.insert("pnBoardMapper.openRoom",pa);
+	}
+	public int openChat(SqlSessionTemplate sqlSession,PnApply pa) {
+		return sqlSession.insert("pnBoardMapper.openChat",pa);
+	}
+	
 }
 
 

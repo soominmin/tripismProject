@@ -23,6 +23,7 @@ public interface FeedService {
 	// 3. 피드 수정
 	Feed selectFeed(int feedNo);
 	int updateFeed(Feed f);
+	int updateFeed2(Feed f);
 	
 	// 4-1. 피드 조회수 조회 << 안쓸것
 	int selectListCount();
@@ -41,7 +42,11 @@ public interface FeedService {
 	int updateReply(int replyNo);
 	
 	// 8. 댓글 리스트 조회(ajax)
-	ArrayList<Reply> selectReplyList(int FeedNo);
+	// ArrayList<Reply> selectReplyList(int FeedNo);
+	ArrayList<Reply> replyList(PageInfo pi);
+	
+	// 8. 댓글 수 조회(피드조회 방식)
+	int replyCount();
 	
 	// 9. 피드 이미지 조회
 	int selectImgCount();

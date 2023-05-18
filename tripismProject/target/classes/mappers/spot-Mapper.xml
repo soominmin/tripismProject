@@ -591,8 +591,6 @@
 	                tvs.area_category_no = tsac.area_category_no
 	           and
 	                tvs.spot_img_path is not null
-	           and
-	           		spot_content_type != 28
 	         order
                 by  spot_count desc
 		
@@ -622,8 +620,6 @@
 	                tvs.area_category_no = tsac.area_category_no
 	           and
 	                tvs.spot_img_path is not null
-	           and
-	           		spot_content_type != 28
 	         order
                 by  spot_count desc
 		
@@ -634,8 +630,11 @@
 
 			select  DISTINCT
 	                   spot_no,
+	                   spot_content_id,
+	                   spot_content_type,
 	                   spot_title,
 	                   spot_address,
+	                   spot_tel,
 	                   large_category_no,
 	                   middle_category_no,
 	                   small_category_no,
@@ -656,6 +655,8 @@
 	                   tvs.area_category_no = tsac.area_category_no
 	            and
 	                   tvs.spot_img_path is not null
+	            and
+	                   tvs.spot_content_type != 25
 	            and
 	                   spot_title like '${keyword}'
 

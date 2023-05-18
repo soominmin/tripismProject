@@ -65,17 +65,19 @@
 			    .wrap * {padding: 0;margin: 0;}
 			    .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
 			    .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
-			    .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
+			    .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 15px;font-weight: bold;}
 			    .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
 			    .info .close:hover {cursor: pointer;}
 			    .info .body {position: relative;overflow: hidden;}
 			    .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
 			    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
-			    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
 			    .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
-			    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+			    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
+				/* .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')} */
 			    .info .link {color: #5085BB;}
+				.info .title:hover {cursor: pointer;}
 				
+				/* */
 
 			</style>
 		</head>
@@ -114,6 +116,9 @@
 	// 클릭시 위도 경도 변수
 	var mapx = null;
 	var mapy = null;
+
+	// 오버레이
+	var overlay = null;
 	
 	
 	// 마커를 담을 배열입니다
@@ -364,6 +369,12 @@
 				 },
 			success:function(places){
 				displayPlaces(places);
+				let titles = document.getElementsByClassName('title');
+				for(let i=0;i<titles.length;i++){
+					titles[i].addEventListener('click',function(){
+						mapDetail(places[i].spotContentId,places[i].spotContentType);
+					})
+				}
 			},
 			error:function(){
 				console.log("실패");
@@ -392,12 +403,77 @@
 			console.log(places[0]);
 			// console.log(places);
 
-			
+			var contentType = null;
+
+			switch (places[i].spotContentType) {
+				case "12":
+					contentType = "관광지";
+					break;
+				case "14":
+					contentType = "문화시설";
+					break;
+				case "15":
+					contentType = "행사/공연/축제";
+					break;
+				case "28":
+					contentType = "레포츠";
+					break;
+				case "32":
+					contentType = "숙박";
+					break;
+				case "38":
+					contentType = "쇼핑";
+					break;
+				case "39":
+					contentType = "식당";
+					break;
+				default:
+					break;
+			}
+
+			// 커스텀 오버레이에 표시할 컨텐츠 입니다
+			// 커스텀 오버레이는 아래와 같이 사용자가 자유롭게 컨텐츠를 구성하고 이벤트를 제어할 수 있기 때문에
+			// 별도의 이벤트 메소드를 제공하지 않습니다 
+			var content = '<div class="wrap">' + 
+						'    <div class="info">' + 
+						'        <div class="title">' + 
+						'            '+places[i].spotTitle + 
+						'            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+						'        </div>' + 
+						'        <div class="body">' + 
+						'            <div class="img">' +
+						'                <img src="'+places[i].spotImgPath+'" width="73" height="70">' +
+						'           </div>' + 
+						'            <div class="desc">' + 
+						'                <div style="font-size:10pt" class="ellipsis">'+places[i].spotAddress+'</div>' +
+						'<b style="font-size:9pt; color:dodgerblue;">○ '+contentType+'</b><br>'+
+						 '<div class="post_area" style="float: right; margin-right: 10px;">'
+								+ '<span class="num_like">'
+								+ '<img src="resources/img/icons/after-like.png" style="width: 18px; height: 18px;" alt="">'
+								+ '<span class="num" id="conRead" style="font-size: 10pt">&nbsp&nbsp'+places[i].spotLike+'&nbsp&nbsp&nbsp</span>'
+								+ '</span>'
+								+ '<span class="num_view">'
+								+ '<img src="resources/img/icons/view.png" style="width: 18px; height: 18px;" alt="">'
+								+ '<span class="num" id="conRead" style="font-size: 10pt">&nbsp&nbsp'+places[i].spotCount+'</span>'
+								+ '</span>'
+								+ '</div>'
+						'            </div>' + 
+						'        </div>' + 
+						'    </div>' +    
+						'</div>';
 
 			// 마커를 생성하고 지도에 표시합니다
 			var placePosition = new kakao.maps.LatLng(places[i].spotMapy, places[i].spotMapx),
 				marker = addMarker(placePosition, i), 
 				itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
+						
+			// 마커 위에 커스텀오버레이를 표시합니다
+			// 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
+			    overlay = new kakao.maps.CustomOverlay({
+				content: content,
+				map: map,
+				position: marker.getPosition()  
+			});
 
 			// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
 			// LatLngBounds 객체에 좌표를 추가합니다
@@ -423,14 +499,29 @@
 					infowindow.close();
 				};
 				
-				kakao.maps.event.addListener(marker, 'click', function() {
-					alert("눌림");
-				});
+
 				
-				itemEl.onclick =  function () {
-					alert("요소눌림");
-				};
+
+				
+
+				
 			})(marker, places[i].spotTitle);
+
+			// document.getElementById('title').addListener(document.getElementById('title'),'click', function() {
+			// 	location.href="detailAPI.sp?contentId="+places[i].spotContentId+"&contentType="+places[i].spotContentType;
+			// });
+
+			// kakao.maps.event.addListener(overlay,'click',function(){
+			// 	mapDetail(places[i].spotContentId,places[i].spotContentType);
+			// })
+
+			kakao.maps.event.addListener(marker, 'click', function() {
+				overlay.setMap(map);
+			});
+				
+			itemEl.onclick =  function () {
+				overlay.setMap(null);
+			};
 
 			fragment.appendChild(itemEl);
 		}
@@ -444,19 +535,19 @@
 	}
 
 	 // 검색결과 목록의 자식 Element를 제거하는 함수입니다
-	 function removeAllChildNods(el) {   
-	    while (el.hasChildNodes()) {
-	        el.removeChild (el.lastChild);
-	    }
-	}
+		function removeAllChildNods(el) {   
+				while (el.hasChildNodes()) {
+					el.removeChild (el.lastChild);
+				}
+			}
 
 		// 지도 위에 표시되고 있는 마커를 모두 제거합니다
 		function removeMarker() {
-	    for ( var i = 0; i < markers.length; i++ ) {
-	        markers[i].setMap(null);
-	    }   
-	    markers = [];
-	}
+			for ( var i = 0; i < markers.length; i++ ) {
+					markers[i].setMap(null);
+				}   
+				markers = [];
+			}
 
 		// 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
 		function addMarker(position, idx, title) {
@@ -516,48 +607,16 @@
 			}
 		}
 
-		/*
-		// 커스텀 오버레이에 표시할 컨텐츠 입니다
-		// 커스텀 오버레이는 아래와 같이 사용자가 자유롭게 컨텐츠를 구성하고 이벤트를 제어할 수 있기 때문에
-		// 별도의 이벤트 메소드를 제공하지 않습니다 
-		var content = '<div class="wrap">' + 
-					'    <div class="info">' + 
-					'        <div class="title">' + 
-					'            카카오 스페이스닷원' + 
-					'            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
-					'        </div>' + 
-					'        <div class="body">' + 
-					'            <div class="img">' +
-					'                <img src="https://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">' +
-					'           </div>' + 
-					'            <div class="desc">' + 
-					'                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>' + 
-					'                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>' + 
-					'                <div><a href="https://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
-					'            </div>' + 
-					'        </div>' + 
-					'    </div>' +    
-					'</div>';
-
-		// 마커 위에 커스텀오버레이를 표시합니다
-		// 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
-		var overlay = new kakao.maps.CustomOverlay({
-			content: content,
-			map: map,
-			position: marker.getPosition()       
-		});
-
-		// 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-		kakao.maps.event.addListener(marker, 'click', function() {
-			overlay.setMap(map);
-		});
-
 		// 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
 		function closeOverlay() {
-			overlay.setMap(null);     
+			overlay.setMap(null);
 		}
-		*/
-	
+
+		function mapDetail(contentId,contentType) {
+			location.href="detailAPI.sp?contentId="+contentId+"&contentType="+contentType;
+		}
+
+
 	
 	
 	

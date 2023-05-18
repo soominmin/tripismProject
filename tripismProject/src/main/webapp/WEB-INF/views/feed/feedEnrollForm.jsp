@@ -339,9 +339,11 @@
                                 class="button__ButtonConfirmButton-sc-1szjplo-7 hlWCvk"
                                 style="width: calc(50% - 8px);"
                                 onclick="location.href='feed.fd'">취소</button>
-                            <button type="submit"
-                                class="button__ButtonConfirmButton-sc-1szjplo-7 dcFMHq"
-                                style="width: calc(50% - 8px);">작성완료</button>
+                            <c:if test="${ not empty loginUser }">
+	                            <button type="submit"
+	                                class="button__ButtonConfirmButton-sc-1szjplo-7 dcFMHq"
+	                                style="width: calc(50% - 8px);">작성완료</button>
+                            </c:if>
                         </div>
                         
                         

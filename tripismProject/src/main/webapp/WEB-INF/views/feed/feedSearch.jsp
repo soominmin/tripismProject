@@ -298,21 +298,15 @@
                     <input type="text" style="width: 150px; text-align: center; border: none;" placeholder="${ f.feedDate }" disabled>
 
 					<div style="float: right; margin-top: 5px;">
-						<%-- <c:if test="${ not empty loginUser.memId and loginUser.memNo eq f.memNo }">
-		                    <button type="button" style="border: none;" onclick="location.href='updateForm.fd'">
-		                    	<span>수정하기</span>
-		                    </button>
-		                    <span>|</span>
-	                    </c:if>  --%>
-	                    
-	                    <form action="updateForm.fd" method="post" enctype="multipart/form-data">
-		                    <input type="hidden" name="fno" value="${f.feedNo}">
-		                    <button type="submit" style="border: none;">
-			                    	<span>t수정하기(구현중)</span>
-		                    </button>
-	                    </form>
-		                    
-		                    <span></span>
+						 <c:if test="${ not empty loginUser.memId and loginUser.memNo eq f.memNo }">
+		                    <form action="updateForm.fd" method="post" enctype="multipart/form-data" style="display: inline;">
+			                    <input type="hidden" name="fno" value="${f.feedNo}">
+			                    <button type="submit" style="border: none;">
+				                    	<span>수정하기</span>
+			                    </button>
+		                    </form>
+			                    <span>|</span>
+		                    </c:if>  
 		                    
 	                    <button type="button" data-toggle="modal" data-target="#report">
 	                        <span>신고하기(미완성)</span>
@@ -599,6 +593,11 @@
                     }
                 }*/
                 
+                function viewReply() { // 커서 이동하기
+                	$('.replyContents').focus();
+                	console.log("댓글로 이동함")
+                }
+                
                 function shareTwitter() {
                     let sendText = "tripism 새소식 보러오세요";
                     let sendLink = "http://localhost:8007/tripism/feed/"
@@ -649,17 +648,17 @@
 
             <script>
             function shareKakao() {
-            Kakao.Share.sendDefault({ // 건드렸으니 확인요망
-                objectType: 'feed',
-                content: {
-                title: '${f.feedTitle}',
-                description: '${f.feedContents}',
-                imageUrl:
-                    '${pageContext.request.contextPath}/resources/img/logo.png',
-                link: {
-                    // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
-                    mobileWebUrl: 'https://developers.kakao.com',
-                    webUrl: 'https://developers.kakao.com',
+                Kakao.Share.sendDefault({ // 건드렸으니 확인요망
+                    objectType: 'feed',
+                    content: {
+                    	title: 'Tripism에서 여행을 준비하세요',
+                        description:'트리피즘은 여행입니다',
+                    imageUrl:
+                        '${pageContext.request.contextPath}/resources/img/logo.png',
+                    link: {
+                        // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
+                        mobileWebUrl: 'https://developers.kakao.com',
+                        webUrl: 'https://developers.kakao.com',
                 },
                 },
                 social: {

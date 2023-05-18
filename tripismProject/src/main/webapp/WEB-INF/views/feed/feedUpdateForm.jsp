@@ -306,107 +306,140 @@
                                     	파일은 4개까지만 첨부할 수 있습니다.
                                     	</td>
                                     </tr>
+                                    
+                                    <tr>
+                                    	<td>
+                                    		현재 업로드 된 파일 <br>
+                                    		<c:choose>
+                                    			<c:when test="${ not empty f.imgOriginalName1 }"> 1번 파일 : <a>${f.imgOriginalName1 }</a></c:when>
+                                    			<c:otherwise>1번 파일 : 없음</c:otherwise>
+                                    		</c:choose>
+
+                                    		<br>
+
+                                    		<c:choose>
+                                    			<c:when test="${ not empty f.imgOriginalName2 }"> 2번 파일 : <a>${f.imgOriginalName2 }</a></c:when>
+                                    			<c:otherwise>2번 파일 : 없음</c:otherwise>
+                                    		</c:choose>
+
+                                    		<br>
+
+                                    		<c:choose>
+                                    			<c:when test="${ not empty f.imgOriginalName3 }"> 3번 파일 : <a>${f.imgOriginalName3 }</a></c:when>
+                                    			<c:otherwise>3번 파일 : 없음</c:otherwise>
+                                    		</c:choose>
+
+                                    		<br>
+
+                                    		<c:choose>
+                                    			<c:when test="${ not empty f.imgOriginalName4 }"> 4번 파일 : <a>${f.imgOriginalName4 }</a></c:when>
+                                    			<c:otherwise>4번 파일 : 없음</c:otherwise>
+                                    		</c:choose>
+
+                                    		<br> <br> <br>
+
+                                    	</td>
+                                    </tr>
+                                    
                                     <tr>
                                     	<td>
                                     		<c:choose>
                                     			
                                     			<c:when test="${ not empty f.imgOriginalName1 && empty f.imgOriginalName2 && empty f.imgOriginalName3 && empty f.imgOriginalName4 }">
-                                    				<input type="file" class="files" name="reupFile1" value="${ f.imgChangeName1 }" accept="image/*">
-                                    				<a href="#this" name="upFile1">${f.imgOriginalName1}</a>${f.imgOriginalName1} <!-- 2번 -->
-                                    				<input type="file" class="files" name="upFile2" accept="image/*">
+                                    				<input type="file" class="files" name="upFile1" value="${ f.imgChangeName1 }" accept="image/*">
+                                    				<input type="file" class="files" name="upFile2" accept="image/*"> <br>
                                     				<input type="file" class="files" name="upFile3" accept="image/*">
                                     				<input type="file" class="files" name="upFile4" accept="image/*">
                                     			</c:when>
                                     			<c:when test="${ empty f.imgOriginalName1 && not empty f.imgOriginalName2 && empty f.imgOriginalName3 && empty f.imgOriginalName4 }">
                                     				<input type="file" class="files" name="upFile1" accept="image/*">
-                                    				<input type="file" class="files" name="reupFile2" value="${ f.imgChangeName2 }" accept="image/*"> <br>
+                                    				<input type="file" class="files" name="upFile2" value="${ f.imgChangeName2 }" accept="image/*"> <br>
                                     				<input type="file" class="files" name="upFile3" accept="image/*">
                                     				<input type="file" class="files" name="upFile4" accept="image/*">
                                     			</c:when>
                                     			<c:when test="${ empty f.imgOriginalName1 && empty f.imgOriginalName2 && not empty f.imgOriginalName3 && empty f.imgOriginalName4 }">
                                     				<input type="file" class="files" name="upFile1" accept="image/*">
-                                    				<input type="file" class="files" name="upFile2" accept="image/*">
-                                    				<input type="file" class="files" name="reupFile3" value="${ f.imgChangeName3 }" accept="image/*">
+                                    				<input type="file" class="files" name="upFile2" accept="image/*"> <br>
+                                    				<input type="file" class="files" name="upFile3" value="${ f.imgChangeName3 }" accept="image/*">
                                     				<input type="file" class="files" name="upFile4" accept="image/*">
                                     			</c:when>
                                     			<c:when test="${ empty f.imgOriginalName1 && empty f.imgOriginalName2 && empty f.imgOriginalName3 && not empty f.imgOriginalName4 }">
-                                    				<input type="file" class="files" name="upFile1" accept="image/*">
-                                    				<input type="file" class="files" name="upFile2" accept="image/*">
+                                    				<input type="file" class="files" name="upFile1" accept="image/*"> 
+                                    				<input type="file" class="files" name="upFile2" accept="image/*"> <br>
                                     				<input type="file" class="files" name="upFile3" accept="image/*">
-                                    				<input type="file" class="files" name="reupFile4" value="${ f.imgChangeName4 }" accept="image/*">
+                                    				<input type="file" class="files" name="upFile4" value="${ f.imgChangeName4 }" accept="image/*">
                                     			</c:when>
                                     			
                                     			
                                     			<c:when test="${ not empty f.imgOriginalName1 && not empty f.imgOriginalName2 && empty f.imgOriginalName3 && empty f.imgOriginalName4 }">
-                                    				<input type="file" class="files" name="reupFile1" value="${ f.imgChangeName1 }" accept="image/*"> 
-                               				        <input type="file" class="files" name="reupFile2" value="${ f.imgChangeName2 }" accept="image/*"> <br>
+                                    				<input type="file" class="files" name="upFile1" value="${ f.imgChangeName1 }" accept="image/*"> 
+                               				        <input type="file" class="files" name="upFile2" value="${ f.imgChangeName2 }" accept="image/*"> <br>
                                     				<input type="file" class="files" name="upFile3" accept="image/*">
                                     				<input type="file" class="files" name="upFile4" accept="image/*">
                                     			</c:when>
                                     			<c:when test="${ not empty f.imgOriginalName1 && empty f.imgOriginalName2 && not empty f.imgOriginalName3 && empty f.imgOriginalName4 }">
-                                    				<input type="file" class="files" name="reupFile1" value="${ f.imgChangeName1 }" accept="image/*"> 
+                                    				<input type="file" class="files" name="upFile1" value="${ f.imgChangeName1 }" accept="image/*"> 
                                     				<input type="file" class="files" name="upFile2" accept="image/*"> <br>
-                                    				<input type="file" class="files" name="reupFile3" value="${ f.imgChangeName3 }" accept="image/*"> 
+                                    				<input type="file" class="files" name="upFile3" value="${ f.imgChangeName3 }" accept="image/*"> 
                                     				<input type="file" class="files" name="upFile4" accept="image/*">
                                     			</c:when>
                                     			<c:when test="${ not empty f.imgOriginalName1 && empty f.imgOriginalName2 && empty f.imgOriginalName3 && not empty f.imgOriginalName4 }">
-                                    				<input type="file" class="files" name="reupFile1" value="${ f.imgChangeName1 }" accept="image/*"> 
+                                    				<input type="file" class="files" name="upFile1" value="${ f.imgChangeName1 }" accept="image/*"> 
                                     				<input type="file" class="files" name="upFile2" accept="image/*"><br>
                                     				<input type="file" class="files" name="upFile3" accept="image/*">
-                                    				<input type="file" class="files" name="reupFile4" value="${ f.imgChangeName4 }" accept="image/*"> 
+                                    				<input type="file" class="files" name="upFile4" value="${ f.imgChangeName4 }" accept="image/*"> 
                                     			</c:when>
                                     			<c:when test="${ empty f.imgOriginalName1 && not empty f.imgOriginalName2 && not empty f.imgOriginalName3 && empty f.imgOriginalName4 }">
                                     				<input type="file" class="files" name="upFile1" accept="image/*">
-                                    				<input type="file" class="files" name="reupFile2" value="${ f.imgChangeName2 }" accept="image/*"> <br>
-                                    				<input type="file" class="files" name="reupFile3" value="${ f.imgChangeName3 }" accept="image/*"> 
+                                    				<input type="file" class="files" name="upFile2" value="${ f.imgChangeName2 }" accept="image/*"> <br>
+                                    				<input type="file" class="files" name="upFile3" value="${ f.imgChangeName3 }" accept="image/*"> 
                                     				<input type="file" class="files" name="upFile4" accept="image/*">
                                     			</c:when>
                                     			<c:when test="${ empty f.imgOriginalName1 && not empty f.imgOriginalName2 && empty f.imgOriginalName3 && not empty f.imgOriginalName4 }">
                                     				<input type="file" class="files" name="upFile1" accept="image/*">
-                                    				<input type="file" class="files" name="reupFile2" value="${ f.imgChangeName2 }" accept="image/*"> <br>
+                                    				<input type="file" class="files" name="upFile2" value="${ f.imgChangeName2 }" accept="image/*"> <br>
                                     				<input type="file" class="files" name="upFile3" accept="image/*">
-                                    				<input type="file" class="files" name="reupFile4" value="${ f.imgChangeName4 }" accept="image/*"> 
+                                    				<input type="file" class="files" name="upFile4" value="${ f.imgChangeName4 }" accept="image/*"> 
                                     			</c:when>
                                     			<c:when test="${ empty f.imgOriginalName1 && empty f.imgOriginalName2 && not empty f.imgOriginalName3 && not empty f.imgOriginalName4 }">
                                     				<input type="file" class="files" name="upFile1" accept="image/*">
                                     				<input type="file" class="files" name="upFile2" accept="image/*"> <br>
-                                    				<input type="file" class="files" name="reupFile3" value="${ f.imgChangeName3 }" accept="image/*"> 
-                                    				<input type="file" class="files" name="reupFile4" value="${ f.imgChangeName4 }" accept="image/*"> 
+                                    				<input type="file" class="files" name="upFile3" value="${ f.imgChangeName3 }" accept="image/*"> 
+                                    				<input type="file" class="files" name="upFile4" value="${ f.imgChangeName4 }" accept="image/*"> 
                                     			</c:when>
                                     			
                                     			
                                     			<c:when test="${ not empty f.imgOriginalName1 && not empty f.imgOriginalName2 && not empty f.imgOriginalName3 && empty f.imgOriginalName4 }">
-                                    				<input type="file" class="files" name="reupFile1" value="${ f.imgChangeName1 }" accept="image/*"> 
-                                    				<input type="file" class="files" name="reupFile2" value="${ f.imgChangeName2 }" accept="image/*"> <br>
-                                    				<input type="file" class="files" name="reupFile3" value="${ f.imgChangeName3 }" accept="image/*"> 
+                                    				<input type="file" class="files" name="upFile1" value="${ f.imgChangeName1 }" accept="image/*"> 
+                                    				<input type="file" class="files" name="upFile2" value="${ f.imgChangeName2 }" accept="image/*"> <br>
+                                    				<input type="file" class="files" name="upFile3" value="${ f.imgChangeName3 }" accept="image/*"> 
                                     				<input type="file" class="files" name="upFile4" accept="image/*">
                                     			</c:when>
                                     			<c:when test="${ not empty f.imgOriginalName1 && not empty f.imgOriginalName2 && empty f.imgOriginalName3 && not empty f.imgOriginalName4 }">
-                                    				<input type="file" class="files" name="reupFile1" value="${ f.imgChangeName1 }" accept="image/*"> 
-                                    				<input type="file" class="files" name="reupFile2" value="${ f.imgChangeName2 }" accept="image/*"> <br>
+                                    				<input type="file" class="files" name="upFile1" value="${ f.imgChangeName1 }" accept="image/*"> 
+                                    				<input type="file" class="files" name="upFile2" value="${ f.imgChangeName2 }" accept="image/*"> <br>
                                     				<input type="file" class="files" name="upFile3" accept="image/*">
-                                    				<input type="file" class="files" name="reupFile4" value="${ f.imgChangeName4 }" accept="image/*"> 
+                                    				<input type="file" class="files" name="upFile4" value="${ f.imgChangeName4 }" accept="image/*"> 
                                     			</c:when>
                                     			<c:when test="${ not empty f.imgOriginalName1 && empty f.imgOriginalName2 && not empty f.imgOriginalName3 && not empty f.imgOriginalName4 }">
-                                    				<input type="file" class="files" name="reupFile1" value="${ f.imgChangeName1 }" accept="image/*"> 
+                                    				<input type="file" class="files" name="upFile1" value="${ f.imgChangeName1 }" accept="image/*"> 
                                     				<input type="file" class="files" name="upFile2" accept="image/*"> <br>
-                                    				<input type="file" class="files" name="reupFile3" value="${ f.imgChangeName3 }" accept="image/*"> 
-                                    				<input type="file" class="files" name="reupFile4" value="${ f.imgChangeName4 }" accept="image/*"> 
+                                    				<input type="file" class="files" name="upFile3" value="${ f.imgChangeName3 }" accept="image/*"> 
+                                    				<input type="file" class="files" name="upFile4" value="${ f.imgChangeName4 }" accept="image/*"> 
                                     			</c:when>
                                     			<c:when test="${ empty f.imgOriginalName1 && not empty f.imgOriginalName2 && not empty f.imgOriginalName3 && not empty f.imgOriginalName4 }">
                                     				<input type="file" class="files" name="upFile1" accept="image/*">
-                                    				<input type="file" class="files" name="reupFile2" value="${ f.imgChangeName2 }" accept="image/*"> <br>
-                                    				<input type="file" class="files" name="reupFile3" value="${ f.imgChangeName3 }" accept="image/*"> 
-                                    				<input type="file" class="files" name="reupFile4" value="${ f.imgChangeName4 }" accept="image/*"> 
+                                    				<input type="file" class="files" name="upFile2" value="${ f.imgChangeName2 }" accept="image/*"> <br>
+                                    				<input type="file" class="files" name="upFile3" value="${ f.imgChangeName3 }" accept="image/*"> 
+                                    				<input type="file" class="files" name="upFile4" value="${ f.imgChangeName4 }" accept="image/*"> 
                                     			</c:when>
                                     			
                                     			
                                     			<c:when test="${ not empty f.imgOriginalName1 && not empty f.imgOriginalName2 && not empty f.imgOriginalName3 && not empty f.imgOriginalName4 }">
-                                    				<input type="file" class="files" name="reupFile1" value="${ f.imgChangeName1 }" accept="image/*">
-                                    				${f.imgOriginalName1} 
-                                    				<input type="file" class="files" name="reupFile2" value="${ f.imgChangeName2 }" accept="image/*"> <br>
-                                    				<input type="file" class="files" name="reupFile3" value="${ f.imgChangeName3 }" accept="image/*"> 
-                                    				<input type="file" class="files" name="reupFile4" value="${ f.imgChangeName4 }" accept="image/*"> 
+                                    				<input type="file" class="files" name="upFile1" value="${ f.imgChangeName1 }" accept="image/*">
+                                    				<input type="file" class="files" name="upFile2" value="${ f.imgChangeName2 }" accept="image/*"> <br>
+                                    				<input type="file" class="files" name="upFile3" value="${ f.imgChangeName3 }" accept="image/*"> 
+                                    				<input type="file" class="files" name="upFile4" value="${ f.imgChangeName4 }" accept="image/*"> 
                                     			</c:when>
                                     			<c:otherwise>
                                     				<input type="file" class="files" name="upFile1" accept="image/*">

@@ -83,7 +83,7 @@
               </li>
       
               <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                  <span id="likePost"><a href="spotLike.do">❤️ 찜목록</a></span>
+                  <span id="likePost"><a href="spotLike.do">❤️ 좋아한 여행지</a></span>
               </li>
       
               <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">

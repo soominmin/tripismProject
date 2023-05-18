@@ -63,9 +63,6 @@ public interface MemberService {
 		// 나의 즐겨찾기폴더 목록조회
 		ArrayList<Folder> folderSelectList(int memNo);
 		
-		// 폴더안에 있는 여행지 추가 조회
-		ArrayList<BookMark> insertBookMarkList(int memNo);
-		
 		// 폴더안에 여행지 추가
 		int insertBookMarkList(BookMark bm);
 		
@@ -74,6 +71,9 @@ public interface MemberService {
 		
 		// 여행지조회
 		ArrayList<Spot> selectSpotList(int folderNo);
+		
+		// 좋아요한거 조회
+		ArrayList<Spot> spotLike(int memNo);
 		
 		
 		

@@ -90,10 +90,10 @@
 	        <div class="option">
 	        	<br>
 	            <div>
-	                <form onsubmit="searchPlaces(); return false;">
-	                    <input type="text" value="경복궁" id="keyword" size="15"> 
-	                    <button type="submit" class="btn-sm" style="background-color: rgb(112, 217, 223); color: white; border-radius: 30px; height: 40px">검색</button>
-	                </form>
+	                <!-- <form onsubmit="searchTour();"> -->
+	                    <input type="text" value="" id="keyword" size="15"> 
+	                    <button type="button" class="btn-sm" onclick="searchTour();" style="background-color: rgb(112, 217, 223); color: white; border-radius: 30px; height: 40px">검색</button>
+	                <!-- </form> -->
 	            </div>
 	            <br>
 	        </div>
@@ -107,6 +107,9 @@
 	
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1986b6865e95c60fac90b9fdaef0579e&libraries=services"></script>
 	<script>
+	
+	
+	let currentPage = 1;
 	
 	// 클릭시 위도 경도 변수
 	var mapx = null;
@@ -125,11 +128,12 @@
 	// 지도를 생성합니다    
 	var map = new kakao.maps.Map(mapContainer, mapOption); 
 	
-	// 장소 검색 객체를 생성합니다
-	var ps = new kakao.maps.services.Places();  
-	
 	// 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
 	var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+
+	/*
+	// 장소 검색 객체를 생성합니다
+	var ps = new kakao.maps.services.Places();  
 	
 	// 키워드로 장소를 검색합니다
 	searchPlaces();
@@ -388,11 +392,67 @@
 	function closeOverlay() {
 	    overlay.setMap(null);     
 	}
+	*/
+	
+	function searchTour(){
+		console.log("sssstt")
+
+		markers.forEach(marker=>{
+			marker.setMap(null);
+		})
+
+		markers.length=0;
+
+		// $("#placesList"+(currentMapNum+1)).html("");
+		// currentPage=1;
+		// searchValue = $("#searchVal"+(currentMapNum+1)).val();
+		// $("#searchVal"+(currentMapNum+1)).val("");
+		// selectTourList(currentCode,currentPage,searchValue);
+
+		var keyword = document.getElementById('keyword').value;
+		
+		console.log(keyword);
+
+		selectSearchList(currentPage, keyword);
+
+		// 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
+		// ps.keywordSearch( keyword, placesSearchCB); 
+
+	}
+
+	function selectSearchList(currentPage, keyword){
+
+		let value = "";
+
+		console.log(keyword);
+		console.log(currentPage);
+
+		$.ajax({
+			url:"mapSearch.sp",
+			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+			data:{
+					currentPage:currentPage,
+					keyword:keyword
+				 },
+			success:function(places){
+				// displayPlaces(places);
+				console.log(places);
+			},
+			error:function(){
+				console.log("실패");
+			}
+		})
+
+	}
+	
+	
+	
+	
 	
 	
 	</script>
 	
-	
+	<script src="${pageContext.request.contextPath}/resources/plugins/jquery/jquery-3.4.1.min.js"></script>
 	
 	</body>
 	</html>

@@ -209,7 +209,7 @@
             <br>
             
             <button type="button" class="non-click" style="border: none; border-radius: 25% 10%"" onclick="location.href='#"><img src="${pageContext.request.contextPath}/resources/img/feed/alert.png" alt="img" style="width: 2.4em;">
-                <p style="margin-top: 10px">알림</p>
+                <p style="margin-top: 10px">알림()</p>
             </button>
             
             <br>
@@ -299,6 +299,7 @@
                 	});
                 	
                 function goFeed() {
+                	location.href = "feed.fd"; 
                 	window.scrollTo(0, 1000); 
                 	/* let clientH = $('.feedPage');
                 	let heightSum = 0;
@@ -310,11 +311,11 @@
                 		console.log(clientH)
                 	} */
                 	
-                	$(window).scroll(function(){
+                	//$(window).scroll(function(){
                 		/* scrollHeight = $(document).clientHeight*/
                 		// location.href = "feed.fd"; 
                 		
-                	})
+                	//})
                 	/* const clientH = $('.feedPage')
                 	location.href = "feed.fd"; */
                 }

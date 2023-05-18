@@ -80,7 +80,7 @@
 	    <div class="post_area">
 	    	<c:choose>
 	    		<c:when test="${empty loginUser}">
-	    			<button type="button" style="border: none; background-color: white;" onclick="#">
+	    			<button type="button" style="border: none; background-color: white;" onclick="alert('로그인 후 이용해주세요.');">
 					<img src="${pageContext.request.contextPath}/resources/img/icons/after-like.png" style="width: 25px; height: 25px;" alt="">
 					<span class="num" id="conLike">${s.spotLike }</span>
 					</button>

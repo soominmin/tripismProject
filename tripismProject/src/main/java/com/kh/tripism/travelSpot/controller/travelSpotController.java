@@ -25,6 +25,7 @@ import com.kh.tripism.common.vo.Reply;
 import com.kh.tripism.member.model.service.MemberServiceImpl;
 import com.kh.tripism.member.model.vo.Folder;
 import com.kh.tripism.member.model.vo.Member;
+import com.kh.tripism.travelPlan.model.vo.Tour;
 import com.kh.tripism.travelSpot.model.service.SpotServiceImpl;
 import com.kh.tripism.travelSpot.model.vo.Spot;
 import com.kh.tripism.travelSpot.model.vo.SpotCommon;
@@ -673,7 +674,19 @@ public class travelSpotController {
 		
 	}
 	
-	
+	@ResponseBody
+	@RequestMapping(value = "mapSearch.sp",produces = "application/json; charset=utf-8")
+	public String mapSearchList(int currentPage,String keyword) {
+		System.out.println(keyword);
+		
+		ArrayList<Tour> list = sService.mapSearchList(currentPage,keyword);
+		
+		System.out.println(list);
+		
+		return new Gson().toJson(list);
+		
+		
+	}
 	
 	
 	

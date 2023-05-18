@@ -49,6 +49,12 @@ public class FeedServiceImpl implements FeedService {
 	public int updateFeed(Feed f) {
 		return fDao.updateFeed(sqlSession, f);
 	}
+	
+	@Override
+	public int updateFeed2(Feed f) {
+		System.out.println("update 이미지 탔나?");
+		return fDao.updateFeed2(sqlSession, f);
+	}
 
 	@Override
 	public int selectFeedCount() {
@@ -67,8 +73,6 @@ public class FeedServiceImpl implements FeedService {
 	}
 	
 	
-	 
-
 	@Override
 	public ArrayList<Feed> selectFeedList(PageInfo pi) {
 		System.out.println("피드리스트 나왔나? service");
@@ -91,11 +95,21 @@ public class FeedServiceImpl implements FeedService {
 		System.out.println("피드 검색 탔나? serviceimpl");
 		return fDao.searchFeed(sqlSession, pi, keyword);
 	}
+	
+	@Override
+	public int replyCount() {
+		return fDao.replyCount(sqlSession);
+	}
+	
+	@Override
+	public ArrayList<Reply> replyList(PageInfo pi) {
+		return fDao.replyList(sqlSession, pi);
+	}
 
 	@Override
 	public int insertReply(Reply r) {
-		// TODO Auto-generated method stub
-		return 0;
+		System.out.println("댓글입력 service");
+		return fDao.insertReply(sqlSession, r);
 	}
 
 	@Override
@@ -110,11 +124,13 @@ public class FeedServiceImpl implements FeedService {
 		return 0;
 	}
 
-	@Override
-	public ArrayList<Reply> selectReplyList(int FeedNo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public ArrayList<Reply> selectReplyList(int FeedNo) {
+//		System.out.println("댓글 출력 service");
+//		return fDao.selectReplyList(sqlSession, FeedNo);
+//	}
+	
+	
 
 	public ArrayList<Member> selectMember(PageInfo pi) {
 		return fDao.selectMember(sqlSession, pi);
@@ -123,6 +139,10 @@ public class FeedServiceImpl implements FeedService {
 	public ArrayList<Img> selectImg(PageInfo pi) {
 		return fDao.selectImg(sqlSession, pi);
 	}
+
+	
+
+	
 
 	
 

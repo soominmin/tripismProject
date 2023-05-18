@@ -2,6 +2,8 @@ package com.kh.tripism.chat.model.vo;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,6 +17,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Builder
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ChatMessage {
 	private int messageNo; 
 	private int chatroomNo;
@@ -22,5 +25,6 @@ public class ChatMessage {
 	private String messageText;
 	private String messageDate;
 	private int memNo;
+	
 
 }

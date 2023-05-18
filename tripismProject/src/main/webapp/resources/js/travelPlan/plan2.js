@@ -10,8 +10,8 @@ let currentMapNum = 0;
 let currentAreaLat = 0;
 let currentAreaLng = 0;
 
-	function createMap(mapNum){
-		currentMapNum=mapNum;
+	function createMap(){
+		
 		console.log("asdsad");
 		let tourInfo = JSON.parse(JSON.stringify(info));
 		console.log(tourInfo[0].color);
@@ -29,13 +29,16 @@ let currentAreaLng = 0;
 			
 		}
 		console.log(areas);
-		var mapContainer = document.getElementById('map'+(mapNum+1)), // 지도를 표시할 div 
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 			mapOption = { 
 				center: new kakao.maps.LatLng(35.95, 128.25), // 지도의 중심좌표
-				level: 13 // 지도의 확대 레벨
+				level: 13, // 지도의 확대 레벨
+				scrollwheel : false,
+				disableDoubleClickZoom : true
+
 			};
 
-		maps[mapNum] = new kakao.maps.Map(mapContainer, mapOption),
+		map = new kakao.maps.Map(mapContainer, mapOption),
 			customOverlay = new kakao.maps.CustomOverlay({}),
 			infowindow = new kakao.maps.InfoWindow({removable: true});
 
@@ -51,10 +54,10 @@ let currentAreaLng = 0;
 			
 			// 다각형을 생성합니다 
 			var polygon = new kakao.maps.Polygon({
-				map: maps[mapNum], // 다각형을 표시할 지도 객체
+				map: map, // 다각형을 표시할 지도 객체
 				path: area.path,
 				strokeWeight: 3,
-				strokeColor: '#004c80',
+				strokeColor: color,
 				strokeOpacity: 0.8,
 				fillColor: '#fff',
 				fillOpacity: 0.3 
@@ -87,12 +90,17 @@ let currentAreaLng = 0;
 			// 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 다각형의 이름과 면적을 인포윈도우에 표시합니다 
 			kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
 				
+
+				document.getElementById('datePicker').click();
+				$("#datePosition").append($('.daterangepicker'));
+				// $('.daterangepicker').css({ "margin-left" : "900px", "margin-top": "200px"});  //달력(calendar) 위치
+				// document.getElementById('datePosition').append(document.querySelector('.daterangepicker'))
 				let area = code;
 				console.log(area);
 				console.log(currentCode);
-				if(code==currentCode){
-					document.getElementById('placesList'+(currentMapNum+1)).innerHTML="";
-				}
+				// if(code==currentCode){
+				// 	document.getElementById('placesList'+(currentMapNum+1)).innerHTML="";
+				// }
 
 
 				let markerNum = 1;
@@ -179,16 +187,14 @@ let currentAreaLng = 0;
 				console.log(currentAreaLng);
 				
 				
-				$("#search"+(mapNum+1)).css("display","block")
-				currentPage = 1;
-				searchValue="";
+				
 				// flag = true;
 				
 				// console.log(code);
 				
 
 
-				selectTourList(code,currentPage,searchValue,markerNum);
+				// selectTourList(code,currentPage,searchValue,markerNum);
 				// console.log(currentPage);
 				currentCode = code;
 				
@@ -341,8 +347,6 @@ $(function(){
 		$("#schedule").append($("<div></div>").html(end.format('YYYY-MM-DD')))
 		
 		var dates = getDatesStartToLast(start.format('YYYY-MM-DD'),end.format('YYYY-MM-DD'))
-		document.getElementById('btnSub').style.display='block';
-
 		makeDate(dates);
 	
 	});
@@ -368,19 +372,46 @@ function makeDate(dates){
 	let modals = [];
 	let modalDiv = document.getElementById('modalDiv');
 	for(let i=0; i<dates.length; i++){
-		result += '<div class="plan'+(i+1)+'">'
-				+'<div>'
-				+ dates[i]
-				+'</div>'
-				+'<button type="button" class="addPlan">'
+		// result += '<div class="plan'+(i+1)+'">'
+		// 		+'<div>'
+		// 		+ dates[i]
+		// 		+'</div>'
+
+		// 		+'<button type="button" class="addPlan">'
+		// 		+'<a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#plan'+(i+1)+'" class="media d-inline-flex align-items-center">일정추가</a>'
+		// 		+'</button>'
+		// 		+'<hr>'
+		// 		+'<div style="display:flex;">'
+		// 		+'<div id="resultList'+(i+1)+'"></div>'
+		// 		+'<div id="resultMap'+(i+1)+'" style="width:700px; height:500px"></div>'
+		// 		+'</div>'
+		// 		+'</div>';
+		result += '<div class="accordion-item">'
+		+'<h2 class="accordion-header" id="flush-headingOne">'
+		+'<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse'+(i+1)+'" aria-expanded="false" aria-controls="flush-collapseOne">'
+		+'<div class="plan'+(i+1)+'">'
+		+'<div>'
+		+ dates[i]
+		+'</div>'
+		+'</button>'
+	  	+'</h2>'
+		+'<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">'
+		+'<div class="accordion-body">'
+		+'<button type="button" class="addPlan">'
 				+'<a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#plan'+(i+1)+'" class="media d-inline-flex align-items-center">일정추가</a>'
 				+'</button>'
 				+'<hr>'
 				+'<div style="display:flex;">'
 				+'<div id="resultList'+(i+1)+'"></div>'
-				+'<div id="resultMap'+(i+1)+'" style="width:500px; height:300px; margin-left: 300px "></div>'
+				+'<div id="resultMap'+(i+1)+'" style="width:700px; height:500px"></div>'
 				+'</div>'
-				+'</div>';
+				+'</div>'
+		+'</div>'
+	  +'</div>'
+	  +'</div>'
+	  
+
+				;
 
 		let modal = document.createElement('div');
 		modal.setAttribute('class','modal fade plan-modal');
@@ -394,8 +425,8 @@ function makeDate(dates){
 		modals.push(modal);
 		console.log(modal);
 		
-		modalHTML = '<div class="modal-dialog" role="document" style="margin-left:100px; ">'
-          +'<div class="modal-plan" style="width: 1000px ; height: 800px;">'
+		modalHTML = '<div class="modal-dialog" role="document" style="margin-left:50px; ">'
+          +'<div class="modal-plan" style="width: 1000px ; height: 630px;">'
             +'<div class="modal-header rounded" id="modalTop" style="height: 5%;">'
               +'<h3 class="modal-title text-uppercase font-weight-bold">여행지 검색</h3>'
              +'<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>'
@@ -441,9 +472,9 @@ function makeDate(dates){
 		maps.length=i;
 	}
 	
-	
+	document.getElementById('accordionFlushExample').innerHTML=result;
 	console.dir(modalDiv);
-	content.innerHTML = result;
+	// content.innerHTML = result;
 
 	const placesList = document.getElementsByClassName('placesList');
 		const btnCom = document.getElementsByClassName('btnCom');
@@ -535,7 +566,7 @@ function createResultMap(mapNum,positions){
 	for(let k=0;k<lines.length;k++){
 		console.log(lines[k].getLength());
 	}
-	
+	console.log(lines[0].getPath());
 	centerLan = (lines[0].getPath()[0].La+lines[0].getPath()[1].La)/2;
 	centerLat = (lines[0].getPath()[0].Ma+lines[0].getPath()[1].Ma)/2;
 	centerPosition = new kakao.maps.LatLng(centerLat,centerLan)

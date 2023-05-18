@@ -10,8 +10,8 @@ let currentMapNum = 0;
 let currentAreaLat = 0;
 let currentAreaLng = 0;
 
-	function createMap(mapNum){
-		currentMapNum=mapNum;
+	function createMainMap(){
+		
 		console.log("asdsad");
 		let tourInfo = JSON.parse(JSON.stringify(info));
 		console.log(tourInfo[0].color);
@@ -29,13 +29,16 @@ let currentAreaLng = 0;
 			
 		}
 		console.log(areas);
-		var mapContainer = document.getElementById('map'+(mapNum+1)), // 지도를 표시할 div 
+		var mapContainer = document.getElementById('mainMap'), // 지도를 표시할 div 
 			mapOption = { 
 				center: new kakao.maps.LatLng(35.95, 128.25), // 지도의 중심좌표
-				level: 13 // 지도의 확대 레벨
+				level: 13, // 지도의 확대 레벨
+				scrollwheel : false,
+				disableDoubleClickZoom : true
+
 			};
 
-		maps[mapNum] = new kakao.maps.Map(mapContainer, mapOption),
+		map = new kakao.maps.Map(mapContainer, mapOption),
 			customOverlay = new kakao.maps.CustomOverlay({}),
 			infowindow = new kakao.maps.InfoWindow({removable: true});
 
@@ -51,10 +54,10 @@ let currentAreaLng = 0;
 			
 			// 다각형을 생성합니다 
 			var polygon = new kakao.maps.Polygon({
-				map: maps[mapNum], // 다각형을 표시할 지도 객체
+				map: map, // 다각형을 표시할 지도 객체
 				path: area.path,
 				strokeWeight: 3,
-				strokeColor: '#004c80',
+				strokeColor: color,
 				strokeOpacity: 0.8,
 				fillColor: '#fff',
 				fillOpacity: 0.3 
@@ -87,12 +90,17 @@ let currentAreaLng = 0;
 			// 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 다각형의 이름과 면적을 인포윈도우에 표시합니다 
 			kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
 				
+
+				document.getElementById('datePicker').click();
+				$("#datePosition").append($('.daterangepicker'));
+				// $('.daterangepicker').css({ "margin-left" : "900px", "margin-top": "200px"});  //달력(calendar) 위치
+				// document.getElementById('datePosition').append(document.querySelector('.daterangepicker'))
 				let area = code;
 				console.log(area);
 				console.log(currentCode);
-				if(code==currentCode){
-					document.getElementById('placesList'+(currentMapNum+1)).innerHTML="";
-				}
+				// if(code==currentCode){
+				// 	document.getElementById('placesList'+(currentMapNum+1)).innerHTML="";
+				// }
 
 
 				let markerNum = 1;
@@ -179,22 +187,20 @@ let currentAreaLng = 0;
 				console.log(currentAreaLng);
 				
 				
-				$("#search"+(mapNum+1)).css("display","block")
-				currentPage = 1;
-				searchValue="";
+				
 				// flag = true;
 				
 				// console.log(code);
 				
 
 
-				selectTourList(code,currentPage,searchValue,markerNum);
+				// selectTourList(code,currentPage,searchValue,markerNum);
 				// console.log(currentPage);
 				currentCode = code;
 				
 				
 				
-				
+				 
 				
 			});
 			// function panTo(lat,lng) {
@@ -212,19 +218,223 @@ let currentAreaLng = 0;
 	
 	
 
-	let isUpdateList = true;
-	const placesDiv = document.getElementById("placesDiv"+(mapNum+1));
-	placesDiv.onscroll = function(e) {
-      if((placesDiv.clientHeight + placesDiv.scrollTop) >= (placesDiv.scrollHeight-3)) { 
-        if(isUpdateList){
-            isUpdateList = false;
-            
-			selectTourList(currentCode,++currentPage,searchValue);
-            isUpdateList = true;
-        }
-        
-      }
-    }
+	
+}
+function createMap(mapNum){
+	currentMapNum=mapNum;
+	console.log("asdsad");
+	let tourInfo = JSON.parse(JSON.stringify(info));
+	console.log(tourInfo[0].color);
+	console.log(tourInfo);
+	console.log(tourInfo[0].code);
+	var areas = [];	
+	for(let i in tourInfo){
+		let poly = {};
+		poly.name = tourInfo[i].name;
+		poly.path = [];
+		for(let j in tourInfo[i].Polygon){
+			poly.path.push(new kakao.maps.LatLng(tourInfo[i].Polygon[j][1], tourInfo[i].Polygon[j][0])) ;
+		}
+		areas.push(poly)
+		
+	}
+	console.log(areas);
+	var mapContainer = document.getElementById('map'+(mapNum+1)), // 지도를 표시할 div 
+		mapOption = { 
+			center: new kakao.maps.LatLng(35.95, 128.25), // 지도의 중심좌표
+			level: 13 // 지도의 확대 레벨
+		};
+
+	maps[mapNum] = new kakao.maps.Map(mapContainer, mapOption),
+		customOverlay = new kakao.maps.CustomOverlay({}),
+		infowindow = new kakao.maps.InfoWindow({removable: true});
+
+	// 지도에 영역데이터를 폴리곤으로 표시합니다 
+	for (var i = 0, len = areas.length; i < len; i++) {
+		
+		displayArea(areas[i],tourInfo[i].color,tourInfo[i].code);
+		
+	}
+
+	// 다각형을 생상하고 이벤트를 등록하는 함수입니다
+	function displayArea(area,color,code) {
+		
+		// 다각형을 생성합니다 
+		var polygon = new kakao.maps.Polygon({
+			map: maps[mapNum], // 다각형을 표시할 지도 객체
+			path: area.path,
+			strokeWeight: 2,
+			strokeColor: '#004c80',
+			strokeOpacity: 0.8,
+			fillColor: color,
+			fillOpacity: 0.7 
+		});
+
+		// 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다 
+		// 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
+		kakao.maps.event.addListener(polygon, 'mouseover', function(mouseEvent) {
+			polygon.setOptions({fillColor: '#E80F00'});
+
+			// customOverlay.setContent('<div class="area">' + area.name + '</div>');
+			
+			// customOverlay.setPosition(mouseEvent.latLng); 
+			// customOverlay.setMap(map);
+		});
+
+		// 다각형에 mousemove 이벤트를 등록하고 이벤트가 발생하면 커스텀 오버레이의 위치를 변경합니다 
+		kakao.maps.event.addListener(polygon, 'mousemove', function(mouseEvent) {
+			
+			customOverlay.setPosition(mouseEvent.latLng); 
+		});
+
+		// 다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 원래색으로 변경합니다
+		// 커스텀 오버레이를 지도에서 제거합니다 
+		kakao.maps.event.addListener(polygon, 'mouseout', function() {
+			polygon.setOptions({fillColor: color});
+			customOverlay.setMap(null);
+		}); 
+
+		// 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 다각형의 이름과 면적을 인포윈도우에 표시합니다 
+		kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
+			
+			let area = code;
+			console.log(area);
+			console.log(currentCode);
+			if(code==currentCode){
+				document.getElementById('placesList'+(currentMapNum+1)).innerHTML="";
+			}
+
+
+			let markerNum = 1;
+			// 지도 중심을 부드럽게 이동시킵니다
+			// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+			let lat = 0;
+			let lng = 0;
+			switch(area){
+				case '1' : 
+					lat = 37.715133;
+					lng = 127.0016985;
+					break;
+				case '2' :
+					lat = 37.4562557;
+					lng = 126.7052062
+					break;
+				case '3' :
+					lat = 36.3504119;
+					lng = 127.3845475;
+					break;
+				case '4' :
+					lat = 35.8714354;
+					lng = 128.601445;
+					break;
+				case '5' :
+					lat = 35.1;
+					lng = 126.8;
+					break;
+				case '6' :
+					lat = 35.1795543;
+					lng = 129.0756416;
+					break;
+				case '7' :
+					lat = 35.5383773;
+					lng = 129.3113596;
+					break;
+				case '8' :
+					lat = 36.5040736;
+					lng = 127.2494855;
+					break;
+				case '31' :
+					lat = 37.5864315;
+					lng = 127.0462765;
+					break;
+				case '32' :
+					lat = 37.8304115;
+					lng = 128.2260705;
+					break;
+				case '33' :
+					lat = 36.628503;
+					lng = 127.929344;
+					break;
+				case '37' : 
+					lat = 35.716705;
+					lng = 127.144185;
+					break;
+				case '39' :
+					lat = 33.4996213;
+					lng = 126.5311884;
+					break;
+				case '34' :
+					lat = 36.5184;
+					lng = 126.8;
+					break;
+				case '38' :
+					lat = 34.819400;
+					lng = 126.893113;
+					break;
+				case '35' :
+					lat = 36.248647;
+					lng = 128.664734;
+					break;
+				case '36' :
+					lat = 35.259787;
+					lng = 128.664734;
+					break;
+
+			}
+			console.log(lat,lng);
+			// panTo(lat,lng);
+			currentAreaLat=lat;
+			currentAreaLng=lng;
+			console.log(currentAreaLat);
+			console.log(currentAreaLng);
+			
+			
+			$("#search"+(mapNum+1)).css("display","block")
+			currentPage = 1;
+			searchValue="";
+			// flag = true;
+			
+			// console.log(code);
+			
+
+
+			// selectTourList(code,currentPage,searchValue,markerNum);
+			// console.log(currentPage);
+			currentCode = code;
+			
+			
+			
+			
+			
+		});
+		// function panTo(lat,lng) {
+		// 	// 이동할 위도 경도 위치를 생성합니다 
+		// 	var moveLatLon = new kakao.maps.LatLng(lat, lng);
+			
+		// 	// 지도 중심을 부드럽게 이동시킵니다
+		// 	// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+		// 	map.setLevel(11);          
+		// 	map.panTo(moveLatLon);  
+		// }        
+	}
+
+
+
+
+
+let isUpdateList = true;
+const placesDiv = document.getElementById("placesDiv"+(mapNum+1));
+placesDiv.onscroll = function(e) {
+  if((placesDiv.clientHeight + placesDiv.scrollTop) >= (placesDiv.scrollHeight-3)) { 
+	if(isUpdateList){
+		isUpdateList = false;
+		
+		selectTourList(currentCode,++currentPage,searchValue);
+		isUpdateList = true;
+	}
+	
+  }
+}
 }
 	function selectTourList(code,currentPage,searchValue,markerNum){
 		if(currentCode!=code){
@@ -246,6 +456,7 @@ let currentAreaLng = 0;
 			success:function(list){
 				for(let i=0; i<list.length; i++){
 					value += '<hr style="margin-top:0;"><li class="item">'
+							// + '<span class="markerbg marker_'+(markerNum++)+'"></span>'
 							+ '<span class="markerbg marker_'+(markerNum++)+'"></span>'
 							+ '<div class="info" style="display:flex;">' ; 
 							if(list[i].spotImgPath!=null){
@@ -341,8 +552,6 @@ $(function(){
 		$("#schedule").append($("<div></div>").html(end.format('YYYY-MM-DD')))
 		
 		var dates = getDatesStartToLast(start.format('YYYY-MM-DD'),end.format('YYYY-MM-DD'))
-		document.getElementById('btnSub').style.display='block';
-
 		makeDate(dates);
 	
 	});
@@ -372,15 +581,42 @@ function makeDate(dates){
 				+'<div>'
 				+ dates[i]
 				+'</div>'
-				+'<button type="button" class="addPlan">'
+
+				+'<button type="button" class="addPlan" onclick=selectTourList(code,currentPage,searchValue,markerNum);>'
 				+'<a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#plan'+(i+1)+'" class="media d-inline-flex align-items-center">일정추가</a>'
 				+'</button>'
 				+'<hr>'
-				+'<div style="display:flex;">'
+				+'<div style="display:none;" id="selectDate'+(i+1)+'">'
 				+'<div id="resultList'+(i+1)+'"></div>'
-				+'<div id="resultMap'+(i+1)+'" style="width:500px; height:300px; margin-left: 300px "></div>'
+				+'<div id="resultMap'+(i+1)+'" style="width:700px; height:500px"></div>'
 				+'</div>'
 				+'</div>';
+	// 	result += '<div class="accordion-item">'
+	// 	+'<h2 class="accordion-header" id="flush-headingOne">'
+	// 	+'<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse'+(i+1)+'" aria-expanded="false" aria-controls="flush-collapseOne">'
+	// 	+'<div class="plan'+(i+1)+'">'
+	// 	+'<div>'
+	// 	+ dates[i]
+	// 	+'</div>'
+	// 	+'</button>'
+	//   	+'</h2>'
+	// 	+'<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">'
+	// 	+'<div class="accordion-body">'
+	// 	+'<button type="button" class="addPlan">'
+	// 			+'<a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#plan'+(i+1)+'" class="media d-inline-flex align-items-center">일정추가</a>'
+	// 			+'</button>'
+	// 			+'<hr>'
+	// 			+'<div style="display:flex;">'
+	// 			+'<div id="resultList'+(i+1)+'"></div>'
+	// 			+'<div id="resultMap'+(i+1)+'" style="width:700px; height:500px"></div>'
+	// 			+'</div>'
+	// 			+'</div>'
+	// 	+'</div>'
+	//   +'</div>'
+	//   +'</div>'
+	  
+
+				
 
 		let modal = document.createElement('div');
 		modal.setAttribute('class','modal fade plan-modal');
@@ -394,8 +630,8 @@ function makeDate(dates){
 		modals.push(modal);
 		console.log(modal);
 		
-		modalHTML = '<div class="modal-dialog" role="document" style="margin-left:100px; ">'
-          +'<div class="modal-plan" style="width: 1000px ; height: 800px;">'
+		modalHTML = '<div class="modal-dialog" role="document" style="margin-left:50px; ">'
+          +'<div class="modal-plan" style="width: 1000px ; height: 630px;">'
             +'<div class="modal-header rounded" id="modalTop" style="height: 5%;">'
               +'<h3 class="modal-title text-uppercase font-weight-bold">여행지 검색</h3>'
              +'<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>'
@@ -441,13 +677,21 @@ function makeDate(dates){
 		maps.length=i;
 	}
 	
-	
+	// document.getElementById('accordionFlushExample').innerHTML=result;
 	console.dir(modalDiv);
 	content.innerHTML = result;
 
 	const placesList = document.getElementsByClassName('placesList');
 		const btnCom = document.getElementsByClassName('btnCom');
+		const modalBtn = document.getElementsByClassName('addPlan');
 		console.log(placesList);
+		for(let i=0;i<modalBtn.length;i++){
+			modalBtn[i].addEventListener('click',e=>{
+				selectTourList(currentCode,currentPage,searchValue);
+				
+			})
+		}
+		
 		for(let i=0;i<placesList.length;i++){
 			placesList[i].addEventListener('click',e=>{
 				const targetEl = e.target;
@@ -470,7 +714,7 @@ function makeDate(dates){
 		for(let i=0;i<btnCom.length;i++){
 			btnCom[i].addEventListener('click',(event)=>{
 			
-				
+				document.getElementById('selectDate'+(i+1)).style.display='flex';
 				const resultList = document.getElementById('resultList'+(currentMapNum+1));
 				const addedList = document.getElementById('addedList'+(currentMapNum+1));
 				const addedSpot = addedList.getElementsByClassName('addedSpot');
@@ -535,7 +779,7 @@ function createResultMap(mapNum,positions){
 	for(let k=0;k<lines.length;k++){
 		console.log(lines[k].getLength());
 	}
-	
+	console.log(lines[0].getPath());
 	centerLan = (lines[0].getPath()[0].La+lines[0].getPath()[1].La)/2;
 	centerLat = (lines[0].getPath()[0].Ma+lines[0].getPath()[1].Ma)/2;
 	centerPosition = new kakao.maps.LatLng(centerLat,centerLan)

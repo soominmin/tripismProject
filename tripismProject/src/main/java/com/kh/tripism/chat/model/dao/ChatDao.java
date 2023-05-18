@@ -22,7 +22,7 @@ public class ChatDao {
 		return (ArrayList)sqlSession.selectList("chatMapper.selectMessageList",chatRoomNo);
 	}
 	public int insertMessage(SqlSessionTemplate sqlSession,ChatMessage chatMessage) {
-		return (int)sqlSession.insert("chatMapper.insertMessage");
+		return (int)sqlSession.insert("chatMapper.insertMessage",chatMessage);
 	}
 	
 

@@ -391,8 +391,8 @@
   ===================================== -->
   <header class="header" id="pageTop" style="height: auto;" >
     <!-- Menu Zord -->
-    <nav class="nav-menuzord navbar-sticky" class="sc-584527a1-1 cHBTwe" style="height: 150px;">
-      <div id="header" class="sc-2cf0ad3b-0 iwFWzK">
+    <nav class="nav-menuzord navbar-sticky" class="sc-584527a1-1 cHBTwe" style="height: 150px; margin: auto;">
+      <div id="header" class="sc-2cf0ad3b-0 iwFWzK" style="margin:auto">
 
        <div class="Headersstyle__HeaderTopWrapDiv-sc-6xu8td-2 jolKUF">
         <div class="Headersstyle__HeaderTopInnerDiv-sc-6xu8td-3 cUxSoB">
@@ -434,13 +434,13 @@
                       여행지 둘러보기</a>
                   </li>
   					
-  				<!-- 
+  				
                   <li class="">
-                    <a href="list.pk">
+                    <a href="plan.tr">
                       <img src="${pageContext.request.contextPath}/resources/img/header/icons6.png" class="Button_pa hXhSDh">
-                      여행 상품</a>
+                      일정 짜기</a>
                   </li>
-                 -->
+                
                <li class="">
                     <a href="plan.tr">
                       <img src="${pageContext.request.contextPath}/resources/img/header/icons4.png" class="Button_pa hXhSDh">
@@ -462,7 +462,7 @@
            
 
 
-              <li class="">
+              <!-- <li class="">
                 <a>관리자 페이지(잠깐)</a>
                 <ul class="dropdown drop-up" >
                         
@@ -483,7 +483,7 @@
    
                </ul>              
                  
-               </li>              
+               </li>               -->
          
             </ul>
 
@@ -544,22 +544,18 @@
 
           </div>
           
-
+          <c:if test="${ not empty loginUser}">
           <div class="Button__ButtonWrapper-sc-1m85upr-0 cmgUBW">
-            <c:choose>
-              <c:when test="${ empty loginUser }">
-
-              </c:when>
+            
+            
+              <button width="134px" height="44px" font-style="" type="button" class="btnButtonStyle-sc-1m85upr-1 iJuLkw">
+                <a href="enrollForm.pn" style="color: rgb(255, 255, 255); display: inherit; font-weight: bold;">동행 찾기</a>
+              </button>
               
-              <c:otherwise>
-                <button width="134px" height="44px" font-style="" type="button" class="btnButtonStyle-sc-1m85upr-1 iJuLkw">
-                  <a href="enrollForm.pn" style="color: rgb(255, 255, 255); display: inherit; font-weight: bold;">동행 찾기</a>
-                </button>
-              </c:otherwise>
-
-            </c:choose>
+            
           </div>
-
+          
+        </c:if>
           <div class="Popups__HeaderWritePopupDiv-sc-1hc7iv8-0 hbEFUq">
           </div>
         </div>

@@ -34,22 +34,21 @@ public class WebSocketHandler extends TextWebSocketHandler{
 	private ChatServiceImpl chService;
 	@Override
 	protected void handleTextMessage(WebSocketSession session,TextMessage message) throws Exception {
-//		log.info(message.getPayload());
+		log.info(message.getPayload());
 		String payload = message.getPayload();
-		if(payload.getClass().getSimpleName().equals("String")) {
+		
+		if(!(payload.substring(0, 1).equals("{"))) {
 			log.info(payload);
 			chatRoomSessionList.replace(session.getId(), Integer.parseInt(payload));
 		}else {
 			
-			log.info("payload:" + payload);
+			
 			
 			
 			ChatMessage chatMessage = mapper.readValue(payload, ChatMessage.class);
 			
-			
-			
-			log.info(chatMessage.toString());
-			
+			chService.insertMessage(chatMessage);
+			 
 			
 			
 			for(WebSocketSession sess: sessionList) {
@@ -80,6 +79,7 @@ public class WebSocketHandler extends TextWebSocketHandler{
 
         log.info(session + " 클라이언트 접속 해제");
         sessionList.remove(session);
+        chatRoomSessionList.remove(session.getId());
         log.info(sessionList.toString());
     }
 	

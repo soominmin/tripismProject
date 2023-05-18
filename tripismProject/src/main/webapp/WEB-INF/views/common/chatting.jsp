@@ -470,20 +470,36 @@
                     const message = document.getElementById('sendMessage');
                     const sendBtn = document.getElementById('send');
                     let messageInfo = null;
+                    const loginNo = '${loginUser.memNo}'
                     send.addEventListener('click',()=>{
                         messageInfo ={
-                                    messageNo : 'seq_messageno.nextval',
+                                    messageNo : 0,
                                     chatroomNo :currentChatRoom,
-                                    memNickname:'${loginUser.memNo}',
+                                    memNo:loginNo,
                                     messageText:message.value,
-                                    messageDate:'to_char(sysdate,"YYYY-MM-DD HH24:MI")'
-
+                                    messageDate:'a',
+                                    memNickname:'${loginUser.memNickname}'
                                 }
                                 webSocket.send(JSON.stringify(messageInfo));
                     })
                     
                     webSocket.onmessage = function(messageInfo){
                         console.log(messageInfo);
+                        let message = JSON.parse(messageInfo.data);
+                        console.log(message)
+                        console.log(message.messageText);
+                        $value =null;
+                        if(message.memNo=='${loginUser.memNo}'){
+                            $value=$('<div style="height: 30px;">'
+                                                             +  '<div style="float: right; background-color:rgb(112, 217, 223) ;">'+message.messageText+'</div>'
+                                                           + '</div>')
+                        }else{
+                            $value=$('<div style="height: 30px;">'
+                                                             +  '<div>'+message.memNickname+' : '+message.messageText+'</div>'
+                                                           + '</div>')
+                        }
+                        document.getElementById('messages').append($value);
+
                     }
                     
                     

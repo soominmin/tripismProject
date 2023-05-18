@@ -62,12 +62,11 @@
 	    )
 	    values
 	    (
-	      seq_chatroomno.nextval
-	    , #{messageNo}
+	      seq_messageno.nextval
 	    , #{chatroomNo}
-	    , #{mem_no}
+	    , #{memNo}
 	    , #{messageText}
-	    , #{messageDate}
+	    , to_char(sysdate,'YYYY-MM-DD HH24:MI')
 	    )
 	
 	</insert>

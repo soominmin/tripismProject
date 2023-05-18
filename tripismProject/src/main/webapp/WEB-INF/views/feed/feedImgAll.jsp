@@ -299,6 +299,7 @@
                 	});
                 	
                 function goFeed() {
+                	location.href = "feed.fd"; 
                 	window.scrollTo(0, 1000); 
                 	/* let clientH = $('.feedPage');
                 	let heightSum = 0;
@@ -310,11 +311,11 @@
                 		console.log(clientH)
                 	} */
                 	
-                	$(window).scroll(function(){
+                	//$(window).scroll(function(){
                 		/* scrollHeight = $(document).clientHeight*/
                 		// location.href = "feed.fd"; 
                 		
-                	})
+                	//})
                 	/* const clientH = $('.feedPage')
                 	location.href = "feed.fd"; */
                 }

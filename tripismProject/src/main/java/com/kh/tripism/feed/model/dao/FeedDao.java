@@ -8,9 +8,10 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.kh.tripism.common.vo.PageInfo;
+import com.kh.tripism.common.vo.Reply;
 import com.kh.tripism.feed.model.vo.Feed;
 import com.kh.tripism.feed.model.vo.Img;
-
+import com.kh.tripism.feed.model.vo.Like;
 import com.kh.tripism.member.model.vo.Member;
 
 @Repository
@@ -61,6 +62,10 @@ public class FeedDao {
 	public int updateFeed(SqlSessionTemplate sqlSession, Feed f) {
 		return sqlSession.update("feedMapper.updateFeed", f);
 	};
+	
+	public int updateFeed2(SqlSessionTemplate sqlSession, Feed f) {
+		return sqlSession.update("feedMapper.updateFeed2", f);
+	}
 
 	// 피드 개수 셈
 	public int selectFeedCount(SqlSessionTemplate sqlSession) {
@@ -80,11 +85,12 @@ public class FeedDao {
 	}
 	
 	// 댓글 추가
-	/*
+	
 	public int insertReply(SqlSessionTemplate sqlSession, Reply r) {
+		System.out.println("댓글입력 dao");
 		return sqlSession.insert("feedMapper.insertReply", r);
 	};
-	*/
+	
 	
 	// 댓글 삭제
 	/*
@@ -101,12 +107,20 @@ public class FeedDao {
 	*/
 	
 	// 댓글 목록 조회 *
-	/*
+	
 	public ArrayList<Reply> selectReplyList(SqlSessionTemplate sqlSession, int feedNo) {
+		System.out.println("댓글 출력 dao");
 		return (ArrayList) sqlSession.selectList("feedMapper.selectReplyList", feedNo);
 	}
-	*/
 	
+	public int replyCount(SqlSessionTemplate sqlSession) {
+		return sqlSession.selectOne("FeedMapper.replyCount");
+	}
+	
+	public ArrayList<Reply> replyList(SqlSessionTemplate sqlSession, PageInfo pi) {
+		System.out.println("댓글 리스트 나왔나? Dao");
+		return (ArrayList) sqlSession.selectList("feedMapper.replyList", null);
+	}
 	
 	public ArrayList<Member> selectMember(SqlSessionTemplate sqlSession, PageInfo pi) {
 		return (ArrayList) sqlSession.selectList("feedMapper.selectMember");
@@ -115,5 +129,19 @@ public class FeedDao {
 	public ArrayList<Img> selectImg(SqlSessionTemplate sqlSession, PageInfo pi) {
 		return (ArrayList) sqlSession.selectList("feedMapper.selectImg");
 	}
-
+	
+	// 좋아요 조회
+	public int getFeedLike(SqlSessionTemplate sqlSession) {
+		return sqlSession.selectOne("feedMapper.feedLike");
+	}
+	
+	// 좋아요 추가/삭제?
+	public void insertFeedLike(SqlSessionTemplate sqlSession, Like l) {
+		sqlSession.insert("feedMapper.likeUp", l);
+	}
+	
+//	public void deleteFeedLike(SqlSessionTemplate sqlSession, Like l) {
+//		sqlSession.update("feedMapper", )
+//	}
+	// https://kwakkwakkwak.github.io/spring/2017/12/18/Sprng-%EC%A2%8B%EC%95%84%EC%9A%94%EA%B8%B0%EB%8A%A5/
 }

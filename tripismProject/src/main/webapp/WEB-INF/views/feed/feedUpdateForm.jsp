@@ -347,7 +347,7 @@
                                     			
                                     			<c:when test="${ not empty f.imgOriginalName1 && empty f.imgOriginalName2 && empty f.imgOriginalName3 && empty f.imgOriginalName4 }">
                                     				<input type="file" class="files" name="upFile1" value="${ f.imgChangeName1 }" accept="image/*">
-                                    				<input type="file" class="files" name="upFile2" accept="image/*">
+                                    				<input type="file" class="files" name="upFile2" accept="image/*"> <br>
                                     				<input type="file" class="files" name="upFile3" accept="image/*">
                                     				<input type="file" class="files" name="upFile4" accept="image/*">
                                     			</c:when>
@@ -359,13 +359,13 @@
                                     			</c:when>
                                     			<c:when test="${ empty f.imgOriginalName1 && empty f.imgOriginalName2 && not empty f.imgOriginalName3 && empty f.imgOriginalName4 }">
                                     				<input type="file" class="files" name="upFile1" accept="image/*">
-                                    				<input type="file" class="files" name="upFile2" accept="image/*">
+                                    				<input type="file" class="files" name="upFile2" accept="image/*"> <br>
                                     				<input type="file" class="files" name="upFile3" value="${ f.imgChangeName3 }" accept="image/*">
                                     				<input type="file" class="files" name="upFile4" accept="image/*">
                                     			</c:when>
                                     			<c:when test="${ empty f.imgOriginalName1 && empty f.imgOriginalName2 && empty f.imgOriginalName3 && not empty f.imgOriginalName4 }">
-                                    				<input type="file" class="files" name="upFile1" accept="image/*">
-                                    				<input type="file" class="files" name="upFile2" accept="image/*">
+                                    				<input type="file" class="files" name="upFile1" accept="image/*"> 
+                                    				<input type="file" class="files" name="upFile2" accept="image/*"> <br>
                                     				<input type="file" class="files" name="upFile3" accept="image/*">
                                     				<input type="file" class="files" name="upFile4" value="${ f.imgChangeName4 }" accept="image/*">
                                     			</c:when>
@@ -437,7 +437,6 @@
                                     			
                                     			<c:when test="${ not empty f.imgOriginalName1 && not empty f.imgOriginalName2 && not empty f.imgOriginalName3 && not empty f.imgOriginalName4 }">
                                     				<input type="file" class="files" name="upFile1" value="${ f.imgChangeName1 }" accept="image/*">
-                                    				${f.imgOriginalName1} 
                                     				<input type="file" class="files" name="upFile2" value="${ f.imgChangeName2 }" accept="image/*"> <br>
                                     				<input type="file" class="files" name="upFile3" value="${ f.imgChangeName3 }" accept="image/*"> 
                                     				<input type="file" class="files" name="upFile4" value="${ f.imgChangeName4 }" accept="image/*"> 

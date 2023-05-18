@@ -183,7 +183,7 @@
             <br>
             
             <button type="button" class="non-click" style="border: none; border-radius: 25% 10%"" onclick="location.href='#'"><img src="${pageContext.request.contextPath}/resources/img/feed/alert.png" alt="img" style="width: 2.4em;">
-                <p style="margin-top: 10px">알림</p>
+                <p style="margin-top: 10px">알림()</p>
             </button>
             
             <br>
@@ -305,18 +305,16 @@
 					<div style="float: right; margin-top: 5px;">
 						 <c:if test="${ not empty loginUser.memId and loginUser.memNo eq f.memNo }">
 		                    <form action="updateForm.fd" method="post" enctype="multipart/form-data" style="display: inline;">
-		                    <input type="hidden" name="fno" value="${f.feedNo}">
-		                    <button type="submit" style="border: none;">
-			                    	<span>수정하기</span>
-		                    </button>
-	                    </form>
-		                    <span>|</span>
-	                    </c:if>  
+			                    <input type="hidden" name="fno" value="${f.feedNo}">
+			                    <button type="submit" style="border: none;">
+				                    	<span>수정하기</span>
+			                    </button>
+		                    </form>
+			                    <span>|</span>
+		                    </c:if>  
 	                    
-		               
-		                    
 	                    <button type="button" data-toggle="modal" data-target="#report">
-	                        <span>신고하기(미완성)</span>
+	                        <span>신고하기()</span>
 	                    </button>
                    </div>
                 </div>
@@ -334,19 +332,77 @@
                         ${ f.feedContents }
                     </p>
                 </div>
+                
             	<div class="img-wrap">	 
-                	<c:if test="${ not empty f.imgOriginalName1 }">
-                		<img src="${ f.imgChangeName1 }" alt="첨부사진">
-	                </c:if>	
-	                <c:if test="${ not empty f.imgOriginalName2 }">
-                		<img src="${ f.imgChangeName2 }" alt="첨부사진">
-	                </c:if>	
-	                <c:if test="${ not empty f.imgOriginalName3 }">
-                		<img src="${ f.imgChangeName3 }" alt="첨부사진">
-	                </c:if>	
-	                <c:if test="${ not empty f.imgOriginalName4 }">
-                		<img src="${ f.imgChangeName4 }" alt="첨부사진">
-	                </c:if>	
+            		<!-- 1장 일때 -->
+            		<c:if test="${ not empty f.imgOriginalName1 && empty f.imgOriginalName2 && empty f.imgOriginalName3 && empty f.imgOriginalName4 }">
+            			<img src="${ f.imgChangeName1 }" alt="첨부사진" style="width: 100%">
+            		</c:if>
+            		<c:if test="${ empty f.imgOriginalName1 && not empty f.imgOriginalName2 && empty f.imgOriginalName3 && empty f.imgOriginalName4 }">
+            			<img src="${ f.imgChangeName2 }" alt="첨부사진" style="width: 100%">
+            		</c:if>
+            		<c:if test="${ empty f.imgOriginalName1 && empty f.imgOriginalName2 &&  not empty f.imgOriginalName3 && empty f.imgOriginalName4 }">
+            			<img src="${ f.imgChangeName3 }" alt="첨부사진" style="width: 100%">
+            		</c:if>
+            		<c:if test="${ empty f.imgOriginalName1 && empty f.imgOriginalName2 && empty f.imgOriginalName3 &&  not empty f.imgOriginalName4 }">
+            			<img src="${ f.imgChangeName4 }" alt="첨부사진" style="width: 100%">
+            		</c:if>
+            		
+            		<!-- 2장 일때 -->
+            		<c:if test="${ not empty f.imgOriginalName1 && not empty f.imgOriginalName2 && empty f.imgOriginalName3 && empty f.imgOriginalName4 }">
+            			<img src="${ f.imgChangeName1 }" alt="첨부사진" >
+            			<img src="${ f.imgChangeName2 }" alt="첨부사진" >
+            		</c:if>
+            		<c:if test="${ not empty f.imgOriginalName1 && empty f.imgOriginalName2 && not empty f.imgOriginalName3 && empty f.imgOriginalName4 }">
+            			<img src="${ f.imgChangeName1 }" alt="첨부사진" >
+            			<img src="${ f.imgChangeName3 }" alt="첨부사진" >
+            		</c:if>
+            		<c:if test="${ not empty f.imgOriginalName1 && empty f.imgOriginalName2 && empty f.imgOriginalName3 && not empty f.imgOriginalName4 }">
+            			<img src="${ f.imgChangeName1 }" alt="첨부사진" >
+            			<img src="${ f.imgChangeName4 }" alt="첨부사진" >
+            		</c:if>
+            		<c:if test="${ empty f.imgOriginalName1 && not empty f.imgOriginalName2 && not empty f.imgOriginalName3 && empty f.imgOriginalName4 }">
+            			<img src="${ f.imgChangeName2 }" alt="첨부사진" >
+            			<img src="${ f.imgChangeName3 }" alt="첨부사진" >
+            		</c:if>
+            		<c:if test="${ empty f.imgOriginalName1 && not empty f.imgOriginalName2 && empty f.imgOriginalName3 && not empty f.imgOriginalName4 }">
+            			<img src="${ f.imgChangeName2 }" alt="첨부사진" >
+            			<img src="${ f.imgChangeName4 }" alt="첨부사진" >
+            		</c:if>
+            		<c:if test="${ f.imgOriginalName1 && empty f.imgOriginalName2 && not empty f.imgOriginalName3 && not empty f.imgOriginalName4 }">
+            			<img src="${ f.imgChangeName3 }" alt="첨부사진" >
+            			<img src="${ f.imgChangeName4 }" alt="첨부사진" >
+            		</c:if>
+            		
+            		<!-- 3장 일때 -->
+            		<c:if test="${ not empty f.imgOriginalName1 && not empty f.imgOriginalName2 && not empty f.imgOriginalName3 && empty f.imgOriginalName4 }">
+            			<img src="${ f.imgChangeName1 }" alt="첨부사진" >
+            			<img src="${ f.imgChangeName2 }" alt="첨부사진" >
+            			<img src="${ f.imgChangeName3 }" alt="첨부사진" style="width: 100%">
+            		</c:if>
+            		<c:if test="${ not empty f.imgOriginalName1 && not empty f.imgOriginalName2 && empty f.imgOriginalName3 && not empty f.imgOriginalName4 }">
+            			<img src="${ f.imgChangeName1 }" alt="첨부사진" >
+            			<img src="${ f.imgChangeName2 }" alt="첨부사진" >
+            			<img src="${ f.imgChangeName4 }" alt="첨부사진" style="width: 100%">
+            		</c:if>
+            		<c:if test="${ not empty f.imgOriginalName1 && empty f.imgOriginalName2 && not empty f.imgOriginalName3 && not empty f.imgOriginalName4 }">
+            			<img src="${ f.imgChangeName1 }" alt="첨부사진" >
+            			<img src="${ f.imgChangeName3 }" alt="첨부사진" >
+            			<img src="${ f.imgChangeName4 }" alt="첨부사진" style="width: 100%">
+            		</c:if>
+            		<c:if test="${ empty f.imgOriginalName1 && not empty f.imgOriginalName2 && not empty f.imgOriginalName3 && not empty f.imgOriginalName4 }">
+            			<img src="${ f.imgChangeName2 }" alt="첨부사진" >
+            			<img src="${ f.imgChangeName3 }" alt="첨부사진" >
+            			<img src="${ f.imgChangeName4 }" alt="첨부사진" style="width: 100%">
+            		</c:if>
+            		
+            		<!-- 4장 일때 -->
+            		<c:if test="${ not empty f.imgOriginalName1 && not empty f.imgOriginalName2 && not empty f.imgOriginalName3 && not empty f.imgOriginalName4 }">
+	                		<img src="${ f.imgChangeName1 }" alt="첨부사진">
+	                		<img src="${ f.imgChangeName2 }" alt="첨부사진">
+	                		<img src="${ f.imgChangeName3 }" alt="첨부사진">
+	                		<img src="${ f.imgChangeName4 }" alt="첨부사진">
+            		</c:if>
 				</div>
                 <div class="inner-bar-small LrN">
                    <!--  <a href="#">#영랑호</a> 후순위
@@ -389,9 +445,9 @@
 		                        <img src="${pageContext.request.contextPath}/resources/img/feed/user.png" alt="loginUser-img" style="width: 2em;"> &nbsp;
 		                        <!-- <img src="${loginUser.img }" alt="loginUser-img" style="width: 2em;"> &nbsp; -->
 		                        
-		                        <input type="text" class="replyContent" placeholder="댓글을 입력하세요" style="border-radius: 5px; width: 80%; padding-left: 10px">
+		                        <input type="text" class="replyContents" placeholder="댓글을 입력하세요" style="border-radius: 5px; width: 80%; padding-left: 10px">
 		                        <div class="inner-bar-small" align="center" style="margin-top: 10px;">
-		                            <button type="button" class="bBc" style="width: 10em;" onclick="addReply()">완료</button>
+		                            <button class="bBc" style="width: 10em;" (click)="addReply()">완료</button>
 		                        </div>
 		                        
 		                        
@@ -528,20 +584,23 @@
 					selectReplyList();
 				})
 				
-				function addReply(){
-					if($(".replyContent").val().trim().length != 0) {
-						console.log(".replyContent")
+				/* $(".addReply").on("click", function(){
+					console.log("이거 됨?")
+				}) */
+				 function addReply(){
+						console.log(".replyContents")
+					if($(".replyContents").val().trim().length != 0) {
 						$.ajax({
 							url:"rinsert.fd",
 							data:{
 								refBoardNo:${f.feedNo},
-								replyContent:${".replyContent"}.val(),
+								replyContents:${".replyContents"}.val(),
 								replyWriter:'${loginUser.memId}',
 							},
 							success:function(status){
 								if(status == "success"){
 									selectReplyList();
-									$(".replyContent").val("");
+									$(".replyContents").val("");
 								}
 							},
 							error:function(){
@@ -552,16 +611,15 @@
 					} else {
 						alert("댓글 작성 후 등록 요청해주세요")
 					}
-				}
+				} 
 				
 				function selectReplyList(){ // 해당 게시글에 딸린 댓글리스트 조회용 ajax
 		    		$.ajax({
 		    			url:"rlist.fd",
-		    			data:{
-		    				fno:${f.feedNo}
-		    			},
+		    			data:{fno:${r.boardNo}},
 		    			success:function(list){
 		    				console.log(list);
+		    				console.log("댓글 리스트 나오나?")
 		    				
 		    				let value = "";
 		    				
@@ -604,9 +662,13 @@
                     }
                 }*/
                 
+                function viewReply() { // 커서 이동하기
+                	$('.replyContents').focus();
+                }
+                
                 function shareTwitter() {
                     let sendText = "tripism 새소식 보러오세요";
-                    let sendLink = "http://localhost:8007/tripism/feed/"
+                    let sendLink = "http://localhost:8007/tripism/feed.fd"
                     window.open("https://twitter.com/intent/tweet?text=" + sendText + "&url=" + sendLink);
                     console.log("트위터 이동됨")
                 }

@@ -209,7 +209,7 @@
             <br>
             
             <button type="button" class="non-click" style="border: none; border-radius: 25% 10%"" onclick="location.href='#"><img src="${pageContext.request.contextPath}/resources/img/feed/alert.png" alt="img" style="width: 2.4em;">
-                <p style="margin-top: 10px">알림</p>
+                <p style="margin-top: 10px">알림()</p>
             </button>
             
             <br>

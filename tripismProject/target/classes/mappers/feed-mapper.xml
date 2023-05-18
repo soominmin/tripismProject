@@ -320,7 +320,6 @@
 				, #{feedNo}
 				, #{memNo}
 				, #{replyContent}
-				, sysdate
 				, 'F'
 			)
 		

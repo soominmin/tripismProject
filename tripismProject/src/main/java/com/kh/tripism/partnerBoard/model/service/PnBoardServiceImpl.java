@@ -73,14 +73,14 @@ public class PnBoardServiceImpl implements PnBoardService {
 
 	// 6. 댓글 리스트 조회
 	@Override
-	public ArrayList<Reply> selectPnReplyList(int pnBoardNo) {
-		return pbDao.selectReplyList(sqlSession, pnBoardNo);
+	public ArrayList<Reply> selectPnReplyList(int postNo) {
+		return pbDao.selectPnReplyList(sqlSession, postNo);
 	}
 
 	// 7. 댓글 작성용 서비스(ajax)
 	@Override
 	public int insertPnReply(Reply pr) {
-		return pbDao.insertReply(sqlSession, pr);
+		return pbDao.insertPnReply(sqlSession, pr);
 
 	}
 

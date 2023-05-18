@@ -2,12 +2,12 @@ package com.kh.tripism.common.vo;
 
 public class Reply {
 	
-	private int replyNo;
-	private int boardNo;
-	private int memNo;
-	private String replyContents;
-	private String replyDate;
-	private String replyDistinct;
+	private int replyNo;	// 댓글번호
+	private int boardNo;	// 게시글 번호
+	private int memNo;		// 작성자 번호
+	private String replyContents;	// 댓글내용
+	private String replyDate;		// 작성일
+	private String replyDistinct;	// 구분
 	
 	// 댓글 작성자
 	private String replyWriter;

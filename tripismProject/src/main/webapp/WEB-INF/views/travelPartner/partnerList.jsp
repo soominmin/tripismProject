@@ -271,7 +271,7 @@
 		user-select: none;
 		color: rgb(0, 143, 246);
 		margin-top: 0.3rem;
-		margin-bottom: 1rem;
+		margin-bottom: 0.5rem;
 	}
 	/*여행 . */
 	.bdAMWe {
@@ -313,8 +313,8 @@
 		-webkit-box-orient: vertical;
 		user-select: none;
 		color: rgb(154, 154, 154);
-		margin-top: 0.5rem;
-		margin-bottom: 0;
+		margin-top: 0.3rem;
+		margin-bottom: 0.3rem;
 	}
 	/*가림막*/
 	.fAUDUm {
@@ -325,12 +325,13 @@
 	}
 	/*여행기간*/
 	.ilUDog {
-		margin-right: 2px;
+	margin-right: 2px;
     width: 15px;
     height: 15px;
     object-fit: contain;
     z-index: 100;
-    margin-top: 8px;
+    margin-top: 0.3rem;
+	margin-bottom: 0.3rem;
     margin-left: 10px;
 	}
 	.fdRVsr {
@@ -357,8 +358,8 @@
 		z-index: 100;
 		user-select: none;
 		box-sizing: border-box;
-		margin-top: 0.5rem;
-		margin-bottom: 0;
+		margin-top: 0.3rem;
+		margin-bottom: 0.3rem;
 	}
 	.iVfuBW {
 		font-weight: 500;
@@ -410,7 +411,7 @@
 		color: rgb(0, 206, 124);
 		z-index: 100;
 		margin-top: 0.3rem;
-		margin-bottom: 1rem;
+		margin-bottom: 0.5rem;
 		margin-left: 10px;
 	}
 	/*5일 . */
@@ -812,8 +813,7 @@
 							<!--  ---------------------------------------------------------------------------------------------------------------------- 여기가 member ${pn.member.img }-->
 								<c:choose>
 								<c:when test="${not empty pn.member.img }">
-									<img src="${pn.member.img }"
-										class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
+									<img src="${pn.member.img }" class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
 								</c:when>
 								<c:otherwise>
 									<img src="${pageContext.request.contextPath}/resources/img/partner/ner.jpg"
@@ -822,8 +822,12 @@
 								</c:choose>
 									
 								<div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
-									<p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">${pn.member.memNickname }</p>
+									
 									<div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
+										<p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">${pn.member.memNickname }</p>
+										<div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
+										<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG" style="margin-bottom: 0.3rem;">${pn.member.gender == 'F' ? '여성' : '남성'}</p>
+									</div>
 									<!-- ----------------------------------------------------------------------------------------------------------------------- ${pn.member.mbti } -->
 										<c:choose>
 										<c:when test="${not empty pn.member.mbti }">
@@ -834,9 +838,7 @@
 											
 										</c:otherwise>
 										</c:choose>
-										<div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
-										<p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${pn.member.gender == 'F' ? '여성' : '남성'}</p>
-									</div>
+									
 								</div>
 							</div>
 	

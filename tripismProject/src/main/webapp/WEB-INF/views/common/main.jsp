@@ -255,28 +255,28 @@ svg:not(:root) {
 	}
 	/*20대여행*/
 	.dKvksB {
-		margin-top: 0;
-		display: flex;
-		width: max-content;
-		height: auto;
-		-webkit-box-align: center;
-		align-items: center;
-		box-sizing: border-box;
+        margin-top: 0;
+    display: flex;
+    width: max-content;
+    height: auto;
+    -webkit-box-align: center;
+    align-items: center;
+    box-sizing: border-box;
 	}
 	.gGpJuG {
-		font-weight: 400;
-		font-size: 12px;
-		line-height: 18px;
-		display: -webkit-box;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		overflow-wrap: break-word;
-		-webkit-line-clamp: 1;
-		-webkit-box-orient: vertical;
-		user-select: none;
-		color: rgb(0, 143, 246);
-		margin-top: 0.3rem;
-		margin-bottom: 1rem;
+        font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    user-select: none;
+    color: rgb(0, 143, 246);
+    margin-top: 0.3rem;
+    margin-bottom: 0.5rem;
 	}
 	/*여행 . */
 	.bdAMWe {
@@ -308,18 +308,18 @@ svg:not(:root) {
 	/*닉네임*/
 	.jmSbLA {
 		font-weight: 400;
-		font-size: 12px;
-		line-height: 18px;
-		display: -webkit-box;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		overflow-wrap: break-word;
-		-webkit-line-clamp: 1;
-		-webkit-box-orient: vertical;
-		user-select: none;
-		color: rgb(154, 154, 154);
-		margin-top: 0.5rem;
-		margin-bottom: 0;
+    font-size: 12px;
+    line-height: 18px;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    user-select: none;
+    color: rgb(154, 154, 154);
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
 	}
 	/*가림막*/
 	.fAUDUm {
@@ -926,312 +926,356 @@ svg:not(:root) {
 
                         <!-------------------------------------------------------------------------------------------------------------------------->
 
-                            
-                                <div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
-                                    <input type="hidden" value="${pn.postNo }" class="postNo"/>
-                                
-                                    
-                                    <div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
-                
-                                        <div class="AccompanyWebCard__ProfileWrap-sc-ws5mjw-6 gNWBdG"> 
-                                        <!--  ---------------------------------------------------------------------------------------------------------------------- 여기가 member ${pn.member.img }-->
-                           
-                                                <img src="${pageContext.request.contextPath}/resources/img/partner/ner.jpg"
-                                                    class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
-              
-                                                
-                                            <div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
-                                                <p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">닉네임</p>
-                                                <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
-                                                <!-- ----------------------------------------------------------------------------------------------------------------------- ${pn.member.mbti } -->
-                            
-                                                        <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">mbti</p>
-                                   
-                                                    <div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
-                                                    <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">성별</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                
-                                        <div class="AccompanyWebCard__GrayLine-sc-ws5mjw-2 fAUDUm"></div>
-                
-                                        <div class="AccompanyWebCard__DateWrap-sc-ws5mjw-9 fdRVsr">
-                                            <div class="AccompanyWebCard__DateHoveredWrap-sc-ws5mjw-10 hWLPgS"></div>
-                                            <div class="AccompanyWebCard__DateTitleWrap-sc-ws5mjw-11 kdZjQK">
-                                                <img src="${pageContext.request.contextPath}/resources/img/partner/accompany_gray_calendar.png" class="AccompanyWebCard__DateIcon-sc-ws5mjw-12 ilUDog">
-                                                <p class="AccompanyWebCard__DateTitle-sc-ws5mjw-13 iBlyRM">여행기간</p>
-                                            </div>
-                                            <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
-                                                <p color="#00CE7C" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">
-                                                05.05 - 05.05</p>
-                                            </div>
-                                        </div>
-                
-                                    </div>
-                
-                                    <div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
-                                    <!-- -------------------------------------------------------------------------------------------------------------------------------------   ${pn.partnerOriginalImg } -->
-                                        <img src="${pageContext.request.contextPath}/resources/img/partner/originImg8.JPG" class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
-                
-                                        <div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
-                                            <div class="AccompanyWebCard__LocationIcon-sc-ws5mjw-17 lmqiXK">
-                                                <svg
-                                                    width="13"
-                                                    height="17"
-                                                    viewbox="0 0 13 17"
-                                                    fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M12.7244 7.11371C12.7244 10.6866 6.49995 16.3557 6.49995 16.3557C6.49995 16.3557 0.275513 10.6866 0.275513 7.11371C0.275513 3.54077 3.06229 0.644341 6.49995 0.644341C9.93761 0.644341 12.7244 3.54077 12.7244 7.11371Z"
-                                                        fill="#008FF6"></path>
-                                                    <ellipse cx="6.50063" cy="6.40462" rx="2.81106" ry="2.81106" fill="#fff"></ellipse>
-                                                </svg>
-                                            </div>
-                                            <p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">지역</p>
-                                        </div>
-                                    </div>
-                
-                                    <div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
-                                            <p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">제목</p>
-                                            <p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
-                                                내용
-                                            </p>
-                                    </div>						
-                                </div>
-            
-                                
-                            <!-------------------------------------------------------------------------------------------------------------------------->
-                                             <!-------------------------------------------------------------------------------------------------------------------------->
-
-                            
-                                             <div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
-                                                <input type="hidden" value="${pn.postNo }" class="postNo"/>
-                                            
-                                                
-                                                <div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
-                            
-                                                    <div class="AccompanyWebCard__ProfileWrap-sc-ws5mjw-6 gNWBdG"> 
-                                                    <!--  ---------------------------------------------------------------------------------------------------------------------- 여기가 member ${pn.member.img }-->
-                                       
-                                                            <img src="${pageContext.request.contextPath}/resources/img/partner/ner.jpg"
-                                                                class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
-                          
-                                                            
-                                                        <div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
-                                                            <p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">닉네임</p>
-                                                            <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
-                                                            <!-- ----------------------------------------------------------------------------------------------------------------------- ${pn.member.mbti } -->
-                                        
-                                                                    <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">mbti</p>
-                                               
-                                                                <div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
-                                                                <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">성별</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                            
-                                                    <div class="AccompanyWebCard__GrayLine-sc-ws5mjw-2 fAUDUm"></div>
-                            
-                                                    <div class="AccompanyWebCard__DateWrap-sc-ws5mjw-9 fdRVsr">
-                                                        <div class="AccompanyWebCard__DateHoveredWrap-sc-ws5mjw-10 hWLPgS"></div>
-                                                        <div class="AccompanyWebCard__DateTitleWrap-sc-ws5mjw-11 kdZjQK">
-                                                            <img src="${pageContext.request.contextPath}/resources/img/partner/accompany_gray_calendar.png" class="AccompanyWebCard__DateIcon-sc-ws5mjw-12 ilUDog">
-                                                            <p class="AccompanyWebCard__DateTitle-sc-ws5mjw-13 iBlyRM">여행기간</p>
-                                                        </div>
-                                                        <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
-                                                            <p color="#00CE7C" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">
-                                                            05.05 - 05.05</p>
-                                                        </div>
-                                                    </div>
-                            
-                                                </div>
-                            
-                                                <div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
-                                                <!-- -------------------------------------------------------------------------------------------------------------------------------------   ${pn.partnerOriginalImg } -->
-                                                    <img src="${pageContext.request.contextPath}/resources/img/partner/originImg8.JPG" class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
-                            
-                                                    <div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
-                                                        <div class="AccompanyWebCard__LocationIcon-sc-ws5mjw-17 lmqiXK">
-                                                            <svg
-                                                                width="13"
-                                                                height="17"
-                                                                viewbox="0 0 13 17"
-                                                                fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M12.7244 7.11371C12.7244 10.6866 6.49995 16.3557 6.49995 16.3557C6.49995 16.3557 0.275513 10.6866 0.275513 7.11371C0.275513 3.54077 3.06229 0.644341 6.49995 0.644341C9.93761 0.644341 12.7244 3.54077 12.7244 7.11371Z"
-                                                                    fill="#008FF6"></path>
-                                                                <ellipse cx="6.50063" cy="6.40462" rx="2.81106" ry="2.81106" fill="#fff"></ellipse>
-                                                            </svg>
-                                                        </div>
-                                                        <p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">지역</p>
-                                                    </div>
-                                                </div>
-                            
-                                                <div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
-                                                        <p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">제목</p>
-                                                        <p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
-                                                            내용
-                                                        </p>
-                                                </div>						
-                                            </div>
+                        <div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
+                            <input type="hidden" value="${pn.postNo }" class="postNo"/>
                         
-                                            
-                                        <!-------------------------------------------------------------------------------------------------------------------------->
-                                                         <!-------------------------------------------------------------------------------------------------------------------------->
-
                             
-                                <div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
-                                    <input type="hidden" value="${pn.postNo }" class="postNo"/>
-                                
-                                    
-                                    <div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
-                
-                                        <div class="AccompanyWebCard__ProfileWrap-sc-ws5mjw-6 gNWBdG"> 
-                                        <!--  ---------------------------------------------------------------------------------------------------------------------- 여기가 member ${pn.member.img }-->
-                           
-                                                <img src="${pageContext.request.contextPath}/resources/img/partner/ner.jpg"
-                                                    class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
-              
-                                                
-                                            <div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
-                                                <p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">닉네임</p>
-                                                <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
-                                                <!-- ----------------------------------------------------------------------------------------------------------------------- ${pn.member.mbti } -->
-                            
-                                                        <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">mbti</p>
-                                   
-                                                    <div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
-                                                    <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">성별</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                
-                                        <div class="AccompanyWebCard__GrayLine-sc-ws5mjw-2 fAUDUm"></div>
-                
-                                        <div class="AccompanyWebCard__DateWrap-sc-ws5mjw-9 fdRVsr">
-                                            <div class="AccompanyWebCard__DateHoveredWrap-sc-ws5mjw-10 hWLPgS"></div>
-                                            <div class="AccompanyWebCard__DateTitleWrap-sc-ws5mjw-11 kdZjQK">
-                                                <img src="${pageContext.request.contextPath}/resources/img/partner/accompany_gray_calendar.png" class="AccompanyWebCard__DateIcon-sc-ws5mjw-12 ilUDog">
-                                                <p class="AccompanyWebCard__DateTitle-sc-ws5mjw-13 iBlyRM">여행기간</p>
-                                            </div>
-                                            <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
-                                                <p color="#00CE7C" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">
-                                                05.05 - 05.05</p>
-                                            </div>
-                                        </div>
-                
-                                    </div>
-                
-                                    <div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
-                                    <!-- -------------------------------------------------------------------------------------------------------------------------------------   ${pn.partnerOriginalImg } -->
-                                        <img src="${pageContext.request.contextPath}/resources/img/partner/originImg8.JPG" class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
-                
-                                        <div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
-                                            <div class="AccompanyWebCard__LocationIcon-sc-ws5mjw-17 lmqiXK">
-                                                <svg
-                                                    width="13"
-                                                    height="17"
-                                                    viewbox="0 0 13 17"
-                                                    fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M12.7244 7.11371C12.7244 10.6866 6.49995 16.3557 6.49995 16.3557C6.49995 16.3557 0.275513 10.6866 0.275513 7.11371C0.275513 3.54077 3.06229 0.644341 6.49995 0.644341C9.93761 0.644341 12.7244 3.54077 12.7244 7.11371Z"
-                                                        fill="#008FF6"></path>
-                                                    <ellipse cx="6.50063" cy="6.40462" rx="2.81106" ry="2.81106" fill="#fff"></ellipse>
-                                                </svg>
-                                            </div>
-                                            <p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">지역</p>
-                                        </div>
-                                    </div>
-                
-                                    <div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
-                                            <p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">제목</p>
-                                            <p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
-                                                내용
-                                            </p>
-                                    </div>						
-                                </div>
-            
-                                
-                            <!-------------------------------------------------------------------------------------------------------------------------->
-                                             <!-------------------------------------------------------------------------------------------------------------------------->
-
-                            
-                                             <div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
-                                                <input type="hidden" value="${pn.postNo }" class="postNo"/>
-                                            
-                                                
-                                                <div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
-                            
-                                                    <div class="AccompanyWebCard__ProfileWrap-sc-ws5mjw-6 gNWBdG"> 
-                                                    <!--  ---------------------------------------------------------------------------------------------------------------------- 여기가 member ${pn.member.img }-->
-                                       
-                                                            <img src="${pageContext.request.contextPath}/resources/img/partner/ner.jpg"
-                                                                class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
-                          
-                                                            
-                                                        <div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
-                                                            <p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">닉네임</p>
-                                                            <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
-                                                            <!-- ----------------------------------------------------------------------------------------------------------------------- ${pn.member.mbti } -->
+                            <div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
+        
+                                <div class="AccompanyWebCard__ProfileWrap-sc-ws5mjw-6 gNWBdG"> 
+                                <!--  ---------------------------------------------------------------------------------------------------------------------- 여기가 member ${pn.member.img }-->
+                                    <c:choose>
+                                    <c:when test="${not empty pn.member.img }">
+                                        <img src="${pn.member.img }" class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
+                                    </c:when>
+                                    <c:otherwise>
+                                        <img src="${pageContext.request.contextPath}/resources/img/partner/ner.jpg"
+                                            class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
+                                    </c:otherwise>
+                                    </c:choose>
                                         
-                                                                    <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">mbti</p>
-                                               
-                                                                <div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
-                                                                <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">성별</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                            
-                                                    <div class="AccompanyWebCard__GrayLine-sc-ws5mjw-2 fAUDUm"></div>
-                            
-                                                    <div class="AccompanyWebCard__DateWrap-sc-ws5mjw-9 fdRVsr">
-                                                        <div class="AccompanyWebCard__DateHoveredWrap-sc-ws5mjw-10 hWLPgS"></div>
-                                                        <div class="AccompanyWebCard__DateTitleWrap-sc-ws5mjw-11 kdZjQK">
-                                                            <img src="${pageContext.request.contextPath}/resources/img/partner/accompany_gray_calendar.png" class="AccompanyWebCard__DateIcon-sc-ws5mjw-12 ilUDog">
-                                                            <p class="AccompanyWebCard__DateTitle-sc-ws5mjw-13 iBlyRM">여행기간</p>
-                                                        </div>
-                                                        <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
-                                                            <p color="#00CE7C" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">
-                                                            05.05 - 05.05</p>
-                                                        </div>
-                                                    </div>
-                            
-                                                </div>
-                            
-                                                <div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
-                                                <!-- -------------------------------------------------------------------------------------------------------------------------------------   ${pn.partnerOriginalImg } -->
-                                                    <img src="${pageContext.request.contextPath}/resources/img/partner/originImg8.JPG" class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
-                            
-                                                    <div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
-                                                        <div class="AccompanyWebCard__LocationIcon-sc-ws5mjw-17 lmqiXK">
-                                                            <svg
-                                                                width="13"
-                                                                height="17"
-                                                                viewbox="0 0 13 17"
-                                                                fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M12.7244 7.11371C12.7244 10.6866 6.49995 16.3557 6.49995 16.3557C6.49995 16.3557 0.275513 10.6866 0.275513 7.11371C0.275513 3.54077 3.06229 0.644341 6.49995 0.644341C9.93761 0.644341 12.7244 3.54077 12.7244 7.11371Z"
-                                                                    fill="#008FF6"></path>
-                                                                <ellipse cx="6.50063" cy="6.40462" rx="2.81106" ry="2.81106" fill="#fff"></ellipse>
-                                                            </svg>
-                                                        </div>
-                                                        <p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">지역</p>
-                                                    </div>
-                                                </div>
-                            
-                                                <div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
-                                                        <p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">제목</p>
-                                                        <p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
-                                                            내용
-                                                        </p>
-                                                </div>						
-                                            </div>
+                                    <div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
+                                        
+                                        <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
+                                            <p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">${pn.member.memNickname }닉네임</p>
+                                            <div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
+                                            <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG" style="margin-bottom: 0.3rem;">${pn.member.gender == 'F' ? '여성' : '남성'}</p>
+                                        </div>
+                                        <!-- ----------------------------------------------------------------------------------------------------------------------- ${pn.member.mbti } -->
+                                            <c:choose>
+                                            <c:when test="${not empty pn.member.mbti }">
+                                                <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${pn.member.mbti }</p>
+                                            </c:when>
+                                            <c:otherwise>
+                                            <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">미정mbti</p>
+                                                
+                                            </c:otherwise>
+                                            </c:choose>
+                                        
+                                    </div>
+                                </div>
+        
+                                <div class="AccompanyWebCard__GrayLine-sc-ws5mjw-2 fAUDUm"></div>
+        
+                                <div class="AccompanyWebCard__DateWrap-sc-ws5mjw-9 fdRVsr">
+                                    <div class="AccompanyWebCard__DateHoveredWrap-sc-ws5mjw-10 hWLPgS"></div>
+                                    <div class="AccompanyWebCard__DateTitleWrap-sc-ws5mjw-11 kdZjQK">
+                                        <img src="${pageContext.request.contextPath}/resources/img/partner/accompany_gray_calendar.png" class="AccompanyWebCard__DateIcon-sc-ws5mjw-12 ilUDog">
+                                        <p class="AccompanyWebCard__DateTitle-sc-ws5mjw-13 iBlyRM">여행기간</p>
+                                    </div>
+                                    <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
+                                        <p color="#00CE7C" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">
+                                        ${pn.partnerStartDate }날짜 - ${pn.partnerEndDate }날짜</p>
+                                    </div>
+                                </div>
+        
+                            </div>
+        
+                            <div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
+                            <!-- -------------------------------------------------------------------------------------------------------------------------------------   ${pn.partnerOriginalImg } -->
+                                <img src="${pageContext.request.contextPath}/resources/img/partner/originImg10.JPG" class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
+        
+                                <div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
+                                    <div class="AccompanyWebCard__LocationIcon-sc-ws5mjw-17 lmqiXK">
+                                        <svg
+                                            width="13"
+                                            height="17"
+                                            viewbox="0 0 13 17"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M12.7244 7.11371C12.7244 10.6866 6.49995 16.3557 6.49995 16.3557C6.49995 16.3557 0.275513 10.6866 0.275513 7.11371C0.275513 3.54077 3.06229 0.644341 6.49995 0.644341C9.93761 0.644341 12.7244 3.54077 12.7244 7.11371Z"
+                                                fill="#008FF6"></path>
+                                            <ellipse cx="6.50063" cy="6.40462" rx="2.81106" ry="2.81106" fill="#fff"></ellipse>
+                                        </svg>
+                                    </div>
+                                    <p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">${pn.spot.areaTitle }지역</p>
+                                </div>
+                            </div>
+        
+                            <div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
+                                    <p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">${ pn.partnerTitle }제목</p>
+                                    <p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
+                                        ${ pn.partnerContent }내용
+                                    </p>
+                            </div>						
+                        </div>
+            
+                        <!-------------------------------------------------------------------------------------------------------------------------->
+                       <!-------------------------------------------------------------------------------------------------------------------------->
+
+                       <div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
+                        <input type="hidden" value="${pn.postNo }" class="postNo"/>
+                    
                         
+                        <div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
+    
+                            <div class="AccompanyWebCard__ProfileWrap-sc-ws5mjw-6 gNWBdG"> 
+                            <!--  ---------------------------------------------------------------------------------------------------------------------- 여기가 member ${pn.member.img }-->
+                                <c:choose>
+                                <c:when test="${not empty pn.member.img }">
+                                    <img src="${pn.member.img }" class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
+                                </c:when>
+                                <c:otherwise>
+                                    <img src="${pageContext.request.contextPath}/resources/img/partner/ner.jpg"
+                                        class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
+                                </c:otherwise>
+                                </c:choose>
+                                    
+                                <div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
+                                    
+                                    <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
+                                        <p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">${pn.member.memNickname }닉네임</p>
+                                        <div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
+                                        <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG" style="margin-bottom: 0.3rem;">${pn.member.gender == 'F' ? '여성' : '남성'}</p>
+                                    </div>
+                                    <!-- ----------------------------------------------------------------------------------------------------------------------- ${pn.member.mbti } -->
+                                        <c:choose>
+                                        <c:when test="${not empty pn.member.mbti }">
+                                            <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${pn.member.mbti }</p>
+                                        </c:when>
+                                        <c:otherwise>
+                                        <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">미정mbti</p>
                                             
-                                        <!-------------------------------------------------------------------------------------------------------------------------->
+                                        </c:otherwise>
+                                        </c:choose>
+                                    
+                                </div>
+                            </div>
+    
+                            <div class="AccompanyWebCard__GrayLine-sc-ws5mjw-2 fAUDUm"></div>
+    
+                            <div class="AccompanyWebCard__DateWrap-sc-ws5mjw-9 fdRVsr">
+                                <div class="AccompanyWebCard__DateHoveredWrap-sc-ws5mjw-10 hWLPgS"></div>
+                                <div class="AccompanyWebCard__DateTitleWrap-sc-ws5mjw-11 kdZjQK">
+                                    <img src="${pageContext.request.contextPath}/resources/img/partner/accompany_gray_calendar.png" class="AccompanyWebCard__DateIcon-sc-ws5mjw-12 ilUDog">
+                                    <p class="AccompanyWebCard__DateTitle-sc-ws5mjw-13 iBlyRM">여행기간</p>
+                                </div>
+                                <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
+                                    <p color="#00CE7C" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">
+                                    ${pn.partnerStartDate }날짜 - ${pn.partnerEndDate }날짜</p>
+                                </div>
+                            </div>
+    
+                        </div>
+    
+                        <div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
+                        <!-- -------------------------------------------------------------------------------------------------------------------------------------   ${pn.partnerOriginalImg } -->
+                            <img src="${pageContext.request.contextPath}/resources/img/partner/originImg10.JPG" class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
+    
+                            <div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
+                                <div class="AccompanyWebCard__LocationIcon-sc-ws5mjw-17 lmqiXK">
+                                    <svg
+                                        width="13"
+                                        height="17"
+                                        viewbox="0 0 13 17"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.7244 7.11371C12.7244 10.6866 6.49995 16.3557 6.49995 16.3557C6.49995 16.3557 0.275513 10.6866 0.275513 7.11371C0.275513 3.54077 3.06229 0.644341 6.49995 0.644341C9.93761 0.644341 12.7244 3.54077 12.7244 7.11371Z"
+                                            fill="#008FF6"></path>
+                                        <ellipse cx="6.50063" cy="6.40462" rx="2.81106" ry="2.81106" fill="#fff"></ellipse>
+                                    </svg>
+                                </div>
+                                <p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">${pn.spot.areaTitle }지역</p>
+                            </div>
+                        </div>
+    
+                        <div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
+                                <p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">${ pn.partnerTitle }제목</p>
+                                <p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
+                                    ${ pn.partnerContent }내용
+                                </p>
+                        </div>						
+                    </div>
+        
+                    <!-------------------------------------------------------------------------------------------------------------------------->
+                       <!-------------------------------------------------------------------------------------------------------------------------->
+
+                       <div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
+                        <input type="hidden" value="${pn.postNo }" class="postNo"/>
+                    
+                        
+                        <div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
+    
+                            <div class="AccompanyWebCard__ProfileWrap-sc-ws5mjw-6 gNWBdG"> 
+                            <!--  ---------------------------------------------------------------------------------------------------------------------- 여기가 member ${pn.member.img }-->
+                                <c:choose>
+                                <c:when test="${not empty pn.member.img }">
+                                    <img src="${pn.member.img }" class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
+                                </c:when>
+                                <c:otherwise>
+                                    <img src="${pageContext.request.contextPath}/resources/img/partner/ner.jpg"
+                                        class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
+                                </c:otherwise>
+                                </c:choose>
+                                    
+                                <div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
+                                    
+                                    <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
+                                        <p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">${pn.member.memNickname }닉네임</p>
+                                        <div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
+                                        <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG" style="margin-bottom: 0.3rem;">${pn.member.gender == 'F' ? '여성' : '남성'}</p>
+                                    </div>
+                                    <!-- ----------------------------------------------------------------------------------------------------------------------- ${pn.member.mbti } -->
+                                        <c:choose>
+                                        <c:when test="${not empty pn.member.mbti }">
+                                            <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${pn.member.mbti }</p>
+                                        </c:when>
+                                        <c:otherwise>
+                                        <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">미정mbti</p>
+                                            
+                                        </c:otherwise>
+                                        </c:choose>
+                                    
+                                </div>
+                            </div>
+    
+                            <div class="AccompanyWebCard__GrayLine-sc-ws5mjw-2 fAUDUm"></div>
+    
+                            <div class="AccompanyWebCard__DateWrap-sc-ws5mjw-9 fdRVsr">
+                                <div class="AccompanyWebCard__DateHoveredWrap-sc-ws5mjw-10 hWLPgS"></div>
+                                <div class="AccompanyWebCard__DateTitleWrap-sc-ws5mjw-11 kdZjQK">
+                                    <img src="${pageContext.request.contextPath}/resources/img/partner/accompany_gray_calendar.png" class="AccompanyWebCard__DateIcon-sc-ws5mjw-12 ilUDog">
+                                    <p class="AccompanyWebCard__DateTitle-sc-ws5mjw-13 iBlyRM">여행기간</p>
+                                </div>
+                                <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
+                                    <p color="#00CE7C" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">
+                                    ${pn.partnerStartDate }날짜 - ${pn.partnerEndDate }날짜</p>
+                                </div>
+                            </div>
+    
+                        </div>
+    
+                        <div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
+                        <!-- -------------------------------------------------------------------------------------------------------------------------------------   ${pn.partnerOriginalImg } -->
+                            <img src="${pageContext.request.contextPath}/resources/img/partner/originImg10.JPG" class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
+    
+                            <div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
+                                <div class="AccompanyWebCard__LocationIcon-sc-ws5mjw-17 lmqiXK">
+                                    <svg
+                                        width="13"
+                                        height="17"
+                                        viewbox="0 0 13 17"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.7244 7.11371C12.7244 10.6866 6.49995 16.3557 6.49995 16.3557C6.49995 16.3557 0.275513 10.6866 0.275513 7.11371C0.275513 3.54077 3.06229 0.644341 6.49995 0.644341C9.93761 0.644341 12.7244 3.54077 12.7244 7.11371Z"
+                                            fill="#008FF6"></path>
+                                        <ellipse cx="6.50063" cy="6.40462" rx="2.81106" ry="2.81106" fill="#fff"></ellipse>
+                                    </svg>
+                                </div>
+                                <p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">${pn.spot.areaTitle }지역</p>
+                            </div>
+                        </div>
+    
+                        <div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
+                                <p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">${ pn.partnerTitle }제목</p>
+                                <p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
+                                    ${ pn.partnerContent }내용
+                                </p>
+                        </div>						
+                    </div>
+        
+                    <!-------------------------------------------------------------------------------------------------------------------------->
+                       <!-------------------------------------------------------------------------------------------------------------------------->
+
+                       <div class="AccompanyWebCard__Wrap-sc-ws5mjw-0 cxduOO">
+                        <input type="hidden" value="${pn.postNo }" class="postNo"/>
+                    
+                        
+                        <div class="AccompanyWebCard__Header-sc-ws5mjw-5 iJlJaU">
+    
+                            <div class="AccompanyWebCard__ProfileWrap-sc-ws5mjw-6 gNWBdG"> 
+                            <!--  ---------------------------------------------------------------------------------------------------------------------- 여기가 member ${pn.member.img }-->
+                                <c:choose>
+                                <c:when test="${not empty pn.member.img }">
+                                    <img src="${pn.member.img }" class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
+                                </c:when>
+                                <c:otherwise>
+                                    <img src="${pageContext.request.contextPath}/resources/img/partner/ner.jpg"
+                                        class="AccompanyWebCard__ProfilePhoto-sc-ws5mjw-7 hzLcgu">
+                                </c:otherwise>
+                                </c:choose>
+                                    
+                                <div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
+                                    
+                                    <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
+                                        <p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">${pn.member.memNickname }닉네임</p>
+                                        <div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
+                                        <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG" style="margin-bottom: 0.3rem;">${pn.member.gender == 'F' ? '여성' : '남성'}</p>
+                                    </div>
+                                    <!-- ----------------------------------------------------------------------------------------------------------------------- ${pn.member.mbti } -->
+                                        <c:choose>
+                                        <c:when test="${not empty pn.member.mbti }">
+                                            <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${pn.member.mbti }</p>
+                                        </c:when>
+                                        <c:otherwise>
+                                        <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">미정mbti</p>
+                                            
+                                        </c:otherwise>
+                                        </c:choose>
+                                    
+                                </div>
+                            </div>
+    
+                            <div class="AccompanyWebCard__GrayLine-sc-ws5mjw-2 fAUDUm"></div>
+    
+                            <div class="AccompanyWebCard__DateWrap-sc-ws5mjw-9 fdRVsr">
+                                <div class="AccompanyWebCard__DateHoveredWrap-sc-ws5mjw-10 hWLPgS"></div>
+                                <div class="AccompanyWebCard__DateTitleWrap-sc-ws5mjw-11 kdZjQK">
+                                    <img src="${pageContext.request.contextPath}/resources/img/partner/accompany_gray_calendar.png" class="AccompanyWebCard__DateIcon-sc-ws5mjw-12 ilUDog">
+                                    <p class="AccompanyWebCard__DateTitle-sc-ws5mjw-13 iBlyRM">여행기간</p>
+                                </div>
+                                <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
+                                    <p color="#00CE7C" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">
+                                    ${pn.partnerStartDate }날짜 - ${pn.partnerEndDate }날짜</p>
+                                </div>
+                            </div>
+    
+                        </div>
+    
+                        <div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
+                        <!-- -------------------------------------------------------------------------------------------------------------------------------------   ${pn.partnerOriginalImg } -->
+                            <img src="${pageContext.request.contextPath}/resources/img/partner/originImg10.JPG" class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
+    
+                            <div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
+                                <div class="AccompanyWebCard__LocationIcon-sc-ws5mjw-17 lmqiXK">
+                                    <svg
+                                        width="13"
+                                        height="17"
+                                        viewbox="0 0 13 17"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.7244 7.11371C12.7244 10.6866 6.49995 16.3557 6.49995 16.3557C6.49995 16.3557 0.275513 10.6866 0.275513 7.11371C0.275513 3.54077 3.06229 0.644341 6.49995 0.644341C9.93761 0.644341 12.7244 3.54077 12.7244 7.11371Z"
+                                            fill="#008FF6"></path>
+                                        <ellipse cx="6.50063" cy="6.40462" rx="2.81106" ry="2.81106" fill="#fff"></ellipse>
+                                    </svg>
+                                </div>
+                                <p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">${pn.spot.areaTitle }지역</p>
+                            </div>
+                        </div>
+    
+                        <div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
+                                <p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">${ pn.partnerTitle }제목</p>
+                                <p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
+                                    ${ pn.partnerContent }내용
+                                </p>
+                        </div>						
+                    </div>
+        
+                    <!-------------------------------------------------------------------------------------------------------------------------->
             
             
              

@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
 import com.kh.tripism.common.template.Pagination;
 import com.kh.tripism.common.vo.PageInfo;
+import com.kh.tripism.common.vo.Reply;
 import com.kh.tripism.member.model.vo.Member;
 import com.kh.tripism.partnerBoard.model.service.PnBoardServiceImpl;
 import com.kh.tripism.partnerBoard.model.vo.PnApply;
@@ -62,7 +64,7 @@ public class PnBoardController {
 			model.addAttribute("pb", pb);	
 			if(loginUser!=null && pb.getMemNo()==loginUser.getMemNo()) {
 				ArrayList<PnApply> applyList = bService.selectPnAppyList(pno);
-				System.out.println(applyList);
+				System.out.println("applyList:"+applyList);
 				
 				model.addAttribute("applyList",applyList);
 				
@@ -219,9 +221,33 @@ public class PnBoardController {
 	}
 	
 	
+	@ResponseBody
+	@RequestMapping(value = "rlist.pn", produces = "application/json; charset=utf-8")
+	public String ajaxselectPnReplyList(int postNo) {
+		
+		ArrayList<Reply> list = bService.selectPnReplyList(postNo);
+		System.out.println("controller의 list: " + list);
+		return new Gson().toJson(list);
+	}
 	
 	
+	@ResponseBody
+	@RequestMapping("rinsert.pn")
+	public String ajaxInsertPnReply(Reply pr) {
+		
+		System.out.println(pr);
+		
+		int result = 0;
+		
+		System.out.println("타기전 리절트 : " + result);
+		result = bService.insertPnReply(pr);
+		System.out.println("타고나서 ㅇㅇㅇ 리절트 : " + result);
+		
+		return result > 0 ? "success" : "fail";
+	}
 	
+	
+
 	
 	//동행신청 수락
 	/*

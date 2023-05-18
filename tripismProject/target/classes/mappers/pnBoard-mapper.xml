@@ -74,6 +74,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="gender" property="gender"/>
 	</resultMap>
 	
+	<resultMap type="Reply" id="replyResultSet">
+		<result column="reply_no" property="replyNo"/>
+		<result column="board_no" property="boardNo"/>
+		<result column="mem_no" property="memNo"/>
+		<result column="reply_contents" property="replyContents"/>
+		<result column="reply_date" property="replyDate"/>
+		<result column="reply_distinct" property="replyDistinct"/>
+		<result column="reply_writer" property="replyWriter"/>
+	</resultMap>
+	
 	<select id="selectPnApply" resultMap="PnApplyResult">
 		 select
             a.apply_no
@@ -135,7 +145,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="selectPnBoard" resultMap="pnBoardResultSet">
 	    select
-					p.post_no
+			p.post_no
 				,   p.mem_no
 				,	p.partner_type
 				,	p.partner_original_img
@@ -222,6 +232,43 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			, PARTNER_NUMBER		= #{ partnerNumber }
 		where POST_NO = #{ postNo}
 	</update>
+	
+	
+	<insert id="insertPnReply">
+	Insert into TB_REPLY 
+				(
+				REPLY_NO
+				,BOARD_NO
+				,MEM_NO
+				,REPLY_CONTENTS
+				,REPLY_DATE
+				,REPLY_DISTINCT
+				)
+				values 
+				(
+				SEQ_REPLY_NO.NEXTVAL
+				, #{boardNo}
+				, #{memNo}
+				, #{replyContents}
+				, SYSDATE
+				, 'P'
+				)
+	</insert>
+	
+	<select id="selectPnReplyList" resultMap="replyResultSet">
+		select
+              reply_no
+            , board_no
+            , mem_no
+            , reply_contents
+            , to_char(reply_date, 'YYYY.MM.DD') as "reply_date"
+            , REPLY_DISTINCT
+            , mem_nickname as "reply_writer"
+		from tb_reply
+		join tb_member using(mem_no)
+		where reply_distinct = 'P'
+		  and board_no = #{postNo}
+	</select>
 	
 	
 	

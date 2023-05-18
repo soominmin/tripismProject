@@ -43,7 +43,7 @@
 				  <div class="row">
 					<div class="col-lg-6" style="margin: auto;">
 					  <div class="mb-4" style="padding-top:40px;"  align="center" >
-						<h3 class="text-uppercase mb-3">회원가입</h3>
+						<h3 class="text-uppercase mb-3">카카오톡 정보로 회원가입하기</h3>
 						<p>회원가입을 통해 해당 홈페이지를 이용하실 수 있습니다.</p>
 					  </div>
 
@@ -274,6 +274,8 @@
 				})
 					
 			})
+			
+			
 			
 			$(function(){
 							

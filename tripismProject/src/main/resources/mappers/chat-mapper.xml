@@ -39,7 +39,8 @@
 		select  
 		    chatroom_no,
 		    mem_nickname,
-		    message_text
+		    message_text,
+		    message_Date
 		    
 		from 
 			tb_message
@@ -48,6 +49,28 @@
 		where 
 			chatroom_no=#{chatRoomNo}
 	</select>
+	
+	<insert id="insertMessage">
+	insert 
+	    into tb_message
+	    (
+	      message_no
+	    , chatroom_no
+	    , mem_no
+	    , message_text
+	    , message_date
+	    )
+	    values
+	    (
+	      seq_chatroomno.nextval
+	    , #{messageNo}
+	    , #{chatroomNo}
+	    , #{mem_no}
+	    , #{messageText}
+	    , #{messageDate}
+	    )
+	
+	</insert>
 
 
 

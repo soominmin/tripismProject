@@ -85,10 +85,6 @@
               <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
                   <span id="likePost"><a href="spotLike.do">❤️ 찜목록</a></span>
               </li>
-
-              <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                <span id="likePost"><a href="spotLike.do">📱 내가 작성한 목록</a></span>
-              </li>
       
               <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
                   <span id="tripartner"><a href="partnerPostList.do">🔎 내 동행 게시글</a></span>
@@ -116,10 +112,7 @@
               
               </c:otherwise>
               </c:choose>
-              
-              <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-                <span id="bookMark"><a href="otherPage.do"> 💭 다른사람마페(잠깐) </a></span>
-              </li>
+
               
             </ul>
         </div>

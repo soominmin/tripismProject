@@ -12,6 +12,7 @@ import com.kh.tripism.member.model.vo.BookMark;
 import com.kh.tripism.member.model.vo.Folder;
 import com.kh.tripism.member.model.vo.Member;
 import com.kh.tripism.partnerBoard.model.vo.PnBoard;
+import com.kh.tripism.travelSpot.model.vo.Spot;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -132,6 +133,14 @@ public class MemberServiceImpl implements MemberService {
 	public Member otherPage(int memNo) {
 		return mDao.otherPage(sqlSession, memNo);
 	}
+	
+	// 여행지 조회
+	@Override
+	public ArrayList<Spot> selectSpotList(int folderNo) {
+		ArrayList<Spot> list = mDao.selectSpotList(sqlSession, folderNo);
+		return list;
+	}
+
 
 
 
@@ -246,6 +255,7 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 
 

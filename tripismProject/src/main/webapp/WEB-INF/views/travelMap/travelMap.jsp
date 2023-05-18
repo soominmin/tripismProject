@@ -60,7 +60,7 @@
 				#pagination a {display:inline-block;margin-right:10px;}
 				#pagination .on {font-weight: bold; cursor: default;color:#777;}
 				
-        		/*오버레이*/
+				/* 커스텀오버레이 */
 			    .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
 			    .wrap * {padding: 0;margin: 0;}
 			    .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
@@ -76,6 +76,7 @@
 			    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
 			    .info .link {color: #5085BB;}
 				
+
 			</style>
 		</head>
 	<body>
@@ -89,10 +90,10 @@
 	        <div class="option">
 	        	<br>
 	            <div>
-	                <form onsubmit="searchPlaces(); return false;">
-	                    <input type="text" value="경복궁" id="keyword" size="15"> 
-	                    <button type="submit" class="btn-sm" style="background-color: rgb(112, 217, 223); color: white; border-radius: 30px; height: 40px">검색</button>
-	                </form>
+	                <!-- <form onsubmit="searchTour();"> -->
+	                    <input type="text" value="" id="keyword" size="15"> 
+	                    <button type="button" class="btn-sm" onclick="searchTour();" style="background-color: rgb(112, 217, 223); color: white; border-radius: 30px; height: 40px">검색</button>
+	                <!-- </form> -->
 	            </div>
 	            <br>
 	        </div>
@@ -106,6 +107,9 @@
 	
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1986b6865e95c60fac90b9fdaef0579e&libraries=services"></script>
 	<script>
+	
+	
+	let currentPage = 1;
 	
 	// 클릭시 위도 경도 변수
 	var mapx = null;
@@ -124,11 +128,12 @@
 	// 지도를 생성합니다    
 	var map = new kakao.maps.Map(mapContainer, mapOption); 
 	
-	// 장소 검색 객체를 생성합니다
-	var ps = new kakao.maps.services.Places();  
-	
 	// 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
 	var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+
+	/*
+	// 장소 검색 객체를 생성합니다
+	var ps = new kakao.maps.services.Places();  
 	
 	// 키워드로 장소를 검색합니다
 	searchPlaces();
@@ -215,6 +220,14 @@
 	
 	            itemEl.onmouseout =  function () {
 	                infowindow.close();
+	            };
+	            
+	            kakao.maps.event.addListener(marker, 'click', function() {
+	                alert("눌림");
+	            });
+	            
+	            itemEl.onclick =  function () {
+	            	alert("요소눌림");
 	            };
 	        })(marker, places[i].place_name);
 	
@@ -340,13 +353,10 @@
 	var zoomControl = new kakao.maps.ZoomControl();
 	map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 	
-	
-	
-	
 	// 커스텀 오버레이에 표시할 컨텐츠 입니다
 	// 커스텀 오버레이는 아래와 같이 사용자가 자유롭게 컨텐츠를 구성하고 이벤트를 제어할 수 있기 때문에
 	// 별도의 이벤트 메소드를 제공하지 않습니다 
-	var overlayContent = '<div class="wrap">' + 
+	var content = '<div class="wrap">' + 
 	            '    <div class="info">' + 
 	            '        <div class="title">' + 
 	            '            카카오 스페이스닷원' + 
@@ -368,13 +378,13 @@
 	// 마커 위에 커스텀오버레이를 표시합니다
 	// 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
 	var overlay = new kakao.maps.CustomOverlay({
-	    content: overlayContent,
+	    content: content,
 	    map: map,
 	    position: marker.getPosition()       
 	});
 
 	// 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-	kakao.maps.event.addListener(markers, 'click', function() {
+	kakao.maps.event.addListener(marker, 'click', function() {
 	    overlay.setMap(map);
 	});
 
@@ -382,10 +392,67 @@
 	function closeOverlay() {
 	    overlay.setMap(null);     
 	}
-	 
+	*/
+	
+	function searchTour(){
+		console.log("sssstt")
+
+		markers.forEach(marker=>{
+			marker.setMap(null);
+		})
+
+		markers.length=0;
+
+		// $("#placesList"+(currentMapNum+1)).html("");
+		// currentPage=1;
+		// searchValue = $("#searchVal"+(currentMapNum+1)).val();
+		// $("#searchVal"+(currentMapNum+1)).val("");
+		// selectTourList(currentCode,currentPage,searchValue);
+
+		var keyword = document.getElementById('keyword').value;
+		
+		console.log(keyword);
+
+		selectSearchList(currentPage, keyword);
+
+		// 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
+		// ps.keywordSearch( keyword, placesSearchCB); 
+
+	}
+
+	function selectSearchList(currentPage, keyword){
+
+		let value = "";
+
+		console.log(keyword);
+		console.log(currentPage);
+
+		$.ajax({
+			url:"mapSearch.sp",
+			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+			data:{
+					currentPage:currentPage,
+					keyword:keyword
+				 },
+			success:function(places){
+				// displayPlaces(places);
+				console.log(places);
+			},
+			error:function(){
+				console.log("실패");
+			}
+		})
+
+	}
+	
+	
+	
+	
+	
+	
 	</script>
 	
-	
+	<script src="${pageContext.request.contextPath}/resources/plugins/jquery/jquery-3.4.1.min.js"></script>
 	
 	</body>
 	</html>

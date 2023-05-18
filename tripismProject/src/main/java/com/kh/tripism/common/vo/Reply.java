@@ -9,7 +9,6 @@ public class Reply {
 	private String replyDate;
 	private String replyDistinct;
 	
-	
 	// 댓글 작성자
 	private String replyWriter;
 	

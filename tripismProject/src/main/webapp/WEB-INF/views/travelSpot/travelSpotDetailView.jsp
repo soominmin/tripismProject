@@ -79,16 +79,17 @@
 	
 	    <div class="post_area">
 	    	<c:choose>
-	    		<c:when test="${loginUser empty }">
-	    			<button type="button" style="border: none; background-color: white;" onclick="#">
+	    		<c:when test="${empty loginUser}">
+	    			<button type="button" style="border: none; background-color: white;" onclick="alert('로그인 후 이용해주세요.');">
 					<img src="${pageContext.request.contextPath}/resources/img/icons/after-like.png" style="width: 25px; height: 25px;" alt="">
 					<span class="num" id="conLike">${s.spotLike }</span>
+					</button>
 	    		</c:when>
 	    		<c:otherwise>
 	    			<button type="button" style="border: none; background-color: white;" onclick="increaseLike('${s.spotContentId}','${s.spotNo}','${loginUser.memNo}');">
 					<img src="${pageContext.request.contextPath}/resources/img/icons/after-like.png" style="width: 25px; height: 25px;" alt="">
 					<span class="num" id="conLike">${s.spotLike }</span>
-				</button>
+					</button>
 	    		</c:otherwise>
 	    	</c:choose>
 
@@ -97,10 +98,10 @@
 	        <span class="num" id="conRead">${s.spotCount }</span>
 	      		</span>
 				<span class="rline" style="float: right;">
-						<button type="button" style="border: none; background-color: white;" onclick="setFavoContentDetail();">
+			  <button type="button" style="border: none; background-color: white;" onclick="setFavoContentDetail();">
 	            <img src="${pageContext.request.contextPath}/resources/img/icons/after-wishlist.png" style="width: 25px; height: 25px;" alt="" data-bs-toggle="modal" data-bs-target="#bookMark">
 	          </button>
-	          <button type="button" style="border: none; background-color: white;" onclick="openShare();">
+	          <button type="button" style="border: none; background-color: white;" onclick="urlCopy();">
 	            <img src="${pageContext.request.contextPath}/resources/img/icons/share.png" style="width: 25px; height: 25px;" alt="">
 	          </button>
 				</span>
@@ -1663,7 +1664,6 @@
 		</div>
 	
 	    </div>
-	  </div>
 	</section>
 	
 		<script>
@@ -1705,7 +1705,7 @@
 						data:{
 							boardNo:${s.spotNo },
 							replyContents:$("#replyContent").val(),
-							memNo:${loginUser.memNo}
+							memNo:${ not empty loginUser ? loginUser.memNo : 0 }
 						},
 								success:function(status){
 								if(status == "success"){
@@ -1866,6 +1866,18 @@
 			location.href="detailAPI.sp?contentId="+contentId+"&contentType="+contentType;
 
 		}
+
+		function urlCopy() {
+			var url = '';
+			var textarea = document.createElement("textarea");
+			document.body.appendChild(textarea);
+			url = window.location.href;
+			textarea.value = url;
+			textarea.select();
+			document.execCommand("copy");
+			document.body.removeChild(textarea);
+			alert("주소가 복사되었습니다.");
+		}
 				
 				
 			
@@ -1937,7 +1949,6 @@
 			})
   
   </script>
-	
 
       
 	

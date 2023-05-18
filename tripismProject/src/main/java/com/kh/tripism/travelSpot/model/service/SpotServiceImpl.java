@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.google.gson.JsonObject;
 import com.kh.tripism.common.vo.Reply;
 import com.kh.tripism.partnerBoard.model.dao.PnBoardDao;
+import com.kh.tripism.travelPlan.model.vo.Tour;
 import com.kh.tripism.travelSpot.model.dao.SpotDao;
 import com.kh.tripism.travelSpot.model.vo.Spot;
 import com.kh.tripism.travelSpot.model.vo.SpotTour;
@@ -73,6 +74,13 @@ public class SpotServiceImpl implements SpotService {
 	@Override
 	public ArrayList<Spot> searchSpotList(int currentPage, int spotContentType, int areaCategoryNo, int detail) {
 		ArrayList<Spot> list = sDao.searchSpotList(sqlSession, currentPage, spotContentType, areaCategoryNo, detail, null);
+		return list;
+	}
+	
+	@Override
+	public ArrayList<Tour> mapSearchList(int currentPage, String keyword) {
+		ArrayList<Tour> list = sDao.mapSearchList(sqlSession,currentPage,keyword);
+		System.out.println(list);
 		return list;
 	}
 

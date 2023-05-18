@@ -18,12 +18,17 @@
 		<typeAlias type="com.kh.tripism.travelSpot.model.vo.Spot" alias="Spot"/>
 		<typeAlias type="com.kh.tripism.partnerBoard.model.vo.PnBoard" alias="PnBoard"/>
 		<typeAlias type="com.kh.tripism.member.model.vo.Folder" alias="Folder"/>
+		<typeAlias type="com.kh.tripism.member.model.vo.BookMark" alias="BookMark"/>
 		<typeAlias type="com.kh.tripism.partnerBoard.model.vo.PnApply" alias="PnApply"/>
 		<typeAlias type="com.kh.tripism.chat.model.vo.ChatRoom" alias="ChatRoom"/>
+
+		<typeAlias type="com.kh.tripism.member.model.vo.Follow" alias="Follow"/>
+
 
 		<typeAlias type="com.kh.tripism.chat.model.vo.ChatMessage" alias="ChatMessage"/>
 
 		<typeAlias type="com.kh.tripism.member.model.vo.BookMark" alias="BookMark"/>
+
 
 	</typeAliases>
 

@@ -89,6 +89,18 @@
       #memNickname{
         text-align: center;
       }
+      
+      #following{
+	    background-color: rgba(240, 248, 255, 0.199);
+	    border: 1px solid black;
+	    border-radius: 7px 7px 7px 7px;
+	    width: 120px;
+	    height: 35px;
+  	}
+  
+  	#followingWrap{
+  		float:right;
+  	}
 
 
 
@@ -114,8 +126,11 @@
                         <div class="col-12">
                           <div class="row" style="width: 1670px;">
                             <div class="col-lg-6" style="margin-left: 160px; border: solid 3px rgba(199, 198, 198, 0.37); padding: 35px; border-radius:  15px 15px 15px 15px;">
-                              <div>
-                                <h3 class="text-uppercase mb-3" align="center">${otherInfo.memNickname } 님의 프로필</h3>
+                              <div id="followingWrap">
+                              	<button id="follow" name="follow">팔로우</button>
+                              </div>
+                              <div style="padding-left:260px;">
+                                <h3 class="text-uppercase mb-3">${otherInfo.memNickname } 님의 프로필</h3>
                               </div>
                               <hr>
                               <c:choose>
@@ -185,36 +200,6 @@
 
 
 
-                              <div class="modal fade" id="pwdChange" tabindex="-1" role="dialog" aria-label="loginModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-sm" role="document" >
-                                  <div class="modal-subin">
-                                    <div class="modal-header rounded" id="modalTop">
-                                      <h4 class="modal-title text-uppercase font-weight-bold">Tripism 비밀번호 재설정</h4>
-                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                          
-                                    <div class="modal-body" style="width: 350px;">
-                                      <form action="비밀번호변경form" method="">
-                                        <div class="form-group mb-4">
-                                          <input type="password" class="form-control bg-smoke" required="" placeholder="현재 비밀번호">
-                                        </div>
-                        
-                                        <div class="form-group mb-4">
-                                          <input type="password" class="form-control bg-smoke" required="" placeholder="새로 변경할 비밀번호">
-                                        </div>
-                        
-                                        <div class="form-group mb-4">
-                                          <input type="password" class="form-control bg-smoke" required="" placeholder="새로운 비밀번호 확인">
-                                        </div>
-                        
-                                        <div class="pt-2" style="text-align: center;">
-                                          <button type="submit" class="btn btn-primary text-uppercase font-size-15 px-6 px-md-7" id="btn_pwd">확인</button>
-                                        </div>
-                                      </form>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
                         </div>
                       </div>
                     </div>
@@ -224,7 +209,6 @@
                 </div>
               </div>
             </div>
-            <!-- 계정설정 끝 -->
       
       
             </div>
@@ -232,13 +216,50 @@
       
       
       
-      
+      <input type="hidden" value="${otherInfo.memNo }" name="followerNo" id="followerNo">
       </section>
       
       
       
         </div><!-- element wrapper ends -->
       
+      <script>
+      $("#follow").click(function() {
+    	    
+    	    $.ajax({
+    	        url: "follow.do", // 팔로우 작업을 처리하는 서버의 URL
+    	        method: "POST", // 요청 메서드 (POST 또는 GET)
+    	        data: { followerNo: $("#followerNo").val() }, // 서버에 전달할 데이터
+    	        
+    	        success: function(response) {
+    	            // 서버 응답이 성공적으로 도착했을 때 실행되는 콜백 함수
+    	            if (response.success) {
+    	                // 팔로우 작업이 성공한 경우
+    	                
+    	                // 팔로우 버튼의 상태를 토글 (팔로우/언팔로우)
+    	                var followButton = $("#follow");
+    	                if (followButton.hasClass("following")) {
+    	                    followButton.removeClass("follow");
+    	                    followButton.text("팔로잉");
+    	                    followButton.css("backgroundcolor", "blue");
+    	                } else {
+    	                    followButton.addClass("following");
+    	                    followButton.text("Unfollow");
+    	                }
+    	                
+    	            } else {
+    	                // 팔로우 작업이 실패한 경우
+    	                console.log("팔로우 작업 실패");
+    	            }
+    	        },
+    	        
+    	        error: function() {
+    	            // AJAX 요청이 실패한 경우
+    	            console.log("AJAX 요청 실패");
+    	        }
+    	    });
+    	});
+      </script>
 
 
 

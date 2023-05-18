@@ -1,6 +1,7 @@
 package com.kh.tripism.member.model.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -12,6 +13,7 @@ import com.kh.tripism.member.model.vo.BookMark;
 import com.kh.tripism.member.model.vo.Folder;
 import com.kh.tripism.member.model.vo.Member;
 import com.kh.tripism.partnerBoard.model.vo.PnBoard;
+import com.kh.tripism.travelSpot.model.vo.Spot;
 
 @Repository
 public class MemberDao {
@@ -90,12 +92,16 @@ public class MemberDao {
 	
 	// 폴더안에 여행지 추가
 	public int insertBookMarkList(SqlSessionTemplate sqlSession, BookMark bm){
-		return sqlSession.insert("memberMapper.insertBookMarkList", bm);
+		return sqlSession.insert("memberMapper.insertBookMark", bm);
 	}
 	
 	// 다른사람 마이페이지 조회
 	public Member otherPage(SqlSessionTemplate sqlSession,int memNo) {
 		return sqlSession.selectOne("memberMapper.otherPage", memNo);
+	}
+	
+	public ArrayList<Spot> selectSpotList(SqlSessionTemplate sqlSession, int folderNo){
+		return (ArrayList)sqlSession.selectList("memberMapper.selectSpotList", folderNo);
 	}
 
 	

@@ -140,8 +140,8 @@ public class FeedDao {
 		sqlSession.insert("feedMapper.likeUp", l);
 	}
 	
-	public void deleteFeedLike(SqlSessionTemplate sqlSession, Like l) {
-		sqlSession.update("feedMapper", parameter)
-	}
+//	public void deleteFeedLike(SqlSessionTemplate sqlSession, Like l) {
+//		sqlSession.update("feedMapper", )
+//	}
 	// https://kwakkwakkwak.github.io/spring/2017/12/18/Sprng-%EC%A2%8B%EC%95%84%EC%9A%94%EA%B8%B0%EB%8A%A5/
 }

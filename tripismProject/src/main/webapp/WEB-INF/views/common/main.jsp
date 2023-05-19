@@ -947,7 +947,7 @@ svg:not(:root) {
                                     <div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
                                         
                                         <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
-                                            <p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">${pn.member.memNickname }닉네임</p>
+                                            <p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">slrspdla86</p>
                                             <div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
                                             <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG" style="margin-bottom: 0.3rem;">${pn.member.gender == 'F' ? '여성' : '남성'}</p>
                                         </div>
@@ -957,7 +957,7 @@ svg:not(:root) {
                                                 <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${pn.member.mbti }</p>
                                             </c:when>
                                             <c:otherwise>
-                                            <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">미정mbti</p>
+                                            <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">차분한 계획러</p>
                                                 
                                             </c:otherwise>
                                             </c:choose>
@@ -975,7 +975,7 @@ svg:not(:root) {
                                     </div>
                                     <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
                                         <p color="#00CE7C" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">
-                                        ${pn.partnerStartDate }날짜 - ${pn.partnerEndDate }날짜</p>
+                                        06/10 - 06/10</p>
                                     </div>
                                 </div>
         
@@ -999,14 +999,13 @@ svg:not(:root) {
                                             <ellipse cx="6.50063" cy="6.40462" rx="2.81106" ry="2.81106" fill="#fff"></ellipse>
                                         </svg>
                                     </div>
-                                    <p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">${pn.spot.areaTitle }지역</p>
+                                    <p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">제주도</p>
                                 </div>
                             </div>
         
                             <div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
-                                    <p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">${ pn.partnerTitle }제목</p>
-                                    <p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
-                                        ${ pn.partnerContent }내용
+                                    <p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">저녁에 만나서 식사만 같이 하실분 구해요</p>
+                                    <p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">혼자 여행 예정인데 이 날 올랭이와 물꾸럭이란 곳에서 방어 코스요리를 먹으려 하는데 1인은 안되고 2인부터라서 같이 가실 분 구해요ㅠㅠ 딱 밥만 같이 먹고 헤어지실 분 구해용
                                     </p>
                             </div>						
                         </div>
@@ -1035,9 +1034,9 @@ svg:not(:root) {
                                 <div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
                                     
                                     <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
-                                        <p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">${pn.member.memNickname }닉네임</p>
+                                        <p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">햄스터리</p>
                                         <div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
-                                        <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG" style="margin-bottom: 0.3rem;">${pn.member.gender == 'F' ? '여성' : '남성'}</p>
+                                        <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG" style="margin-bottom: 0.3rem;">여성</p>
                                     </div>
                                     <!-- ----------------------------------------------------------------------------------------------------------------------- ${pn.member.mbti } -->
                                         <c:choose>
@@ -1045,7 +1044,7 @@ svg:not(:root) {
                                             <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${pn.member.mbti }</p>
                                         </c:when>
                                         <c:otherwise>
-                                        <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">미정mbti</p>
+                                        <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">돌발상황 해결사</p>
                                             
                                         </c:otherwise>
                                         </c:choose>
@@ -1063,7 +1062,7 @@ svg:not(:root) {
                                 </div>
                                 <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
                                     <p color="#00CE7C" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">
-                                    ${pn.partnerStartDate }날짜 - ${pn.partnerEndDate }날짜</p>
+                                    05/20 - 05/23</p>
                                 </div>
                             </div>
     
@@ -1071,7 +1070,7 @@ svg:not(:root) {
     
                         <div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
                         <!-- -------------------------------------------------------------------------------------------------------------------------------------   ${pn.partnerOriginalImg } -->
-                            <img src="${pageContext.request.contextPath}/resources/img/partner/originImg10.JPG" class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
+                            <img src="${pageContext.request.contextPath}/resources/img/partner/originImg7.JPG" class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
     
                             <div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
                                 <div class="AccompanyWebCard__LocationIcon-sc-ws5mjw-17 lmqiXK">
@@ -1087,14 +1086,13 @@ svg:not(:root) {
                                         <ellipse cx="6.50063" cy="6.40462" rx="2.81106" ry="2.81106" fill="#fff"></ellipse>
                                     </svg>
                                 </div>
-                                <p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">${pn.spot.areaTitle }지역</p>
+                                <p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">경상도</p>
                             </div>
                         </div>
     
                         <div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
-                                <p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">${ pn.partnerTitle }제목</p>
-                                <p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
-                                    ${ pn.partnerContent }내용
+                                <p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">당일 급구 같이 서바이벌 하러 가실분들 모집</p>
+                                <p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">많을수록 좋아요 ! 현재인원 여자 2명인데 981파크 혹은 다른곳도 상관없습니다!! 비와서 실내 서바이벌하러 갈예정인데 여러명있으면 더 재밌을것같아서 동행 구해봐요 ! 남녀노소 아무나 급구!
                                 </p>
                         </div>						
                     </div>
@@ -1123,7 +1121,7 @@ svg:not(:root) {
                                 <div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
                                     
                                     <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
-                                        <p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">${pn.member.memNickname }닉네임</p>
+                                        <p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">자라나라머리</p>
                                         <div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
                                         <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG" style="margin-bottom: 0.3rem;">${pn.member.gender == 'F' ? '여성' : '남성'}</p>
                                     </div>
@@ -1133,7 +1131,7 @@ svg:not(:root) {
                                             <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${pn.member.mbti }</p>
                                         </c:when>
                                         <c:otherwise>
-                                        <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">미정mbti</p>
+                                        <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">계획적인 힐링러</p>
                                             
                                         </c:otherwise>
                                         </c:choose>
@@ -1151,7 +1149,7 @@ svg:not(:root) {
                                 </div>
                                 <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
                                     <p color="#00CE7C" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">
-                                    ${pn.partnerStartDate }날짜 - ${pn.partnerEndDate }날짜</p>
+                                    05/23 - 05/24</p>
                                 </div>
                             </div>
     
@@ -1159,7 +1157,7 @@ svg:not(:root) {
     
                         <div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
                         <!-- -------------------------------------------------------------------------------------------------------------------------------------   ${pn.partnerOriginalImg } -->
-                            <img src="${pageContext.request.contextPath}/resources/img/partner/originImg10.JPG" class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
+                            <img src="${pageContext.request.contextPath}/resources/img/partner/originImg4.jpg" class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
     
                             <div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
                                 <div class="AccompanyWebCard__LocationIcon-sc-ws5mjw-17 lmqiXK">
@@ -1175,14 +1173,13 @@ svg:not(:root) {
                                         <ellipse cx="6.50063" cy="6.40462" rx="2.81106" ry="2.81106" fill="#fff"></ellipse>
                                     </svg>
                                 </div>
-                                <p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">${pn.spot.areaTitle }지역</p>
+                                <p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">제주도</p>
                             </div>
                         </div>
     
                         <div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
-                                <p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">${ pn.partnerTitle }제목</p>
-                                <p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
-                                    ${ pn.partnerContent }내용
+                                <p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">글램핑 또는 펜션 같이가실 여성 두분 있나요~? 여자 둘입니당</p>
+                                <p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">서울 살고 있구요 ~ 강화도나 포천 또는 가평으로 갈 예정입니다. 평일 주말 아무때나 가능하구여 같이가실분 있으시면 시간 맞춰서 재밌게 놀고싶습니당 재밌게 맛있는거 먹고 힐링하고 오실분 ~ 옵션으로 주둥이 드립 있습니다 ^^
                                 </p>
                         </div>						
                     </div>
@@ -1211,9 +1208,9 @@ svg:not(:root) {
                                 <div class="AccompanyWebCard__ProfileTextWrap-sc-ws5mjw-8 ijpLct">
                                     
                                     <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksB">
-                                        <p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">${pn.member.memNickname }닉네임</p>
+                                        <p color="#000000" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 jmSbLA">쿼지원카</p>
                                         <div color="#008ff6" class="AccompanyWebCard__Circle-sc-ws5mjw-1 bdAMWe"></div>
-                                        <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG" style="margin-bottom: 0.3rem;">${pn.member.gender == 'F' ? '여성' : '남성'}</p>
+                                        <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG" style="margin-bottom: 0.3rem;">여성</p>
                                     </div>
                                     <!-- ----------------------------------------------------------------------------------------------------------------------- ${pn.member.mbti } -->
                                         <c:choose>
@@ -1221,7 +1218,7 @@ svg:not(:root) {
                                             <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">${pn.member.mbti }</p>
                                         </c:when>
                                         <c:otherwise>
-                                        <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">미정mbti</p>
+                                        <p color="#008ff6" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 gGpJuG">사려있는 탐구자</p>
                                             
                                         </c:otherwise>
                                         </c:choose>
@@ -1239,7 +1236,7 @@ svg:not(:root) {
                                 </div>
                                 <div class="AccompanyWebCard__HeaderTextWrap-sc-ws5mjw-4 dKvksz">
                                     <p color="#00CE7C" class="AccompanyWebCard__HeaderTextNormal-sc-ws5mjw-3 fblYhH">
-                                    ${pn.partnerStartDate }날짜 - ${pn.partnerEndDate }날짜</p>
+                                    05/19 - 05/19</p>
                                 </div>
                             </div>
     
@@ -1247,7 +1244,7 @@ svg:not(:root) {
     
                         <div class="AccompanyWebCard__ThumbnailWrap-sc-ws5mjw-14 ctsFtI">
                         <!-- -------------------------------------------------------------------------------------------------------------------------------------   ${pn.partnerOriginalImg } -->
-                            <img src="${pageContext.request.contextPath}/resources/img/partner/originImg10.JPG" class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
+                            <img src="${pageContext.request.contextPath}/resources/img/partner/originImg12.JPG" class="AccompanyWebCard__Thumbnail-sc-ws5mjw-15 FemVM">
     
                             <div class="AccompanyWebCard__LocationWrap-sc-ws5mjw-16 heALwI">
                                 <div class="AccompanyWebCard__LocationIcon-sc-ws5mjw-17 lmqiXK">
@@ -1263,14 +1260,13 @@ svg:not(:root) {
                                         <ellipse cx="6.50063" cy="6.40462" rx="2.81106" ry="2.81106" fill="#fff"></ellipse>
                                     </svg>
                                 </div>
-                                <p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">${pn.spot.areaTitle }지역</p>
+                                <p color="#008FF6" class="AccompanyWebCard__LocationText-sc-ws5mjw-18 kPceoN">제주도</p>
                             </div>
                         </div>
     
                         <div class="AccompanyWebCard__TextWrap-sc-ws5mjw-26 eAbKRa">
-                                <p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">${ pn.partnerTitle }제목</p>
-                                <p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">
-                                    ${ pn.partnerContent }내용
+                                <p class="AccompanyWebCard__Title-sc-ws5mjw-27 kVTEEb">6월15 일 혹시 같이 동행하실분 계신가요? 일정은 서로 맞추면 될거같아요</p>
+                                <p class="AccompanyWebCard__Description-sc-ws5mjw-28 ckjOSI">자차를 가지고 제주도 1박 여행을 할려구요 이왕간김에 사진을 같이 찍어주고 저녁식사도 하면서 간단하게 술 한잔 하실분 제가 같은 30대분이면 대화가 잘통할것같습니다! 여성분이면 좋을 것 같아요
                                 </p>
                         </div>						
                     </div>
@@ -1332,7 +1328,7 @@ svg:not(:root) {
                                                 </div>
                                                 <div class="swiper-slide swiper-slide-active"
                                                     data-swiper-slide-index="0" style="width: 1200px;">
-                                                    <a href="/store/board/notice">
+                                                    <a href="noticeSelectlist.bo">
                                                         <div class="sc-6efc442a-3 jFecAb">
                                                             <img src="${pageContext.request.contextPath}/resources/img/partner/main2.JPG"
                                                                 alt="이미지" class="sc-6efc442a-4 hAiJpV"></div>
@@ -1385,7 +1381,7 @@ svg:not(:root) {
                                                         <div class="swiper-slide swiper-slide-active" style="width: 282px; margin-right: 24px;">
                                                             <div class="swiper-slide">
                                                                 <div class="sc-bff1de5f-0 bIYFcN">
-                                                                    <img src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/product/detail/1680781661562-1"
+                                                                    <img src="${pageContext.request.contextPath}/resources/img/partner/main11.jpg"
                                                                         alt="상품 이미지" class="sc-bff1de5f-1 ihbDTW">
                                                                         <div class="sc-bff1de5f-2 gwvyjZ">
                                                                             <svg width="20px" height="20px" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1400,7 +1396,7 @@ svg:not(:root) {
                                                                                             <path d="M4.03748 12.4779C0.633075 7.35238 0.000785276 6.82628 0.000785276 4.942C-0.0217027 3.72595 0.439589 2.55072 1.28327 1.67465C2.12694 0.798575 3.28396 0.293348 4.5 0.27002C5.71604 0.293348 6.87306 0.798575 7.71673 1.67465C8.56041 2.55072 9.0217 3.72595 8.99922 4.942C8.99922 6.82568 8.36693 7.35178 4.96252 12.4779C4.91259 12.5551 4.8441 12.6187 4.76331 12.6627C4.68251 12.7066 4.59199 12.7297 4.5 12.7297C4.40801 12.7297 4.31749 12.7066 4.23669 12.6627C4.1559 12.6187 4.08741 12.5551 4.03748 12.4779ZM4.5 6.88926C5.00667 6.87949 5.48873 6.66896 5.84025 6.30394C6.19177 5.93893 6.38399 5.44928 6.37467 4.9426C6.38415 4.43583 6.192 3.94603 5.84046 3.58088C5.48892 3.21573 5.00677 3.00512 4.5 2.99534C3.99333 3.00512 3.51127 3.21564 3.15975 3.58066C2.80823 3.94568 2.61601 4.43533 2.62533 4.942C2.61585 5.44878 2.808 5.93858 3.15954 6.30373C3.51108 6.66888 3.99323 6.87949 4.5 6.88926Z"fill="#56ABF9"></path>
                                                                                         </svg>
                                                                                     </div>
-                                                                                    <span class="sc-bff1de5f-8 bySUgU">관광지</span>
+                                                                                    <span class="sc-bff1de5f-8 bySUgU">문화시설</span>
                                                                                     <div class="sc-bff1de5f-7 bSEQLJ"></div>
                                                                                     <span class="sc-bff1de5f-8 bySUgU">서울강남구</span>
                                                                                 </div>
@@ -1411,7 +1407,7 @@ svg:not(:root) {
                                                                                     <p class="sc-bff1de5f-12 dUGQyO">서울특별시 강남구 언주로 868</p>
                                                                                     <div class="sc-bff1de5f-13 dbcKaB">
                                                                                         <img src="${pageContext.request.contextPath}/resources/img/partner/filStar.jpg" class="sc-bff1de5f-14 ellYYw">
-                                                                                            <div class="sc-bff1de5f-15 hBqIkX">찜하기 (5)</div>
+                                                                                            <div class="sc-bff1de5f-15 hBqIkX">찜하기 (10)</div>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -1422,7 +1418,7 @@ svg:not(:root) {
                                                                 <div class="swiper-slide swiper-slide-next" style="width: 282px; margin-right: 24px;">
                                                                     <div class="swiper-slide">
                                                                         <div class="sc-bff1de5f-0 bIYFcN">
-                                                                            <img src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/product/detail/1680840914468-1" alt="상품 이미지" class="sc-bff1de5f-1 ihbDTW">
+                                                                            <img src="${pageContext.request.contextPath}/resources/img/partner/main12.jpg" alt="상품 이미지" class="sc-bff1de5f-1 ihbDTW">
                                                                                 <div class="sc-bff1de5f-2 gwvyjZ">
                                                                                     <svg width="20px" height="20px"viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M1.40632 10.2375C-0.547821 8.05243 -0.465441 4.71746 1.65346 2.62939C3.85807 0.456869 7.43245 0.456868 9.63706 2.62939L10.0001 2.98712L10.3629 2.62962L11.4157 3.69802L10.0001 5.09306L8.5842 3.6978C6.96355 2.10073 4.32697 2.10073 2.70632 3.6978C1.0979 5.28281 1.0979 7.84339 2.70631 9.4284L4.15169 10.8527L9.99996 16.6161L17.2936 9.42862C18.902 7.84361 18.902 5.28303 17.2936 3.69802L18.3465 2.62962C20.5511 4.80214 20.5511 8.3245 18.3465 10.497L10.7122 18.0201C10.3189 18.4078 9.68107 18.4078 9.28769 18.0201L2.01636 10.8546L1.65346 10.4968C1.56847 10.4131 1.48676 10.3273 1.40832 10.2397C1.40765 10.2389 1.40699 10.2382 1.40632 10.2375ZM18.3465 2.62962C16.1418 0.457092 12.5675 0.45709 10.3629 2.62962L11.4157 3.69802C13.0364 2.10096 15.6729 2.10096 17.2936 3.69802L18.3465 2.62962Z" fill="#fff"></path>
@@ -1436,18 +1432,18 @@ svg:not(:root) {
                                                                                                     <path d="M4.03748 12.4779C0.633075 7.35238 0.000785276 6.82628 0.000785276 4.942C-0.0217027 3.72595 0.439589 2.55072 1.28327 1.67465C2.12694 0.798575 3.28396 0.293348 4.5 0.27002C5.71604 0.293348 6.87306 0.798575 7.71673 1.67465C8.56041 2.55072 9.0217 3.72595 8.99922 4.942C8.99922 6.82568 8.36693 7.35178 4.96252 12.4779C4.91259 12.5551 4.8441 12.6187 4.76331 12.6627C4.68251 12.7066 4.59199 12.7297 4.5 12.7297C4.40801 12.7297 4.31749 12.7066 4.23669 12.6627C4.1559 12.6187 4.08741 12.5551 4.03748 12.4779ZM4.5 6.88926C5.00667 6.87949 5.48873 6.66896 5.84025 6.30394C6.19177 5.93893 6.38399 5.44928 6.37467 4.9426C6.38415 4.43583 6.192 3.94603 5.84046 3.58088C5.48892 3.21573 5.00677 3.00512 4.5 2.99534C3.99333 3.00512 3.51127 3.21564 3.15975 3.58066C2.80823 3.94568 2.61601 4.43533 2.62533 4.942C2.61585 5.44878 2.808 5.93858 3.15954 6.30373C3.51108 6.66888 3.99323 6.87949 4.5 6.88926Z" fill="#56ABF9"></path>
                                                                                                 </svg>
                                                                                             </div>
-                                                                                            <span class="sc-bff1de5f-8 bySUgU">그룹투어</span>
+                                                                                            <span class="sc-bff1de5f-8 bySUgU">식당</span>
                                                                                             <div class="sc-bff1de5f-7 bSEQLJ"></div>
-                                                                                            <span class="sc-bff1de5f-8 bySUgU">울란바토르</span>
+                                                                                            <span class="sc-bff1de5f-8 bySUgU">청담</span>
                                                                                         </div>
                                                                                         <div class="sc-bff1de5f-9 lcexqJ">
-                                                                                            <p class="sc-bff1de5f-10 bEiWoR">[몽골] 미라클 몽골, 고비사막 7박 8일 🦂 몽골의 꽃 고비사막과 테를지 이틀! [미라클몽골]</p>
+                                                                                            <p class="sc-bff1de5f-10 bEiWoR">강강술래 청담점</p>
                                                                                         </div>
                                                                                         <div class="sc-bff1de5f-11 lhCwHz">
-                                                                                            <p class="sc-bff1de5f-12 dUGQyO">미라클 몽골</p>
+                                                                                            <p class="sc-bff1de5f-12 dUGQyO">서울특별시 강남구 도산대로 535 용강빌딩</p>
                                                                                             <div class="sc-bff1de5f-13 dbcKaB">
                                                                                                 <img src="${pageContext.request.contextPath}/resources/img/partner/filStar.jpg" class="sc-bff1de5f-14 ellYYw">
-                                                                                                <div class="sc-bff1de5f-15 hBqIkX">찜하기 (5)</div>
+                                                                                                <div class="sc-bff1de5f-15 hBqIkX">찜하기 (25)</div>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -1458,7 +1454,7 @@ svg:not(:root) {
                                                                     <div class="swiper-slide" style="width: 282px; margin-right: 24px;">
                                                                         <div class="swiper-slide">
                                                                             <div class="sc-bff1de5f-0 bIYFcN">
-                                                                                <img src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/product/detail/1680844374838-1" alt="상품 이미지" class="sc-bff1de5f-1 ihbDTW">
+                                                                                <img src="${pageContext.request.contextPath}/resources/img/partner/main13.jpg" alt="상품 이미지" class="sc-bff1de5f-1 ihbDTW">
                                                                                     <div class="sc-bff1de5f-2 gwvyjZ">
                                                                                         <svg width="20px" height="20px" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M1.40632 10.2375C-0.547821 8.05243 -0.465441 4.71746 1.65346 2.62939C3.85807 0.456869 7.43245 0.456868 9.63706 2.62939L10.0001 2.98712L10.3629 2.62962L11.4157 3.69802L10.0001 5.09306L8.5842 3.6978C6.96355 2.10073 4.32697 2.10073 2.70632 3.6978C1.0979 5.28281 1.0979 7.84339 2.70631 9.4284L4.15169 10.8527L9.99996 16.6161L17.2936 9.42862C18.902 7.84361 18.902 5.28303 17.2936 3.69802L18.3465 2.62962C20.5511 4.80214 20.5511 8.3245 18.3465 10.497L10.7122 18.0201C10.3189 18.4078 9.68107 18.4078 9.28769 18.0201L2.01636 10.8546L1.65346 10.4968C1.56847 10.4131 1.48676 10.3273 1.40832 10.2397C1.40765 10.2389 1.40699 10.2382 1.40632 10.2375ZM18.3465 2.62962C16.1418 0.457092 12.5675 0.45709 10.3629 2.62962L11.4157 3.69802C13.0364 2.10096 15.6729 2.10096 17.2936 3.69802L18.3465 2.62962Z"  fill="#fff"></path>
@@ -1472,19 +1468,19 @@ svg:not(:root) {
                                                                                                         <path d="M4.03748 12.4779C0.633075 7.35238 0.000785276 6.82628 0.000785276 4.942C-0.0217027 3.72595 0.439589 2.55072 1.28327 1.67465C2.12694 0.798575 3.28396 0.293348 4.5 0.27002C5.71604 0.293348 6.87306 0.798575 7.71673 1.67465C8.56041 2.55072 9.0217 3.72595 8.99922 4.942C8.99922 6.82568 8.36693 7.35178 4.96252 12.4779C4.91259 12.5551 4.8441 12.6187 4.76331 12.6627C4.68251 12.7066 4.59199 12.7297 4.5 12.7297C4.40801 12.7297 4.31749 12.7066 4.23669 12.6627C4.1559 12.6187 4.08741 12.5551 4.03748 12.4779ZM4.5 6.88926C5.00667 6.87949 5.48873 6.66896 5.84025 6.30394C6.19177 5.93893 6.38399 5.44928 6.37467 4.9426C6.38415 4.43583 6.192 3.94603 5.84046 3.58088C5.48892 3.21573 5.00677 3.00512 4.5 2.99534C3.99333 3.00512 3.51127 3.21564 3.15975 3.58066C2.80823 3.94568 2.61601 4.43533 2.62533 4.942C2.61585 5.44878 2.808 5.93858 3.15954 6.30373C3.51108 6.66888 3.99323 6.87949 4.5 6.88926Z" fill="#56ABF9"></path>
                                                                                                     </svg>
                                                                                                 </div>
-                                                                                                <span class="sc-bff1de5f-8 bySUgU">그룹투어</span>
+                                                                                                <span class="sc-bff1de5f-8 bySUgU">식당</span>
                                                                                                 <div class="sc-bff1de5f-7 bSEQLJ"></div>
-                                                                                                <span class="sc-bff1de5f-8 bySUgU">울란바토르</span>
+                                                                                                <span class="sc-bff1de5f-8 bySUgU">강남</span>
                                                                                             </div>
                                                                                             <div class="sc-bff1de5f-9 lcexqJ">
-                                                                                                <p class="sc-bff1de5f-10 bEiWoR">[몽골] 미라클 몽골, 홉스골 7박 8일 🐫 몽골의 알프스 홉스골 호수, 미니사막, 온천까지! [미라클몽골]
+                                                                                                <p class="sc-bff1de5f-10 bEiWoR">갓포준 x 에스테반
                                                                                                 </p>
                                                                                             </div>
                                                                                             <div class="sc-bff1de5f-11 lhCwHz">
-                                                                                                <p class="sc-bff1de5f-12 dUGQyO">미라클 몽골</p>
+                                                                                                <p class="sc-bff1de5f-12 dUGQyO">서울특별시 강남구 논현로163길 10B1</p>
                                                                                                 <div class="sc-bff1de5f-13 dbcKaB">
                                                                                                     <img src="${pageContext.request.contextPath}/resources/img/partner/filStar.jpg" class="sc-bff1de5f-14 ellYYw">
-                                                                                                    <div class="sc-bff1de5f-15 hBqIkX">찜하기 (5)</div>
+                                                                                                    <div class="sc-bff1de5f-15 hBqIkX">찜하기 (15)</div>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -1495,7 +1491,7 @@ svg:not(:root) {
                                                                         <div class="swiper-slide" style="width: 282px; margin-right: 24px;">
                                                                             <div class="swiper-slide">
                                                                                 <div class="sc-bff1de5f-0 bIYFcN">
-                                                                                    <img src="https://tripsoda.s3.ap-northeast-2.amazonaws.com/prod/product/detail/1680836929046-1" alt="상품 이미지"
+                                                                                    <img src="${pageContext.request.contextPath}/resources/img/partner/main14.jpg" alt="상품 이미지"
                                                                                         class="sc-bff1de5f-1 ihbDTW">
                                                                                         <div class="sc-bff1de5f-2 gwvyjZ">
                                                                                             <svg width="20px" height="20px" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1510,18 +1506,18 @@ svg:not(:root) {
                                                                                                             <path d="M4.03748 12.4779C0.633075 7.35238 0.000785276 6.82628 0.000785276 4.942C-0.0217027 3.72595 0.439589 2.55072 1.28327 1.67465C2.12694 0.798575 3.28396 0.293348 4.5 0.27002C5.71604 0.293348 6.87306 0.798575 7.71673 1.67465C8.56041 2.55072 9.0217 3.72595 8.99922 4.942C8.99922 6.82568 8.36693 7.35178 4.96252 12.4779C4.91259 12.5551 4.8441 12.6187 4.76331 12.6627C4.68251 12.7066 4.59199 12.7297 4.5 12.7297C4.40801 12.7297 4.31749 12.7066 4.23669 12.6627C4.1559 12.6187 4.08741 12.5551 4.03748 12.4779ZM4.5 6.88926C5.00667 6.87949 5.48873 6.66896 5.84025 6.30394C6.19177 5.93893 6.38399 5.44928 6.37467 4.9426C6.38415 4.43583 6.192 3.94603 5.84046 3.58088C5.48892 3.21573 5.00677 3.00512 4.5 2.99534C3.99333 3.00512 3.51127 3.21564 3.15975 3.58066C2.80823 3.94568 2.61601 4.43533 2.62533 4.942C2.61585 5.44878 2.808 5.93858 3.15954 6.30373C3.51108 6.66888 3.99323 6.87949 4.5 6.88926Z" fill="#56ABF9"></path>
                                                                                                         </svg>
                                                                                                     </div>
-                                                                                                    <span class="sc-bff1de5f-8 bySUgU">그룹투어</span>
+                                                                                                    <span class="sc-bff1de5f-8 bySUgU">식당</span>
                                                                                                     <div class="sc-bff1de5f-7 bSEQLJ"></div>
-                                                                                                    <span class="sc-bff1de5f-8 bySUgU">울란바토르</span>
+                                                                                                    <span class="sc-bff1de5f-8 bySUgU">강남</span>
                                                                                                 </div>
                                                                                                 <div class="sc-bff1de5f-9 lcexqJ">
-                                                                                                    <p class="sc-bff1de5f-10 bEiWoR">[몽골] 미라클 몽골, 고비사막 6박 7일 🦂 몽골의 꽃 고비사막과 테를지까지! [미라클몽골]</p>
+                                                                                                    <p class="sc-bff1de5f-10 bEiWoR">강남 타블리</p>
                                                                                                 </div>
                                                                                                 <div class="sc-bff1de5f-11 lhCwHz">
-                                                                                                    <p class="sc-bff1de5f-12 dUGQyO">미라클 몽골</p>
+                                                                                                    <p class="sc-bff1de5f-12 dUGQyO">서울특별시 강남구 역삼동(역삼동)</p>
                                                                                                     <div class="sc-bff1de5f-13 dbcKaB">
                                                                                                         <img src="${pageContext.request.contextPath}/resources/img/partner/filStar.jpg" class="sc-bff1de5f-14 ellYYw">
-                                                                                                        <div class="sc-bff1de5f-15 hBqIkX">찜하기 (5)</div>
+                                                                                                        <div class="sc-bff1de5f-15 hBqIkX">찜하기 (10)</div>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>

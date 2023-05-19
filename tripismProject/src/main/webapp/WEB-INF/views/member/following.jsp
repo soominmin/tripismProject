@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,100 +53,63 @@
   <section class="py-9 py-md-10">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 col-xl-9 order-1 order-lg-0">
-          <div class="card rounded-0 card-transparent border-bottom mb-7 pb-7"  style="background:#f5f5f5;">
-            <div class="row align-items-xl-center">
-            <div class="container">
-            <div class="bg-smoke p-2 p-md-6 pb-6 pb-md-8 mb-9 rounded">
-              <div class="row">
+		<div class="col-lg-8 col-xl-9 order-1 order-lg-0">
+			<div>
+			  <div class="row align-items-xl-center">
+			  <div class="container">
+				<div>
+				<div class="row">
+					<div class="col-12">
+						<div class="row" style="width: 1670px;">
+						  <div class="col-lg-6" style="border: solid 3px rgba(199, 198, 198, 0.37); padding: 35px; border-radius:  15px 15px 15px 15px;">
 <!-- 마이페이지 form 끝 -->
 
 <div class="mb-4" style="padding-top: 40px;">
-  <h3 class="text-uppercase mb-3" align="center">👯팔로우/팔로잉👯</h3>
+  <h3 class="text-uppercase mb-3" align="center">👯나의 친구 목록👯</h3>
 </div>
 
 <!-- 팔로우 팔로잉 시작 -->
 <div id="followWrap">
   <div id="followerDiv" align="center">
-    <button id="follower" class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6"> 팔로워 </button>
+    <button id="follower" class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6"> 팔로잉 </button>
   </div>
   <div id="followingDiv">
-    <button id="following" class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6" align="center"> 팔로잉 </button>
+    <button id="following" class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6" align="center"> 팔로워 </button>
   </div>
 </div>
 
   
   <div id="user">
-    <table id="userTable">
+    <table class="table table-hover" style="display:inlink-block; float:right; width:200px; margin-right:140px">
+  	  <c:forEach var="fwr" items="${followerList }">
       <tr align="center">
-        <td style="width: 200px;">user01</td>
-        <td style="width: 200px; padding-right: 120px;"><button id="delete" class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6" align="center"> 삭제 </button></td>
+      	<td style="width: 50px; margin-bottom:50px;">${fwr.memNickname }</td>
       </tr>
-      <tr align="center">
-        <td style="width: 200px;">user02</td>
-        <td style="width: 200px; padding-right: 120px;"><button id="delete" class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6" align="center"> 삭제 </button></td>
-      </tr>
-      <tr align="center">
-        <td style="width: 200px;">user02</td>
-        <td style="width: 200px; padding-right: 120px;"><button id="delete" class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6" align="center"> 삭제 </button></td>
-      </tr>
-      <tr align="center">
-        <td style="width: 200px;">user02</td>
-        <td style="width: 200px; padding-right: 120px;"><button id="delete" class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6" align="center"> 삭제 </button></td>
-      </tr>
-      <tr align="center">
-        <td style="width: 200px;">user02</td>
-        <td style="width: 200px; padding-right: 120px;"><button id="delete" class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6" align="center"> 삭제 </button></td>
-      </tr>
-      <tr align="center">
-        <td style="width: 200px;">user02</td>
-        <td style="width: 200px; padding-right: 120px;"><button id="delete" class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6" align="center"> 삭제 </button></td>
-      </tr>
-      <tr align="center">
-        <td style="width: 200px;">user02</td>
-        <td style="width: 200px; padding-right: 120px;"><button id="delete" class="btn btn-primary text-uppercase font-size-15 px-3 px-md-6" align="center"> 삭제 </button></td>
-      </tr>
+      </c:forEach>
     </table>
-
+    
+    <table class="table table-hover" style="display:inlink-block; width:200px; float:left; margin-left:170px;">  
+  	  <c:forEach var="fw" items="${followingList }">
+      <tr align="center">
+      	<td style="width: 50px; margin-bottom:50px;">${fw.memNickname }</td>
+      </tr>
+      </c:forEach>
+    </table>
+      
   </div>
 
 <!-- 팔로우 팔로잉 끝 -->
-<script>
-$(document).ready(function() {
-
-  // 팔로잉 버튼 클릭시 이벤트 핸들러 등록
-  $("#following").click(function() {
-
-    // 각각의 삭제 버튼(<button>)의 id를 "following1", "following2"로 변경하고, 버튼 내용을 "팔로잉"으로 변경
-    $("#delete").attr("id", "delete").text("팔로잉");
-    $("#delete").attr("id", "delete").text("팔로잉");
-
-  });
-
-});
-
-$(document).ready(function() {
-
-  // 팔로잉 버튼 클릭시 이벤트 핸들러 등록
-  $("#follower").click(function() {
-
-    // 각각의 삭제 버튼(<button>)의 id를 "following1", "following2"로 변경하고, 버튼 내용을 "팔로잉"으로 변경
-    $("#delete").attr("id", "follow").text("삭제");
-
-  });
-
-	});
-</script>
 
 
 
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
+
         </div>
         <jsp:include page="../member/mypageSidebar.jsp"/>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
         </div>
         </div>
         </section>

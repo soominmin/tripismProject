@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>내가 좋아요한 여행지</title>
+<title>Other 좋아요한 여행지</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <style >			
@@ -722,7 +722,7 @@
 						<div class="row" style="width: 1670px;">
 						  <div class="col-lg-6" style="border: solid 3px rgba(199, 198, 198, 0.37); padding: 35px; border-radius:  15px 15px 15px 15px; margin-left:160px;">
 			<div class="mb-4" align="center">
-			<h3> 닉네임이 좋아한 여행지 </h3>
+			<h3> 좋아한 여행지 </h3>
            	   </div>
 
 	<div class="Layout__PageContentWrap-sc-1w3ggn5-0 bgfeYQ">
@@ -797,36 +797,6 @@
 					</ul>
 				</section>
 				
-				<section
-				direction="vertical"
-				class="WebSection__SectionWrapper-sc-1hzt8o9-0 buQzNq"
-				style="display: flex; box-sizing: border-box; margin-top: 200px; margin-bottom: 60px;">
-				
-				<div class="ExtendedPaginationTemplate__PaginationWrap-sc-uw2t4b-0 dvaZUI" id="pagingArea">
-					<ul class="pagination">
-					
-						<c:choose>
-							  <c:when test="${ pi.currentPage eq 1}">
-									<li class="page-item disabled"><a class="page-link" href="">Previous</a></li>
-							</c:when>
-							<c:otherwise>
-							<li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage -1 }">Previous</a></li>
-							</c:otherwise>
-						   </c:choose>
-						<c:forEach var="p" begin="${ pi.startPage }" end="${ pi.endPage }">
-							<li class="page-item"><a class="page-link" href="list.bo?cpage=${ p }">${ p }</a></li>
-						</c:forEach>
-						<c:choose>
-							<c:when test="${ pi.currentPage eq pi.maxPage }">
-								<li class="page-item disabled"><a class="page-link" href="">Next</a></li>
-							 </c:when>
-							 <c:otherwise>
-								<li class="page-item"><a class="page-link" href="list.bo?cpage=${ pi.currentPage +1 }">Next</a></li>
-							  </c:otherwise>
-						  </c:choose>
-					</ul>
-				</div>
-			</section>
 				</div>
 				
 				

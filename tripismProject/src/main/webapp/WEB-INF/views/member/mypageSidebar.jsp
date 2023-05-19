@@ -95,7 +95,7 @@
               </li>
               
               <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-	                <span id="bookMark"><a href="following.do">👯 내 친구목록 </a></span>
+	                <span id="bookMark"><a href="followingList.do">👯 내 친구목록 </a></span>
 	          </li>
               
               </li>

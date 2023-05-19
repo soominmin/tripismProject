@@ -161,19 +161,8 @@
                                 <input type="text" class="form-control bg-smoke" value="${loginUser.memNickname }" id="memNickname" style="width:200px; border: none;" readonly>
                               </div>
                               <hr>
+                              
 
-                              <table>
-                                <tr align="center">
-                                  <td style="width: 350px;"> 팔로잉 </td>
-                                  <td style="width: 350px;"> 팔로우 </td>
-                                </tr>
-                                <tr align="center">
-                                  <td>6</td>
-                                  <td>6</td>
-                                </tr>
-                              </table>
-
-                              <hr>
 
                               <div id="ulli" style="width: 100%; margin-top: 20px;">
                                 <ul class="list-unstyled list-group list-group-flush">
@@ -196,7 +185,7 @@
                                   </li>
                                   
                                   <li class="list-group-item bg-transparent border-off-white border-top-0 p-0">
-	                				  <span id="bookMark"><a href="following.do">👯 내 친구목록 </a></span>
+	                				  <span id="bookMark"><a href="followingList.do">👯 내 친구목록 </a></span>
 	          					  </li>
                                   
                    			 	<c:choose>

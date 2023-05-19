@@ -264,8 +264,66 @@ public class PnBoardController {
 	
 	//동행신청 거절
 	
+	@ResponseBody
+	@RequestMapping(value = "partnerReq.pn", produces = "application/json; charset=utf-8")
+	public String partnerReq(PnApply pa) {
+		System.out.println(pa.getMemNo());
+		System.out.println(pa.getPostNo());
+		int result = bService.insertPnApply(pa);
+		
+		System.out.println(result);
+		return null;
+		
+	}
+	@ResponseBody
+	@RequestMapping(value = "partnerAcc.pn", produces = "application/json; charset=utf-8")
+	public String partnerAcc(int memNo) {
+		System.out.println(memNo);
+		int result = bService.updatePnApply(memNo);
+		
+		System.out.println(result);
+		return null;
+		
+	}
+	@ResponseBody
+	@RequestMapping(value = "partnerDel.pn", produces = "application/json; charset=utf-8")
+	public String partnerDel(int memNo) {
+		System.out.println(memNo);
+		int result = bService.deletePnApply(memNo);
+		
+		System.out.println(result);
+		return null;
+		
+	}
 	
-	
+	@ResponseBody
+	@RequestMapping(value = "openChat.pn", produces = "application/json; charset=utf-8")
+	public String openChat(PnApply pa) {
+		System.out.println(pa.getMemNo());
+		System.out.println(pa.getPostNo());
+//		int result = bService.deletePnApply(memNo);
+		int result = bService.openChat(pa);
+		
+//		System.out.println(result);
+		return null;
+		
+	}
+	@ResponseBody
+	@RequestMapping(value = "openRoom.pn", produces = "application/json; charset=utf-8")
+	public String openRoom(PnApply pa) {
+		System.out.println(pa.getMemNickname());
+		System.out.println(pa.getPostNo());
+//		int result = bService.deletePnApply(memNo);
+		int result = bService.openRoom(pa);
+		if(result>1) {
+			return "Y";
+		}else {
+			
+			return "N";
+		}
+//		System.out.println(result);
+		
+	}
 	
 	
 }

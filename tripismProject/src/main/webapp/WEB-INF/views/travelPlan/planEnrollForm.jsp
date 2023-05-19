@@ -21,10 +21,11 @@
 </head>
 <body>
 	<jsp:include page="../common/header.jsp"></jsp:include>
-	
+	<!-- 
 	<div>
 		<input type="button" onclick="tourInsert();" value="관광지 데이터 insert">
 	</div>
+	 -->
     <input type="text" name="dates" style="margin-left: 350px; width: 500px; height: 50px;">
 	
 	
@@ -92,7 +93,6 @@
 		 }
 		</script>
 		
-		<jsp:include page="../common/chatting.jsp"/>
 		
 		
     

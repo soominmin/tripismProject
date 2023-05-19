@@ -90,6 +90,36 @@ public class PnBoardServiceImpl implements PnBoardService {
 		
 	}
 
+	@Override
+	public int insertPnApply(PnApply pa) {
+		
+		return pbDao.insertPnApply(sqlSession,pa);
+	}
+
+	@Override
+	public int updatePnApply(int memNo) {
+		
+		return pbDao.updatePnApply(sqlSession,memNo);
+	}
+
+	@Override
+	public int deletePnApply(int memNo) {
+		
+		return pbDao.deletePnApply(sqlSession,memNo);
+	}
+
+	@Override
+	public int openRoom(PnApply pa) {
+		
+		return pbDao.openRoom(sqlSession,pa);
+	}
+
+	@Override
+	public int openChat(PnApply pa) {
+		
+		return pbDao.openChat(sqlSession,pa);
+	}
+
 	
 
 }

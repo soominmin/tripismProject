@@ -56,6 +56,7 @@
 			let planList = content.children;
 			let date = [];
 			for(let i =0; i<planList.length; i++){
+				p
 				console.log(planList[i].getElementsByClassName('addedSpot'))
 			}
 

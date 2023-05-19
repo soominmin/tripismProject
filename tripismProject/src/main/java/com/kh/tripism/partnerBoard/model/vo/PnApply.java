@@ -22,4 +22,5 @@ public class PnApply {
 	private String applyStatus;
 	private String memMbti;// 승인상태
 	private String gender;
+	private int memNo;
 }

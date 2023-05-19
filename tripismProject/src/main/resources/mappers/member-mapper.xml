@@ -322,5 +322,54 @@
 	  join tb_travel_spot_like using(spot_no)
   	 where mem_no = #{memNo}
 	</select>
+	
+	<!-- 로그인유저가 팔로잉하는거! -->
+	<insert id="following">
+		insert
+			  into tb_follow
+			  (
+			  follow_no
+			, following_no
+			, follower_no
+			  )
+		values
+			 (
+			 seq_followno.nextval
+		   , #{followingNo}
+		   , #{loginUserNo}
+			 )
+	</insert>
+	
+	<!-- 팔로잉 목록 -->
+	<select id="followingList" resultMap="memberResultSet">
+		select mem_nickname
+		  from tb_follow
+		  join tb_member on (mem_no = following_no)
+		 where follower_no = #{loginUserNo}
+	</select>
+	
+	<!-- 나를 팔로워하는사람 목록 -->
+	<select id="followerList" resultMap="memberResultSet">
+		select mem_nickname
+		  from tb_follow
+		  join tb_member on (mem_no = follower_no)
+		 where following_no = #{loginUserNo}
+	</select>
+	
+	<!-- 팔로워수 하는 목록 갯수 -->
+	<select id="followerCount" parameterType="_int">
+	SELECT COUNT(mem_nickname) AS follower_count
+	  FROM tb_follow
+	  JOIN tb_member ON tb_member.mem_no = tb_follow.follower_no
+	 WHERE following_no = #{loginUserNo}
+	</select>
+	
+	<!-- 언팔로우 -->
+	<delete id="unfollow">
+		delete
+		  from tb_follow
+		 where following_no = #{followingNo}
+		   and follower_no = #{loginUserNo}
+	</delete>
 
 </mapper>

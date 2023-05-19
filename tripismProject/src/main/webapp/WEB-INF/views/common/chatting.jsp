@@ -296,6 +296,7 @@
         </style>
     </head>
     <body>
+    <jsp:include page="header.jsp"/>
         <svg cursor="pointer" width="85" height="85" viewbox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="cursor: pointer; z-index: 100000; position: fixed; bottom: 40px; right: 40px;">
             <g filter="url(#filter0_d_724_27372)">
                 <circle cx="70" cy="70" r="50" fill="white"></circle>
@@ -482,7 +483,7 @@
                                 }
                                 webSocket.send(JSON.stringify(messageInfo));
                                 document.getElementById('messages').scrollTop=document.getElementById('messages').scrollHeight-document.getElementById('messages').offsetHeight;
-                                
+                                message.value="";
 
                     })
                     

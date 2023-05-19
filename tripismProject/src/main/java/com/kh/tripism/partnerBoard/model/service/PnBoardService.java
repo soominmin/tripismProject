@@ -37,4 +37,14 @@ public interface PnBoardService {
 	// 8. 동행 신청
 	ArrayList<PnApply> selectPnAppyList(int pnBoardNo);
 	
+	int insertPnApply(PnApply pa);
+	
+	int updatePnApply(int memNo);
+
+	int deletePnApply(int memNo);
+	
+	int openRoom(PnApply pa);
+	
+	int openChat(PnApply pa);
+	
 }

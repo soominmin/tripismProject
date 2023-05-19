@@ -12,5 +12,5 @@ import lombok.ToString;
 public class Follow {
 	private int followNo;
 	private int followingNo;
-	private int follwerNo;
+	private int loginUserNo;
 }

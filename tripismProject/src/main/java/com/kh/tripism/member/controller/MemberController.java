@@ -29,11 +29,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.kh.tripism.common.template.Pagination;
 import com.kh.tripism.common.vo.PageInfo;
-import com.kh.tripism.member.model.service.KakaoService;
 import com.kh.tripism.member.model.service.MailSendService;
 import com.kh.tripism.member.model.service.MemberServiceImpl;
 import com.kh.tripism.member.model.vo.BookMark;
 import com.kh.tripism.member.model.vo.Folder;
+import com.kh.tripism.member.model.vo.Follow;
 import com.kh.tripism.member.model.vo.Member;
 import com.kh.tripism.partnerBoard.model.service.PnBoardServiceImpl;
 import com.kh.tripism.partnerBoard.model.vo.PnBoard;
@@ -512,12 +512,50 @@ public class MemberController {
 		return mv;
 	}
 	
-	// 팔로잉기능 loginUser가 다른 사람한테 친구추가하는거
+	// 팔로잉기능 loginUser가 다른사람 마이페이지에서 팔로잉을 하는것
 	@ResponseBody
 	@RequestMapping("following.do")
-	public String following() {
+	public String following(@RequestParam("followingNo") int followingNo, Follow f,HttpSession session) {
+		Member loginUser = (Member)session.getAttribute("loginUser");
+		int loginUserNo = loginUser.getMemNo();
 		
-		return "member/othersInfoPage";
+		f.setFollowingNo(followingNo);
+		f.setLoginUserNo(loginUserNo);
+		System.out.println("followingNo" + followingNo);
+		System.out.println("Follow" + f);
+		int result = mService.following(f);
+		
+		return "redirect:otherPage.do?memNo="+ followingNo;
+	}
+	
+	@RequestMapping("followingList.do")
+	public String followingList(HttpSession session, Model model){
+		
+		Member loginUser = (Member)session.getAttribute("loginUser");
+		int loginUserNo = loginUser.getMemNo();
+		
+		// 팔로잉목록
+		 ArrayList<Follow> followingList = mService.followingList(loginUserNo);
+		 System.out.println("팔로잉목록" + followingList);
+		 model.addAttribute("followingList", followingList);
+		 // 팔로워 목록
+		 ArrayList<Follow> followerList = mService.followerList(loginUserNo);
+		 System.out.println("팔로워목록" + followerList);
+		 model.addAttribute("followerList", followerList);
+		 
+		 return "member/following";
+	}
+	
+	@RequestMapping("followerCount.do")
+	public String followerCount(HttpSession session, Model model) {
+		
+		Member loginUser = (Member)session.getAttribute("loginUser");
+		int loginUserNo = loginUser.getMemNo();
+		
+		int count = mService.followerCount(loginUserNo);
+		System.out.println(count);
+		model.addAttribute("count", count);
+		return "redirect:mypage.do";
 	}
 	
 	// 다른사람 마이페이지 북마크한 여행지 조회하기

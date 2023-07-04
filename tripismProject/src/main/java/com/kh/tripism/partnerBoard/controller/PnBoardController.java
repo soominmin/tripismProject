@@ -33,7 +33,7 @@ public class PnBoardController {
 	private PnBoardServiceImpl bService;
 	
 	
-	// 게시글 페이징 + 게시글 목록 조회용
+	// 게시글 페이징 + 게시글 목록 조회용 
 	@RequestMapping("list.pn")
 	public ModelAndView selectList(@RequestParam(value = "cpage",defaultValue = "1") int currentPage, ModelAndView mv) {
 		// jsp 에서 cPage가 날라오면 int CurrentPage에 셋팅
@@ -62,12 +62,13 @@ public class PnBoardController {
 			PnBoard pb = bService.selectPnBoard(pno);
 			 System.out.println(pb);
 			model.addAttribute("pb", pb);	
+			
+			// 로그인한 사용자가 맞으면, 동행신청 목록 보여주는
 			if(loginUser!=null && pb.getMemNo()==loginUser.getMemNo()) {
 				ArrayList<PnApply> applyList = bService.selectPnAppyList(pno);
 				System.out.println("applyList:"+applyList);
 				
 				model.addAttribute("applyList",applyList);
-				
 			}
 			
 			return "travelPartner/detailForm";
